@@ -1,0 +1,49 @@
+\documentclass[a4paper]{article}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{float}
+\usepackage{calc}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{stackengine}
+\usepackage{multicol}
+
+\usepackage{url}
+\usepackage{hyperref}
+\title{CP Papers on Scheduling}
+\author{Helmut Simonis}
+\begin{document}
+\maketitle
+\section{Introduction}
+\section{Paper List}
+
+\begin{landscape}
+{\scriptsize
+\begin{longtable}{p{3cm}p{6cm}ccccccccrr}
+\caption{List of Papers}\\\toprule
+Authors & Title & Cite & Year & \shortstack{Conf\\Journal} & Pages & \shortstack{CP\\System} & \shortstack{Data\\Avail} & \shortstack{Code\\Avail} & \shortstack{Based\\On} & Classification & Constraints \\  
+\midrule
+\endhead
+C. Juvin, E. Hebrard, L. Houssin, P. Lopez & An Efficient Constraint Programming Approach to Preemptive Job Shop Scheduling & \cite{JuvinHHL23} & 2023 & CP & 16 & \Shortunderstack[l]{{CP Opt} Mistral} & (y) & & & preemptive Job Shop&\Shortunderstack[l]{endBeforeStart span noOverlap}\\
+G. Pov{\'{e}}da, N. {\'{A}}lvarez, C. Artigues & Partially Preemptive Multi Skill/Mode Resource-Constrained Project Scheduling with Generalized Precedence Relations and Calendars & \cite{PovedaAA23} & 2023 & CP & 21 & & y & \href{https://github.com/youngkd/MSPSP-InstLib/blob/master/models/mspsp.mzn}{y} & &PP-MS-MMRCPSP/max-cal & \\
+Y. Aalian, G. Pesant, M. Gamache& Optimization of Short-Term Underground Mine Planning Using Constraint Programming& \cite{AalianPG23} & 2023 & CP & 16 & CP Opt & n & n & \\
+R. Kameugne, S. Fetgo, T. Noulamo, C. Djam{\'{e}}gni& Horizontally Elastic Edge Finder Rule for Cumulative Constraint Based on Slack and Density & \cite{KameugneFND23} & 2023 & CP & 17 & & & & & RCPSPs &\\
+E. Armstrong, M. Garraffa, B. O'Sullivan, H. Simonis & A Two-Phase Hybrid Approach for the Hybrid Flexible Flowshop with Transportation Times&\cite{ArmstrongGOS22} & 2022 & CPAIOR & 13 & CP Opt & (y) & - & \cite{ArmstrongGOS21} & $HFFm|tt|C_{\max}$ & \Shortunderstack[l]{endBeforeStart alternative cumulative noOverlap}\\
+E. Armstrong, M. Garraffa, B. O'Sullivan, H. Simonis & The Hybrid Flexible Flowshop with Transportation Times & \cite{ArmstrongGOS21} & 2021 & CP & 18 & \Shortunderstack[l]{MiniZinc Chuffed {CP Opt} SICStus} & \href{https://zenodo.org/record/5168966}{y} & y & - & $HFFm|tt|C_{\max}$ & \Shortunderstack[l]{cumulative diffn table}\\
+D. Grimes, G. Ifrim, B. O'Sullivan, H. Simonis& Analyzing the impact of electricity price forecasting on energy cost-aware scheduling&\cite{grimesIOS14} & 2014 & J.SUSCOM& & & - & - & - & & \\
+\bottomrule
+\endfoot
+\end{longtable}
+}
+\end{landscape}
+
+\clearpage
+\bibliographystyle{plain}
+\bibliography{bib}
+
+
+\end{document}
