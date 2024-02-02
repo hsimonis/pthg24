@@ -1,0 +1,340 @@
+\begin{thebibliography}{10}
+
+\bibitem{AalianPG23}
+Younes Aalian, Gilles Pesant, and Michel Gamache.
+\newblock Optimization of short-term underground mine planning using constraint
+  programming.
+\newblock In Roland H.~C. Yap, editor, {\em 29th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2023, August 27-31,
+  2023, Toronto, Canada}, volume 280 of {\em LIPIcs}, pages 6:1--6:16. Schloss
+  Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2023.
+
+\bibitem{AntuoriHHEN21}
+Valentin Antuori, Emmanuel Hebrard, Marie{-}Jos{\'{e}} Huguet, Siham
+  Essodaigui, and Alain Nguyen.
+\newblock Combining monte carlo tree search and depth first search methods for
+  a car manufacturing workshop scheduling problem.
+\newblock In Laurent~D. Michel, editor, {\em 27th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2021, Montpellier,
+  France (Virtual Conference), October 25-29, 2021}, volume 210 of {\em
+  LIPIcs}, pages 14:1--14:16. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r
+  Informatik, 2021.
+
+\bibitem{ArmstrongGOS21}
+Eddie Armstrong, Michele Garraffa, Barry O'Sullivan, and Helmut Simonis.
+\newblock The hybrid flexible flowshop with transportation times.
+\newblock In Laurent~D. Michel, editor, {\em 27th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2021, Montpellier,
+  France (Virtual Conference), October 25-29, 2021}, volume 210 of {\em
+  LIPIcs}, pages 16:1--16:18. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r
+  Informatik, 2021.
+
+\bibitem{ArmstrongGOS22}
+Eddie Armstrong, Michele Garraffa, Barry O'Sullivan, and Helmut Simonis.
+\newblock A two-phase hybrid approach for the hybrid flexible flowshop with
+  transportation times.
+\newblock In Pierre Schaus, editor, {\em Integration of Constraint Programming,
+  Artificial Intelligence, and Operations Research - 19th International
+  Conference, {CPAIOR} 2022, Los Angeles, CA, USA, June 20-23, 2022,
+  Proceedings}, volume 13292 of {\em Lecture Notes in Computer Science}, pages
+  1--13. Springer, 2022.
+
+\bibitem{Astrand0F21}
+Max {\AA}strand, Mikael Johansson, and Hamid~Reza Feyzmahdavian.
+\newblock Short-term scheduling of production fleets in underground mines using
+  cp-based {LNS}.
+\newblock In Peter~J. Stuckey, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 18th
+  International Conference, {CPAIOR} 2021, Vienna, Austria, July 5-8, 2021,
+  Proceedings}, volume 12735 of {\em Lecture Notes in Computer Science}, pages
+  365--382. Springer, 2021.
+
+\bibitem{BoudreaultSLQ22}
+Rapha{\"{e}}l Boudreault, Vanessa Simard, Daniel Lafond, and Claude{-}Guy
+  Quimper.
+\newblock A constraint programming approach to ship refit project scheduling.
+\newblock In Christine Solnon, editor, {\em 28th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2022, July 31 to
+  August 8, 2022, Haifa, Israel}, volume 235 of {\em LIPIcs}, pages
+  10:1--10:16. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2022.
+
+\bibitem{ColT19}
+Giacomo~Da Col and Erich~Christian Teppan.
+\newblock Industrial size job shop scheduling tackled by present day {CP}
+  solvers.
+\newblock In Thomas Schiex and Simon de~Givry, editors, {\em Principles and
+  Practice of Constraint Programming - 25th International Conference, {CP}
+  2019, Stamford, CT, USA, September 30 - October 4, 2019, Proceedings}, volume
+  11802 of {\em Lecture Notes in Computer Science}, pages 144--160. Springer,
+  2019.
+
+\bibitem{EfthymiouY23}
+Nikolaos Efthymiou and Neil Yorke{-}Smith.
+\newblock Predicting the optimal period for cyclic hoist scheduling problems.
+\newblock In Andr{\'{e}}~A. Cir{\'{e}}, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 20th
+  International Conference, {CPAIOR} 2023, Nice, France, May 29 - June 1, 2023,
+  Proceedings}, volume 13884 of {\em Lecture Notes in Computer Science}, pages
+  238--253. Springer, 2023.
+
+\bibitem{FrimodigS19}
+Sara Frimodig and Christian Schulte.
+\newblock Models for radiation therapy patient scheduling.
+\newblock In Thomas Schiex and Simon de~Givry, editors, {\em Principles and
+  Practice of Constraint Programming - 25th International Conference, {CP}
+  2019, Stamford, CT, USA, September 30 - October 4, 2019, Proceedings}, volume
+  11802 of {\em Lecture Notes in Computer Science}, pages 421--437. Springer,
+  2019.
+
+\bibitem{GalleguillosKSB19}
+Cristian Galleguillos, Zeynep Kiziltan, Alina S{\^{\i}}rbu, and {\"{O}}zalp
+  Babaoglu.
+\newblock Constraint programming-based job dispatching for modern {HPC}
+  applications.
+\newblock In Thomas Schiex and Simon de~Givry, editors, {\em Principles and
+  Practice of Constraint Programming - 25th International Conference, {CP}
+  2019, Stamford, CT, USA, September 30 - October 4, 2019, Proceedings}, volume
+  11802 of {\em Lecture Notes in Computer Science}, pages 438--455. Springer,
+  2019.
+
+\bibitem{GeibingerKKMMW21}
+Tobias Geibinger, Lucas Kletzander, Matthias Krainz, Florian Mischek, Nysret
+  Musliu, and Felix Winter.
+\newblock Physician scheduling during a pandemic.
+\newblock In Peter~J. Stuckey, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 18th
+  International Conference, {CPAIOR} 2021, Vienna, Austria, July 5-8, 2021,
+  Proceedings}, volume 12735 of {\em Lecture Notes in Computer Science}, pages
+  456--465. Springer, 2021.
+
+\bibitem{GeitzGSSW22}
+Marc Geitz, Cristian Grozea, Wolfgang Steigerwald, Robin St{\"{o}}hr, and Armin
+  Wolf.
+\newblock Solving the extended job shop scheduling problem with agvs -
+  classical and quantum approaches.
+\newblock In Pierre Schaus, editor, {\em Integration of Constraint Programming,
+  Artificial Intelligence, and Operations Research - 19th International
+  Conference, {CPAIOR} 2022, Los Angeles, CA, USA, June 20-23, 2022,
+  Proceedings}, volume 13292 of {\em Lecture Notes in Computer Science}, pages
+  120--137. Springer, 2022.
+
+\bibitem{GrimesIOS14}
+Diarmuid Grimes, Georgiana Ifrim, Barry O'Sullivan, and Helmut Simonis.
+\newblock Analyzing the impact of electricity price forecasting on energy
+  cost-aware scheduling.
+\newblock {\em Sustain. Comput. Informatics Syst.}, 4(4):276--291, 2014.
+
+\bibitem{DBLP:conf/gecco/GroleazNS20}
+Lucas Groleaz, Samba~Ndojh Ndiaye, and Christine Solnon.
+\newblock {ACO} with automatic parameter selection for a scheduling problem
+  with a group cumulative constraint.
+\newblock In Carlos Artemio~Coello Coello, editor, {\em {GECCO} '20: Genetic
+  and Evolutionary Computation Conference, Canc{\'{u}}n Mexico, July 8-12,
+  2020}, pages 13--21. {ACM}, 2020.
+
+\bibitem{GroleazNS20}
+Lucas Groleaz, Samba~Ndojh Ndiaye, and Christine Solnon.
+\newblock Solving the group cumulative scheduling problem with {CPO} and {ACO}.
+\newblock In Helmut Simonis, editor, {\em Principles and Practice of Constraint
+  Programming - 26th International Conference, {CP} 2020, Louvain-la-Neuve,
+  Belgium, September 7-11, 2020, Proceedings}, volume 12333 of {\em Lecture
+  Notes in Computer Science}, pages 620--636. Springer, 2020.
+
+\bibitem{HanenKP21}
+Claire Hanen, Alix~Munier Kordon, and Theo Pedersen.
+\newblock Two deadline reduction algorithms for scheduling dependent tasks on
+  parallel processors.
+\newblock In Peter~J. Stuckey, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 18th
+  International Conference, {CPAIOR} 2021, Vienna, Austria, July 5-8, 2021,
+  Proceedings}, volume 12735 of {\em Lecture Notes in Computer Science}, pages
+  214--230. Springer, 2021.
+
+\bibitem{HillTV21}
+Alessandro Hill, Jordan Ticktin, and Thomas W.~M. Vossen.
+\newblock A computational study of constraint programming approaches for
+  resource-constrained project scheduling with autonomous learning effects.
+\newblock In Peter~J. Stuckey, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 18th
+  International Conference, {CPAIOR} 2021, Vienna, Austria, July 5-8, 2021,
+  Proceedings}, volume 12735 of {\em Lecture Notes in Computer Science}, pages
+  26--44. Springer, 2021.
+
+\bibitem{JuvinHHL23}
+Carla Juvin, Emmanuel Hebrard, Laurent Houssin, and Pierre Lopez.
+\newblock An efficient constraint programming approach to preemptive job shop
+  scheduling.
+\newblock In Roland H.~C. Yap, editor, {\em 29th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2023, August 27-31,
+  2023, Toronto, Canada}, volume 280 of {\em LIPIcs}, pages 19:1--19:16.
+  Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2023.
+
+\bibitem{JuvinHL23}
+Carla Juvin, Laurent Houssin, and Pierre Lopez.
+\newblock Constraint programming for the robust two-machine flow-shop
+  scheduling problem with budgeted uncertainty.
+\newblock In Andr{\'{e}}~A. Cir{\'{e}}, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 20th
+  International Conference, {CPAIOR} 2023, Nice, France, May 29 - June 1, 2023,
+  Proceedings}, volume 13884 of {\em Lecture Notes in Computer Science}, pages
+  354--369. Springer, 2023.
+
+\bibitem{KameugneFND23}
+Roger Kameugne, S{\'{e}}v{\'{e}}rine~Betmbe Fetgo, Thierry Noulamo, and
+  Cl{\'{e}}mentin~Tayou Djam{\'{e}}gni.
+\newblock Horizontally elastic edge finder rule for cumulative constraint based
+  on slack and density.
+\newblock In Roland H.~C. Yap, editor, {\em 29th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2023, August 27-31,
+  2023, Toronto, Canada}, volume 280 of {\em LIPIcs}, pages 20:1--20:17.
+  Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2023.
+
+\bibitem{KimCMLLP23}
+Dongyun Kim, Yeonjun Choi, Kyungduk Moon, Myungho Lee, Kangbok Lee, and
+  Michael~L. Pinedo.
+\newblock Iterated greedy constraint programming for scheduling steelmaking
+  continuous casting.
+\newblock In Andr{\'{e}}~A. Cir{\'{e}}, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 20th
+  International Conference, {CPAIOR} 2023, Nice, France, May 29 - June 1, 2023,
+  Proceedings}, volume 13884 of {\em Lecture Notes in Computer Science}, pages
+  477--492. Springer, 2023.
+
+\bibitem{KlankeBYE21}
+Christian Klanke, Dominik~R. Bleidorn, Vassilios Yfantis, and Sebastian Engell.
+\newblock Combining constraint programming and temporal decomposition
+  approaches - scheduling of an industrial formulation plant.
+\newblock In Peter~J. Stuckey, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 18th
+  International Conference, {CPAIOR} 2021, Vienna, Austria, July 5-8, 2021,
+  Proceedings}, volume 12735 of {\em Lecture Notes in Computer Science}, pages
+  133--148. Springer, 2021.
+
+\bibitem{KovacsTKSG21}
+Benjamin Kov{\'{a}}cs, Pierre Tassel, Wolfgang Kohlenbrein, Philipp
+  Schrott{-}Kostwein, and Martin Gebser.
+\newblock Utilizing constraint optimization for industrial machine workload
+  balancing.
+\newblock In Laurent~D. Michel, editor, {\em 27th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2021, Montpellier,
+  France (Virtual Conference), October 25-29, 2021}, volume 210 of {\em
+  LIPIcs}, pages 36:1--36:17. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r
+  Informatik, 2021.
+
+\bibitem{LacknerMMWW21}
+Marie{-}Louise Lackner, Christoph Mrkvicka, Nysret Musliu, Daniel Walkiewicz,
+  and Felix Winter.
+\newblock Minimizing cumulative batch processing time for an industrial oven
+  scheduling problem.
+\newblock In Laurent~D. Michel, editor, {\em 27th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2021, Montpellier,
+  France (Virtual Conference), October 25-29, 2021}, volume 210 of {\em
+  LIPIcs}, pages 37:1--37:18. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r
+  Informatik, 2021.
+
+\bibitem{Mercier-AubinGQ20}
+Alexandre Mercier{-}Aubin, Jonathan Gaudreault, and Claude{-}Guy Quimper.
+\newblock Leveraging constraint scheduling: {A} case study to the textile
+  industry.
+\newblock In Emmanuel Hebrard and Nysret Musliu, editors, {\em Integration of
+  Constraint Programming, Artificial Intelligence, and Operations Research -
+  17th International Conference, {CPAIOR} 2020, Vienna, Austria, September
+  21-24, 2020, Proceedings}, volume 12296 of {\em Lecture Notes in Computer
+  Science}, pages 334--346. Springer, 2020.
+
+\bibitem{MurinR19}
+Stanislav Mur{\'{\i}}n and Hana Rudov{\'{a}}.
+\newblock Scheduling of mobile robots using constraint programming.
+\newblock In Thomas Schiex and Simon de~Givry, editors, {\em Principles and
+  Practice of Constraint Programming - 25th International Conference, {CP}
+  2019, Stamford, CT, USA, September 30 - October 4, 2019, Proceedings}, volume
+  11802 of {\em Lecture Notes in Computer Science}, pages 456--471. Springer,
+  2019.
+
+\bibitem{NattafM20}
+Margaux Nattaf and Arnaud Malapert.
+\newblock Filtering rules for flow time minimization in a parallel machine
+  scheduling problem.
+\newblock In Helmut Simonis, editor, {\em Principles and Practice of Constraint
+  Programming - 26th International Conference, {CP} 2020, Louvain-la-Neuve,
+  Belgium, September 7-11, 2020, Proceedings}, volume 12333 of {\em Lecture
+  Notes in Computer Science}, pages 462--477. Springer, 2020.
+
+\bibitem{OuelletQ22}
+Yanick Ouellet and Claude{-}Guy Quimper.
+\newblock A mincumulative resource constraint.
+\newblock In Pierre Schaus, editor, {\em Integration of Constraint Programming,
+  Artificial Intelligence, and Operations Research - 19th International
+  Conference, {CPAIOR} 2022, Los Angeles, CA, USA, June 20-23, 2022,
+  Proceedings}, volume 13292 of {\em Lecture Notes in Computer Science}, pages
+  318--334. Springer, 2022.
+
+\bibitem{PopovicCGNC22}
+Louis Popovic, Alain C{\^{o}}t{\'{e}}, Mohamed Gaha, Franklin Nguewouo, and
+  Quentin Cappart.
+\newblock Scheduling the equipment maintenance of an electric power
+  transmission network using constraint programming.
+\newblock In Christine Solnon, editor, {\em 28th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2022, July 31 to
+  August 8, 2022, Haifa, Israel}, volume 235 of {\em LIPIcs}, pages
+  34:1--34:15. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2022.
+
+\bibitem{PovedaAA23}
+Guillaume Pov{\'{e}}da, Nahum {\'{A}}lvarez, and Christian Artigues.
+\newblock Partially preemptive multi skill/mode resource-constrained project
+  scheduling with generalized precedence relations and calendars.
+\newblock In Roland H.~C. Yap, editor, {\em 29th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2023, August 27-31,
+  2023, Toronto, Canada}, volume 280 of {\em LIPIcs}, pages 31:1--31:21.
+  Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2023.
+
+\bibitem{SquillaciPR23}
+Samuel Squillaci, C{\'{e}}dric Pralet, and St{\'{e}}phanie Roussel.
+\newblock Scheduling complex observation requests for a constellation of
+  satellites: Large neighborhood search approaches.
+\newblock In Andr{\'{e}}~A. Cir{\'{e}}, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 20th
+  International Conference, {CPAIOR} 2023, Nice, France, May 29 - June 1, 2023,
+  Proceedings}, volume 13884 of {\em Lecture Notes in Computer Science}, pages
+  443--459. Springer, 2023.
+
+\bibitem{TangB20}
+Tanya~Y. Tang and J.~Christopher Beck.
+\newblock {CP} and hybrid models for two-stage batching and scheduling.
+\newblock In Emmanuel Hebrard and Nysret Musliu, editors, {\em Integration of
+  Constraint Programming, Artificial Intelligence, and Operations Research -
+  17th International Conference, {CPAIOR} 2020, Vienna, Austria, September
+  21-24, 2020, Proceedings}, volume 12296 of {\em Lecture Notes in Computer
+  Science}, pages 431--446. Springer, 2020.
+
+\bibitem{TardivoDFMP23}
+Fabio Tardivo, Agostino Dovier, Andrea Formisano, Laurent Michel, and Enrico
+  Pontelli.
+\newblock Constraint propagation on {GPU:} {A} case study for the cumulative
+  constraint.
+\newblock In Andr{\'{e}}~A. Cir{\'{e}}, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 20th
+  International Conference, {CPAIOR} 2023, Nice, France, May 29 - June 1, 2023,
+  Proceedings}, volume 13884 of {\em Lecture Notes in Computer Science}, pages
+  336--353. Springer, 2023.
+
+\bibitem{WessenCS20}
+Johan Wess{\'{e}}n, Mats Carlsson, and Christian Schulte.
+\newblock Scheduling of dual-arm multi-tool assembly robots and workspace
+  layout optimization.
+\newblock In Emmanuel Hebrard and Nysret Musliu, editors, {\em Integration of
+  Constraint Programming, Artificial Intelligence, and Operations Research -
+  17th International Conference, {CPAIOR} 2020, Vienna, Austria, September
+  21-24, 2020, Proceedings}, volume 12296 of {\em Lecture Notes in Computer
+  Science}, pages 511--520. Springer, 2020.
+
+\bibitem{WinterMMW22}
+Felix Winter, Sebastian Meiswinkel, Nysret Musliu, and Daniel Walkiewicz.
+\newblock Modeling and solving parallel machine scheduling with contamination
+  constraints in the agricultural industry.
+\newblock In Christine Solnon, editor, {\em 28th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2022, July 31 to
+  August 8, 2022, Haifa, Israel}, volume 235 of {\em LIPIcs}, pages
+  41:1--41:18. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2022.
+
+\end{thebibliography}
