@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{100}
 
 \bibitem{AalianPG23}
 Younes Aalian, Gilles Pesant, and Michel Gamache.
@@ -8,6 +8,41 @@ Younes Aalian, Gilles Pesant, and Michel Gamache.
   Principles and Practice of Constraint Programming, {CP} 2023, August 27-31,
   2023, Toronto, Canada}, volume 280 of {\em LIPIcs}, pages 6:1--6:16. Schloss
   Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2023.
+
+\bibitem{AbrilSB05}
+Montserrat Abril, Miguel~A. Salido, and Federico Barber.
+\newblock Distributed constraints for large-scale scheduling problems.
+\newblock In Peter van Beek, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2005, 11th International Conference, {CP} 2005, Sitges,
+  Spain, October 1-5, 2005, Proceedings}, volume 3709 of {\em Lecture Notes in
+  Computer Science}, page 837. Springer, 2005.
+
+\bibitem{Acuna-AgostMFG09}
+Rodrigo Acuna{-}Agost, Philippe Michelon, Dominique Feillet, and Serigne Gueye.
+\newblock Constraint programming and mixed integer linear programming for
+  rescheduling trains under disrupted operations.
+\newblock In Willem~Jan van Hoeve and John~N. Hooker, editors, {\em Integration
+  of {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 6th International Conference, {CPAIOR} 2009,
+  Pittsburgh, PA, USA, May 27-31, 2009, Proceedings}, volume 5547 of {\em
+  Lecture Notes in Computer Science}, pages 312--313. Springer, 2009.
+
+\bibitem{MelgarejoLS15}
+Pen{\'{e}}lope Aguiar{-}Melgarejo, Philippe Laborie, and Christine Solnon.
+\newblock A time-dependent no-overlap constraint: Application to urban delivery
+  problems.
+\newblock In Laurent Michel, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 12th International Conference,
+  {CPAIOR} 2015, Barcelona, Spain, May 18-22, 2015, Proceedings}, volume 9075
+  of {\em Lecture Notes in Computer Science}, pages 1--17. Springer, 2015.
+
+\bibitem{AngelsmarkJ00}
+Ola Angelsmark and Peter Jonsson.
+\newblock Some observations on durations, scheduling and allen's algebra.
+\newblock In Rina Dechter, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2000, 6th International Conference, Singapore, September
+  18-21, 2000, Proceedings}, volume 1894 of {\em Lecture Notes in Computer
+  Science}, pages 484--488. Springer, 2000.
 
 \bibitem{AntuoriHHEN21}
 Valentin Antuori, Emmanuel Hebrard, Marie{-}Jos{\'{e}} Huguet, Siham
@@ -39,6 +74,25 @@ Eddie Armstrong, Michele Garraffa, Barry O'Sullivan, and Helmut Simonis.
   Proceedings}, volume 13292 of {\em Lecture Notes in Computer Science}, pages
   1--13. Springer, 2022.
 
+\bibitem{ArtiguesBF04}
+Christian Artigues, Sana Belmokhtar, and Dominique Feillet.
+\newblock A new exact solution algorithm for the job shop problem with
+  sequence-dependent setup times.
+\newblock In Jean{-}Charles R{\'{e}}gin and Michel Rueher, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, First International Conference, {CPAIOR}
+  2004, Nice, France, April 20-22, 2004, Proceedings}, volume 3011 of {\em
+  Lecture Notes in Computer Science}, pages 37--49. Springer, 2004.
+
+\bibitem{ArtiouchineB05}
+Konstantin Artiouchine and Philippe Baptiste.
+\newblock Inter-distance constraint: An extension of the all-different
+  constraint for scheduling equal length jobs.
+\newblock In Peter van Beek, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2005, 11th International Conference, {CP} 2005, Sitges,
+  Spain, October 1-5, 2005, Proceedings}, volume 3709 of {\em Lecture Notes in
+  Computer Science}, pages 62--76. Springer, 2005.
+
 \bibitem{Astrand0F21}
 Max {\AA}strand, Mikael Johansson, and Hamid~Reza Feyzmahdavian.
 \newblock Short-term scheduling of production fleets in underground mines using
@@ -49,6 +103,241 @@ Max {\AA}strand, Mikael Johansson, and Hamid~Reza Feyzmahdavian.
   Proceedings}, volume 12735 of {\em Lecture Notes in Computer Science}, pages
   365--382. Springer, 2021.
 
+\bibitem{AstrandJZ18}
+Max {\AA}strand, Mikael Johansson, and Alessandro Zanarini.
+\newblock Fleet scheduling in underground mines using constraint programming.
+\newblock In Willem~Jan van Hoeve, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 15th
+  International Conference, {CPAIOR} 2018, Delft, The Netherlands, June 26-29,
+  2018, Proceedings}, volume 10848 of {\em Lecture Notes in Computer Science},
+  pages 605--613. Springer, 2018.
+
+\bibitem{Baptiste09}
+Philippe Baptiste.
+\newblock Constraint-based schedulers, do they really work?
+\newblock In Ian~P. Gent, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2009, 15th International Conference, {CP} 2009, Lisbon,
+  Portugal, September 20-24, 2009, Proceedings}, volume 5732 of {\em Lecture
+  Notes in Computer Science}, page~1. Springer, 2009.
+
+\bibitem{BaptisteP97}
+Philippe Baptiste and Claude~Le Pape.
+\newblock Constraint propagation and decomposition techniques for highly
+  disjunctive and highly cumulative project scheduling problems.
+\newblock In Gert Smolka, editor, {\em Principles and Practice of Constraint
+  Programming - CP97, Third International Conference, Linz, Austria, October 29
+  - November 1, 1997, Proceedings}, volume 1330 of {\em Lecture Notes in
+  Computer Science}, pages 375--389. Springer, 1997.
+
+\bibitem{BaptisteP00}
+Philippe Baptiste and Claude~Le Pape.
+\newblock Constraint propagation and decomposition techniques for highly
+  disjunctive and highly cumulative project scheduling problems.
+\newblock {\em Constraints An Int. J.}, 5(1/2):119--139, 2000.
+
+\bibitem{BarlattCG08}
+Ada Barlatt, Amy~Mainville Cohn, and Oleg~Yu. Gusikhin.
+\newblock A hybrid approach for solving shift-selection and task-sequencing
+  problems.
+\newblock In Laurent Perron and Michael~A. Trick, editors, {\em Integration of
+  {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 5th International Conference, {CPAIOR} 2008, Paris,
+  France, May 20-23, 2008, Proceedings}, volume 5015 of {\em Lecture Notes in
+  Computer Science}, pages 288--292. Springer, 2008.
+
+\bibitem{Bartak02}
+Roman Bart{\'{a}}k.
+\newblock Visopt shopfloor: On the edge of planning and scheduling.
+\newblock In Pascal~Van Hentenryck, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2002, 8th International Conference, {CP} 2002,
+  Ithaca, NY, USA, September 9-13, 2002, Proceedings}, volume 2470 of {\em
+  Lecture Notes in Computer Science}, pages 587--602. Springer, 2002.
+
+\bibitem{BartakS11}
+Roman Bart{\'{a}}k and Miguel~A. Salido.
+\newblock Constraint satisfaction for planning and scheduling problems.
+\newblock {\em Constraints An Int. J.}, 16(3):223--227, 2011.
+
+\bibitem{BartoliniBBLM14}
+Andrea Bartolini, Andrea Borghesi, Thomas Bridi, Michele Lombardi, and Michela
+  Milano.
+\newblock Proactive workload dispatching on the {EURORA} supercomputer.
+\newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
+  Constraint Programming - 20th International Conference, {CP} 2014, Lyon,
+  France, September 8-12, 2014. Proceedings}, volume 8656 of {\em Lecture Notes
+  in Computer Science}, pages 765--780. Springer, 2014.
+
+\bibitem{BeckDF97}
+J.~Christopher Beck, Andrew~J. Davenport, and Mark~S. Fox.
+\newblock Five pitfalls of empirical scheduling research.
+\newblock In Gert Smolka, editor, {\em Principles and Practice of Constraint
+  Programming - CP97, Third International Conference, Linz, Austria, October 29
+  - November 1, 1997, Proceedings}, volume 1330 of {\em Lecture Notes in
+  Computer Science}, pages 390--404. Springer, 1997.
+
+\bibitem{BeldiceanuC02}
+Nicolas Beldiceanu and Mats Carlsson.
+\newblock A new multi-resource cumulatives constraint with negative heights.
+\newblock In Pascal~Van Hentenryck, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2002, 8th International Conference, {CP} 2002,
+  Ithaca, NY, USA, September 9-13, 2002, Proceedings}, volume 2470 of {\em
+  Lecture Notes in Computer Science}, pages 63--79. Springer, 2002.
+
+\bibitem{BeldiceanuCP08}
+Nicolas Beldiceanu, Mats Carlsson, and Emmanuel Poder.
+\newblock New filtering for the cumulative constraint in the context of
+  non-overlapping rectangles.
+\newblock In Laurent Perron and Michael~A. Trick, editors, {\em Integration of
+  {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 5th International Conference, {CPAIOR} 2008, Paris,
+  France, May 20-23, 2008, Proceedings}, volume 5015 of {\em Lecture Notes in
+  Computer Science}, pages 21--35. Springer, 2008.
+
+\bibitem{BeldiceanuP07}
+Nicolas Beldiceanu and Emmanuel Poder.
+\newblock A continuous multi-resources \emph{cumulative} constraint with
+  positive-negative resource consumption-production.
+\newblock In Pascal~Van Hentenryck and Laurence~A. Wolsey, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, 4th International Conference, {CPAIOR}
+  2007, Brussels, Belgium, May 23-26, 2007, Proceedings}, volume 4510 of {\em
+  Lecture Notes in Computer Science}, pages 214--228. Springer, 2007.
+
+\bibitem{BelhadjiI98}
+Said Belhadji and Amar Isli.
+\newblock Temporal constraint satisfaction techniques in job shop scheduling
+  problem solving.
+\newblock {\em Constraints An Int. J.}, 3(2/3):203--211, 1998.
+
+\bibitem{BenediktMH20}
+Ondrej Benedikt, Istv{\'{a}}n M{\'{o}}dos, and Zdenek Hanz{\'{a}}lek.
+\newblock Power of pre-processing: production scheduling with variable energy
+  pricing and power-saving states.
+\newblock {\em Constraints An Int. J.}, 25(3-4):300--318, 2020.
+
+\bibitem{BenediktSMVH18}
+Ondrej Benedikt, Premysl Sucha, Istv{\'{a}}n M{\'{o}}dos, Marek Vlk, and Zdenek
+  Hanz{\'{a}}lek.
+\newblock Energy-aware production scheduling with power-saving modes.
+\newblock In Willem~Jan van Hoeve, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 15th
+  International Conference, {CPAIOR} 2018, Delft, The Netherlands, June 26-29,
+  2018, Proceedings}, volume 10848 of {\em Lecture Notes in Computer Science},
+  pages 72--81. Springer, 2018.
+
+\bibitem{BeniniBGM06}
+Luca Benini, Davide Bertozzi, Alessio Guerri, and Michela Milano.
+\newblock Allocation, scheduling and voltage scaling on energy aware mpsocs.
+\newblock In J.~Christopher Beck and Barbara~M. Smith, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, Third International Conference, {CPAIOR}
+  2006, Cork, Ireland, May 31 - June 2, 2006, Proceedings}, volume 3990 of {\em
+  Lecture Notes in Computer Science}, pages 44--58. Springer, 2006.
+
+\bibitem{BensanaLV99}
+E.~Bensana, Michel Lema{\^{\i}}tre, and G{\'{e}}rard Verfaillie.
+\newblock Earth observation satellite management.
+\newblock {\em Constraints An Int. J.}, 4(3):293--299, 1999.
+
+\bibitem{BertholdHLMS10}
+Timo Berthold, Stefan Heinz, Marco~E. L{\"{u}}bbecke, Rolf~H. M{\"{o}}hring,
+  and Jens Schulz.
+\newblock A constraint integer programming approach for resource-constrained
+  project scheduling.
+\newblock In Andrea Lodi, Michela Milano, and Paolo Toth, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, 7th International Conference, {CPAIOR}
+  2010, Bologna, Italy, June 14-18, 2010. Proceedings}, volume 6140 of {\em
+  Lecture Notes in Computer Science}, pages 313--317. Springer, 2010.
+
+\bibitem{BessiereHMQW14}
+Christian Bessiere, Emmanuel Hebrard, Marc{-}Andr{\'{e}} M{\'{e}}nard,
+  Claude{-}Guy Quimper, and Toby Walsh.
+\newblock Buffered resource constraint: Algorithms and complexity.
+\newblock In Helmut Simonis, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 11th International Conference,
+  {CPAIOR} 2014, Cork, Ireland, May 19-23, 2014. Proceedings}, volume 8451 of
+  {\em Lecture Notes in Computer Science}, pages 318--333. Springer, 2014.
+
+\bibitem{BillautHL12}
+Jean{-}Charles Billaut, Emmanuel Hebrard, and Pierre Lopez.
+\newblock Complete characterization of near-optimal sequences for the
+  two-machine flow shop scheduling problem.
+\newblock In Nicolas Beldiceanu, Narendra Jussien, and Eric Pinson, editors,
+  {\em Integration of {AI} and {OR} Techniques in Contraint Programming for
+  Combinatorial Optimzation Problems - 9th International Conference, {CPAIOR}
+  2012, Nantes, France, May 28 - June1, 2012. Proceedings}, volume 7298 of {\em
+  Lecture Notes in Computer Science}, pages 66--80. Springer, 2012.
+
+\bibitem{BofillCSV17}
+Miquel Bofill, Jordi Coll, Josep Suy, and Mateu Villaret.
+\newblock An efficient {SMT} approach to solve mrcpsp/max instances with tight
+  constraints on resources.
+\newblock In J.~Christopher Beck, editor, {\em Principles and Practice of
+  Constraint Programming - 23rd International Conference, {CP} 2017, Melbourne,
+  VIC, Australia, August 28 - September 1, 2017, Proceedings}, volume 10416 of
+  {\em Lecture Notes in Computer Science}, pages 71--79. Springer, 2017.
+
+\bibitem{BofillEGPSV14}
+Miquel Bofill, Joan Espasa, Marc Garcia, Miquel Palah{\'{\i}}, Josep Suy, and
+  Mateu Villaret.
+\newblock Scheduling {B2B} meetings.
+\newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
+  Constraint Programming - 20th International Conference, {CP} 2014, Lyon,
+  France, September 8-12, 2014. Proceedings}, volume 8656 of {\em Lecture Notes
+  in Computer Science}, pages 781--796. Springer, 2014.
+
+\bibitem{BofillGSV15}
+Miquel Bofill, Marc Garcia, Josep Suy, and Mateu Villaret.
+\newblock Maxsat-based scheduling of {B2B} meetings.
+\newblock In Laurent Michel, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 12th International Conference,
+  {CPAIOR} 2015, Barcelona, Spain, May 18-22, 2015, Proceedings}, volume 9075
+  of {\em Lecture Notes in Computer Science}, pages 65--73. Springer, 2015.
+
+\bibitem{BonfiettiLBM11}
+Alessio Bonfietti, Michele Lombardi, Luca Benini, and Michela Milano.
+\newblock A constraint based approach to cyclic {RCPSP}.
+\newblock In Jimmy~Ho{-}Man Lee, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2011 - 17th International Conference, {CP}
+  2011, Perugia, Italy, September 12-16, 2011. Proceedings}, volume 6876 of
+  {\em Lecture Notes in Computer Science}, pages 130--144. Springer, 2011.
+
+\bibitem{BonfiettiLBM12}
+Alessio Bonfietti, Michele Lombardi, Luca Benini, and Michela Milano.
+\newblock Global cyclic cumulative constraint.
+\newblock In Nicolas Beldiceanu, Narendra Jussien, and Eric Pinson, editors,
+  {\em Integration of {AI} and {OR} Techniques in Contraint Programming for
+  Combinatorial Optimzation Problems - 9th International Conference, {CPAIOR}
+  2012, Nantes, France, May 28 - June1, 2012. Proceedings}, volume 7298 of {\em
+  Lecture Notes in Computer Science}, pages 81--96. Springer, 2012.
+
+\bibitem{BonfiettiLM14}
+Alessio Bonfietti, Michele Lombardi, and Michela Milano.
+\newblock Disregarding duration uncertainty in partial order schedules? yes, we
+  can!
+\newblock In Helmut Simonis, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 11th International Conference,
+  {CPAIOR} 2014, Cork, Ireland, May 19-23, 2014. Proceedings}, volume 8451 of
+  {\em Lecture Notes in Computer Science}, pages 210--225. Springer, 2014.
+
+\bibitem{BonfiettiZLM16}
+Alessio Bonfietti, Alessandro Zanarini, Michele Lombardi, and Michela Milano.
+\newblock The multirate resource constraint.
+\newblock In Michel Rueher, editor, {\em Principles and Practice of Constraint
+  Programming - 22nd International Conference, {CP} 2016, Toulouse, France,
+  September 5-9, 2016, Proceedings}, volume 9892 of {\em Lecture Notes in
+  Computer Science}, pages 113--129. Springer, 2016.
+
+\bibitem{BoothNB16}
+Kyle E.~C. Booth, Goldie Nejat, and J.~Christopher Beck.
+\newblock A constraint programming approach to multi-robot task allocation and
+  scheduling in retirement homes.
+\newblock In Michel Rueher, editor, {\em Principles and Practice of Constraint
+  Programming - 22nd International Conference, {CP} 2016, Toulouse, France,
+  September 5-9, 2016, Proceedings}, volume 9892 of {\em Lecture Notes in
+  Computer Science}, pages 539--555. Springer, 2016.
+
 \bibitem{BoudreaultSLQ22}
 Rapha{\"{e}}l Boudreault, Vanessa Simard, Daniel Lafond, and Claude{-}Guy
   Quimper.
@@ -57,6 +346,121 @@ Rapha{\"{e}}l Boudreault, Vanessa Simard, Daniel Lafond, and Claude{-}Guy
   Principles and Practice of Constraint Programming, {CP} 2022, July 31 to
   August 8, 2022, Haifa, Israel}, volume 235 of {\em LIPIcs}, pages
   10:1--10:16. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2022.
+
+\bibitem{BurtLPS15}
+Christina~N. Burt, Nir Lipovetzky, Adrian~R. Pearce, and Peter~J. Stuckey.
+\newblock Scheduling with fixed maintenance, shared resources and nonlinear
+  feedrate constraints: {A} mine planning case study.
+\newblock In Laurent Michel, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 12th International Conference,
+  {CPAIOR} 2015, Barcelona, Spain, May 18-22, 2015, Proceedings}, volume 9075
+  of {\em Lecture Notes in Computer Science}, pages 91--107. Springer, 2015.
+
+\bibitem{Caballero23}
+Jordi~Coll Caballero.
+\newblock Scheduling through logic-based tools.
+\newblock {\em Constraints An Int. J.}, 28(3):510, 2023.
+
+\bibitem{CampeauG22}
+Louis{-}Pierre Campeau and Michel Gamache.
+\newblock Short- and medium-term optimization of underground mine planning
+  using constraint programming.
+\newblock {\em Constraints An Int. J.}, 27(4):414--431, 2022.
+
+\bibitem{CappartS17}
+Quentin Cappart and Pierre Schaus.
+\newblock Rescheduling railway traffic on real time situations using
+  time-interval variables.
+\newblock In Domenico Salvagnin and Michele Lombardi, editors, {\em Integration
+  of {AI} and {OR} Techniques in Constraint Programming - 14th International
+  Conference, {CPAIOR} 2017, Padua, Italy, June 5-8, 2017, Proceedings}, volume
+  10335 of {\em Lecture Notes in Computer Science}, pages 312--327. Springer,
+  2017.
+
+\bibitem{CarchraeBF05}
+Tom Carchrae, J.~Christopher Beck, and Eugene~C. Freuder.
+\newblock Methods to learn abstract scheduling models.
+\newblock In Peter van Beek, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2005, 11th International Conference, {CP} 2005, Sitges,
+  Spain, October 1-5, 2005, Proceedings}, volume 3709 of {\em Lecture Notes in
+  Computer Science}, page 842. Springer, 2005.
+
+\bibitem{Caseau97}
+Yves Caseau.
+\newblock Using constraint propagation for complex scheduling problems:
+  Managing size, complex resources and travel.
+\newblock In Gert Smolka, editor, {\em Principles and Practice of Constraint
+  Programming - CP97, Third International Conference, Linz, Austria, October 29
+  - November 1, 1997, Proceedings}, volume 1330 of {\em Lecture Notes in
+  Computer Science}, pages 163--166. Springer, 1997.
+
+\bibitem{CauwelaertDMS16}
+Sascha~Van Cauwelaert, Cyrille Dejemeppe, Jean{-}No{\"{e}}l Monette, and Pierre
+  Schaus.
+\newblock Efficient filtering for the unary resource with family-based
+  transition times.
+\newblock In Michel Rueher, editor, {\em Principles and Practice of Constraint
+  Programming - 22nd International Conference, {CP} 2016, Toulouse, France,
+  September 5-9, 2016, Proceedings}, volume 9892 of {\em Lecture Notes in
+  Computer Science}, pages 520--535. Springer, 2016.
+
+\bibitem{CestaOS98}
+Amedeo Cesta, Angelo Oddi, and Stephen~F. Smith.
+\newblock Scheduling multi-capacitated resources under complex temporal
+  constraints.
+\newblock In Michael~J. Maher and Jean{-}Francois Puget, editors, {\em
+  Principles and Practice of Constraint Programming - CP98, 4th International
+  Conference, Pisa, Italy, October 26-30, 1998, Proceedings}, volume 1520 of
+  {\em Lecture Notes in Computer Science}, page 465. Springer, 1998.
+
+\bibitem{ChapadosJR11}
+Nicolas Chapados, Marc Joliveau, and Louis{-}Martin Rousseau.
+\newblock Retail store workforce scheduling by expected operating income
+  maximization.
+\newblock In Tobias Achterberg and J.~Christopher Beck, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems - 8th International Conference, {CPAIOR}
+  2011, Berlin, Germany, May 23-27, 2011. Proceedings}, volume 6697 of {\em
+  Lecture Notes in Computer Science}, pages 53--58. Springer, 2011.
+
+\bibitem{ChuX05}
+Yingyi Chu and Quanshi Xia.
+\newblock A hybrid algorithm for a class of resource constrained scheduling
+  problems.
+\newblock In Roman Bart{\'{a}}k and Michela Milano, editors, {\em Integration
+  of {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, Second International Conference, {CPAIOR} 2005,
+  Prague, Czech Republic, May 30 - June 1, 2005, Proceedings}, volume 3524 of
+  {\em Lecture Notes in Computer Science}, pages 110--124. Springer, 2005.
+
+\bibitem{CireCH13}
+Andr{\'{e}}~A. Cir{\'{e}}, Elvin Coban, and John~N. Hooker.
+\newblock Mixed integer programming vs. logic-based benders decomposition for
+  planning and scheduling.
+\newblock In Carla~P. Gomes and Meinolf Sellmann, editors, {\em Integration of
+  {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 10th International Conference, {CPAIOR} 2013, Yorktown
+  Heights, NY, USA, May 18-22, 2013. Proceedings}, volume 7874 of {\em Lecture
+  Notes in Computer Science}, pages 325--331. Springer, 2013.
+
+\bibitem{ClercqPBJ11}
+Alexis~De Clercq, Thierry Petit, Nicolas Beldiceanu, and Narendra Jussien.
+\newblock Filtering algorithms for discrete cumulative problems with overloads
+  of resource.
+\newblock In Jimmy~Ho{-}Man Lee, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2011 - 17th International Conference, {CP}
+  2011, Perugia, Italy, September 12-16, 2011. Proceedings}, volume 6876 of
+  {\em Lecture Notes in Computer Science}, pages 240--255. Springer, 2011.
+
+\bibitem{CobanH10}
+Elvin Coban and John~N. Hooker.
+\newblock Single-facility scheduling over long time horizons by logic-based
+  benders decomposition.
+\newblock In Andrea Lodi, Michela Milano, and Paolo Toth, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, 7th International Conference, {CPAIOR}
+  2010, Bologna, Italy, June 14-18, 2010. Proceedings}, volume 6140 of {\em
+  Lecture Notes in Computer Science}, pages 87--91. Springer, 2010.
 
 \bibitem{ColT19}
 Giacomo~Da Col and Erich~Christian Teppan.
@@ -68,6 +472,137 @@ Giacomo~Da Col and Erich~Christian Teppan.
   11802 of {\em Lecture Notes in Computer Science}, pages 144--160. Springer,
   2019.
 
+\bibitem{Colombani96}
+Yves Colombani.
+\newblock Constraint programming: an efficient and practical approach to
+  solving the job-shop problem.
+\newblock In Eugene~C. Freuder, editor, {\em Proceedings of the Second
+  International Conference on Principles and Practice of Constraint
+  Programming, Cambridge, Massachusetts, USA, August 19-22, 1996}, volume 1118
+  of {\em Lecture Notes in Computer Science}, pages 149--163. Springer, 1996.
+
+\bibitem{DannaP03}
+Emilie Danna and Laurent Perron.
+\newblock Structured vs. unstructured large neighborhood search: {A} case study
+  on job-shop scheduling problems with earliness and tardiness costs.
+\newblock In Francesca Rossi, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2003, 9th International Conference, {CP} 2003,
+  Kinsale, Ireland, September 29 - October 3, 2003, Proceedings}, volume 2833
+  of {\em Lecture Notes in Computer Science}, pages 817--821. Springer, 2003.
+
+\bibitem{Darby-DowmanLMZ97}
+Ken Darby{-}Dowman, James Little, Gautam Mitra, and Marco Zaffalon.
+\newblock Constraint logic programming and integer programming approaches and
+  their collaboration in solving an assignment scheduling problem.
+\newblock {\em Constraints An Int. J.}, 1(3):245--264, 1997.
+
+\bibitem{Davenport10}
+Andrew~J. Davenport.
+\newblock Integrated maintenance scheduling for semiconductor manufacturing.
+\newblock In Andrea Lodi, Michela Milano, and Paolo Toth, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, 7th International Conference, {CPAIOR}
+  2010, Bologna, Italy, June 14-18, 2010. Proceedings}, volume 6140 of {\em
+  Lecture Notes in Computer Science}, pages 92--96. Springer, 2010.
+
+\bibitem{DavenportKRSH07}
+Andrew~J. Davenport, Jayant Kalagnanam, Chandra Reddy, Stuart Siegel, and John
+  Hou.
+\newblock An application of constraint programming to generating detailed
+  operations schedules for steel manufacturing.
+\newblock In Christian Bessiere, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2007, 13th International Conference, {CP} 2007,
+  Providence, RI, USA, September 23-27, 2007, Proceedings}, volume 4741 of {\em
+  Lecture Notes in Computer Science}, pages 64--76. Springer, 2007.
+
+\bibitem{DejemeppeCS15}
+Cyrille Dejemeppe, Sascha~Van Cauwelaert, and Pierre Schaus.
+\newblock The unary resource with transition times.
+\newblock In Gilles Pesant, editor, {\em Principles and Practice of Constraint
+  Programming - 21st International Conference, {CP} 2015, Cork, Ireland, August
+  31 - September 4, 2015, Proceedings}, volume 9255 of {\em Lecture Notes in
+  Computer Science}, pages 89--104. Springer, 2015.
+
+\bibitem{DejemeppeD14}
+Cyrille Dejemeppe and Yves Deville.
+\newblock Continuously degrading resource and interval dependent activity
+  durations in nuclear medicine patient scheduling.
+\newblock In Helmut Simonis, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 11th International Conference,
+  {CPAIOR} 2014, Cork, Ireland, May 19-23, 2014. Proceedings}, volume 8451 of
+  {\em Lecture Notes in Computer Science}, pages 284--292. Springer, 2014.
+
+\bibitem{DemirovicS18}
+Emir Demirovic and Peter~J. Stuckey.
+\newblock Constraint programming for high school timetabling: {A}
+  scheduling-based model with hot starts.
+\newblock In Willem~Jan van Hoeve, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 15th
+  International Conference, {CPAIOR} 2018, Delft, The Netherlands, June 26-29,
+  2018, Proceedings}, volume 10848 of {\em Lecture Notes in Computer Science},
+  pages 135--152. Springer, 2018.
+
+\bibitem{DerrienP14}
+Alban Derrien and Thierry Petit.
+\newblock A new characterization of relevant intervals for energetic reasoning.
+\newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
+  Constraint Programming - 20th International Conference, {CP} 2014, Lyon,
+  France, September 8-12, 2014. Proceedings}, volume 8656 of {\em Lecture Notes
+  in Computer Science}, pages 289--297. Springer, 2014.
+
+\bibitem{DerrienPZ14}
+Alban Derrien, Thierry Petit, and St{\'{e}}phane Zampelli.
+\newblock A declarative paradigm for robust cumulative scheduling.
+\newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
+  Constraint Programming - 20th International Conference, {CP} 2014, Lyon,
+  France, September 8-12, 2014. Proceedings}, volume 8656 of {\em Lecture Notes
+  in Computer Science}, pages 298--306. Springer, 2014.
+
+\bibitem{AlesioNBG14}
+Stefano {Di Alesio}, Shiva Nejati, Lionel~C. Briand, and Arnaud Gotlieb.
+\newblock Worst-case scheduling of software tasks - {A} constraint optimization
+  model to support performance testing.
+\newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
+  Constraint Programming - 20th International Conference, {CP} 2014, Lyon,
+  France, September 8-12, 2014. Proceedings}, volume 8656 of {\em Lecture Notes
+  in Computer Science}, pages 813--830. Springer, 2014.
+
+\bibitem{DilkinaDH05}
+Bistra Dilkina, Lei Duan, and William~S. Havens.
+\newblock Extending systematic local search for job shop scheduling problems.
+\newblock In Peter van Beek, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2005, 11th International Conference, {CP} 2005, Sitges,
+  Spain, October 1-5, 2005, Proceedings}, volume 3709 of {\em Lecture Notes in
+  Computer Science}, pages 762--766. Springer, 2005.
+
+\bibitem{DoomsH08}
+Gr{\'{e}}goire Dooms and Pascal~Van Hentenryck.
+\newblock Gap reduction techniques for online stochastic project scheduling.
+\newblock In Laurent Perron and Michael~A. Trick, editors, {\em Integration of
+  {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 5th International Conference, {CPAIOR} 2008, Paris,
+  France, May 20-23, 2008, Proceedings}, volume 5015 of {\em Lecture Notes in
+  Computer Science}, pages 66--81. Springer, 2008.
+
+\bibitem{DoulabiRP14}
+Seyed Hossein~Hashemi Doulabi, Louis{-}Martin Rousseau, and Gilles Pesant.
+\newblock A constraint programming-based column generation approach for
+  operating room planning and scheduling.
+\newblock In Helmut Simonis, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 11th International Conference,
+  {CPAIOR} 2014, Cork, Ireland, May 19-23, 2014. Proceedings}, volume 8451 of
+  {\em Lecture Notes in Computer Science}, pages 455--463. Springer, 2014.
+
+\bibitem{EdisO11}
+Emrah~B. Edis and Ceyda Oguz.
+\newblock Parallel machine scheduling with additional resources: {A}
+  lagrangian-based constraint programming approach.
+\newblock In Tobias Achterberg and J.~Christopher Beck, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems - 8th International Conference, {CPAIOR}
+  2011, Berlin, Germany, May 23-27, 2011. Proceedings}, volume 6697 of {\em
+  Lecture Notes in Computer Science}, pages 92--98. Springer, 2011.
+
 \bibitem{EfthymiouY23}
 Nikolaos Efthymiou and Neil Yorke{-}Smith.
 \newblock Predicting the optimal period for cyclic hoist scheduling problems.
@@ -77,6 +612,58 @@ Nikolaos Efthymiou and Neil Yorke{-}Smith.
   Proceedings}, volume 13884 of {\em Lecture Notes in Computer Science}, pages
   238--253. Springer, 2023.
 
+\bibitem{ElkhyariGJ02}
+Abdallah Elkhyari, Christelle Gu{\'{e}}ret, and Narendra Jussien.
+\newblock Conflict-based repair techniques for solving dynamic scheduling
+  problems.
+\newblock In Pascal~Van Hentenryck, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2002, 8th International Conference, {CP} 2002,
+  Ithaca, NY, USA, September 9-13, 2002, Proceedings}, volume 2470 of {\em
+  Lecture Notes in Computer Science}, pages 702--707. Springer, 2002.
+
+\bibitem{EvenSH15}
+Caroline Even, Andreas Schutt, and Pascal~Van Hentenryck.
+\newblock A constraint programming approach for non-preemptive evacuation
+  scheduling.
+\newblock In Gilles Pesant, editor, {\em Principles and Practice of Constraint
+  Programming - 21st International Conference, {CP} 2015, Cork, Ireland, August
+  31 - September 4, 2015, Proceedings}, volume 9255 of {\em Lecture Notes in
+  Computer Science}, pages 574--591. Springer, 2015.
+
+\bibitem{FahimiOQ18}
+Hamed Fahimi, Yanick Ouellet, and Claude{-}Guy Quimper.
+\newblock Linear-time filtering algorithms for the disjunctive constraint and a
+  quadratic filtering algorithm for the cumulative not-first not-last.
+\newblock {\em Constraints An Int. J.}, 23(3):272--293, 2018.
+
+\bibitem{FontaineMH16}
+Daniel Fontaine, Laurent~D. Michel, and Pascal~Van Hentenryck.
+\newblock Parallel composition of scheduling solvers.
+\newblock In Claude{-}Guy Quimper, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 13th International Conference,
+  {CPAIOR} 2016, Banff, AB, Canada, May 29 - June 1, 2016, Proceedings}, volume
+  9676 of {\em Lecture Notes in Computer Science}, pages 159--169. Springer,
+  2016.
+
+\bibitem{FortinZDF05}
+J{\'{e}}r{\^{o}}me Fortin, Pawel Zielinski, Didier Dubois, and
+  H{\'{e}}l{\`{e}}ne Fargier.
+\newblock Interval analysis in scheduling.
+\newblock In Peter van Beek, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2005, 11th International Conference, {CP} 2005, Sitges,
+  Spain, October 1-5, 2005, Proceedings}, volume 3709 of {\em Lecture Notes in
+  Computer Science}, pages 226--240. Springer, 2005.
+
+\bibitem{FrankK05}
+Jeremy Frank and Elif K{\"{u}}rkl{\"{u}}.
+\newblock Mixed discrete and continuous algorithms for scheduling airborne
+  astronomy observations.
+\newblock In Roman Bart{\'{a}}k and Michela Milano, editors, {\em Integration
+  of {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, Second International Conference, {CPAIOR} 2005,
+  Prague, Czech Republic, May 30 - June 1, 2005, Proceedings}, volume 3524 of
+  {\em Lecture Notes in Computer Science}, pages 183--200. Springer, 2005.
+
 \bibitem{FrimodigS19}
 Sara Frimodig and Christian Schulte.
 \newblock Models for radiation therapy patient scheduling.
@@ -85,6 +672,15 @@ Sara Frimodig and Christian Schulte.
   2019, Stamford, CT, USA, September 30 - October 4, 2019, Proceedings}, volume
   11802 of {\em Lecture Notes in Computer Science}, pages 421--437. Springer,
   2019.
+
+\bibitem{FrostD98}
+Daniel Frost and Rina Dechter.
+\newblock Optimizing with constraints: {A} case study in scheduling maintenance
+  of electric power units.
+\newblock In Michael~J. Maher and Jean{-}Francois Puget, editors, {\em
+  Principles and Practice of Constraint Programming - CP98, 4th International
+  Conference, Pisa, Italy, October 26-30, 1998, Proceedings}, volume 1520 of
+  {\em Lecture Notes in Computer Science}, page 469. Springer, 1998.
 
 \bibitem{GalleguillosKSB19}
 Cristian Galleguillos, Zeynep Kiziltan, Alina S{\^{\i}}rbu, and {\"{O}}zalp
@@ -97,6 +693,48 @@ Cristian Galleguillos, Zeynep Kiziltan, Alina S{\^{\i}}rbu, and {\"{O}}zalp
   11802 of {\em Lecture Notes in Computer Science}, pages 438--455. Springer,
   2019.
 
+\bibitem{GarganiR07}
+Antoine Gargani and Philippe Refalo.
+\newblock An efficient model and strategy for the steel mill slab design
+  problem.
+\newblock In Christian Bessiere, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2007, 13th International Conference, {CP} 2007,
+  Providence, RI, USA, September 23-27, 2007, Proceedings}, volume 4741 of {\em
+  Lecture Notes in Computer Science}, pages 77--89. Springer, 2007.
+
+\bibitem{GayHLS15}
+Steven Gay, Renaud Hartert, Christophe Lecoutre, and Pierre Schaus.
+\newblock Conflict ordering search for scheduling problems.
+\newblock In Gilles Pesant, editor, {\em Principles and Practice of Constraint
+  Programming - 21st International Conference, {CP} 2015, Cork, Ireland, August
+  31 - September 4, 2015, Proceedings}, volume 9255 of {\em Lecture Notes in
+  Computer Science}, pages 140--148. Springer, 2015.
+
+\bibitem{GayHS15}
+Steven Gay, Renaud Hartert, and Pierre Schaus.
+\newblock Simple and scalable time-table filtering for the cumulative
+  constraint.
+\newblock In Gilles Pesant, editor, {\em Principles and Practice of Constraint
+  Programming - 21st International Conference, {CP} 2015, Cork, Ireland, August
+  31 - September 4, 2015, Proceedings}, volume 9255 of {\em Lecture Notes in
+  Computer Science}, pages 149--157. Springer, 2015.
+
+\bibitem{cpaior-GayHS15}
+Steven Gay, Renaud Hartert, and Pierre Schaus.
+\newblock Time-table disjunctive reasoning for the cumulative constraint.
+\newblock In Laurent Michel, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 12th International Conference,
+  {CPAIOR} 2015, Barcelona, Spain, May 18-22, 2015, Proceedings}, volume 9075
+  of {\em Lecture Notes in Computer Science}, pages 157--172. Springer, 2015.
+
+\bibitem{GaySS14}
+Steven Gay, Pierre Schaus, and Vivian~De Smedt.
+\newblock Continuous casting scheduling with constraint programming.
+\newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
+  Constraint Programming - 20th International Conference, {CP} 2014, Lyon,
+  France, September 8-12, 2014. Proceedings}, volume 8656 of {\em Lecture Notes
+  in Computer Science}, pages 831--845. Springer, 2014.
+
 \bibitem{GeibingerKKMMW21}
 Tobias Geibinger, Lucas Kletzander, Matthias Krainz, Florian Mischek, Nysret
   Musliu, and Felix Winter.
@@ -106,6 +744,16 @@ Tobias Geibinger, Lucas Kletzander, Matthias Krainz, Florian Mischek, Nysret
   International Conference, {CPAIOR} 2021, Vienna, Austria, July 5-8, 2021,
   Proceedings}, volume 12735 of {\em Lecture Notes in Computer Science}, pages
   456--465. Springer, 2021.
+
+\bibitem{GeibingerMM19}
+Tobias Geibinger, Florian Mischek, and Nysret Musliu.
+\newblock Investigating constraint programming for real world industrial test
+  laboratory scheduling.
+\newblock In Louis{-}Martin Rousseau and Kostas Stergiou, editors, {\em
+  Integration of Constraint Programming, Artificial Intelligence, and
+  Operations Research - 16th International Conference, {CPAIOR} 2019,
+  Thessaloniki, Greece, June 4-7, 2019, Proceedings}, volume 11494 of {\em
+  Lecture Notes in Computer Science}, pages 304--319. Springer, 2019.
 
 \bibitem{GeitzGSSW22}
 Marc Geitz, Cristian Grozea, Wolfgang Steigerwald, Robin St{\"{o}}hr, and Armin
@@ -117,6 +765,70 @@ Marc Geitz, Cristian Grozea, Wolfgang Steigerwald, Robin St{\"{o}}hr, and Armin
   Conference, {CPAIOR} 2022, Los Angeles, CA, USA, June 20-23, 2022,
   Proceedings}, volume 13292 of {\em Lecture Notes in Computer Science}, pages
   120--137. Springer, 2022.
+
+\bibitem{GelainPRVW17}
+Mirco Gelain, Maria~Silvia Pini, Francesca Rossi, Kristen~Brent Venable, and
+  Toby Walsh.
+\newblock A local search approach for incomplete soft constraint problems:
+  Experimental results on meeting scheduling problems.
+\newblock In Domenico Salvagnin and Michele Lombardi, editors, {\em Integration
+  of {AI} and {OR} Techniques in Constraint Programming - 14th International
+  Conference, {CPAIOR} 2017, Padua, Italy, June 5-8, 2017, Proceedings}, volume
+  10335 of {\em Lecture Notes in Computer Science}, pages 403--418. Springer,
+  2017.
+
+\bibitem{GilesH16}
+Katherine Giles and Willem{-}Jan van Hoeve.
+\newblock Solving a supply-delivery scheduling problem with constraint
+  programming.
+\newblock In Michel Rueher, editor, {\em Principles and Practice of Constraint
+  Programming - 22nd International Conference, {CP} 2016, Toulouse, France,
+  September 5-9, 2016, Proceedings}, volume 9892 of {\em Lecture Notes in
+  Computer Science}, pages 602--617. Springer, 2016.
+
+\bibitem{GoldwaserS17}
+Adrian Goldwaser and Andreas Schutt.
+\newblock Optimal torpedo scheduling.
+\newblock In J.~Christopher Beck, editor, {\em Principles and Practice of
+  Constraint Programming - 23rd International Conference, {CP} 2017, Melbourne,
+  VIC, Australia, August 28 - September 1, 2017, Proceedings}, volume 10416 of
+  {\em Lecture Notes in Computer Science}, pages 338--353. Springer, 2017.
+
+\bibitem{Goltz95}
+Hans{-}Joachim Goltz.
+\newblock Reducing domains for search in {CLP(FD)} and its application to
+  job-shop scheduling.
+\newblock In Ugo Montanari and Francesca Rossi, editors, {\em Principles and
+  Practice of Constraint Programming - CP'95, First International Conference,
+  CP'95, Cassis, France, September 19-22, 1995, Proceedings}, volume 976 of
+  {\em Lecture Notes in Computer Science}, pages 549--562. Springer, 1995.
+
+\bibitem{GrimesH10}
+Diarmuid Grimes and Emmanuel Hebrard.
+\newblock Job shop scheduling with setup times and maximal time-lags: {A}
+  simple constraint programming approach.
+\newblock In Andrea Lodi, Michela Milano, and Paolo Toth, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, 7th International Conference, {CPAIOR}
+  2010, Bologna, Italy, June 14-18, 2010. Proceedings}, volume 6140 of {\em
+  Lecture Notes in Computer Science}, pages 147--161. Springer, 2010.
+
+\bibitem{GrimesH11}
+Diarmuid Grimes and Emmanuel Hebrard.
+\newblock Models and strategies for variants of the job shop scheduling
+  problem.
+\newblock In Jimmy~Ho{-}Man Lee, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2011 - 17th International Conference, {CP}
+  2011, Perugia, Italy, September 12-16, 2011. Proceedings}, volume 6876 of
+  {\em Lecture Notes in Computer Science}, pages 356--372. Springer, 2011.
+
+\bibitem{GrimesHM09}
+Diarmuid Grimes, Emmanuel Hebrard, and Arnaud Malapert.
+\newblock Closing the open shop: Contradicting conventional wisdom.
+\newblock In Ian~P. Gent, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2009, 15th International Conference, {CP} 2009, Lisbon,
+  Portugal, September 20-24, 2009, Proceedings}, volume 5732 of {\em Lecture
+  Notes in Computer Science}, pages 400--408. Springer, 2009.
 
 \bibitem{GrimesIOS14}
 Diarmuid Grimes, Georgiana Ifrim, Barry O'Sullivan, and Helmut Simonis.
@@ -140,6 +852,16 @@ Lucas Groleaz, Samba~Ndojh Ndiaye, and Christine Solnon.
   Belgium, September 7-11, 2020, Proceedings}, volume 12333 of {\em Lecture
   Notes in Computer Science}, pages 620--636. Springer, 2020.
 
+\bibitem{GuSS13}
+Hanyu Gu, Andreas Schutt, and Peter~J. Stuckey.
+\newblock A lagrangian relaxation based forward-backward improvement heuristic
+  for maximising the net present value of resource-constrained projects.
+\newblock In Carla~P. Gomes and Meinolf Sellmann, editors, {\em Integration of
+  {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 10th International Conference, {CPAIOR} 2013, Yorktown
+  Heights, NY, USA, May 18-22, 2013. Proceedings}, volume 7874 of {\em Lecture
+  Notes in Computer Science}, pages 340--346. Springer, 2013.
+
 \bibitem{HanenKP21}
 Claire Hanen, Alix~Munier Kordon, and Theo Pedersen.
 \newblock Two deadline reduction algorithms for scheduling dependent tasks on
@@ -150,6 +872,95 @@ Claire Hanen, Alix~Munier Kordon, and Theo Pedersen.
   Proceedings}, volume 12735 of {\em Lecture Notes in Computer Science}, pages
   214--230. Springer, 2021.
 
+\bibitem{He0GLW18}
+Shan He, Mark Wallace, Graeme Gange, Ariel Liebman, and Campbell Wilson.
+\newblock A fast and scalable algorithm for scheduling large numbers of devices
+  under real-time pricing.
+\newblock In John~N. Hooker, editor, {\em Principles and Practice of Constraint
+  Programming - 24th International Conference, {CP} 2018, Lille, France, August
+  27-31, 2018, Proceedings}, volume 11008 of {\em Lecture Notes in Computer
+  Science}, pages 649--666. Springer, 2018.
+
+\bibitem{HebrardTW05}
+Emmanuel Hebrard, Paul Tyler, and Toby Walsh.
+\newblock Computing super-schedules.
+\newblock In Peter van Beek, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2005, 11th International Conference, {CP} 2005, Sitges,
+  Spain, October 1-5, 2005, Proceedings}, volume 3709 of {\em Lecture Notes in
+  Computer Science}, pages 879--879. Springer, 2005.
+
+\bibitem{HechingH16}
+Aliza~R. Heching and John~N. Hooker.
+\newblock Scheduling home hospice care with logic-based benders decomposition.
+\newblock In Claude{-}Guy Quimper, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 13th International Conference,
+  {CPAIOR} 2016, Banff, AB, Canada, May 29 - June 1, 2016, Proceedings}, volume
+  9676 of {\em Lecture Notes in Computer Science}, pages 187--197. Springer,
+  2016.
+
+\bibitem{HeinzB12}
+Stefan Heinz and J.~Christopher Beck.
+\newblock Reconsidering mixed integer programming and mip-based hybrids for
+  scheduling.
+\newblock In Nicolas Beldiceanu, Narendra Jussien, and Eric Pinson, editors,
+  {\em Integration of {AI} and {OR} Techniques in Contraint Programming for
+  Combinatorial Optimzation Problems - 9th International Conference, {CPAIOR}
+  2012, Nantes, France, May 28 - June1, 2012. Proceedings}, volume 7298 of {\em
+  Lecture Notes in Computer Science}, pages 211--227. Springer, 2012.
+
+\bibitem{HeinzKB13}
+Stefan Heinz, Wen{-}Yang Ku, and J.~Christopher Beck.
+\newblock Recent improvements using constraint integer programming for resource
+  allocation and scheduling.
+\newblock In Carla~P. Gomes and Meinolf Sellmann, editors, {\em Integration of
+  {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 10th International Conference, {CPAIOR} 2013, Yorktown
+  Heights, NY, USA, May 18-22, 2013. Proceedings}, volume 7874 of {\em Lecture
+  Notes in Computer Science}, pages 12--27. Springer, 2013.
+
+\bibitem{HeinzSSW12}
+Stefan Heinz, Thomas Schlechte, R{\"{u}}diger Stephan, and Michael Winkler.
+\newblock Solving steel mill slab design problems.
+\newblock {\em Constraints An Int. J.}, 17(1):39--50, 2012.
+
+\bibitem{HeinzSB13}
+Stefan Heinz, Jens Schulz, and J.~Christopher Beck.
+\newblock Using dual presolving reductions to reformulate cumulative
+  constraints.
+\newblock {\em Constraints An Int. J.}, 18(2):166--201, 2013.
+
+\bibitem{HeipckeCCS00}
+Susanne Heipcke, Yves Colombani, Cristina C.~B. Cavalcante, and Cid~C.
+  de~Souza.
+\newblock Scheduling under labour resource constraints.
+\newblock {\em Constraints An Int. J.}, 5(4):415--422, 2000.
+
+\bibitem{HentenryckM04}
+Pascal~Van Hentenryck and Laurent Michel.
+\newblock Scheduling abstractions for local search.
+\newblock In Jean{-}Charles R{\'{e}}gin and Michel Rueher, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, First International Conference, {CPAIOR}
+  2004, Nice, France, April 20-22, 2004, Proceedings}, volume 3011 of {\em
+  Lecture Notes in Computer Science}, pages 319--334. Springer, 2004.
+
+\bibitem{HentenryckM08}
+Pascal~Van Hentenryck and Laurent Michel.
+\newblock The steel mill slab design problem revisited.
+\newblock In Laurent Perron and Michael~A. Trick, editors, {\em Integration of
+  {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 5th International Conference, {CPAIOR} 2008, Paris,
+  France, May 20-23, 2008, Proceedings}, volume 5015 of {\em Lecture Notes in
+  Computer Science}, pages 377--381. Springer, 2008.
+
+\bibitem{HermenierDL11}
+Fabien Hermenier, Sophie Demassey, and Xavier Lorca.
+\newblock Bin repacking scheduling in virtualized datacenters.
+\newblock In Jimmy~Ho{-}Man Lee, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2011 - 17th International Conference, {CP}
+  2011, Perugia, Italy, September 12-16, 2011. Proceedings}, volume 6876 of
+  {\em Lecture Notes in Computer Science}, pages 27--41. Springer, 2011.
+
 \bibitem{HillTV21}
 Alessandro Hill, Jordan Ticktin, and Thomas W.~M. Vossen.
 \newblock A computational study of constraint programming approaches for
@@ -159,6 +970,66 @@ Alessandro Hill, Jordan Ticktin, and Thomas W.~M. Vossen.
   International Conference, {CPAIOR} 2021, Vienna, Austria, July 5-8, 2021,
   Proceedings}, volume 12735 of {\em Lecture Notes in Computer Science}, pages
   26--44. Springer, 2021.
+
+\bibitem{Hooker04}
+John~N. Hooker.
+\newblock A hybrid method for planning and scheduling.
+\newblock In Mark Wallace, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2004, 10th International Conference, {CP} 2004, Toronto,
+  Canada, September 27 - October 1, 2004, Proceedings}, volume 3258 of {\em
+  Lecture Notes in Computer Science}, pages 305--316. Springer, 2004.
+
+\bibitem{Hooker05}
+John~N. Hooker.
+\newblock A hybrid method for the planning and scheduling.
+\newblock {\em Constraints An Int. J.}, 10(4):385--401, 2005.
+
+\bibitem{cp-Hooker05}
+John~N. Hooker.
+\newblock Planning and scheduling to minimize tardiness.
+\newblock In Peter van Beek, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2005, 11th International Conference, {CP} 2005, Sitges,
+  Spain, October 1-5, 2005, Proceedings}, volume 3709 of {\em Lecture Notes in
+  Computer Science}, pages 314--327. Springer, 2005.
+
+\bibitem{Hooker06}
+John~N. Hooker.
+\newblock An integrated method for planning and scheduling to minimize
+  tardiness.
+\newblock {\em Constraints An Int. J.}, 11(2-3):139--157, 2006.
+
+\bibitem{Hooker17}
+John~N. Hooker.
+\newblock Job sequencing bounds from decision diagrams.
+\newblock In J.~Christopher Beck, editor, {\em Principles and Practice of
+  Constraint Programming - 23rd International Conference, {CP} 2017, Melbourne,
+  VIC, Australia, August 28 - September 1, 2017, Proceedings}, volume 10416 of
+  {\em Lecture Notes in Computer Science}, pages 565--578. Springer, 2017.
+
+\bibitem{HookerY02}
+John~N. Hooker and Hong Yan.
+\newblock A relaxation of the cumulative constraint.
+\newblock In Pascal~Van Hentenryck, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2002, 8th International Conference, {CP} 2002,
+  Ithaca, NY, USA, September 9-13, 2002, Proceedings}, volume 2470 of {\em
+  Lecture Notes in Computer Science}, pages 686--690. Springer, 2002.
+
+\bibitem{HoundjiSWD14}
+Vinas{\'{e}}tan~Ratheil Houndji, Pierre Schaus, Laurence~A. Wolsey, and Yves
+  Deville.
+\newblock The stockingcost constraint.
+\newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
+  Constraint Programming - 20th International Conference, {CP} 2014, Lyon,
+  France, September 8-12, 2014. Proceedings}, volume 8656 of {\em Lecture Notes
+  in Computer Science}, pages 382--397. Springer, 2014.
+
+\bibitem{IfrimOS12}
+Georgiana Ifrim, Barry O'Sullivan, and Helmut Simonis.
+\newblock Properties of energy-price forecasts for scheduling.
+\newblock In Michela Milano, editor, {\em Principles and Practice of Constraint
+  Programming - 18th International Conference, {CP} 2012, Qu{\'{e}}bec City,
+  QC, Canada, October 8-12, 2012. Proceedings}, volume 7514 of {\em Lecture
+  Notes in Computer Science}, pages 957--972. Springer, 2012.
 
 \bibitem{JuvinHHL23}
 Carla Juvin, Emmanuel Hebrard, Laurent Houssin, and Pierre Lopez.
@@ -179,6 +1050,31 @@ Carla Juvin, Laurent Houssin, and Pierre Lopez.
   Proceedings}, volume 13884 of {\em Lecture Notes in Computer Science}, pages
   354--369. Springer, 2023.
 
+\bibitem{KamarainenS02}
+Olli Kamarainen and Hani~El Sakkout.
+\newblock Local probing applied to scheduling.
+\newblock In Pascal~Van Hentenryck, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2002, 8th International Conference, {CP} 2002,
+  Ithaca, NY, USA, September 9-13, 2002, Proceedings}, volume 2470 of {\em
+  Lecture Notes in Computer Science}, pages 155--171. Springer, 2002.
+
+\bibitem{Kameugne15}
+Roger Kameugne.
+\newblock Propagation techniques of resource constraint for cumulative
+  scheduling.
+\newblock {\em Constraints An Int. J.}, 20(4):506--507, 2015.
+
+\bibitem{KameugneFGOQ18}
+Roger Kameugne, S{\'{e}}v{\'{e}}rine~Betmbe Fetgo, Vincent Gingras, Yanick
+  Ouellet, and Claude{-}Guy Quimper.
+\newblock Horizontally elastic not-first/not-last filtering algorithm for
+  cumulative resource constraint.
+\newblock In Willem~Jan van Hoeve, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 15th
+  International Conference, {CPAIOR} 2018, Delft, The Netherlands, June 26-29,
+  2018, Proceedings}, volume 10848 of {\em Lecture Notes in Computer Science},
+  pages 316--332. Springer, 2018.
+
 \bibitem{KameugneFND23}
 Roger Kameugne, S{\'{e}}v{\'{e}}rine~Betmbe Fetgo, Thierry Noulamo, and
   Cl{\'{e}}mentin~Tayou Djam{\'{e}}gni.
@@ -188,6 +1084,51 @@ Roger Kameugne, S{\'{e}}v{\'{e}}rine~Betmbe Fetgo, Thierry Noulamo, and
   Principles and Practice of Constraint Programming, {CP} 2023, August 27-31,
   2023, Toronto, Canada}, volume 280 of {\em LIPIcs}, pages 20:1--20:17.
   Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2023.
+
+\bibitem{KameugneFSN11}
+Roger Kameugne, Laure~Pauline Fotso, Joseph~D. Scott, and Youcheu Ngo{-}Kateu.
+\newblock A quadratic edge-finding filtering algorithm for cumulative resource
+  constraints.
+\newblock In Jimmy~Ho{-}Man Lee, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2011 - 17th International Conference, {CP}
+  2011, Perugia, Italy, September 12-16, 2011. Proceedings}, volume 6876 of
+  {\em Lecture Notes in Computer Science}, pages 478--492. Springer, 2011.
+
+\bibitem{KameugneFSN14}
+Roger Kameugne, Laure~Pauline Fotso, Joseph~D. Scott, and Youcheu Ngo{-}Kateu.
+\newblock A quadratic edge-finding filtering algorithm for cumulative resource
+  constraints.
+\newblock {\em Constraints An Int. J.}, 19(3):243--269, 2014.
+
+\bibitem{KelarevaTK13}
+Elena Kelareva, Kevin Tierney, and Philip Kilby.
+\newblock {CP} methods for scheduling and routing with time-dependent task
+  costs.
+\newblock In Carla~P. Gomes and Meinolf Sellmann, editors, {\em Integration of
+  {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 10th International Conference, {CPAIOR} 2013, Yorktown
+  Heights, NY, USA, May 18-22, 2013. Proceedings}, volume 7874 of {\em Lecture
+  Notes in Computer Science}, pages 111--127. Springer, 2013.
+
+\bibitem{KeriK07}
+Andr{\'{a}}s K{\'{e}}ri and Tam{\'{a}}s Kis.
+\newblock Computing tight time windows for {RCPSPWET} with the primal-dual
+  method.
+\newblock In Pascal~Van Hentenryck and Laurence~A. Wolsey, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, 4th International Conference, {CPAIOR}
+  2007, Brussels, Belgium, May 23-26, 2007, Proceedings}, volume 4510 of {\em
+  Lecture Notes in Computer Science}, pages 127--140. Springer, 2007.
+
+\bibitem{KhemmoudjPB06}
+Mohand Ou~Idir Khemmoudj, Marc Porcheron, and Hachemi Bennaceur.
+\newblock When constraint programming and local search solve the scheduling
+  problem of electricit{\'{e}} de france nuclear power plant outages.
+\newblock In Fr{\'{e}}d{\'{e}}ric Benhamou, editor, {\em Principles and
+  Practice of Constraint Programming - {CP} 2006, 12th International
+  Conference, {CP} 2006, Nantes, France, September 25-29, 2006, Proceedings},
+  volume 4204 of {\em Lecture Notes in Computer Science}, pages 271--283.
+  Springer, 2006.
 
 \bibitem{KimCMLLP23}
 Dongyun Kim, Yeonjun Choi, Kyungduk Moon, Myungho Lee, Kangbok Lee, and
@@ -210,6 +1151,72 @@ Christian Klanke, Dominik~R. Bleidorn, Vassilios Yfantis, and Sebastian Engell.
   Proceedings}, volume 12735 of {\em Lecture Notes in Computer Science}, pages
   133--148. Springer, 2021.
 
+\bibitem{KletzanderM17}
+Lucas Kletzander and Nysret Musliu.
+\newblock A multi-stage simulated annealing algorithm for the torpedo
+  scheduling problem.
+\newblock In Domenico Salvagnin and Michele Lombardi, editors, {\em Integration
+  of {AI} and {OR} Techniques in Constraint Programming - 14th International
+  Conference, {CPAIOR} 2017, Padua, Italy, June 5-8, 2017, Proceedings}, volume
+  10335 of {\em Lecture Notes in Computer Science}, pages 344--358. Springer,
+  2017.
+
+\bibitem{KoehlerBFFHPSSS21}
+Jana Koehler, Josef B{\"{u}}rgler, Urs Fontana, Etienne Fux, Florian~A. Herzog,
+  Marc Pouly, Sophia Saller, Anastasia Salyaeva, Peter Scheiblechner, and Kai
+  Waelti.
+\newblock Cable tree wiring - benchmarking solvers on a real-world scheduling
+  problem with a variety of precedence constraints.
+\newblock {\em Constraints An Int. J.}, 26(1):56--106, 2021.
+
+\bibitem{KoschB14}
+Sebastian Kosch and J.~Christopher Beck.
+\newblock A new {MIP} model for parallel-batch scheduling with non-identical
+  job sizes.
+\newblock In Helmut Simonis, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 11th International Conference,
+  {CPAIOR} 2014, Cork, Ireland, May 19-23, 2014. Proceedings}, volume 8451 of
+  {\em Lecture Notes in Computer Science}, pages 55--70. Springer, 2014.
+
+\bibitem{KovacsB11}
+Andr{\'{a}}s Kov{\'{a}}cs and J.~Christopher Beck.
+\newblock A global constraint for total weighted completion time for unary
+  resources.
+\newblock {\em Constraints An Int. J.}, 16(1):100--123, 2011.
+
+\bibitem{KovacsEKV05}
+Andr{\'{a}}s Kov{\'{a}}cs, P{\'{e}}ter Egri, Tam{\'{a}}s Kis, and J{\'{o}}zsef
+  V{\'{a}}ncza.
+\newblock Proterv-ii: An integrated production planning and scheduling system.
+\newblock In Peter van Beek, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2005, 11th International Conference, {CP} 2005, Sitges,
+  Spain, October 1-5, 2005, Proceedings}, volume 3709 of {\em Lecture Notes in
+  Computer Science}, pages 880--880. Springer, 2005.
+
+\bibitem{KovacsK11}
+Andr{\'{a}}s Kov{\'{a}}cs and Tam{\'{a}}s Kis.
+\newblock Constraint programming approach to a bilevel scheduling problem.
+\newblock {\em Constraints An Int. J.}, 16(3):317--340, 2011.
+
+\bibitem{KovacsV04}
+Andr{\'{a}}s Kov{\'{a}}cs and J{\'{o}}zsef V{\'{a}}ncza.
+\newblock Completable partial solutions in constraint programming and
+  constraint-based scheduling.
+\newblock In Mark Wallace, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2004, 10th International Conference, {CP} 2004, Toronto,
+  Canada, September 27 - October 1, 2004, Proceedings}, volume 3258 of {\em
+  Lecture Notes in Computer Science}, pages 332--346. Springer, 2004.
+
+\bibitem{KovacsV06}
+Andr{\'{a}}s Kov{\'{a}}cs and J{\'{o}}zsef V{\'{a}}ncza.
+\newblock Progressive solutions: {A} simple but efficient dominance rule for
+  practical {RCPSP}.
+\newblock In J.~Christopher Beck and Barbara~M. Smith, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, Third International Conference, {CPAIOR}
+  2006, Cork, Ireland, May 31 - June 2, 2006, Proceedings}, volume 3990 of {\em
+  Lecture Notes in Computer Science}, pages 139--151. Springer, 2006.
+
 \bibitem{KovacsTKSG21}
 Benjamin Kov{\'{a}}cs, Pierre Tassel, Wolfgang Kohlenbrein, Philipp
   Schrott{-}Kostwein, and Martin Gebser.
@@ -220,6 +1227,54 @@ Benjamin Kov{\'{a}}cs, Pierre Tassel, Wolfgang Kohlenbrein, Philipp
   France (Virtual Conference), October 25-29, 2021}, volume 210 of {\em
   LIPIcs}, pages 36:1--36:17. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r
   Informatik, 2021.
+
+\bibitem{KreterSS15}
+Stefan Kreter, Andreas Schutt, and Peter~J. Stuckey.
+\newblock Modeling and solving project scheduling with calendars.
+\newblock In Gilles Pesant, editor, {\em Principles and Practice of Constraint
+  Programming - 21st International Conference, {CP} 2015, Cork, Ireland, August
+  31 - September 4, 2015, Proceedings}, volume 9255 of {\em Lecture Notes in
+  Computer Science}, pages 262--278. Springer, 2015.
+
+\bibitem{KreterSS17}
+Stefan Kreter, Andreas Schutt, and Peter~J. Stuckey.
+\newblock Using constraint programming for solving rcpsp/max-cal.
+\newblock {\em Constraints An Int. J.}, 22(3):432--462, 2017.
+
+\bibitem{Kumar03}
+T.~K.~Satish Kumar.
+\newblock Incremental computation of resource-envelopes in producer-consumer
+  models.
+\newblock In Francesca Rossi, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2003, 9th International Conference, {CP} 2003,
+  Kinsale, Ireland, September 29 - October 3, 2003, Proceedings}, volume 2833
+  of {\em Lecture Notes in Computer Science}, pages 664--678. Springer, 2003.
+
+\bibitem{Laborie09}
+Philippe Laborie.
+\newblock {IBM} {ILOG} {CP} optimizer for detailed scheduling illustrated on
+  three problems.
+\newblock In Willem~Jan van Hoeve and John~N. Hooker, editors, {\em Integration
+  of {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 6th International Conference, {CPAIOR} 2009,
+  Pittsburgh, PA, USA, May 27-31, 2009, Proceedings}, volume 5547 of {\em
+  Lecture Notes in Computer Science}, pages 148--162. Springer, 2009.
+
+\bibitem{Laborie18a}
+Philippe Laborie.
+\newblock An update on the comparison of mip, {CP} and hybrid approaches for
+  mixed resource allocation and scheduling.
+\newblock In Willem~Jan van Hoeve, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 15th
+  International Conference, {CPAIOR} 2018, Delft, The Netherlands, June 26-29,
+  2018, Proceedings}, volume 10848 of {\em Lecture Notes in Computer Science},
+  pages 403--411. Springer, 2018.
+
+\bibitem{LaborieRSV18}
+Philippe Laborie, Jerome Rogerie, Paul Shaw, and Petr Vil{\'{\i}}m.
+\newblock {IBM} {ILOG} {CP} optimizer for scheduling - 20+ years of scheduling
+  with constraints at {IBM/ILOG}.
+\newblock {\em Constraints An Int. J.}, 23(2):210--250, 2018.
 
 \bibitem{LacknerMMWW21}
 Marie{-}Louise Lackner, Christoph Mrkvicka, Nysret Musliu, Daniel Walkiewicz,
@@ -232,6 +1287,175 @@ Marie{-}Louise Lackner, Christoph Mrkvicka, Nysret Musliu, Daniel Walkiewicz,
   LIPIcs}, pages 37:1--37:18. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r
   Informatik, 2021.
 
+\bibitem{LacknerMMWW23}
+Marie{-}Louise Lackner, Christoph Mrkvicka, Nysret Musliu, Daniel Walkiewicz,
+  and Felix Winter.
+\newblock Exact methods for the oven scheduling problem.
+\newblock {\em Constraints An Int. J.}, 28(2):320--361, 2023.
+
+\bibitem{LahimerLH11}
+Asma Lahimer, Pierre Lopez, and Mohamed Haouari.
+\newblock Climbing depth-bounded adjacent discrepancy search for solving hybrid
+  flow shop scheduling problems with multiprocessor tasks.
+\newblock In Tobias Achterberg and J.~Christopher Beck, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems - 8th International Conference, {CPAIOR}
+  2011, Berlin, Germany, May 23-27, 2011. Proceedings}, volume 6697 of {\em
+  Lecture Notes in Computer Science}, pages 117--130. Springer, 2011.
+
+\bibitem{LauLN08}
+Hoong~Chuin Lau, Kong~Wei Lye, and Viet~Bang Nguyen.
+\newblock A combinatorial auction framework for solving decentralized
+  scheduling problems (extended abstract).
+\newblock In Laurent Perron and Michael~A. Trick, editors, {\em Integration of
+  {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 5th International Conference, {CPAIOR} 2008, Paris,
+  France, May 20-23, 2008, Proceedings}, volume 5015 of {\em Lecture Notes in
+  Computer Science}, pages 333--337. Springer, 2008.
+
+\bibitem{LetortBC12}
+Arnaud Letort, Nicolas Beldiceanu, and Mats Carlsson.
+\newblock A scalable sweep algorithm for the cumulative constraint.
+\newblock In Michela Milano, editor, {\em Principles and Practice of Constraint
+  Programming - 18th International Conference, {CP} 2012, Qu{\'{e}}bec City,
+  QC, Canada, October 8-12, 2012. Proceedings}, volume 7514 of {\em Lecture
+  Notes in Computer Science}, pages 439--454. Springer, 2012.
+
+\bibitem{LetortCB13}
+Arnaud Letort, Mats Carlsson, and Nicolas Beldiceanu.
+\newblock A synchronized sweep algorithm for the \emph{k-dimensional
+  cumulative} constraint.
+\newblock In Carla~P. Gomes and Meinolf Sellmann, editors, {\em Integration of
+  {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 10th International Conference, {CPAIOR} 2013, Yorktown
+  Heights, NY, USA, May 18-22, 2013. Proceedings}, volume 7874 of {\em Lecture
+  Notes in Computer Science}, pages 144--159. Springer, 2013.
+
+\bibitem{LetortCB15}
+Arnaud Letort, Mats Carlsson, and Nicolas Beldiceanu.
+\newblock Synchronized sweep algorithms for scalable scheduling constraints.
+\newblock {\em Constraints An Int. J.}, 20(2):183--234, 2015.
+
+\bibitem{LimRX04}
+Andrew Lim, Brian Rodrigues, and Zhou Xu.
+\newblock Solving the crane scheduling problem using intelligent search
+  schemes.
+\newblock In Mark Wallace, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2004, 10th International Conference, {CP} 2004, Toronto,
+  Canada, September 27 - October 1, 2004, Proceedings}, volume 3258 of {\em
+  Lecture Notes in Computer Science}, pages 747--751. Springer, 2004.
+
+\bibitem{LimHTB16}
+BoonPing Lim, Hassan~L. Hijazi, Sylvie Thi{\'{e}}baux, and Menkes van~den
+  Briel.
+\newblock Online hvac-aware occupancy scheduling with adaptive temperature
+  control.
+\newblock In Michel Rueher, editor, {\em Principles and Practice of Constraint
+  Programming - 22nd International Conference, {CP} 2016, Toulouse, France,
+  September 5-9, 2016, Proceedings}, volume 9892 of {\em Lecture Notes in
+  Computer Science}, pages 683--700. Springer, 2016.
+
+\bibitem{LimBTBB15}
+BoonPing Lim, Menkes van~den Briel, Sylvie Thi{\'{e}}baux, Russell Bent, and
+  Scott Backhaus.
+\newblock Large neighborhood search for energy aware meeting scheduling in
+  smart buildings.
+\newblock In Laurent Michel, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 12th International Conference,
+  {CPAIOR} 2015, Barcelona, Spain, May 18-22, 2015, Proceedings}, volume 9075
+  of {\em Lecture Notes in Computer Science}, pages 240--254. Springer, 2015.
+
+\bibitem{LimtanyakulS12}
+Kamol Limtanyakul and Uwe Schwiegelshohn.
+\newblock Improvements of constraint programming and hybrid methods for
+  scheduling of tests on vehicle prototypes.
+\newblock {\em Constraints An Int. J.}, 17(2):172--203, 2012.
+
+\bibitem{LiuCGM17}
+Tong Liu, Roberto~Di Cosmo, Maurizio Gabbrielli, and Jacopo Mauro.
+\newblock Nightsplitter: {A} scheduling tool to optimize (sub)group activities.
+\newblock In J.~Christopher Beck, editor, {\em Principles and Practice of
+  Constraint Programming - 23rd International Conference, {CP} 2017, Melbourne,
+  VIC, Australia, August 28 - September 1, 2017, Proceedings}, volume 10416 of
+  {\em Lecture Notes in Computer Science}, pages 370--386. Springer, 2017.
+
+\bibitem{LombardiBM15}
+Michele Lombardi, Alessio Bonfietti, and Michela Milano.
+\newblock Deterministic estimation of the expected makespan of a {POS} under
+  duration uncertainty.
+\newblock In Gilles Pesant, editor, {\em Principles and Practice of Constraint
+  Programming - 21st International Conference, {CP} 2015, Cork, Ireland, August
+  31 - September 4, 2015, Proceedings}, volume 9255 of {\em Lecture Notes in
+  Computer Science}, pages 279--294. Springer, 2015.
+
+\bibitem{LombardiBMB11}
+Michele Lombardi, Alessio Bonfietti, Michela Milano, and Luca Benini.
+\newblock Precedence constraint posting for cyclic scheduling problems.
+\newblock In Tobias Achterberg and J.~Christopher Beck, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems - 8th International Conference, {CPAIOR}
+  2011, Berlin, Germany, May 23-27, 2011. Proceedings}, volume 6697 of {\em
+  Lecture Notes in Computer Science}, pages 137--153. Springer, 2011.
+
+\bibitem{LombardiM09}
+Michele Lombardi and Michela Milano.
+\newblock A precedence constraint posting approach for the {RCPSP} with time
+  lags and variable durations.
+\newblock In Ian~P. Gent, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2009, 15th International Conference, {CP} 2009, Lisbon,
+  Portugal, September 20-24, 2009, Proceedings}, volume 5732 of {\em Lecture
+  Notes in Computer Science}, pages 569--583. Springer, 2009.
+
+\bibitem{LombardiM10}
+Michele Lombardi and Michela Milano.
+\newblock Constraint based scheduling to deal with uncertain durations and
+  self-timed execution.
+\newblock In David Cohen, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2010 - 16th International Conference, {CP} 2010, St.
+  Andrews, Scotland, UK, September 6-10, 2010. Proceedings}, volume 6308 of
+  {\em Lecture Notes in Computer Science}, pages 383--397. Springer, 2010.
+
+\bibitem{LombardiM12}
+Michele Lombardi and Michela Milano.
+\newblock Optimal methods for resource allocation and scheduling: a
+  cross-disciplinary survey.
+\newblock {\em Constraints An Int. J.}, 17(1):51--85, 2012.
+
+\bibitem{LopesCSM10}
+Tony Minoru~Tamura Lopes, Andr{\'{e}}~A. Cir{\'{e}}, Cid~Carvalho de~Souza, and
+  Arnaldo~Vieira Moura.
+\newblock A hybrid model for a multiproduct pipeline planning and scheduling
+  problem.
+\newblock {\em Constraints An Int. J.}, 15(2):151--189, 2010.
+
+\bibitem{Madi-WambaB16}
+Gilles Madi{-}Wamba and Nicolas Beldiceanu.
+\newblock The taskintersection constraint.
+\newblock In Claude{-}Guy Quimper, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 13th International Conference,
+  {CPAIOR} 2016, Banff, AB, Canada, May 29 - June 1, 2016, Proceedings}, volume
+  9676 of {\em Lecture Notes in Computer Science}, pages 246--261. Springer,
+  2016.
+
+\bibitem{MalapertN19}
+Arnaud Malapert and Margaux Nattaf.
+\newblock A new cp-approach for a parallel machine scheduling problem with time
+  constraints on machine qualifications.
+\newblock In Louis{-}Martin Rousseau and Kostas Stergiou, editors, {\em
+  Integration of Constraint Programming, Artificial Intelligence, and
+  Operations Research - 16th International Conference, {CPAIOR} 2019,
+  Thessaloniki, Greece, June 4-7, 2019, Proceedings}, volume 11494 of {\em
+  Lecture Notes in Computer Science}, pages 426--442. Springer, 2019.
+
+\bibitem{MaraveliasG04}
+Christos~T. Maravelias and Ignacio~E. Grossmann.
+\newblock Using {MILP} and {CP} for the scheduling of batch chemical processes.
+\newblock In Jean{-}Charles R{\'{e}}gin and Michel Rueher, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, First International Conference, {CPAIOR}
+  2004, Nice, France, April 20-22, 2004, Proceedings}, volume 3011 of {\em
+  Lecture Notes in Computer Science}, pages 1--20. Springer, 2004.
+
 \bibitem{Mercier-AubinGQ20}
 Alexandre Mercier{-}Aubin, Jonathan Gaudreault, and Claude{-}Guy Quimper.
 \newblock Leveraging constraint scheduling: {A} case study to the textile
@@ -242,6 +1466,33 @@ Alexandre Mercier{-}Aubin, Jonathan Gaudreault, and Claude{-}Guy Quimper.
   21-24, 2020, Proceedings}, volume 12296 of {\em Lecture Notes in Computer
   Science}, pages 334--346. Springer, 2020.
 
+\bibitem{MonetteDD07}
+Jean{-}No{\"{e}}l Monette, Yves Deville, and Pierre Dupont.
+\newblock A position-based propagator for the open-shop problem.
+\newblock In Pascal~Van Hentenryck and Laurence~A. Wolsey, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, 4th International Conference, {CPAIOR}
+  2007, Brussels, Belgium, May 23-26, 2007, Proceedings}, volume 4510 of {\em
+  Lecture Notes in Computer Science}, pages 186--199. Springer, 2007.
+
+\bibitem{MossigeGSMC17}
+Morten Mossige, Arnaud Gotlieb, Helge Spieker, Hein Meling, and Mats Carlsson.
+\newblock Time-aware test case execution scheduling for cyber-physical systems.
+\newblock In J.~Christopher Beck, editor, {\em Principles and Practice of
+  Constraint Programming - 23rd International Conference, {CP} 2017, Melbourne,
+  VIC, Australia, August 28 - September 1, 2017, Proceedings}, volume 10416 of
+  {\em Lecture Notes in Computer Science}, pages 387--404. Springer, 2017.
+
+\bibitem{MouraSCL08}
+Arnaldo~Vieira Moura, Cid~C. de~Souza, Andr{\'{e}}~A. Cir{\'{e}}, and Tony
+  Minoru~Tamura Lopes.
+\newblock Planning and scheduling the operation of a very large oil pipeline
+  network.
+\newblock In Peter~J. Stuckey, editor, {\em Principles and Practice of
+  Constraint Programming, 14th International Conference, {CP} 2008, Sydney,
+  Australia, September 14-18, 2008. Proceedings}, volume 5202 of {\em Lecture
+  Notes in Computer Science}, pages 36--51. Springer, 2008.
+
 \bibitem{MurinR19}
 Stanislav Mur{\'{\i}}n and Hana Rudov{\'{a}}.
 \newblock Scheduling of mobile robots using constraint programming.
@@ -250,6 +1501,35 @@ Stanislav Mur{\'{\i}}n and Hana Rudov{\'{a}}.
   2019, Stamford, CT, USA, September 30 - October 4, 2019, Proceedings}, volume
   11802 of {\em Lecture Notes in Computer Science}, pages 456--471. Springer,
   2019.
+
+\bibitem{MurphyMB15}
+Se{\'{a}}n~{\'{O}}g Murphy, Oscar Manzano, and Kenneth~N. Brown.
+\newblock Design and evaluation of a constraint-based energy saving and
+  scheduling recommender system.
+\newblock In Gilles Pesant, editor, {\em Principles and Practice of Constraint
+  Programming - 21st International Conference, {CP} 2015, Cork, Ireland, August
+  31 - September 4, 2015, Proceedings}, volume 9255 of {\em Lecture Notes in
+  Computer Science}, pages 687--703. Springer, 2015.
+
+\bibitem{Muscettola02}
+Nicola Muscettola.
+\newblock Computing the envelope for stepwise-constant resource allocations.
+\newblock In Pascal~Van Hentenryck, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2002, 8th International Conference, {CP} 2002,
+  Ithaca, NY, USA, September 9-13, 2002, Proceedings}, volume 2470 of {\em
+  Lecture Notes in Computer Science}, pages 139--154. Springer, 2002.
+
+\bibitem{NattafAL15}
+Margaux Nattaf, Christian Artigues, and Pierre Lopez.
+\newblock A hybrid exact method for a scheduling problem with a continuous
+  resource and energy constraints.
+\newblock {\em Constraints An Int. J.}, 20(3):304--324, 2015.
+
+\bibitem{NattafAL17}
+Margaux Nattaf, Christian Artigues, and Pierre Lopez.
+\newblock Cumulative scheduling with variable task profiles and concave
+  piecewise linear processing rate functions.
+\newblock {\em Constraints An Int. J.}, 22(4):530--547, 2017.
 
 \bibitem{NattafM20}
 Margaux Nattaf and Arnaud Malapert.
@@ -260,6 +1540,33 @@ Margaux Nattaf and Arnaud Malapert.
   Belgium, September 7-11, 2020, Proceedings}, volume 12333 of {\em Lecture
   Notes in Computer Science}, pages 462--477. Springer, 2020.
 
+\bibitem{OddiPCC03}
+Angelo Oddi, Nicola Policella, Amedeo Cesta, and Gabriella Cortellessa.
+\newblock Generating high quality schedules for a spacecraft memory downlink
+  problem.
+\newblock In Francesca Rossi, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2003, 9th International Conference, {CP} 2003,
+  Kinsale, Ireland, September 29 - October 3, 2003, Proceedings}, volume 2833
+  of {\em Lecture Notes in Computer Science}, pages 570--584. Springer, 2003.
+
+\bibitem{OuelletQ13}
+Pierre Ouellet and Claude{-}Guy Quimper.
+\newblock Time-table extended-edge-finding for the cumulative constraint.
+\newblock In Christian Schulte, editor, {\em Principles and Practice of
+  Constraint Programming - 19th International Conference, {CP} 2013, Uppsala,
+  Sweden, September 16-20, 2013. Proceedings}, volume 8124 of {\em Lecture
+  Notes in Computer Science}, pages 562--577. Springer, 2013.
+
+\bibitem{OuelletQ18}
+Yanick Ouellet and Claude{-}Guy Quimper.
+\newblock A o(n {\textbackslash}log {\^{}}2 n) checker and o(n{\^{}}2
+  {\textbackslash}log n) filtering algorithm for the energetic reasoning.
+\newblock In Willem~Jan van Hoeve, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 15th
+  International Conference, {CPAIOR} 2018, Delft, The Netherlands, June 26-29,
+  2018, Proceedings}, volume 10848 of {\em Lecture Notes in Computer Science},
+  pages 477--494. Springer, 2018.
+
 \bibitem{OuelletQ22}
 Yanick Ouellet and Claude{-}Guy Quimper.
 \newblock A mincumulative resource constraint.
@@ -268,6 +1575,25 @@ Yanick Ouellet and Claude{-}Guy Quimper.
   Conference, {CPAIOR} 2022, Los Angeles, CA, USA, June 20-23, 2022,
   Proceedings}, volume 13292 of {\em Lecture Notes in Computer Science}, pages
   318--334. Springer, 2022.
+
+\bibitem{OzturkTHO13}
+Cemalettin {\"{O}}zt{\"{u}}rk, Semra Tunali, Brahim Hnich, and M.~Arslan Ornek.
+\newblock Balancing and scheduling of flexible mixed model assembly lines.
+\newblock {\em Constraints An Int. J.}, 18(3):434--469, 2013.
+
+\bibitem{PapaB98}
+Claude~Le Pape and Philippe Baptiste.
+\newblock Resource constraints for preemptive job-shop scheduling.
+\newblock {\em Constraints An Int. J.}, 3(4):263--287, 1998.
+
+\bibitem{PesantRR15}
+Gilles Pesant, Gregory Rix, and Louis{-}Martin Rousseau.
+\newblock A comparative study of {MIP} and {CP} formulations for the {B2B}
+  scheduling optimization problem.
+\newblock In Laurent Michel, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 12th International Conference,
+  {CPAIOR} 2015, Barcelona, Spain, May 18-22, 2015, Proceedings}, volume 9075
+  of {\em Lecture Notes in Computer Science}, pages 306--321. Springer, 2015.
 
 \bibitem{PopovicCGNC22}
 Louis Popovic, Alain C{\^{o}}t{\'{e}}, Mohamed Gaha, Franklin Nguewouo, and
@@ -288,6 +1614,203 @@ Guillaume Pov{\'{e}}da, Nahum {\'{A}}lvarez, and Christian Artigues.
   2023, Toronto, Canada}, volume 280 of {\em LIPIcs}, pages 31:1--31:21.
   Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2023.
 
+\bibitem{Pralet17}
+C{\'{e}}dric Pralet.
+\newblock An incomplete constraint-based system for scheduling with renewable
+  resources.
+\newblock In J.~Christopher Beck, editor, {\em Principles and Practice of
+  Constraint Programming - 23rd International Conference, {CP} 2017, Melbourne,
+  VIC, Australia, August 28 - September 1, 2017, Proceedings}, volume 10416 of
+  {\em Lecture Notes in Computer Science}, pages 243--261. Springer, 2017.
+
+\bibitem{PraletLJ15}
+C{\'{e}}dric Pralet, Solange Lemai{-}Chenevier, and Jean Jaubert.
+\newblock Scheduling running modes of satellite instruments using
+  constraint-based local search.
+\newblock In Gilles Pesant, editor, {\em Principles and Practice of Constraint
+  Programming - 21st International Conference, {CP} 2015, Cork, Ireland, August
+  31 - September 4, 2015, Proceedings}, volume 9255 of {\em Lecture Notes in
+  Computer Science}, pages 704--719. Springer, 2015.
+
+\bibitem{Puget95}
+Jean{-}Francois Puget.
+\newblock Applications of constraint programming.
+\newblock In Ugo Montanari and Francesca Rossi, editors, {\em Principles and
+  Practice of Constraint Programming - CP'95, First International Conference,
+  CP'95, Cassis, France, September 19-22, 1995, Proceedings}, volume 976 of
+  {\em Lecture Notes in Computer Science}, pages 647--650. Springer, 1995.
+
+\bibitem{RendlPHPR12}
+Andrea Rendl, Matthias Prandtstetter, Gerhard Hiermann, Jakob Puchinger, and
+  G{\"{u}}nther~R. Raidl.
+\newblock Hybrid heuristics for multimodal homecare scheduling.
+\newblock In Nicolas Beldiceanu, Narendra Jussien, and Eric Pinson, editors,
+  {\em Integration of {AI} and {OR} Techniques in Contraint Programming for
+  Combinatorial Optimzation Problems - 9th International Conference, {CPAIOR}
+  2012, Nantes, France, May 28 - June1, 2012. Proceedings}, volume 7298 of {\em
+  Lecture Notes in Computer Science}, pages 339--355. Springer, 2012.
+
+\bibitem{RodosekW98}
+Robert Rodosek and Mark Wallace.
+\newblock A generic model and hybrid algorithm for hoist scheduling problems.
+\newblock In Michael~J. Maher and Jean{-}Francois Puget, editors, {\em
+  Principles and Practice of Constraint Programming - CP98, 4th International
+  Conference, Pisa, Italy, October 26-30, 1998, Proceedings}, volume 1520 of
+  {\em Lecture Notes in Computer Science}, pages 385--399. Springer, 1998.
+
+\bibitem{RossiTHP07}
+Roberto Rossi, Armagan Tarim, Brahim Hnich, and Steven~D. Prestwich.
+\newblock Replenishment planning for stochastic inventory systems with shortage
+  cost.
+\newblock In Pascal~Van Hentenryck and Laurence~A. Wolsey, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, 4th International Conference, {CPAIOR}
+  2007, Brussels, Belgium, May 23-26, 2007, Proceedings}, volume 4510 of {\em
+  Lecture Notes in Computer Science}, pages 229--243. Springer, 2007.
+
+\bibitem{Sadykov04}
+Ruslan Sadykov.
+\newblock A hybrid branch-and-cut algorithm for the one-machine scheduling
+  problem.
+\newblock In Jean{-}Charles R{\'{e}}gin and Michel Rueher, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, First International Conference, {CPAIOR}
+  2004, Nice, France, April 20-22, 2004, Proceedings}, volume 3011 of {\em
+  Lecture Notes in Computer Science}, pages 409--415. Springer, 2004.
+
+\bibitem{SakkoutW00}
+Hani~El Sakkout and Mark Wallace.
+\newblock Probe backtrack search for minimal perturbation in dynamic
+  scheduling.
+\newblock {\em Constraints An Int. J.}, 5(4):359--388, 2000.
+
+\bibitem{SchausHMCMD11}
+Pierre Schaus, Pascal~Van Hentenryck, Jean{-}No{\"{e}}l Monette, Carleton
+  Coffrin, Laurent Michel, and Yves Deville.
+\newblock Solving steel mill slab problems with constraint-based techniques:
+  Cp, lns, and {CBLS}.
+\newblock {\em Constraints An Int. J.}, 16(2):125--147, 2011.
+
+\bibitem{SchildW00}
+Klaus Schild and J{\"{o}}rg W{\"{u}}rtz.
+\newblock Scheduling of time-triggered real-time systems.
+\newblock {\em Constraints An Int. J.}, 5(4):335--357, 2000.
+
+\bibitem{SchuttCSW12}
+Andreas Schutt, Geoffrey Chu, Peter~J. Stuckey, and Mark~G. Wallace.
+\newblock Maximising the net present value for resource-constrained project
+  scheduling.
+\newblock In Nicolas Beldiceanu, Narendra Jussien, and Eric Pinson, editors,
+  {\em Integration of {AI} and {OR} Techniques in Contraint Programming for
+  Combinatorial Optimzation Problems - 9th International Conference, {CPAIOR}
+  2012, Nantes, France, May 28 - June1, 2012. Proceedings}, volume 7298 of {\em
+  Lecture Notes in Computer Science}, pages 362--378. Springer, 2012.
+
+\bibitem{cpaior-SchuttFS13}
+Andreas Schutt, Thibaut Feydy, and Peter~J. Stuckey.
+\newblock Explaining time-table-edge-finding propagation for the cumulative
+  resource constraint.
+\newblock In Carla~P. Gomes and Meinolf Sellmann, editors, {\em Integration of
+  {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 10th International Conference, {CPAIOR} 2013, Yorktown
+  Heights, NY, USA, May 18-22, 2013. Proceedings}, volume 7874 of {\em Lecture
+  Notes in Computer Science}, pages 234--250. Springer, 2013.
+
+\bibitem{SchuttFS13}
+Andreas Schutt, Thibaut Feydy, and Peter~J. Stuckey.
+\newblock Scheduling optional tasks with explanation.
+\newblock In Christian Schulte, editor, {\em Principles and Practice of
+  Constraint Programming - 19th International Conference, {CP} 2013, Uppsala,
+  Sweden, September 16-20, 2013. Proceedings}, volume 8124 of {\em Lecture
+  Notes in Computer Science}, pages 628--644. Springer, 2013.
+
+\bibitem{SchuttFSW09}
+Andreas Schutt, Thibaut Feydy, Peter~J. Stuckey, and Mark Wallace.
+\newblock Why cumulative decomposition is not as bad as it sounds.
+\newblock In Ian~P. Gent, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2009, 15th International Conference, {CP} 2009, Lisbon,
+  Portugal, September 20-24, 2009, Proceedings}, volume 5732 of {\em Lecture
+  Notes in Computer Science}, pages 746--761. Springer, 2009.
+
+\bibitem{SchuttFSW11}
+Andreas Schutt, Thibaut Feydy, Peter~J. Stuckey, and Mark~G. Wallace.
+\newblock Explaining the cumulative propagator.
+\newblock {\em Constraints An Int. J.}, 16(3):250--282, 2011.
+
+\bibitem{SchuttS16}
+Andreas Schutt and Peter~J. Stuckey.
+\newblock Explaining producer/consumer constraints.
+\newblock In Michel Rueher, editor, {\em Principles and Practice of Constraint
+  Programming - 22nd International Conference, {CP} 2016, Toulouse, France,
+  September 5-9, 2016, Proceedings}, volume 9892 of {\em Lecture Notes in
+  Computer Science}, pages 438--454. Springer, 2016.
+
+\bibitem{SchuttW10}
+Andreas Schutt and Armin Wolf.
+\newblock A new \emph{O}(\emph{n}\({}^{\mbox{2}}\)log\emph{n})
+  not-first/not-last pruning algorithm for cumulative resource constraints.
+\newblock In David Cohen, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2010 - 16th International Conference, {CP} 2010, St.
+  Andrews, Scotland, UK, September 6-10, 2010. Proceedings}, volume 6308 of
+  {\em Lecture Notes in Computer Science}, pages 445--459. Springer, 2010.
+
+\bibitem{SerraNM12}
+Thiago Serra, Gilberto Nishioka, and Fernando J.~M. Marcellino.
+\newblock The offshore resources scheduling problem: Detailing a constraint
+  programming approach.
+\newblock In Michela Milano, editor, {\em Principles and Practice of Constraint
+  Programming - 18th International Conference, {CP} 2012, Qu{\'{e}}bec City,
+  QC, Canada, October 8-12, 2012. Proceedings}, volume 7514 of {\em Lecture
+  Notes in Computer Science}, pages 823--839. Springer, 2012.
+
+\bibitem{Siala15}
+Mohamed Siala.
+\newblock Search, propagation, and learning in sequencing and scheduling
+  problems.
+\newblock {\em Constraints An Int. J.}, 20(4):479--480, 2015.
+
+\bibitem{SialaAH15}
+Mohamed Siala, Christian Artigues, and Emmanuel Hebrard.
+\newblock Two clause learning approaches for disjunctive scheduling.
+\newblock In Gilles Pesant, editor, {\em Principles and Practice of Constraint
+  Programming - 21st International Conference, {CP} 2015, Cork, Ireland, August
+  31 - September 4, 2015, Proceedings}, volume 9255 of {\em Lecture Notes in
+  Computer Science}, pages 393--402. Springer, 2015.
+
+\bibitem{SimoninAHL12}
+Gilles Simonin, Christian Artigues, Emmanuel Hebrard, and Pierre Lopez.
+\newblock Scheduling scientific experiments on the rosetta/philae mission.
+\newblock In Michela Milano, editor, {\em Principles and Practice of Constraint
+  Programming - 18th International Conference, {CP} 2012, Qu{\'{e}}bec City,
+  QC, Canada, October 8-12, 2012. Proceedings}, volume 7514 of {\em Lecture
+  Notes in Computer Science}, pages 23--37. Springer, 2012.
+
+\bibitem{SimoninAHL15}
+Gilles Simonin, Christian Artigues, Emmanuel Hebrard, and Pierre Lopez.
+\newblock Scheduling scientific experiments for comet exploration.
+\newblock {\em Constraints An Int. J.}, 20(1):77--99, 2015.
+
+\bibitem{Simonis95}
+Helmut Simonis.
+\newblock The {CHIP} system and its applications.
+\newblock In Ugo Montanari and Francesca Rossi, editors, {\em Principles and
+  Practice of Constraint Programming - CP'95, First International Conference,
+  CP'95, Cassis, France, September 19-22, 1995, Proceedings}, volume 976 of
+  {\em Lecture Notes in Computer Science}, pages 643--646. Springer, 1995.
+
+\bibitem{Simonis07}
+Helmut Simonis.
+\newblock Models for global constraint applications.
+\newblock {\em Constraints An Int. J.}, 12(1):63--92, 2007.
+
+\bibitem{SimonisC95}
+Helmut Simonis and Trijntje Cornelissens.
+\newblock Modelling producer/consumer constraints.
+\newblock In Ugo Montanari and Francesca Rossi, editors, {\em Principles and
+  Practice of Constraint Programming - CP'95, First International Conference,
+  CP'95, Cassis, France, September 19-22, 1995, Proceedings}, volume 976 of
+  {\em Lecture Notes in Computer Science}, pages 449--462. Springer, 1995.
+
 \bibitem{SquillaciPR23}
 Samuel Squillaci, C{\'{e}}dric Pralet, and St{\'{e}}phanie Roussel.
 \newblock Scheduling complex observation requests for a constellation of
@@ -297,6 +1820,15 @@ Samuel Squillaci, C{\'{e}}dric Pralet, and St{\'{e}}phanie Roussel.
   International Conference, {CPAIOR} 2023, Nice, France, May 29 - June 1, 2023,
   Proceedings}, volume 13884 of {\em Lecture Notes in Computer Science}, pages
   443--459. Springer, 2023.
+
+\bibitem{SzerediS16}
+Ria Szeredi and Andreas Schutt.
+\newblock Modelling and solving multi-mode resource-constrained project
+  scheduling.
+\newblock In Michel Rueher, editor, {\em Principles and Practice of Constraint
+  Programming - 22nd International Conference, {CP} 2016, Toulouse, France,
+  September 5-9, 2016, Proceedings}, volume 9892 of {\em Lecture Notes in
+  Computer Science}, pages 483--492. Springer, 2016.
 
 \bibitem{TangB20}
 Tanya~Y. Tang and J.~Christopher Beck.
@@ -318,6 +1850,182 @@ Fabio Tardivo, Agostino Dovier, Andrea Formisano, Laurent Michel, and Enrico
   Proceedings}, volume 13884 of {\em Lecture Notes in Computer Science}, pages
   336--353. Springer, 2023.
 
+\bibitem{Tesch16}
+Alexander Tesch.
+\newblock A nearly exact propagation algorithm for energetic reasoning in
+  {\textbackslash}mathcal o(n{\^{}}2 {\textbackslash}log n).
+\newblock In Michel Rueher, editor, {\em Principles and Practice of Constraint
+  Programming - 22nd International Conference, {CP} 2016, Toulouse, France,
+  September 5-9, 2016, Proceedings}, volume 9892 of {\em Lecture Notes in
+  Computer Science}, pages 493--519. Springer, 2016.
+
+\bibitem{Tesch18}
+Alexander Tesch.
+\newblock Improving energetic propagations for cumulative scheduling.
+\newblock In John~N. Hooker, editor, {\em Principles and Practice of Constraint
+  Programming - 24th International Conference, {CP} 2018, Lille, France, August
+  27-31, 2018, Proceedings}, volume 11008 of {\em Lecture Notes in Computer
+  Science}, pages 629--645. Springer, 2018.
+
+\bibitem{Touraivane95}
+Toura{\"{\i}}vane.
+\newblock Constraint programming and industrial applications.
+\newblock In Ugo Montanari and Francesca Rossi, editors, {\em Principles and
+  Practice of Constraint Programming - CP'95, First International Conference,
+  CP'95, Cassis, France, September 19-22, 1995, Proceedings}, volume 976 of
+  {\em Lecture Notes in Computer Science}, pages 640--642. Springer, 1995.
+
+\bibitem{AkkerDH07}
+J.~M. van~den Akker, Guido Diepen, and J.~A. Hoogeveen.
+\newblock A column generation based destructive lower bound for resource
+  constrained project scheduling problems.
+\newblock In Pascal~Van Hentenryck and Laurence~A. Wolsey, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, 4th International Conference, {CPAIOR}
+  2007, Brussels, Belgium, May 23-26, 2007, Proceedings}, volume 4510 of {\em
+  Lecture Notes in Computer Science}, pages 376--390. Springer, 2007.
+
+\bibitem{BogaerdtW19}
+Pim van~den Bogaerdt and Mathijs de~Weerdt.
+\newblock Lower bounds for uniform machine scheduling using decision diagrams.
+\newblock In Louis{-}Martin Rousseau and Kostas Stergiou, editors, {\em
+  Integration of Constraint Programming, Artificial Intelligence, and
+  Operations Research - 16th International Conference, {CPAIOR} 2019,
+  Thessaloniki, Greece, June 4-7, 2019, Proceedings}, volume 11494 of {\em
+  Lecture Notes in Computer Science}, pages 565--580. Springer, 2019.
+
+\bibitem{KrogtLPHJ07}
+Roman van~der Krogt, James Little, Kenneth Pulliam, Sue Hanhilammi, and Yue
+  Jin.
+\newblock Scheduling for cellular manufacturing.
+\newblock In Christian Bessiere, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2007, 13th International Conference, {CP} 2007,
+  Providence, RI, USA, September 23-27, 2007, Proceedings}, volume 4741 of {\em
+  Lecture Notes in Computer Science}, pages 105--117. Springer, 2007.
+
+\bibitem{VanczaM01}
+J{\'{o}}zsef V{\'{a}}ncza and Andr{\'{a}}s M{\'{a}}rkus.
+\newblock A constraint engine for manufacturing process planning.
+\newblock In Toby Walsh, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2001, 7th International Conference, {CP} 2001, Paphos,
+  Cyprus, November 26 - December 1, 2001, Proceedings}, volume 2239 of {\em
+  Lecture Notes in Computer Science}, pages 745--759. Springer, 2001.
+
+\bibitem{VerfaillieL01}
+G{\'{e}}rard Verfaillie and Michel Lema{\^{\i}}tre.
+\newblock Selecting and scheduling observations for agile satellites: Some
+  lessons from the constraint reasoning community point of view.
+\newblock In Toby Walsh, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2001, 7th International Conference, {CP} 2001, Paphos,
+  Cyprus, November 26 - December 1, 2001, Proceedings}, volume 2239 of {\em
+  Lecture Notes in Computer Science}, pages 670--684. Springer, 2001.
+
+\bibitem{Vilim02}
+Petr Vil{\'{\i}}m.
+\newblock Batch processing with sequence dependent setup times.
+\newblock In Pascal~Van Hentenryck, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2002, 8th International Conference, {CP} 2002,
+  Ithaca, NY, USA, September 9-13, 2002, Proceedings}, volume 2470 of {\em
+  Lecture Notes in Computer Science}, page 764. Springer, 2002.
+
+\bibitem{Vilim03}
+Petr Vil{\'{\i}}m.
+\newblock Computing explanations for global scheduling constraints.
+\newblock In Francesca Rossi, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2003, 9th International Conference, {CP} 2003,
+  Kinsale, Ireland, September 29 - October 3, 2003, Proceedings}, volume 2833
+  of {\em Lecture Notes in Computer Science}, page 1000. Springer, 2003.
+
+\bibitem{Vilim04}
+Petr Vil{\'{\i}}m.
+\newblock O(n log n) filtering algorithms for unary resource constraint.
+\newblock In Jean{-}Charles R{\'{e}}gin and Michel Rueher, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems, First International Conference, {CPAIOR}
+  2004, Nice, France, April 20-22, 2004, Proceedings}, volume 3011 of {\em
+  Lecture Notes in Computer Science}, pages 335--347. Springer, 2004.
+
+\bibitem{Vilim05}
+Petr Vil{\'{\i}}m.
+\newblock Computing explanations for the unary resource constraint.
+\newblock In Roman Bart{\'{a}}k and Michela Milano, editors, {\em Integration
+  of {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, Second International Conference, {CPAIOR} 2005,
+  Prague, Czech Republic, May 30 - June 1, 2005, Proceedings}, volume 3524 of
+  {\em Lecture Notes in Computer Science}, pages 396--409. Springer, 2005.
+
+\bibitem{Vilim09}
+Petr Vil{\'{\i}}m.
+\newblock Edge finding filtering algorithm for discrete cumulative resources in
+  \emph{O}(\emph{kn} log \emph{n})\{{\textbackslash}mathcal O\}(kn
+  \{{\textbackslash}rm log\} n).
+\newblock In Ian~P. Gent, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2009, 15th International Conference, {CP} 2009, Lisbon,
+  Portugal, September 20-24, 2009, Proceedings}, volume 5732 of {\em Lecture
+  Notes in Computer Science}, pages 802--816. Springer, 2009.
+
+\bibitem{cpaior-Vilim09}
+Petr Vil{\'{\i}}m.
+\newblock Max energy filtering algorithm for discrete cumulative resources.
+\newblock In Willem~Jan van Hoeve and John~N. Hooker, editors, {\em Integration
+  of {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 6th International Conference, {CPAIOR} 2009,
+  Pittsburgh, PA, USA, May 27-31, 2009, Proceedings}, volume 5547 of {\em
+  Lecture Notes in Computer Science}, pages 294--308. Springer, 2009.
+
+\bibitem{Vilim11}
+Petr Vil{\'{\i}}m.
+\newblock Timetable edge finding filtering algorithm for discrete cumulative
+  resources.
+\newblock In Tobias Achterberg and J.~Christopher Beck, editors, {\em
+  Integration of {AI} and {OR} Techniques in Constraint Programming for
+  Combinatorial Optimization Problems - 8th International Conference, {CPAIOR}
+  2011, Berlin, Germany, May 23-27, 2011. Proceedings}, volume 6697 of {\em
+  Lecture Notes in Computer Science}, pages 230--245. Springer, 2011.
+
+\bibitem{VilimBC04}
+Petr Vil{\'{\i}}m, Roman Bart{\'{a}}k, and Ondrej Cepek.
+\newblock Unary resource constraint with optional activities.
+\newblock In Mark Wallace, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2004, 10th International Conference, {CP} 2004, Toronto,
+  Canada, September 27 - October 1, 2004, Proceedings}, volume 3258 of {\em
+  Lecture Notes in Computer Science}, pages 62--76. Springer, 2004.
+
+\bibitem{VilimBC05}
+Petr Vil{\'{\i}}m, Roman Bart{\'{a}}k, and Ondrej Cepek.
+\newblock Extension of \emph{O}(\emph{n} log \emph{n}) filtering algorithms for
+  the unary resource constraint to optional activities.
+\newblock {\em Constraints An Int. J.}, 10(4):403--425, 2005.
+
+\bibitem{VilimLS15}
+Petr Vil{\'{\i}}m, Philippe Laborie, and Paul Shaw.
+\newblock Failure-directed search for constraint-based scheduling.
+\newblock In Laurent Michel, editor, {\em Integration of {AI} and {OR}
+  Techniques in Constraint Programming - 12th International Conference,
+  {CPAIOR} 2015, Barcelona, Spain, May 18-22, 2015, Proceedings}, volume 9075
+  of {\em Lecture Notes in Computer Science}, pages 437--453. Springer, 2015.
+
+\bibitem{Wallace96}
+Mark Wallace.
+\newblock Practical applications of constraint programming.
+\newblock {\em Constraints An Int. J.}, 1(1/2):139--168, 1996.
+
+\bibitem{WallaceY20}
+Mark Wallace and Neil Yorke{-}Smith.
+\newblock A new constraint programming model and solving for the cyclic hoist
+  scheduling problem.
+\newblock {\em Constraints An Int. J.}, 25(3-4):319--337, 2020.
+
+\bibitem{WatsonB08}
+Jean{-}Paul Watson and J.~Christopher Beck.
+\newblock A hybrid constraint programming / local search approach to the
+  job-shop scheduling problem.
+\newblock In Laurent Perron and Michael~A. Trick, editors, {\em Integration of
+  {AI} and {OR} Techniques in Constraint Programming for Combinatorial
+  Optimization Problems, 5th International Conference, {CPAIOR} 2008, Paris,
+  France, May 20-23, 2008, Proceedings}, volume 5015 of {\em Lecture Notes in
+  Computer Science}, pages 263--277. Springer, 2008.
+
 \bibitem{WessenCS20}
 Johan Wess{\'{e}}n, Mats Carlsson, and Christian Schulte.
 \newblock Scheduling of dual-arm multi-tool assembly robots and workspace
@@ -336,5 +2044,52 @@ Felix Winter, Sebastian Meiswinkel, Nysret Musliu, and Daniel Walkiewicz.
   Principles and Practice of Constraint Programming, {CP} 2022, July 31 to
   August 8, 2022, Haifa, Israel}, volume 235 of {\em LIPIcs}, pages
   41:1--41:18. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2022.
+
+\bibitem{Wolf03}
+Armin Wolf.
+\newblock Pruning while sweeping over task intervals.
+\newblock In Francesca Rossi, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2003, 9th International Conference, {CP} 2003,
+  Kinsale, Ireland, September 29 - October 3, 2003, Proceedings}, volume 2833
+  of {\em Lecture Notes in Computer Science}, pages 739--753. Springer, 2003.
+
+\bibitem{WuBB05}
+Christine~Wei Wu, Kenneth~N. Brown, and J.~Christopher Beck.
+\newblock Scheduling with uncertain start dates.
+\newblock In Peter van Beek, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2005, 11th International Conference, {CP} 2005, Sitges,
+  Spain, October 1-5, 2005, Proceedings}, volume 3709 of {\em Lecture Notes in
+  Computer Science}, page 872. Springer, 2005.
+
+\bibitem{YangSS19}
+Moli Yang, Andreas Schutt, and Peter~J. Stuckey.
+\newblock Time table edge finding with energy variables.
+\newblock In Louis{-}Martin Rousseau and Kostas Stergiou, editors, {\em
+  Integration of Constraint Programming, Artificial Intelligence, and
+  Operations Research - 16th International Conference, {CPAIOR} 2019,
+  Thessaloniki, Greece, June 4-7, 2019, Proceedings}, volume 11494 of {\em
+  Lecture Notes in Computer Science}, pages 633--642. Springer, 2019.
+
+\bibitem{YoungFS17}
+Kenneth~D. Young, Thibaut Feydy, and Andreas Schutt.
+\newblock Constraint programming applied to the multi-skill project scheduling
+  problem.
+\newblock In J.~Christopher Beck, editor, {\em Principles and Practice of
+  Constraint Programming - 23rd International Conference, {CP} 2017, Melbourne,
+  VIC, Australia, August 28 - September 1, 2017, Proceedings}, volume 10416 of
+  {\em Lecture Notes in Computer Science}, pages 308--317. Springer, 2017.
+
+\bibitem{Zhou96}
+Jianyang Zhou.
+\newblock A constraint program for solving the job-shop problem.
+\newblock In Eugene~C. Freuder, editor, {\em Proceedings of the Second
+  International Conference on Principles and Practice of Constraint
+  Programming, Cambridge, Massachusetts, USA, August 19-22, 1996}, volume 1118
+  of {\em Lecture Notes in Computer Science}, pages 510--524. Springer, 1996.
+
+\bibitem{Zhou97}
+Jianyang Zhou.
+\newblock A permutation-based approach for solving the job-shop problem.
+\newblock {\em Constraints An Int. J.}, 2(2):185--213, 1997.
 
 \end{thebibliography}
