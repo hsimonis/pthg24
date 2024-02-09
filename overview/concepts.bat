@@ -1,30 +1,33 @@
-pdfgrep -c -i "alternative constraint" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "cumulative" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "disjunctive" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "diffn" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "table constraint" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "regular expression" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "circuit" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "nooverlap" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "endbeforestart" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "alwaysin" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "span constraint" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "bin.?packing" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "cplex" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "gurobi" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "gecode" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "choco" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "mistral" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "or.?tools" papers/*.pdf articles/*.pdf
-pdfgrep -c  "OPL" papers/*.pdf articles/*.pdf
-pdfgrep -c  "CHIP" papers/*.pdf articles/*.pdf
-pdfgrep -c  "Z3" papers/*.pdf articles/*.pdf
-pdfgrep -c  "OZ" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "claire" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "cpo" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "chuffed" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "sicstus" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "eclipse" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "ilog solver" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "ilog scheduler" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "mini.?zinc" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "scheduling" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "order" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "job" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "task" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "activity" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "resource" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "machine" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "precedence" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "preempt" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "no preempt" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "sequence dependent setup" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "transportation" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "make to order" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "make to stock" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "inventory" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "stock level" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "bill of material" papers/*.pdf articles/*.pdf
+pdfgrep -c  "BOM" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "make.?span" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "cmax" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "completion.?time" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "flow.?time" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "lateness" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "tardiness" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "earlyness" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "flow.?shop" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "job.?shop" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "open.?shop" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "release.?date" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "due.?date" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "setup.?time" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "buffer.?capacity" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "manpower" papers/*.pdf articles/*.pdf

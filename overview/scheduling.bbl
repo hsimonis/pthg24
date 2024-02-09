@@ -336,6 +336,18 @@ Jean{-}Charles Billaut, Emmanuel Hebrard, and Pierre Lopez.
 \newblock \href {https://doi.org/10.1007/978-3-642-29828-8\_5}
   {\path{doi:10.1007/978-3-642-29828-8\_5}}.
 
+\bibitem{Bit-Monnot23}
+Arthur Bit{-}Monnot.
+\newblock Enhancing hybrid {CP-SAT} search for disjunctive scheduling.
+\newblock In Kobi Gal, Ann Now{\'{e}}, Grzegorz~J. Nalepa, Roy Fairstein, and
+  Roxana Radulescu, editors, {\em {ECAI} 2023 - 26th European Conference on
+  Artificial Intelligence, September 30 - October 4, 2023, Krak{\'{o}}w, Poland
+  - Including 12th Conference on Prestigious Applications of Intelligent
+  Systems {(PAIS} 2023)}, volume 372 of {\em Frontiers in Artificial
+  Intelligence and Applications}, pages 255--262. {IOS} Press, 2023.
+\newblock \href {https://doi.org/10.3233/FAIA230278}
+  {\path{doi:10.3233/FAIA230278}}.
+
 \bibitem{BofillCSV17}
 Miquel Bofill, Jordi Coll, Josep Suy, and Mateu Villaret.
 \newblock An efficient {SMT} approach to solve mrcpsp/max instances with tight
@@ -2539,6 +2551,30 @@ Mark Wallace and Neil Yorke{-}Smith.
 \newblock URL: \url{https://doi.org/10.1007/s10601-020-09316-z}, \href
   {https://doi.org/10.1007/S10601-020-09316-Z}
   {\path{doi:10.1007/S10601-020-09316-Z}}.
+
+\bibitem{WangB20}
+Ruixin Wang and Nicolas Barnier.
+\newblock Global propagation of transition cost for fixed job scheduling.
+\newblock In Giuseppe~De Giacomo, Alejandro Catal{\'{a}}, Bistra Dilkina,
+  Michela Milano, Sen{\'{e}}n Barro, Alberto Bugar{\'{\i}}n, and
+  J{\'{e}}r{\^{o}}me Lang, editors, {\em {ECAI} 2020 - 24th European Conference
+  on Artificial Intelligence, 29 August-8 September 2020, Santiago de
+  Compostela, Spain, August 29 - September 8, 2020 - Including 10th Conference
+  on Prestigious Applications of Artificial Intelligence {(PAIS} 2020)}, volume
+  325 of {\em Frontiers in Artificial Intelligence and Applications}, pages
+  363--370. {IOS} Press, 2020.
+\newblock \href {https://doi.org/10.3233/FAIA200114}
+  {\path{doi:10.3233/FAIA200114}}.
+
+\bibitem{WangB23}
+Ruixin Wang and Nicolas Barnier.
+\newblock Dynamic all-different and maximal cliques constraints for fixed job
+  scheduling.
+\newblock In {\em 35th {IEEE} International Conference on Tools with Artificial
+  Intelligence, {ICTAI} 2023, Atlanta, GA, USA, November 6-8, 2023}, pages
+  385--392. {IEEE}, 2023.
+\newblock \href {https://doi.org/10.1109/ICTAI59109.2023.00062}
+  {\path{doi:10.1109/ICTAI59109.2023.00062}}.
 
 \bibitem{WatsonB08}
 Jean{-}Paul Watson and J.~Christopher Beck.
