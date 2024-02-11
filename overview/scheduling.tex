@@ -73,7 +73,7 @@ C. Hanen, A. Kordon, T. Pedersen & \href{papers/HanenKP21.pdf}{Two Deadline Redu
 M. {\AA}strand, M. Johansson, H.Feyzmahdavian & \href{papers/Astrand0F21.pdf}{Short-Term Scheduling of Production Fleets in Underground Mines Using CP-Based {LNS}} & \cite{Astrand0F21} & 2021 & CPAIOR & 18 & Gecode & \su{ref generated} & n & - & & -\\
 T. Geibinger, L. Kletzander, M. Krainz, F. Mischek, N. Musliu, F. Winter & \href{papers/GeibingerKKMMW21.pdf}{Physician Scheduling During a Pandemic} & \cite{GeibingerKKMMW21} & 2021 & CPAIOR & 10 & MiniZinc & \href{https://cdlab-artis.dbai.tuwien.ac.at/papers/pandemic-scheduling/}{y} & n& - & & nvalue\\	
 M. Nattaf, A. Malapert & \href{papers/NattafM20.pdf}{Filtering Rules for Flow Time Minimization in a Parallel Machine Scheduling Problem} & \cite{NattafM20} & 2020 & CP & 16 & \su{Cplex {CP Opt}}& - & - & \cite{} & PTC & \su{alternative noOverlap}\\
-L. Groleaz, S. Ndiaye, C. Solnon & \href{papers/GroleazNS20.pdf}{Solving the Group Cumulative Scheduling Problem with {CPO} and {ACO}} & \cite{GroleazNS20} & 2020 & CP & 17 & \su{{CP Opt} ACO} & - & - & \cite{DBLP:conf/gecco/GroleazNS20}& GCSP & group cumulative\\
+L. Groleaz, S. Ndiaye, C. Solnon & \href{papers/GroleazNS20.pdf}{Solving the Group Cumulative Scheduling Problem with {CPO} and {ACO}} & \cite{GroleazNS20} & 2020 & CP & 17 & \su{{CP Opt} ACO} & - & - & \cite{GroleazNS20}& GCSP & group cumulative\\
 A. Mercier{-}Aubin, J. Gaudreault, C. Quimper & \href{papers/Mercier-AubinGQ20.pdf}{Leveraging Constraint Scheduling: {A} Case Study to the Textile Industry} & \cite{Mercier-AubinGQ20} & 2020 & CPAIOR & 13 & \su{MiniZinc Chuffed}& a & a & - & & \su{circuit cumulative} \\
 T. Tang, C. Beck & \href{papers/TangB20.pdf}{{CP} and Hybrid Models for Two-Stage Batching and Scheduling} & \cite{TangB20} & 2020 & CPAIOR & 16 & \su{Cplex {CP Opt}}& n & n & - & 2BPHFSP & \su{span alwaysIn} \\
 J. Wess{\'{e}}n, M. Carlsson, C. Schulte & \href{papers/WessenCS20.pdf}{Scheduling of Dual-Arm Multi-tool Assembly Robots and Workspace Layout Optimization} & \cite{WessenCS20} & 2020 & CPAIOR & 10 & Gecode & n & n & - & & \su{circuit alldifferent} \\	
@@ -259,43 +259,6 @@ R. Wang, N. Barnier& \href{papers/WangB20.pdf}{Global Propagation of Transition 
 \end{longtable}
 }
 
-\begin{table}[htbp]
-\caption{\label{tab:classification}Problem Classification Types}
-\begin{tabular}{lp{8cm}}\toprule
-Code & Name \\ \midrule
-JSSP & Job-Shop Scheduling Problem \\
-JSPT & Job-Shop Scheduling Problem with Transportation \\
-PP-MS-MMRCPSP/max-cal & partially preemptive- multi-skill/mode resource-constrained project scheduling problem with generalized precedence relations and resource calendars\\
-RCPSP & Resource Constrained Project Scheduling Problem \\
-TMS & Transmission Network Maintenance Planning \\
-PMSP & Parallel Machine Scheduling Problem\\
-HFF & Hybrid Flexible Flow-shop \\
-$HFFm|tt|C_{\max}$ & Hybrid Flexible Flowshop with Transportation Times\\
-OSP & Oven Scheduling Problem \\
-PTC & Scheduling Problem with Time Constraints\\
-GCSP & Group Cumulative Scheduling Problem \\
-2BPHFSP & Two-Stage Bin Packing and Hybrid Flow Shop Scheduling Problem\\
-CTW & Cable Tree Wiring Problem\\
-CHSP & Cyclic Hoist Scheduling Problem \\
-CECSP & Continuous Energy-Constrained Scheduling Problem \\
-CuSP & Cumulative Scheduling Problem \\
-SBSFMMAL & Simultaneous Balancing and Scheduling of Flexible Mixed Model Assembly Lines\\
-SMSDP & steel mill slab design problem \\
-KRFP & kernel resource feasibility problem\\
-TCSP & Temporal Constraint Satisfaction Problem\\
-PJSSP & Pre-emptive Job-Shop scheduling Problem\\
-MGAP & Modified Generalized Assignment Problem\\
-EOSP & Earth Observation Scheduling Problem \\
-SCC & Steel-making and continuous casting \\
-OSSP & Open Shop Scheduling Problem\\
-FJS & Fixed Job Scheduling\\
-RCPSPDC & Resource-constrained Project Scheduling Problem with Discounted Cashflow \\
-LSFRP & Liner Shipping Fleet Repositioning Problem\\
-BPCTOP & Bulk Port Cargo Throughput Optimisation Problem\\
-
-\bottomrule
-\end{tabular}
-\end{table}
 
 \section{Journal Articles}
 
@@ -359,21 +322,67 @@ D. Grimes, G. Ifrim, B. O'Sullivan, H. Simonis & \href{papers/GrimesIOS14.pdf}{A
 \end{longtable}
 }
 
+\begin{table}[htbp]
+\caption{\label{tab:classification}Problem Classification Types}
+\begin{tabular}{lp{8cm}}\toprule
+Code & Name \\ \midrule
+JSSP & Job-Shop Scheduling Problem \\
+JSPT & Job-Shop Scheduling Problem with Transportation \\
+PP-MS-MMRCPSP/max-cal & partially preemptive- multi-skill/mode resource-constrained project scheduling problem with generalized precedence relations and resource calendars\\
+RCPSP & Resource Constrained Project Scheduling Problem \\
+TMS & Transmission Network Maintenance Planning \\
+PMSP & Parallel Machine Scheduling Problem\\
+HFF & Hybrid Flexible Flow-shop \\
+$HFFm|tt|C_{\max}$ & Hybrid Flexible Flowshop with Transportation Times\\
+OSP & Oven Scheduling Problem \\
+PTC & Scheduling Problem with Time Constraints\\
+GCSP & Group Cumulative Scheduling Problem \\
+2BPHFSP & Two-Stage Bin Packing and Hybrid Flow Shop Scheduling Problem\\
+CTW & Cable Tree Wiring Problem\\
+CHSP & Cyclic Hoist Scheduling Problem \\
+CECSP & Continuous Energy-Constrained Scheduling Problem \\
+CuSP & Cumulative Scheduling Problem \\
+SBSFMMAL & Simultaneous Balancing and Scheduling of Flexible Mixed Model Assembly Lines\\
+SMSDP & steel mill slab design problem \\
+KRFP & kernel resource feasibility problem\\
+TCSP & Temporal Constraint Satisfaction Problem\\
+PJSSP & Pre-emptive Job-Shop scheduling Problem\\
+MGAP & Modified Generalized Assignment Problem\\
+EOSP & Earth Observation Scheduling Problem \\
+SCC & Steel-making and continuous casting \\
+OSSP & Open Shop Scheduling Problem\\
+FJS & Fixed Job Scheduling\\
+RCPSPDC & Resource-constrained Project Scheduling Problem with Discounted Cashflow \\
+LSFRP & Liner Shipping Fleet Repositioning Problem\\
+BPCTOP & Bulk Port Cargo Throughput Optimisation Problem\\
 
+\bottomrule
+\end{tabular}
+\end{table}
+
+\clearpage
 \section{Concept Matching}
 
 In order to find out properties of the articles, we try to find concepts in the pdf versions of the articles. We use the \emph{pdfgrep} command to search for the number of occurrences of certain regular expressions in the files. This often clearly identifies the constraints used in the model, and the solvers that are discussed.
 
-% generated with matrify from pdfgrep of pdfs of articles/papers
-\input{cmatrix}
+% generated with pthg24 from pdfgrep of pdfs of articles/papers
+%\input{../exports/cmatrix}
+%\input{../exports/c1matrix}
+%\input{../exports/c2matrix}
+%\input{../exports/pmatrix}  
+%\input{../exports/smatrix}  
+%\input{../exports/amatrix}  
+%\input{../exports/imatrix}  
+%\input{../exports/bmatrix}  
+%\input{../exports/a1matrix}  
 
-\input{smatrix}  
 
-\input{imatrix}  
+\input{../exports/papers}
+\input{../exports/articles}
 
-\input{amatrix}  
+\input{../exports/work}
 
-\input{lmatrix}  
+\input{../exports/concept}
 
 
 

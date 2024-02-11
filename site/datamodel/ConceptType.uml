@@ -1,0 +1,3 @@
+enum ConceptType
+ConceptType: Concepts,Classification,Constraints,ApplicationAreas,Industries,ProgLanguages,CPSystems,Benchmarks,Algorithms
+

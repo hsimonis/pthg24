@@ -1,0 +1,12 @@
+abstract class Work {
+String author
+List<Author> authors
+String doi
+String key
+String localCopy
+Integer nrPages
+String pages
+String title
+String url
+Integer year
+}

@@ -1,0 +1,5 @@
+enum MatchLevel
+MatchLevel: Weak
+MatchLevel: Medium
+MatchLevel: Strong
+

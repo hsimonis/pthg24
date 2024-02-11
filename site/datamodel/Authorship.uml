@@ -1,0 +1,4 @@
+ class Authorship {
+Author author
+Work work
+}

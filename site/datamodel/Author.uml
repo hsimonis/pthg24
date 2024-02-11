@@ -1,0 +1,4 @@
+ class Author {
+Integer nrWorks
+String shortName
+}

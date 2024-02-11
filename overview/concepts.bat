@@ -22,7 +22,7 @@ pdfgrep -c -i "completion.?time" papers/*.pdf articles/*.pdf
 pdfgrep -c -i "flow.?time" papers/*.pdf articles/*.pdf
 pdfgrep -c -i "lateness" papers/*.pdf articles/*.pdf
 pdfgrep -c -i "tardiness" papers/*.pdf articles/*.pdf
-pdfgrep -c -i "earlyness" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "earliness" papers/*.pdf articles/*.pdf
 pdfgrep -c -i "flow.?shop" papers/*.pdf articles/*.pdf
 pdfgrep -c -i "job.?shop" papers/*.pdf articles/*.pdf
 pdfgrep -c -i "open.?shop" papers/*.pdf articles/*.pdf
@@ -31,3 +31,12 @@ pdfgrep -c -i "due.?date" papers/*.pdf articles/*.pdf
 pdfgrep -c -i "setup.?time" papers/*.pdf articles/*.pdf
 pdfgrep -c -i "buffer.?capacity" papers/*.pdf articles/*.pdf
 pdfgrep -c -i "manpower" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "producer.?consumer" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "distributed" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "multi.?agent" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "re.?scheduling" papers/*.pdf articles/*.pdf
+pdfgrep -c  "Allen.?s algebra" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "temporal constraint reasoning" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "lazy clause generation" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "batch process" papers/*.pdf articles/*.pdf
+pdfgrep -c -i "continuous.?process" papers/*.pdf articles/*.pdf

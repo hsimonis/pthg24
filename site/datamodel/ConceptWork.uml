@@ -1,0 +1,6 @@
+ class ConceptWork {
+Concept concept
+Integer count
+MatchLevel matchLevel
+Work work
+}

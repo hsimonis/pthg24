@@ -1,0 +1,4 @@
+ class Proceedings {
+String series
+String shortName
+}

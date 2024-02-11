@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="body">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="applicationDifference" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="applicationWarning" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="article" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="author" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="authorship" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="collection" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="concept" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="conceptWork" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="inCollection" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="journal" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="paper" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="phDThesis" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="proceedings" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="scenario" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="school" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="applicationDifference">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="item" use="required" type="xs:string"/>
+			<xs:attribute name="type" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="applicationWarning">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="attrString" use="required" type="xs:string"/>
+			<xs:attribute name="classString" use="required" type="xs:string"/>
+			<xs:attribute name="item" use="required" type="xs:string"/>
+			<xs:attribute name="limit" use="required" type="xs:string"/>
+			<xs:attribute name="type" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="article">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="author" use="required" type="xs:string"/>
+			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
+			<xs:attribute name="pages" use="required" type="xs:string"/>
+			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="year" use="required" type="xs:integer"/>
+			<xs:attribute name="journal" use="required" type="xs:IDREF"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="author">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="nrWorks" use="required" type="xs:integer"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="authorship">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="author" use="required" type="xs:IDREF"/>
+			<xs:attribute name="work" use="required" type="xs:IDREF"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="collection">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="concept">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="conceptType" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="conceptWork">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="concept" use="required" type="xs:IDREF"/>
+			<xs:attribute name="count" use="required" type="xs:integer"/>
+			<xs:attribute name="matchLevel" use="required" type="xs:string"/>
+			<xs:attribute name="work" use="required" type="xs:IDREF"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="inCollection">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="author" use="required" type="xs:string"/>
+			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
+			<xs:attribute name="pages" use="required" type="xs:string"/>
+			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="year" use="required" type="xs:integer"/>
+			<xs:attribute name="collection" use="required" type="xs:IDREF"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="journal">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="paper">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="author" use="required" type="xs:string"/>
+			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
+			<xs:attribute name="pages" use="required" type="xs:string"/>
+			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="year" use="required" type="xs:integer"/>
+			<xs:attribute name="proceedings" use="required" type="xs:IDREF"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="phDThesis">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="author" use="required" type="xs:string"/>
+			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
+			<xs:attribute name="pages" use="required" type="xs:string"/>
+			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="year" use="required" type="xs:integer"/>
+			<xs:attribute name="school" use="required" type="xs:IDREF"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="proceedings">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="series" use="required" type="xs:string"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="scenario">
+		<xs:complexType>
+			<xs:attribute name="dirty" use="required" type="xs:boolean"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="valid" use="required" type="xs:boolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="school">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
