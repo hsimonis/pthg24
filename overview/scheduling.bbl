@@ -42,6 +42,15 @@ Rodrigo Acuna{-}Agost, Philippe Michelon, Dominique Feillet, and Serigne Gueye.
 \newblock \href {https://doi.org/10.1007/978-3-642-01929-6\_24}
   {\path{doi:10.1007/978-3-642-01929-6\_24}}.
 
+\bibitem{AggounB92}
+Abderrahmane Aggoun and Nicolas Beldiceanu.
+\newblock Extending {CHIP} in order to solve complex scheduling and placement
+  problems.
+\newblock In Jean{-}Paul Delahaye, Philippe Devienne, Philippe Mathieu, and
+  Pascal Yim, editors, {\em JFPL'92, 1\({}^{\mbox{{\`{e}}res}}\) Journ{\'{e}}es
+  Francophones de Programmation Logique, 25-27 Mai 1992, Lille, France},
+  page~51, 1992.
+
 \bibitem{MelgarejoLS15}
 Pen{\'{e}}lope Aguiar{-}Melgarejo, Philippe Laborie, and Christine Solnon.
 \newblock A time-dependent no-overlap constraint: Application to urban delivery
@@ -138,6 +147,17 @@ Eddie Armstrong, Michele Garraffa, Barry O'Sullivan, and Helmut Simonis.
 \newblock \href {https://doi.org/10.1007/978-3-031-08011-1\_1}
   {\path{doi:10.1007/978-3-031-08011-1\_1}}.
 
+\bibitem{AronssonBK09}
+Martin Aronsson, Markus Bohlin, and Per Kreuger.
+\newblock {MILP} formulations of cumulative constraints for railway scheduling
+  - {A} comparative study.
+\newblock In Jens Clausen and Gabriele~Di Stefano, editors, {\em {ATMOS} 2009 -
+  9th Workshop on Algorithmic Approaches for Transportation Modeling,
+  Optimization, and Systems, {IT} University of Copenhagen, Denmark, September
+  10, 2009}, volume~12 of {\em OASIcs}. Schloss Dagstuhl - Leibniz-Zentrum fuer
+  Informatik, Germany, 2009.
+\newblock URL: \url{http://drops.dagstuhl.de/opus/volltexte/2009/2141}.
+
 \bibitem{ArtiguesBF04}
 Christian Artigues, Sana Belmokhtar, and Dominique Feillet.
 \newblock A new exact solution algorithm for the job shop problem with
@@ -149,6 +169,14 @@ Christian Artigues, Sana Belmokhtar, and Dominique Feillet.
   Lecture Notes in Computer Science}, pages 37--49. Springer, 2004.
 \newblock \href {https://doi.org/10.1007/978-3-540-24664-0\_3}
   {\path{doi:10.1007/978-3-540-24664-0\_3}}.
+
+\bibitem{ArtiguesR00}
+Christian Artigues and Fran{\c{c}}ois Roubellat.
+\newblock A polynomial activity insertion algorithm in a multi-resource
+  schedule with cumulative constraints and multiple modes.
+\newblock {\em Eur. J. Oper. Res.}, 127(2):297--316, 2000.
+\newblock \href {https://doi.org/10.1016/S0377-2217(99)00496-8}
+  {\path{doi:10.1016/S0377-2217(99)00496-8}}.
 
 \bibitem{ArtiouchineB05}
 Konstantin Artiouchine and Philippe Baptiste.
@@ -228,6 +256,14 @@ Philippe Baptiste.
   Notes in Computer Science}, page~1. Springer, 2009.
 \newblock \href {https://doi.org/10.1007/978-3-642-04244-7\_1}
   {\path{doi:10.1007/978-3-642-04244-7\_1}}.
+
+\bibitem{BaptisteB18}
+Philippe Baptiste and Nicolas Bonifas.
+\newblock Redundant cumulative constraints to compute preemptive bounds.
+\newblock {\em Discret. Appl. Math.}, 234:168--177, 2018.
+\newblock URL: \url{https://doi.org/10.1016/j.dam.2017.05.001}, \href
+  {https://doi.org/10.1016/J.DAM.2017.05.001}
+  {\path{doi:10.1016/J.DAM.2017.05.001}}.
 
 \bibitem{BaptisteLPN06}
 Philippe Baptiste, Philippe Laborie, Claude~Le Pape, and Wim Nuijten.
@@ -357,14 +393,6 @@ Mirza~Omer Beg and Peter van Beek.
 \newblock URL: \url{http://doi.acm.org/10.1145/2512470}, \href
   {https://doi.org/10.1145/2512470} {\path{doi:10.1145/2512470}}.
 
-\bibitem{abs-1901-07914}
-Jan~Kristof Behrens, Ralph Lange, and Masoumeh Mansouri.
-\newblock A constraint programming approach to simultaneous task allocation and
-  motion scheduling for industrial dual-arm manipulation tasks.
-\newblock {\em CoRR}, abs/1901.07914, 2019.
-\newblock URL: \url{http://arxiv.org/abs/1901.07914}, \href
-  {http://arxiv.org/abs/1901.07914} {\path{arXiv:1901.07914}}.
-
 \bibitem{BehrensLM19}
 Jan~Kristof Behrens, Ralph Lange, and Masoumeh Mansouri.
 \newblock A constraint programming approach to simultaneous task allocation and
@@ -373,6 +401,14 @@ Jan~Kristof Behrens, Ralph Lange, and Masoumeh Mansouri.
   2019, Montreal, QC, Canada, May 20-24, 2019}, pages 8705--8711. {IEEE}, 2019.
 \newblock \href {https://doi.org/10.1109/ICRA.2019.8794022}
   {\path{doi:10.1109/ICRA.2019.8794022}}.
+
+\bibitem{abs-1901-07914}
+Jan~Kristof Behrens, Ralph Lange, and Masoumeh Mansouri.
+\newblock A constraint programming approach to simultaneous task allocation and
+  motion scheduling for industrial dual-arm manipulation tasks.
+\newblock {\em CoRR}, abs/1901.07914, 2019.
+\newblock URL: \url{http://arxiv.org/abs/1901.07914}, \href
+  {http://arxiv.org/abs/1901.07914} {\path{arXiv:1901.07914}}.
 
 \bibitem{BeldiceanuC02}
 Nicolas Beldiceanu and Mats Carlsson.
@@ -383,6 +419,15 @@ Nicolas Beldiceanu and Mats Carlsson.
   Lecture Notes in Computer Science}, pages 63--79. Springer, 2002.
 \newblock \href {https://doi.org/10.1007/3-540-46135-3\_5}
   {\path{doi:10.1007/3-540-46135-3\_5}}.
+
+\bibitem{BeldiceanuCDP11}
+Nicolas Beldiceanu, Mats Carlsson, Sophie Demassey, and Emmanuel Poder.
+\newblock New filtering for the \emph{cumulative} constraint in the context of
+  non-overlapping rectangles.
+\newblock {\em Ann. Oper. Res.}, 184(1):27--50, 2011.
+\newblock URL: \url{https://doi.org/10.1007/s10479-010-0731-0}, \href
+  {https://doi.org/10.1007/S10479-010-0731-0}
+  {\path{doi:10.1007/S10479-010-0731-0}}.
 
 \bibitem{BeldiceanuCP08}
 Nicolas Beldiceanu, Mats Carlsson, and Emmanuel Poder.
@@ -1124,6 +1169,15 @@ Huali Fan, Hegen Xiong, and Mark Goh.
   {https://doi.org/10.1016/J.COR.2021.105401}
   {\path{doi:10.1016/J.COR.2021.105401}}.
 
+\bibitem{FetgoD22}
+S{\'{e}}v{\'{e}}rine~Betmbe Fetgo and Cl{\'{e}}mentin~Tayou Djam{\'{e}}gni.
+\newblock Horizontally elastic edge-finder algorithm for cumulative resource
+  constraint revisited.
+\newblock {\em Oper. Res. Forum}, 3(4), 2022.
+\newblock URL: \url{https://doi.org/10.1007/s43069-022-00172-6}, \href
+  {https://doi.org/10.1007/S43069-022-00172-6}
+  {\path{doi:10.1007/S43069-022-00172-6}}.
+
 \bibitem{FontaineMH16}
 Daniel Fontaine, Laurent~D. Michel, and Pascal~Van Hentenryck.
 \newblock Parallel composition of scheduling solvers.
@@ -1391,6 +1445,14 @@ Katherine Giles and Willem{-}Jan van Hoeve.
 \newblock \href {https://doi.org/10.1007/978-3-319-44953-1\_38}
   {\path{doi:10.1007/978-3-319-44953-1\_38}}.
 
+\bibitem{GingrasQ16}
+Vincent Gingras and Claude{-}Guy Quimper.
+\newblock Generalizing the edge-finder rule for the cumulative constraint.
+\newblock In Subbarao Kambhampati, editor, {\em Proceedings of the Twenty-Fifth
+  International Joint Conference on Artificial Intelligence, {IJCAI} 2016, New
+  York, NY, USA, 9-15 July 2016}, pages 3103--3109. {IJCAI/AAAI} Press, 2016.
+\newblock URL: \url{http://www.ijcai.org/Abstract/16/440}.
+
 \bibitem{Godet21a}
 Arthur Godet.
 \newblock {\em Sur le tri de t{\^{a}}ches pour r{\'{e}}soudre des
@@ -1647,6 +1709,16 @@ Stefan Heinz, Thomas Schlechte, R{\"{u}}diger Stephan, and Michael Winkler.
 \newblock URL: \url{https://doi.org/10.1007/s10601-011-9113-8}, \href
   {https://doi.org/10.1007/S10601-011-9113-8}
   {\path{doi:10.1007/S10601-011-9113-8}}.
+
+\bibitem{HeinzS11}
+Stefan Heinz and Jens Schulz.
+\newblock Explanations for the cumulative constraint: An experimental study.
+\newblock In Panos~M. Pardalos and Steffen Rebennack, editors, {\em
+  Experimental Algorithms - 10th International Symposium, {SEA} 2011,
+  Kolimpari, Chania, Crete, Greece, May 5-7, 2011. Proceedings}, volume 6630 of
+  {\em Lecture Notes in Computer Science}, pages 400--409. Springer, 2011.
+\newblock \href {https://doi.org/10.1007/978-3-642-20662-7\_34}
+  {\path{doi:10.1007/978-3-642-20662-7\_34}}.
 
 \bibitem{HeinzSB13}
 Stefan Heinz, Jens Schulz, and J.~Christopher Beck.
@@ -2073,6 +2145,15 @@ Sebastian Kosch and J.~Christopher Beck.
   {\em Lecture Notes in Computer Science}, pages 55--70. Springer, 2014.
 \newblock \href {https://doi.org/10.1007/978-3-319-07046-9\_5}
   {\path{doi:10.1007/978-3-319-07046-9\_5}}.
+
+\bibitem{KovacsB08}
+Andr{\'{a}}s Kov{\'{a}}cs and J.~Christopher Beck.
+\newblock A global constraint for total weighted completion time for cumulative
+  resources.
+\newblock {\em Eng. Appl. Artif. Intell.}, 21(5):691--697, 2008.
+\newblock URL: \url{https://doi.org/10.1016/j.engappai.2008.03.004}, \href
+  {https://doi.org/10.1016/J.ENGAPPAI.2008.03.004}
+  {\path{doi:10.1016/J.ENGAPPAI.2008.03.004}}.
 
 \bibitem{KovacsB11}
 Andr{\'{a}}s Kov{\'{a}}cs and J.~Christopher Beck.
@@ -2512,6 +2593,16 @@ Gilles Madi{-}Wamba and Nicolas Beldiceanu.
   2016.
 \newblock \href {https://doi.org/10.1007/978-3-319-33954-2\_18}
   {\path{doi:10.1007/978-3-319-33954-2\_18}}.
+
+\bibitem{Madi-WambaLOBM17}
+Gilles Madi{-}Wamba, Yunbo Li, Anne{-}C{\'{e}}cile Orgerie, Nicolas Beldiceanu,
+  and Jean{-}Marc Menaud.
+\newblock Green energy aware scheduling problem in virtualized datacenters.
+\newblock In {\em 23rd {IEEE} International Conference on Parallel and
+  Distributed Systems, {ICPADS} 2017, Shenzhen, China, December 15-17, 2017},
+  pages 648--655. {IEEE} Computer Society, 2017.
+\newblock \href {https://doi.org/10.1109/ICPADS.2017.00089}
+  {\path{doi:10.1109/ICPADS.2017.00089}}.
 
 \bibitem{MakMS10}
 Kai{-}Ling Mak, Jun Ma, and Wei Su.
@@ -2992,6 +3083,31 @@ Gilles Pesant, Gregory Rix, and Louis{-}Martin Rousseau.
   of {\em Lecture Notes in Computer Science}, pages 306--321. Springer, 2015.
 \newblock \href {https://doi.org/10.1007/978-3-319-18008-3\_21}
   {\path{doi:10.1007/978-3-319-18008-3\_21}}.
+
+\bibitem{abs-0907-0939}
+Thierry Petit and Emmanuel Poder.
+\newblock The soft cumulative constraint.
+\newblock {\em CoRR}, abs/0907.0939, 2009.
+\newblock URL: \url{http://arxiv.org/abs/0907.0939}, \href
+  {http://arxiv.org/abs/0907.0939} {\path{arXiv:0907.0939}}.
+
+\bibitem{PoderB08}
+Emmanuel Poder and Nicolas Beldiceanu.
+\newblock Filtering for a continuous multi-resources cumulative constraint with
+  resource consumption and production.
+\newblock In Jussi Rintanen, Bernhard Nebel, J.~Christopher Beck, and Eric~A.
+  Hansen, editors, {\em Proceedings of the Eighteenth International Conference
+  on Automated Planning and Scheduling, {ICAPS} 2008, Sydney, Australia,
+  September 14-18, 2008}, pages 264--271. {AAAI}, 2008.
+\newblock URL: \url{http://www.aaai.org/Library/ICAPS/2008/icaps08-033.php}.
+
+\bibitem{PoderBS04}
+Emmanuel Poder, Nicolas Beldiceanu, and Eric Sanlaville.
+\newblock Computing a lower approximation of the compulsory part of a task with
+  varying duration and varying resource consumption.
+\newblock {\em Eur. J. Oper. Res.}, 153(1):239--254, 2004.
+\newblock \href {https://doi.org/10.1016/S0377-2217(02)00756-7}
+  {\path{doi:10.1016/S0377-2217(02)00756-7}}.
 
 \bibitem{PohlAK22}
 Maximilian Pohl, Christian Artigues, and Rainer Kolisch.
@@ -3495,16 +3611,6 @@ Fabio Tardivo, Agostino Dovier, Andrea Formisano, Laurent Michel, and Enrico
 \newblock \href {https://doi.org/10.1007/978-3-031-33271-5\_22}
   {\path{doi:10.1007/978-3-031-33271-5\_22}}.
 
-\bibitem{abs-2306-05747}
-Pierre Tassel, Martin Gebser, and Konstantin Schekotihin.
-\newblock An end-to-end reinforcement learning approach for job-shop scheduling
-  problems based on constraint programming.
-\newblock {\em CoRR}, abs/2306.05747, 2023.
-\newblock URL: \url{https://doi.org/10.48550/arXiv.2306.05747}, \href
-  {http://arxiv.org/abs/2306.05747} {\path{arXiv:2306.05747}}, \href
-  {https://doi.org/10.48550/ARXIV.2306.05747}
-  {\path{doi:10.48550/ARXIV.2306.05747}}.
-
 \bibitem{asselGS23}
 Pierre Tassel, Martin Gebser, and Konstantin Schekotihin.
 \newblock An end-to-end reinforcement learning approach for job-shop scheduling
@@ -3516,6 +3622,16 @@ Pierre Tassel, Martin Gebser, and Konstantin Schekotihin.
 \newblock URL: \url{https://doi.org/10.1609/icaps.v33i1.27243}, \href
   {https://doi.org/10.1609/ICAPS.V33I1.27243}
   {\path{doi:10.1609/ICAPS.V33I1.27243}}.
+
+\bibitem{abs-2306-05747}
+Pierre Tassel, Martin Gebser, and Konstantin Schekotihin.
+\newblock An end-to-end reinforcement learning approach for job-shop scheduling
+  problems based on constraint programming.
+\newblock {\em CoRR}, abs/2306.05747, 2023.
+\newblock URL: \url{https://doi.org/10.48550/arXiv.2306.05747}, \href
+  {http://arxiv.org/abs/2306.05747} {\path{arXiv:2306.05747}}, \href
+  {https://doi.org/10.48550/ARXIV.2306.05747}
+  {\path{doi:10.48550/ARXIV.2306.05747}}.
 
 \bibitem{Tay92}
 David B.~H. Tay.
@@ -3612,6 +3728,15 @@ Toura{\"{\i}}vane.
   {\em Lecture Notes in Computer Science}, pages 640--642. Springer, 1995.
 \newblock \href {https://doi.org/10.1007/3-540-60299-2\_41}
   {\path{doi:10.1007/3-540-60299-2\_41}}.
+
+\bibitem{TrojetHL11}
+Mariem Trojet, Fehmi H'Mida, and Pierre Lopez.
+\newblock Project scheduling under resource constraints: Application of the
+  cumulative global constraint in a decision support framework.
+\newblock {\em Comput. Ind. Eng.}, 61(2):357--363, 2011.
+\newblock URL: \url{https://doi.org/10.1016/j.cie.2010.08.014}, \href
+  {https://doi.org/10.1016/J.CIE.2010.08.014}
+  {\path{doi:10.1016/J.CIE.2010.08.014}}.
 
 \bibitem{Tsang03}
 Edward P.~K. Tsang.
@@ -3922,6 +4047,19 @@ Armin Wolf.
   of {\em Lecture Notes in Computer Science}, pages 739--753. Springer, 2003.
 \newblock \href {https://doi.org/10.1007/978-3-540-45193-8\_50}
   {\path{doi:10.1007/978-3-540-45193-8\_50}}.
+
+\bibitem{WolfS05}
+Armin Wolf and Gunnar Schrader.
+\newblock \emph{O}(\emph{n} log\emph{n}) overload checking for the cumulative
+  constraint and its application.
+\newblock In Masanobu Umeda, Armin Wolf, Oskar Bartenstein, Ulrich Geske,
+  Dietmar Seipel, and Osamu Takata, editors, {\em Declarative Programming for
+  Knowledge Management, 16th International Conference on Applications of
+  Declarative Programming and Knowledge Management, {INAP} 2005, Fukuoka,
+  Japan, October 22-24, 2005, Revised Selected Papers}, volume 4369 of {\em
+  Lecture Notes in Computer Science}, pages 88--101. Springer, 2005.
+\newblock \href {https://doi.org/10.1007/11963578\_8}
+  {\path{doi:10.1007/11963578\_8}}.
 
 \bibitem{WolinskiKG04}
 Christophe Wolinski, Krzysztof Kuchcinski, and Maya~B. Gokhale.

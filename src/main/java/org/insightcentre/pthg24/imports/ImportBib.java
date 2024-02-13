@@ -214,8 +214,8 @@ public class ImportBib {
         String[] series = new String[]{"CPAIOR","ECAI","AAAI","IJCAI","ICTAI","ICAPS","GECCO","CoDIT","ICAART",
                 "ICNSC","ICCL","Fog-IoT","EUROCAST","FUZZ-IEEE","ICRA","IDC","RAAD","ACIIDS","AICCC","AIAI",
                 "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE",
-                "ERCIM/CologNet","APMS",
-                "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM"};
+                "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS",
+                "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA"};
         for(String cand:series) {
             if (text.contains(cand)) {
                 return cand;
