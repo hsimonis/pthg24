@@ -9,33 +9,29 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.AnalysisByConcept.citation;
 import static org.insightcentre.pthg24.analysis.ListPapers.localCopyExists;
-import static org.insightcentre.pthg24.datamodel.ConceptType.*;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
-public class ListArticles {
-    public ListArticles(Scenario base, String exportDir, String fileName){
+public class ListAuthors {
+    public ListAuthors(Scenario base, String exportDir, String fileName){
         assert(exportDir.endsWith("/"));
         String fullName= exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{p{3cm}p{6cm}p{7cm}rrrp{3cm}r}\n");
-            out.printf("\\caption{Articles from bibtex}\\\\ \\toprule\n");
-            out.printf("Key& Authors & Title & LC & Cite & Year & Journal & Pages \\\\ \\midrule");
+            out.printf("\\begin{longtable}{p{4cm}p{15cm}}\n");
+            out.printf("\\caption{Co-Authors of Articles/Papers}\\\\ \\toprule\n");
+            out.printf("Author & Entries \\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
-            for(Article a:sortedArticles(base)){
-                out.printf("%s \\href{%s}{%s} & %s & \\href{%s}{%s} & %s & \\cite{%s} & %d & %s & %d",
-                        a.getKey(),a.getUrl(),a.getKey(),
-                        authors(a),
-                        a.getLocalCopy(), safe(a.getTitle()),
-                        (localCopyExists(a)?"":"NO"),
-                        a.getName(),
-                        a.getYear(),
-                        nameOf(a.getJournal()),
-                        a.getNrPages());
+            for(Author a:sortedAuthors(base)){
+                out.printf("%s & ",safe(a.getName()));
+                for(Authorship as:sortedAuthorship(base,a)){
+                    out.printf("%s ",citation(as.getWork()));
+                }
+
                 out.printf("\\\\\n");
             }
             out.printf("\\end{longtable}\n");
@@ -46,11 +42,19 @@ public class ListArticles {
         }
     }
 
-    private List<Article> sortedArticles(Scenario base){
-        return base.getListArticle().stream().
-                sorted(Comparator.comparing(Work::getYear).reversed().
-                        thenComparing(Work::getName)).
+    private List<Author> sortedAuthors(Scenario base){
+        return base.getListAuthor();
+    }
+
+    private List<Authorship> sortedAuthorship(Scenario base,Author a){
+        return base.getListAuthorship().stream().
+                filter(x->x.getAuthor()==a).
+                sorted(Comparator.comparing(this::year).reversed()).
                 collect(Collectors.toUnmodifiableList());
+    }
+
+    private int year(Authorship as){
+        return as.getWork().getYear();
     }
 
     private String authors(Work a){

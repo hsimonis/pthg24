@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,7 +35,7 @@ public class ListPapers {
                         (localCopyExists(a)?"":"NO"),
                         a.getName(),
                         a.getYear(),
-                        safe(a.getProceedings().getShortName()),
+                        shortProc(a.getProceedings()),
                         a.getNrPages());
                 out.printf("\\\\\n");
             }
@@ -46,6 +47,14 @@ public class ListPapers {
         }
     }
 
+    private String shortProc(Proceedings p){
+        if (p==null){
+            return "-";
+        } else {
+            return safe(p.getShortName());
+        }
+    }
+
     public static boolean localCopyExists(Work a){
         Path path = Paths.get("overview/"+a.getLocalCopy());
         return Files.exists(path);
@@ -53,7 +62,10 @@ public class ListPapers {
     }
 
     private List<Paper> sortedPapers(Scenario base){
-        return base.getListPaper();
+        return base.getListPaper().stream().
+                sorted(Comparator.comparing(Work::getYear).reversed().
+                        thenComparing(Work::getName)).
+                collect(Collectors.toUnmodifiableList());
     }
 
     private String authors(Work a){

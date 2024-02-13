@@ -7,10 +7,7 @@ Generated once, should be extended by user
 import framework.ApplicationDatasetInterface;
 import framework.ApplicationObjectInterface;
 import framework.types.IrishCalendar;
-import org.insightcentre.pthg24.analysis.AnalysisByConcept;
-import org.insightcentre.pthg24.analysis.AnalysisByWork;
-import org.insightcentre.pthg24.analysis.ListArticles;
-import org.insightcentre.pthg24.analysis.ListPapers;
+import org.insightcentre.pthg24.analysis.*;
 import org.insightcentre.pthg24.datamodel.*;
 import org.insightcentre.pthg24.imports.ImportBib;
 import org.insightcentre.pthg24.imports.Importer;
@@ -48,6 +45,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new Importer(base,Algorithms,importDir,"a1found.txt",10,nrFiles,exportDir,"a1matrix.tex");
                 new ListPapers(base,exportDir,"papers.tex");
                 new ListArticles(base,exportDir,"articles.tex");
+                new ListAuthors(base,exportDir,"authors.tex");
                 new AnalysisByWork(base,exportDir,"work.tex");
                 new AnalysisByConcept(base,exportDir,"concept.tex");
                 return base;

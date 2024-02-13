@@ -79,7 +79,7 @@ public class AnalysisByConcept {
         return cw.getWork().getYear();
     }
 
-    private String citation(Work w){
+    public static String citation(Work w){
         return "\\href{"+w.getLocalCopy()+"}{"+w.getName()+"}\\cite{"+safer(w.getName())+"}";
     }
 

@@ -1027,6 +1027,13 @@ Bistra Dilkina, Lei Duan, and William~S. Havens.
 \newblock \href {https://doi.org/10.1007/11564751\_60}
   {\path{doi:10.1007/11564751\_60}}.
 
+\bibitem{DincbasSH90}
+Mehmet Dincbas, Helmut Simonis, and Pascal~Van Hentenryck.
+\newblock Solving large combinatorial problems in logic programming.
+\newblock {\em J. Log. Program.}, 8(1):75--93, 1990.
+\newblock \href {https://doi.org/10.1016/0743-1066(90)90052-7}
+  {\path{doi:10.1016/0743-1066(90)90052-7}}.
+
 \bibitem{DoomsH08}
 Gr{\'{e}}goire Dooms and Pascal~Van Hentenryck.
 \newblock Gap reduction techniques for online stochastic project scheduling.
@@ -3611,7 +3618,7 @@ Fabio Tardivo, Agostino Dovier, Andrea Formisano, Laurent Michel, and Enrico
 \newblock \href {https://doi.org/10.1007/978-3-031-33271-5\_22}
   {\path{doi:10.1007/978-3-031-33271-5\_22}}.
 
-\bibitem{asselGS23}
+\bibitem{TasselGS23}
 Pierre Tassel, Martin Gebser, and Konstantin Schekotihin.
 \newblock An end-to-end reinforcement learning approach for job-shop scheduling
   problems based on constraint programming.

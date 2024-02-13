@@ -8,8 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import static org.insightcentre.pthg24.datamodel.MatchLevel.*;
-import static org.insightcentre.pthg24.logging.LogShortcut.info;
-import static org.insightcentre.pthg24.logging.LogShortcut.severe;
+import static org.insightcentre.pthg24.logging.LogShortcut.*;
 
 public class Importer {
     public Importer(Scenario base, ConceptType type,String dir, String file,int nrConcepts,int nrFiles,String outDir,String outFile){
@@ -50,7 +49,7 @@ public class Importer {
                     sb[j].append(" & ");
                     sb[j].append(matches[1]);
                     Integer count = Integer.parseInt(matches[1]);
-                    if (count > 0) {
+                    if (w != null && count > 0) {
                         ConceptWork cw = findConceptWork(base,c,w,count);
                     }
                 }
@@ -99,17 +98,19 @@ public class Importer {
             case "papers":
                 res = Paper.findByName(base,name);
                 if (res == null){
-                    res = new Paper(base);
-                    res.setName(name);
-                    res.setYear(year(name));
+                    warning("Paper "+name+" not in bibtex");
+//                    res = new Paper(base);
+//                    res.setName(name);
+//                    res.setYear(year(name));
                 }
                 break;
             case "articles":
                 res = Article.findByName(base,name);
                 if (res == null){
-                    res = new Article(base);
-                    res.setName(name);
-                    res.setYear(year(name));
+                    warning("Article "+name+" not in bibtex");
+//                    res = new Article(base);
+//                    res.setName(name);
+//                    res.setYear(year(name));
                 }
                 break;
             default:
