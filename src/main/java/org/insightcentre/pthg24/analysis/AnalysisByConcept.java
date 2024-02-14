@@ -21,7 +21,7 @@ public class AnalysisByConcept {
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{llp{6cm}p{6cm}p{6cm}}\n");
+            out.printf("\\begin{longtable}{lp{3cm}>{\\raggedright}p{6cm}>{\\raggedright}p{6cm}p{8cm}}\n");
             out.printf("\\caption{Papers by Domain and Keyword}\\\\ \\toprule\n");
             out.printf("Domain & Keyword & High & Medium & Low\\\\ \\midrule");
             out.printf("\\endhead\n");

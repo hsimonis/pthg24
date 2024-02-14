@@ -57,6 +57,48 @@ public abstract class Work extends ApplicationObject{
  *
 */
 
+    public String basedOn;
+
+/**
+ *  
+ *
+*/
+
+    public String citations;
+
+/**
+ *  
+ *
+*/
+
+    public String codeAvail;
+
+/**
+ *  
+ *
+*/
+
+    public String constraints;
+
+/**
+ *  
+ *
+*/
+
+    public String cpSystem;
+
+/**
+ *  
+ *
+*/
+
+    public String dataAvail;
+
+/**
+ *  
+ *
+*/
+
     public String doi;
 
 /**
@@ -86,6 +128,13 @@ public abstract class Work extends ApplicationObject{
 */
 
     public String pages;
+
+/**
+ *  
+ *
+*/
+
+    public String solutionAvail;
 
 /**
  *  
@@ -129,11 +178,18 @@ public abstract class Work extends ApplicationObject{
         super(applicationDataset);
         setAuthor("");
         setAuthors(new ArrayList<Author>());
+        setBasedOn("");
+        setCitations("");
+        setCodeAvail("");
+        setConstraints("");
+        setCpSystem("");
+        setDataAvail("");
         setDoi("");
         setKey("");
         setLocalCopy("");
         setNrPages(0);
         setPages("");
+        setSolutionAvail("");
         setTitle("");
         setUrl("");
         setYear(0);
@@ -152,11 +208,18 @@ public abstract class Work extends ApplicationObject{
             String name,
             String author,
             List<Author> authors,
+            String basedOn,
+            String citations,
+            String codeAvail,
+            String constraints,
+            String cpSystem,
+            String dataAvail,
             String doi,
             String key,
             String localCopy,
             Integer nrPages,
             String pages,
+            String solutionAvail,
             String title,
             String url,
             Integer year){
@@ -165,11 +228,18 @@ public abstract class Work extends ApplicationObject{
             name);
         setAuthor(author);
         setAuthors(authors);
+        setBasedOn(basedOn);
+        setCitations(citations);
+        setCodeAvail(codeAvail);
+        setConstraints(constraints);
+        setCpSystem(cpSystem);
+        setDataAvail(dataAvail);
         setDoi(doi);
         setKey(key);
         setLocalCopy(localCopy);
         setNrPages(nrPages);
         setPages(pages);
+        setSolutionAvail(solutionAvail);
         setTitle(title);
         setUrl(url);
         setYear(year);
@@ -182,11 +252,18 @@ public abstract class Work extends ApplicationObject{
             other.name,
             other.author,
             other.authors,
+            other.basedOn,
+            other.citations,
+            other.codeAvail,
+            other.constraints,
+            other.cpSystem,
+            other.dataAvail,
             other.doi,
             other.key,
             other.localCopy,
             other.nrPages,
             other.pages,
+            other.solutionAvail,
             other.title,
             other.url,
             other.year);
@@ -223,6 +300,66 @@ public abstract class Work extends ApplicationObject{
 
     public List<Author> getAuthors(){
         return this.authors;
+    }
+
+/**
+ *  get attribute basedOn
+ *
+ * @return String
+*/
+
+    public String getBasedOn(){
+        return this.basedOn;
+    }
+
+/**
+ *  get attribute citations
+ *
+ * @return String
+*/
+
+    public String getCitations(){
+        return this.citations;
+    }
+
+/**
+ *  get attribute codeAvail
+ *
+ * @return String
+*/
+
+    public String getCodeAvail(){
+        return this.codeAvail;
+    }
+
+/**
+ *  get attribute constraints
+ *
+ * @return String
+*/
+
+    public String getConstraints(){
+        return this.constraints;
+    }
+
+/**
+ *  get attribute cpSystem
+ *
+ * @return String
+*/
+
+    public String getCpSystem(){
+        return this.cpSystem;
+    }
+
+/**
+ *  get attribute dataAvail
+ *
+ * @return String
+*/
+
+    public String getDataAvail(){
+        return this.dataAvail;
     }
 
 /**
@@ -276,6 +413,16 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  get attribute solutionAvail
+ *
+ * @return String
+*/
+
+    public String getSolutionAvail(){
+        return this.solutionAvail;
+    }
+
+/**
  *  get attribute title
  *
  * @return String
@@ -325,6 +472,78 @@ public abstract class Work extends ApplicationObject{
 
     public void setAuthors(List<Author> authors){
         this.authors = authors;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute basedOn, mark dataset as dirty, mark dataset as not valid
+@param basedOn String
+ *
+*/
+
+    public void setBasedOn(String basedOn){
+        this.basedOn = basedOn;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute citations, mark dataset as dirty, mark dataset as not valid
+@param citations String
+ *
+*/
+
+    public void setCitations(String citations){
+        this.citations = citations;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute codeAvail, mark dataset as dirty, mark dataset as not valid
+@param codeAvail String
+ *
+*/
+
+    public void setCodeAvail(String codeAvail){
+        this.codeAvail = codeAvail;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute constraints, mark dataset as dirty, mark dataset as not valid
+@param constraints String
+ *
+*/
+
+    public void setConstraints(String constraints){
+        this.constraints = constraints;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute cpSystem, mark dataset as dirty, mark dataset as not valid
+@param cpSystem String
+ *
+*/
+
+    public void setCpSystem(String cpSystem){
+        this.cpSystem = cpSystem;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute dataAvail, mark dataset as dirty, mark dataset as not valid
+@param dataAvail String
+ *
+*/
+
+    public void setDataAvail(String dataAvail){
+        this.dataAvail = dataAvail;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -385,6 +604,18 @@ public abstract class Work extends ApplicationObject{
 
     public void setPages(String pages){
         this.pages = pages;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute solutionAvail, mark dataset as dirty, mark dataset as not valid
+@param solutionAvail String
+ *
+*/
+
+    public void setSolutionAvail(String solutionAvail){
+        this.solutionAvail = solutionAvail;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -464,7 +695,7 @@ public abstract class Work extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrPages()+ " " +getPages()+ " " +getTitle()+ " " +getUrl()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBasedOn()+ " " +getCitations()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrPages()+ " " +getPages()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear();
     }
 
 /**
@@ -490,11 +721,18 @@ public abstract class Work extends ApplicationObject{
             " name=\""+toXMLName()+"\""+
             " author=\""+toXMLAuthor()+"\""+
             " authors=\""+toXMLAuthors()+"\""+
+            " basedOn=\""+toXMLBasedOn()+"\""+
+            " citations=\""+toXMLCitations()+"\""+
+            " codeAvail=\""+toXMLCodeAvail()+"\""+
+            " constraints=\""+toXMLConstraints()+"\""+
+            " cpSystem=\""+toXMLCpSystem()+"\""+
+            " dataAvail=\""+toXMLDataAvail()+"\""+
             " doi=\""+toXMLDoi()+"\""+
             " key=\""+toXMLKey()+"\""+
             " localCopy=\""+toXMLLocalCopy()+"\""+
             " nrPages=\""+toXMLNrPages()+"\""+
             " pages=\""+toXMLPages()+"\""+
+            " solutionAvail=\""+toXMLSolutionAvail()+"\""+
             " title=\""+toXMLTitle()+"\""+
             " url=\""+toXMLUrl()+"\""+
             " year=\""+toXMLYear()+"\""+" />");
@@ -522,6 +760,66 @@ public abstract class Work extends ApplicationObject{
             str=str+" "+"ID_"+x.getId();
         }
         return str;
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLBasedOn(){
+        return this.safeXML(getBasedOn());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLCitations(){
+        return this.safeXML(getCitations());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLCodeAvail(){
+        return this.safeXML(getCodeAvail());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLConstraints(){
+        return this.safeXML(getConstraints());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLCpSystem(){
+        return this.safeXML(getCpSystem());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLDataAvail(){
+        return this.safeXML(getDataAvail());
     }
 
 /**
@@ -572,6 +870,16 @@ public abstract class Work extends ApplicationObject{
 
     String toXMLPages(){
         return this.safeXML(getPages());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLSolutionAvail(){
+        return this.safeXML(getSolutionAvail());
     }
 
 /**
@@ -703,6 +1011,24 @@ public abstract class Work extends ApplicationObject{
         }
       if (true) {         System.out.println("Authors");
         }
+      if(!this.getBasedOn().equals(b.getBasedOn())){
+         System.out.println("BasedOn");
+        }
+      if(!this.getCitations().equals(b.getCitations())){
+         System.out.println("Citations");
+        }
+      if(!this.getCodeAvail().equals(b.getCodeAvail())){
+         System.out.println("CodeAvail");
+        }
+      if(!this.getConstraints().equals(b.getConstraints())){
+         System.out.println("Constraints");
+        }
+      if(!this.getCpSystem().equals(b.getCpSystem())){
+         System.out.println("CpSystem");
+        }
+      if(!this.getDataAvail().equals(b.getDataAvail())){
+         System.out.println("DataAvail");
+        }
       if(!this.getDoi().equals(b.getDoi())){
          System.out.println("Doi");
         }
@@ -721,6 +1047,9 @@ public abstract class Work extends ApplicationObject{
       if(!this.getPages().equals(b.getPages())){
          System.out.println("Pages");
         }
+      if(!this.getSolutionAvail().equals(b.getSolutionAvail())){
+         System.out.println("SolutionAvail");
+        }
       if(!this.getTitle().equals(b.getTitle())){
          System.out.println("Title");
         }
@@ -732,12 +1061,19 @@ public abstract class Work extends ApplicationObject{
         }
         return  this.getAuthor().equals(b.getAuthor()) &&
           true &&
+          this.getBasedOn().equals(b.getBasedOn()) &&
+          this.getCitations().equals(b.getCitations()) &&
+          this.getCodeAvail().equals(b.getCodeAvail()) &&
+          this.getConstraints().equals(b.getConstraints()) &&
+          this.getCpSystem().equals(b.getCpSystem()) &&
+          this.getDataAvail().equals(b.getDataAvail()) &&
           this.getDoi().equals(b.getDoi()) &&
           this.getKey().equals(b.getKey()) &&
           this.getLocalCopy().equals(b.getLocalCopy()) &&
           this.getName().equals(b.getName()) &&
           this.getNrPages().equals(b.getNrPages()) &&
           this.getPages().equals(b.getPages()) &&
+          this.getSolutionAvail().equals(b.getSolutionAvail()) &&
           this.getTitle().equals(b.getTitle()) &&
           this.getUrl().equals(b.getUrl()) &&
           this.getYear().equals(b.getYear());

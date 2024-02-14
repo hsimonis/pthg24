@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 16:21:16 on 2024-02-11 */
+ * Generated at 09:07:04 on 2024-02-14 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -59,6 +59,13 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("pages");
 		attributeNames.add("nrPages");
 		filterNames.add("nrPages");
+		filterNames.add("dataAvail");
+		filterNames.add("codeAvail");
+		filterNames.add("solutionAvail");
+		filterNames.add("cpSystem");
+		filterNames.add("constraints");
+		filterNames.add("basedOn");
+		filterNames.add("citations");
 		choicesMap.put("Work", attributeNames);
 		filterMap.put("Work", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -77,6 +84,13 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("pages");
 		attributeNames.add("nrPages");
 		filterNames.add("nrPages");
+		filterNames.add("dataAvail");
+		filterNames.add("codeAvail");
+		filterNames.add("solutionAvail");
+		filterNames.add("cpSystem");
+		filterNames.add("constraints");
+		filterNames.add("basedOn");
+		filterNames.add("citations");
 		filterNames.add("proceedings");
 		choicesMap.put("Paper", attributeNames);
 		filterMap.put("Paper", filterNames);
@@ -96,6 +110,13 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("pages");
 		attributeNames.add("nrPages");
 		filterNames.add("nrPages");
+		filterNames.add("dataAvail");
+		filterNames.add("codeAvail");
+		filterNames.add("solutionAvail");
+		filterNames.add("cpSystem");
+		filterNames.add("constraints");
+		filterNames.add("basedOn");
+		filterNames.add("citations");
 		filterNames.add("journal");
 		choicesMap.put("Article", attributeNames);
 		filterMap.put("Article", filterNames);
@@ -115,6 +136,13 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("pages");
 		attributeNames.add("nrPages");
 		filterNames.add("nrPages");
+		filterNames.add("dataAvail");
+		filterNames.add("codeAvail");
+		filterNames.add("solutionAvail");
+		filterNames.add("cpSystem");
+		filterNames.add("constraints");
+		filterNames.add("basedOn");
+		filterNames.add("citations");
 		filterNames.add("school");
 		choicesMap.put("PhDThesis", attributeNames);
 		filterMap.put("PhDThesis", filterNames);
@@ -134,6 +162,13 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("pages");
 		attributeNames.add("nrPages");
 		filterNames.add("nrPages");
+		filterNames.add("dataAvail");
+		filterNames.add("codeAvail");
+		filterNames.add("solutionAvail");
+		filterNames.add("cpSystem");
+		filterNames.add("constraints");
+		filterNames.add("basedOn");
+		filterNames.add("citations");
 		filterNames.add("collection");
 		choicesMap.put("InCollection", attributeNames);
 		filterMap.put("InCollection", filterNames);

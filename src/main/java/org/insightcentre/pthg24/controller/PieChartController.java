@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 16:21:16 on 2024-02-11 */
+ * Generated at 09:07:04 on 2024-02-14 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -65,6 +65,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
+		attributeNames.add("dataAvail");
+		attributeNames.add("codeAvail");
+		attributeNames.add("solutionAvail");
+		attributeNames.add("cpSystem");
+		attributeNames.add("constraints");
+		attributeNames.add("basedOn");
+		attributeNames.add("citations");
 		choicesMap.put("Work", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -78,6 +85,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
+		attributeNames.add("dataAvail");
+		attributeNames.add("codeAvail");
+		attributeNames.add("solutionAvail");
+		attributeNames.add("cpSystem");
+		attributeNames.add("constraints");
+		attributeNames.add("basedOn");
+		attributeNames.add("citations");
 		attributeNames.add("proceedings");
 		choicesMap.put("Paper", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -92,6 +106,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
+		attributeNames.add("dataAvail");
+		attributeNames.add("codeAvail");
+		attributeNames.add("solutionAvail");
+		attributeNames.add("cpSystem");
+		attributeNames.add("constraints");
+		attributeNames.add("basedOn");
+		attributeNames.add("citations");
 		attributeNames.add("journal");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -106,6 +127,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
+		attributeNames.add("dataAvail");
+		attributeNames.add("codeAvail");
+		attributeNames.add("solutionAvail");
+		attributeNames.add("cpSystem");
+		attributeNames.add("constraints");
+		attributeNames.add("basedOn");
+		attributeNames.add("citations");
 		attributeNames.add("school");
 		choicesMap.put("PhDThesis", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -120,6 +148,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
+		attributeNames.add("dataAvail");
+		attributeNames.add("codeAvail");
+		attributeNames.add("solutionAvail");
+		attributeNames.add("cpSystem");
+		attributeNames.add("constraints");
+		attributeNames.add("basedOn");
+		attributeNames.add("citations");
 		attributeNames.add("collection");
 		choicesMap.put("InCollection", attributeNames);
 		attributeNames = FXCollections.observableArrayList();

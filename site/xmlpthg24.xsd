@@ -49,11 +49,18 @@
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="basedOn" use="required" type="xs:string"/>
+			<xs:attribute name="citations" use="required" type="xs:string"/>
+			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
+			<xs:attribute name="constraints" use="required" type="xs:string"/>
+			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
+			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
+			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
@@ -111,11 +118,18 @@
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="basedOn" use="required" type="xs:string"/>
+			<xs:attribute name="citations" use="required" type="xs:string"/>
+			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
+			<xs:attribute name="constraints" use="required" type="xs:string"/>
+			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
+			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
+			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
@@ -137,11 +151,18 @@
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="basedOn" use="required" type="xs:string"/>
+			<xs:attribute name="citations" use="required" type="xs:string"/>
+			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
+			<xs:attribute name="constraints" use="required" type="xs:string"/>
+			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
+			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
+			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
@@ -155,11 +176,18 @@
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="basedOn" use="required" type="xs:string"/>
+			<xs:attribute name="citations" use="required" type="xs:string"/>
+			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
+			<xs:attribute name="constraints" use="required" type="xs:string"/>
+			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
+			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
+			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>

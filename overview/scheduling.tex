@@ -21,7 +21,7 @@
 \newcommand{\su}[1]{\Shortunderstack[l]{#1}}
 
 \title{CP Papers on Scheduling}
-\author{Helmut Simonis}
+\author{Helmut Simonis and Cemalettin Öztürk}
 \begin{document}
 \rowcolors{2}{gray!20}{white}
 
@@ -30,297 +30,22 @@
 
 \section{Conference Paper List}
 
-Table~\ref{tab:papers} lists relevant papers on CP and Scheduling from the CP and CPAIOR conferences. It gives the author names and title of the paper, the reference to the published paper, the year and conference or journal where the paper was published. It also lists the CP systems that were used in the paper, and states if data and/or code of the paper is available online. A link to the stored location is given where it is known. 
-
-{\scriptsize
-\begin{longtable}{p{3cm}p{6cm}rrcrlcccp{1.5cm}l}
-  \hiderowcolors
-\caption{\label{tab:papers}List of Conference Papers}\\\toprule
-  \showrowcolors
-\rowcolor{white}Authors & Title & Cite & Year & Conference & Pages & \shortstack{CP\\System} & \shortstack{Data\\Avail} & \shortstack{Code\\Avail} & \shortstack{Based\\On} & Classification & Constraints \\  
-\midrule
-\endfirsthead
-  \hiderowcolors
-\caption{List of Conference Papers}\\\toprule
-  \showrowcolors
-\rowcolor{white}Authors & Title & Cite & Year & Conference & Pages & \shortstack{CP\\System} & \shortstack{Data\\Avail} & \shortstack{Code\\Avail} & \shortstack{Based\\On} & Classification & Constraints  \\  
-\midrule
-\endhead
-\bottomrule
-\endfoot
-C. Juvin, E. Hebrard, L. Houssin, P. Lopez & \href{papers/JuvinHHL23.pdf}{An Efficient Constraint Programming Approach to Preemptive Job Shop Scheduling} & \cite{JuvinHHL23} & 2023 & CP & 16 & \su{{CP Opt} Mistral} & ref & y & & PJSSP &\su{endBeforeStart span noOverlap} \\
-G. Pov{\'{e}}da, N. {\'{A}}lvarez, C. Artigues & \href{papers/PovedaAA23.pdf}{Partially Preemptive Multi Skill/Mode Resource-Constrained Project Scheduling with Generalized Precedence Relations and Calendars} & \cite{PovedaAA23} & 2023 & CP & 21 & \su{{CP Opt} MiniZinc Chuffed}& y & \href{https://github.com/youngkd/MSPSP-InstLib/blob/master/models/mspsp.mzn}{y} & &PP-MS-MMRCPSP/max-cal &  \\
-Y. Aalian, G. Pesant, M. Gamache& \href{papers/AalianPG23.pdf}{Optimization of Short-Term Underground Mine Planning Using Constraint Programming} & \cite{AalianPG23} & 2023 & CP & 16 & CP Opt & n & n & & & ?\\
-R. Kameugne, S. Fetgo, T. Noulamo, C. Djam{\'{e}}gni& \href{papers/KameugneFND23.pdf}{Horizontally Elastic Edge Finder Rule for Cumulative Constraint Based on Slack and Density} & \cite{KameugneFND23} & 2023 & CP & 17 & ? & \su{BL PSPlib}& n & - & RCPSPs & cumulative\\
-N. Efthymiou, N. Yorke{-}Smith & \href{papers/EfthymiouY23.pdf}{Predicting the Optimal Period for Cyclic Hoist Scheduling Problems} & \cite{EfthymiouY23} & 2023 & CPAIOR & 16 & OR-Tools & n & n & - & CHSP & -\\
-S. Squillaci, C. Pralet, S. Roussel & \href{papers/SquillaciPR23.pdf}{Scheduling Complex Observation Requests for a Constellation of Satellites: Large Neighborhood Search Approaches} & \cite{SquillaciPR23} & 2023 & CPAIOR & 17 & Cplex Studio & \href{https://github.com/ssquilla/Earth_Observing_Satellites_benchmarks}{y} & n & - & EOSP & ?\\
-D. Kim, Y. Choi, K. Moon, M. Lee, K. Lee, M. Pinedo & \href{papers/KimCMLLP23.pdf}{Iterated Greedy Constraint Programming for Scheduling Steelmaking Continuous Casting} &\cite{KimCMLLP23} & 2023 & CPAIOR & 16 & \su{Gurobi OR-Tools}& \href{https://zenodo.org/records/5126007}{y} & n & - & SCC & \su{alternative noOverlap} \\
-C. Juvin, L. Houssin, P. Lopez & \href{papers/JuvinHL23.pdf}{Constraint Programming for the Robust Two-Machine Flow-Shop Scheduling Problem with Budgeted Uncertainty} & \cite{JuvinHL23} & 2023 & CPAIOR & 16 & \su{{CP Opt} Cplex} & ref & n & - & Perm FSSP & \su{endBeforeStart noOverlap sameSequence}\\
-F.Tardivo, A. Dovier, A. Formisano, L. Michel, E.Pontelli & \href{papers/TardivoDFMP23.pdf}{Constraint Propagation on {GPU:} {A} Case Study for the Cumulative Constraint} &\cite{TardivoDFMP23}& 2023 & CPAIOR & 18 & \su{MiniCPP MiniZinc} & \href{https://bitbucket.org/constraint-programming/minicpp-benchmarks/src/main/rcpsp/}{\su{PSPLib BL Pack}} & y & - & RCPSP & cumulative\\
-R. Boudreault, V. Simard, D. Lafond, C. Quimper & \href{papers/BoudreaultSLQ22.pdf}{A Constraint Programming Approach to Ship Refit Project Scheduling} & \cite{BoudreaultSLQ22} & 2022 & CP & 16 & \su{MiniZinc Chuffed}& & \href{https://github.com/raphaelboudreault/chuffed/releases/tag/SBPS}{y} & - & RCPSP & cumulative\\
-L. Popovic, A. C{\^{o}}t{\'{e}}, M. Gaha, F. Nguewouo, Q. Cappart & \href{papers/PopovicCGNC22.pdf}{Scheduling the Equipment Maintenance of an Electric Power Transmission Network Using Constraint Programming} & \cite{PopovicCGNC22} & 2022 & CP & 15 & CP Opt & n & n & - & TMS & \su{alwaysIn noOverlap}\\
-F. Winter, S. Meiswinkel, N. Musliu, D. Walkiewicz & \href{papers/WinterMMW22.pdf}{Modeling and Solving Parallel Machine Scheduling with Contamination Constraints in the Agricultural Industry} & \cite{WinterMMW22} & 2022 & CP & 18 & \su{Cplex Gurobi {CP Opt} {Sim Anneal}} & \href{https://zenodo.org/records/6797397}{y} & \href{https://zenodo.org/records/6797397}{y} & - & PMSP & \su{alternative noOverlap} \\
-E. Armstrong, M. Garraffa, B. O'Sullivan, H. Simonis & \href{papers/ArmstrongGOS22.pdf}{A Two-Phase Hybrid Approach for the Hybrid Flexible Flowshop with Transportation Times} &\cite{ArmstrongGOS22} & 2022 & CPAIOR & 13 & CP Opt & (y) & - & \cite{ArmstrongGOS21} & $HFFm|tt|C_{\max}$ & \su{endBeforeStart alternative cumulative noOverlap}\\
-M. Geitz, C. Grozea, W. Steigerwald, R. St{\"{o}}hr, A. Wolf & \href{papers/GeitzGSSW22.pdf}{Solving the Extended Job Shop Scheduling Problem with AGVs - Classical and Quantum Approaches} & \cite{GeitzGSSW22} & 2022 & CPAIOR & 18 & \su{firstCS QUBO}& \href{https://github.com/cgrozea/Data4ExtJSSAGV}{y}& n & - & JSSP & \\
-Y. Ouellet, C. Quimper & \href{papers/OuelletQ22.pdf}{A MinCumulative Resource Constraint} & \cite{OuelletQ22} & 2022 & CPAIOR & 17 & Choco & \href{https://github.com/yanickouellet/min-cumulative-paper-public}{y} & \href{https://github.com/yanickouellet/min-cumulative-paper-public}{y} & - & & \su{cumulative minCumulative}\\
-E. Armstrong, M. Garraffa, B. O'Sullivan, H. Simonis & \href{papers/ArmstrongGOS21.pdf}{The Hybrid Flexible Flowshop with Transportation Times} & \cite{ArmstrongGOS21} & 2021 & CP & 18 & \su{MiniZinc Chuffed {CP Opt} SICStus} & \href{https://zenodo.org/record/5168966}{y} & y & - & $HFFm|tt|C_{\max}$ & \su{cumulative diffn table}\\
-V. Antuori, E. Hebrard, M. Huguet, S. Essodaigui, A. Nguyen & \href{papers/AntuoriHHEN21.pdf}{Combining Monte Carlo Tree Search and Depth First Search Methods for a Car Manufacturing Workshop Scheduling Problem} & \cite{AntuoriHHEN21} & 2021 & CP & 16 & MCTS & \href{https://gitlab.laas.fr/vantuori/mcts-cp}{y}& \href{https://gitlab.laas.fr/vantuori/mcts-cp}{y} & \cite{} & \\
-B. Kov{\'{a}}cs, P. Tassel, W. Kohlenbrein, P. Schrott{-}Kostwein, M. Gebser & \href{papers/KovacsTKSG21.pdf}{Utilizing Constraint Optimization for Industrial Machine Workload Balancing} & \cite{KovacsTKSG21} & 2021 & CP & 17 & \su{Gurobi Cplex {CP Opt} {OR-Tools}} & \href{https://github.com/prosysscience/CPWorkloadBalancing}{y} & \href{https://github.com/prosysscience/CPWorkloadBalancing}{y} & - & & cumulative\\
-M. Lackner, C. Mrkvicka, N. Musliu, D. Walkiewicz, F. Winter & \href{papers/LacknerMMWW21.pdf}{Minimizing Cumulative Batch Processing Time for an Industrial Oven Scheduling Problem} & \cite{LacknerMMWW21} & 2021 & CP & 18 & \su{{CP Opt} Chuffed OR-Tools Gurobi OPL} & \href{https://cdlab-artis.dbai.tuwien.ac.at/papers/ovenscheduling/}{y} & \href{https://cdlab-artis.dbai.tuwien.ac.at/papers/ovenscheduling/}{y} & & OSP & \\
-A. Hill, J. Ticktin. T. Vossen & \href{papers/HillTV21.pdf}{A Computational Study of Constraint Programming Approaches for Resource-Constrained Project Scheduling with Autonomous Learning Effects} & \cite{HillTV21} & 2021 & CPAIOR & 16 & CP Opt & PSPlib & n & - & RCPSP & \su{cumulative alternative endBeforeStart}\\
-C. Klanke, D. Bleidorn, V. Yfantis, S.Engell & \href{papers/KlankeBYE21.pdf}{Combining Constraint Programming and Temporal Decomposition Approaches - Scheduling of an Industrial Formulation Plant} & \cite{KlankeBYE21} & 2021 & CPAIOR & 16 & OR-Tools & n & n & - & & \su{cumulative circuit noOverlap}\\				  
-C. Hanen, A. Kordon, T. Pedersen & \href{papers/HanenKP21.pdf}{Two Deadline Reduction Algorithms for Scheduling Dependent Tasks on Parallel Processors} &\cite{HanenKP21} & 2021 & CPAIOR & 17 & Python & ref & n & - & $P|prec, r_i, d_i|*$& -\\
-M. {\AA}strand, M. Johansson, H.Feyzmahdavian & \href{papers/Astrand0F21.pdf}{Short-Term Scheduling of Production Fleets in Underground Mines Using CP-Based {LNS}} & \cite{Astrand0F21} & 2021 & CPAIOR & 18 & Gecode & \su{ref generated} & n & - & & -\\
-T. Geibinger, L. Kletzander, M. Krainz, F. Mischek, N. Musliu, F. Winter & \href{papers/GeibingerKKMMW21.pdf}{Physician Scheduling During a Pandemic} & \cite{GeibingerKKMMW21} & 2021 & CPAIOR & 10 & MiniZinc & \href{https://cdlab-artis.dbai.tuwien.ac.at/papers/pandemic-scheduling/}{y} & n& - & & nvalue\\	
-M. Nattaf, A. Malapert & \href{papers/NattafM20.pdf}{Filtering Rules for Flow Time Minimization in a Parallel Machine Scheduling Problem} & \cite{NattafM20} & 2020 & CP & 16 & \su{Cplex {CP Opt}}& - & - & \cite{} & PTC & \su{alternative noOverlap}\\
-L. Groleaz, S. Ndiaye, C. Solnon & \href{papers/GroleazNS20.pdf}{Solving the Group Cumulative Scheduling Problem with {CPO} and {ACO}} & \cite{GroleazNS20} & 2020 & CP & 17 & \su{{CP Opt} ACO} & - & - & \cite{GroleazNS20}& GCSP & group cumulative\\
-A. Mercier{-}Aubin, J. Gaudreault, C. Quimper & \href{papers/Mercier-AubinGQ20.pdf}{Leveraging Constraint Scheduling: {A} Case Study to the Textile Industry} & \cite{Mercier-AubinGQ20} & 2020 & CPAIOR & 13 & \su{MiniZinc Chuffed}& a & a & - & & \su{circuit cumulative} \\
-T. Tang, C. Beck & \href{papers/TangB20.pdf}{{CP} and Hybrid Models for Two-Stage Batching and Scheduling} & \cite{TangB20} & 2020 & CPAIOR & 16 & \su{Cplex {CP Opt}}& n & n & - & 2BPHFSP & \su{span alwaysIn} \\
-J. Wess{\'{e}}n, M. Carlsson, C. Schulte & \href{papers/WessenCS20.pdf}{Scheduling of Dual-Arm Multi-tool Assembly Robots and Workspace Layout Optimization} & \cite{WessenCS20} & 2020 & CPAIOR & 10 & Gecode & n & n & - & & \su{circuit alldifferent} \\	
-G. Col, E. Teppan& \href{papers/ColT19.pdf}{Industrial Size Job Shop Scheduling Tackled by Present Day {CP} Solvers} & \cite{ColT19} & 2019 & CP & 17 & \su{{CP Opt} OR-Tools} & \href{https://drive.google.com/drive/folders/1QuKEABR9aiNKPIFe0VMFXP7BNor8KW9b}{y} & \href{https://drive.google.com/drive/folders/1QuKEABR9aiNKPIFe0VMFXP7BNor8KW9b}{y} & - & JSSP & \su{noOverlap} \\
-S. Frimodig, C. Schulte& \href{papers/FrimodigS19.pdf}{Models for Radiation Therapy Patient Scheduling} & \cite{FrimodigS19} & 2019 & CP & 17 & \su{Mini-Zinc Gecode Cplex} & n & n & - & & \su{cumulative regular bin-packing} \\
-C. Galleguillos, Z. Kiziltan, A. S{\^{\i}}rbu, {\"{O}}. Babaoglu& \href{papers/GalleguillosKSB19.pdf}{Constraint Programming-Based Job Dispatching for Modern {HPC} Applications} & \cite{GalleguillosKSB19} & 2019 & CP & 18 & \su{OR-Tools} & & \href{https://github.com/cgalleguillosm/cp_dispatchers}{y} & & on-line dispatch &  \\
-S. Mur{\'{\i}}n, H. Rudov{\'{a}}& \href{papers/MurinR19.pdf}{Scheduling of Mobile Robots Using Constraint Programming} & \cite{MurinR19} & 2019 & CP & 16 & \su{{CP Opt} Cplex OPL} & \href{https://github.com/StanislavMurin/Scheduling-of-Mobile-Robots-using-Constraint-Programming}{y} & \href{https://github.com/StanislavMurin/Scheduling-of-Mobile-Robots-using-Constraint-Programming}{y}& & JSPT & \su{endBeforeStart alternative noOverlap} \\
-A. Tesch & \href{papers/Tesch18.pdf}{Improving Energetic Propagations for Cumulative Scheduling} & \cite{Tesch18} & 2018 & CP & 17 & & & & & & \\
-S. He, M. Wallace, G. Gange, A. Liebman, C. Wilson& \href{papers/He0GLW18.pdf}{A Fast and Scalable Algorithm for Scheduling Large Numbers of Devices Under Real-Time Pricing} & \cite{He0GLW18} & 2018 & CP & 18 & & & & & & \\
-M. Bofill, J. Coll, J. Suy, M. Villaret& \href{papers/BofillCSV17.pdf}{An Efficient {SMT} Approach to Solve MRCPSP/max Instances with Tight Constraints on Resources} & \cite{BofillCSV17} & 2017 & CP & 9 & & & & & & \\
-C. Pralet& \href{papers/Pralet17.pdf}{An Incomplete Constraint-Based System for Scheduling with Renewable Resources} & \cite{Pralet17} & 2017 & CP & 19 & & & & & & \\
-K. Young, T. Feydy, A. Schutt& \href{papers/YoungFS17.pdf}{Constraint Programming Applied to the Multi-Skill Project Scheduling Problem} & \cite{YoungFS17} & 2017 & CP & 10 & & & & & & \\
-A. Goldwaser, A. Schutt& \href{papers/GoldwaserS17.pdf}{Optimal Torpedo Scheduling} & \cite{GoldwaserS17} & 2017 & CP & 16 & & & & & & \\
-T. Liu, R. Di Cosmo, M. Gabbrielli, J. Mauro& \href{papers/LiuCGM17.pdf}{NightSplitter: {A} Scheduling Tool to Optimize (Sub)group Activities} & \cite{LiuCGM17} & 2017 & CP & 17 & & & & & & \\
-M. Mossige, A. Gotlieb, H. Spieker, H. Meling, M. Carlsson& \href{papers/MossigeGSMC17.pdf}{Time-Aware Test Case Execution Scheduling for Cyber-Physical Systems} & \cite{MossigeGSMC17} & 2017 & CP & 18 & & & & & & \\
-J. Hooker & \href{papers/Hooker17.pdf}{Job Sequencing Bounds from Decision Diagrams} & \cite{Hooker17} & 2017 & CP & 14 & & & & & & \\
-A. Bonfietti, A. Zanarini, M. Lombardi, M. Milano& \href{papers/BonfiettiZLM16.pdf}{The Multirate Resource Constraint} & \cite{BonfiettiZLM16} & 2016 & CP & 17 & & & & & & \\
-A. Schutt, P. Stuckey& \href{papers/SchuttS16.pdf}{Explaining Producer/Consumer Constraints} & \cite{SchuttS16} & 2016 & CP & 17 & & & & & & \\
-R. Szeredi, A. Schutt& \href{papers/SzerediS16.pdf}{Modelling and Solving Multi-mode Resource-Constrained Project Scheduling} & \cite{SzerediS16} & 2016 & CP & 10 & & & & & & \\
-A. Tesch & \href{papers/Tesch16.pdf}{A Nearly Exact Propagation Algorithm for Energetic Reasoning in $\mathcal O(n^2 \log n)$} & \cite{Tesch16} & 2016 & CP & 26 & & & & & & \\
-S. Van Cauwelaert, C. Dejemeppe, J. Monette, P. Schaus& \href{papers/CauwelaertDMS16.pdf}{Efficient Filtering for the Unary Resource with Family-Based Transition Times} & \cite{CauwelaertDMS16} & 2016 & CP & 16 & & & & & & \\
-K. Booth, G. Nejat, C. Beck& \href{papers/BoothNB16.pdf}{A Constraint Programming Approach to Multi-Robot Task Allocation and Scheduling in Retirement Homes} & \cite{BoothNB16} & 2016 & CP & 17 & & & & & & \\
-K. Giles, W. van Hoeve & \href{papers/GilesH16.pdf}{Solving a Supply-Delivery Scheduling Problem with Constraint Programming} & \cite{GilesH16} & 2016 & CP & 16 & & & & & & \\
-B. Lim, H. Hijazi, S. Thi{\'{e}}baux, M. van den Briel& \href{papers/LimHTB16.pdf}{Online HVAC-Aware Occupancy Scheduling with Adaptive Temperature Control} & \cite{LimHTB16} & 2016 & CP & 18 & & & & & & \\
-C. Dejemeppe, S. Van Cauwelaert, P. Schaus& \href{papers/DejemeppeCS15.pdf}{The Unary Resource with Transition Times} & \cite{DejemeppeCS15} & 2015 & CP & 16 & & & & & & \\
-S. Gay, R. Hartert, C. Lecoutre, P. Schaus& \href{papers/GayHLS15.pdf}{Conflict Ordering Search for Scheduling Problems} & \cite{GayHLS15} & 2015 & CP & 9 & & & & & & \\
-S. Gay, R. Hartert, P.  Schaus& \href{papers/GayHS15.pdf}{Simple and Scalable Time-Table Filtering for the Cumulative Constraint} & \cite{GayHS15} & 2015 & CP & 9 & & & & & & \\
-S. Kreter, A. Schutt, P. Stuckey& \href{papers/KreterSS15.pdf}{Modeling and Solving Project Scheduling with Calendars} & \cite{KreterSS15} & 2015 & CP & 17 & & & & & & \\
-M. Lombardi, A. Bonfietti, M. Milano& \href{papers/LombardiBM15.pdf}{Deterministic Estimation of the Expected Makespan of a {POS} Under Duration Uncertainty} & \cite{LombardiBM15} & 2015 & CP & 16 & & & & & & \\
-M. Siala, C. Artigues, E. Hebrard& \href{papers/SialaAH15.pdf}{Two Clause Learning Approaches for Disjunctive Scheduling} & \cite{SialaAH15} & 2015 & CP & 10 & & & & & & \\
-C. Even, A. Schutt, P. Van Hentenryck& \href{papers/EvenSH15.pdf}{A Constraint Programming Approach for Non-preemptive Evacuation Scheduling} & \cite{EvenSH15} & 2015 & CP & 18 & & & & & & \\
-S. Murphy, O. Manzano, K. Brown& \href{papers/MurphyMB15.pdf}{Design and Evaluation of a Constraint-Based Energy Saving and Scheduling Recommender System} & \cite{MurphyMB15} & 2015 & CP & 17 & & & & & & \\
-C. Pralet, S. Lemai{-}Chenevier, J. Jaubert& \href{papers/PraletLJ15.pdf}{Scheduling Running Modes of Satellite Instruments Using Constraint-Based Local Search} & \cite{PraletLJ15} & 2015 & CP & 16 & & & & & & \\
-A. Derrien, T. Petit& \href{papers/DerrienP14.pdf}{A New Characterization of Relevant Intervals for Energetic Reasoning} & \cite{DerrienP14} & 2014 & CP & 9 & & & & & & \\
-A. Derrien, T. Petit, S. Zampelli& \href{papers/DerrienPZ14.pdf}{A Declarative Paradigm for Robust Cumulative Scheduling} & \cite{DerrienPZ14} & 2014 & CP & 9 & & & & & & \\
-V. Houndji, P. Schaus, L. Wolsey, Y. Deville& \href{papers/HoundjiSWD14.pdf}{The StockingCost Constraint} & \cite{HoundjiSWD14} & 2014 & CP & 16 & & & & & & \\
-A. Bartolini, A. Borghesi, T. Bridi, M. Lombardi, M. Milano& \href{papers/BartoliniBBLM14.pdf}{Proactive Workload Dispatching on the {EURORA} Supercomputer} & \cite{BartoliniBBLM14} & 2014 & CP & 16 & & & & & & \\
-M. Bofill, J. Espasa, M. Garcia, M. Palah{\'{\i}}, J. Suy, M. Villaret& \href{papers/BofillEGPSV14.pdf}{Scheduling {B2B} Meetings} & \cite{BofillEGPSV14} & 2014 & CP & 16 & & & & & & \\
-S. {Di Alesio}, S. Nejati, L. Briand, A. Gotlieb& \href{papers/AlesioNBG14.pdf}{Worst-Case Scheduling of Software Tasks - {A} Constraint Optimization Model to Support Performance Testing} & \cite{AlesioNBG14} & 2014 & CP & 18 & & & & & & \\
-S. Gay, P. Schaus, V. De Smedt& \href{papers/GaySS14.pdf}{Continuous Casting Scheduling with Constraint Programming} & \cite{GaySS14} & 2014 & CP & 15 & & & & & & \\
-P. Ouellet, C. Quimper& \href{papers/OuelletQ13.pdf}{Time-Table Extended-Edge-Finding for the Cumulative Constraint} & \cite{OuelletQ13} & 2013 & CP & 16 & & & & & & \\
-A. Schutt, T. Feydy, P. Stuckey& \href{papers/SchuttFS13.pdf}{Scheduling Optional Tasks with Explanation} & \cite{SchuttFS13} & 2013 & CP & 17 & & & & & & \\
-G. Simonin, C. Artigues, E. Hebrard, P. Lopez& \href{papers/SimoninAHL12.pdf}{Scheduling Scientific Experiments on the Rosetta/Philae Mission} & \cite{SimoninAHL12} & 2012 & CP & 15 & \su{MOST {Ilog Scheduler}} & n & n & -& & \su{cumulative dataTransfer}\\
-
-A. Letort, N. Beldiceanu, M. Carlsson& \href{papers/LetortBC12.pdf}{A Scalable Sweep Algorithm for the cumulative Constraint} & \cite{LetortBC12} & 2012 & CP & & & & & & & \\
-T. Serra, G. Nishioka, F. Marcellino& \href{papers/SerraNM12.pdf}{The Offshore Resources Scheduling Problem: Detailing a Constraint Programming Approach} & \cite{SerraNM12} & 2012 & CP & & & & & & & \\
-G. Ifrim, B. O'Sullivan, H. Simonis& \href{papers/IfrimOS12.pdf}{Properties of Energy-Price Forecasts for Scheduling} & \cite{IfrimOS12} & 2012 & CP & & & & & & & \\
-F. Hermenier, S. Demassey, X. Lorca& \href{papers/HermenierDL11.pdf}{Bin Repacking Scheduling in Virtualized Datacenters} & \cite{HermenierDL11} & 2011 & CP & & & & & & & \\
-A. Bonfietti, M. Lombardi, L. Benini, M. Milano& \href{papers/BonfiettiLBM11.pdf}{A Constraint Based Approach to Cyclic {RCPSP}} & \cite{BonfiettiLBM11} & 2011 & CP & & & & & & & \\
-A. De Clercq, T. Petit, N. Beldiceanu, N. Jussien& \href{papers/ClercqPBJ11.pdf}{Filtering Algorithms for Discrete Cumulative Problems with Overloads of Resource} & \cite{ClercqPBJ11} & 2011 & CP & & & & & & & \\
-D. Grimes, E. Hebrard& \href{papers/GrimesH11.pdf}{Models and Strategies for Variants of the Job Shop Scheduling Problem} & \cite{GrimesH11} & 2011 & CP & & & & & & & \\
-R. Kameugne, L. Fotso, J. Scott, Y. Ngo{-}Kateu& \href{papers/KameugneFSN11.pdf}{A Quadratic Edge-Finding Filtering Algorithm for Cumulative Resource Constraints} & \cite{KameugneFSN11} & 2011 & CP & & & & & & & \\
-M. Lombardi, M. Milano& \href{papers/LombardiM10.pdf}{Constraint Based Scheduling to Deal with Uncertain Durations and Self-Timed Execution} & \cite{LombardiM10} & 2010 & CP & & & & & & & \\
-A. Schutt, A. Wolf& \href{papers/SchuttW10.pdf}{A New \emph{O}(\emph{n}\({}^{\mbox{2}}\)log\emph{n}) Not-First/Not-Last Pruning Algorithm for Cumulative Resource Constraints} & \cite{SchuttW10} & 2010 & CP & & & & & & & \\
-P. Baptiste& \href{papers/Baptiste09.pdf}{Constraint-Based Schedulers, Do They Really Work?} & \cite{Baptiste09} & 2009 & CP & & & & & & & \\
-D. Grimes, E. Hebrard, A. Malapert& \href{papers/GrimesHM09.pdf}{Closing the Open Shop: Contradicting Conventional Wisdom} & \cite{GrimesHM09} & 2009 & CP & & & & & & & \\
-M. Lombardi, M. Milano& \href{papers/LombardiM09.pdf}{A Precedence Constraint Posting Approach for the {RCPSP} with Time Lags and Variable Durations} & \cite{LombardiM09} & 2009 & CP & & & & & & & \\
-A. Schutt, T. Feydy, P. Stuckey, M. Wallace& \href{papers/SchuttFSW09.pdf}{Why Cumulative Decomposition Is Not as Bad as It Sounds} & \cite{SchuttFSW09} & 2009 & CP & & & & & & & \\
-P. Vil{\'{\i}}m& \href{papers/Vilim09.pdf}{Edge Finding Filtering Algorithm for Discrete Cumulative Resources in \emph{O}(\emph{kn} log \emph{n})\{{\textbackslash}mathcal O\}(kn\{{\textbackslash}rm log\} n)} & \cite{Vilim09} & 2009 & CP & & & & & & & \\
-A. Moura, C. de Souza, A. Cir{\'{e}}, T. Lopes& \href{papers/MouraSCL08.pdf}{Planning and Scheduling the Operation of a Very Large Oil Pipeline Network} & \cite{MouraSCL08} & 2008 & CP & & & & & & & \\
-A. Davenport, J. Kalagnanam, C. Reddy, S. Siegel, J. Hou& \href{papers/DavenportKRSH07.pdf}{An Application of Constraint Programming to Generating Detailed Operations Schedules for Steel Manufacturing} & \cite{DavenportKRSH07} & 2007 & CP & & & & & & & \\
-A. Gargani, P. Refalo& \href{papers/GarganiR07.pdf}{An Efficient Model and Strategy for the Steel Mill Slab Design Problem} & \cite{GarganiR07} & 2007 & CP & & & & & & & \\
-R. van der Krogt, J. Little, K. Pulliam, S. Hanhilammi, Y. Jin& \href{papers/KrogtLPHJ07.pdf}{Scheduling for Cellular Manufacturing} & \cite{KrogtLPHJ07} & 2007 & CP & & & & & & & \\
-M. Khemmoudj, M. Porcheron, H. Bennaceur& \href{papers/KhemmoudjPB06.pdf}{When Constraint Programming and Local Search Solve the Scheduling Problem of Electricit{\'{e}} de France Nuclear Power Plant Outages} & \cite{KhemmoudjPB06} & 2006 & CP & & & & & & & \\
-K. Artiouchine, P. Baptiste& \href{papers/ArtiouchineB05.pdf}{Inter-distance Constraint: An Extension of the All-Different Constraint for Scheduling Equal Length Jobs} & \cite{ArtiouchineB05} & 2005 & CP & & & & & & & \\
-J. Fortin, P. Zielinski, D. Dubois, H. Fargier& \href{papers/FortinZDF05.pdf}{Interval Analysis in Scheduling} & \cite{FortinZDF05} & 2005 & CP & & & & & & & \\
-J. Hooker& \href{papers/cp-Hooker05.pdf}{Planning and Scheduling to Minimize Tardiness} & \cite{cp-Hooker05} & 2005 & CP & & & & & & & \\
-B. Dilkina, L. Duan, W. Havens& \href{papers/DilkinaDH05.pdf}{Extending Systematic Local Search for Job Shop Scheduling Problems} & \cite{DilkinaDH05} & 2005 & CP & & & & & & & \\
-M. Abril, M. Salido, F. Barber& \href{papers/AbrilSB05.pdf}{Distributed Constraints for Large-Scale Scheduling Problems} & \cite{AbrilSB05} & 2005 & CP & & & & & & & \\
-T. Carchrae, C. Beck, E. Freuder& \href{papers/CarchraeBF05.pdf}{Methods to Learn Abstract Scheduling Models} & \cite{CarchraeBF05} & 2005 & CP & & & & & & & \\
-C. Wu, K. Brown, C. Beck& \href{papers/WuBB05.pdf}{Scheduling with Uncertain Start Dates} & \cite{WuBB05} & 2005 & CP & & & & & & & \\
-E. Hebrard, P. Tyler, T. Walsh& \href{papers/HebrardTW05.pdf}{Computing Super-Schedules} & \cite{HebrardTW05} & 2005 & CP & & & & & & & \\
-A. Kov{\'{a}}cs, P. Egri, T. Kis, J. V{\'{a}}ncza& \href{papers/KovacsEKV05.pdf}{Proterv-II: An Integrated Production Planning and Scheduling System} & \cite{KovacsEKV05} & 2005 & CP & & & & & & & \\
-P. Vil{\'{\i}}m, R. Bart{\'{a}}k, O. Cepek& \href{papers/VilimBC04.pdf}{Unary Resource Constraint with Optional Activities} & \cite{VilimBC04} & 2004 & CP & & & & & & & \\
-J. Hooker & \href{papers/Hooker04.pdf}{A Hybrid Method for Planning and Scheduling} & \cite{Hooker04} & 2004 & CP & & & & & & & \\
-A. Kov{\'{a}}cs, J. V{\'{a}}ncza& \href{papers/KovacsV04.pdf}{Completable Partial Solutions in Constraint Programming and Constraint-Based Scheduling} & \cite{KovacsV04} & 2004 & CP & & & & & & & \\
-A. Lim, B. Rodrigues, Z. Xu& \href{papers/LimRX04.pdf}{Solving the Crane Scheduling Problem Using Intelligent Search Schemes} & \cite{LimRX04} & 2004 & CP & & & & & & & \\
-A. Oddi, N. Policella, A. Cesta, G. Cortellessa& \href{papers/OddiPCC03.pdf}{Generating High Quality Schedules for a Spacecraft Memory Downlink Problem} & \cite{OddiPCC03} & 2003 & CP & & & & & & & \\
-S. Kumar & \href{papers/Kumar03.pdf}{Incremental Computation of Resource-Envelopes in Producer-Consumer Models} & \cite{Kumar03} & 2003 & CP & & & & & & & \\
-A. Wolf & \href{papers/Wolf03.pdf}{Pruning while Sweeping over Task Intervals} & \cite{Wolf03} & 2003 & CP & & & & & & & \\
-E. Danna, L. Perron& \href{papers/DannaP03.pdf}{Structured vs. Unstructured Large Neighborhood Search: {A} Case Study on Job-Shop Scheduling Problems with Earliness and Tardiness Costs} & \cite{DannaP03} & 2003 & CP & & & & & & & \\
-P. Vil{\'{\i}}m& \href{papers/Vilim03.pdf}{Computing Explanations for Global Scheduling Constraints} & \cite{Vilim03} & 2003 & CP & & & & & & & \\
-N. Beldiceanu, M. Carlsson& \href{papers/BeldiceanuC02.pdf}{A New Multi-resource cumulatives Constraint with Negative Heights} & \cite{BeldiceanuC02} & 2002 & CP & & & & & & & \\
-N. Muscettola& \href{papers/Muscettola02.pdf}{Computing the Envelope for Stepwise-Constant Resource Allocations} & \cite{Muscettola02} & 2002 & CP & & & & & & & \\
-O. Kamarainen, H. El Sakkout& \href{papers/KamarainenS02.pdf}{Local Probing Applied to Scheduling} & \cite{KamarainenS02} & 2002 & CP & & & & & & & \\
-R. Bart{\'{a}}k& \href{papers/Bartak02.pdf}{Visopt ShopFloor: On the Edge of Planning and Scheduling} & \cite{Bartak02} & 2002 & CP & & & & & & & \\
-J. Hooker, H. Yan& \href{papers/HookerY02.pdf}{A Relaxation of the Cumulative Constraint} & \cite{HookerY02} & 2002 & CP & & & & & & & \\
-A. Elkhyari, C. Gu{\'{e}}ret, N. Jussien& \href{papers/ElkhyariGJ02.pdf}{Conflict-Based Repair Techniques for Solving Dynamic Scheduling Problems} & \cite{ElkhyariGJ02} & 2002 & CP & & & & & & & \\
-P. Vil{\'{\i}}m& \href{papers/Vilim02.pdf}{Batch Processing with Sequence Dependent Setup Times} & \cite{Vilim02} & 2002 & CP & & & & & & & \\
-G. Verfaillie, M. Lema{\^{\i}}tre& \href{papers/VerfaillieL01.pdf}{Selecting and Scheduling Observations for Agile Satellites: Some Lessons from the Constraint Reasoning Community Point of View} & \cite{VerfaillieL01} & 2001 & CP & & & & & & & \\
-J. V{\'{a}}ncza, A. M{\'{a}}rkus& \href{papers/VanczaM01.pdf}{A Constraint Engine for Manufacturing Process Planning} & \cite{VanczaM01} & 2001 & CP & & & & & & & \\
-O. Angelsmark, P. Jonsson& \href{papers/AngelsmarkJ00.pdf}{Some Observations on Durations, Scheduling and Allen's Algebra} & \cite{AngelsmarkJ00} & 2000 & CP & & & & & & & \\
-R. Rodosek, M. Wallace& \href{papers/RodosekW98.pdf}{A Generic Model and Hybrid Algorithm for Hoist Scheduling Problems} & \cite{RodosekW98} & 1998 & CP & & & & & & & \\
-A. Cesta, A. Oddi, S. Smith& \href{papers/CestaOS98.pdf}{Scheduling Multi-capacitated Resources Under Complex Temporal Constraints} & \cite{CestaOS98} & 1998 & CP & & & & & & & \\
-D. Frost, R. Dechter& \href{papers/FrostD98.pdf}{Optimizing with Constraints: {A} Case Study in Scheduling Maintenance of Electric Power Units} & \cite{FrostD98} & 1998 & CP & & & & & & & \\
-Y. Caseau& \href{papers/Caseau97.pdf}{Using Constraint Propagation for Complex Scheduling Problems: Managing Size, Complex Resources and Travel} & \cite{Caseau97} & 1997 & CP & & & & & & & \\
-P. Baptiste, C. Le Pape& \href{papers/BaptisteP97.pdf}{Constraint Propagation and Decomposition Techniques for Highly Disjunctive and Highly Cumulative Project Scheduling Problems} & \cite{BaptisteP97} & 1997 & CP & & & & & & & \\
-C. Beck, A. Davenport, M. Fox & \href{papers/BeckDF97.pdf}{Five Pitfalls of Empirical Scheduling Research} & \cite{BeckDF97} & 1997 & CP & & & & & & & \\
-Y. Colombani & \href{papers/Colombani96.pdf}{Constraint Programming: an Efficient and Practical Approach to Solving the Job-Shop Problem} & \cite{Colombani96} & 1996 & CP & & & & & & & \\
-J. Zhou & \href{papers/Zhou96.pdf}{A Constraint Program for Solving the Job-Shop Problem} & \cite{Zhou96} & 1996 & CP & & & & & & & \\
-H. Simonis, T. Cornelissens & \href{papers/SimonisC95.pdf}{Modelling Producer/Consumer Constraints} & \cite{SimonisC95} & 1995 & CP & & & & & & & \\
-H. Goltz & \href{papers/Goltz95.pdf}{Reducing Domains for Search in {CLP(FD)} and Its Application to Job-Shop Scheduling} & \cite{Goltz95} & 1995 & CP & & & & & & & \\
-H. Simonis & \href{papers/Simonis95.pdf}{The {CHIP} System and Its Applications} & \cite{Simonis95} & 1995 & CP & & & & & & & \\
-J. Puget & \href{papers/Puget95.pdf}{Applications of Constraint Programming} & \cite{Puget95} & 1995 & CP & & & & & & & \\
-Toura{\"{\i}}vane & \href{papers/Touraivane95.pdf}{Constraint Programming and Industrial Applications} & \cite{Touraivane95} & 1995 & CP & & & & & & & \\
-
-T. Geibinger, F. Mischek, N. Musliu& \href{papers/GeibingerMM19.pdf}{Investigating Constraint Programming for Real World Industrial Test Laboratory Scheduling} & \cite{GeibingerMM19} & 2019 & CPAIOR & 16 & & & & & & \\
-A. Malapert, M. Nattaf& \href{papers/MalapertN19.pdf}{A New CP-Approach for a Parallel Machine Scheduling Problem with Time Constraints on Machine Qualifications} & \cite{MalapertN19} & 2019 & CPAIOR & 17& & & & & & \\
-P. van den Bogaerdt, M. de Weerdt& \href{papers/BogaerdtW19.pdf}{Lower Bounds for Uniform Machine Scheduling Using Decision Diagrams} & \cite{BogaerdtW19} & 2019 & CPAIOR & 16 & & & & & & \\
-M. Yang, A. Schutt, P. Stuckey& \href{papers/YangSS19.pdf}{Time Table Edge Finding with Energy Variables} & \cite{YangSS19} & 2019 & CPAIOR & 10& & & & & & \\
-O. Benedikt, P. Sucha, I. M{\'{o}}dos, M. Vlk, Z. Hanz{\'{a}}lek& \href{papers/BenediktSMVH18.pdf}{Energy-Aware Production Scheduling with Power-Saving Modes} & \cite{BenediktSMVH18} & 2018 & CPAIOR & 10& & & & & & \\
-E. Demirovic, P. Stuckey& \href{papers/DemirovicS18.pdf}{Constraint Programming for High School Timetabling: {A} Scheduling-Based Model with Hot Starts} & \cite{DemirovicS18} & 2018 & CPAIOR & 18 & & & & & & \\
-R. Kameugne, S. Fetgo, V. Gingras, Y. Ouellet, C. Quimper& \href{papers/KameugneFGOQ18.pdf}{Horizontally Elastic Not-First/Not-Last Filtering Algorithm for Cumulative Resource Constraint} & \cite{KameugneFGOQ18} & 2018 & CPAIOR & 17 & & & & & & \\
-P. Laborie& \href{papers/Laborie18a.pdf}{An Update on the Comparison of MIP, {CP} and Hybrid Approaches for Mixed Resource Allocation and Scheduling} & \cite{Laborie18a} & 2018 & CPAIOR & 9 & & & & & & \\
-Y. Ouellet, C. Quimper& \href{papers/OuelletQ18.pdf}{A O(n {\textbackslash}log {\^{}}2 n) Checker and O(n{\^{}}2 {\textbackslash}log n) Filtering Algorithm for the Energetic Reasoning} & \cite{OuelletQ18} & 2018 & CPAIOR & 18 & & & & & & \\
-M. {\AA}strand, M. Johansson, A. Zanarini& \href{papers/AstrandJZ18.pdf}{Fleet Scheduling in Underground Mines Using Constraint Programming} & \cite{AstrandJZ18} & 2018 & CPAIOR & 9 & & & & & & \\
-Q. Cappart, P. Schaus& \href{papers/CappartS17.pdf}{Rescheduling Railway Traffic on Real Time Situations Using Time-Interval Variables} & \cite{CappartS17} & 2017 & CPAIOR & 16 & & & & & & \\
-L. Kletzander, N. Musliu& \href{papers/KletzanderM17.pdf}{A Multi-stage Simulated Annealing Algorithm for the Torpedo Scheduling Problem} & \cite{KletzanderM17} & 2017 & CPAIOR & 15 & & & & & & \\
-M. Gelain, M. Pini, F. Rossi, K. Venable, T. Walsh& \href{papers/GelainPRVW17.pdf}{A Local Search Approach for Incomplete Soft Constraint Problems: Experimental Results on Meeting Scheduling Problems} & \cite{GelainPRVW17} & 2017 & CPAIOR & 16 & & & & & & \\
-D. Fontaine, L. Michel, P. Van Hentenryck& \href{papers/FontaineMH16.pdf}{Parallel Composition of Scheduling Solvers} & \cite{FontaineMH16} & 2016 & CPAIOR & 11 & & & & & & \\
-A. Heching, J. Hooker& \href{papers/HechingH16.pdf}{Scheduling Home Hospice Care with Logic-Based Benders Decomposition} & \cite{HechingH16} & 2016 & CPAIOR & 11 & & & & & & \\
-G. Madi{-}Wamba, N. Beldiceanu& \href{papers/Madi-WambaB16.pdf}{The TaskIntersection Constraint} & \cite{Madi-WambaB16} & 2016 & CPAIOR & 16 & & & & & & \\
-P. Aguiar{-}Melgarejo, P. Laborie, C. Solnon& \href{papers/MelgarejoLS15.pdf}{A Time-Dependent No-Overlap Constraint: Application to Urban Delivery Problems} & \cite{MelgarejoLS15} & 2015 & CPAIOR & 17 & & & & & & \\
-M. Bofill, M. Garcia, J. Suy, M. Villaret& \href{papers/BofillGSV15.pdf}{MaxSAT-Based Scheduling of {B2B} Meetings} & \cite{BofillGSV15} & 2015 & CPAIOR & 9 & & & & & & \\
-C. Burt, N. Lipovetzky, A. Pearce, P. Stuckey& \href{papers/BurtLPS15.pdf}{Scheduling with Fixed Maintenance, Shared Resources and Nonlinear Feedrate Constraints: {A} Mine Planning Case Study} & \cite{BurtLPS15} & 2015 & CPAIOR & 17 & & & & & & \\
-S. Gay, R. Hartert, P. Schaus& \href{papers/cpaior-GayHS15.pdf}{Time-Table Disjunctive Reasoning for the Cumulative Constraint} & \cite{cpaior-GayHS15} & 2015 & CPAIOR & 16 & & & & & & \\
-B. Lim, M. van den Briel, S. Thi{\'{e}}baux, R. Bent, S. Backhaus& \href{papers/LimBTBB15.pdf}{Large Neighborhood Search for Energy Aware Meeting Scheduling in Smart Buildings} & \cite{LimBTBB15} & 2015 & CPAIOR & 15 & & & & & & \\
-G. Pesant, G. Rix, L. Rousseau& \href{papers/PesantRR15.pdf}{A Comparative Study of {MIP} and {CP} Formulations for the {B2B} Scheduling Optimization Problem} & \cite{PesantRR15} & 2015 & CPAIOR & 16 & & & & & & \\
-P. Vil{\'{\i}}m, P. Laborie, P. Shaw& \href{papers/VilimLS15.pdf}{Failure-Directed Search for Constraint-Based Scheduling} & \cite{VilimLS15} & 2015 & CPAIOR & 17 & & & & & & \\
-S. Kosch, C. Beck& \href{papers/KoschB14.pdf}{A New {MIP} Model for Parallel-Batch Scheduling with Non-identical Job Sizes} & \cite{KoschB14} & 2014 & CPAIOR & 16 & & & & & & \\
-A. Bonfietti, M. Lombardi, M. Milano& \href{papers/BonfiettiLM14.pdf}{Disregarding Duration Uncertainty in Partial Order Schedules? Yes, We Can!} & \cite{BonfiettiLM14} & 2014 & CPAIOR & 16 & & & & & & \\
-C. Dejemeppe, Y. Deville& \href{papers/DejemeppeD14.pdf}{Continuously Degrading Resource and Interval Dependent Activity Durations in Nuclear Medicine Patient Scheduling} & \cite{DejemeppeD14} & 2014 & CPAIOR & 9 & & & & & & \\
-C. Bessiere, E. Hebrard, M. M{\'{e}}nard, C. Quimper, T. Walsh& \href{papers/BessiereHMQW14.pdf}{Buffered Resource Constraint: Algorithms and Complexity} & \cite{BessiereHMQW14} & 2014 & CPAIOR & 16 & & & & & & \\
-S. Doulabi, L. Rousseau, G. Pesant& \href{papers/DoulabiRP14.pdf}{A Constraint Programming-Based Column Generation Approach for Operating Room Planning and Scheduling} & \cite{DoulabiRP14} & 2014 & CPAIOR & 9 & & & & & & \\
-S. Heinz, W. Ku, C. Beck& \href{papers/HeinzKB13.pdf}{Recent Improvements Using Constraint Integer Programming for Resource Allocation and Scheduling} & \cite{HeinzKB13} & 2013 & CPAIOR & 16 & & & & & & \\
-E. Kelareva, K. Tierney, P. Kilby& \href{papers/KelarevaTK13.pdf}{{CP} Methods for Scheduling and Routing with Time-Dependent Task Costs} & \cite{KelarevaTK13} & 2013 & CPAIOR & 17 & \su{MiniZinc CPX G12FD}& ref & - & - & \su{LSFRP BPCTOP}& \su{alldifferent alldifferentExcept0}\\
-A. Letort, M. Carlsson, N. Beldiceanu& \href{papers/LetortCB13.pdf}{A Synchronized Sweep Algorithm for the \emph{k-dimensional cumulative} Constraint} & \cite{LetortCB13} & 2013 & CPAIOR & 16 & \su{SICStus Choco}& PSPlib & - & - & RCPSP & \su{cumulative kDimensionalCumulative}\\
-A. Schutt, T. Feydy, P. Stuckey& \href{papers/cpaior-SchuttFS13.pdf}{Explaining Time-Table-Edge-Finding Propagation for the Cumulative Resource Constraint} & \cite{cpaior-SchuttFS13} & 2013 & CPAIOR & 17 & \su{Mercury G12}& \su{PSPlib AT BL Pack KSD15D PackD} & - & - & RCPSP & cumulative \\
-A. A. Cir{\'{e}}, E. Coban, J. Hooker& \href{papers/CireCH13.pdf}{Mixed Integer Programming vs. Logic-Based Benders Decomposition for Planning and Scheduling} & \cite{CireCH13} & 2013 & CPAIOR & 7 & \su{{CP Opt} Cplex} & dead & n & - & & \\
-H. Gu, A. Schutt, P. Stuckey& \href{papers/GuSS13.pdf}{A Lagrangian Relaxation Based Forward-Backward Improvement Heuristic for Maximising the Net Present Value of Resource-Constrained Projects} & \cite{GuSS13} & 2013 & CPAIOR & 7 & Chuffed& dead & & - & RCPSPDC & \su{cumulative maxNVPProp}\\
-J. Billaut, E. Hebrard, P. Lopez& \href{papers/BillautHL12.pdf}{Complete Characterization of Near-Optimal Sequences for the Two-Machine Flow Shop Scheduling Problem} & \cite{BillautHL12} & 2012 & CPAIOR & & & & & & & \\
-A. Bonfietti, M. Lombardi, L. Benini, M. Milano& \href{papers/BonfiettiLBM12.pdf}{Global Cyclic Cumulative Constraint} & \cite{BonfiettiLBM12} & 2012 & CPAIOR & & & & & & & \\
-S. Heinz, C. Beck& \href{papers/HeinzB12.pdf}{Reconsidering Mixed Integer Programming and MIP-Based Hybrids for Scheduling} & \cite{HeinzB12} & 2012 & CPAIOR & & & & & & & \\
-A. Rendl, M. Prandtstetter, G. Hiermann, J. Puchinger, G. Raidl& \href{papers/RendlPHPR12.pdf}{Hybrid Heuristics for Multimodal Homecare Scheduling} & \cite{RendlPHPR12} & 2012 & CPAIOR & & & & & & & \\
-A. Schutt, G. Chu, P. Stuckey, M. Wallace& \href{papers/SchuttCSW12.pdf}{Maximising the Net Present Value for Resource-Constrained Project Scheduling} & \cite{SchuttCSW12} & 2012 & CPAIOR & & & & & & & \\
-N. Chapados, M. Joliveau, L. Rousseau& \href{papers/ChapadosJR11.pdf}{Retail Store Workforce Scheduling by Expected Operating Income Maximization} & \cite{ChapadosJR11} & 2011 & CPAIOR & & & & & & & \\
-E. Edis, C. Oguz& \href{papers/EdisO11.pdf}{Parallel Machine Scheduling with Additional Resources: {A} Lagrangian-Based Constraint Programming Approach} & \cite{EdisO11} & 2011 & CPAIOR & & & & & & & \\
-A. Lahimer, P. Lopez, M. Haouari& \href{papers/LahimerLH11.pdf}{Climbing Depth-Bounded Adjacent Discrepancy Search for Solving Hybrid Flow Shop Scheduling Problems with Multiprocessor Tasks} & \cite{LahimerLH11} & 2011 & CPAIOR & & & & & & & \\
-M. Lombardi, A. Bonfietti, M. Milano, L. Benini& \href{papers/LombardiBMB11.pdf}{Precedence Constraint Posting for Cyclic Scheduling Problems} & \cite{LombardiBMB11} & 2011 & CPAIOR & & & & & & & \\
-P. Vil{\'{\i}}m& \href{papers/Vilim11.pdf}{Timetable Edge Finding Filtering Algorithm for Discrete Cumulative Resources} & \cite{Vilim11} & 2011 & CPAIOR & & & & & & & \\
-E. Coban, J. Hooker& \href{papers/CobanH10.pdf}{Single-Facility Scheduling over Long Time Horizons by Logic-Based Benders Decomposition} & \cite{CobanH10} & 2010 & CPAIOR & & & & & & & \\
-A. Davenport& \href{papers/Davenport10.pdf}{Integrated Maintenance Scheduling for Semiconductor Manufacturing} & \cite{Davenport10} & 2010 & CPAIOR & & & & & & & \\
-D. Grimes, E. Hebrard& \href{papers/GrimesH10.pdf}{Job Shop Scheduling with Setup Times and Maximal Time-Lags: {A} Simple Constraint Programming Approach} & \cite{GrimesH10} & 2010 & CPAIOR & & & & & & & \\
-T. Berthold, S. Heinz, M. L{\"{u}}bbecke, R. M{\"{o}}hring, J. Schulz& \href{papers/BertholdHLMS10.pdf}{A Constraint Integer Programming Approach for Resource-Constrained Project Scheduling} & \cite{BertholdHLMS10} & 2010 & CPAIOR & & & & & & & \\
-P. Laborie& \href{papers/Laborie09.pdf}{{IBM} {ILOG} {CP} Optimizer for Detailed Scheduling Illustrated on Three Problems} & \cite{Laborie09} & 2009 & CPAIOR & & & & & & & \\
-P. Vil{\'{\i}}m& \href{papers/cpaior-Vilim09.pdf}{Max Energy Filtering Algorithm for Discrete Cumulative Resources} & \cite{cpaior-Vilim09} & 2009 & CPAIOR & & & & & & & \\
-R. Acuna{-}Agost, P. Michelon, D. Feillet, S. Gueye& \href{papers/Acuna-AgostMFG09.pdf}{Constraint Programming and Mixed Integer Linear Programming for Rescheduling Trains under Disrupted Operations} & \cite{Acuna-AgostMFG09} & 2009 & CPAIOR & & & & & & & \\
-N. Beldiceanu, M. Carlsson, E. Poder& \href{papers/BeldiceanuCP08.pdf}{New Filtering for the cumulative Constraint in the Context of Non-Overlapping Rectangles} & \cite{BeldiceanuCP08} & 2008 & CPAIOR & & & & & & & \\
-G. Dooms, P. Van Hentenryck& \href{papers/DoomsH08.pdf}{Gap Reduction Techniques for Online Stochastic Project Scheduling} & \cite{DoomsH08} & 2008 & CPAIOR & & & & & & & \\
-J. Watson, C. Beck& \href{papers/WatsonB08.pdf}{A Hybrid Constraint Programming / Local Search Approach to the Job-Shop Scheduling Problem} & \cite{WatsonB08} & 2008 & CPAIOR & & & & & & & \\
-A. Barlatt, A. Cohn, O. Gusikhin& \href{papers/BarlattCG08.pdf}{A Hybrid Approach for Solving Shift-Selection and Task-Sequencing Problems} & \cite{BarlattCG08} & 2008 & CPAIOR & & & & & & & \\
-H. Lau, K. Lye, V. Nguyen& \href{papers/LauLN08.pdf}{A Combinatorial Auction Framework for Solving Decentralized Scheduling Problems (Extended Abstract)} & \cite{LauLN08} & 2008 & CPAIOR & & & & & & & \\
-P. Van Hentenryck, L. Michel& \href{papers/HentenryckM08.pdf}{The Steel Mill Slab Design Problem Revisited} & \cite{HentenryckM08} & 2008 & CPAIOR & & & & & & & \\
-A. K{\'{e}}ri, T. Kis& \href{papers/KeriK07.pdf}{Computing Tight Time Windows for {RCPSPWET} with the Primal-Dual Method} & \cite{KeriK07} & 2007 & CPAIOR & & & & & & & \\
-J. Monette, Y. Deville, P. Dupont& \href{papers/MonetteDD07.pdf}{A Position-Based Propagator for the Open-Shop Problem} & \cite{MonetteDD07} & 2007 & CPAIOR & & & & & & & \\
-N. Beldiceanu, E. Poder& \href{papers/BeldiceanuP07.pdf}{A Continuous Multi-resources \emph{cumulative} Constraint with Positive-Negative Resource Consumption-Production} & \cite{BeldiceanuP07} & 2007 & CPAIOR & & & & & & & \\
-R. Rossi, A. Tarim, B. Hnich, S. Prestwich& \href{papers/RossiTHP07.pdf}{Replenishment Planning for Stochastic Inventory Systems with Shortage Cost} & \cite{RossiTHP07} & 2007 & CPAIOR & & & & & & & \\
-J. van den Akker, G.Diepen, J. Hoogeveen& \href{papers/AkkerDH07.pdf}{A Column Generation Based Destructive Lower Bound for Resource Constrained Project Scheduling Problems} & \cite{AkkerDH07} & 2007 & CPAIOR & & & & & & & \\
-L. Benini, D. Bertozzi, A. Guerri, M. Milano& \href{papers/BeniniBGM06.pdf}{Allocation, Scheduling and Voltage Scaling on Energy Aware MPSoCs} & \cite{BeniniBGM06} & 2006 & CPAIOR & & & & & & & \\
-A. Kov{\'{a}}cs, J. V{\'{a}}ncza& \href{papers/KovacsV06.pdf}{Progressive Solutions: {A} Simple but Efficient Dominance Rule for Practical {RCPSP}} & \cite{KovacsV06} & 2006 & CPAIOR & & & & & & & \\
-Y. Chu, Q. Xia& \href{papers/ChuX05.pdf}{A Hybrid Algorithm for a Class of Resource Constrained Scheduling Problems} & \cite{ChuX05} & 2005 & CPAIOR & & & & & & & \\
-J. Frank, E. K{\"{u}}rkl{\"{u}}& \href{papers/FrankK05.pdf}{Mixed Discrete and Continuous Algorithms for Scheduling Airborne Astronomy Observations} & \cite{FrankK05} & 2005 & CPAIOR & & & & & & & \\
-P. Vil{\'{\i}}m& \href{papers/Vilim05.pdf}{Computing Explanations for the Unary Resource Constraint} & \cite{Vilim05} & 2005 & CPAIOR & & & & & & & \\
-C. Maravelias, I. Grossmann& \href{papers/MaraveliasG04.pdf}{Using {MILP} and {CP} for the Scheduling of Batch Chemical Processes} & \cite{MaraveliasG04} & 2004 & CPAIOR & & & & & & & \\
-C. Artigues, S. Belmokhtar, D. Feillet& \href{papers/ArtiguesBF04.pdf}{A New Exact Solution Algorithm for the Job Shop Problem with Sequence-Dependent Setup Times} & \cite{ArtiguesBF04} & 2004 & CPAIOR & & & & & & & \\
-P. Van Hentenryck, L. Michel& \href{papers/HentenryckM04.pdf}{Scheduling Abstractions for Local Search} & \cite{HentenryckM04} & 2004 & CPAIOR & & & & & & & \\
-P. Vil{\'{\i}}m& \href{papers/Vilim04.pdf}{O(n log n) Filtering Algorithms for Unary Resource Constraint} & \cite{Vilim04} & 2004 & CPAIOR & & & & & & & \\
-R. Sadykov& \href{papers/Sadykov04.pdf}{A Hybrid Branch-And-Cut Algorithm for the One-Machine Scheduling Problem} & \cite{Sadykov04} & 2004 & CPAIOR & & & & & & & \\
-A. Bit{-}Monnot& \href{papers/Bit-Monnot23.pdf}{Enhancing Hybrid {CP-SAT} Search for Disjunctive Scheduling} & \cite{Bit-Monnot23} & 2023 & ECAI & 8 & \su{ARIES {CP Opt} OR-Tools Mistral}& \href{https://github.com/plaans/aries}{y} & \href{https://github.com/plaans/aries}{y} & -& \su{JSSP OSSP}& - \\
-R. Wang, N. Barnier& \href{papers/WangB23.pdf}{Dynamic All-Different and Maximal Cliques Constraints for Fixed Job Scheduling} & \cite{WangB23} & 2023 & ICTAI & 8 & FaCiLe & (y) & n & \cite{WangB20} & FJS & -\\
-R. Wang, N. Barnier& \href{papers/WangB20.pdf}{Global Propagation of Transition Cost for Fixed Job Scheduling} & \cite{WangB20} & 2020 & ECAI & 8 & FaCiLe& \href{http://recherche.enac.fr/~wangrx/ecai_gap/}{y} & n & -& FJS & -\\
-	  
-\end{longtable}
-}
+\input{../exports/papers}
 
 
 \section{Journal Articles}
 
-{\scriptsize
-\begin{longtable}{p{3cm}p{6cm}rrp{1.5cm}rlcccp{1.5cm}l}
-\caption{\label{tab:articles}List of Journal Articles}\\\toprule
-Authors & Title & Cite & Year & Journal & Pages & \shortstack{CP\\System} & \shortstack{Data\\Avail} & \shortstack{Code\\Avail} & \shortstack{Based\\On} & Classification & Constraints \\  
-\midrule
-\endfirsthead
-\caption{List of Journal Articles}\\\toprule
-Authors & Title & Cite & Year & Journal & Pages & \shortstack{CP\\System} & \shortstack{Data\\Avail} & \shortstack{Code\\Avail} & \shortstack{Based\\On} & Classification & Constraints  \\  
-\midrule
-\endhead
-\bottomrule
-\endfoot
-B. Prata, L. Abreu, M. Nagano& \href{articles/PrataAN23.pdf}{Applications of constraint programming in production scheduling problems: A descriptive bibliometric analysis} & \cite{PrataAN23} & 2023 & Results in Control and Optimization & 17 & -& -& -& - & survey & - \\
+\input{../exports/articles}
 
-M. Lackner, C. Mrkvicka, N. Musliu, D. Walkiewicz, F. Winter& \href{articles/LacknerMMWW23.pdf}{Exact methods for the Oven Scheduling Problem} & \cite{LacknerMMWW23} & 2023 & Constraints & 42 & \su{MiniZinc OPL}& \href{https://zenodo.org/records/7456938}{\su{DZN JSON}}& \href{https://zenodo.org/records/7456938}{y}& \cite{LacknerMMWW21}&  OSP & \su{alternative noOverlap forbidExtent}\\
-J. Caballero& \href{articles/Caballero23.pdf}{Scheduling through logic-based tools} & \cite{Caballero23} & 2023& Constraints & 1 & SAT & - & - & \href{http://hdl.handle.net/10803/667963}{PhD Thesis} & RCPSP & -\\
-L. Campeau, M. Gamache& \href{articles/CampeauG22.pdf}{Short- and medium-term optimization of underground mine planning using constraint programming} & \cite{CampeauG22} & 2022 & Constraints & 18 & CP Opt & ref & n & & &\su{pulse alwaysIn endBeforeStart noOverlap}\\
-J. Koehler, J. B{\"{u}}rgler, U. Fontana, E. Fux, F. Herzog, M. Pouly, S. Saller, A. Salyaeva, P. Scheiblechner, K. Waelti& \href{articles/KoehlerBFFHPSSS21.pdf}{Cable tree wiring - benchmarking solvers on a real-world scheduling problem with a variety of precedence constraints} & \cite{KoehlerBFFHPSSS21} & 2021 & Constraints & 51 & \su{{CP Opt} OR-Tools Chuffed Cplex Gurobi Z3 OptiMathSat}& \href{https://github.com/kw90/ctw_toolchain}{DZN}& y & - & CTW & \su{alldifferent inverse}\\
-O. Benedikt, I. M{\'{o}}dos, Z. Hanz{\'{a}}lek& \href{articles/BenediktMH20.pdf}{Power of pre-processing: production scheduling with variable energy pricing and power-saving states} & \cite{BenediktMH20} & 2020 & Constraints & 19 & \su{{CP Opt} Gurobi} & \href{https://github.com/CTU-IIG/EnergyStatesAndCostsSchedulingData}{JSON} & \href{https://github.com/CTU-IIG/EnergyStatesAndCostsScheduling}{y}& & & \\
-M. Wallace, N. Yorke{-}Smith& \href{articles/WallaceY20.pdf}{A new constraint programming model and solving for the cyclic hoist scheduling problem} & \cite{WallaceY20} & 2020 & Constraints & 19 & MiniZinc & \href{https://data.4tu.nl/articles/_/12912413}{DZN} & \href{https://data.4tu.nl/articles/_/12912413}{y} & & CHSP & \\
-P. Laborie, J. Rogerie, P. Shaw, P. Vil{\'{\i}}m& \href{articles/LaborieRSV18.pdf}{{IBM} {ILOG} {CP} optimizer for scheduling - 20+ years of scheduling with constraints at {IBM/ILOG}} & \cite{LaborieRSV18} & 2018 & Constraints & 41 & OP Opt & - & - & - & - & -\\
-H. Fahimi, Y. Ouellet, C. Quimper& \href{articles/FahimiOQ18.pdf}{Linear-time filtering algorithms for the disjunctive constraint and a quadratic filtering algorithm for the cumulative not-first not-last} & \cite{FahimiOQ18} & 2018 & Constraints & 22 & Choco & (y) & n & & RCPSP& \su{disjunctive cumulative}\\
-S. Kreter, A. Schutt, P. Stuckey& \href{articles/KreterSS17.pdf}{Using constraint programming for solving RCPSP/max-cal} & \cite{KreterSS17} & 2017 & Constraints & 31 &\su{MiniZinc Chuffed Cplex} & dead & & CP 2015 & RCPSP & \su{cumulative cumulativeCalendar}\\
-M. Nattaf, C. Artigues, P. Lopez& \href{articles/NattafAL17.pdf}{Cumulative scheduling with variable task profiles and concave piecewise linear processing rate functions} & \cite{NattafAL17} & 2017 & Constraints & 18 & Cplex & n & n & - & CECSP & -\\
-G. Simonin, C. Artigues, E. Hebrard, P. Lopez& \href{articles/SimoninAHL15.pdf}{Scheduling scientific experiments for comet exploration} & \cite{SimoninAHL15} & 2015 & Constraints & 23 & \su{MOST Ilog Scheduler}& n & n & \cite{SimoninAHL12} & & \su{cumulative dataTransfer}\\
-A. Letort, M. Carlsson, N. Beldiceanu& \href{articles/LetortCB15.pdf}{Synchronized sweep algorithms for scalable scheduling constraints} & \cite{LetortCB15} & 2015 & Constraints & 52 & \su{Choco SICStus}& dead & - & - & - & \su{cumulative dimCumulative dimCumulativePrecedences}\\
-M. Nattaf, C. Artigues, P. Lopez& \href{articles/NattafAL15.pdf}{A hybrid exact method for a scheduling problem with a continuous resource and energy constraints} & \cite{NattafAL15} & 2015 & Constraints & 21 & Cplex & n & n & & CSCSP & \\
-M. Siala& \href{articles/Siala15.pdf}{Search, propagation, and learning in sequencing and scheduling problems} & \cite{Siala15} & 2015 & Constraints & 2 & - & - & - & \href{https://www.a4cp.org/sites/default/files/mohamed_siala_-_search_propagation_and_learning_in_sequencing_and_scheduling_problems.pdf}{PhD Thesis}& & \\
-R. Kameugne& \href{articles/Kameugne15.pdf}{Propagation techniques of resource constraint for cumulative scheduling} & \cite{Kameugne15} & 2015 & Constraints & 2 & -& -& - & \href{https://www.a4cp.org/sites/default/files/roger_kameugne_-_propagation_techniques_of_resource_constraint_for_cumulative_scheduling.pdf}{PhDThesis}& RCPSP& \\
-R. Kameugne, L. Fotso, J. Scott, Y. Ngo{-}Kateu& \href{articles/KameugneFSN14.pdf}{A quadratic edge-finding filtering algorithm for cumulative resource constraints} & \cite{KameugneFSN14} & 2014 & Constraints & 27 & Gecode & \href{https://figshare.com/articles/dataset/Comparison_of_edge_finding_and_extended_edge_finding_filtering_algorithms/736454}{y} & & CP 2011 & CuSP & cumulative\\
-S. Heinz, J. Schulz, C. Beck& \href{articles/HeinzSB13.pdf}{Using dual presolving reductions to reformulate cumulative constraints} & \cite{HeinzSB13} & 2013 & Constraints & 36 & \su{Cplex SCIP}& ref & - & - & \su{RCPSP RCPSP/max}& cumulative\\
-C. {\"{O}}zt{\"{u}}rk, S. Tunali, B. Hnich, A. Ornek& \href{articles/OzturkTHO13.pdf}{Balancing and scheduling of flexible mixed model assembly lines} & \cite{OzturkTHO13} & 2013 & Constraints & 36 & \su{{Ilog Solver} {Ilog Scheduler} Cplex} & \href{https://github.com/ozturkcemal/SBSFMMAL}{y} & - & - & SBSFMMAL & \su{alddifferent disjunctive}\\
-S. Heinz, T. Schlechte, R. Stephan, M. Winkler& \href{articles/HeinzSSW12.pdf}{Solving steel mill slab design problems} & \cite{HeinzSSW12} & 2012 & Constraints & 12 & & Cplex & dead & - & SMSDP & -\\
-M. Lombardi, M. Milano& \href{articles/LombardiM12.pdf}{Optimal methods for resource allocation and scheduling: a cross-disciplinary survey} & \cite{LombardiM12} & 2012& Constraints & 35 & - & - & - & - & survey & -\\
-K. Limtanyakul, U. Schwiegelshohn& \href{articles/LimtanyakulS12.pdf}{Improvements of constraint programming and hybrid methods for scheduling of tests on vehicle prototypes} & \cite{LimtanyakulS12} & 2012 & Constraints & 32 & \su{Cplex {Ilog Scheduler}} & dead & - & - & & \\
-A. Kov{\'{a}}cs, C. Beck& \href{articles/KovacsB11.pdf}{A global constraint for total weighted completion time for unary resources} & \cite{KovacsB11} & 2011 & Constraints & 24 & Ilog Scheduler & n & n & -& & Completion\\
-P. Schaus, P. Van Hentenryck, J. Monette, C. Coffrin, L. Michel, Y. Deville& \href{articles/SchausHMCMD11.pdf}{Solving Steel Mill Slab Problems with constraint-based techniques: CP, LNS, and {CBLS}} & \cite{SchausHMCMD11} & 2011 & Constraints & 23 & Comet & dead & & & SMSDP & \\
-R. Bart{\'{a}}k, M. Salido& \href{articles/BartakS11.pdf}{Constraint satisfaction for planning and scheduling problems} & \cite{BartakS11} & 2011 & Constraints & 5 & - & - & -& & survey & \\
-A. Schutt, T. Feydy, P. Stuckey, M. Wallace& \href{articles/SchuttFSW11.pdf}{Explaining the cumulative propagator} & \cite{SchuttFSW11} & 2011 & Constraints & 33 & MiniZinc & PSPLib & - & - & RCPSP & cumulative \\
-A. Kov{\'{a}}cs, T. Kis& \href{articles/KovacsK11.pdf}{Constraint programming approach to a bilevel scheduling problem} & \cite{KovacsK11} & 2011 & Constraints & 24 & Ilog Solver & n & n & - & Bilevel Opt & \\
-T. Lopes, A. Cir{\'{e}}, C. de Souza, A. Moura& \href{articles/LopesCSM10.pdf}{A hybrid model for a multiproduct pipeline planning and scheduling problem} & \cite{LopesCSM10} & 2010 & Constraints & 39 & Ilog Solver & - & - & CP2008 & & \\
-H. Simonis & \href{articles/Simonis07.pdf}{Models for Global Constraint Applications} & \cite{Simonis07} & 2007 & Constraints & 30 & CHIP & n & n & & & \su{cumulative diffn cycle inverse}\\
-J. Hooker & \href{articles/Hooker06.pdf}{An Integrated Method for Planning and Scheduling to Minimize Tardiness} & \cite{Hooker06} & 2006 & Constraints & 19 & \su{OPL Cplex {Ilog Scheduler}}& n & n & CP 2005 & CuSP& \su{cumulative}\\
-J. Hooker & \href{articles/Hooker05.pdf}{A Hybrid Method for the Planning and Scheduling} & \cite{Hooker05} & 2005 & Constraints & 17 & \su{OPL Cplex {Ilog Scheduler}} & n & n & - & CuSP & \su{cumulative}\\
-P. Vil{\'{\i}}m, R. Bart{\'{a}}k, O. Cepek& \href{articles/VilimBC05.pdf}{Extension of \emph{O}(\emph{n} log \emph{n}) Filtering Algorithms for the Unary Resource Constraint to Optional Activities} & \cite{VilimBC05} & 2005 & Constraints & 23 &  & n & n & & JSSP & disjunctive \\
-P. Baptiste, C. Le Pape& \href{articles/BaptisteP00.pdf}{Constraint Propagation and Decomposition Techniques for Highly Disjunctive and Highly Cumulative Project Scheduling Problems} & \cite{BaptisteP00} & 2000 & Constraints & 21 & CLAIRE & n & n & & RCCSP & cumulative \\
-K. Schild, J. W{\"{u}}rtz& \href{articles/SchildW00.pdf}{Scheduling of Time-Triggered Real-Time Systems} & \cite{SchildW00} & 2000 & Constraints & 23 & OZ & n & n & - & & disjunctive \\
-H. El Sakkout, M. Wallace& \href{articles/SakkoutW00.pdf}{Probe Backtrack Search for Minimal Perturbation in Dynamic Scheduling} & \cite{SakkoutW00} & 2000 & Constraints & 30 & \su{Cplex ECLiPSe} & n & n & - & KRFP & \\
-S. Heipcke, Y. Colombani, C. Cavalcante, C. de Souza& \href{articles/HeipckeCCS00.pdf}{Scheduling under Labour Resource Constraints} & \cite{HeipckeCCS00} & 2000 & Constraints & 8 & \su{COME SchedEns} & dead & n & - & & \\
-E. Bensana, M. Lema{\^{\i}}tre, G. Verfaillie& \href{articles/BensanaLV99.pdf}{Earth Observation Satellite Management} & \cite{BensanaLV99} & 1999 & Constraints & 7 &  Ilog Solver & ? & - & - & & \\
-S. Belhadji, A. Isli& \href{articles/BelhadjiI98.pdf}{Temporal Constraint Satisfaction Techniques in Job Shop Scheduling Problem Solving} & \cite{BelhadjiI98} & 1998 & Constraints & 9 & - & n & n & - & \su{TCSP JSSP} & \\
-C. Le Pape, P. Baptiste& \href{articles/PapaB98.pdf}{Resource Constraints for Preemptive Job-shop Scheduling} & \cite{PapaB98} & 1998 & Constraints & 25 & \su{{Ilog Solver} Claire} & dead & - & - & PJSSP & \su{disjunctive flow}\\
-J. Zhou& \href{articles/Zhou97.pdf}{A Permutation-Based Approach for Solving the Job-Shop Problem} & \cite{Zhou97} & 1997 & Constraints & 29 & - & n & n& CP 1996& JSSP & \su{sort alldifferent permutation}\\
-K. Darby{-}Dowman, J. Little, G. Mitra, M. Zaffalon& \href{articles/Darby-DowmanLMZ97.pdf}{Constraint Logic Programming and Integer Programming Approaches and Their Collaboration in Solving an Assignment Scheduling Problem} & \cite{Darby-DowmanLMZ97} & 1997 & Constraints & 20 &  \su{Cplex ECLiPSe}& n & n & - & MGAP & \\
-M. Wallace & \href{articles/Wallace96.pdf}{Practical Applications of Constraint Programming} & \cite{Wallace96} & 1996 & Constraints & 30 & - & - & - & - & Survey & -\\
 
-D. Grimes, G. Ifrim, B. O'Sullivan, H. Simonis & \href{papers/GrimesIOS14.pdf}{Analyzing the impact of electricity price forecasting on energy cost-aware scheduling} & \cite{GrimesIOS14} & 2014 & J.SUSCOM& & & - & - & - & & \\
-\end{longtable}
-}
+\section{Authors}
+
+\input{../exports/authors}
+
+
+\clearpage
+\section{Problem Classification}
+
 
 \begin{table}[htbp]
 \caption{\label{tab:classification}Problem Classification Types}
@@ -361,9 +86,6 @@ BPCTOP & Bulk Port Cargo Throughput Optimisation Problem\\
 \end{table}
 
 
-\input{../exports/papers}
-\input{../exports/articles}
-\input{../exports/authors}
 
 \clearpage
 \section{Concept Matching}

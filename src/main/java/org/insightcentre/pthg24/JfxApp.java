@@ -32,14 +32,14 @@ public class JfxApp extends GeneratedJfxApp {
                 String bibDir = "overview/";
                 String importDir = "overview/grepresult/";
                 String exportDir = "exports/";
-                int nrFiles = 320;
+                int nrFiles = 369;
                 new ImportBib(base,bibDir,"bib.bib");
                 new Importer(base,Concepts,importDir,"cfound.txt",42,nrFiles,exportDir,"cmatrix.tex");
-                new Importer(base,Classification,importDir,"c1found.txt",6,nrFiles,exportDir,"c1matrix.tex");
+                new Importer(base,Classification,importDir,"c1found.txt",41,nrFiles,exportDir,"c1matrix.tex");
                 new Importer(base,Constraints,importDir,"c2found.txt",13,nrFiles,exportDir,"c2matrix.tex");
                 new Importer(base,CPSystems,importDir,"sfound.txt",18,nrFiles,exportDir,"smatrix.tex");
                 new Importer(base,ProgLanguages,importDir,"pfound.txt",7,nrFiles,exportDir,"pmatrix.tex");
-                new Importer(base,ApplicationAreas,importDir,"afound.txt",45,nrFiles,exportDir,"amatrix.tex");
+//                new Importer(base,ApplicationAreas,importDir,"afound.txt",45,nrFiles,exportDir,"amatrix.tex");
                 new Importer(base,Industries,importDir,"ifound.txt",27,nrFiles,exportDir,"imatrix.tex");
                 new Importer(base,Benchmarks,importDir,"bfound.txt",16,nrFiles,exportDir,"bmatrix.tex");
                 new Importer(base,Algorithms,importDir,"a1found.txt",10,nrFiles,exportDir,"a1matrix.tex");

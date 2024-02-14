@@ -80,11 +80,18 @@ public  class PhDThesis extends Work{
             String name,
             String author,
             List<Author> authors,
+            String basedOn,
+            String citations,
+            String codeAvail,
+            String constraints,
+            String cpSystem,
+            String dataAvail,
             String doi,
             String key,
             String localCopy,
             Integer nrPages,
             String pages,
+            String solutionAvail,
             String title,
             String url,
             Integer year,
@@ -94,11 +101,18 @@ public  class PhDThesis extends Work{
             name,
             author,
             authors,
+            basedOn,
+            citations,
+            codeAvail,
+            constraints,
+            cpSystem,
+            dataAvail,
             doi,
             key,
             localCopy,
             nrPages,
             pages,
+            solutionAvail,
             title,
             url,
             year);
@@ -112,11 +126,18 @@ public  class PhDThesis extends Work{
             other.name,
             other.author,
             other.authors,
+            other.basedOn,
+            other.citations,
+            other.codeAvail,
+            other.constraints,
+            other.cpSystem,
+            other.dataAvail,
             other.doi,
             other.key,
             other.localCopy,
             other.nrPages,
             other.pages,
+            other.solutionAvail,
             other.title,
             other.url,
             other.year,
@@ -175,7 +196,7 @@ public  class PhDThesis extends Work{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrPages()+ " " +getPages()+ " " +getTitle()+ " " +getUrl()+ " " +getYear()+ " " +getSchool().toColumnString();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBasedOn()+ " " +getCitations()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrPages()+ " " +getPages()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear()+ " " +getSchool().toColumnString();
     }
 
 /**
@@ -201,11 +222,18 @@ public  class PhDThesis extends Work{
             " name=\""+toXMLName()+"\""+
             " author=\""+toXMLAuthor()+"\""+
             " authors=\""+toXMLAuthors()+"\""+
+            " basedOn=\""+toXMLBasedOn()+"\""+
+            " citations=\""+toXMLCitations()+"\""+
+            " codeAvail=\""+toXMLCodeAvail()+"\""+
+            " constraints=\""+toXMLConstraints()+"\""+
+            " cpSystem=\""+toXMLCpSystem()+"\""+
+            " dataAvail=\""+toXMLDataAvail()+"\""+
             " doi=\""+toXMLDoi()+"\""+
             " key=\""+toXMLKey()+"\""+
             " localCopy=\""+toXMLLocalCopy()+"\""+
             " nrPages=\""+toXMLNrPages()+"\""+
             " pages=\""+toXMLPages()+"\""+
+            " solutionAvail=\""+toXMLSolutionAvail()+"\""+
             " title=\""+toXMLTitle()+"\""+
             " url=\""+toXMLUrl()+"\""+
             " year=\""+toXMLYear()+"\""+
@@ -229,11 +257,11 @@ public  class PhDThesis extends Work{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>PhDThesis</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>School</th>"+"</tr>";
+        return "<tr><th>PhDThesis</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Constraints</th>"+"<th>BasedOn</th>"+"<th>Citations</th>"+"<th>School</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getSchool().toColumnString()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getBasedOn()+"</td>"+ " " +"<td>"+getCitations()+"</td>"+ " " +"<td>"+getSchool().toColumnString()+"</td>"+"</tr>";
     }
 
 /**
@@ -355,6 +383,24 @@ public  class PhDThesis extends Work{
         }
       if (true) {         System.out.println("Authors");
         }
+      if(!this.getBasedOn().equals(b.getBasedOn())){
+         System.out.println("BasedOn");
+        }
+      if(!this.getCitations().equals(b.getCitations())){
+         System.out.println("Citations");
+        }
+      if(!this.getCodeAvail().equals(b.getCodeAvail())){
+         System.out.println("CodeAvail");
+        }
+      if(!this.getConstraints().equals(b.getConstraints())){
+         System.out.println("Constraints");
+        }
+      if(!this.getCpSystem().equals(b.getCpSystem())){
+         System.out.println("CpSystem");
+        }
+      if(!this.getDataAvail().equals(b.getDataAvail())){
+         System.out.println("DataAvail");
+        }
       if(!this.getDoi().equals(b.getDoi())){
          System.out.println("Doi");
         }
@@ -376,6 +422,9 @@ public  class PhDThesis extends Work{
       if(!this.getSchool().applicationSame(b.getSchool())){
          System.out.println("School");
         }
+      if(!this.getSolutionAvail().equals(b.getSolutionAvail())){
+         System.out.println("SolutionAvail");
+        }
       if(!this.getTitle().equals(b.getTitle())){
          System.out.println("Title");
         }
@@ -387,6 +436,12 @@ public  class PhDThesis extends Work{
         }
         return  this.getAuthor().equals(b.getAuthor()) &&
           true &&
+          this.getBasedOn().equals(b.getBasedOn()) &&
+          this.getCitations().equals(b.getCitations()) &&
+          this.getCodeAvail().equals(b.getCodeAvail()) &&
+          this.getConstraints().equals(b.getConstraints()) &&
+          this.getCpSystem().equals(b.getCpSystem()) &&
+          this.getDataAvail().equals(b.getDataAvail()) &&
           this.getDoi().equals(b.getDoi()) &&
           this.getKey().equals(b.getKey()) &&
           this.getLocalCopy().equals(b.getLocalCopy()) &&
@@ -394,6 +449,7 @@ public  class PhDThesis extends Work{
           this.getNrPages().equals(b.getNrPages()) &&
           this.getPages().equals(b.getPages()) &&
           this.getSchool().applicationSame(b.getSchool()) &&
+          this.getSolutionAvail().equals(b.getSolutionAvail()) &&
           this.getTitle().equals(b.getTitle()) &&
           this.getUrl().equals(b.getUrl()) &&
           this.getYear().equals(b.getYear());

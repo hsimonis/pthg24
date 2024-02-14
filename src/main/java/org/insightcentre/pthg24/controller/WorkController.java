@@ -20,7 +20,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 16:21:16 on 2024-02-11 */
+ * Generated at 09:07:04 on 2024-02-14 */
 public class WorkController extends Table3Controller {
 	@FXML
 	private TableView<Work> table;
@@ -57,6 +57,27 @@ public class WorkController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Work, Integer> nrPages;
+
+	@FXML
+	private TableColumn<Work, String> dataAvail;
+
+	@FXML
+	private TableColumn<Work, String> codeAvail;
+
+	@FXML
+	private TableColumn<Work, String> solutionAvail;
+
+	@FXML
+	private TableColumn<Work, String> cpSystem;
+
+	@FXML
+	private TableColumn<Work, String> constraints;
+
+	@FXML
+	private TableColumn<Work, String> basedOn;
+
+	@FXML
+	private TableColumn<Work, String> citations;
 
 	private GeneratedJfxApp mainApp;
 
@@ -117,6 +138,34 @@ public class WorkController extends Table3Controller {
 		nrPages.setCellValueFactory(new PropertyValueFactory<>("nrPages"));
 		nrPages.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		nrPages.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrPages(event.getNewValue()); mainApp.reset();});
+		choices.add("dataAvail");
+		dataAvail.setCellValueFactory(new PropertyValueFactory<>("dataAvail"));
+		dataAvail.setCellFactory(TextFieldTableCell.forTableColumn());
+		dataAvail.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setDataAvail(event.getNewValue()); mainApp.reset();});
+		choices.add("codeAvail");
+		codeAvail.setCellValueFactory(new PropertyValueFactory<>("codeAvail"));
+		codeAvail.setCellFactory(TextFieldTableCell.forTableColumn());
+		codeAvail.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCodeAvail(event.getNewValue()); mainApp.reset();});
+		choices.add("solutionAvail");
+		solutionAvail.setCellValueFactory(new PropertyValueFactory<>("solutionAvail"));
+		solutionAvail.setCellFactory(TextFieldTableCell.forTableColumn());
+		solutionAvail.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSolutionAvail(event.getNewValue()); mainApp.reset();});
+		choices.add("cpSystem");
+		cpSystem.setCellValueFactory(new PropertyValueFactory<>("cpSystem"));
+		cpSystem.setCellFactory(TextFieldTableCell.forTableColumn());
+		cpSystem.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCpSystem(event.getNewValue()); mainApp.reset();});
+		choices.add("constraints");
+		constraints.setCellValueFactory(new PropertyValueFactory<>("constraints"));
+		constraints.setCellFactory(TextFieldTableCell.forTableColumn());
+		constraints.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setConstraints(event.getNewValue()); mainApp.reset();});
+		choices.add("basedOn");
+		basedOn.setCellValueFactory(new PropertyValueFactory<>("basedOn"));
+		basedOn.setCellFactory(TextFieldTableCell.forTableColumn());
+		basedOn.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setBasedOn(event.getNewValue()); mainApp.reset();});
+		choices.add("citations");
+		citations.setCellValueFactory(new PropertyValueFactory<>("citations"));
+		citations.setCellFactory(TextFieldTableCell.forTableColumn());
+		citations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCitations(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 
