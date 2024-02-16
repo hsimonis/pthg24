@@ -20,7 +20,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 09:07:04 on 2024-02-14 */
+ * Generated at 12:30:48 on 2024-02-15 */
 public class WorkController extends Table3Controller {
 	@FXML
 	private TableView<Work> table;
@@ -69,6 +69,9 @@ public class WorkController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Work, String> cpSystem;
+
+	@FXML
+	private TableColumn<Work, String> classification;
 
 	@FXML
 	private TableColumn<Work, String> constraints;
@@ -154,6 +157,10 @@ public class WorkController extends Table3Controller {
 		cpSystem.setCellValueFactory(new PropertyValueFactory<>("cpSystem"));
 		cpSystem.setCellFactory(TextFieldTableCell.forTableColumn());
 		cpSystem.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCpSystem(event.getNewValue()); mainApp.reset();});
+		choices.add("classification");
+		classification.setCellValueFactory(new PropertyValueFactory<>("classification"));
+		classification.setCellFactory(TextFieldTableCell.forTableColumn());
+		classification.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setClassification(event.getNewValue()); mainApp.reset();});
 		choices.add("constraints");
 		constraints.setCellValueFactory(new PropertyValueFactory<>("constraints"));
 		constraints.setCellFactory(TextFieldTableCell.forTableColumn());

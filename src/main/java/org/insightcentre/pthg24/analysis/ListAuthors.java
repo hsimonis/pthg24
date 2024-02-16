@@ -20,7 +20,7 @@ public class ListAuthors {
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{p{4cm}p{15cm}}\n");
+            out.printf("\\begin{longtable}{p{4cm}p{20cm}}\n");
             out.printf("\\caption{Co-Authors of Articles/Papers}\\\\ \\toprule\n");
             out.printf("Author & Entries \\\\ \\midrule");
             out.printf("\\endhead\n");
@@ -43,7 +43,10 @@ public class ListAuthors {
     }
 
     private List<Author> sortedAuthors(Scenario base){
-        return base.getListAuthor();
+        return base.getListAuthor().stream().
+                sorted(Comparator.comparing(Author::getNrWorks).reversed().
+                        thenComparing(Author::getFamilyName)).
+                collect(Collectors.toUnmodifiableList());
     }
 
     private List<Authorship> sortedAuthorship(Scenario base,Author a){

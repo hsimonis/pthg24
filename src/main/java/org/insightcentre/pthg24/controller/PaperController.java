@@ -22,7 +22,7 @@ import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 
 /**
- * Generated at 09:07:04 on 2024-02-14 */
+ * Generated at 12:30:48 on 2024-02-15 */
 public class PaperController extends Table3Controller {
 	@FXML
 	private TableView<Paper> table;
@@ -71,6 +71,9 @@ public class PaperController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Paper, String> cpSystem;
+
+	@FXML
+	private TableColumn<Paper, String> classification;
 
 	@FXML
 	private TableColumn<Paper, String> constraints;
@@ -161,6 +164,10 @@ public class PaperController extends Table3Controller {
 		cpSystem.setCellValueFactory(new PropertyValueFactory<>("cpSystem"));
 		cpSystem.setCellFactory(TextFieldTableCell.forTableColumn());
 		cpSystem.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCpSystem(event.getNewValue()); mainApp.reset();});
+		choices.add("classification");
+		classification.setCellValueFactory(new PropertyValueFactory<>("classification"));
+		classification.setCellFactory(TextFieldTableCell.forTableColumn());
+		classification.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setClassification(event.getNewValue()); mainApp.reset();});
 		choices.add("constraints");
 		constraints.setCellValueFactory(new PropertyValueFactory<>("constraints"));
 		constraints.setCellFactory(TextFieldTableCell.forTableColumn());

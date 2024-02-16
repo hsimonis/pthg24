@@ -18,7 +18,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 
 /**
- * Generated at 09:07:04 on 2024-02-14 */
+ * Generated at 12:30:48 on 2024-02-15 */
 public class ProceedingsController extends Table3Controller {
 	@FXML
 	private TableView<Proceedings> table;

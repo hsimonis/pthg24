@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 09:07:04 on 2024-02-14 */
+ * Generated at 12:30:48 on 2024-02-15 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -39,6 +39,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("conceptType");
 		filterNames.add("name");
 		filterNames.add("shortName");
+		filterNames.add("familyName");
 		attributeNames.add("nrWorks");
 		filterNames.add("nrWorks");
 		choicesMap.put("Author", attributeNames);
@@ -63,6 +64,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
 		filterNames.add("cpSystem");
+		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("basedOn");
 		filterNames.add("citations");
@@ -88,6 +90,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
 		filterNames.add("cpSystem");
+		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("basedOn");
 		filterNames.add("citations");
@@ -114,6 +117,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
 		filterNames.add("cpSystem");
+		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("basedOn");
 		filterNames.add("citations");
@@ -140,6 +144,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
 		filterNames.add("cpSystem");
+		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("basedOn");
 		filterNames.add("citations");
@@ -166,6 +171,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
 		filterNames.add("cpSystem");
+		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("basedOn");
 		filterNames.add("citations");

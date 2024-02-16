@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 09:07:04 on 2024-02-14 */
+ * Generated at 12:30:48 on 2024-02-15 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -51,6 +51,7 @@ public class PieChartController extends ChartController {
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
 		attributeNames.add("shortName");
+		attributeNames.add("familyName");
 		attributeNames.add("nrWorks");
 		choicesMap.put("Author", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -69,6 +70,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
 		attributeNames.add("cpSystem");
+		attributeNames.add("classification");
 		attributeNames.add("constraints");
 		attributeNames.add("basedOn");
 		attributeNames.add("citations");
@@ -89,6 +91,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
 		attributeNames.add("cpSystem");
+		attributeNames.add("classification");
 		attributeNames.add("constraints");
 		attributeNames.add("basedOn");
 		attributeNames.add("citations");
@@ -110,6 +113,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
 		attributeNames.add("cpSystem");
+		attributeNames.add("classification");
 		attributeNames.add("constraints");
 		attributeNames.add("basedOn");
 		attributeNames.add("citations");
@@ -131,6 +135,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
 		attributeNames.add("cpSystem");
+		attributeNames.add("classification");
 		attributeNames.add("constraints");
 		attributeNames.add("basedOn");
 		attributeNames.add("citations");
@@ -152,6 +157,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
 		attributeNames.add("cpSystem");
+		attributeNames.add("classification");
 		attributeNames.add("constraints");
 		attributeNames.add("basedOn");
 		attributeNames.add("citations");

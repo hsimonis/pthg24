@@ -22,7 +22,7 @@ import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.School;
 
 /**
- * Generated at 09:07:04 on 2024-02-14 */
+ * Generated at 12:30:48 on 2024-02-15 */
 public class PhDThesisController extends Table3Controller {
 	@FXML
 	private TableView<PhDThesis> table;
@@ -71,6 +71,9 @@ public class PhDThesisController extends Table3Controller {
 
 	@FXML
 	private TableColumn<PhDThesis, String> cpSystem;
+
+	@FXML
+	private TableColumn<PhDThesis, String> classification;
 
 	@FXML
 	private TableColumn<PhDThesis, String> constraints;
@@ -161,6 +164,10 @@ public class PhDThesisController extends Table3Controller {
 		cpSystem.setCellValueFactory(new PropertyValueFactory<>("cpSystem"));
 		cpSystem.setCellFactory(TextFieldTableCell.forTableColumn());
 		cpSystem.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCpSystem(event.getNewValue()); mainApp.reset();});
+		choices.add("classification");
+		classification.setCellValueFactory(new PropertyValueFactory<>("classification"));
+		classification.setCellFactory(TextFieldTableCell.forTableColumn());
+		classification.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setClassification(event.getNewValue()); mainApp.reset();});
 		choices.add("constraints");
 		constraints.setCellValueFactory(new PropertyValueFactory<>("constraints"));
 		constraints.setCellFactory(TextFieldTableCell.forTableColumn());

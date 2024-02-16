@@ -71,6 +71,13 @@ public abstract class Work extends ApplicationObject{
  *
 */
 
+    public String classification;
+
+/**
+ *  
+ *
+*/
+
     public String codeAvail;
 
 /**
@@ -180,6 +187,7 @@ public abstract class Work extends ApplicationObject{
         setAuthors(new ArrayList<Author>());
         setBasedOn("");
         setCitations("");
+        setClassification("");
         setCodeAvail("");
         setConstraints("");
         setCpSystem("");
@@ -210,6 +218,7 @@ public abstract class Work extends ApplicationObject{
             List<Author> authors,
             String basedOn,
             String citations,
+            String classification,
             String codeAvail,
             String constraints,
             String cpSystem,
@@ -230,6 +239,7 @@ public abstract class Work extends ApplicationObject{
         setAuthors(authors);
         setBasedOn(basedOn);
         setCitations(citations);
+        setClassification(classification);
         setCodeAvail(codeAvail);
         setConstraints(constraints);
         setCpSystem(cpSystem);
@@ -254,6 +264,7 @@ public abstract class Work extends ApplicationObject{
             other.authors,
             other.basedOn,
             other.citations,
+            other.classification,
             other.codeAvail,
             other.constraints,
             other.cpSystem,
@@ -320,6 +331,16 @@ public abstract class Work extends ApplicationObject{
 
     public String getCitations(){
         return this.citations;
+    }
+
+/**
+ *  get attribute classification
+ *
+ * @return String
+*/
+
+    public String getClassification(){
+        return this.classification;
     }
 
 /**
@@ -496,6 +517,18 @@ public abstract class Work extends ApplicationObject{
 
     public void setCitations(String citations){
         this.citations = citations;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute classification, mark dataset as dirty, mark dataset as not valid
+@param classification String
+ *
+*/
+
+    public void setClassification(String classification){
+        this.classification = classification;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -695,7 +728,7 @@ public abstract class Work extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBasedOn()+ " " +getCitations()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrPages()+ " " +getPages()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBasedOn()+ " " +getCitations()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrPages()+ " " +getPages()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear();
     }
 
 /**
@@ -723,6 +756,7 @@ public abstract class Work extends ApplicationObject{
             " authors=\""+toXMLAuthors()+"\""+
             " basedOn=\""+toXMLBasedOn()+"\""+
             " citations=\""+toXMLCitations()+"\""+
+            " classification=\""+toXMLClassification()+"\""+
             " codeAvail=\""+toXMLCodeAvail()+"\""+
             " constraints=\""+toXMLConstraints()+"\""+
             " cpSystem=\""+toXMLCpSystem()+"\""+
@@ -780,6 +814,16 @@ public abstract class Work extends ApplicationObject{
 
     String toXMLCitations(){
         return this.safeXML(getCitations());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLClassification(){
+        return this.safeXML(getClassification());
     }
 
 /**
@@ -1017,6 +1061,9 @@ public abstract class Work extends ApplicationObject{
       if(!this.getCitations().equals(b.getCitations())){
          System.out.println("Citations");
         }
+      if(!this.getClassification().equals(b.getClassification())){
+         System.out.println("Classification");
+        }
       if(!this.getCodeAvail().equals(b.getCodeAvail())){
          System.out.println("CodeAvail");
         }
@@ -1063,6 +1110,7 @@ public abstract class Work extends ApplicationObject{
           true &&
           this.getBasedOn().equals(b.getBasedOn()) &&
           this.getCitations().equals(b.getCitations()) &&
+          this.getClassification().equals(b.getClassification()) &&
           this.getCodeAvail().equals(b.getCodeAvail()) &&
           this.getConstraints().equals(b.getConstraints()) &&
           this.getCpSystem().equals(b.getCpSystem()) &&

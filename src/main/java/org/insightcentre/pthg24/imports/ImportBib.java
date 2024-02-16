@@ -138,6 +138,7 @@ public class ImportBib {
             res = new Author(base);
             res.setName(name);
             res.setShortName(shortName(name));
+            res.setFamilyName(familyName(name));
         }
         return res;
     }
@@ -242,6 +243,15 @@ public class ImportBib {
             return shortForm(split[0])+". "+split[1];
         }
         return text;
+    }
+
+    private String familyName(String text) {
+        String[] split = text.split(" ");
+        if (split.length >= 2){
+            return split[1];
+        } else {
+            return text;
+        }
     }
 
     //???We do not mess with names that start with latex special characters

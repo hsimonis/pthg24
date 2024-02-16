@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 09:07:04 on 2024-02-14-->
+<!--Generated at 12:30:48 on 2024-02-15-->
 
 
 <Tab text="Paper" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.PaperController">
@@ -33,6 +33,7 @@
                <TableColumn fx:id="codeAvail" styleClass="right-aligned" text="CodeAvail" />
                <TableColumn fx:id="solutionAvail" styleClass="right-aligned" text="SolutionAvail" />
                <TableColumn fx:id="cpSystem" styleClass="right-aligned" text="CpSystem" />
+               <TableColumn fx:id="classification" styleClass="right-aligned" text="Classification" />
                <TableColumn fx:id="constraints" styleClass="right-aligned" text="Constraints" />
                <TableColumn fx:id="basedOn" styleClass="right-aligned" text="BasedOn" />
                <TableColumn fx:id="citations" styleClass="right-aligned" text="Citations" />

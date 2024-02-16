@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.ListArticlesManual.sortedArticles;
 import static org.insightcentre.pthg24.datamodel.ConceptType.*;
 import static org.insightcentre.pthg24.imports.Importer.safer;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
@@ -27,7 +28,7 @@ public class AnalysisByWork {
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
-            for(Work w:sortedWorks(base)){
+            for(Article w:sortedArticles(base)){
                 out.printf("\\href{%s}{%s}~\\cite{%s}",w.getLocalCopy(),safe(w.getName()),w.getName());
                 out.printf(" & %s",concepts(base,w,Concepts));
                 out.printf(" & %s",concepts(base,w,Classification));

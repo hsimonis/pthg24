@@ -3,6 +3,7 @@ String author
 List<Author> authors
 String basedOn
 String citations
+String classification
 String codeAvail
 String constraints
 String cpSystem

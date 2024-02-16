@@ -82,6 +82,7 @@ public  class Article extends Work{
             List<Author> authors,
             String basedOn,
             String citations,
+            String classification,
             String codeAvail,
             String constraints,
             String cpSystem,
@@ -103,6 +104,7 @@ public  class Article extends Work{
             authors,
             basedOn,
             citations,
+            classification,
             codeAvail,
             constraints,
             cpSystem,
@@ -128,6 +130,7 @@ public  class Article extends Work{
             other.authors,
             other.basedOn,
             other.citations,
+            other.classification,
             other.codeAvail,
             other.constraints,
             other.cpSystem,
@@ -196,7 +199,7 @@ public  class Article extends Work{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBasedOn()+ " " +getCitations()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrPages()+ " " +getPages()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear()+ " " +getJournal().toColumnString();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBasedOn()+ " " +getCitations()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrPages()+ " " +getPages()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear()+ " " +getJournal().toColumnString();
     }
 
 /**
@@ -224,6 +227,7 @@ public  class Article extends Work{
             " authors=\""+toXMLAuthors()+"\""+
             " basedOn=\""+toXMLBasedOn()+"\""+
             " citations=\""+toXMLCitations()+"\""+
+            " classification=\""+toXMLClassification()+"\""+
             " codeAvail=\""+toXMLCodeAvail()+"\""+
             " constraints=\""+toXMLConstraints()+"\""+
             " cpSystem=\""+toXMLCpSystem()+"\""+
@@ -257,11 +261,11 @@ public  class Article extends Work{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Article</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Constraints</th>"+"<th>BasedOn</th>"+"<th>Citations</th>"+"<th>Journal</th>"+"</tr>";
+        return "<tr><th>Article</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>BasedOn</th>"+"<th>Citations</th>"+"<th>Journal</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getBasedOn()+"</td>"+ " " +"<td>"+getCitations()+"</td>"+ " " +"<td>"+getJournal().toColumnString()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getBasedOn()+"</td>"+ " " +"<td>"+getCitations()+"</td>"+ " " +"<td>"+getJournal().toColumnString()+"</td>"+"</tr>";
     }
 
 /**
@@ -389,6 +393,9 @@ public  class Article extends Work{
       if(!this.getCitations().equals(b.getCitations())){
          System.out.println("Citations");
         }
+      if(!this.getClassification().equals(b.getClassification())){
+         System.out.println("Classification");
+        }
       if(!this.getCodeAvail().equals(b.getCodeAvail())){
          System.out.println("CodeAvail");
         }
@@ -438,6 +445,7 @@ public  class Article extends Work{
           true &&
           this.getBasedOn().equals(b.getBasedOn()) &&
           this.getCitations().equals(b.getCitations()) &&
+          this.getClassification().equals(b.getClassification()) &&
           this.getCodeAvail().equals(b.getCodeAvail()) &&
           this.getConstraints().equals(b.getConstraints()) &&
           this.getCpSystem().equals(b.getCpSystem()) &&

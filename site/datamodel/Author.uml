@@ -1,4 +1,5 @@
  class Author {
+String familyName
 Integer nrWorks
 String shortName
 }
