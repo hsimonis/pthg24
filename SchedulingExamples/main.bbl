@@ -1,0 +1,396 @@
+\begin{thebibliography}{10}
+
+\bibitem{AntuoriHHEN21}
+Valentin Antuori, Emmanuel Hebrard, Marie{-}Jos{\'{e}} Huguet, Siham
+  Essodaigui, and Alain Nguyen.
+\newblock Combining monte carlo tree search and depth first search methods for
+  a car manufacturing workshop scheduling problem.
+\newblock In Laurent~D. Michel, editor, {\em 27th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2021, Montpellier,
+  France (Virtual Conference), October 25-29, 2021}, volume 210 of {\em
+  LIPIcs}, pages 14:1--14:16. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r
+  Informatik, 2021.
+\newblock URL: \url{https://doi.org/10.4230/LIPIcs.CP.2021.14}, \href
+  {https://doi.org/10.4230/LIPICS.CP.2021.14}
+  {\path{doi:10.4230/LIPICS.CP.2021.14}}.
+
+\bibitem{DBLP:books/daglib/0018273}
+Krzysztof~R. Apt.
+\newblock {\em Principles of constraint programming}.
+\newblock Cambridge University Press, 2003.
+
+\bibitem{DBLP:books/daglib/0018272}
+Krzysztof~R. Apt and Mark Wallace.
+\newblock {\em Constraint logic programming using {ECLiPSe}}.
+\newblock Cambridge University Press, 2007.
+
+\bibitem{ArmstrongGOS21}
+Eddie Armstrong, Michele Garraffa, Barry O'Sullivan, and Helmut Simonis.
+\newblock The hybrid flexible flowshop with transportation times.
+\newblock In Laurent~D. Michel, editor, {\em 27th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2021, Montpellier,
+  France (Virtual Conference), October 25-29, 2021}, volume 210 of {\em
+  LIPIcs}, pages 16:1--16:18. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r
+  Informatik, 2021.
+\newblock URL: \url{https://doi.org/10.4230/LIPIcs.CP.2021.16}, \href
+  {https://doi.org/10.4230/LIPICS.CP.2021.16}
+  {\path{doi:10.4230/LIPICS.CP.2021.16}}.
+
+\bibitem{BenderWS21}
+Till Bender, David Wittwer, and Thorsten Schmidt.
+\newblock Applying constraint programming to the multi-mode scheduling problem
+  in harvest logistics.
+\newblock In Martijn Mes, Eduardo Lalla{-}Ruiz, and Stefan Vo{\ss}, editors,
+  {\em Computational Logistics - 12th International Conference, {ICCL} 2021,
+  Enschede, The Netherlands, September 27-29, 2021, Proceedings}, volume 13004
+  of {\em Lecture Notes in Computer Science}, pages 562--577. Springer, 2021.
+\newblock \href {https://doi.org/10.1007/978-3-030-87672-2\_37}
+  {\path{doi:10.1007/978-3-030-87672-2\_37}}.
+
+\bibitem{Bit-Monnot23}
+Arthur Bit{-}Monnot.
+\newblock Enhancing hybrid {CP-SAT} search for disjunctive scheduling.
+\newblock In Kobi Gal, Ann Now{\'{e}}, Grzegorz~J. Nalepa, Roy Fairstein, and
+  Roxana Radulescu, editors, {\em {ECAI} 2023 - 26th European Conference on
+  Artificial Intelligence, September 30 - October 4, 2023, Krak{\'{o}}w, Poland
+  - Including 12th Conference on Prestigious Applications of Intelligent
+  Systems {(PAIS} 2023)}, volume 372 of {\em Frontiers in Artificial
+  Intelligence and Applications}, pages 255--262. {IOS} Press, 2023.
+\newblock \href {https://doi.org/10.3233/FAIA230278}
+  {\path{doi:10.3233/FAIA230278}}.
+
+\bibitem{Bourreau2019}
+Eric Bourreau, Matthieu Gondran, Philippe Lacomme, and Marina Vinot.
+\newblock {\em De la programmation linéaire à la programmation par
+  contraintes}.
+\newblock ellipses, Paris, France, 2019.
+\newblock in French.
+
+\bibitem{Bourreau2020}
+Eric Bourreau, Matthieu Gondran, Philippe Lacomme, and Marina Vinot.
+\newblock {\em Programmation par Contraintes}.
+\newblock ellipses, Paris, France, 2020.
+\newblock in French.
+
+\bibitem{CarchraeBF05}
+Tom Carchrae, J.~Christopher Beck, and Eugene~C. Freuder.
+\newblock Methods to learn abstract scheduling models.
+\newblock In Peter van Beek, editor, {\em Principles and Practice of Constraint
+  Programming - {CP} 2005, 11th International Conference, {CP} 2005, Sitges,
+  Spain, October 1-5, 2005, Proceedings}, volume 3709 of {\em Lecture Notes in
+  Computer Science}, page 842. Springer, 2005.
+\newblock \href {https://doi.org/10.1007/11564751\_80}
+  {\path{doi:10.1007/11564751\_80}}.
+
+\bibitem{AbreuN22}
+Levi~Ribeiro de~Abreu and Marcelo~Seido Nagano.
+\newblock A new hybridization of adaptive large neighborhood search with
+  constraint programming for open shop scheduling with sequence-dependent setup
+  times.
+\newblock {\em Comput. Ind. Eng.}, 168:108128, 2022.
+\newblock URL: \url{https://doi.org/10.1016/j.cie.2022.108128}, \href
+  {https://doi.org/10.1016/J.CIE.2022.108128}
+  {\path{doi:10.1016/J.CIE.2022.108128}}.
+
+\bibitem{DBLP:books/daglib/0016622}
+Rina Dechter.
+\newblock {\em Constraint processing}.
+\newblock Elsevier Morgan Kaufmann, 2003.
+\newblock URL:
+  \url{http://www.elsevier.com/wps/find/bookdescription.agents/678024/description}.
+
+\bibitem{DBLP:conf/fgcs/DincbasHSAGB88}
+Mehmet Dincbas, Pascal~Van Hentenryck, Helmut Simonis, Abderrahmane Aggoun,
+  Thomas Graf, and Fran{\c{c}}oise Berthier.
+\newblock The constraint logic programming language {CHIP}.
+\newblock In {\em Proceedings of the International Conference on Fifth
+  Generation Computer Systems, {FGCS} 1988, Tokyo, Japan, November 28-December
+  2, 1988}, pages 693--702. {OHMSHA} Ltd. Tokyo and Springer-Verlag, 1988.
+
+\bibitem{Fages1998}
+Francois Fages.
+\newblock {\em Programmation logique par contraintes}.
+\newblock ellipses, Paris, France, 1998.
+\newblock in French.
+
+\bibitem{DBLP:books/daglib/0008152}
+Thom~W. Fr{\"{u}}hwirth and Slim Abdennadher.
+\newblock {\em Essentials of constraint programming}.
+\newblock Cognitive Technologies. Springer, 2003.
+\newblock URL:
+  \url{http://www.springer.com/computer/swe/book/978-3-540-67623-2}.
+
+\bibitem{GeibingerKKMMW21}
+Tobias Geibinger, Lucas Kletzander, Matthias Krainz, Florian Mischek, Nysret
+  Musliu, and Felix Winter.
+\newblock Physician scheduling during a pandemic.
+\newblock In Peter~J. Stuckey, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 18th
+  International Conference, {CPAIOR} 2021, Vienna, Austria, July 5-8, 2021,
+  Proceedings}, volume 12735 of {\em Lecture Notes in Computer Science}, pages
+  456--465. Springer, 2021.
+\newblock \href {https://doi.org/10.1007/978-3-030-78230-6\_29}
+  {\path{doi:10.1007/978-3-030-78230-6\_29}}.
+
+\bibitem{GeibingerMM21}
+Tobias Geibinger, Florian Mischek, and Nysret Musliu.
+\newblock Constraint logic programming for real-world test laboratory
+  scheduling.
+\newblock In {\em Thirty-Fifth {AAAI} Conference on Artificial Intelligence,
+  {AAAI} 2021, Thirty-Third Conference on Innovative Applications of Artificial
+  Intelligence, {IAAI} 2021, The Eleventh Symposium on Educational Advances in
+  Artificial Intelligence, {EAAI} 2021, Virtual Event, February 2-9, 2021},
+  pages 6358--6366. {AAAI} Press, 2021.
+\newblock URL: \url{https://doi.org/10.1609/aaai.v35i7.16789}, \href
+  {https://doi.org/10.1609/AAAI.V35I7.16789}
+  {\path{doi:10.1609/AAAI.V35I7.16789}}.
+
+\bibitem{GeitzGSSW22}
+Marc Geitz, Cristian Grozea, Wolfgang Steigerwald, Robin St{\"{o}}hr, and Armin
+  Wolf.
+\newblock Solving the extended job shop scheduling problem with agvs -
+  classical and quantum approaches.
+\newblock In Pierre Schaus, editor, {\em Integration of Constraint Programming,
+  Artificial Intelligence, and Operations Research - 19th International
+  Conference, {CPAIOR} 2022, Los Angeles, CA, USA, June 20-23, 2022,
+  Proceedings}, volume 13292 of {\em Lecture Notes in Computer Science}, pages
+  120--137. Springer, 2022.
+\newblock \href {https://doi.org/10.1007/978-3-031-08011-1\_10}
+  {\path{doi:10.1007/978-3-031-08011-1\_10}}.
+
+\bibitem{GindullinBCDQ23}
+Ramiz Gindullin, Nicolas Beldiceanu, Jovial Cheukam{-}Ngouonou, R{\'{e}}mi
+  Douence, and Claude{-}Guy Quimper.
+\newblock Boolean-arithmetic equations: Acquisition and uses.
+\newblock In Andr{\'{e}}~A. Cir{\'{e}}, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 20th
+  International Conference, {CPAIOR} 2023, Nice, France, May 29 - June 1, 2023,
+  Proceedings}, volume 13884 of {\em Lecture Notes in Computer Science}, pages
+  378--394. Springer, 2023.
+\newblock \href {https://doi.org/10.1007/978-3-031-33271-5\_25}
+  {\path{doi:10.1007/978-3-031-33271-5\_25}}.
+
+\bibitem{Turtle}
+Martin Grabm{\"u}ller and Petra Hofstedt.
+\newblock {Turtle}: A constraint imperative programming language.
+\newblock In Frans Coenen, Alun Preece, and Ann Macintosh, editors, {\em
+  Research and Development in Intelligent Systems XX}, pages 185--198, London,
+  2004. Springer London.
+
+\bibitem{DBLP:books/daglib/0066904}
+Pascal~Van Hentenryck.
+\newblock {\em Constraint satisfaction in logic programming}.
+\newblock Logic programming. {MIT} Press, 1989.
+
+\bibitem{opl1999}
+Pascal~Van Hentenryck.
+\newblock {\em The {OPL} Optimization Programming Language}.
+\newblock MIT Press, 1999.
+
+\bibitem{DBLP:journals/informs/Hentenryck02}
+Pascal~Van Hentenryck.
+\newblock Constraint and integer programming in {OPL}.
+\newblock {\em {INFORMS} J. Comput.}, 14(4):345--372, 2002.
+\newblock URL: \url{https://doi.org/10.1287/ijoc.14.4.345.2826}, \href
+  {https://doi.org/10.1287/IJOC.14.4.345.2826}
+  {\path{doi:10.1287/IJOC.14.4.345.2826}}.
+
+\bibitem{DBLP:books/daglib/0034544}
+Petra Hofstedt and Armin Wolf.
+\newblock {\em Einf{\"{u}}hrung in die Constraint-Programmierung - Grundlagen,
+  Methoden, Sprachen, Anwendungen}.
+\newblock eXamen.press. Springer, 2007.
+\newblock in German.
+\newblock \href {https://doi.org/10.1007/978-3-540-68194-6}
+  {\path{doi:10.1007/978-3-540-68194-6}}.
+
+\bibitem{Hooker2000}
+John Hooker.
+\newblock {\em Logic-Based Methods for Optimization: Combining Optimization and
+  Constraint Satisfaction}.
+\newblock Wiley, 2000.
+
+\bibitem{DBLP:books/daglib/0017646}
+John~N. Hooker.
+\newblock {\em Integrated methods for optimization}, volume 100 of {\em
+  International series in operations research and management science}.
+\newblock Springer, 2007.
+
+\bibitem{IsikYA23}
+Ey{\"{u}}p~Ensar Isik, Seyda~Topaloglu Yildiz, and {\"{O}}zge~Satir Akpunar.
+\newblock Constraint programming models for the hybrid flow shop scheduling
+  problem and its extensions.
+\newblock {\em Soft Comput.}, 27(24):18623--18650, 2023.
+\newblock URL: \url{https://doi.org/10.1007/s00500-023-09086-9}, \href
+  {https://doi.org/10.1007/S00500-023-09086-9}
+  {\path{doi:10.1007/S00500-023-09086-9}}.
+
+\bibitem{DBLP:conf/compcon/JaffarMSY91}
+Joxan Jaffar, Spiro Michaylov, Peter~J. Stuckey, and Roland H.~C. Yap.
+\newblock The {CLP(R)} language and system: an overview.
+\newblock In {\em Compcon Spring '91, San Francisco, California, USA, February
+  25 - March 1, 1991. Digest of Papers}, pages 376--381. {IEEE} Computer
+  Society, 1991.
+\newblock \href {https://doi.org/10.1109/CMPCON.1991.128837}
+  {\path{doi:10.1109/CMPCON.1991.128837}}.
+
+\bibitem{KimCMLLP23}
+Dongyun Kim, Yeonjun Choi, Kyungduk Moon, Myungho Lee, Kangbok Lee, and
+  Michael~L. Pinedo.
+\newblock Iterated greedy constraint programming for scheduling steelmaking
+  continuous casting.
+\newblock In Andr{\'{e}}~A. Cir{\'{e}}, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research - 20th
+  International Conference, {CPAIOR} 2023, Nice, France, May 29 - June 1, 2023,
+  Proceedings}, volume 13884 of {\em Lecture Notes in Computer Science}, pages
+  477--492. Springer, 2023.
+\newblock \href {https://doi.org/10.1007/978-3-031-33271-5\_31}
+  {\path{doi:10.1007/978-3-031-33271-5\_31}}.
+
+\bibitem{KovacsTKSG21}
+Benjamin Kov{\'{a}}cs, Pierre Tassel, Wolfgang Kohlenbrein, Philipp
+  Schrott{-}Kostwein, and Martin Gebser.
+\newblock Utilizing constraint optimization for industrial machine workload
+  balancing.
+\newblock In Laurent~D. Michel, editor, {\em 27th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2021, Montpellier,
+  France (Virtual Conference), October 25-29, 2021}, volume 210 of {\em
+  LIPIcs}, pages 36:1--36:17. Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r
+  Informatik, 2021.
+\newblock URL: \url{https://doi.org/10.4230/LIPIcs.CP.2021.36}, \href
+  {https://doi.org/10.4230/LIPICS.CP.2021.36}
+  {\path{doi:10.4230/LIPICS.CP.2021.36}}.
+
+\bibitem{Lecoutre2013}
+Christophe Lecoutre.
+\newblock {\em Constraint Networks: Targeting Simplicity for Techniques and
+  Algorithms}.
+\newblock Wiley, 2013.
+
+\bibitem{LombardiM12}
+Michele Lombardi and Michela Milano.
+\newblock Optimal methods for resource allocation and scheduling: a
+  cross-disciplinary survey.
+\newblock {\em Constraints An Int. J.}, 17(1):51--85, 2012.
+\newblock URL: \url{https://doi.org/10.1007/s10601-011-9115-6}, \href
+  {https://doi.org/10.1007/S10601-011-9115-6}
+  {\path{doi:10.1007/S10601-011-9115-6}}.
+
+\bibitem{Marriott1998}
+Kim Marriott and Peter Stuckey.
+\newblock {\em Programming with Constraints}.
+\newblock MIT Press, 1998.
+
+\bibitem{DBLP:conf/cp/NethercoteSBBDT07}
+Nicholas Nethercote, Peter~J. Stuckey, Ralph Becket, Sebastian Brand,
+  Gregory~J. Duck, and Guido Tack.
+\newblock {MiniZinc}: Towards a standard {CP} modelling language.
+\newblock In Christian Bessiere, editor, {\em Principles and Practice of
+  Constraint Programming - {CP} 2007, 13th International Conference, {CP} 2007,
+  Providence, RI, USA, September 23-27, 2007, Proceedings}, volume 4741 of {\em
+  Lecture Notes in Computer Science}, pages 529--543. Springer, 2007.
+\newblock \href {https://doi.org/10.1007/978-3-540-74970-7\_38}
+  {\path{doi:10.1007/978-3-540-74970-7\_38}}.
+
+\bibitem{Niederlinski2014}
+Antoni Niederlinski.
+\newblock {\em A Gentle Guide to Constraint Logic Programming via ECLiPSe}.
+\newblock Economic University in Katowice, 3rd edition, 2014.
+\newblock Translated from Polish.
+\newblock URL:
+  \url{https://freecomputerbooks.com/A-Quick-and-Gentle-Guide-to-Constraint-Logic-Programming-via-ECLiPSe.html#:~:text=Book%20Description,problems%20and%20constraint%20optimization%20problems.}
+
+\bibitem{DBLP:books/daglib/0024693}
+David Poole and Alan~K. Mackworth.
+\newblock {\em Artificial Intelligence - Foundations of Computational Agents}.
+\newblock Cambridge University Press, 2010.
+\newblock URL:
+  \url{http://www.cambridge.org/uk/catalogue/catalogue.asp?isbn=9780521519007}.
+
+\bibitem{PrataAN23}
+Bruno~A. Prata, Levi~R. Abreu, and Marcelo~S. Nagano.
+\newblock Applications of constraint programming in production scheduling
+  problems: A descriptive bibliometric analysis.
+\newblock {\em Results in Control and Optimization}, 14:100350, 2024.
+\newblock URL:
+  \url{https://www.sciencedirect.com/science/article/pii/S2666720723001522},
+  \href {https://doi.org/https://doi.org/10.1016/j.rico.2023.100350}
+  {\path{doi:https://doi.org/10.1016/j.rico.2023.100350}}.
+
+\bibitem{DBLP:journals/jossw/PrudhommeF22}
+Charles Prud'homme and Jean{-}Guillaume Fages.
+\newblock Choco-solver: {A} java library for constraint programming.
+\newblock {\em J. Open Source Softw.}, 7(78):4708, 2022.
+\newblock URL: \url{https://doi.org/10.21105/joss.04708}, \href
+  {https://doi.org/10.21105/JOSS.04708} {\path{doi:10.21105/JOSS.04708}}.
+
+\bibitem{DBLP:books/aw/RN2020}
+Stuart Russell and Peter Norvig.
+\newblock {\em Artificial Intelligence: {A} Modern Approach (4th Edition)}.
+\newblock Pearson, 2020.
+\newblock URL: \url{http://aima.cs.berkeley.edu/}.
+
+\bibitem{DBLP:journals/tplp/SchimpfS12}
+Joachim Schimpf and Kish Shen.
+\newblock {ECL\({}^{\mbox{i}}\)PS\({}^{\mbox{e}}\)} - from {LP} to {CLP}.
+\newblock {\em Theory Pract. Log. Program.}, 12(1-2):127--156, 2012.
+\newblock \href {https://doi.org/10.1017/S1471068411000469}
+  {\path{doi:10.1017/S1471068411000469}}.
+
+\bibitem{SenderovichBB19}
+Arik Senderovich, Kyle E.~C. Booth, and J.~Christopher Beck.
+\newblock Learning scheduling models from event data.
+\newblock In J.~Benton, Nir Lipovetzky, Eva Onaindia, David~E. Smith, and
+  Siddharth Srivastava, editors, {\em Proceedings of the Twenty-Ninth
+  International Conference on Automated Planning and Scheduling, {ICAPS} 2019,
+  Berkeley, CA, USA, July 11-15, 2019}, pages 401--409. {AAAI} Press, 2019.
+\newblock URL: \url{https://ojs.aaai.org/index.php/ICAPS/article/view/3504}.
+
+\bibitem{Tsang2014}
+Edward Tsang.
+\newblock {\em Foundations of Constraint Satisfaction}.
+\newblock Books on Demand, 2014.
+
+\bibitem{TsourosBG23}
+Dimosthenis~C. Tsouros, Senne Berden, and Tias Guns.
+\newblock Guided bottom-up interactive constraint acquisition.
+\newblock In Roland H.~C. Yap, editor, {\em 29th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2023, August 27-31,
+  2023, Toronto, Canada}, volume 280 of {\em LIPIcs}, pages 36:1--36:20.
+  Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2023.
+\newblock URL: \url{https://doi.org/10.4230/LIPIcs.CP.2023.36}, \href
+  {https://doi.org/10.4230/LIPICS.CP.2023.36}
+  {\path{doi:10.4230/LIPICS.CP.2023.36}}.
+
+\bibitem{DBLP:books/sp/Wallace20}
+Mark Wallace.
+\newblock {\em Building Decision Support Systems - using {MiniZinc}}.
+\newblock Springer, 2020.
+\newblock \href {https://doi.org/10.1007/978-3-030-41732-1}
+  {\path{doi:10.1007/978-3-030-41732-1}}.
+
+\bibitem{Wolf2012}
+Armin Wolf.
+\newblock firstcs-new aspects on combining constraint programming with
+  object-orientation in java.
+\newblock {\em KI - Künstliche Intelligenz}, 26(1):55--60, 2012.
+
+\bibitem{DBLP:conf/ruleml/Zhou16}
+Neng{-}Fa Zhou.
+\newblock Programming in {Picat}.
+\newblock In Jos{\'{e}}~J{\'{u}}lio Alferes, Leopoldo~E. Bertossi, Guido
+  Governatori, Paul Fodor, and Dumitru Roman, editors, {\em Rule Technologies.
+  Research, Tools, and Applications - 10th International Symposium, RuleML
+  2016, Stony Brook, NY, USA, July 6-9, 2016. Proceedings}, volume 9718 of {\em
+  Lecture Notes in Computer Science}, pages 3--18. Springer, 2016.
+\newblock \href {https://doi.org/10.1007/978-3-319-42019-6\_1}
+  {\path{doi:10.1007/978-3-319-42019-6\_1}}.
+
+\bibitem{DBLP:series/sbis/ZhouKF15}
+Neng{-}Fa Zhou, H{\aa}kan Kjellerstrand, and Jonathan Fruhman.
+\newblock {\em Constraint Solving and Planning with {Picat}}.
+\newblock Springer Briefs in Intelligent Systems. Springer, 2015.
+\newblock \href {https://doi.org/10.1007/978-3-319-25883-6}
+  {\path{doi:10.1007/978-3-319-25883-6}}.
+
+\end{thebibliography}
