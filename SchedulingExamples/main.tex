@@ -36,6 +36,9 @@
 \usepackage{booktabs}
 \usepackage{hyperref}
 
+\newcommand{\su}[1]{\Shortunderstack[l]{#1}}
+
+
 \AtBeginSection[]
 {
     \begin{frame}
@@ -561,12 +564,12 @@ AntuoriHHEN21 \cite{AntuoriHHEN21}& 23.3MB& 120 & n & TS & n & n\\
 ArmstrongGOS21 \cite{ArmstrongGOS21}& 11MB & 225 & n & dzn & n & n\\
 BenderWS21 \cite{BenderWS21}& 116KB& 84 & y & TS & n & n\\
 Bit-Monnot23 \cite{Bit-Monnot23}& 23.5MB & 357 & n & TS & n & n\\
-GeibingerKKMMW21 \cite{GeibingerKKMMW21}& 40KB& & & & & n\\
-GeibingerMM21 \cite{GeibingerMM21}& 13.9MB & & & & & n\\
-GeitzGSSW22 \cite{GeitzGSSW22}& 16.0KB & & & & & n\\
-IsikYA23 \cite{IsikYA23} & 3.9MB & & & & & n\\
-KimCMLLP23 \cite{KimCMLLP23}& 4.1MB & & & & & n\\
-KovacsTKSG21 \cite{KovacsTKSG21}& 138MB & 18 & n & JSON & n & n\\
+GeibingerKKMMW21 \cite{GeibingerKKMMW21}& 40KB& 3 & - & dzn & n & n\\
+GeibingerMM21 \cite{GeibingerMM21}& 13.9MB & 33 & n & xml & y& n\\
+GeitzGSSW22 \cite{GeitzGSSW22}& 16.0KB & 8 & y & json & n & n\\
+IsikYA23 \cite{IsikYA23} & 3.9MB & 90 & n & xlsx & y & n\\
+KimCMLLP23 \cite{KimCMLLP23}& 4.1MB & 4 & y & \su{csv json} & n& n\\
+KovacsTKSG21 \cite{KovacsTKSG21}& 138MB & 18 & n & json & n & n\\
 \bottomrule
 \end{tabular}
 }
@@ -581,7 +584,10 @@ KovacsTKSG21 \cite{KovacsTKSG21}& 138MB & 18 & n & JSON & n & n\\
 \begin{columns}
 \begin{column}{0.5\textwidth}
 \begin{itemize}
-\item
+\item Two stage open shop
+\item No buffer space
+\item Tasks of a job must follow each other without delay
+\item $C_{\max}$ objective
 \end{itemize}
 \end{column}
 \begin{column}{0.5\textwidth}
@@ -595,11 +601,13 @@ KovacsTKSG21 \cite{KovacsTKSG21}& 138MB & 18 & n & JSON & n & n\\
 \begin{columns}
 \begin{column}{0.5\textwidth}
 \begin{itemize}
-\item
+\item Car manufacturing workshop
+\item Repetitive single vehicle pickup and delivery problem with time windows and capacity constraint
+\item Trolleys move components between two stages
 \end{itemize}
 \end{column}
 \begin{column}{0.5\textwidth}
-\includegraphics[width=.8\textwidth]{images/AntuoriHHEN21}
+\includegraphics[width=.75\textwidth]{images/AntuoriHHEN21}
 \end{column}
 \end{columns}
 \end{frame}
@@ -610,6 +618,7 @@ KovacsTKSG21 \cite{KovacsTKSG21}& 138MB & 18 & n & JSON & n & n\\
 \begin{columns}
 \begin{column}{0.5\textwidth}
 \begin{itemize}
+\item Hybrid, flexible flowshop with transportation times between machines
 \item Instances in MiniZinc .dzn format
 \item Single file per instance
 \item Matches program in paper
@@ -620,7 +629,7 @@ KovacsTKSG21 \cite{KovacsTKSG21}& 138MB & 18 & n & JSON & n & n\\
 \end{itemize}
 \end{column}
 \begin{column}{0.5\textwidth}
-\includegraphics[width=.7\textwidth]{images/ArmstrongGOS21}
+\includegraphics[width=.65\textwidth]{images/ArmstrongGOS21}
 \end{column}
 \end{columns}
 \end{frame}
@@ -630,7 +639,11 @@ KovacsTKSG21 \cite{KovacsTKSG21}& 138MB & 18 & n & JSON & n & n\\
 \begin{columns}
 \begin{column}{0.5\textwidth}
 \begin{itemize}
-\item Describes format of data
+\item Corn harvest scheduling
+\item Harvesters and transport vehicles
+\item Pre-emptive MRCPSP with fast-tracking,
+sequence-dependent setup times and synchronization of two resource types
+\item Meta-data: Describes format of data
 \end{itemize}
 \end{column}
 \begin{column}{0.5\textwidth}
@@ -644,6 +657,9 @@ KovacsTKSG21 \cite{KovacsTKSG21}& 138MB & 18 & n & JSON & n & n\\
 \begin{columns}
 \begin{column}{0.5\textwidth}
 \begin{itemize}
+\item Disjunctive Scheduling
+\item Solver focused
+\item Open-/job-shop examples
 \item Mix of strings and numbers
 \item Text stream
 \item Different formats for job shop and open shop instances
@@ -655,12 +671,53 @@ KovacsTKSG21 \cite{KovacsTKSG21}& 138MB & 18 & n & JSON & n & n\\
 \end{columns}
 \end{frame}
 
+\begin{frame}
+\frametitle{GeibingerMM21 \cite{GeibingerMM21}}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\begin{itemize}
+\item Test lab Scheduling
+\item Real-world problem
+\item Extension of RCPSP
+\item Multiple files per instances
+\item XML format throughout
+\end{itemize}
+\end{column}
+\begin{column}{0.6\textwidth}
+\includegraphics[width=.7\textwidth]{images/GeibingerMM21}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{IsikYA23 \cite{IsikYA23}}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item Extension of Hybrid Flow-shop (no-wait, blocking, sequence dependent setup)
+\item Uses Excel ./xlsx format for input and output
+\item Understandable as format of result summaries
+\item Horrible choice as data input format
+\begin{itemize}
+\item Automatic type conversions by Excel
+\item Hard to retrieve input data in original form
+\end{itemize}
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\includegraphics[width=\textwidth]{images/IsikYA23}
+\end{column}
+\end{columns}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{KovacsTKSG21~\cite{KovacsTKSG21}}
 \begin{columns}
 \begin{column}{0.5\textwidth}
 \begin{itemize}
+\item Real-world work-load balancing problem
+\item Made-to-order printing machines
 \item Nice JSON format of data
 \item Real-life data
 \item One instance per file, one file per instance
@@ -669,7 +726,7 @@ KovacsTKSG21 \cite{KovacsTKSG21}& 138MB & 18 & n & JSON & n & n\\
 \end{itemize}
 \end{column}
 \begin{column}{0.5\textwidth}
-\includegraphics[width=\textwidth]{images/KovacsTKSG21}
+\includegraphics[width=.7\textwidth]{images/KovacsTKSG21}
 \end{column}
 \end{columns}
 \end{frame}
