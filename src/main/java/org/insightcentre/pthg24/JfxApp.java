@@ -10,6 +10,7 @@ import framework.types.IrishCalendar;
 import org.insightcentre.pthg24.analysis.*;
 import org.insightcentre.pthg24.datamodel.*;
 import org.insightcentre.pthg24.imports.ImportBib;
+import org.insightcentre.pthg24.imports.ImportConcepts;
 import org.insightcentre.pthg24.imports.ImportExtra;
 import org.insightcentre.pthg24.imports.Importer;
 
@@ -34,6 +35,7 @@ public class JfxApp extends GeneratedJfxApp {
                 String importDir = "overview/grepresult/";
                 String exportDir = "exports/";
                 int nrFiles = 369;
+                new ImportConcepts(base,"imports/","concepts.json");
                 new ImportBib(base,bibDir,"bib.bib");
                 new ImportExtra(base,"imports/","manual.csv");
                 new Importer(base,Concepts,importDir,"cfound.txt",42,nrFiles,exportDir,"cmatrix.tex");

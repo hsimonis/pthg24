@@ -22,7 +22,7 @@ import org.insightcentre.pthg24.datamodel.Article;
 import org.insightcentre.pthg24.datamodel.Journal;
 
 /**
- * Generated at 12:30:48 on 2024-02-15 */
+ * Generated at 16:26:12 on 2024-02-25 */
 public class ArticleController extends Table3Controller {
 	@FXML
 	private TableView<Article> table;

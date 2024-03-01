@@ -46,6 +46,20 @@ public  class Concept extends ApplicationObject{
     public ConceptType conceptType;
 
 /**
+ *  
+ *
+*/
+
+    public String label;
+
+/**
+ *  
+ *
+*/
+
+    public String regExpr;
+
+/**
  *  No-arg constructor for use in TableView
  *
 */
@@ -65,6 +79,8 @@ public  class Concept extends ApplicationObject{
     public Concept(ApplicationDataset applicationDataset){
         super(applicationDataset);
         setConceptType(null);
+        setLabel("");
+        setRegExpr("");
         applicationDataset.addConcept(this);
     }
 
@@ -78,11 +94,15 @@ public  class Concept extends ApplicationObject{
     public Concept(ApplicationDataset applicationDataset,
             Integer id,
             String name,
-            ConceptType conceptType){
+            ConceptType conceptType,
+            String label,
+            String regExpr){
         super(applicationDataset,
             id,
             name);
         setConceptType(conceptType);
+        setLabel(label);
+        setRegExpr(regExpr);
         applicationDataset.addConcept(this);
     }
 
@@ -90,7 +110,9 @@ public  class Concept extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
-            other.conceptType);
+            other.conceptType,
+            other.label,
+            other.regExpr);
     }
 
 /**
@@ -116,6 +138,26 @@ public  class Concept extends ApplicationObject{
     }
 
 /**
+ *  get attribute label
+ *
+ * @return String
+*/
+
+    public String getLabel(){
+        return this.label;
+    }
+
+/**
+ *  get attribute regExpr
+ *
+ * @return String
+*/
+
+    public String getRegExpr(){
+        return this.regExpr;
+    }
+
+/**
  *  set attribute conceptType, mark dataset as dirty, mark dataset as not valid
 @param conceptType ConceptType
  *
@@ -123,6 +165,30 @@ public  class Concept extends ApplicationObject{
 
     public void setConceptType(ConceptType conceptType){
         this.conceptType = conceptType;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute label, mark dataset as dirty, mark dataset as not valid
+@param label String
+ *
+*/
+
+    public void setLabel(String label){
+        this.label = label;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute regExpr, mark dataset as dirty, mark dataset as not valid
+@param regExpr String
+ *
+*/
+
+    public void setRegExpr(String regExpr){
+        this.regExpr = regExpr;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -144,7 +210,7 @@ public  class Concept extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getConceptType();
+        return ""+ " " +getId()+ " " +getName()+ " " +getConceptType()+ " " +getLabel()+ " " +getRegExpr();
     }
 
 /**
@@ -168,7 +234,9 @@ public  class Concept extends ApplicationObject{
          out.println("<concept "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
-            " conceptType=\""+toXMLConceptType()+"\""+" />");
+            " conceptType=\""+toXMLConceptType()+"\""+
+            " label=\""+toXMLLabel()+"\""+
+            " regExpr=\""+toXMLRegExpr()+"\""+" />");
      }
 
 /**
@@ -182,17 +250,37 @@ public  class Concept extends ApplicationObject{
     }
 
 /**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLLabel(){
+        return this.safeXML(getLabel());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLRegExpr(){
+        return this.safeXML(getRegExpr());
+    }
+
+/**
  * show object as one row in an HTML table
  * 
  * @return String of form <tr>...</tr>
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Concept</th>"+"<th>Name</th>"+"<th>ConceptType</th>"+"</tr>";
+        return "<tr><th>Concept</th>"+"<th>Name</th>"+"<th>ConceptType</th>"+"<th>Label</th>"+"<th>RegExpr</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getConceptType()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getConceptType()+"</td>"+ " " +"<td>"+getLabel()+"</td>"+ " " +"<td>"+getRegExpr()+"</td>"+"</tr>";
     }
 
 /**
@@ -312,11 +400,19 @@ public  class Concept extends ApplicationObject{
       if(!this.getConceptType().equals(b.getConceptType())){
          System.out.println("ConceptType");
         }
+      if(!this.getLabel().equals(b.getLabel())){
+         System.out.println("Label");
+        }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
+      if(!this.getRegExpr().equals(b.getRegExpr())){
+         System.out.println("RegExpr");
+        }
         return  this.getConceptType().equals(b.getConceptType()) &&
-          this.getName().equals(b.getName());
+          this.getLabel().equals(b.getLabel()) &&
+          this.getName().equals(b.getName()) &&
+          this.getRegExpr().equals(b.getRegExpr());
     }
 
 /**

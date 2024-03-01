@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 12:30:48 on 2024-02-15 */
+ * Generated at 16:26:12 on 2024-02-25 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -37,6 +37,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("limit");
 		filterNames.add("name");
 		filterNames.add("conceptType");
+		filterNames.add("label");
+		filterNames.add("regExpr");
 		filterNames.add("name");
 		filterNames.add("shortName");
 		filterNames.add("familyName");

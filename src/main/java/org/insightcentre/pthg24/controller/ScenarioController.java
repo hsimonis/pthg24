@@ -25,7 +25,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Scenario;
 
 /**
- * Generated at 12:30:48 on 2024-02-15 */
+ * Generated at 16:26:12 on 2024-02-25 */
 public class ScenarioController extends Table3Controller {
 	@FXML
 	private TableView<Scenario> table;

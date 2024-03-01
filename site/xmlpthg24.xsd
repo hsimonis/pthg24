@@ -100,6 +100,8 @@
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="conceptType" use="required" type="xs:string"/>
+			<xs:attribute name="label" use="required" type="xs:string"/>
+			<xs:attribute name="regExpr" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="conceptWork">

@@ -20,7 +20,7 @@ import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptType;
 
 /**
- * Generated at 12:30:48 on 2024-02-15 */
+ * Generated at 16:26:12 on 2024-02-25 */
 public class ConceptController extends Table3Controller {
 	@FXML
 	private TableView<Concept> table;
@@ -30,6 +30,12 @@ public class ConceptController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Concept, ConceptType> conceptType;
+
+	@FXML
+	private TableColumn<Concept, String> label;
+
+	@FXML
+	private TableColumn<Concept, String> regExpr;
 
 	private GeneratedJfxApp mainApp;
 
@@ -57,6 +63,14 @@ public class ConceptController extends Table3Controller {
 		name.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setName(event.getNewValue()); mainApp.reset();});
 		choices.add("conceptType");
 		conceptType.setCellValueFactory(new PropertyValueFactory<>("conceptType"));
+		choices.add("label");
+		label.setCellValueFactory(new PropertyValueFactory<>("label"));
+		label.setCellFactory(TextFieldTableCell.forTableColumn());
+		label.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setLabel(event.getNewValue()); mainApp.reset();});
+		choices.add("regExpr");
+		regExpr.setCellValueFactory(new PropertyValueFactory<>("regExpr"));
+		regExpr.setCellFactory(TextFieldTableCell.forTableColumn());
+		regExpr.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRegExpr(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

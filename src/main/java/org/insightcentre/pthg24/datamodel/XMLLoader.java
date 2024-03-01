@@ -522,7 +522,9 @@ public ConceptType getConceptType(String attributeName,
                 store(id, new Concept(base,
                         id,
                         getString("name", attributes, "dummy"),
-                        null
+                        null,
+                        getString("label",attributes,""),
+                        getString("regExpr",attributes,"")
                         ));
             } else if (qname.equals("conceptWork")) {
                 assert (base != null);
