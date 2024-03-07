@@ -43,6 +43,12 @@ public enum MatchLevel{
  *
 */
 
+None,
+    /**
+ *  
+ *
+*/
+
 Weak,
     /**
  *  

@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 16:26:12 on 2024-02-25 */
+ * Generated at 22:42:23 on 2024-03-06 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;

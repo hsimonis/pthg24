@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import static org.insightcentre.pthg24.analysis.ListPapers.localCopyExists;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
 import static org.jbibtex.BibTeXEntry.*;
 
@@ -77,6 +78,9 @@ public class ImportBib {
                     work.setNrPages(nrPages(work.getPages()));
                     work.setDoi(fieldString(entry,KEY_DOI));
                     work.setUrl(fieldString(entry,KEY_URL));
+                    if (!localCopyExists(work)){
+                        work.setLocalCopy("");
+                    }
                 }
             }
         } catch(IOException e){

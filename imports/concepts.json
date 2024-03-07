@@ -74,8 +74,8 @@
 
 {"type":"Classification", "label": "RCPSP" ,"regExpr":"RCPSP"},
 {"type":"Classification", "label": "psplib" ,"regExpr":"psplib"},
-{"type":"Classification", "label": "single.?machine" ,"regExpr":"single.?machine"},
-{"type":"Classification", "label": "parallel.?machine" ,"regExpr":"parallel.?machine"},
+{"type":"Classification", "label": "single machine" ,"regExpr":"single.?machine"},
+{"type":"Classification", "label": "parallel machine" ,"regExpr":"parallel.?machine"},
 {"type":"Classification", "label": "JSSP" ,"regExpr":"JSSP"},
 {"type":"Classification", "label": "JSPT" ,"regExpr":"JSPT"},
 {"type":"Classification", "label": "PP-MS-MMRCPSP" ,"regExpr":"PP-MS-MMRCPSP"},

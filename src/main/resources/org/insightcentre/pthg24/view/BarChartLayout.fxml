@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<!--Generated at 16:26:13 on 2024-02-25-->
+<!--Generated at 22:42:23 on 2024-03-06-->
 
 
 <Tab text="Bar Chart" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.BarChartController">
