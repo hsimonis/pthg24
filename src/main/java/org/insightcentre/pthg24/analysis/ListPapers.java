@@ -23,16 +23,16 @@ public class ListPapers {
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{p{3cm}p{6cm}p{7cm}rrrp{3cm}r}\n");
             out.printf("\\caption{Papers from bibtex}\\\\ \\toprule\n");
-            out.printf("Key& Authors & Title & LC &Cite & Year & Conference & Pages \\\\ \\midrule");
+            out.printf("Key & Authors & Title & LC & Cite & Year & Conference & Pages \\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
             for(Paper a:sortedPapers(base)){
-                out.printf("%s \\href{%s}{%s} & %s & \\href{%s}{%s} & %s & \\cite{%s} & %d & %s & %d",
+                out.printf("%s \\href{%s}{%s} & %s & %s & %s & \\cite{%s} & %d & %s & %d",
                         a.getKey(),a.getUrl(),a.getKey(),
                         authors(a),
-                        a.getLocalCopy(), safe(a.getTitle()),
-                        (localCopyExists(a)?"":"NO"),
+                        safe(a.getTitle()),
+                        (localCopyExists1(a)?"\\href{"+a.getLocalCopy()+"}{Yes}":"No"),
                         a.getName(),
                         a.getYear(),
                         shortProc(a.getProceedings()),
@@ -58,10 +58,13 @@ public class ListPapers {
     public static boolean localCopyExists(Work a){
         Path path = Paths.get("overview/"+a.getLocalCopy());
         return Files.exists(path);
-
     }
 
-    private List<Paper> sortedPapers(Scenario base){
+    public static boolean localCopyExists1(Work a){
+        return a.getLocalCopy() != null && !a.getLocalCopy().equals("");
+    }
+
+        private List<Paper> sortedPapers(Scenario base){
         return base.getListPaper().stream().
                 sorted(Comparator.comparing(Work::getYear).reversed().
                         thenComparing(Work::getName)).

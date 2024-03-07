@@ -28,11 +28,11 @@ public class RunPDFGrep {
 //                    limit(5).
                     collect(Collectors.toUnmodifiableList())) {
                 info("Type " + c.getConceptType() + " Concept " + c.getName());
-                for (Article a : base.getListArticle().stream().
+                for (Work a : base.getListWork().stream().
                         filter(x -> x.getLocalCopy() != null).
                         filter(x -> !x.getLocalCopy().equals("")).
                         sorted(Comparator.comparing(Work::getName)).
-                        limit(20).
+                        limit(150).
 
                         collect(Collectors.toUnmodifiableList())) {
                     if (!cwh.present(c,a)) {

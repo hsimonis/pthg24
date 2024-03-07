@@ -22,7 +22,7 @@ public class ListArticlesManual {
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{p{3cm}p{7cm}lllllll}\n");
-            out.printf("\\caption{Article Properties}\\\\ \\toprule\n");
+            out.printf("\\caption{Manually Defined Article Properties}\\\\ \\toprule\n");
             out.printf("Key & Title & CP System & Data Avail & Sol Avail & Code Avail & Based On & Classification & Constraints \\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");

@@ -48,15 +48,16 @@ public class JfxApp extends GeneratedJfxApp {
 //                new Importer(base,Industries,importDir,"ifound.txt",27,nrFiles,exportDir,"imatrix.tex");
 //                new Importer(base,Benchmarks,importDir,"bfound.txt",16,nrFiles,exportDir,"bmatrix.tex");
 //                new Importer(base,Algorithms,importDir,"a1found.txt",10,nrFiles,exportDir,"a1matrix.tex");
+                new RunPDFGrep(base);
                 new FindConnectedPapers(base);
                 new ListPapers(base,exportDir,"papers.tex");
                 new ListPapersManual(base,exportDir,"papersmanual.tex");
                 new ListArticles(base,exportDir,"articles.tex");
                 new ListArticlesManual(base,exportDir,"articlesmanual.tex");
                 new ListAuthors(base,exportDir,"authors.tex");
-                new AnalysisByWork(base,exportDir,"work.tex");
+                new AnalysisByWork(base,exportDir,"Article","conceptsarticle.tex");
+                new AnalysisByWork(base,exportDir,"Paper","conceptspaper.tex");
                 new AnalysisByConcept(base,exportDir,"concept.tex");
-                new RunPDFGrep(base);
                 return base;
         }
 

@@ -11,24 +11,25 @@ import java.util.stream.Collectors;
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.ListArticlesManual.sortedArticles;
 import static org.insightcentre.pthg24.datamodel.ConceptType.*;
+import static org.insightcentre.pthg24.datamodel.MatchLevel.None;
 import static org.insightcentre.pthg24.imports.Importer.safer;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class AnalysisByWork {
-    public AnalysisByWork(Scenario base, String exportDir, String fileName){
+    public AnalysisByWork(Scenario base, String exportDir, String type,String fileName){
         assert(exportDir.endsWith("/"));
         String fullName = exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{p{3cm}p{4cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}\n");
-            out.printf("\\caption{Keywords by Work and Domains}\\\\ \\toprule\n");
+            out.printf("\\caption{Automatically Extracted %s Properties (Requires Local Copy)}\\\\ \\toprule\n",type);
             out.printf("Work & Concepts & Classification & Constraints & ProgLanguages & CPSystems & Areas & " +
                     "Industries & Benchmarks & Algorithm\\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
-            for(Article w:sortedArticles(base)){
+            for(Work w:sortedWorks(base,type)){
                 out.printf("\\href{%s}{%s}~\\cite{%s}",w.getLocalCopy(),safe(w.getName()),w.getName());
                 out.printf(" & %s",concepts(base,w,Concepts));
                 out.printf(" & %s",concepts(base,w,Classification));
@@ -58,13 +59,22 @@ public class AnalysisByWork {
         }
     }
 
-    private List<Work> sortedWorks(Scenario base){
-        return base.getListWork().stream().sorted(Comparator.comparing(Work::getName)).collect(Collectors.toUnmodifiableList());
+    private List<Work> sortedWorks(Scenario base,String type){
+        return base.getListWork().stream().
+                filter(x->workType(x,type)).
+                filter(x->!x.getLocalCopy().equals("")).
+                sorted(Comparator.comparing(Work::getName)).
+                collect(Collectors.toUnmodifiableList());
+    }
+
+    private boolean workType(Work w,String type){
+        return (w instanceof Article && type.equals("Article") || w instanceof Paper && type.equals("Paper"));
     }
 
     private String concepts(Scenario base,Work w,ConceptType type){
         List<String> concepts = base.getListConceptWork().stream().
                 filter(x->x.getWork()==w).
+                filter(x->x.getMatchLevel() != None).
                 filter(x->x.getConcept().getConceptType()==type).
                 map(x->safer(safe(x.getConcept().getName()))).
                 collect(Collectors.toUnmodifiableList());
