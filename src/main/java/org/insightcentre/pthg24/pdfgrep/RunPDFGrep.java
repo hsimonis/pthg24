@@ -32,7 +32,7 @@ public class RunPDFGrep {
                         filter(x -> x.getLocalCopy() != null).
                         filter(x -> !x.getLocalCopy().equals("")).
                         sorted(Comparator.comparing(Work::getName)).
-                        limit(150).
+//                        limit(150).
 
                         collect(Collectors.toUnmodifiableList())) {
                     if (!cwh.present(c,a)) {
