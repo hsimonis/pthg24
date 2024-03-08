@@ -148,21 +148,34 @@ public class ImportBib {
     }
 
     private Integer nrPages(String pages){
-        String[] split = pages.split("--");
-        if (split.length==1){
+        if (pages.contains("--")) {
+            String[] split = pages.split("--");
+            if (split.length == 2) {
+                Integer from = extractInt(split[0]);
+                Integer to = extractInt(split[1]);
+                if (from == null || to == null) {
+                    return null;
+                }
+                return to - from + 1;
+            }
+        } else if (pages.contains("-")){
+            String[] split = pages.split("-");
+            if (split.length == 2) {
+                Integer from = extractInt(split[0]);
+                Integer to = extractInt(split[1]);
+                if (from == null || to == null) {
+                    return null;
+                }
+                return to - from + 1;
+            }
+
+        } else {
             Integer page = extractInt(pages);
-            if (page == null){
+            if (page == null) {
                 return null;
             } else {
                 return 1;
             }
-        } else if (split.length==2){
-            Integer from = extractInt(split[0]);
-            Integer to = extractInt(split[1]);
-            if (from==null || to == null){
-                return null;
-            }
-            return to-from+1;
         }
         return null;
     }

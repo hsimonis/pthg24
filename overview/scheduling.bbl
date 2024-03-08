@@ -51,6 +51,16 @@ Abderrahmane Aggoun and Nicolas Beldiceanu.
   Francophones de Programmation Logique, 25-27 Mai 1992, Lille, France},
   page~51, 1992.
 
+\bibitem{AggounB93}
+Abderrahmane Aggoun and Nicolas Beldiceanu.
+\newblock Extending chip in order to solve complex scheduling and placement
+  problems.
+\newblock {\em Mathematical and Computer Modelling}, 17(7):57--73, 1993.
+\newblock URL:
+  \url{https://www.sciencedirect.com/science/article/pii/089571779390068A},
+  \href {https://doi.org/https://doi.org/10.1016/0895-7177(93)90068-A}
+  {\path{doi:https://doi.org/10.1016/0895-7177(93)90068-A}}.
+
 \bibitem{MelgarejoLS15}
 Pen{\'{e}}lope Aguiar{-}Melgarejo, Philippe Laborie, and Christine Solnon.
 \newblock A time-dependent no-overlap constraint: Application to urban delivery
@@ -504,6 +514,15 @@ Luca Benini, Davide Bertozzi, Alessio Guerri, and Michela Milano.
 \newblock \href {https://doi.org/10.1007/11757375\_6}
   {\path{doi:10.1007/11757375\_6}}.
 
+\bibitem{BeniniLMR11}
+Luca Benini, Michele Lombardi, Michela Milano, and Martino Ruggiero.
+\newblock Optimal resource allocation and scheduling for the {CELL} {BE}
+  platform.
+\newblock {\em Ann. Oper. Res.}, 184(1):51--77, 2011.
+\newblock URL: \url{https://doi.org/10.1007/s10479-010-0718-x}, \href
+  {https://doi.org/10.1007/S10479-010-0718-X}
+  {\path{doi:10.1007/S10479-010-0718-X}}.
+
 \bibitem{BensanaLV99}
 E.~Bensana, Michel Lema{\^{\i}}tre, and G{\'{e}}rard Verfaillie.
 \newblock Earth observation satellite management.
@@ -628,6 +647,24 @@ Alessio Bonfietti, Michele Lombardi, Luca Benini, and Michela Milano.
 \newblock \href {https://doi.org/10.1007/978-3-642-29828-8\_6}
   {\path{doi:10.1007/978-3-642-29828-8\_6}}.
 
+\bibitem{BonfiettiLBM14}
+Alessio Bonfietti, Michele Lombardi, Luca Benini, and Michela Milano.
+\newblock {CROSS} cyclic resource-constrained scheduling solver.
+\newblock {\em Artif. Intell.}, 206:25--52, 2014.
+\newblock URL: \url{https://doi.org/10.1016/j.artint.2013.09.006}, \href
+  {https://doi.org/10.1016/J.ARTINT.2013.09.006}
+  {\path{doi:10.1016/J.ARTINT.2013.09.006}}.
+
+\bibitem{BonfiettiLM13}
+Alessio Bonfietti, Michele Lombardi, and Michela Milano.
+\newblock De-cycling cyclic scheduling problems.
+\newblock In Daniel Borrajo, Subbarao Kambhampati, Angelo Oddi, and Simone
+  Fratini, editors, {\em Proceedings of the Twenty-Third International
+  Conference on Automated Planning and Scheduling, {ICAPS} 2013, Rome, Italy,
+  June 10-14, 2013}. {AAAI}, 2013.
+\newblock URL:
+  \url{http://www.aaai.org/ocs/index.php/ICAPS/ICAPS13/paper/view/6050}.
+
 \bibitem{BonfiettiLM14}
 Alessio Bonfietti, Michele Lombardi, and Michela Milano.
 \newblock Disregarding duration uncertainty in partial order schedules? yes, we
@@ -638,6 +675,17 @@ Alessio Bonfietti, Michele Lombardi, and Michela Milano.
   {\em Lecture Notes in Computer Science}, pages 210--225. Springer, 2014.
 \newblock \href {https://doi.org/10.1007/978-3-319-07046-9\_15}
   {\path{doi:10.1007/978-3-319-07046-9\_15}}.
+
+\bibitem{BonfiettiM12}
+Alessio Bonfietti and Michela Milano.
+\newblock A constraint-based approach to cyclic resource-constrained scheduling
+  problem.
+\newblock In Paolo Liberatore, Michele Lombardi, and Floriano Scioscia,
+  editors, {\em Proceedings of the Doctoral Consortium of the 12th Symposium of
+  the Italian Association for Artificial Intelligence, Rome, Italy, June 15,
+  2012}, volume 926 of {\em {CEUR} Workshop Proceedings}, pages 10--12.
+  CEUR-WS.org, 2012.
+\newblock URL: \url{https://ceur-ws.org/Vol-926/paper2.pdf}.
 
 \bibitem{BonfiettiZLM16}
 Alessio Bonfietti, Alessandro Zanarini, Michele Lombardi, and Michela Milano.
@@ -659,6 +707,15 @@ Kyle E.~C. Booth, Goldie Nejat, and J.~Christopher Beck.
   Computer Science}, pages 539--555. Springer, 2016.
 \newblock \href {https://doi.org/10.1007/978-3-319-44953-1\_34}
   {\path{doi:10.1007/978-3-319-44953-1\_34}}.
+
+\bibitem{BorghesiBLMB18}
+Andrea Borghesi, Andrea Bartolini, Michele Lombardi, Michela Milano, and Luca
+  Benini.
+\newblock Scheduling-based power capping in high performance computing systems.
+\newblock {\em Sustain. Comput. Informatics Syst.}, 19:1--13, 2018.
+\newblock URL: \url{https://doi.org/10.1016/j.suscom.2018.05.007}, \href
+  {https://doi.org/10.1016/J.SUSCOM.2018.05.007}
+  {\path{doi:10.1016/J.SUSCOM.2018.05.007}}.
 
 \bibitem{BoucherBVBL97}
 Eric Boucher, Astrid Bachelu, Christophe Varnier, Pierre Baptiste, and Bruno
@@ -699,6 +756,41 @@ Silvia Breitinger and Hendrik C.~R. Lock.
   Programming: Formal Methods and Practical Applications, Studies in Computer
   Science and Artificial Intelligence}, pages 273--299. Elsevier Science
   B.V./North-Holland, 1995.
+
+\bibitem{BridiBLMB16}
+Thomas Bridi, Andrea Bartolini, Michele Lombardi, Michela Milano, and Luca
+  Benini.
+\newblock A constraint programming scheduler for heterogeneous high-performance
+  computing machines.
+\newblock {\em {IEEE} Trans. Parallel Distributed Syst.}, 27(10):2781--2794,
+  2016.
+\newblock \href {https://doi.org/10.1109/TPDS.2016.2516997}
+  {\path{doi:10.1109/TPDS.2016.2516997}}.
+
+\bibitem{BridiLBBM16}
+Thomas Bridi, Michele Lombardi, Andrea Bartolini, Luca Benini, and Michela
+  Milano.
+\newblock {DARDIS:} distributed and randomized dispatching and scheduling.
+\newblock In Gal~A. Kaminka, Maria Fox, Paolo Bouquet, Eyke H{\"{u}}llermeier,
+  Virginia Dignum, Frank Dignum, and Frank van Harmelen, editors, {\em {ECAI}
+  2016 - 22nd European Conference on Artificial Intelligence, 29 August-2
+  September 2016, The Hague, The Netherlands - Including Prestigious
+  Applications of Artificial Intelligence {(PAIS} 2016)}, volume 285 of {\em
+  Frontiers in Artificial Intelligence and Applications}, pages 1598--1599.
+  {IOS} Press, 2016.
+\newblock \href {https://doi.org/10.3233/978-1-61499-672-9-1598}
+  {\path{doi:10.3233/978-1-61499-672-9-1598}}.
+
+\bibitem{BrusoniCLMMT96}
+Vittorio Brusoni, Luca Console, Evelina Lamma, Paola Mello, Michela Milano, and
+  Paolo Terenziani.
+\newblock Resource-based vs. task-based approaches for scheduling problems.
+\newblock In Zbigniew~W. Ras and Maciej Michalewicz, editors, {\em Foundations
+  of Intelligent Systems, 9th International Symposium, {ISMIS} '96, Zakopane,
+  Poland, June 9-13, 1996, Proceedings}, volume 1079 of {\em Lecture Notes in
+  Computer Science}, pages 325--334. Springer, 1996.
+\newblock \href {https://doi.org/10.1007/3-540-61286-6\_157}
+  {\path{doi:10.1007/3-540-61286-6\_157}}.
 
 \bibitem{BurtLPS15}
 Christina~N. Burt, Nir Lipovetzky, Adrian~R. Pearce, and Peter~J. Stuckey.
@@ -2332,6 +2424,13 @@ Asma Lahimer, Pierre Lopez, and Mohamed Haouari.
 \newblock \href {https://doi.org/10.1007/978-3-642-21311-3\_12}
   {\path{doi:10.1007/978-3-642-21311-3\_12}}.
 
+\bibitem{LammaMM97}
+Evelina Lamma, Paola Mello, and Michela Milano.
+\newblock A distributed constraint-based scheduler.
+\newblock {\em Artif. Intell. Eng.}, 11(2):91--105, 1997.
+\newblock \href {https://doi.org/10.1016/S0954-1810(96)00002-7}
+  {\path{doi:10.1016/S0954-1810(96)00002-7}}.
+
 \bibitem{LauLN08}
 Hoong~Chuin Lau, Kong~Wei Lye, and Viet~Bang Nguyen.
 \newblock A combinatorial auction framework for solving decentralized
@@ -2523,6 +2622,14 @@ Michele Lombardi and Michela Milano.
 \newblock \href {https://doi.org/10.1007/978-3-642-04244-7\_45}
   {\path{doi:10.1007/978-3-642-04244-7\_45}}.
 
+\bibitem{LombardiM10a}
+Michele Lombardi and Michela Milano.
+\newblock Allocation and scheduling of conditional task graphs.
+\newblock {\em Artif. Intell.}, 174(7-8):500--529, 2010.
+\newblock URL: \url{https://doi.org/10.1016/j.artint.2010.02.004}, \href
+  {https://doi.org/10.1016/J.ARTINT.2010.02.004}
+  {\path{doi:10.1016/J.ARTINT.2010.02.004}}.
+
 \bibitem{LombardiM10}
 Michele Lombardi and Michela Milano.
 \newblock Constraint based scheduling to deal with uncertain durations and
@@ -2534,6 +2641,15 @@ Michele Lombardi and Michela Milano.
 \newblock \href {https://doi.org/10.1007/978-3-642-15396-9\_32}
   {\path{doi:10.1007/978-3-642-15396-9\_32}}.
 
+\bibitem{LombardiM12a}
+Michele Lombardi and Michela Milano.
+\newblock A min-flow algorithm for minimal critical set detection in resource
+  constrained project scheduling.
+\newblock {\em Artif. Intell.}, 182-183:58--67, 2012.
+\newblock URL: \url{https://doi.org/10.1016/j.artint.2011.12.001}, \href
+  {https://doi.org/10.1016/J.ARTINT.2011.12.001}
+  {\path{doi:10.1016/J.ARTINT.2011.12.001}}.
+
 \bibitem{LombardiM12}
 Michele Lombardi and Michela Milano.
 \newblock Optimal methods for resource allocation and scheduling: a
@@ -2542,6 +2658,17 @@ Michele Lombardi and Michela Milano.
 \newblock URL: \url{https://doi.org/10.1007/s10601-011-9115-6}, \href
   {https://doi.org/10.1007/S10601-011-9115-6}
   {\path{doi:10.1007/S10601-011-9115-6}}.
+
+\bibitem{LombardiM13}
+Michele Lombardi and Michela Milano.
+\newblock A min-flow algorithm for minimal critical set detection in resource
+  constrained project scheduling.
+\newblock In Daniel Borrajo, Subbarao Kambhampati, Angelo Oddi, and Simone
+  Fratini, editors, {\em Proceedings of the Twenty-Third International
+  Conference on Automated Planning and Scheduling, {ICAPS} 2013, Rome, Italy,
+  June 10-14, 2013}. {AAAI}, 2013.
+\newblock URL:
+  \url{http://www.aaai.org/ocs/index.php/ICAPS/ICAPS13/paper/view/6052}.
 
 \bibitem{LopesCSM10}
 Tony Minoru~Tamura Lopes, Andr{\'{e}}~A. Cir{\'{e}}, Cid~Carvalho de~Souza, and
@@ -3291,6 +3418,16 @@ Roberto Rossi, Armagan Tarim, Brahim Hnich, and Steven~D. Prestwich.
   Lecture Notes in Computer Science}, pages 229--243. Springer, 2007.
 \newblock \href {https://doi.org/10.1007/978-3-540-72397-4\_17}
   {\path{doi:10.1007/978-3-540-72397-4\_17}}.
+
+\bibitem{RuggieroBBMA09}
+Martino Ruggiero, Davide Bertozzi, Luca Benini, Michela Milano, and Alexandru
+  Andrei.
+\newblock Reducing the abstraction and optimality gaps in the allocation and
+  scheduling for variable voltage/frequency mpsoc platforms.
+\newblock {\em {IEEE} Trans. Comput. Aided Des. Integr. Circuits Syst.},
+  28(3):378--391, 2009.
+\newblock \href {https://doi.org/10.1109/TCAD.2009.2013536}
+  {\path{doi:10.1109/TCAD.2009.2013536}}.
 
 \bibitem{SacramentoSP20}
 David Sacramento, Christine Solnon, and David Pisinger.
