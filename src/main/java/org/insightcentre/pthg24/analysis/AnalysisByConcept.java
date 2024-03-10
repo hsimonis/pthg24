@@ -66,13 +66,19 @@ public class AnalysisByConcept {
     }
 
     private String concepts(Scenario base, Concept c, MatchLevel level){
+        int limit = 30;
         List<String> citations = base.getListConceptWork().stream().
                 filter(x->x.getConcept()==c).
                 filter(x->x.getMatchLevel()==level).
                 sorted(Comparator.comparing(this::getYear).reversed()).
                 map(x->citation(x.getWork())).
+
                 collect(Collectors.toUnmodifiableList());
-        return String.join(", ",citations);
+        if (citations.size() > limit){
+            return String.join(", ", citations.subList(0,limit-1))+"... (Total: "+citations.size()+")";
+        } else {
+            return String.join(", ", citations);
+        }
     }
 
     private int getYear(ConceptWork cw){

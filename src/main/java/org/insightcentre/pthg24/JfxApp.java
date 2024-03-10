@@ -68,6 +68,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new WorkWithoutConcepts(base,"Article",exportDir,"conceptlessarticle.tex");
                 new WorkWithoutConcepts(base,"Paper",exportDir,"conceptlesspaper.tex");
                 new UnmatchedConcepts(base,exportDir,"unmatchedconcept.tex");
+                new KeyOverview(base,exportDir,"keylist.tex");
                 return base;
         }
 

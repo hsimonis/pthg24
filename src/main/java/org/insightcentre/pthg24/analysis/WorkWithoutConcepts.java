@@ -19,9 +19,9 @@ public class WorkWithoutConcepts {
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{llp{5cm}p{10cm}p{3cm}rl}\n");
+            out.printf("\\begin{longtable}{llp{5cm}p{10cm}rp{3cm}l}\n");
             out.printf("\\caption{%s without Concepts}\\\\ \\toprule\n",type);
-            out.printf("Key & URL & Authors & Title & Year & \\shortstack{Conference\\\\/Journal} & Cite\\\\ \\midrule\n");
+            out.printf("Key & \\shortstack{Local\\\\Copy} & Authors & Title & Year & \\shortstack{Conference\\\\/Journal} & Cite\\\\ \\midrule\n");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
@@ -29,7 +29,7 @@ public class WorkWithoutConcepts {
             for(Work w:missing){
                 out.printf("%s & \\href{%s}{%s} & %s & %s & %d & %s & \\cite{%s}\\\\",
                         safe(w.getName()),
-                        w.getUrl(),safe(w.getName()),
+                        w.getLocalCopy(),"Yes",//safe(w.getName()),
                         safe(w.getAuthor()),
                         safe(w.getTitle()),
                         w.getYear(),
