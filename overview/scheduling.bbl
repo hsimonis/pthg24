@@ -356,6 +356,22 @@ Roman Bart{\'{a}}k.
 \newblock \href {https://doi.org/10.1007/3-540-46135-3\_39}
   {\path{doi:10.1007/3-540-46135-3\_39}}.
 
+\bibitem{Bartak14}
+Roman Bart{\'{a}}k.
+\newblock Planning and scheduling.
+\newblock In Teofilo~F. Gonzalez, Jorge Diaz{-}Herrera, and Allen Tucker,
+  editors, {\em Computing Handbook, Third Edition: Computer Science and
+  Software Engineering}, pages 39: 1--14. {CRC} Press, 2014.
+
+\bibitem{BartakCS10}
+Roman Bart{\'{a}}k, Ondrej Cepek, and Pavel Surynek.
+\newblock Discovering implied constraints in precedence graphs with
+  alternatives.
+\newblock {\em Ann. Oper. Res.}, 180(1):233--263, 2010.
+\newblock URL: \url{https://doi.org/10.1007/s10479-008-0492-1}, \href
+  {https://doi.org/10.1007/S10479-008-0492-1}
+  {\path{doi:10.1007/S10479-008-0492-1}}.
+
 \bibitem{BartakS11}
 Roman Bart{\'{a}}k and Miguel~A. Salido.
 \newblock Constraint satisfaction for planning and scheduling problems.
@@ -363,6 +379,23 @@ Roman Bart{\'{a}}k and Miguel~A. Salido.
 \newblock URL: \url{https://doi.org/10.1007/s10601-011-9109-4}, \href
   {https://doi.org/10.1007/S10601-011-9109-4}
   {\path{doi:10.1007/S10601-011-9109-4}}.
+
+\bibitem{BartakSR10}
+Roman Bart{\'{a}}k, Miguel~A. Salido, and Francesca Rossi.
+\newblock New trends in constraint satisfaction, planning, and scheduling: a
+  survey.
+\newblock {\em Knowl. Eng. Rev.}, 25(3):249--279, 2010.
+\newblock \href {https://doi.org/10.1017/S0269888910000202}
+  {\path{doi:10.1017/S0269888910000202}}.
+
+\bibitem{BartakV15}
+Roman Bart{\'{a}}k and Marek Vlk.
+\newblock Reactive recovery from machine breakdown in production scheduling
+  with temporal distance and resource constraints.
+\newblock In St{\'{e}}phane Loiseau, Joaquim Filipe, B{\'{e}}atrice Duval, and
+  H.~Jaap van~den Herik, editors, {\em {ICAART} 2015 - Proceedings of the
+  International Conference on Agents and Artificial Intelligence, Volume 2,
+  Lisbon, Portugal, 10-12 January, 2015}, pages 119--130. SciTePress, 2015.
 
 \bibitem{BartoliniBBLM14}
 Andrea Bartolini, Andrea Borghesi, Thomas Bridi, Michele Lombardi, and Michela
@@ -404,6 +437,13 @@ J.~Christopher Beck, T.~K. Feng, and Jean{-}Paul Watson.
 \newblock {\em {INFORMS} J. Comput.}, 23(1):1--14, 2011.
 \newblock URL: \url{https://doi.org/10.1287/ijoc.1100.0388}, \href
   {https://doi.org/10.1287/IJOC.1100.0388} {\path{doi:10.1287/IJOC.1100.0388}}.
+
+\bibitem{Bedhief21}
+Asma~Ouled Bedhief.
+\newblock Comparing mixed-integer programming and constraint programming models
+  for the hybrid flow shop scheduling problem with dedicated machines.
+\newblock {\em Journal Europ{\'e}en des Syst{\`e}mes Automatis{\'e}s}, 2021.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:240611192}.
 
 \bibitem{BegB13}
 Mirza~Omer Beg and Peter van Beek.
@@ -587,6 +627,17 @@ Arthur Bit{-}Monnot.
   Intelligence and Applications}, pages 255--262. {IOS} Press, 2023.
 \newblock \href {https://doi.org/10.3233/FAIA230278}
   {\path{doi:10.3233/FAIA230278}}.
+
+\bibitem{BlazewiczEP19}
+Jacek Blazewicz, Klaus~H. Ecker, Erwin Pesch, Günter Schmidt, Malgorzata
+  Sterna, and Jan Weglarz.
+\newblock {Constraint Programming and Disjunctive Scheduling}.
+\newblock In {\em {Handbook on Scheduling}}, International Handbooks on
+  Information Systems, chapter~16, pages 609--670. Springer, November 2019.
+\newblock URL:
+  \url{https://ideas.repec.org/h/spr/ihichp/978-3-319-99849-7_16.html}, \href
+  {https://doi.org/10.1007/978-3-319-99849-7}
+  {\path{doi:10.1007/978-3-319-99849-7}}.
 
 \bibitem{BocewiczBB09}
 Grzegorz Bocewicz, Irena Bach, and Zbigniew~Antoni Banaszak.
@@ -957,6 +1008,12 @@ Giacomo~Da Col and Erich~Christian Teppan.
 \newblock \href {https://doi.org/10.1007/978-3-030-30048-7\_9}
   {\path{doi:10.1007/978-3-030-30048-7\_9}}.
 
+\bibitem{ColT22}
+Giacomo~Da Col and Erich~Christian Teppan.
+\newblock Industrial-size job shop scheduling with constraint programming.
+\newblock {\em Operations Research Perspectives}, 2022.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:251551160}.
+
 \bibitem{Colombani96}
 Yves Colombani.
 \newblock Constraint programming: an efficient and practical approach to
@@ -1018,6 +1075,15 @@ Andrew~J. Davenport, Jayant Kalagnanam, Chandra Reddy, Stuart Siegel, and John
   Lecture Notes in Computer Science}, pages 64--76. Springer, 2007.
 \newblock \href {https://doi.org/10.1007/978-3-540-74970-7\_7}
   {\path{doi:10.1007/978-3-540-74970-7\_7}}.
+
+\bibitem{AbreuAPNM21}
+Levi~Ribeiro de~Abreu, Kennedy A.~G. Ara{\'u}jo, Bruno de~Athayde~Prata,
+  Marcelo~Seido Nagano, and J.~V. Moccellin.
+\newblock A new variable neighbourhood search with a constraint programming
+  search strategy for the open shop scheduling problem with operation
+  repetitions.
+\newblock {\em Engineering Optimization}, 54:1563 -- 1582, 2021.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:238794651}.
 
 \bibitem{AbreuN22}
 Levi~Ribeiro de~Abreu and Marcelo~Seido Nagano.
@@ -1277,6 +1343,13 @@ Moreno Falaschi, Maurizio Gabbrielli, Kim Marriott, and Catuscia Palamidessi.
 \newblock URL: \url{https://doi.org/10.1006/inco.1997.2638}, \href
   {https://doi.org/10.1006/INCO.1997.2638} {\path{doi:10.1006/INCO.1997.2638}}.
 
+\bibitem{FallahiAC20}
+Abdellah~El Fallahi, El~Yaakoubi Anass, and Mohammad Cherkaoui.
+\newblock Tabu search and constraint programming-based approach for a real
+  scheduling and routing problem.
+\newblock {\em International Journal of Applied Management Science}, 2020.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:213449737}.
+
 \bibitem{FanXG21}
 Huali Fan, Hegen Xiong, and Mark Goh.
 \newblock Genetic programming-based hyper-heuristic approach for solving
@@ -1287,6 +1360,22 @@ Huali Fan, Hegen Xiong, and Mark Goh.
   {https://doi.org/10.1016/J.COR.2021.105401}
   {\path{doi:10.1016/J.COR.2021.105401}}.
 
+\bibitem{FarsiTM22}
+Azadeh Farsi, S.~Ali Torabi, and Mahdi Mokhtarzadeh.
+\newblock Integrated surgery scheduling by constraint programming and
+  meta-heuristics.
+\newblock {\em International Journal of Management Science and Engineering
+  Management}, 18:292 -- 304, 2022.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:250301745}.
+
+\bibitem{Fatemi-AnarakiMFN22}
+Soroush Fatemi-Anaraki, Reza Tavakkoli-Moghaddam, Mehdi Foumani, and Behdin
+  Vahedi-Nouri.
+\newblock Scheduling of multi-robot job shop systems in dynamic environments:
+  Mixed-integer linear programming and constraint programming approaches.
+\newblock {\em Omega}, 2022.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:252524295}.
+
 \bibitem{FetgoD22}
 S{\'{e}}v{\'{e}}rine~Betmbe Fetgo and Cl{\'{e}}mentin~Tayou Djam{\'{e}}gni.
 \newblock Horizontally elastic edge-finder algorithm for cumulative resource
@@ -1295,6 +1384,16 @@ S{\'{e}}v{\'{e}}rine~Betmbe Fetgo and Cl{\'{e}}mentin~Tayou Djam{\'{e}}gni.
 \newblock URL: \url{https://doi.org/10.1007/s43069-022-00172-6}, \href
   {https://doi.org/10.1007/S43069-022-00172-6}
   {\path{doi:10.1007/S43069-022-00172-6}}.
+
+\bibitem{FocacciLN00}
+Filippo Focacci, Philippe Laborie, and Wim Nuijten.
+\newblock Solving scheduling problems with setup times and alternative
+  resources.
+\newblock In Steve~A. Chien, Subbarao Kambhampati, and Craig~A. Knoblock,
+  editors, {\em Proceedings of the Fifth International Conference on Artificial
+  Intelligence Planning Systems, Breckenridge, CO, USA, April 14-17, 2000},
+  pages 92--101. {AAAI}, 2000.
+\newblock URL: \url{http://www.aaai.org/Library/AIPS/2000/aips00-010.php}.
 
 \bibitem{FontaineMH16}
 Daniel Fontaine, Laurent~D. Michel, and Pascal~Van Hentenryck.
@@ -1571,6 +1670,15 @@ Vincent Gingras and Claude{-}Guy Quimper.
   York, NY, USA, 9-15 July 2016}, pages 3103--3109. {IJCAI/AAAI} Press, 2016.
 \newblock URL: \url{http://www.ijcai.org/Abstract/16/440}.
 
+\bibitem{GodardLN05}
+Daniel Godard, Philippe Laborie, and Wim Nuijten.
+\newblock Randomized large neighborhood search for cumulative scheduling.
+\newblock In Susanne Biundo, Karen~L. Myers, and Kanna Rajan, editors, {\em
+  Proceedings of the Fifteenth International Conference on Automated Planning
+  and Scheduling {(ICAPS} 2005), June 5-10 2005, Monterey, California, {USA}},
+  pages 81--89. {AAAI}, 2005.
+\newblock URL: \url{http://www.aaai.org/Library/ICAPS/2005/icaps05-009.php}.
+
 \bibitem{Godet21a}
 Arthur Godet.
 \newblock {\em Sur le tri de t{\^{a}}ches pour r{\'{e}}soudre des
@@ -1743,6 +1851,20 @@ Nizar~El Hachemi, Michel Gendreau, and Louis{-}Martin Rousseau.
   {https://doi.org/10.1007/S10479-010-0698-X}
   {\path{doi:10.1007/S10479-010-0698-X}}.
 
+\bibitem{Ham18}
+Andy Ham.
+\newblock Integrated scheduling of m-truck, m-drone, and m-depot constrained by
+  time-window, drop-pickup, and m-visit using constraint programming.
+\newblock {\em Transportation Research Part C: Emerging Technologies}, 2018.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:116853255}.
+
+\bibitem{HamPK21}
+Andy Ham, Myoung-Ju Park, and Kyung~Min Kim.
+\newblock Energy-aware flexible job shop scheduling using mixed integer
+  programming and constraint programming.
+\newblock {\em Mathematical Problems in Engineering}, 2021.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:237898414}.
+
 \bibitem{HanenKP21}
 Claire Hanen, Alix~Munier Kordon, and Theo Pedersen.
 \newblock Two deadline reduction algorithms for scheduling dependent tasks on
@@ -1754,6 +1876,14 @@ Claire Hanen, Alix~Munier Kordon, and Theo Pedersen.
   214--230. Springer, 2021.
 \newblock \href {https://doi.org/10.1007/978-3-030-78230-6\_14}
   {\path{doi:10.1007/978-3-030-78230-6\_14}}.
+
+\bibitem{HauderBRPA19}
+Viktoria~A. Hauder, Andreas Beham, Sebastian Raggl, Sophie~N. Parragh, and
+  Michael Affenzeller.
+\newblock On constraint programming for a new flexible project scheduling
+  problem with resource constraints.
+\newblock {\em ArXiv}, abs/1902.09244, 2019.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:67855609}.
 
 \bibitem{abs-1902-09244}
 Viktoria~A. Hauder, Andreas Beham, Sebastian Raggl, Sophie~N. Parragh, and
@@ -2028,6 +2158,17 @@ Ey{\"{u}}p~Ensar Isik, Seyda~Topaloglu Yildiz, and {\"{O}}zge~Satir Akpunar.
   {https://doi.org/10.1007/S00500-023-09086-9}
   {\path{doi:10.1007/S00500-023-09086-9}}.
 
+\bibitem{JelinekB16}
+Jan Jel{\'{\i}}nek and Roman Bart{\'{a}}k.
+\newblock Using constraint logic programming to schedule solar array operations
+  on the international space station.
+\newblock In Marco Gavanelli and John~H. Reppy, editors, {\em Practical Aspects
+  of Declarative Languages - 18th International Symposium, {PADL} 2016, St.
+  Petersburg, FL, USA, January 18-19, 2016. Proceedings}, volume 9585 of {\em
+  Lecture Notes in Computer Science}, pages 3--12. Springer, 2016.
+\newblock \href {https://doi.org/10.1007/978-3-319-28228-2\_1}
+  {\path{doi:10.1007/978-3-319-28228-2\_1}}.
+
 \bibitem{JourdanFRD94}
 Jean Jourdan, Fran{\c{c}}ois Fages, Didier Rozzonelli, and Alain Demeure.
 \newblock Data alignment and task scheduling on parallel machines using
@@ -2035,6 +2176,16 @@ Jean Jourdan, Fran{\c{c}}ois Fages, Didier Rozzonelli, and Alain Demeure.
 \newblock In Maurice Bruynooghe, editor, {\em Logic Programming, Proceedings of
   the 1994 International Symposium, Ithaca, New York, USA, November 13-17,
   1994}, page 678. {MIT} Press, 1994.
+
+\bibitem{JungblutK22}
+Pascal Jungblut and Dieter Kranzlm{\"{u}}ller.
+\newblock Optimal schedules for high-level programming environments on fpgas
+  with constraint programming.
+\newblock In {\em {IEEE} International Parallel and Distributed Processing
+  Symposium, {IPDPS} Workshops 2022, Lyon, France, May 30 - June 3, 2022},
+  pages 96--99. {IEEE}, 2022.
+\newblock \href {https://doi.org/10.1109/IPDPSW55747.2022.00025}
+  {\path{doi:10.1109/IPDPSW55747.2022.00025}}.
 
 \bibitem{JuvinHHL23}
 Carla Juvin, Emmanuel Hebrard, Laurent Houssin, and Pierre Lopez.
@@ -2374,6 +2525,14 @@ T.~K.~Satish Kumar.
   of {\em Lecture Notes in Computer Science}, pages 664--678. Springer, 2003.
 \newblock \href {https://doi.org/10.1007/978-3-540-45193-8\_45}
   {\path{doi:10.1007/978-3-540-45193-8\_45}}.
+
+\bibitem{KucukY19}
+Mustafa K{\"u}ç{\"u}k and Seyda~Topaloglu Yildiz.
+\newblock A constraint programming approach for agile earth observation
+  satellite scheduling problem.
+\newblock In {\em 2019 9th International Conference on Recent Advances in Space
+  Technologies (RAST)}, pages 613--617, 2019.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:198146161}.
 
 \bibitem{Laborie09}
 Philippe Laborie.
@@ -2736,6 +2895,18 @@ Willian~Tessaro Lunardi.
   2020.
 \newblock URL: \url{http://orbilu.uni.lu/handle/10993/43893}.
 
+\bibitem{LuoB22}
+Yiqing~L. Luo and J.~Christopher Beck.
+\newblock Packing by scheduling: Using constraint programming to solve a
+  complex 2d cutting stock problem.
+\newblock In Pierre Schaus, editor, {\em Integration of Constraint Programming,
+  Artificial Intelligence, and Operations Research - 19th International
+  Conference, {CPAIOR} 2022, Los Angeles, CA, USA, June 20-23, 2022,
+  Proceedings}, volume 13292 of {\em Lecture Notes in Computer Science}, pages
+  249--265. Springer, 2022.
+\newblock \href {https://doi.org/10.1007/978-3-031-08011-1\_17}
+  {\path{doi:10.1007/978-3-031-08011-1\_17}}.
+
 \bibitem{Madi-WambaB16}
 Gilles Madi{-}Wamba and Nicolas Beldiceanu.
 \newblock The taskintersection constraint.
@@ -2864,6 +3035,17 @@ Alexandre Mercier{-}Aubin, Jonathan Gaudreault, and Claude{-}Guy Quimper.
   Science}, pages 334--346. Springer, 2020.
 \newblock \href {https://doi.org/10.1007/978-3-030-58942-4\_22}
   {\path{doi:10.1007/978-3-030-58942-4\_22}}.
+
+\bibitem{MoffittPP05}
+Michael~D. Moffitt, Bart Peintner, and Martha~E. Pollack.
+\newblock Augmenting disjunctive temporal problems with finite-domain
+  constraints.
+\newblock In Manuela~M. Veloso and Subbarao Kambhampati, editors, {\em
+  Proceedings, The Twentieth National Conference on Artificial Intelligence and
+  the Seventeenth Innovative Applications of Artificial Intelligence
+  Conference, July 9-13, 2005, Pittsburgh, Pennsylvania, {USA}}, pages
+  1187--1192. {AAAI} Press / The {MIT} Press, 2005.
+\newblock URL: \url{http://www.aaai.org/Library/AAAI/2005/aaai05-188.php}.
 
 \bibitem{MokhtarzadehTNF20}
 Mahdi Mokhtarzadeh, Reza Tavakkoli{-}Moghaddam, Behdin~Vahedi Nouri, and Azadeh
@@ -3103,6 +3285,21 @@ Juan~M. Novas and Gabriela~P. Henning.
 \newblock URL: \url{https://doi.org/10.1016/j.eswa.2013.09.026}, \href
   {https://doi.org/10.1016/J.ESWA.2013.09.026}
   {\path{doi:10.1016/J.ESWA.2013.09.026}}.
+
+\bibitem{NuijtenA94}
+W.~P.~M. Nuijten and Emile H.~L. Aarts.
+\newblock Constraint satisfaction for multiple capacitated job shop scheduling.
+\newblock In Anthony~G. Cohn, editor, {\em Proceedings of the Eleventh European
+  Conference on Artificial Intelligence, Amsterdam, The Netherlands, August
+  8-12, 1994}, pages 635--639. John Wiley and Sons, Chichester, 1994.
+
+\bibitem{NuijtenP98}
+Wim Nuijten and Claude~Le Pape.
+\newblock Constraint-based job shop scheduling with {\textbackslash}sc ilog
+  scheduler.
+\newblock {\em J. Heuristics}, 3(4):271--286, 1998.
+\newblock \href {https://doi.org/10.1023/A:1009687210594}
+  {\path{doi:10.1023/A:1009687210594}}.
 
 \bibitem{OddiPCC03}
 Angelo Oddi, Nicola Policella, Amedeo Cesta, and Gabriella Cortellessa.
@@ -3685,6 +3882,14 @@ Helmut Simonis and Trijntje Cornelissens.
 \newblock \href {https://doi.org/10.1007/3-540-60299-2\_27}
   {\path{doi:10.1007/3-540-60299-2\_27}}.
 
+\bibitem{SourdN00}
+Francis Sourd and Wim Nuijten.
+\newblock Multiple-machine lower bounds for shop-scheduling problems.
+\newblock {\em {INFORMS} J. Comput.}, 12(4):341--352, 2000.
+\newblock URL: \url{https://doi.org/10.1287/ijoc.12.4.341.11881}, \href
+  {https://doi.org/10.1287/IJOC.12.4.341.11881}
+  {\path{doi:10.1287/IJOC.12.4.341.11881}}.
+
 \bibitem{SquillaciPR23}
 Samuel Squillaci, C{\'{e}}dric Pralet, and St{\'{e}}phanie Roussel.
 \newblock Scheduling complex observation requests for a constellation of
@@ -3739,6 +3944,17 @@ Suresh Sundaram, V.~Mani, S.~N. Omkar, and H.~J. Kim.
   2006.
 \newblock \href {https://doi.org/10.1080/17445760600567842}
   {\path{doi:10.1080/17445760600567842}}.
+
+\bibitem{SvancaraB22}
+Jir{\'{\i}} Svancara and Roman Bart{\'{a}}k.
+\newblock Tackling train routing via multi-agent pathfinding and
+  constraint-based scheduling.
+\newblock In Ana~Paula Rocha, Luc Steels, and H.~Jaap van~den Herik, editors,
+  {\em Proceedings of the 14th International Conference on Agents and
+  Artificial Intelligence, {ICAART} 2022, Volume 1, Online Streaming, February
+  3-5, 2022}, pages 306--313. {SCITEPRESS}, 2022.
+\newblock \href {https://doi.org/10.5220/0010869700003116}
+  {\path{doi:10.5220/0010869700003116}}.
 
 \bibitem{SzerediS16}
 Ria Szeredi and Andreas Schutt.
@@ -4275,6 +4491,14 @@ Moli Yang, Andreas Schutt, and Peter~J. Stuckey.
 \newblock \href {https://doi.org/10.1007/978-3-030-19212-9\_42}
   {\path{doi:10.1007/978-3-030-19212-9\_42}}.
 
+\bibitem{YounespourAKE19}
+Maryam Younespour, Arezoo Atighehchian, Kamran Kianfar, and Ehsan~Tarkesh
+  Esfahani.
+\newblock Using mixed integer programming and constraint programming for
+  operating rooms scheduling with modified block strategy.
+\newblock {\em Operations research for health care}, 23:100220, 2019.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:208103305}.
+
 \bibitem{YoungFS17}
 Kenneth~D. Young, Thibaut Feydy, and Andreas Schutt.
 \newblock Constraint programming applied to the multi-skill project scheduling
@@ -4308,6 +4532,13 @@ Francisco Yuraszeck, Gonzalo Mej{\'{\i}}a, and Dario Canut{-}de{-}Bon.
 \newblock URL: \url{https://doi.org/10.1016/j.procs.2023.03.130}, \href
   {https://doi.org/10.1016/J.PROCS.2023.03.130}
   {\path{doi:10.1016/J.PROCS.2023.03.130}}.
+
+\bibitem{YuraszeckMPV22}
+Francisco Yuraszeck, Gonzalo Mej{\'i}a, Jordi Pereira, and Mariona Vil{\`a}.
+\newblock A novel constraint programming decomposition approach for the total
+  flow time fixed group shop scheduling problem.
+\newblock {\em Mathematics}, 2022.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:246320449}.
 
 \bibitem{YuraszeckMCCR23}
 Francisco Yuraszeck, Elizabeth Montero, Dario Canut{-}de{-}Bon, Nicol{\'{a}}s
@@ -4440,5 +4671,19 @@ Minhaz~F. Zibran and Chanchal~K. Roy.
   pages 105--114. {IEEE} Computer Society, 2011.
 \newblock \href {https://doi.org/10.1109/SCAM.2011.21}
   {\path{doi:10.1109/SCAM.2011.21}}.
+
+\bibitem{ZouZ20}
+Xin Zou and Lihui Zhang.
+\newblock A constraint programming approach for scheduling repetitive projects
+  with atypical activities considering soft logic.
+\newblock {\em Automation in Construction}, 109:102990, 2020.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:208840808}.
+
+\bibitem{GurEA19}
+Şeyda G{\"u}r, Tamer Eren, and Hacı~Mehmet Alakaş.
+\newblock Surgical operation scheduling with goal programming and constraint
+  programming: A case study.
+\newblock {\em Mathematics}, 2019.
+\newblock URL: \url{https://api.semanticscholar.org/CorpusID:88492001}.
 
 \end{thebibliography}

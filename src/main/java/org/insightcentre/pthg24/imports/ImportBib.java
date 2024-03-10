@@ -234,7 +234,7 @@ public class ImportBib {
         String[] series = new String[]{"CPAIOR","ECAI","AAAI","IJCAI","ICTAI","ICAPS","GECCO","CoDIT","ICAART",
                 "ICNSC","ICCL","Fog-IoT","EUROCAST","FUZZ-IEEE","ICRA","IDC","RAAD","ACIIDS","AICCC","AIAI",
                 "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE",
-                "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS",
+                "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL",
                 "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA"};
         for(String cand:series) {
             if (text.contains(cand)) {
@@ -252,6 +252,15 @@ public class ImportBib {
         }
         if (text.contains("International Conference on Robotics and Automation")){
             return "ICRA";
+        }
+        if (text.contains("National Conference on Artificial Intelligence")){
+            return "AAAI";
+        }
+        if (text.contains("International Conference on Artificial Intelligence Planning Systems")){
+            return "AIPS";
+        }
+        if (text.contains("European Conference on Artificial Intelligence")){
+            return "ECAI";
         }
         return null;
     }
