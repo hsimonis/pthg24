@@ -49,6 +49,9 @@ public class ConceptWorkHash {
             obj.put("work",cw.getWork().getName());
             obj.put("count",cw.getCount());
             obj.put("matchLevel",cw.getMatchLevel().toString());
+            if (cw.getConcept().getRevision() > 0){
+                obj.put("revision",cw.getConcept().getRevision());
+            }
             arr.put(obj);
         }
         try {
@@ -73,7 +76,11 @@ public class ConceptWorkHash {
                 Concept concept = Concept.findByName(base,c);
                 Work work = Work.findByName(base,w);
                 MatchLevel matchLevel = findMatchLevel(ml);
-                if (concept != null && work != null){
+                int revision =0;
+                if (obj.has("revision")){
+                    revision = obj.getInt("revision");
+                }
+                if (concept != null && work != null && revision >= concept.getRevision()){
                     ConceptWork cw = new ConceptWork(base);
                     cw.setConcept(concept);
                     cw.setWork(work);
@@ -81,7 +88,7 @@ public class ConceptWorkHash {
                     cw.setMatchLevel(matchLevel);
 
                 } else {
-                    warning("Inconsistent saved ConceptWork "+c+" "+w);
+                    warning("Inconsistent saved ConceptWork "+c+" "+w+" "+revision);
                 }
 
             }

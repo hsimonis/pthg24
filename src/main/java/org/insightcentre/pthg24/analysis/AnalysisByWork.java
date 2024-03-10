@@ -22,15 +22,16 @@ public class AnalysisByWork {
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{p{3cm}p{4cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}\n");
+            out.printf("\\begin{longtable}{p{3cm}rp{4cm}p{1.5cm}p{2cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{2cm}rp{1.5cm}}\n");
             out.printf("\\caption{Automatically Extracted %s Properties (Requires Local Copy)}\\\\ \\toprule\n",type);
-            out.printf("Work & Concepts & Classification & Constraints & ProgLanguages & CPSystems & Areas & " +
-                    "Industries & Benchmarks & Algorithm\\\\ \\midrule");
+            out.printf("Work & Pages & Concepts & Classification & Constraints & \\shortstack{Prog\\\\Languages} & \\shortstack{CP\\\\Systems} & Areas & " +
+                    "Industries & Benchmarks & Links & Algorithm\\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
             for(Work w:sortedWorks(base,type)){
                 out.printf("\\href{%s}{%s}~\\cite{%s}",w.getLocalCopy(),safe(w.getName()),w.getName());
+                out.printf(" & %d",w.getNrPages());
                 out.printf(" & %s",concepts(base,w,Concepts));
                 out.printf(" & %s",concepts(base,w,Classification));
                 out.printf(" & %s",concepts(base,w, Constraints));
@@ -39,6 +40,7 @@ public class AnalysisByWork {
                 out.printf(" & %s",concepts(base,w,ApplicationAreas));
                 out.printf(" & %s",concepts(base,w,Industries));
                 out.printf(" & %s",concepts(base,w,Benchmarks));
+                out.printf(" & %d",w.getNrLinks());
                 out.printf(" & %s",concepts(base,w,Algorithms));
                 out.printf("\\\\\n");
             }

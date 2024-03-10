@@ -43,6 +43,15 @@ public  class Concept extends ApplicationObject{
  *
 */
 
+    public Boolean caseSensitive;
+
+    private transient BooleanProperty caseSensitiveWrapper;
+
+/**
+ *  
+ *
+*/
+
     public ConceptType conceptType;
 
 /**
@@ -58,6 +67,13 @@ public  class Concept extends ApplicationObject{
 */
 
     public String regExpr;
+
+/**
+ *  
+ *
+*/
+
+    public Integer revision;
 
 /**
  *  No-arg constructor for use in TableView
@@ -78,9 +94,11 @@ public  class Concept extends ApplicationObject{
 
     public Concept(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setCaseSensitive(false);
         setConceptType(null);
         setLabel("");
         setRegExpr("");
+        setRevision(0);
         applicationDataset.addConcept(this);
     }
 
@@ -94,15 +112,19 @@ public  class Concept extends ApplicationObject{
     public Concept(ApplicationDataset applicationDataset,
             Integer id,
             String name,
+            Boolean caseSensitive,
             ConceptType conceptType,
             String label,
-            String regExpr){
+            String regExpr,
+            Integer revision){
         super(applicationDataset,
             id,
             name);
+        setCaseSensitive(caseSensitive);
         setConceptType(conceptType);
         setLabel(label);
         setRegExpr(regExpr);
+        setRevision(revision);
         applicationDataset.addConcept(this);
     }
 
@@ -110,9 +132,11 @@ public  class Concept extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
+            other.caseSensitive,
             other.conceptType,
             other.label,
-            other.regExpr);
+            other.regExpr,
+            other.revision);
     }
 
 /**
@@ -125,6 +149,24 @@ public  class Concept extends ApplicationObject{
     public Boolean remove(){
         getApplicationDataset().cascadeConceptWorkConcept(this);
         return getApplicationDataset().removeConcept(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  get attribute caseSensitive
+ *
+ * @return Boolean
+*/
+
+    public Boolean getCaseSensitive(){
+        return this.caseSensitive;
+    }
+
+    public BooleanProperty caseSensitiveWrapperProperty() {
+        if (caseSensitiveWrapper == null) {
+            caseSensitiveWrapper = new SimpleBooleanProperty();
+        }
+        caseSensitiveWrapper.set(caseSensitive);
+        return caseSensitiveWrapper;
     }
 
 /**
@@ -155,6 +197,28 @@ public  class Concept extends ApplicationObject{
 
     public String getRegExpr(){
         return this.regExpr;
+    }
+
+/**
+ *  get attribute revision
+ *
+ * @return Integer
+*/
+
+    public Integer getRevision(){
+        return this.revision;
+    }
+
+/**
+ *  set attribute caseSensitive, mark dataset as dirty, mark dataset as not valid
+@param caseSensitive Boolean
+ *
+*/
+
+    public void setCaseSensitive(Boolean caseSensitive){
+        this.caseSensitive = caseSensitive;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -194,6 +258,29 @@ public  class Concept extends ApplicationObject{
     }
 
 /**
+ *  set attribute revision, mark dataset as dirty, mark dataset as not valid
+@param revision Integer
+ *
+*/
+
+    public void setRevision(Integer revision){
+        this.revision = revision;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute revision, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incRevision(){
+        this.revision++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  override generic toString() method, show all attributes in human readable form
  * @return String details of the format are not clearly defined at the moment
 */
@@ -210,7 +297,7 @@ public  class Concept extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getConceptType()+ " " +getLabel()+ " " +getRegExpr();
+        return ""+ " " +getId()+ " " +getName()+ " " +getCaseSensitive()+ " " +getConceptType()+ " " +getLabel()+ " " +getRegExpr()+ " " +getRevision();
     }
 
 /**
@@ -234,10 +321,22 @@ public  class Concept extends ApplicationObject{
          out.println("<concept "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
+            " caseSensitive=\""+toXMLCaseSensitive()+"\""+
             " conceptType=\""+toXMLConceptType()+"\""+
             " label=\""+toXMLLabel()+"\""+
-            " regExpr=\""+toXMLRegExpr()+"\""+" />");
+            " regExpr=\""+toXMLRegExpr()+"\""+
+            " revision=\""+toXMLRevision()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLCaseSensitive(){
+        return this.getCaseSensitive().toString();
+    }
 
 /**
  * helper method for toXML(), prcess one attribute
@@ -270,17 +369,27 @@ public  class Concept extends ApplicationObject{
     }
 
 /**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLRevision(){
+        return this.getRevision().toString();
+    }
+
+/**
  * show object as one row in an HTML table
  * 
  * @return String of form <tr>...</tr>
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Concept</th>"+"<th>Name</th>"+"<th>ConceptType</th>"+"<th>Label</th>"+"<th>RegExpr</th>"+"</tr>";
+        return "<tr><th>Concept</th>"+"<th>Name</th>"+"<th>ConceptType</th>"+"<th>Label</th>"+"<th>RegExpr</th>"+"<th>CaseSensitive</th>"+"<th>Revision</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getConceptType()+"</td>"+ " " +"<td>"+getLabel()+"</td>"+ " " +"<td>"+getRegExpr()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getConceptType()+"</td>"+ " " +"<td>"+getLabel()+"</td>"+ " " +"<td>"+getRegExpr()+"</td>"+ " " +"<td>"+getCaseSensitive()+"</td>"+ " " +"<td>"+getRevision()+"</td>"+"</tr>";
     }
 
 /**
@@ -397,6 +506,9 @@ public  class Concept extends ApplicationObject{
 */
 
     public Boolean applicationEqual(Concept b){
+      if(!this.getCaseSensitive().equals(b.getCaseSensitive())){
+         System.out.println("CaseSensitive");
+        }
       if(!this.getConceptType().equals(b.getConceptType())){
          System.out.println("ConceptType");
         }
@@ -409,10 +521,15 @@ public  class Concept extends ApplicationObject{
       if(!this.getRegExpr().equals(b.getRegExpr())){
          System.out.println("RegExpr");
         }
-        return  this.getConceptType().equals(b.getConceptType()) &&
+      if(!this.getRevision().equals(b.getRevision())){
+         System.out.println("Revision");
+        }
+        return  this.getCaseSensitive().equals(b.getCaseSensitive()) &&
+          this.getConceptType().equals(b.getConceptType()) &&
           this.getLabel().equals(b.getLabel()) &&
           this.getName().equals(b.getName()) &&
-          this.getRegExpr().equals(b.getRegExpr());
+          this.getRegExpr().equals(b.getRegExpr()) &&
+          this.getRevision().equals(b.getRevision());
     }
 
 /**

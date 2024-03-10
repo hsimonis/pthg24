@@ -28,11 +28,21 @@ public class ImportConcepts {
                 String type = c.getString("type");
                 String label = c.getString("label");
                 String regExpr = c.getString("regExpr");
+                boolean caseSensitive = false;
+                if (c.has("caseSensitive")){
+                    caseSensitive = c.getBoolean("caseSensitive");
+                }
+                int revision = 0;
+                if (c.has("revision")){
+                    revision = c.getInt("revision");
+                }
                 Concept con = new Concept(base);
                 con.setName(label);
                 con.setLabel(label);
                 con.setRegExpr(regExpr);
                 con.setConceptType(stringToConceptType(type));
+                con.setCaseSensitive(caseSensitive);
+                con.setRevision(revision);
             }
 
         } catch(IOException e){

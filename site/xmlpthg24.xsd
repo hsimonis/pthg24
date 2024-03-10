@@ -59,6 +59,7 @@
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -99,9 +100,11 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="caseSensitive" use="required" type="xs:boolean"/>
 			<xs:attribute name="conceptType" use="required" type="xs:string"/>
 			<xs:attribute name="label" use="required" type="xs:string"/>
 			<xs:attribute name="regExpr" use="required" type="xs:string"/>
+			<xs:attribute name="revision" use="required" type="xs:integer"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="conceptWork">
@@ -132,6 +135,7 @@
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -166,6 +170,7 @@
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -192,6 +197,7 @@
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>

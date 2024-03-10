@@ -22,7 +22,7 @@ import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.School;
 
 /**
- * Generated at 22:42:23 on 2024-03-06 */
+ * Generated at 07:29:19 on 2024-03-10 */
 public class PhDThesisController extends Table3Controller {
 	@FXML
 	private TableView<PhDThesis> table;
@@ -59,6 +59,9 @@ public class PhDThesisController extends Table3Controller {
 
 	@FXML
 	private TableColumn<PhDThesis, Integer> nrPages;
+
+	@FXML
+	private TableColumn<PhDThesis, Integer> nrLinks;
 
 	@FXML
 	private TableColumn<PhDThesis, String> dataAvail;
@@ -148,6 +151,10 @@ public class PhDThesisController extends Table3Controller {
 		nrPages.setCellValueFactory(new PropertyValueFactory<>("nrPages"));
 		nrPages.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		nrPages.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrPages(event.getNewValue()); mainApp.reset();});
+		choices.add("nrLinks");
+		nrLinks.setCellValueFactory(new PropertyValueFactory<>("nrLinks"));
+		nrLinks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrLinks.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrLinks(event.getNewValue()); mainApp.reset();});
 		choices.add("dataAvail");
 		dataAvail.setCellValueFactory(new PropertyValueFactory<>("dataAvail"));
 		dataAvail.setCellFactory(TextFieldTableCell.forTableColumn());

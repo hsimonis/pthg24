@@ -22,7 +22,7 @@ public class ListPapers {
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{p{3cm}p{6cm}p{7cm}rrrp{3cm}r}\n");
-            out.printf("\\caption{Papers from bibtex}\\\\ \\toprule\n");
+            out.printf("\\caption{Papers from bibtex (Total %d)}\\\\ \\toprule\n",sortedPapers(base).size());
             out.printf("Key & Authors & Title & LC & Cite & Year & Conference & Pages \\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");

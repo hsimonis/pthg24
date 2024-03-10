@@ -53,7 +53,7 @@ Abderrahmane Aggoun and Nicolas Beldiceanu.
 
 \bibitem{AggounB93}
 Abderrahmane Aggoun and Nicolas Beldiceanu.
-\newblock Extending chip in order to solve complex scheduling and placement
+\newblock Extending {CHIP} in order to solve complex scheduling and placement
   problems.
 \newblock {\em Mathematical and Computer Modelling}, 17(7):57--73, 1993.
 \newblock URL:
@@ -88,6 +88,16 @@ O.~M. Alade and A.~O. Amusat.
 \newblock {\em CoRR}, abs/1902.01193, 2019.
 \newblock URL: \url{http://arxiv.org/abs/1902.01193}, \href
   {http://arxiv.org/abs/1902.01193} {\path{arXiv:1902.01193}}.
+
+\bibitem{AlfieriGPS23}
+Arianna Alfieri, Michele Garraffa, Erica Pastore, and Fabio Salassa.
+\newblock Permutation flowshop problems minimizing core waiting time and core
+  idle time.
+\newblock {\em Computers and Industrial Engineering}, 176:108983, 2023.
+\newblock URL:
+  \url{https://www.sciencedirect.com/science/article/pii/S0360835223000074},
+  \href {https://doi.org/https://doi.org/10.1016/j.cie.2023.108983}
+  {\path{doi:https://doi.org/10.1016/j.cie.2023.108983}}.
 
 \bibitem{AlizdehS20}
 Samira Alizdeh and Shahram Saeidi.
@@ -957,6 +967,15 @@ Yves Colombani.
   of {\em Lecture Notes in Computer Science}, pages 149--163. Springer, 1996.
 \newblock \href {https://doi.org/10.1007/3-540-61551-2\_72}
   {\path{doi:10.1007/3-540-61551-2\_72}}.
+
+\bibitem{CzerniachowskaWZ23}
+Kateryna Czerniachowska, Radosław Wichniarek, and Krzysztof Żywicki.
+\newblock Constraint programming for flexible flow shop scheduling problem with
+  repeated jobs and repeated operations.
+\newblock {\em Advances in Science and Technology Research Journal},
+  17(3):280--293, 2023.
+\newblock \href {https://doi.org/10.12913/22998624/166588}
+  {\path{doi:10.12913/22998624/166588}}.
 
 \bibitem{DannaP03}
 Emilie Danna and Laurent Perron.
@@ -2967,6 +2986,15 @@ Nicola Muscettola.
   Lecture Notes in Computer Science}, pages 139--154. Springer, 2002.
 \newblock \href {https://doi.org/10.1007/3-540-46135-3\_10}
   {\path{doi:10.1007/3-540-46135-3\_10}}.
+
+\bibitem{NaderiRR23}
+Bahman Naderi, Rub\'{e}n Ruiz, and Vahid Roshanaei.
+\newblock Mixed-integer programming vs. constraint programming for shop
+  scheduling problems: New results and outlook.
+\newblock {\em INFORMS Journal on Computing}, 35(4):817--843, 2023.
+\newblock \href {http://arxiv.org/abs/https://doi.org/10.1287/ijoc.2023.1287}
+  {\path{arXiv:https://doi.org/10.1287/ijoc.2023.1287}}, \href
+  {https://doi.org/10.1287/ijoc.2023.1287} {\path{doi:10.1287/ijoc.2023.1287}}.
 
 \bibitem{NattafAL15}
 Margaux Nattaf, Christian Artigues, and Pierre Lopez.

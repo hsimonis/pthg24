@@ -57,12 +57,14 @@ public class ImportBib {
                     case "incollection":
                         InCollection inc = new InCollection(base);
                         inc.setName(workKey.toString());
+                        inc.setKey(shortKey(workKey.toString()));
                         inc.setCollection(findCollection(fieldString(entry,KEY_BOOKTITLE)));
                         work=inc;
                         break;
                     case "phdthesis":
                         PhDThesis phd = new PhDThesis(base);
                         phd.setName(workKey.toString());
+                        phd.setKey(shortKey(workKey.toString()));
                         phd.setSchool(findSchool(fieldString(entry,KEY_SCHOOL)));
                         work=phd;
                         break;
@@ -232,12 +234,18 @@ public class ImportBib {
         String[] series = new String[]{"CPAIOR","ECAI","AAAI","IJCAI","ICTAI","ICAPS","GECCO","CoDIT","ICAART",
                 "ICNSC","ICCL","Fog-IoT","EUROCAST","FUZZ-IEEE","ICRA","IDC","RAAD","ACIIDS","AICCC","AIAI",
                 "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE",
-                "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS",
+                "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS",
                 "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA"};
         for(String cand:series) {
             if (text.contains(cand)) {
                 return cand;
             }
+        }
+        if (text.contains("Doctoral Consortium") && text.contains("Symposium of the Italian Association for Artificial Intelligence")){
+            return "DC SIAAI";
+        }
+        if (text.contains("Symposium of the Italian Association for Artificial Intelligence")){
+            return "SIAAI";
         }
         if (text.contains("Logic Programming") && text.contains("Symposium")) {
             return "ILPS";

@@ -127,6 +127,13 @@ public abstract class Work extends ApplicationObject{
  *
 */
 
+    public Integer nrLinks;
+
+/**
+ *  
+ *
+*/
+
     public Integer nrPages;
 
 /**
@@ -195,6 +202,7 @@ public abstract class Work extends ApplicationObject{
         setDoi("");
         setKey("");
         setLocalCopy("");
+        setNrLinks(0);
         setNrPages(0);
         setPages("");
         setSolutionAvail("");
@@ -226,6 +234,7 @@ public abstract class Work extends ApplicationObject{
             String doi,
             String key,
             String localCopy,
+            Integer nrLinks,
             Integer nrPages,
             String pages,
             String solutionAvail,
@@ -247,6 +256,7 @@ public abstract class Work extends ApplicationObject{
         setDoi(doi);
         setKey(key);
         setLocalCopy(localCopy);
+        setNrLinks(nrLinks);
         setNrPages(nrPages);
         setPages(pages);
         setSolutionAvail(solutionAvail);
@@ -272,6 +282,7 @@ public abstract class Work extends ApplicationObject{
             other.doi,
             other.key,
             other.localCopy,
+            other.nrLinks,
             other.nrPages,
             other.pages,
             other.solutionAvail,
@@ -411,6 +422,16 @@ public abstract class Work extends ApplicationObject{
 
     public String getLocalCopy(){
         return this.localCopy;
+    }
+
+/**
+ *  get attribute nrLinks
+ *
+ * @return Integer
+*/
+
+    public Integer getNrLinks(){
+        return this.nrLinks;
     }
 
 /**
@@ -618,6 +639,18 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  set attribute nrLinks, mark dataset as dirty, mark dataset as not valid
+@param nrLinks Integer
+ *
+*/
+
+    public void setNrLinks(Integer nrLinks){
+        this.nrLinks = nrLinks;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute nrPages, mark dataset as dirty, mark dataset as not valid
 @param nrPages Integer
  *
@@ -690,6 +723,17 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  inc attribute nrLinks, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrLinks(){
+        this.nrLinks++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  inc attribute nrPages, mark dataset as dirty, mark dataset as not valid
  *
 */
@@ -728,7 +772,7 @@ public abstract class Work extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBasedOn()+ " " +getCitations()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrPages()+ " " +getPages()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBasedOn()+ " " +getCitations()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getPages()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear();
     }
 
 /**
@@ -764,6 +808,7 @@ public abstract class Work extends ApplicationObject{
             " doi=\""+toXMLDoi()+"\""+
             " key=\""+toXMLKey()+"\""+
             " localCopy=\""+toXMLLocalCopy()+"\""+
+            " nrLinks=\""+toXMLNrLinks()+"\""+
             " nrPages=\""+toXMLNrPages()+"\""+
             " pages=\""+toXMLPages()+"\""+
             " solutionAvail=\""+toXMLSolutionAvail()+"\""+
@@ -894,6 +939,16 @@ public abstract class Work extends ApplicationObject{
 
     String toXMLLocalCopy(){
         return this.safeXML(getLocalCopy());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLNrLinks(){
+        return this.getNrLinks().toString();
     }
 
 /**
@@ -1088,6 +1143,9 @@ public abstract class Work extends ApplicationObject{
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
+      if(!this.getNrLinks().equals(b.getNrLinks())){
+         System.out.println("NrLinks");
+        }
       if(!this.getNrPages().equals(b.getNrPages())){
          System.out.println("NrPages");
         }
@@ -1119,6 +1177,7 @@ public abstract class Work extends ApplicationObject{
           this.getKey().equals(b.getKey()) &&
           this.getLocalCopy().equals(b.getLocalCopy()) &&
           this.getName().equals(b.getName()) &&
+          this.getNrLinks().equals(b.getNrLinks()) &&
           this.getNrPages().equals(b.getNrPages()) &&
           this.getPages().equals(b.getPages()) &&
           this.getSolutionAvail().equals(b.getSolutionAvail()) &&

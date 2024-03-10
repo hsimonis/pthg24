@@ -38,7 +38,7 @@ public class RunPDFGrep {
                     if (!cwh.present(c,a)) {
                         String logFile = "log.txt";
                         deleteExistingResultFile("greps/", logFile);
-                        runPDFGrep("greps/",
+                        runPDFGrep(c.getCaseSensitive(),"greps/",
                                 "C:/cygwin64/bin/pdfgrep",
                                 c.getRegExpr(),
                                 "../overview/" + a.getLocalCopy(),
@@ -62,15 +62,22 @@ public class RunPDFGrep {
 
 
 
-    private void runPDFGrep(String directory, String program,String pattern, String pdfFile,String logFile) {
+    private void runPDFGrep(boolean caseSensitive,String directory, String program,String pattern, String pdfFile,String logFile) {
         assert(directory.endsWith("/"));
         String cmd = String.format("%s -i -c \"%s\" %s",program,pattern,pdfFile);
         try {
             ProcessBuilder pb;
-            pb = new ProcessBuilder(program,
-                    "-i",
-                    "-c",
-                    pattern,pdfFile);
+            if (caseSensitive) {
+                pb = new ProcessBuilder(program,
+                        "-c",
+                        pattern, pdfFile);
+            } else {
+                pb = new ProcessBuilder(program,
+                        "-i",
+                        "-c",
+                        pattern, pdfFile);
+
+            }
 
 //            info("command-line: "+cmd);
             pb.directory(new File(directory));

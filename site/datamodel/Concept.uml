@@ -1,5 +1,7 @@
  class Concept {
+Boolean caseSensitive
 ConceptType conceptType
 String label
 String regExpr
+Integer revision
 }

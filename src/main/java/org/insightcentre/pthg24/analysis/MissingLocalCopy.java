@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.WorkWithoutConcepts.source;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class MissingLocalCopy {
@@ -19,21 +20,26 @@ public class MissingLocalCopy {
         String fullName= exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullName);
-            out.printf("\\begin{longtable}{llp{5cm}p{10cm}rl}\n");
+            out.printf("{\\scriptsize\n");
+            out.printf("\\begin{longtable}{llp{5cm}p{10cm}rp{3cm}l}\n");
             out.printf("\\caption{%s without Local Copy}\\\\ \\toprule\n",type);
-            out.printf("Key & URL & Authors & Title & Year & Cite\\\\ \\midrule\n");
+            out.printf("Key & URL & Authors & Title & Year & \\shortstack{Conference\\\\/Journal} & Cite\\\\ \\midrule\n");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
             List<Work> missing  = missing(base,type);
             for(Work w:missing){
-                out.printf("%s & \\href{%s}{%s} & %s & %s & %d & \\cite{%s}\\\\",
+                out.printf("%s & \\href{%s}{%s} & %s & %s & %d & %s & \\cite{%s}\\\\",
                         safe(w.getName()),
                         w.getUrl(),
                         safe(w.getName()),
-                        safe(w.getAuthor()),safe(w.getTitle()),w.getYear(),w.getName());
+                        safe(w.getAuthor()),safe(w.getTitle()),
+                        w.getYear(),
+                        safe(source(w)),
+                        w.getName());
             }
-            out.printf("\\end{longtable}");
+            out.printf("\\end{longtable}\n");
+            out.printf("}\n\n");
             out.close();
         } catch(IOException e){
             severe("Cannot write file "+fullName+", exception "+e.getMessage());

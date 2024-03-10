@@ -2,25 +2,33 @@ package org.insightcentre.pthg24.controller;
 
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
+import java.lang.Boolean;
 import java.lang.Exception;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.lang.SuppressWarnings;
 import java.lang.reflect.Field;
+import javafx.beans.property.Property;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.Callback;
 import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptType;
 
 /**
- * Generated at 22:42:23 on 2024-03-06 */
+ * Generated at 07:29:19 on 2024-03-10 */
 public class ConceptController extends Table3Controller {
 	@FXML
 	private TableView<Concept> table;
@@ -36,6 +44,12 @@ public class ConceptController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Concept, String> regExpr;
+
+	@FXML
+	private TableColumn<Concept, Boolean> caseSensitive;
+
+	@FXML
+	private TableColumn<Concept, Integer> revision;
 
 	private GeneratedJfxApp mainApp;
 
@@ -71,6 +85,13 @@ public class ConceptController extends Table3Controller {
 		regExpr.setCellValueFactory(new PropertyValueFactory<>("regExpr"));
 		regExpr.setCellFactory(TextFieldTableCell.forTableColumn());
 		regExpr.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRegExpr(event.getNewValue()); mainApp.reset();});
+		choices.add("caseSensitive");
+		caseSensitive.setCellValueFactory(new CaseSensitiveCallback());
+		caseSensitive.setCellFactory(CheckBoxTableCell.forTableColumn(caseSensitive));
+		choices.add("revision");
+		revision.setCellValueFactory(new PropertyValueFactory<>("revision"));
+		revision.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		revision.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRevision(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 
@@ -124,6 +145,21 @@ public class ConceptController extends Table3Controller {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	class CaseSensitiveCallback implements Callback<TableColumn.CellDataFeatures<Concept, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Concept, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().caseSensitiveWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setCaseSensitive(newValue);
+				}
+			});
+			return prop;
 		}
 	}
 }

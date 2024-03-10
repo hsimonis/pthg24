@@ -11,6 +11,7 @@ String dataAvail
 String doi
 String key
 String localCopy
+Integer nrLinks
 Integer nrPages
 String pages
 String solutionAvail

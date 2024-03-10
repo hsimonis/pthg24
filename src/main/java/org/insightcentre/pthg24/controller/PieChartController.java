@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 22:42:23 on 2024-03-06 */
+ * Generated at 07:29:19 on 2024-03-10 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -49,6 +49,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("conceptType");
 		attributeNames.add("label");
 		attributeNames.add("regExpr");
+		attributeNames.add("caseSensitive");
+		attributeNames.add("revision");
 		choicesMap.put("Concept", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -68,6 +70,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
+		attributeNames.add("nrLinks");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
@@ -89,6 +92,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
+		attributeNames.add("nrLinks");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
@@ -111,6 +115,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
+		attributeNames.add("nrLinks");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
@@ -133,6 +138,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
+		attributeNames.add("nrLinks");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
@@ -155,6 +161,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
+		attributeNames.add("nrLinks");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");

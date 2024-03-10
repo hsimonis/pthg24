@@ -20,7 +20,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 22:42:23 on 2024-03-06 */
+ * Generated at 07:29:19 on 2024-03-10 */
 public class WorkController extends Table3Controller {
 	@FXML
 	private TableView<Work> table;
@@ -57,6 +57,9 @@ public class WorkController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Work, Integer> nrPages;
+
+	@FXML
+	private TableColumn<Work, Integer> nrLinks;
 
 	@FXML
 	private TableColumn<Work, String> dataAvail;
@@ -141,6 +144,10 @@ public class WorkController extends Table3Controller {
 		nrPages.setCellValueFactory(new PropertyValueFactory<>("nrPages"));
 		nrPages.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		nrPages.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrPages(event.getNewValue()); mainApp.reset();});
+		choices.add("nrLinks");
+		nrLinks.setCellValueFactory(new PropertyValueFactory<>("nrLinks"));
+		nrLinks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrLinks.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrLinks(event.getNewValue()); mainApp.reset();});
 		choices.add("dataAvail");
 		dataAvail.setCellValueFactory(new PropertyValueFactory<>("dataAvail"));
 		dataAvail.setCellFactory(TextFieldTableCell.forTableColumn());
