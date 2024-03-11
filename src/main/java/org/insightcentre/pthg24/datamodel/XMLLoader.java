@@ -64,6 +64,16 @@ public MatchLevel getMatchLevel(String attributeName,
             return MatchLevel.valueOf(e);
         }
     }
+public WorkType getWorkType(String attributeName,
+                               Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        if (e == null) {
+            System.out.println("WorkType"+": "+attributeName);
+            return null;
+        } else {
+            return WorkType.valueOf(e);
+        }
+    }
 public ConceptType getConceptType(String attributeName,
                                Attributes attributes) {
         String e = attributes.getValue(attributeName);

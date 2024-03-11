@@ -12,12 +12,12 @@ import org.insightcentre.pthg24.datamodel.*;
 import org.insightcentre.pthg24.imports.ImportBib;
 import org.insightcentre.pthg24.imports.ImportConcepts;
 import org.insightcentre.pthg24.imports.ImportExtra;
-import org.insightcentre.pthg24.imports.Importer;
 import org.insightcentre.pthg24.pdfgrep.RunPDFGrep;
 import org.insightcentre.pthg24.pdfgrep.RunPDFInfo;
 import org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL;
 
-import static org.insightcentre.pthg24.datamodel.ConceptType.*;
+import static org.insightcentre.pthg24.datamodel.WorkType.ARTICLE;
+import static org.insightcentre.pthg24.datamodel.WorkType.PAPER;
 
 public class JfxApp extends GeneratedJfxApp {
 
@@ -54,19 +54,19 @@ public class JfxApp extends GeneratedJfxApp {
                 new RunPDFGrep(base);
                 new RunPDFInfoURL(base);
                 new FindConnectedPapers(base);
-                new ListPapers(base,exportDir,"papers.tex");
-                new ListPapersManual(base,exportDir,"papersmanual.tex");
-                new ListArticles(base,exportDir,"articles.tex");
-                new ListArticlesManual(base,exportDir,"articlesmanual.tex");
+                new ListWorks(base,PAPER,exportDir,"papers.tex");
+                new ListWorksManual(base,PAPER,exportDir,"papersmanual.tex");
+                new ListWorks(base,ARTICLE,exportDir,"articles.tex");
+                new ListWorksManual(base,ARTICLE,exportDir,"articlesmanual.tex");
                 new ListAuthors(base,exportDir,"authors.tex");
-                new AnalysisByWork(base,exportDir,"Article","conceptsarticle.tex");
-                new AnalysisByWork(base,exportDir,"Paper","conceptspaper.tex");
+                new AnalysisByWork(base,ARTICLE,exportDir,"conceptsarticle.tex");
+                new AnalysisByWork(base,PAPER,exportDir,"conceptspaper.tex");
                 new AnalysisByConcept(base,exportDir,"concept.tex");
 
-                new MissingLocalCopy(base,"Article",exportDir,"missingarticle.tex");
-                new MissingLocalCopy(base,"Paper",exportDir,"missingpaper.tex");
-                new WorkWithoutConcepts(base,"Article",exportDir,"conceptlessarticle.tex");
-                new WorkWithoutConcepts(base,"Paper",exportDir,"conceptlesspaper.tex");
+                new MissingLocalCopy(base,ARTICLE,exportDir,"missingarticle.tex");
+                new MissingLocalCopy(base,PAPER,exportDir,"missingpaper.tex");
+                new WorkWithoutConcepts(base,ARTICLE,exportDir,"conceptlessarticle.tex");
+                new WorkWithoutConcepts(base,PAPER,exportDir,"conceptlesspaper.tex");
                 new UnmatchedConcepts(base,exportDir,"unmatchedconcept.tex");
                 new KeyOverview(base,exportDir,"keylist.tex");
                 return base;

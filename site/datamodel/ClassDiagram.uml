@@ -41,6 +41,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include DifferenceType.uml
 !include WarningType.uml
 !include MatchLevel.uml
+!include WorkType.uml
 !include ConceptType.uml
 ApplicationObjectInterface <|-- ApplicationObject
 ApplicationDatasetInterface <|-- ApplicationDataset

@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.AnalysisByConcept.citation;
-import static org.insightcentre.pthg24.analysis.ListPapers.localCopyExists;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListAuthors {
@@ -21,16 +20,19 @@ public class ListAuthors {
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{p{4cm}p{20cm}}\n");
-            out.printf("\\caption{Co-Authors of Articles/Papers}\\\\ \\toprule\n");
-            out.printf("Author & Entries \\\\ \\midrule");
+            out.printf("\\rowcolor{white}\\caption{Co-Authors of Articles/Papers}\\\\ \\toprule\n");
+            out.printf("\\rowcolor{white}Author & Entries \\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
             for(Author a:sortedAuthors(base)){
                 out.printf("%s & ",safe(a.getName()));
-                for(Authorship as:sortedAuthorship(base,a)){
-                    out.printf("%s ",citation(as.getWork()));
-                }
+                out.printf(sortedAuthorship(base,a).stream().
+                        map(x->citation(x.getWork())).
+                        collect(Collectors.joining(", ")));
+//                for(Authorship as:sortedAuthorship(base,a)){
+//                    out.printf("%s ",citation(as.getWork()));
+//                }
 
                 out.printf("\\\\\n");
             }

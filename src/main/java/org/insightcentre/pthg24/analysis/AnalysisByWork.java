@@ -9,28 +9,36 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
-import static org.insightcentre.pthg24.analysis.ListArticlesManual.sortedArticles;
+import static org.insightcentre.pthg24.analysis.ListWorks.aLabelRef;
+import static org.insightcentre.pthg24.analysis.ListWorks.cLabelRef;
 import static org.insightcentre.pthg24.datamodel.ConceptType.*;
 import static org.insightcentre.pthg24.datamodel.MatchLevel.None;
+import static org.insightcentre.pthg24.datamodel.WorkType.ARTICLE;
+import static org.insightcentre.pthg24.datamodel.WorkType.PAPER;
 import static org.insightcentre.pthg24.imports.Importer.safer;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class AnalysisByWork {
-    public AnalysisByWork(Scenario base, String exportDir, String type,String fileName){
+    public AnalysisByWork(Scenario base, WorkType type,String exportDir, String fileName){
         assert(exportDir.endsWith("/"));
         String fullName = exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{p{3cm}rp{4cm}p{1.5cm}p{2cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{2cm}rp{1.5cm}}\n");
-            out.printf("\\caption{Automatically Extracted %s Properties (Requires Local Copy)}\\\\ \\toprule\n",type);
-            out.printf("Work & Pages & Concepts & Classification & Constraints & \\shortstack{Prog\\\\Languages} & \\shortstack{CP\\\\Systems} & Areas & " +
-                    "Industries & Benchmarks & Links & Algorithm\\\\ \\midrule");
+            out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}r" +
+                    ">{\\raggedright\\arraybackslash}p{4cm}p{1.5cm}p{2cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{2cm}p{1.5cm}rr}\n");
+            out.printf("\\rowcolor{white}\\caption{Automatically Extracted %s Properties (Requires Local Copy)}\\\\ \\toprule\n",type);
+            out.printf("\\rowcolor{white}Work & Pages & Concepts & Classification & Constraints & \\shortstack{Prog\\\\Languages} & " +
+                    "\\shortstack{CP\\\\Systems} & Areas & " +
+                    "Industries & Benchmarks & Algorithm & a & c\\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
             for(Work w:sortedWorks(base,type)){
-                out.printf("\\href{%s}{%s}~\\cite{%s}",w.getLocalCopy(),safe(w.getName()),w.getName());
+                out.printf("\\rowlabel{%s}\\href{%s}{%s}~\\cite{%s}",
+                        "b:"+w.getName(),
+                        w.getLocalCopy(),safe(w.getName()),
+                        w.getName());
                 out.printf(" & %d",w.getNrPages());
                 out.printf(" & %s",concepts(base,w,Concepts));
                 out.printf(" & %s",concepts(base,w,Classification));
@@ -40,8 +48,8 @@ public class AnalysisByWork {
                 out.printf(" & %s",concepts(base,w,ApplicationAreas));
                 out.printf(" & %s",concepts(base,w,Industries));
                 out.printf(" & %s",concepts(base,w,Benchmarks));
-                out.printf(" & %d",w.getNrLinks());
                 out.printf(" & %s",concepts(base,w,Algorithms));
+                out.printf(" & %s & %s",aLabelRef(w),cLabelRef(w));
                 out.printf("\\\\\n");
             }
             out.printf("\\end{longtable}\n");
@@ -53,15 +61,8 @@ public class AnalysisByWork {
         }
     }
 
-    private String dirName(Work w){
-        if (w instanceof Paper){
-            return "papers";
-        } else {
-            return "articles";
-        }
-    }
 
-    private List<Work> sortedWorks(Scenario base,String type){
+    private List<Work> sortedWorks(Scenario base,WorkType type){
         return base.getListWork().stream().
                 filter(x->workType(x,type)).
                 filter(x->!x.getLocalCopy().equals("")).
@@ -69,11 +70,11 @@ public class AnalysisByWork {
                 collect(Collectors.toUnmodifiableList());
     }
 
-    private boolean workType(Work w,String type){
-        return (w instanceof Article && type.equals("Article") || w instanceof Paper && type.equals("Paper"));
+    private boolean workType(Work w,WorkType type){
+        return (w instanceof Article && type == ARTICLE) || (w instanceof Paper && type == PAPER);
     }
 
-    private String concepts(Scenario base,Work w,ConceptType type){
+    public static String concepts(Scenario base,Work w,ConceptType type){
         List<String> concepts = base.getListConceptWork().stream().
                 filter(x->x.getWork()==w).
                 filter(x->x.getMatchLevel() != None).

@@ -24,8 +24,8 @@ public class KeyOverview {
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{*{%d}{l}}\n",nrColumns);
-            out.printf("\\caption{Key Overview}\\\\ \\toprule\n");
-            out.printf("1 & 2 & 3 & 4 & 5 & 6 & 7\\\\ \\midrule\n");
+            out.printf("\\rowcolor{white}\\caption{Key Overview}\\\\ \\toprule\n");
+            out.printf("\\rowcolor{white}1 & 2 & 3 & 4 & 5 & 6 & 7\\\\ \\midrule\n");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");

@@ -1,0 +1,7 @@
+enum WorkType
+WorkType: ARTICLE
+WorkType: PAPER
+WorkType: BOOK
+WorkType: THESIS
+WorkType: INCOLLECTION
+

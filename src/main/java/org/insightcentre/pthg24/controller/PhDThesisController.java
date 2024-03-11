@@ -22,7 +22,7 @@ import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.School;
 
 /**
- * Generated at 07:29:19 on 2024-03-10 */
+ * Generated at 18:03:45 on 2024-03-11 */
 public class PhDThesisController extends Table3Controller {
 	@FXML
 	private TableView<PhDThesis> table;

@@ -20,8 +20,8 @@ public class UnmatchedConcepts {
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{lp{10cm}rr}\n");
-            out.printf("\\caption{Unmatched Concepts}\\\\ \\toprule\n");
-            out.printf("Type & Name & CaseSensitive & Revision\\\\ \\midrule\n");
+            out.printf("\\rowcolor{white}\\caption{Unmatched Concepts}\\\\ \\toprule\n");
+            out.printf("\\rowcolor{white}Type & Name & CaseSensitive & Revision\\\\ \\midrule\n");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");

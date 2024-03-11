@@ -21,9 +21,9 @@ public class AnalysisByConcept {
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{lp{3cm}>{\\raggedright}p{6cm}>{\\raggedright}p{6cm}p{8cm}}\n");
-            out.printf("\\caption{Papers by Domain and Keyword}\\\\ \\toprule\n");
-            out.printf("Domain & Keyword & High & Medium & Low\\\\ \\midrule");
+            out.printf("\\begin{longtable}{lp{3cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{8cm}}\n");
+            out.printf("\\rowcolor{white}\\caption{Papers by Domain and Keyword}\\\\ \\toprule\n");
+            out.printf("\\rowcolor{white}Domain & Keyword & High & Medium & Low\\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
@@ -86,7 +86,7 @@ public class AnalysisByConcept {
     }
 
     public static String citation(Work w){
-        return "\\href{"+w.getLocalCopy()+"}{"+w.getName()+"}\\cite{"+safer(w.getName())+"}";
+        return "\\href{"+w.getLocalCopy()+"}{"+w.getName()+"}~\\cite{"+safer(w.getName())+"}";
     }
 
 

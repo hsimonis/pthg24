@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import static org.insightcentre.pthg24.analysis.ListPapers.localCopyExists;
+import static org.insightcentre.pthg24.analysis.ListWorks.localCopyExists;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
 import static org.jbibtex.BibTeXEntry.*;
 
