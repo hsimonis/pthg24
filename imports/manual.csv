@@ -24,7 +24,7 @@ HanenKP21& Python & ref & n & - & $P|prec, r_i, d_i|*$& -
 Astrand0F21& Gecode & \\su{ref generated} & n & - & & -
 GeibingerKKMMW21& MiniZinc & \\href{https://cdlab-artis.dbai.tuwien.ac.at/papers/pandemic-scheduling/}{y} & n& - & & nvalue	
 NattafM20& \\su{Cplex {CP Opt}}& - & - & \\cite{MalapertN19} & PTC & \\su{alternative noOverlap}
-GroleazNS20& \\su{{CP Opt} ACO} & - & - & \\cite{GroleazNS20}& GCSP & group cumulative
+GroleazNS20& \\su{{CP Opt} ACO} & - & - & \\cite{GroleazNS20}& GCSP & groupCumulative
 Mercier-AubinGQ20& \\su{MiniZinc Chuffed}& a & a & - & & \\su{circuit cumulative} 
 TangB20& \\su{Cplex {CP Opt}}& n & n & - & 2BPHFSP & \\su{span alwaysIn} 
 WessenCS20& Gecode & n & n & - & & \\su{circuit alldifferent} 	
@@ -90,8 +90,8 @@ OujanaAYB22 & CP Opt & n & n & - & HFFS & \\su{alternative span noOverlap endBef
 ZhangJZL22 & OP Opt & ref & n & - & HFSP & \\su{alternative endBeforeStart noOverlap cumulative}
 Mehdizadeh-Somarin23 & CP Opt & n & n & - & \\su{JSSP RMS} & \\su{alternative endBeforeStart noOverlap}
 PerezGSL23 & custom & n & n & - & SUTP & \\su{table disjunctive}
-Teppan22 & ? & ?& ?& ?& ?&?
-TouatBT22 & ? & ? & ? & ? & ? & ?
+Teppan22 & OPL & ref & n & -& FJSSP & \\su{noOverlap alternative endBeforeStart}
+TouatBT22 & OPL & n & n & - & Single Machine Scheduling & \\su{alternative noOverlap forbidExtent}
 BenderWS21 & CP Opt & \\href{https://tud.link/47mz}{y} & n & - & MRCPSP & \\su{noOverlap alternative}
 GeibingerMM21 & clingcon& \\href{dbai.tuwien.ac.at/staff/fmischek/TLSP}{y}& & & \\su{TLSP RCPSP} & disjunctive
 abs-2402-00459 & OR-Tools & \\href{https://github.com/andreas-ernst/Mathprog-ORlib/blob/master/data/RCJS_new_instances.zip}{y}& n & - & RCJS & cumulatives
@@ -107,3 +107,16 @@ abs-2305-19888 & \\su{{CP Opt} Gurobi} & \\href{https://gitlab.com/vilem_heinz/c
 abs-2306-05747 & \\su{custom Choco} & ref & n & - & JSSP & \\su{noOverlap}
 abs-2312-13682 & custom & n & n & - & SUTP & \\su{table disjunctive}
 AbreuN22 & \\su{Cplex {CP Opt}} & \\href{https://bit.ly/392wfZa}{y} & n& -& OSSPST & \\su{noOverlap} 
+JungblutK22 & MiniZinc & \\href{https://github.com/pascalj/reconf-scheduling}{y} & y & -  & & 
+LuoB22 & CPO & n & n & - & 2SCSP-FF & \\su{pulse alwaysIn forbidExtent stateFunction}
+GodetLHS20 & \\su{MiniZinc Choco Chuffed} & \\href{https://github.com/ArthurGodet/PMSPAUR-public}{JSON} & \\href{https://github.com/ArthurGodet/PMSPAUR-public}{y} & - & PMSPAUR & \\su{disjunctive cumulative alldifferent enqueueCstr approxCstr}
+BarzegaranZP20 & OR-Tools & n & n & - & FCP & 
+BadicaBIL19 & ECLiPSe & dead & dead & - & & 
+BehrensLM19 & OR-Tools & \\href{https://github.com/boschresearch/STAAMS-SOLVER}{y} & \\href{https://github.com/boschresearch/STAAMS-SOLVER}{y} & - & STAAMS & 
+GroleazNS20a & \\su{CPO ACO} & \\href{https://perso.citi-lab.fr/csolnon/gc-sched.html}{y} & n & - & GCSP & \\su{groupCumulative}
+BogaerdtW19 & \\su{custom Cplex CPO} & n & n & - & Multi Machine Scheduling & \\su{noOverlap}
+BenediktSMVH18 & \\su{CPO Gurobi} & \\href{https://github.com/CTU-IIG/PSPSM}{y} & \\href{https://github.com/CTU-IIG/PSPSM}{y} & - & Energy Aware Production Scheduling& 
+He0GLW18 & \\su{Gurobi Python} & \\href{https://bitbucket.org/monash-dr/deterministic-rtp-ad/src/master/}{y}& \\href{https://bitbucket.org/monash-dr/deterministic-rtp-ad/src/master/}{y} & - & \\su{FSDN-DS DSP-MH-RTP} & 
+CappartS17 & CPO & \\href{https://bitbucket.org/qcappart/qcappart_opendata/src/master/}{y} & n & - & Rescheduling Railway Traffic & 
+GoldwaserS17 & \\su{Chuffed Gurobi} & \\href{https://github.com/AdGold/TorpedoSchedulingInstances}{y} & n & - & Torpedo Scheduling & 
+LiuCGM17 & \\su{Chuffed OR-Tools HCSP SA} & n & \\href{https://cs.unibo.it/t.liu/nightsplitter/mzn.html} & - & NightSplit & 
