@@ -43,7 +43,7 @@ public class ImportBib {
                         art.setName(workKey.toString());
                         art.setKey(shortKey(workKey.toString()));
                         art.setJournal(findJournal(fieldString(entry,KEY_JOURNAL)));
-                        art.setLocalCopy("articles/"+art.getKey()+".pdf");
+                        art.setLocalCopy("works/"+art.getKey()+".pdf");
                         work = art;
                         break;
                     case "inproceedings":
@@ -51,7 +51,7 @@ public class ImportBib {
                         pap.setName(workKey.toString());
                         pap.setKey(shortKey(workKey.toString()));
                         pap.setProceedings(findProceedings(fieldString(entry,KEY_BOOKTITLE),fieldInteger(entry,KEY_YEAR)));
-                        pap.setLocalCopy("papers/"+pap.getKey()+".pdf");
+                        pap.setLocalCopy("works/"+pap.getKey()+".pdf");
                         work=pap;
                         break;
                     case "incollection":

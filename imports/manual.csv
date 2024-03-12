@@ -35,7 +35,7 @@ MurinR19& \\su{{CP Opt} Cplex OPL} & \\href{https://github.com/StanislavMurin/Sc
 SimoninAHL12& \\su{MOST {Ilog Scheduler}} & n & n & -& & \\su{cumulative dataTransfer}
 KelarevaTK13& \\su{MiniZinc CPX G12FD}& ref & - & - & \\su{LSFRP BPCTOP}& \\su{alldifferent alldifferentExcept0}
 LetortCB13& \\su{SICStus Choco}& PSPlib & - & - & RCPSP & \\su{cumulative kDimensionalCumulative}
-cpaior-SchuttFS13& \\su{Mercury G12}& \\su{PSPlib AT BL Pack KSD15D PackD} & - & - & RCPSP & cumulative 
+SchuttFS13a & \\su{Mercury G12}& \\su{PSPlib AT BL Pack KSD15D PackD} & - & - & RCPSP & cumulative 
 CireCH13& \\su{{CP Opt} Cplex} & dead & n & - & & 
 GuSS13& Chuffed& dead & & - & RCPSPDC & \\su{cumulative maxNVPProp}
 Bit-Monnot23& \\su{ARIES {CP Opt} OR-Tools Mistral}& \\href{https://github.com/plaans/aries}{y} & \\href{https://github.com/plaans/aries}{y} & -& \\su{JSSP OSSP}& - 
@@ -70,7 +70,7 @@ SchuttFSW11& MiniZinc & PSPLib & - & - & RCPSP & cumulative
 KovacsK11& Ilog Solver & n & n & - & Bilevel Opt & 
 LopesCSM10& Ilog Solver & - & - & \\cite{MouraSCL08,MouraSCL08a} & & 
 Simonis07& CHIP & n & n & & & \\su{cumulative diffn cycle inverse}
-Hooker06& \\su{OPL Cplex {Ilog Scheduler}}& n & n & \\cite{cp-Hooker05} & CuSP& \\su{cumulative}
+Hooker06& \\su{OPL Cplex {Ilog Scheduler}}& n & n & \\cite{Hooker05a} & CuSP& \\su{cumulative}
 Hooker05& \\su{OPL Cplex {Ilog Scheduler}} & n & n & \\cite{Hooker04} & CuSP & \\su{cumulative}
 VilimBC05&  & n & n & \\cite{VilimBC04} & JSSP & disjunctive 
 BaptisteP00& CLAIRE & n & n & & RCCSP & cumulative 
