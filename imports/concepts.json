@@ -57,6 +57,8 @@
 {"type":"ApplicationAreas", "label": "drone" ,"regExpr":"drone"},
 {"type":"ApplicationAreas", "label": "emergency service" ,"regExpr":"emergency service"},
 {"type":"ApplicationAreas", "label": "shipping line" ,"regExpr":"shipping line"},
+{"type":"ApplicationAreas", "label": "surgery" ,"regExpr":"surgery"},
+{"type":"ApplicationAreas", "label": "operating room" ,"regExpr":"operating room"},
 
 {"type":"Benchmarks", "label": "benchmark" ,"regExpr":"benchmark"},
 {"type":"Benchmarks", "label": "generated instance" ,"regExpr":"generated instance"},
