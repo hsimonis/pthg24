@@ -42,15 +42,6 @@ Rodrigo Acuna{-}Agost, Philippe Michelon, Dominique Feillet, and Serigne Gueye.
 \newblock \href {https://doi.org/10.1007/978-3-642-01929-6\_24}
   {\path{doi:10.1007/978-3-642-01929-6\_24}}.
 
-\bibitem{AggounB92}
-Abderrahmane Aggoun and Nicolas Beldiceanu.
-\newblock Extending {CHIP} in order to solve complex scheduling and placement
-  problems.
-\newblock In Jean{-}Paul Delahaye, Philippe Devienne, Philippe Mathieu, and
-  Pascal Yim, editors, {\em JFPL'92, 1\({}^{\mbox{{\`{e}}res}}\) Journ{\'{e}}es
-  Francophones de Programmation Logique, 25-27 Mai 1992, Lille, France},
-  page~51, 1992.
-
 \bibitem{AggounB93}
 Abderrahmane Aggoun and Nicolas Beldiceanu.
 \newblock Extending {CHIP} in order to solve complex scheduling and placement
@@ -1876,14 +1867,6 @@ Claire Hanen, Alix~Munier Kordon, and Theo Pedersen.
   214--230. Springer, 2021.
 \newblock \href {https://doi.org/10.1007/978-3-030-78230-6\_14}
   {\path{doi:10.1007/978-3-030-78230-6\_14}}.
-
-\bibitem{HauderBRPA19}
-Viktoria~A. Hauder, Andreas Beham, Sebastian Raggl, Sophie~N. Parragh, and
-  Michael Affenzeller.
-\newblock On constraint programming for a new flexible project scheduling
-  problem with resource constraints.
-\newblock {\em ArXiv}, abs/1902.09244, 2019.
-\newblock URL: \url{https://api.semanticscholar.org/CorpusID:67855609}.
 
 \bibitem{abs-1902-09244}
 Viktoria~A. Hauder, Andreas Beham, Sebastian Raggl, Sophie~N. Parragh, and
