@@ -61,7 +61,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new ListAuthors(base,exportDir,"authors.tex");
                 new AnalysisByWork(base,ARTICLE,exportDir,"conceptsarticle.tex");
                 new AnalysisByWork(base,PAPER,exportDir,"conceptspaper.tex");
-                new AnalysisByConcept(base,exportDir,"concept.tex");
+                new AnalysisByConcept(base,exportDir,"concept");
 
                 new MissingLocalCopy(base,ARTICLE,exportDir,"missingarticle.tex");
                 new MissingLocalCopy(base,PAPER,exportDir,"missingpaper.tex");

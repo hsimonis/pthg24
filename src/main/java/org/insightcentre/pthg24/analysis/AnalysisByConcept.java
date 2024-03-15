@@ -15,30 +15,34 @@ import static org.insightcentre.pthg24.imports.Importer.safer;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class AnalysisByConcept {
-    public AnalysisByConcept(Scenario base, String exportDir, String fileName){
+    public AnalysisByConcept(Scenario base, String exportDir, String root){
         assert(exportDir.endsWith("/"));
-        String fullName = exportDir+fileName;
-        try{
-            PrintWriter out = new PrintWriter(fullName);
-            out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{lp{3cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{8cm}}\n");
-            out.printf("\\rowcolor{white}\\caption{Papers by Domain and Keyword}\\\\ \\toprule\n");
-            out.printf("\\rowcolor{white}Domain & Keyword & High & Medium & Low\\\\ \\midrule");
-            out.printf("\\endhead\n");
-            out.printf("\\bottomrule\n");
-            out.printf("\\endfoot\n");
-            for(ConceptType type:new ConceptType[]{Concepts,Classification,Constraints,ProgLanguages,CPSystems,ApplicationAreas,Industries,Benchmarks,Algorithms}){
-                for(Concept c:sortedConcepts(base,type)) {
-                    out.printf("%s & %s", safe(type.toString()),safer(safe(c.getName())));
-                    out.printf(" & %s", concepts(base, c,Strong));
-                    out.printf(" & %s", concepts(base, c,Medium));
-                    out.printf(" & %s", concepts(base, c,Weak));
+        String fullName="";
+        try {
+            for(ConceptType type:ConceptType.values()){
+                fullName = exportDir+root+type.toString()+".tex";
+                PrintWriter out = new PrintWriter(fullName);
+                out.printf("\\clearpage\n");
+                out.printf("\\subsection{Concept Type %s}\n",safe(type.toString()));
+                out.printf("\\label{sec:%s}\n",safe(type.toString()));
+                out.printf("{\\scriptsize\n");
+                out.printf("\\begin{longtable}{lp{3cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{8cm}}\n");
+                out.printf("\\rowcolor{white}\\caption{Works for Concepts of Type %s}\\\\ \\toprule\n",safe(type.toString()));
+                out.printf("\\rowcolor{white}Type & Keyword & High & Medium & Low\\\\ \\midrule");
+                out.printf("\\endhead\n");
+                out.printf("\\bottomrule\n");
+                out.printf("\\endfoot\n");
+                for (Concept c : sortedConcepts(base, type)) {
+                    out.printf("%s & %s", safe(type.toString()), safer(safe(c.getName())));
+                    out.printf(" & %s", concepts(base, c, Strong));
+                    out.printf(" & %s", concepts(base, c, Medium));
+                    out.printf(" & %s", concepts(base, c, Weak));
                     out.printf("\\\\\n");
                 }
+                out.printf("\\end{longtable}\n");
+                out.printf("}\n\n");
+                out.close();
             }
-            out.printf("\\end{longtable}\n");
-            out.printf("}\n\n");
-            out.close();
         } catch(IOException e){
             severe("Cannot write file "+fullName);
             assert(false);

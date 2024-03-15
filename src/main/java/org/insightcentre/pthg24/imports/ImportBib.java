@@ -262,6 +262,9 @@ public class ImportBib {
         if (text.contains("European Conference on Artificial Intelligence")){
             return "ECAI";
         }
+        if (text.equals("Constraint Programming")){
+            return "Constraint Programming";
+        }
         return null;
     }
 

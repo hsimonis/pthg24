@@ -7602,26 +7602,6 @@ abstract = {Production scheduling is a class of widely studied combinatorial opt
   bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
 
-@inproceedings{WolinskiKG04a,
-  author       = {Christophe Wolinski and
-                  Krzysztof Kuchcinski and
-                  Maya B. Gokhale},
-  editor       = {Russell Tessier and
-                  Herman Schmit},
-  title        = {A constraints programming approach to communication scheduling on
-                  SoPC architectures},
-  booktitle    = {Proceedings of the {ACM/SIGDA} 12th International Symposium on Field
-                  Programmable Gate Arrays, {FPGA} 2004, Monterey, California, USA,
-                  February 22-24, 2004},
-  pages        = {252},
-  publisher    = {{ACM}},
-  year         = {2004},
-  url          = {https://doi.org/10.1145/968280.968336},
-  doi          = {10.1145/968280.968336},
-  timestamp    = {Mon, 20 Apr 2020 01:00:00 +0200},
-  biburl       = {https://dblp.org/rec/conf/fpga/WolinskiKG04.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
-}
 
 @incollection{KanetAG04,
   author       = {John J. Kanet and
@@ -9106,5 +9086,92 @@ url="https://doi.org/10.12913/22998624/166588"
   bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
 
+@article{MejiaY20,
+  author       = {Gonzalo Mej{\'{\i}}a and
+                  Francisco Yuraszeck},
+  title        = {A self-tuning variable neighborhood search algorithm and an effective
+                  decoding scheme for open shop scheduling problems with travel/setup
+                  times},
+  journal      = {Eur. J. Oper. Res.},
+  volume       = {285},
+  number       = {2},
+  pages        = {484--496},
+  year         = {2020},
+  url          = {https://doi.org/10.1016/j.ejor.2020.02.010},
+  doi          = {10.1016/J.EJOR.2020.02.010},
+  timestamp    = {Sat, 05 Sep 2020 17:55:01 +0200},
+  biburl       = {https://dblp.org/rec/journals/eor/MejiaY20.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{abs-2102-08778,
+  author       = {Giacomo Da Col and
+                  Erich Teppan},
+  title        = {Large-Scale Benchmarks for the Job Shop Scheduling Problem},
+  journal      = {CoRR},
+  volume       = {abs/2102.08778},
+  year         = {2021},
+  url          = {https://arxiv.org/abs/2102.08778},
+  eprinttype    = {arXiv},
+  eprint       = {2102.08778},
+  timestamp    = {Fri, 19 Feb 2021 11:02:14 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2102-08778.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{Rodriguez07,
+title = {A constraint programming model for real-time train scheduling at junctions},
+journal = {Transportation Research Part B: Methodological},
+volume = {41},
+number = {2},
+pages = {231-245},
+year = {2007},
+note = {Advanced Modelling of Train Operations in Stations and Networks},
+issn = {0191-2615},
+doi = {https://doi.org/10.1016/j.trb.2006.02.006},
+url = {https://www.sciencedirect.com/science/article/pii/S0191261506000233},
+author = {Joaquín Rodriguez},
+keywords = {Trains scheduling model, Signalling, Constraint programming},
+abstract = {In this paper, we present a constraint programming model for the routing and scheduling of trains running through a junction. The model uses input data from relevant time events of train runs calculated by a simulator. The model can be integrated into a decision support system used by operators who make decisions to change train routes or orders to avoid conflicts and delays. The model has been applied to a set of problem instances. This set has been defined from a real case study of traffic on the Pierrefitte-Gonesse node, North of Paris. Preliminary results show that the solution identified by the model yields a significant improvement in performance within an acceptable computation time.}
+}
+
+@article{RodriguezDG02,
+author = {Joaquin Rodriguez and Xavier Delorme and Xavier Gandibleux},
+year = {2002},
+month = {01},
+pages = {807-816},
+title = {Railway infrastructure saturation using constraint programming approach},
+journal = {Computers in Railways VIII}
+}
+
+@inproceedings{Wallace94,
+author="Mark Wallace",
+editor="Mayoh, Brian
+and Tyugu, Enn
+and Penjam, Jaan",
+title="Applying Constraints for Scheduling",
+booktitle="Constraint Programming",
+year="1994",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="153--171",
+abstract="Scheduling problems come in all shapes and sizes, and no two problems are alike. However it is possible to abstract certain features which are common to whole classes of problems. Some of the features can be expressed as logical requirements on the solution, and can be mapped directly to constraints in logic programming Even within the logical framework there are features, like symmetry, and sheer problem size, which require some extension of the standard CLP approach to be solved in practice. Most scheduling problems, however, are not amenable to a precise, correct logical specification. For longer term scheduling only approximate times are required: to the nearest day or month perhaps. Moreover for both long term and short term scheduling the data input to the scheduler often turns out to be incorrect in practice due to unpredictable events like cancelled orders and machine breakdowns. Finally it is rarely possible, or sufficient, to find a single feasible schedule which satisfies a set of requirements. Instead an optimal schedule is sought, which may perhaps omit some jobs, but on balance meets the most possible requirements at the least overall cost.",
+isbn="978-3-642-85983-0"
+}
+
+@article{BeldiceanuC94,
+title = {Introducing Global Constraints in {CHIP}},
+journal = {Mathematical and Computer Modelling},
+volume = {20},
+number = {12},
+pages = {97-123},
+year = {1994},
+issn = {0895-7177},
+doi = {https://doi.org/10.1016/0895-7177(94)90127-9},
+url = {https://www.sciencedirect.com/science/article/pii/0895717794901279},
+author = {N Beldiceanu and E Contejean},
+keywords = {Constraint programming, Multi-dimensional placement, Scheduling, Vehicle routing},
+abstract = {The purpose of this paper is to show how the introduction of new primitive constraints (e.g., among, diffn, cycle) over finite domains in the constraint logic programming system CHIP result in finding very rapidly good solutions for a large class of difficult sequencing, scheduling, geometrical placement and vehicle routing problems. The among constraint allows us to specify sequencing constraints in a very concise way. For the first time, the diffn constraint allows us to express and to solve directly multi-dimensional placement problems, where one has to consider nonoverlapping constraints between n-dimensional objects (e.g., rectangles, parallelepipeds). The cycle constraint makes it possible to specify a wide range of graph partitioning problems that could not yet be expressed by using current constraint logic programming languages. One of the main advantages of all these new primitives is to take into account more globally a set of elementary constraints. Finally, we point out that all the previous primitive constraints enhance the power of the CHIP system significantly, allowing us to solve real life problems that were not within reach of constraint technology before.}
+}
 
 

@@ -54,6 +54,9 @@
 {"type":"ApplicationAreas", "label": "yard crane" ,"regExpr":"yard crane"},
 {"type":"ApplicationAreas", "label": "automotive" ,"regExpr":"automotive"},
 {"type":"ApplicationAreas", "label": "railway" ,"regExpr":"railway"},
+{"type":"ApplicationAreas", "label": "drone" ,"regExpr":"drone"},
+{"type":"ApplicationAreas", "label": "emergency service" ,"regExpr":"emergency service"},
+{"type":"ApplicationAreas", "label": "shipping line" ,"regExpr":"shipping line"},
 
 {"type":"Benchmarks", "label": "benchmark" ,"regExpr":"benchmark"},
 {"type":"Benchmarks", "label": "generated instance" ,"regExpr":"generated instance"},
@@ -127,7 +130,7 @@
 {"type":"Concepts", "label": "sequence dependent setup" ,"regExpr":"sequence dependent setup"},
 {"type":"Concepts", "label": "transportation" ,"regExpr":"transportation"},
 {"type":"Concepts", "label": "make to order" ,"regExpr":"ma[kd]e to order"},
-{"type":"Concepts", "label": "make to stock" ,"regExpr":"ma[kd]ke to stock"},
+{"type":"Concepts", "label": "make to stock" ,"regExpr":"ma[kd]e to stock","revision":1},
 {"type":"Concepts", "label": "inventory" ,"regExpr":"inventory"},
 {"type":"Concepts", "label": "stock level" ,"regExpr":"stock level"},
 {"type":"Concepts", "label": "bill of material" ,"regExpr":"bill of material"},

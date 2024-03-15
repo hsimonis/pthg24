@@ -461,6 +461,15 @@ Jan~Kristof Behrens, Ralph Lange, and Masoumeh Mansouri.
 \newblock URL: \url{http://arxiv.org/abs/1901.07914}, \href
   {http://arxiv.org/abs/1901.07914} {\path{arXiv:1901.07914}}.
 
+\bibitem{BeldiceanuC94}
+N~Beldiceanu and E~Contejean.
+\newblock Introducing global constraints in {CHIP}.
+\newblock {\em Mathematical and Computer Modelling}, 20(12):97--123, 1994.
+\newblock URL:
+  \url{https://www.sciencedirect.com/science/article/pii/0895717794901279},
+  \href {https://doi.org/https://doi.org/10.1016/0895-7177(94)90127-9}
+  {\path{doi:https://doi.org/10.1016/0895-7177(94)90127-9}}.
+
 \bibitem{BeldiceanuC02}
 Nicolas Beldiceanu and Mats Carlsson.
 \newblock A new multi-resource cumulatives constraint with negative heights.
@@ -986,6 +995,13 @@ Elvin Coban and John~N. Hooker.
   Lecture Notes in Computer Science}, pages 87--91. Springer, 2010.
 \newblock \href {https://doi.org/10.1007/978-3-642-13520-0\_11}
   {\path{doi:10.1007/978-3-642-13520-0\_11}}.
+
+\bibitem{abs-2102-08778}
+Giacomo~Da Col and Erich Teppan.
+\newblock Large-scale benchmarks for the job shop scheduling problem.
+\newblock {\em CoRR}, abs/2102.08778, 2021.
+\newblock URL: \url{https://arxiv.org/abs/2102.08778}, \href
+  {http://arxiv.org/abs/2102.08778} {\path{arXiv:2102.08778}}.
 
 \bibitem{ColT19}
 Giacomo~Da Col and Erich~Christian Teppan.
@@ -2990,6 +3006,15 @@ Zahra Mehdizadeh{-}Somarin, Reza Tavakkoli{-}Moghaddam, Mohammad Rohaninejad,
 \newblock \href {https://doi.org/10.1007/978-3-031-43670-3\_33}
   {\path{doi:10.1007/978-3-031-43670-3\_33}}.
 
+\bibitem{MejiaY20}
+Gonzalo Mej{\'{\i}}a and Francisco Yuraszeck.
+\newblock A self-tuning variable neighborhood search algorithm and an effective
+  decoding scheme for open shop scheduling problems with travel/setup times.
+\newblock {\em Eur. J. Oper. Res.}, 285(2):484--496, 2020.
+\newblock URL: \url{https://doi.org/10.1016/j.ejor.2020.02.010}, \href
+  {https://doi.org/10.1016/J.EJOR.2020.02.010}
+  {\path{doi:10.1016/J.EJOR.2020.02.010}}.
+
 \bibitem{Menana11}
 Julien Menana.
 \newblock {\em Automates et programmation par contraintes pour la planification
@@ -3614,6 +3639,24 @@ Robert Rodosek and Mark Wallace.
   {\em Lecture Notes in Computer Science}, pages 385--399. Springer, 1998.
 \newblock \href {https://doi.org/10.1007/3-540-49481-2\_28}
   {\path{doi:10.1007/3-540-49481-2\_28}}.
+
+\bibitem{RodriguezDG02}
+Joaquin Rodriguez, Xavier Delorme, and Xavier Gandibleux.
+\newblock Railway infrastructure saturation using constraint programming
+  approach.
+\newblock {\em Computers in Railways VIII}, pages 807--816, 01 2002.
+
+\bibitem{Rodriguez07}
+Joaquín Rodriguez.
+\newblock A constraint programming model for real-time train scheduling at
+  junctions.
+\newblock {\em Transportation Research Part B: Methodological}, 41(2):231--245,
+  2007.
+\newblock Advanced Modelling of Train Operations in Stations and Networks.
+\newblock URL:
+  \url{https://www.sciencedirect.com/science/article/pii/S0191261506000233},
+  \href {https://doi.org/https://doi.org/10.1016/j.trb.2006.02.006}
+  {\path{doi:https://doi.org/10.1016/j.trb.2006.02.006}}.
 
 \bibitem{RossiTHP07}
 Roberto Rossi, Armagan Tarim, Brahim Hnich, and Steven~D. Prestwich.
@@ -4316,6 +4359,13 @@ Marek Vlk, Zdenek Hanz{\'{a}}lek, and Siyu Tang.
   {https://doi.org/10.1016/J.CIE.2021.107317}
   {\path{doi:10.1016/J.CIE.2021.107317}}.
 
+\bibitem{Wallace94}
+Mark Wallace.
+\newblock Applying constraints for scheduling.
+\newblock In Brian Mayoh, Enn Tyugu, and Jaan Penjam, editors, {\em Constraint
+  Programming}, pages 153--171, Berlin, Heidelberg, 1994. Springer Berlin
+  Heidelberg.
+
 \bibitem{Wallace96}
 Mark Wallace.
 \newblock Practical applications of constraint programming.
@@ -4441,17 +4491,6 @@ Christophe Wolinski, Krzysztof Kuchcinski, and Maya~B. Gokhale.
   Rennes, France}, pages 308--315. {IEEE} Computer Society, 2004.
 \newblock \href {https://doi.org/10.1109/DSD.2004.1333291}
   {\path{doi:10.1109/DSD.2004.1333291}}.
-
-\bibitem{WolinskiKG04a}
-Christophe Wolinski, Krzysztof Kuchcinski, and Maya~B. Gokhale.
-\newblock A constraints programming approach to communication scheduling on
-  sopc architectures.
-\newblock In Russell Tessier and Herman Schmit, editors, {\em Proceedings of
-  the {ACM/SIGDA} 12th International Symposium on Field Programmable Gate
-  Arrays, {FPGA} 2004, Monterey, California, USA, February 22-24, 2004}, page
-  252. {ACM}, 2004.
-\newblock \href {https://doi.org/10.1145/968280.968336}
-  {\path{doi:10.1145/968280.968336}}.
 
 \bibitem{WuBB05}
 Christine~Wei Wu, Kenneth~N. Brown, and J.~Christopher Beck.
