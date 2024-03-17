@@ -508,6 +508,7 @@ public ConceptType getConceptType(String attributeName,
                         id,
                         getString("name", attributes, "dummy"),
                         getString("familyName",attributes,""),
+                        getString("key",attributes,""),
                         getInteger("nrWorks",attributes,0),
                         getString("shortName",attributes,"")
                         ));

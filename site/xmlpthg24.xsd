@@ -75,6 +75,7 @@
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="familyName" use="required" type="xs:string"/>
+			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="nrWorks" use="required" type="xs:integer"/>
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 		</xs:complexType>

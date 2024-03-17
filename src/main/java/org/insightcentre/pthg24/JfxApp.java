@@ -69,6 +69,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new WorkWithoutConcepts(base,PAPER,exportDir,"conceptlesspaper.tex");
                 new UnmatchedConcepts(base,exportDir,"unmatchedconcept.tex");
                 new KeyOverview(base,exportDir,"keylist.tex");
+                new WorksByAuthor(base,exportDir,"worksbyauthor.tex");
                 return base;
         }
 

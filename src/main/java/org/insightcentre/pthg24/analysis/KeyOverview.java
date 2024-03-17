@@ -22,14 +22,14 @@ public class KeyOverview {
         try{
             int nrColumns = 7;
             PrintWriter out = new PrintWriter(fullName);
+            List<Work> sorted  = sortedWorks(base);
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{*{%d}{l}}\n",nrColumns);
-            out.printf("\\rowcolor{white}\\caption{Key Overview}\\\\ \\toprule\n");
+            out.printf("\\rowcolor{white}\\caption{Key Overview (Total: %d)}\\\\ \\toprule\n",sorted.size());
             out.printf("\\rowcolor{white}1 & 2 & 3 & 4 & 5 & 6 & 7\\\\ \\midrule\n");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
-            List<Work> sorted  = sortedWorks(base);
             int i = 0;
             for(Work w:sorted){
                 out.printf("\\href{%s}{%s}~\\cite{%s}",

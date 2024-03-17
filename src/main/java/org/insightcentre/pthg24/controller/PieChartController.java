@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 18:03:45 on 2024-03-11 */
+ * Generated at 08:49:24 on 2024-03-16 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -56,6 +56,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("name");
 		attributeNames.add("shortName");
 		attributeNames.add("familyName");
+		attributeNames.add("key");
 		attributeNames.add("nrWorks");
 		choicesMap.put("Author", attributeNames);
 		attributeNames = FXCollections.observableArrayList();

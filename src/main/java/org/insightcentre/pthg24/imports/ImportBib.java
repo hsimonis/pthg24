@@ -138,6 +138,7 @@ public class ImportBib {
         return res;
     }
 
+    private int authorNr=0;
     private Author findAuthor(String name){
         Author res = Author.findByName(base,name);
         if (res==null){
@@ -145,6 +146,7 @@ public class ImportBib {
             res.setName(name);
             res.setShortName(shortName(name));
             res.setFamilyName(familyName(name));
+            res.setKey("a"+authorNr++);
         }
         return res;
     }
@@ -234,7 +236,7 @@ public class ImportBib {
         String[] series = new String[]{"CPAIOR","ECAI","AAAI","IJCAI","ICTAI","ICAPS","GECCO","CoDIT","ICAART",
                 "ICNSC","ICCL","Fog-IoT","EUROCAST","FUZZ-IEEE","ICRA","IDC","RAAD","ACIIDS","AICCC","AIAI",
                 "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE",
-                "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL",
+                "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL","ICORES","SOCS","SAT",
                 "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA"};
         for(String cand:series) {
             if (text.contains(cand)) {
@@ -261,6 +263,9 @@ public class ImportBib {
         }
         if (text.contains("European Conference on Artificial Intelligence")){
             return "ECAI";
+        }
+        if (text.contains("Principles of Knowledge Representation and Reasoning")){
+            return "KR";
         }
         if (text.equals("Constraint Programming")){
             return "Constraint Programming";

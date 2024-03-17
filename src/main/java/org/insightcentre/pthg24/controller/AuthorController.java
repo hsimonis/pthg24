@@ -19,7 +19,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Author;
 
 /**
- * Generated at 18:03:44 on 2024-03-11 */
+ * Generated at 08:49:24 on 2024-03-16 */
 public class AuthorController extends Table3Controller {
 	@FXML
 	private TableView<Author> table;
@@ -32,6 +32,9 @@ public class AuthorController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Author, String> familyName;
+
+	@FXML
+	private TableColumn<Author, String> key;
 
 	@FXML
 	private TableColumn<Author, Integer> nrWorks;
@@ -65,6 +68,10 @@ public class AuthorController extends Table3Controller {
 		familyName.setCellValueFactory(new PropertyValueFactory<>("familyName"));
 		familyName.setCellFactory(TextFieldTableCell.forTableColumn());
 		familyName.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setFamilyName(event.getNewValue()); mainApp.reset();});
+		choices.add("key");
+		key.setCellValueFactory(new PropertyValueFactory<>("key"));
+		key.setCellFactory(TextFieldTableCell.forTableColumn());
+		key.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setKey(event.getNewValue()); mainApp.reset();});
 		choices.add("nrWorks");
 		nrWorks.setCellValueFactory(new PropertyValueFactory<>("nrWorks"));
 		nrWorks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
