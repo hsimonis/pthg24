@@ -20,6 +20,7 @@ $\square$\ & shortName &  \\
 $\square$\ & familyName &  \\
 $\square$\ & key &  \\
 $\square$\ & nrWorks &  \\
+$\square$\ & nrCitations &  \\
 \end{longtable}
 \label{attr:Author}
 \end{table}
@@ -36,6 +37,33 @@ $\square$\ & work &  \\
 \end{table}
 
 \begin{table}
+\caption{Book  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+\end{longtable}
+\label{attr:Book}
+\end{table}
+
+\begin{table}
+\caption{Citation  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & oci &  \\
+$\square$\ & citedWork &  \\
+$\square$\ & citingWork &  \\
+$\square$\ & cited &  \\
+$\square$\ & citing &  \\
+$\square$\ & creation &  \\
+$\square$\ & timespan &  \\
+$\square$\ & authorSC &  \\
+$\square$\ & journalSC &  \\
+\end{longtable}
+\label{attr:Citation}
+\end{table}
+
+\begin{table}
 \caption{Collection  }
 
 \begin{longtable}{llp{8cm}}
@@ -44,6 +72,7 @@ $\square$\ & work &  \\
 \label{attr:Collection}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Concept  }
 
@@ -71,7 +100,16 @@ $\square$\ & matchLevel &  \\
 \label{attr:ConceptWork}
 \end{table}
 
-\clearpage
+\begin{table}
+\caption{InBook  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & booktitle &  \\
+\end{longtable}
+\label{attr:InBook}
+\end{table}
+
 \begin{table}
 \caption{InCollection  }
 
@@ -90,6 +128,29 @@ $\square$\ & collection &  \\
 $\square$\ & shortName &  \\
 \end{longtable}
 \label{attr:Journal}
+\end{table}
+
+\clearpage
+\begin{table}
+\caption{MissingCitedWork  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & doi &  \\
+$\square$\ & nrCitations &  \\
+\end{longtable}
+\label{attr:MissingCitedWork}
+\end{table}
+
+\begin{table}
+\caption{MissingCitingWork  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & doi &  \\
+$\square$\ & nrCited &  \\
+\end{longtable}
+\label{attr:MissingCitingWork}
 \end{table}
 
 \begin{table}
@@ -124,6 +185,24 @@ $\square$\ & series &  \\
 \end{table}
 
 \clearpage
+\begin{table}
+\caption{Reference  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & oci &  \\
+$\square$\ & citedWork &  \\
+$\square$\ & citingWork &  \\
+$\square$\ & cited &  \\
+$\square$\ & citing &  \\
+$\square$\ & creation &  \\
+$\square$\ & timespan &  \\
+$\square$\ & authorSC &  \\
+$\square$\ & journalSC &  \\
+\end{longtable}
+\label{attr:Reference}
+\end{table}
+
 \begin{table}
 \caption{Scenario  This class describes the dataset for the application. Typically there is a single instance of this class in the application at all times.}
 
@@ -165,7 +244,8 @@ $\square$\ & cpSystem &  \\
 $\square$\ & classification &  \\
 $\square$\ & constraints &  \\
 $\square$\ & basedOn &  \\
-$\square$\ & citations &  \\
+$\square$\ & nrCitations &  \\
+$\square$\ & nrReferences &  \\
 \end{longtable}
 \label{attr:Work}
 \end{table}

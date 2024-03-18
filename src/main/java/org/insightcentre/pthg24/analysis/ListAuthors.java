@@ -19,15 +19,16 @@ public class ListAuthors {
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{p{4cm}rp{19cm}}\n");
+            out.printf("\\begin{longtable}{p{4cm}rrp{18cm}}\n");
             out.printf("\\rowcolor{white}\\caption{Co-Authors of Articles/Papers}\\\\ \\toprule\n");
-            out.printf("\\rowcolor{white}Author & NrWorks & Entries \\\\ \\midrule");
+            out.printf("\\rowcolor{white}Author & \\shortstack{Nr\\\\Works} & \\shortstack{Nr\\\\Cites} & Entries \\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
             for(Author a:sortedAuthors(base)){
                 out.printf("\\rowlabel{auth:%s}%s & ",a.getKey(),safe(a.getName()));
                 out.printf("%d &",a.getNrWorks());
+                out.printf("%d &",a.getNrCitations());
                 out.printf(sortedAuthorship(base,a).stream().
                         map(x->citation(x.getWork())).
                         collect(Collectors.joining(", ")));

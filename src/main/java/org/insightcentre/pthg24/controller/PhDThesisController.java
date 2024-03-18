@@ -22,7 +22,7 @@ import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.School;
 
 /**
- * Generated at 08:49:24 on 2024-03-16 */
+ * Generated at 19:06:17 on 2024-03-18 */
 public class PhDThesisController extends Table3Controller {
 	@FXML
 	private TableView<PhDThesis> table;
@@ -85,7 +85,10 @@ public class PhDThesisController extends Table3Controller {
 	private TableColumn<PhDThesis, String> basedOn;
 
 	@FXML
-	private TableColumn<PhDThesis, String> citations;
+	private TableColumn<PhDThesis, Integer> nrCitations;
+
+	@FXML
+	private TableColumn<PhDThesis, Integer> nrReferences;
 
 	@FXML
 	private TableColumn<PhDThesis, School> school;
@@ -183,10 +186,14 @@ public class PhDThesisController extends Table3Controller {
 		basedOn.setCellValueFactory(new PropertyValueFactory<>("basedOn"));
 		basedOn.setCellFactory(TextFieldTableCell.forTableColumn());
 		basedOn.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setBasedOn(event.getNewValue()); mainApp.reset();});
-		choices.add("citations");
-		citations.setCellValueFactory(new PropertyValueFactory<>("citations"));
-		citations.setCellFactory(TextFieldTableCell.forTableColumn());
-		citations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCitations(event.getNewValue()); mainApp.reset();});
+		choices.add("nrCitations");
+		nrCitations.setCellValueFactory(new PropertyValueFactory<>("nrCitations"));
+		nrCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrCitations(event.getNewValue()); mainApp.reset();});
+		choices.add("nrReferences");
+		nrReferences.setCellValueFactory(new PropertyValueFactory<>("nrReferences"));
+		nrReferences.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrReferences.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrReferences(event.getNewValue()); mainApp.reset();});
 		choices.add("school");
 		school.setCellValueFactory(new PropertyValueFactory<>("school"));
 		initialize(choices);

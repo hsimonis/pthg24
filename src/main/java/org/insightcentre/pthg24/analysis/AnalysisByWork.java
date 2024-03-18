@@ -13,8 +13,7 @@ import static org.insightcentre.pthg24.analysis.ListWorks.aLabelRef;
 import static org.insightcentre.pthg24.analysis.ListWorks.cLabelRef;
 import static org.insightcentre.pthg24.datamodel.ConceptType.*;
 import static org.insightcentre.pthg24.datamodel.MatchLevel.None;
-import static org.insightcentre.pthg24.datamodel.WorkType.ARTICLE;
-import static org.insightcentre.pthg24.datamodel.WorkType.PAPER;
+import static org.insightcentre.pthg24.datamodel.WorkType.*;
 import static org.insightcentre.pthg24.imports.Importer.safer;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
@@ -71,7 +70,7 @@ public class AnalysisByWork {
     }
 
     private boolean workType(Work w,WorkType type){
-        return (w instanceof Article && type == ARTICLE) || (w instanceof Paper && type == PAPER);
+        return (w instanceof Article && type == ARTICLE) || (w instanceof Paper && type == PAPER)|| (w instanceof PhDThesis && type == THESIS);
     }
 
     public static String concepts(Scenario base,Work w,ConceptType type){

@@ -12,12 +12,18 @@ import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.Article;
 import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.InCollection;
+import org.insightcentre.pthg24.datamodel.InBook;
+import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
+import org.insightcentre.pthg24.datamodel.Citation;
+import org.insightcentre.pthg24.datamodel.Reference;
+import org.insightcentre.pthg24.datamodel.MissingCitingWork;
+import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -82,7 +88,6 @@ public  class InCollection extends Work{
             String author,
             List<Author> authors,
             String basedOn,
-            String citations,
             String classification,
             String codeAvail,
             String constraints,
@@ -91,8 +96,10 @@ public  class InCollection extends Work{
             String doi,
             String key,
             String localCopy,
+            Integer nrCitations,
             Integer nrLinks,
             Integer nrPages,
+            Integer nrReferences,
             String pages,
             String solutionAvail,
             String title,
@@ -105,7 +112,6 @@ public  class InCollection extends Work{
             author,
             authors,
             basedOn,
-            citations,
             classification,
             codeAvail,
             constraints,
@@ -114,8 +120,10 @@ public  class InCollection extends Work{
             doi,
             key,
             localCopy,
+            nrCitations,
             nrLinks,
             nrPages,
+            nrReferences,
             pages,
             solutionAvail,
             title,
@@ -132,7 +140,6 @@ public  class InCollection extends Work{
             other.author,
             other.authors,
             other.basedOn,
-            other.citations,
             other.classification,
             other.codeAvail,
             other.constraints,
@@ -141,8 +148,10 @@ public  class InCollection extends Work{
             other.doi,
             other.key,
             other.localCopy,
+            other.nrCitations,
             other.nrLinks,
             other.nrPages,
+            other.nrReferences,
             other.pages,
             other.solutionAvail,
             other.title,
@@ -161,6 +170,10 @@ public  class InCollection extends Work{
     public Boolean remove(){
         getApplicationDataset().cascadeAuthorshipWork(this);
         getApplicationDataset().cascadeConceptWorkWork(this);
+        getApplicationDataset().cascadeCitationCitedWork(this);
+        getApplicationDataset().cascadeCitationCitingWork(this);
+        getApplicationDataset().cascadeReferenceCitedWork(this);
+        getApplicationDataset().cascadeReferenceCitingWork(this);
         return getApplicationDataset().removeInCollection(this) && getApplicationDataset().removeWork(this) && getApplicationDataset().removeApplicationObject(this);
     }
 
@@ -203,7 +216,7 @@ public  class InCollection extends Work{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBasedOn()+ " " +getCitations()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getPages()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear()+ " " +getCollection().toColumnString();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBasedOn()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrCitations()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getPages()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear()+ " " +getCollection().toColumnString();
     }
 
 /**
@@ -230,7 +243,6 @@ public  class InCollection extends Work{
             " author=\""+toXMLAuthor()+"\""+
             " authors=\""+toXMLAuthors()+"\""+
             " basedOn=\""+toXMLBasedOn()+"\""+
-            " citations=\""+toXMLCitations()+"\""+
             " classification=\""+toXMLClassification()+"\""+
             " codeAvail=\""+toXMLCodeAvail()+"\""+
             " constraints=\""+toXMLConstraints()+"\""+
@@ -239,8 +251,10 @@ public  class InCollection extends Work{
             " doi=\""+toXMLDoi()+"\""+
             " key=\""+toXMLKey()+"\""+
             " localCopy=\""+toXMLLocalCopy()+"\""+
+            " nrCitations=\""+toXMLNrCitations()+"\""+
             " nrLinks=\""+toXMLNrLinks()+"\""+
             " nrPages=\""+toXMLNrPages()+"\""+
+            " nrReferences=\""+toXMLNrReferences()+"\""+
             " pages=\""+toXMLPages()+"\""+
             " solutionAvail=\""+toXMLSolutionAvail()+"\""+
             " title=\""+toXMLTitle()+"\""+
@@ -266,11 +280,11 @@ public  class InCollection extends Work{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>InCollection</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>NrLinks</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>BasedOn</th>"+"<th>Citations</th>"+"<th>Collection</th>"+"</tr>";
+        return "<tr><th>InCollection</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>NrLinks</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>BasedOn</th>"+"<th>NrCitations</th>"+"<th>NrReferences</th>"+"<th>Collection</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getBasedOn()+"</td>"+ " " +"<td>"+getCitations()+"</td>"+ " " +"<td>"+getCollection().toColumnString()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getBasedOn()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrReferences()+"</td>"+ " " +"<td>"+getCollection().toColumnString()+"</td>"+"</tr>";
     }
 
 /**
@@ -395,9 +409,6 @@ public  class InCollection extends Work{
       if(!this.getBasedOn().equals(b.getBasedOn())){
          System.out.println("BasedOn");
         }
-      if(!this.getCitations().equals(b.getCitations())){
-         System.out.println("Citations");
-        }
       if(!this.getClassification().equals(b.getClassification())){
          System.out.println("Classification");
         }
@@ -428,11 +439,17 @@ public  class InCollection extends Work{
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
+      if(!this.getNrCitations().equals(b.getNrCitations())){
+         System.out.println("NrCitations");
+        }
       if(!this.getNrLinks().equals(b.getNrLinks())){
          System.out.println("NrLinks");
         }
       if(!this.getNrPages().equals(b.getNrPages())){
          System.out.println("NrPages");
+        }
+      if(!this.getNrReferences().equals(b.getNrReferences())){
+         System.out.println("NrReferences");
         }
       if(!this.getPages().equals(b.getPages())){
          System.out.println("Pages");
@@ -452,7 +469,6 @@ public  class InCollection extends Work{
         return  this.getAuthor().equals(b.getAuthor()) &&
           true &&
           this.getBasedOn().equals(b.getBasedOn()) &&
-          this.getCitations().equals(b.getCitations()) &&
           this.getClassification().equals(b.getClassification()) &&
           this.getCodeAvail().equals(b.getCodeAvail()) &&
           this.getCollection().applicationSame(b.getCollection()) &&
@@ -463,8 +479,10 @@ public  class InCollection extends Work{
           this.getKey().equals(b.getKey()) &&
           this.getLocalCopy().equals(b.getLocalCopy()) &&
           this.getName().equals(b.getName()) &&
+          this.getNrCitations().equals(b.getNrCitations()) &&
           this.getNrLinks().equals(b.getNrLinks()) &&
           this.getNrPages().equals(b.getNrPages()) &&
+          this.getNrReferences().equals(b.getNrReferences()) &&
           this.getPages().equals(b.getPages()) &&
           this.getSolutionAvail().equals(b.getSolutionAvail()) &&
           this.getTitle().equals(b.getTitle()) &&

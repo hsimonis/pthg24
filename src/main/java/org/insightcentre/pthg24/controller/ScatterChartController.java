@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 08:49:24 on 2024-03-16 */
+ * Generated at 19:06:17 on 2024-03-18 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -53,6 +53,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("key");
 		attributeNames.add("nrWorks");
 		filterNames.add("nrWorks");
+		attributeNames.add("nrCitations");
+		filterNames.add("nrCitations");
 		choicesMap.put("Author", attributeNames);
 		filterMap.put("Author", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -80,7 +82,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("basedOn");
-		filterNames.add("citations");
+		attributeNames.add("nrCitations");
+		filterNames.add("nrCitations");
+		attributeNames.add("nrReferences");
+		filterNames.add("nrReferences");
 		choicesMap.put("Work", attributeNames);
 		filterMap.put("Work", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -108,7 +113,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("basedOn");
-		filterNames.add("citations");
+		attributeNames.add("nrCitations");
+		filterNames.add("nrCitations");
+		attributeNames.add("nrReferences");
+		filterNames.add("nrReferences");
 		filterNames.add("proceedings");
 		choicesMap.put("Paper", attributeNames);
 		filterMap.put("Paper", filterNames);
@@ -137,7 +145,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("basedOn");
-		filterNames.add("citations");
+		attributeNames.add("nrCitations");
+		filterNames.add("nrCitations");
+		attributeNames.add("nrReferences");
+		filterNames.add("nrReferences");
 		filterNames.add("journal");
 		choicesMap.put("Article", attributeNames);
 		filterMap.put("Article", filterNames);
@@ -166,7 +177,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("basedOn");
-		filterNames.add("citations");
+		attributeNames.add("nrCitations");
+		filterNames.add("nrCitations");
+		attributeNames.add("nrReferences");
+		filterNames.add("nrReferences");
 		filterNames.add("school");
 		choicesMap.put("PhDThesis", attributeNames);
 		filterMap.put("PhDThesis", filterNames);
@@ -195,10 +209,76 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("basedOn");
-		filterNames.add("citations");
+		attributeNames.add("nrCitations");
+		filterNames.add("nrCitations");
+		attributeNames.add("nrReferences");
+		filterNames.add("nrReferences");
 		filterNames.add("collection");
 		choicesMap.put("InCollection", attributeNames);
 		filterMap.put("InCollection", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("key");
+		filterNames.add("author");
+		filterNames.add("authors");
+		filterNames.add("title");
+		filterNames.add("url");
+		filterNames.add("doi");
+		filterNames.add("localCopy");
+		attributeNames.add("year");
+		filterNames.add("year");
+		filterNames.add("pages");
+		attributeNames.add("nrPages");
+		filterNames.add("nrPages");
+		attributeNames.add("nrLinks");
+		filterNames.add("nrLinks");
+		filterNames.add("dataAvail");
+		filterNames.add("codeAvail");
+		filterNames.add("solutionAvail");
+		filterNames.add("cpSystem");
+		filterNames.add("classification");
+		filterNames.add("constraints");
+		filterNames.add("basedOn");
+		attributeNames.add("nrCitations");
+		filterNames.add("nrCitations");
+		attributeNames.add("nrReferences");
+		filterNames.add("nrReferences");
+		filterNames.add("booktitle");
+		choicesMap.put("InBook", attributeNames);
+		filterMap.put("InBook", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("key");
+		filterNames.add("author");
+		filterNames.add("authors");
+		filterNames.add("title");
+		filterNames.add("url");
+		filterNames.add("doi");
+		filterNames.add("localCopy");
+		attributeNames.add("year");
+		filterNames.add("year");
+		filterNames.add("pages");
+		attributeNames.add("nrPages");
+		filterNames.add("nrPages");
+		attributeNames.add("nrLinks");
+		filterNames.add("nrLinks");
+		filterNames.add("dataAvail");
+		filterNames.add("codeAvail");
+		filterNames.add("solutionAvail");
+		filterNames.add("cpSystem");
+		filterNames.add("classification");
+		filterNames.add("constraints");
+		filterNames.add("basedOn");
+		attributeNames.add("nrCitations");
+		filterNames.add("nrCitations");
+		attributeNames.add("nrReferences");
+		filterNames.add("nrReferences");
+		choicesMap.put("Book", attributeNames);
+		filterMap.put("Book", filterNames);
 		attributeNames = FXCollections.observableArrayList();
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
@@ -220,6 +300,44 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("matchLevel");
 		choicesMap.put("ConceptWork", attributeNames);
 		filterMap.put("ConceptWork", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("oci");
+		filterNames.add("citedWork");
+		filterNames.add("citingWork");
+		filterNames.add("cited");
+		filterNames.add("citing");
+		filterNames.add("creation");
+		filterNames.add("timespan");
+		filterNames.add("authorSC");
+		filterNames.add("journalSC");
+		filterNames.add("name");
+		filterNames.add("oci");
+		filterNames.add("citedWork");
+		filterNames.add("citingWork");
+		filterNames.add("cited");
+		filterNames.add("citing");
+		filterNames.add("creation");
+		filterNames.add("timespan");
+		filterNames.add("authorSC");
+		filterNames.add("journalSC");
+		filterNames.add("name");
+		filterNames.add("doi");
+		attributeNames.add("nrCited");
+		filterNames.add("nrCited");
+		choicesMap.put("MissingCitingWork", attributeNames);
+		filterMap.put("MissingCitingWork", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("doi");
+		attributeNames.add("nrCitations");
+		filterNames.add("nrCitations");
+		choicesMap.put("MissingCitedWork", attributeNames);
+		filterMap.put("MissingCitedWork", filterNames);
 		attributeNames = FXCollections.observableArrayList();
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
@@ -276,6 +394,12 @@ public class ScatterChartController extends ChartXYFilterController {
 			else if (className.equals("InCollection")) {
 				objectList = mainApp.getInCollectionData();
 			}
+			else if (className.equals("InBook")) {
+				objectList = mainApp.getInBookData();
+			}
+			else if (className.equals("Book")) {
+				objectList = mainApp.getBookData();
+			}
 			else if (className.equals("Authorship")) {
 				objectList = mainApp.getAuthorshipData();
 			}
@@ -293,6 +417,18 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("ConceptWork")) {
 				objectList = mainApp.getConceptWorkData();
+			}
+			else if (className.equals("Citation")) {
+				objectList = mainApp.getCitationData();
+			}
+			else if (className.equals("Reference")) {
+				objectList = mainApp.getReferenceData();
+			}
+			else if (className.equals("MissingCitingWork")) {
+				objectList = mainApp.getMissingCitingWorkData();
+			}
+			else if (className.equals("MissingCitedWork")) {
+				objectList = mainApp.getMissingCitedWorkData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

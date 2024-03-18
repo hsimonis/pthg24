@@ -1,0 +1,74 @@
+[
+    {
+        "author_sc": "no",
+        "cited": "10.1016/j.cor.2011.04.014",
+        "oci": "06240247277-06160170095",
+        "journal_sc": "no",
+        "citing": "10.1016/j.dam.2016.07.003",
+        "creation": "2016-12",
+        "timespan": "P4Y10M"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1016/s0166-218x(03)00433-5",
+        "oci": "06240247277-0620248889",
+        "journal_sc": "yes",
+        "citing": "10.1016/j.dam.2016.07.003",
+        "creation": "2016-12",
+        "timespan": "P13Y1M"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1007/s10951-008-0089-1",
+        "oci": "06240247277-062103120874",
+        "journal_sc": "no",
+        "citing": "10.1016/j.dam.2016.07.003",
+        "creation": "2016-12",
+        "timespan": "P8Y1M"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1016/j.disopt.2009.05.002",
+        "oci": "06240247277-062302693348",
+        "journal_sc": "no",
+        "citing": "10.1016/j.dam.2016.07.003",
+        "creation": "2016-12",
+        "timespan": "P7Y1M"
+    },
+    {
+        "author_sc": "yes",
+        "cited": "10.1609/icaps.v24i1.13661",
+        "oci": "06240247277-062303820831",
+        "journal_sc": "no",
+        "citing": "10.1016/j.dam.2016.07.003",
+        "creation": "2016-12",
+        "timespan": "P2Y5M"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1016/j.ejor.2013.02.042",
+        "oci": "06240247277-06240220846",
+        "journal_sc": "no",
+        "citing": "10.1016/j.dam.2016.07.003",
+        "creation": "2016-12",
+        "timespan": "P3Y1M"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1016/0166-218x(83)90012-4",
+        "oci": "06240247277-0630249703",
+        "journal_sc": "yes",
+        "citing": "10.1016/j.dam.2016.07.003",
+        "creation": "2016-12",
+        "timespan": "P33Y11M"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1145/322077.322090",
+        "oci": "06240247277-06803893401",
+        "journal_sc": "no",
+        "citing": "10.1016/j.dam.2016.07.003",
+        "creation": "2016-12",
+        "timespan": "P38Y5M"
+    }
+]

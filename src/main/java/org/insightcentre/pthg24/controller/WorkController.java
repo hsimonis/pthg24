@@ -20,7 +20,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 08:49:24 on 2024-03-16 */
+ * Generated at 19:06:17 on 2024-03-18 */
 public class WorkController extends Table3Controller {
 	@FXML
 	private TableView<Work> table;
@@ -83,7 +83,10 @@ public class WorkController extends Table3Controller {
 	private TableColumn<Work, String> basedOn;
 
 	@FXML
-	private TableColumn<Work, String> citations;
+	private TableColumn<Work, Integer> nrCitations;
+
+	@FXML
+	private TableColumn<Work, Integer> nrReferences;
 
 	private GeneratedJfxApp mainApp;
 
@@ -176,10 +179,14 @@ public class WorkController extends Table3Controller {
 		basedOn.setCellValueFactory(new PropertyValueFactory<>("basedOn"));
 		basedOn.setCellFactory(TextFieldTableCell.forTableColumn());
 		basedOn.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setBasedOn(event.getNewValue()); mainApp.reset();});
-		choices.add("citations");
-		citations.setCellValueFactory(new PropertyValueFactory<>("citations"));
-		citations.setCellFactory(TextFieldTableCell.forTableColumn());
-		citations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCitations(event.getNewValue()); mainApp.reset();});
+		choices.add("nrCitations");
+		nrCitations.setCellValueFactory(new PropertyValueFactory<>("nrCitations"));
+		nrCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrCitations(event.getNewValue()); mainApp.reset();});
+		choices.add("nrReferences");
+		nrReferences.setCellValueFactory(new PropertyValueFactory<>("nrReferences"));
+		nrReferences.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrReferences.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrReferences(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

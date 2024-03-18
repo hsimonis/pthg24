@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 08:49:24 on 2024-03-16 */
+ * Generated at 19:06:17 on 2024-03-18 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -26,35 +26,66 @@ public class BarChartController extends ChartController {
 		choicesMap.put("Concept", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nrWorks");
+		attributeNames.add("nrCitations");
 		choicesMap.put("Author", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrReferences");
 		choicesMap.put("Work", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrReferences");
 		choicesMap.put("Paper", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrReferences");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrReferences");
 		choicesMap.put("PhDThesis", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrReferences");
 		choicesMap.put("InCollection", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("year");
+		attributeNames.add("nrPages");
+		attributeNames.add("nrLinks");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrReferences");
+		choicesMap.put("InBook", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("year");
+		attributeNames.add("nrPages");
+		attributeNames.add("nrLinks");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrReferences");
+		choicesMap.put("Book", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("count");
 		choicesMap.put("ConceptWork", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nrCited");
+		choicesMap.put("MissingCitingWork", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nrCitations");
+		choicesMap.put("MissingCitedWork", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
@@ -101,6 +132,12 @@ public class BarChartController extends ChartController {
 			else if (className.equals("InCollection")) {
 				objectList = mainApp.getInCollectionData();
 			}
+			else if (className.equals("InBook")) {
+				objectList = mainApp.getInBookData();
+			}
+			else if (className.equals("Book")) {
+				objectList = mainApp.getBookData();
+			}
 			else if (className.equals("Authorship")) {
 				objectList = mainApp.getAuthorshipData();
 			}
@@ -118,6 +155,18 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("ConceptWork")) {
 				objectList = mainApp.getConceptWorkData();
+			}
+			else if (className.equals("Citation")) {
+				objectList = mainApp.getCitationData();
+			}
+			else if (className.equals("Reference")) {
+				objectList = mainApp.getReferenceData();
+			}
+			else if (className.equals("MissingCitingWork")) {
+				objectList = mainApp.getMissingCitingWorkData();
+			}
+			else if (className.equals("MissingCitedWork")) {
+				objectList = mainApp.getMissingCitedWorkData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

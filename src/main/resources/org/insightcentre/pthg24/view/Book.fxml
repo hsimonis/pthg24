@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+
+<!--Generated at 19:06:17 on 2024-03-18-->
+
+
+<Tab text="Book" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.BookController">
+   <BorderPane>
+      <center>
+         <TableView fx:id="table" editable="true">
+            <columns>
+               <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
+               <TableColumn fx:id="key" styleClass="right-aligned" text="Key" />
+               <TableColumn fx:id="author" styleClass="right-aligned" text="Author" />
+               <TableColumn fx:id="authors" styleClass="right-aligned" text="Authors" />
+               <TableColumn fx:id="title" styleClass="right-aligned" text="Title" />
+               <TableColumn fx:id="url" styleClass="right-aligned" text="Url" />
+               <TableColumn fx:id="doi" styleClass="right-aligned" text="Doi" />
+               <TableColumn fx:id="localCopy" styleClass="right-aligned" text="LocalCopy" />
+               <TableColumn fx:id="year" styleClass="right-aligned" text="Year" />
+               <TableColumn fx:id="pages" styleClass="right-aligned" text="Pages" />
+               <TableColumn fx:id="nrPages" styleClass="right-aligned" text="NrPages" />
+               <TableColumn fx:id="nrLinks" styleClass="right-aligned" text="NrLinks" />
+               <TableColumn fx:id="dataAvail" styleClass="right-aligned" text="DataAvail" />
+               <TableColumn fx:id="codeAvail" styleClass="right-aligned" text="CodeAvail" />
+               <TableColumn fx:id="solutionAvail" styleClass="right-aligned" text="SolutionAvail" />
+               <TableColumn fx:id="cpSystem" styleClass="right-aligned" text="CpSystem" />
+               <TableColumn fx:id="classification" styleClass="right-aligned" text="Classification" />
+               <TableColumn fx:id="constraints" styleClass="right-aligned" text="Constraints" />
+               <TableColumn fx:id="basedOn" styleClass="right-aligned" text="BasedOn" />
+               <TableColumn fx:id="nrCitations" styleClass="right-aligned" text="NrCitations" />
+               <TableColumn fx:id="nrReferences" styleClass="right-aligned" text="NrReferences" />
+            </columns>
+         </TableView>
+      </center>
+      <bottom>
+         <TitledPane fx:id="filterPane" expanded="false" text="Filter">
+            <content>
+               <HBox alignment="center" spacing="5.0">
+                  <ChoiceBox fx:id="filterChoiceBox" />
+                  <ChoiceBox fx:id="filterComparisonBox" />
+                  <TextField fx:id="filterTextField" />
+               </HBox>
+            </content>
+         </TitledPane>
+      </bottom>
+   </BorderPane>
+</Tab>

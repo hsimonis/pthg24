@@ -26,21 +26,27 @@ import org.insightcentre.pthg24.datamodel.ApplicationWarning;
 import org.insightcentre.pthg24.datamodel.Article;
 import org.insightcentre.pthg24.datamodel.Author;
 import org.insightcentre.pthg24.datamodel.Authorship;
+import org.insightcentre.pthg24.datamodel.Book;
+import org.insightcentre.pthg24.datamodel.Citation;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
+import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.Journal;
+import org.insightcentre.pthg24.datamodel.MissingCitedWork;
+import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.Proceedings;
+import org.insightcentre.pthg24.datamodel.Reference;
 import org.insightcentre.pthg24.datamodel.Scenario;
 import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.Work;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 08:49:24 on 2024-03-16 */
+ * Generated at 19:06:16 on 2024-03-18 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -72,6 +78,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<InCollection> inCollectionData = FXCollections.observableArrayList();
 
+	private ObservableList<InBook> inBookData = FXCollections.observableArrayList();
+
+	private ObservableList<Book> bookData = FXCollections.observableArrayList();
+
 	private ObservableList<Authorship> authorshipData = FXCollections.observableArrayList();
 
 	private ObservableList<Proceedings> proceedingsData = FXCollections.observableArrayList();
@@ -84,6 +94,14 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<ConceptWork> conceptWorkData = FXCollections.observableArrayList();
 
+	private ObservableList<Citation> citationData = FXCollections.observableArrayList();
+
+	private ObservableList<Reference> referenceData = FXCollections.observableArrayList();
+
+	private ObservableList<MissingCitingWork> missingCitingWorkData = FXCollections.observableArrayList();
+
+	private ObservableList<MissingCitedWork> missingCitedWorkData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
 		fs = minimalDataset();
@@ -95,12 +113,18 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("Article", "Article");
 		tableViews.put("PhDThesis", "PhDThesis");
 		tableViews.put("InCollection", "InCollection");
+		tableViews.put("InBook", "InBook");
+		tableViews.put("Book", "Book");
 		tableViews.put("Authorship", "Authorship");
 		tableViews.put("Proceedings", "Proceedings");
 		tableViews.put("Journal", "Journal");
 		tableViews.put("School", "School");
 		tableViews.put("Collection", "Collection");
 		tableViews.put("ConceptWork", "ConceptWork");
+		tableViews.put("Citation", "Citation");
+		tableViews.put("Reference", "Reference");
+		tableViews.put("MissingCitingWork", "MissingCitingWork");
+		tableViews.put("MissingCitedWork", "MissingCitedWork");
 		tableViews.put("Scenario", "Scenario");
 		tableViews.put("Scenario Differences", "ApplicationDifference");
 		tableViews.put("Warnings", "ApplicationWarning");
@@ -193,6 +217,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		phDThesisData.addAll(base.getListPhDThesis());
 		inCollectionData.clear();
 		inCollectionData.addAll(base.getListInCollection());
+		inBookData.clear();
+		inBookData.addAll(base.getListInBook());
+		bookData.clear();
+		bookData.addAll(base.getListBook());
 		authorshipData.clear();
 		authorshipData.addAll(base.getListAuthorship());
 		proceedingsData.clear();
@@ -205,6 +233,14 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		collectionData.addAll(base.getListCollection());
 		conceptWorkData.clear();
 		conceptWorkData.addAll(base.getListConceptWork());
+		citationData.clear();
+		citationData.addAll(base.getListCitation());
+		referenceData.clear();
+		referenceData.addAll(base.getListReference());
+		missingCitingWorkData.clear();
+		missingCitingWorkData.addAll(base.getListMissingCitingWork());
+		missingCitedWorkData.clear();
+		missingCitedWorkData.addAll(base.getListMissingCitedWork());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -250,6 +286,14 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		return inCollectionData;
 	}
 
+	public ObservableList<InBook> getInBookData() {
+		return inBookData;
+	}
+
+	public ObservableList<Book> getBookData() {
+		return bookData;
+	}
+
 	public ObservableList<Authorship> getAuthorshipData() {
 		return authorshipData;
 	}
@@ -272,5 +316,21 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<ConceptWork> getConceptWorkData() {
 		return conceptWorkData;
+	}
+
+	public ObservableList<Citation> getCitationData() {
+		return citationData;
+	}
+
+	public ObservableList<Reference> getReferenceData() {
+		return referenceData;
+	}
+
+	public ObservableList<MissingCitingWork> getMissingCitingWorkData() {
+		return missingCitingWorkData;
+	}
+
+	public ObservableList<MissingCitedWork> getMissingCitedWorkData() {
+		return missingCitedWorkData;
 	}
 }

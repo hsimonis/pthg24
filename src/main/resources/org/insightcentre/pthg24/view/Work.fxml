@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 08:49:24 on 2024-03-16-->
+<!--Generated at 19:06:17 on 2024-03-18-->
 
 
 <Tab text="Work" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.WorkController">
@@ -37,7 +37,8 @@
                <TableColumn fx:id="classification" styleClass="right-aligned" text="Classification" />
                <TableColumn fx:id="constraints" styleClass="right-aligned" text="Constraints" />
                <TableColumn fx:id="basedOn" styleClass="right-aligned" text="BasedOn" />
-               <TableColumn fx:id="citations" styleClass="right-aligned" text="Citations" />
+               <TableColumn fx:id="nrCitations" styleClass="right-aligned" text="NrCitations" />
+               <TableColumn fx:id="nrReferences" styleClass="right-aligned" text="NrReferences" />
             </columns>
          </TableView>
       </center>

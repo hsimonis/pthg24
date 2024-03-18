@@ -1,0 +1,4 @@
+ class MissingCitingWork {
+String doi
+Integer nrCited
+}

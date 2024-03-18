@@ -1,0 +1,11 @@
+ class Reference {
+String authorSC
+String cited
+Work citedWork
+String citing
+Work citingWork
+String creation
+String journalSC
+String oci
+String timespan
+}

@@ -8,14 +8,20 @@
 				<xs:element ref="article" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="author" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="authorship" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="book" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="citation" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="collection" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="concept" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="conceptWork" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="inBook" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="inCollection" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="journal" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="missingCitedWork" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="missingCitingWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="paper" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="phDThesis" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="proceedings" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="reference" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="scenario" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="school" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
@@ -50,7 +56,6 @@
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="basedOn" use="required" type="xs:string"/>
-			<xs:attribute name="citations" use="required" type="xs:string"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
@@ -59,8 +64,10 @@
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
+			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
@@ -76,6 +83,7 @@
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="familyName" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrWorks" use="required" type="xs:integer"/>
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 		</xs:complexType>
@@ -87,6 +95,49 @@
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:IDREF"/>
 			<xs:attribute name="work" use="required" type="xs:IDREF"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="book">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="author" use="required" type="xs:string"/>
+			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="basedOn" use="required" type="xs:string"/>
+			<xs:attribute name="classification" use="required" type="xs:string"/>
+			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
+			<xs:attribute name="constraints" use="required" type="xs:string"/>
+			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
+			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
+			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
+			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
+			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="pages" use="required" type="xs:string"/>
+			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
+			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="year" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="citation">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="authorSC" use="required" type="xs:string"/>
+			<xs:attribute name="cited" use="required" type="xs:string"/>
+			<xs:attribute name="citedWork" use="required" type="xs:IDREF"/>
+			<xs:attribute name="citing" use="required" type="xs:string"/>
+			<xs:attribute name="citingWork" use="required" type="xs:IDREF"/>
+			<xs:attribute name="creation" use="required" type="xs:string"/>
+			<xs:attribute name="journalSC" use="required" type="xs:string"/>
+			<xs:attribute name="oci" use="required" type="xs:string"/>
+			<xs:attribute name="timespan" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="collection">
@@ -119,7 +170,7 @@
 			<xs:attribute name="work" use="required" type="xs:IDREF"/>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="inCollection">
+	<xs:element name="inBook">
 		<xs:complexType>
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
@@ -127,7 +178,6 @@
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="basedOn" use="required" type="xs:string"/>
-			<xs:attribute name="citations" use="required" type="xs:string"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
@@ -136,8 +186,38 @@
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
+			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="pages" use="required" type="xs:string"/>
+			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
+			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="year" use="required" type="xs:integer"/>
+			<xs:attribute name="booktitle" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="inCollection">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="author" use="required" type="xs:string"/>
+			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="basedOn" use="required" type="xs:string"/>
+			<xs:attribute name="classification" use="required" type="xs:string"/>
+			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
+			<xs:attribute name="constraints" use="required" type="xs:string"/>
+			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
+			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
+			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
+			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
+			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
@@ -154,6 +234,24 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="missingCitedWork">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="missingCitingWork">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="nrCited" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="paper">
 		<xs:complexType>
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
@@ -162,7 +260,6 @@
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="basedOn" use="required" type="xs:string"/>
-			<xs:attribute name="citations" use="required" type="xs:string"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
@@ -171,8 +268,10 @@
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
+			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
@@ -189,7 +288,6 @@
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="basedOn" use="required" type="xs:string"/>
-			<xs:attribute name="citations" use="required" type="xs:string"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
@@ -198,8 +296,10 @@
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
+			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
@@ -215,6 +315,22 @@
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="series" use="required" type="xs:string"/>
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="reference">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="authorSC" use="required" type="xs:string"/>
+			<xs:attribute name="cited" use="required" type="xs:string"/>
+			<xs:attribute name="citedWork" use="required" type="xs:IDREF"/>
+			<xs:attribute name="citing" use="required" type="xs:string"/>
+			<xs:attribute name="citingWork" use="required" type="xs:IDREF"/>
+			<xs:attribute name="creation" use="required" type="xs:string"/>
+			<xs:attribute name="journalSC" use="required" type="xs:string"/>
+			<xs:attribute name="oci" use="required" type="xs:string"/>
+			<xs:attribute name="timespan" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="scenario">

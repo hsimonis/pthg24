@@ -12,12 +12,18 @@ import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.Article;
 import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.InCollection;
+import org.insightcentre.pthg24.datamodel.InBook;
+import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
+import org.insightcentre.pthg24.datamodel.Citation;
+import org.insightcentre.pthg24.datamodel.Reference;
+import org.insightcentre.pthg24.datamodel.MissingCitingWork;
+import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -156,6 +162,20 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<InCollection> listInCollection = new ArrayList<InCollection>();
 
 /**
+ *  This lists holds all items of class InBook and its subclasses
+ *
+*/
+
+    List<InBook> listInBook = new ArrayList<InBook>();
+
+/**
+ *  This lists holds all items of class Book and its subclasses
+ *
+*/
+
+    List<Book> listBook = new ArrayList<Book>();
+
+/**
  *  This lists holds all items of class Authorship and its subclasses
  *
 */
@@ -196,6 +216,34 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
 */
 
     List<ConceptWork> listConceptWork = new ArrayList<ConceptWork>();
+
+/**
+ *  This lists holds all items of class Citation and its subclasses
+ *
+*/
+
+    List<Citation> listCitation = new ArrayList<Citation>();
+
+/**
+ *  This lists holds all items of class Reference and its subclasses
+ *
+*/
+
+    List<Reference> listReference = new ArrayList<Reference>();
+
+/**
+ *  This lists holds all items of class MissingCitingWork and its subclasses
+ *
+*/
+
+    List<MissingCitingWork> listMissingCitingWork = new ArrayList<MissingCitingWork>();
+
+/**
+ *  This lists holds all items of class MissingCitedWork and its subclasses
+ *
+*/
+
+    List<MissingCitedWork> listMissingCitedWork = new ArrayList<MissingCitedWork>();
 
 /**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
@@ -325,14 +373,20 @@ public int compareTo(ApplicationDataset ds2){
                              "Article",
                              "Author",
                              "Authorship",
+                             "Book",
+                             "Citation",
                              "Collection",
                              "Concept",
                              "ConceptWork",
+                             "InBook",
                              "InCollection",
                              "Journal",
+                             "MissingCitedWork",
+                             "MissingCitingWork",
                              "Paper",
                              "PhDThesis",
                              "Proceedings",
+                             "Reference",
                              "Scenario",
                              "School");
     }
@@ -399,12 +453,18 @@ public int compareTo(ApplicationDataset ds2){
         resetListArticle();
         resetListPhDThesis();
         resetListInCollection();
+        resetListInBook();
+        resetListBook();
         resetListAuthorship();
         resetListProceedings();
         resetListJournal();
         resetListSchool();
         resetListCollection();
         resetListConceptWork();
+        resetListCitation();
+        resetListReference();
+        resetListMissingCitingWork();
+        resetListMissingCitedWork();
     }
 
 /**
@@ -613,6 +673,8 @@ public int compareTo(ApplicationDataset ds2){
         resetListArticle();
         resetListPhDThesis();
         resetListInCollection();
+        resetListInBook();
+        resetListBook();
     }
 
 /**
@@ -773,6 +835,88 @@ public int compareTo(ApplicationDataset ds2){
         List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
         for(ApplicationObject a:listApplicationObject){
             if (!(a instanceof InCollection)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class InBook
+ *
+*/
+
+    public Iterator<InBook> getIteratorInBook(){
+        return listInBook.iterator();
+    }
+
+/**
+ *  Getter for list of class InBook
+ *
+*/
+
+    public List<InBook> getListInBook(){
+        return listInBook;
+    }
+
+/**
+ *  reset the list of class InBook; use with care, does not call cascades
+ *
+*/
+
+    public void resetListInBook(){
+        listInBook = new ArrayList<InBook>();
+        List<Work> newListWork = new ArrayList<Work>();
+        for(Work a:listWork){
+            if (!(a instanceof InBook)){
+                newListWork.add(a);
+            }
+        }
+       listWork = newListWork;
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof InBook)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class Book
+ *
+*/
+
+    public Iterator<Book> getIteratorBook(){
+        return listBook.iterator();
+    }
+
+/**
+ *  Getter for list of class Book
+ *
+*/
+
+    public List<Book> getListBook(){
+        return listBook;
+    }
+
+/**
+ *  reset the list of class Book; use with care, does not call cascades
+ *
+*/
+
+    public void resetListBook(){
+        listBook = new ArrayList<Book>();
+        List<Work> newListWork = new ArrayList<Work>();
+        for(Work a:listWork){
+            if (!(a instanceof Book)){
+                newListWork.add(a);
+            }
+        }
+       listWork = newListWork;
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Book)){
                 newListApplicationObject.add(a);
             }
         }
@@ -977,6 +1121,142 @@ public int compareTo(ApplicationDataset ds2){
         List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
         for(ApplicationObject a:listApplicationObject){
             if (!(a instanceof ConceptWork)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class Citation
+ *
+*/
+
+    public Iterator<Citation> getIteratorCitation(){
+        return listCitation.iterator();
+    }
+
+/**
+ *  Getter for list of class Citation
+ *
+*/
+
+    public List<Citation> getListCitation(){
+        return listCitation;
+    }
+
+/**
+ *  reset the list of class Citation; use with care, does not call cascades
+ *
+*/
+
+    public void resetListCitation(){
+        listCitation = new ArrayList<Citation>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Citation)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class Reference
+ *
+*/
+
+    public Iterator<Reference> getIteratorReference(){
+        return listReference.iterator();
+    }
+
+/**
+ *  Getter for list of class Reference
+ *
+*/
+
+    public List<Reference> getListReference(){
+        return listReference;
+    }
+
+/**
+ *  reset the list of class Reference; use with care, does not call cascades
+ *
+*/
+
+    public void resetListReference(){
+        listReference = new ArrayList<Reference>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Reference)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class MissingCitingWork
+ *
+*/
+
+    public Iterator<MissingCitingWork> getIteratorMissingCitingWork(){
+        return listMissingCitingWork.iterator();
+    }
+
+/**
+ *  Getter for list of class MissingCitingWork
+ *
+*/
+
+    public List<MissingCitingWork> getListMissingCitingWork(){
+        return listMissingCitingWork;
+    }
+
+/**
+ *  reset the list of class MissingCitingWork; use with care, does not call cascades
+ *
+*/
+
+    public void resetListMissingCitingWork(){
+        listMissingCitingWork = new ArrayList<MissingCitingWork>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof MissingCitingWork)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class MissingCitedWork
+ *
+*/
+
+    public Iterator<MissingCitedWork> getIteratorMissingCitedWork(){
+        return listMissingCitedWork.iterator();
+    }
+
+/**
+ *  Getter for list of class MissingCitedWork
+ *
+*/
+
+    public List<MissingCitedWork> getListMissingCitedWork(){
+        return listMissingCitedWork;
+    }
+
+/**
+ *  reset the list of class MissingCitedWork; use with care, does not call cascades
+ *
+*/
+
+    public void resetListMissingCitedWork(){
+        listMissingCitedWork = new ArrayList<MissingCitedWork>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof MissingCitedWork)){
                 newListApplicationObject.add(a);
             }
         }
@@ -1243,6 +1523,78 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Removing object item of class Work; remove all dependent objects of class Citation which refer to item through their attribute citedWork
+ *
+*/
+
+    public void cascadeCitationCitedWork(Work item){
+        assert item != null;
+        List<Citation> toRemove = new ArrayList<Citation>();
+        for(Citation a:getListCitation()) {
+         if (a.getCitedWork() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Citation b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class Citation which refer to item through their attribute citingWork
+ *
+*/
+
+    public void cascadeCitationCitingWork(Work item){
+        assert item != null;
+        List<Citation> toRemove = new ArrayList<Citation>();
+        for(Citation a:getListCitation()) {
+         if (a.getCitingWork() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Citation b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class Reference which refer to item through their attribute citedWork
+ *
+*/
+
+    public void cascadeReferenceCitedWork(Work item){
+        assert item != null;
+        List<Reference> toRemove = new ArrayList<Reference>();
+        for(Reference a:getListReference()) {
+         if (a.getCitedWork() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Reference b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class Reference which refer to item through their attribute citingWork
+ *
+*/
+
+    public void cascadeReferenceCitingWork(Work item){
+        assert item != null;
+        List<Reference> toRemove = new ArrayList<Reference>();
+        for(Reference a:getListReference()) {
+         if (a.getCitingWork() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Reference b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
  *  add an item to the list for class ApplicationDataset
  *
 */
@@ -1483,6 +1835,46 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class InBook
+ *
+*/
+
+    public void addInBook(InBook inBook){
+        assert inBook != null;
+        this.listInBook.add(inBook);
+    }
+
+/**
+ *  remove an item from the list for class InBook
+ *
+*/
+
+    public Boolean removeInBook(InBook inBook){
+        assert inBook != null;
+        return this.listInBook.remove(inBook);
+    }
+
+/**
+ *  add an item to the list for class Book
+ *
+*/
+
+    public void addBook(Book book){
+        assert book != null;
+        this.listBook.add(book);
+    }
+
+/**
+ *  remove an item from the list for class Book
+ *
+*/
+
+    public Boolean removeBook(Book book){
+        assert book != null;
+        return this.listBook.remove(book);
+    }
+
+/**
  *  add an item to the list for class Authorship
  *
 */
@@ -1603,6 +1995,86 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class Citation
+ *
+*/
+
+    public void addCitation(Citation citation){
+        assert citation != null;
+        this.listCitation.add(citation);
+    }
+
+/**
+ *  remove an item from the list for class Citation
+ *
+*/
+
+    public Boolean removeCitation(Citation citation){
+        assert citation != null;
+        return this.listCitation.remove(citation);
+    }
+
+/**
+ *  add an item to the list for class Reference
+ *
+*/
+
+    public void addReference(Reference reference){
+        assert reference != null;
+        this.listReference.add(reference);
+    }
+
+/**
+ *  remove an item from the list for class Reference
+ *
+*/
+
+    public Boolean removeReference(Reference reference){
+        assert reference != null;
+        return this.listReference.remove(reference);
+    }
+
+/**
+ *  add an item to the list for class MissingCitingWork
+ *
+*/
+
+    public void addMissingCitingWork(MissingCitingWork missingCitingWork){
+        assert missingCitingWork != null;
+        this.listMissingCitingWork.add(missingCitingWork);
+    }
+
+/**
+ *  remove an item from the list for class MissingCitingWork
+ *
+*/
+
+    public Boolean removeMissingCitingWork(MissingCitingWork missingCitingWork){
+        assert missingCitingWork != null;
+        return this.listMissingCitingWork.remove(missingCitingWork);
+    }
+
+/**
+ *  add an item to the list for class MissingCitedWork
+ *
+*/
+
+    public void addMissingCitedWork(MissingCitedWork missingCitedWork){
+        assert missingCitedWork != null;
+        this.listMissingCitedWork.add(missingCitedWork);
+    }
+
+/**
+ *  remove an item from the list for class MissingCitedWork
+ *
+*/
+
+    public Boolean removeMissingCitedWork(MissingCitedWork missingCitedWork){
+        assert missingCitedWork != null;
+        return this.listMissingCitedWork.remove(missingCitedWork);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -1623,6 +2095,12 @@ public int compareTo(ApplicationDataset ds2){
         for(Authorship x:getListAuthorship()){
             System.out.println(x);
         }
+        for(Book x:getListBook()){
+            System.out.println(x);
+        }
+        for(Citation x:getListCitation()){
+            System.out.println(x);
+        }
         for(Collection x:getListCollection()){
             System.out.println(x);
         }
@@ -1632,10 +2110,19 @@ public int compareTo(ApplicationDataset ds2){
         for(ConceptWork x:getListConceptWork()){
             System.out.println(x);
         }
+        for(InBook x:getListInBook()){
+            System.out.println(x);
+        }
         for(InCollection x:getListInCollection()){
             System.out.println(x);
         }
         for(Journal x:getListJournal()){
+            System.out.println(x);
+        }
+        for(MissingCitedWork x:getListMissingCitedWork()){
+            System.out.println(x);
+        }
+        for(MissingCitingWork x:getListMissingCitingWork()){
             System.out.println(x);
         }
         for(Paper x:getListPaper()){
@@ -1645,6 +2132,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(Proceedings x:getListProceedings()){
+            System.out.println(x);
+        }
+        for(Reference x:getListReference()){
             System.out.println(x);
         }
         for(Scenario x:getListScenario()){
@@ -1704,6 +2194,12 @@ public int compareTo(ApplicationDataset ds2){
         for(Authorship x:getListAuthorship()){
             if (x.getClass().equals(Authorship.class)) x.toXML(out);
         }
+        for(Book x:getListBook()){
+            if (x.getClass().equals(Book.class)) x.toXML(out);
+        }
+        for(Citation x:getListCitation()){
+            if (x.getClass().equals(Citation.class)) x.toXML(out);
+        }
         for(Collection x:getListCollection()){
             if (x.getClass().equals(Collection.class)) x.toXML(out);
         }
@@ -1713,11 +2209,20 @@ public int compareTo(ApplicationDataset ds2){
         for(ConceptWork x:getListConceptWork()){
             if (x.getClass().equals(ConceptWork.class)) x.toXML(out);
         }
+        for(InBook x:getListInBook()){
+            if (x.getClass().equals(InBook.class)) x.toXML(out);
+        }
         for(InCollection x:getListInCollection()){
             if (x.getClass().equals(InCollection.class)) x.toXML(out);
         }
         for(Journal x:getListJournal()){
             if (x.getClass().equals(Journal.class)) x.toXML(out);
+        }
+        for(MissingCitedWork x:getListMissingCitedWork()){
+            if (x.getClass().equals(MissingCitedWork.class)) x.toXML(out);
+        }
+        for(MissingCitingWork x:getListMissingCitingWork()){
+            if (x.getClass().equals(MissingCitingWork.class)) x.toXML(out);
         }
         for(Paper x:getListPaper()){
             if (x.getClass().equals(Paper.class)) x.toXML(out);
@@ -1727,6 +2232,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(Proceedings x:getListProceedings()){
             if (x.getClass().equals(Proceedings.class)) x.toXML(out);
+        }
+        for(Reference x:getListReference()){
+            if (x.getClass().equals(Reference.class)) x.toXML(out);
         }
         for(School x:getListSchool()){
             if (x.getClass().equals(School.class)) x.toXML(out);
@@ -1830,14 +2338,20 @@ public int compareTo(ApplicationDataset ds2){
         compareArticle(this.getListArticle(),compare.getListArticle());
         compareAuthor(this.getListAuthor(),compare.getListAuthor());
         compareAuthorship(this.getListAuthorship(),compare.getListAuthorship());
+        compareBook(this.getListBook(),compare.getListBook());
+        compareCitation(this.getListCitation(),compare.getListCitation());
         compareCollection(this.getListCollection(),compare.getListCollection());
         compareConcept(this.getListConcept(),compare.getListConcept());
         compareConceptWork(this.getListConceptWork(),compare.getListConceptWork());
+        compareInBook(this.getListInBook(),compare.getListInBook());
         compareInCollection(this.getListInCollection(),compare.getListInCollection());
         compareJournal(this.getListJournal(),compare.getListJournal());
+        compareMissingCitedWork(this.getListMissingCitedWork(),compare.getListMissingCitedWork());
+        compareMissingCitingWork(this.getListMissingCitingWork(),compare.getListMissingCitingWork());
         comparePaper(this.getListPaper(),compare.getListPaper());
         comparePhDThesis(this.getListPhDThesis(),compare.getListPhDThesis());
         compareProceedings(this.getListProceedings(),compare.getListProceedings());
+        compareReference(this.getListReference(),compare.getListReference());
         compareSchool(this.getListSchool(),compare.getListSchool());
         System.out.println("Done Comparing ApplicationDataset");
     }
@@ -1939,6 +2453,54 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types Book, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareBook(List<Book> aList,List<Book> bList){
+        System.out.println("Comparing Book");
+        for(Book a:aList){
+            Book b= Book.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Book A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Book A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Book B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Book b: bList){
+            Book a = Book.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Book B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types Citation, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareCitation(List<Citation> aList,List<Citation> bList){
+        System.out.println("Comparing Citation");
+        for(Citation a:aList){
+            Citation b= Citation.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Citation A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Citation A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Citation B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Citation b: bList){
+            Citation a = Citation.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Citation B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types Collection, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -2011,6 +2573,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types InBook, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareInBook(List<InBook> aList,List<InBook> bList){
+        System.out.println("Comparing InBook");
+        for(InBook a:aList){
+            InBook b= InBook.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"InBook A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"InBook A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"InBook B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(InBook b: bList){
+            InBook a = InBook.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"InBook B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types InCollection, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -2054,6 +2640,54 @@ public int compareTo(ApplicationDataset ds2){
             Journal a = Journal.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Journal B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types MissingCitedWork, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareMissingCitedWork(List<MissingCitedWork> aList,List<MissingCitedWork> bList){
+        System.out.println("Comparing MissingCitedWork");
+        for(MissingCitedWork a:aList){
+            MissingCitedWork b= MissingCitedWork.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCitedWork A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCitedWork A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCitedWork B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(MissingCitedWork b: bList){
+            MissingCitedWork a = MissingCitedWork.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCitedWork B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types MissingCitingWork, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareMissingCitingWork(List<MissingCitingWork> aList,List<MissingCitingWork> bList){
+        System.out.println("Comparing MissingCitingWork");
+        for(MissingCitingWork a:aList){
+            MissingCitingWork b= MissingCitingWork.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCitingWork A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCitingWork A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCitingWork B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(MissingCitingWork b: bList){
+            MissingCitingWork a = MissingCitingWork.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCitingWork B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -2131,6 +2765,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types Reference, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareReference(List<Reference> aList,List<Reference> bList){
+        System.out.println("Comparing Reference");
+        for(Reference a:aList){
+            Reference b= Reference.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Reference A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Reference A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Reference B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Reference b: bList){
+            Reference a = Reference.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Reference B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types School, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -2164,14 +2822,20 @@ public int compareTo(ApplicationDataset ds2){
         checkArticle(this.getListArticle());
         checkAuthor(this.getListAuthor());
         checkAuthorship(this.getListAuthorship());
+        checkBook(this.getListBook());
+        checkCitation(this.getListCitation());
         checkCollection(this.getListCollection());
         checkConcept(this.getListConcept());
         checkConceptWork(this.getListConceptWork());
+        checkInBook(this.getListInBook());
         checkInCollection(this.getListInCollection());
         checkJournal(this.getListJournal());
+        checkMissingCitedWork(this.getListMissingCitedWork());
+        checkMissingCitingWork(this.getListMissingCitingWork());
         checkPaper(this.getListPaper());
         checkPhDThesis(this.getListPhDThesis());
         checkProceedings(this.getListProceedings());
+        checkReference(this.getListReference());
         checkScenario(this.getListScenario());
         checkSchool(this.getListSchool());
     }
@@ -2222,6 +2886,28 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<Book> dataset list of all items of type Book
+*/
+
+    public void checkBook(List<Book> list){
+        for(Book a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<Citation> dataset list of all items of type Citation
+*/
+
+    public void checkCitation(List<Citation> list){
+        for(Citation a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<Collection> dataset list of all items of type Collection
 */
 
@@ -2255,6 +2941,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<InBook> dataset list of all items of type InBook
+*/
+
+    public void checkInBook(List<InBook> list){
+        for(InBook a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<InCollection> dataset list of all items of type InCollection
 */
 
@@ -2271,6 +2968,28 @@ public int compareTo(ApplicationDataset ds2){
 
     public void checkJournal(List<Journal> list){
         for(Journal a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<MissingCitedWork> dataset list of all items of type MissingCitedWork
+*/
+
+    public void checkMissingCitedWork(List<MissingCitedWork> list){
+        for(MissingCitedWork a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<MissingCitingWork> dataset list of all items of type MissingCitingWork
+*/
+
+    public void checkMissingCitingWork(List<MissingCitingWork> list){
+        for(MissingCitingWork a:list){
             a.check();
         }
     }
@@ -2310,6 +3029,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<Reference> dataset list of all items of type Reference
+*/
+
+    public void checkReference(List<Reference> list){
+        for(Reference a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<Scenario> dataset list of all items of type Scenario
 */
 
@@ -2336,14 +3066,20 @@ public int compareTo(ApplicationDataset ds2){
         Article.dummy(this);
         Author.dummy(this);
         Authorship.dummy(this);
+        Book.dummy(this);
+        Citation.dummy(this);
         Collection.dummy(this);
         Concept.dummy(this);
         ConceptWork.dummy(this);
+        InBook.dummy(this);
         InCollection.dummy(this);
         Journal.dummy(this);
+        MissingCitedWork.dummy(this);
+        MissingCitingWork.dummy(this);
         Paper.dummy(this);
         PhDThesis.dummy(this);
         Proceedings.dummy(this);
+        Reference.dummy(this);
         Scenario.dummy(this);
         School.dummy(this);
    }

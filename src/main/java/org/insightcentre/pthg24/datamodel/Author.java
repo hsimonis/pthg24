@@ -12,12 +12,18 @@ import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.Article;
 import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.InCollection;
+import org.insightcentre.pthg24.datamodel.InBook;
+import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
+import org.insightcentre.pthg24.datamodel.Citation;
+import org.insightcentre.pthg24.datamodel.Reference;
+import org.insightcentre.pthg24.datamodel.MissingCitingWork;
+import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -58,6 +64,13 @@ public  class Author extends ApplicationObject implements AppearInCollection{
  *
 */
 
+    public Integer nrCitations;
+
+/**
+ *  
+ *
+*/
+
     public Integer nrWorks;
 
 /**
@@ -88,6 +101,7 @@ public  class Author extends ApplicationObject implements AppearInCollection{
         super(applicationDataset);
         setFamilyName("");
         setKey("");
+        setNrCitations(0);
         setNrWorks(0);
         setShortName("");
         applicationDataset.addAuthor(this);
@@ -105,6 +119,7 @@ public  class Author extends ApplicationObject implements AppearInCollection{
             String name,
             String familyName,
             String key,
+            Integer nrCitations,
             Integer nrWorks,
             String shortName){
         super(applicationDataset,
@@ -112,6 +127,7 @@ public  class Author extends ApplicationObject implements AppearInCollection{
             name);
         setFamilyName(familyName);
         setKey(key);
+        setNrCitations(nrCitations);
         setNrWorks(nrWorks);
         setShortName(shortName);
         applicationDataset.addAuthor(this);
@@ -123,6 +139,7 @@ public  class Author extends ApplicationObject implements AppearInCollection{
             other.name,
             other.familyName,
             other.key,
+            other.nrCitations,
             other.nrWorks,
             other.shortName);
     }
@@ -174,6 +191,16 @@ public  class Author extends ApplicationObject implements AppearInCollection{
     }
 
 /**
+ *  get attribute nrCitations
+ *
+ * @return Integer
+*/
+
+    public Integer getNrCitations(){
+        return this.nrCitations;
+    }
+
+/**
  *  get attribute nrWorks
  *
  * @return Integer
@@ -218,6 +245,18 @@ public  class Author extends ApplicationObject implements AppearInCollection{
     }
 
 /**
+ *  set attribute nrCitations, mark dataset as dirty, mark dataset as not valid
+@param nrCitations Integer
+ *
+*/
+
+    public void setNrCitations(Integer nrCitations){
+        this.nrCitations = nrCitations;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute nrWorks, mark dataset as dirty, mark dataset as not valid
 @param nrWorks Integer
  *
@@ -237,6 +276,17 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 
     public void setShortName(String shortName){
         this.shortName = shortName;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute nrCitations, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrCitations(){
+        this.nrCitations++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -269,7 +319,7 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getFamilyName()+ " " +getKey()+ " " +getNrWorks()+ " " +getShortName();
+        return ""+ " " +getId()+ " " +getName()+ " " +getFamilyName()+ " " +getKey()+ " " +getNrCitations()+ " " +getNrWorks()+ " " +getShortName();
     }
 
 /**
@@ -295,6 +345,7 @@ public  class Author extends ApplicationObject implements AppearInCollection{
             " name=\""+toXMLName()+"\""+
             " familyName=\""+toXMLFamilyName()+"\""+
             " key=\""+toXMLKey()+"\""+
+            " nrCitations=\""+toXMLNrCitations()+"\""+
             " nrWorks=\""+toXMLNrWorks()+"\""+
             " shortName=\""+toXMLShortName()+"\""+" />");
      }
@@ -325,6 +376,16 @@ public  class Author extends ApplicationObject implements AppearInCollection{
  * @return String
 */
 
+    String toXMLNrCitations(){
+        return this.getNrCitations().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLNrWorks(){
         return this.getNrWorks().toString();
     }
@@ -346,11 +407,11 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Author</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>FamilyName</th>"+"<th>Key</th>"+"<th>NrWorks</th>"+"</tr>";
+        return "<tr><th>Author</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>FamilyName</th>"+"<th>Key</th>"+"<th>NrWorks</th>"+"<th>NrCitations</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getFamilyName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getNrWorks()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getFamilyName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getNrWorks()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+"</tr>";
     }
 
 /**
@@ -476,6 +537,9 @@ public  class Author extends ApplicationObject implements AppearInCollection{
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
+      if(!this.getNrCitations().equals(b.getNrCitations())){
+         System.out.println("NrCitations");
+        }
       if(!this.getNrWorks().equals(b.getNrWorks())){
          System.out.println("NrWorks");
         }
@@ -485,6 +549,7 @@ public  class Author extends ApplicationObject implements AppearInCollection{
         return  this.getFamilyName().equals(b.getFamilyName()) &&
           this.getKey().equals(b.getKey()) &&
           this.getName().equals(b.getName()) &&
+          this.getNrCitations().equals(b.getNrCitations()) &&
           this.getNrWorks().equals(b.getNrWorks()) &&
           this.getShortName().equals(b.getShortName());
     }

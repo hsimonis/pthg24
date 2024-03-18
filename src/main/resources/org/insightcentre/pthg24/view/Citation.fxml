@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+
+<!--Generated at 19:06:17 on 2024-03-18-->
+
+
+<Tab text="Citation" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.CitationController">
+   <BorderPane>
+      <center>
+         <TableView fx:id="table" editable="true">
+            <columns>
+               <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
+               <TableColumn fx:id="oci" styleClass="right-aligned" text="Oci" />
+               <TableColumn fx:id="citedWork" styleClass="right-aligned" text="CitedWork" />
+               <TableColumn fx:id="citingWork" styleClass="right-aligned" text="CitingWork" />
+               <TableColumn fx:id="cited" styleClass="right-aligned" text="Cited" />
+               <TableColumn fx:id="citing" styleClass="right-aligned" text="Citing" />
+               <TableColumn fx:id="creation" styleClass="right-aligned" text="Creation" />
+               <TableColumn fx:id="timespan" styleClass="right-aligned" text="Timespan" />
+               <TableColumn fx:id="authorSC" styleClass="right-aligned" text="AuthorSC" />
+               <TableColumn fx:id="journalSC" styleClass="right-aligned" text="JournalSC" />
+            </columns>
+         </TableView>
+      </center>
+      <bottom>
+         <TitledPane fx:id="filterPane" expanded="false" text="Filter">
+            <content>
+               <HBox alignment="center" spacing="5.0">
+                  <ChoiceBox fx:id="filterChoiceBox" />
+                  <ChoiceBox fx:id="filterComparisonBox" />
+                  <TextField fx:id="filterTextField" />
+               </HBox>
+            </content>
+         </TitledPane>
+      </bottom>
+   </BorderPane>
+</Tab>

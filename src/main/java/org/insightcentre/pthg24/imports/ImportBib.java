@@ -61,12 +61,26 @@ public class ImportBib {
                         inc.setCollection(findCollection(fieldString(entry,KEY_BOOKTITLE)));
                         work=inc;
                         break;
+                    case "inbook":
+                        InBook inb = new InBook(base);
+                        inb.setName(workKey.toString());
+                        inb.setKey(shortKey(workKey.toString()));
+                        inb.setBooktitle(fieldString(entry,KEY_BOOKTITLE));
+                        work=inb;
+                        break;
                     case "phdthesis":
                         PhDThesis phd = new PhDThesis(base);
                         phd.setName(workKey.toString());
                         phd.setKey(shortKey(workKey.toString()));
                         phd.setSchool(findSchool(fieldString(entry,KEY_SCHOOL)));
+                        phd.setLocalCopy("works/"+phd.getKey()+".pdf");
                         work=phd;
+                        break;
+                    case "book":
+                        Book b = new Book(base);
+                        b.setName(workKey.toString());
+                        b.setKey(shortKey(workKey.toString()));
+                        work=b;
                         break;
                     default:
                        warning("Work type "+type+" for entry "+workKey.toString()+" not implemented");

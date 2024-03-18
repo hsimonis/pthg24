@@ -19,7 +19,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Author;
 
 /**
- * Generated at 08:49:24 on 2024-03-16 */
+ * Generated at 19:06:17 on 2024-03-18 */
 public class AuthorController extends Table3Controller {
 	@FXML
 	private TableView<Author> table;
@@ -38,6 +38,9 @@ public class AuthorController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Author, Integer> nrWorks;
+
+	@FXML
+	private TableColumn<Author, Integer> nrCitations;
 
 	private GeneratedJfxApp mainApp;
 
@@ -76,6 +79,10 @@ public class AuthorController extends Table3Controller {
 		nrWorks.setCellValueFactory(new PropertyValueFactory<>("nrWorks"));
 		nrWorks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		nrWorks.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrWorks(event.getNewValue()); mainApp.reset();});
+		choices.add("nrCitations");
+		nrCitations.setCellValueFactory(new PropertyValueFactory<>("nrCitations"));
+		nrCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrCitations(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

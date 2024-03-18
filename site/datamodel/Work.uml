@@ -2,7 +2,6 @@ abstract class Work {
 String author
 List<Author> authors
 String basedOn
-String citations
 String classification
 String codeAvail
 String constraints
@@ -11,8 +10,10 @@ String dataAvail
 String doi
 String key
 String localCopy
+Integer nrCitations
 Integer nrLinks
 Integer nrPages
+Integer nrReferences
 String pages
 String solutionAvail
 String title

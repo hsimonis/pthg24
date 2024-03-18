@@ -27,14 +27,20 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include Article.uml
 !include Author.uml
 !include Authorship.uml
+!include Book.uml
+!include Citation.uml
 !include Collection.uml
 !include Concept.uml
 !include ConceptWork.uml
+!include InBook.uml
 !include InCollection.uml
 !include Journal.uml
+!include MissingCitedWork.uml
+!include MissingCitingWork.uml
 !include Paper.uml
 !include PhDThesis.uml
 !include Proceedings.uml
+!include Reference.uml
 !include Scenario.uml
 !include School.uml
 !include Work.uml
@@ -51,6 +57,8 @@ Work <|-- Paper
 Work <|-- Article
 Work <|-- PhDThesis
 Work <|-- InCollection
+Work <|-- InBook
+Work <|-- Book
 ApplicationDataset  *-- ApplicationObject 
 Author "1..*" *-- Work : authors
 Journal  *-- Article 
@@ -61,6 +69,10 @@ Author  *-- Authorship
 Work  *-- Authorship 
 Concept  *-- ConceptWork 
 Work  *-- ConceptWork 
+Work  *-- Citation : citedWork
+Work  *-- Citation : citingWork
+Work  *-- Reference : citedWork
+Work  *-- Reference : citingWork
 header
 Datamodel of Application pthg24
 endheader

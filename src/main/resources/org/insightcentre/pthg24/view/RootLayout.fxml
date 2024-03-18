@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<!--Generated at 08:49:24 on 2024-03-16-->
+<!--Generated at 19:06:17 on 2024-03-18-->
 
 
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.RootController">
@@ -72,15 +72,21 @@
                   <MenuItem id="articlePage" onAction="#handle" text="Article" />
                   <MenuItem id="phDThesisPage" onAction="#handle" text="PhDThesis" />
                   <MenuItem id="inCollectionPage" onAction="#handle" text="InCollection" />
+                  <MenuItem id="inBookPage" onAction="#handle" text="InBook" />
+                  <MenuItem id="bookPage" accelerator="Shortcut+B" onAction="#handle" text="Book" />
                   <MenuItem id="authorshipPage" onAction="#handle" text="Authorship" />
                   <MenuItem id="proceedingsPage" onAction="#handle" text="Proceedings" />
                   <MenuItem id="journalPage" accelerator="Shortcut+J" onAction="#handle" text="Journal" />
                   <MenuItem id="schoolPage" onAction="#handle" text="School" />
                   <MenuItem id="collectionPage" onAction="#handle" text="Collection" />
                   <MenuItem id="conceptWorkPage" onAction="#handle" text="ConceptWork" />
+                  <MenuItem id="citationPage" onAction="#handle" text="Citation" />
+                  <MenuItem id="referencePage" accelerator="Shortcut+R" onAction="#handle" text="Reference" />
+                  <MenuItem id="missingCitingWorkPage" onAction="#handle" text="MissingCitingWork" />
+                  <MenuItem id="missingCitedWorkPage" onAction="#handle" text="MissingCitedWork" />
                   <MenuItem id="scenarioPage" onAction="#handle" text="Scenario" />
                   <MenuItem id="GenericPieChart" onAction="#handle" text="Generic Pie Chart" />
-                  <MenuItem id="GenericBarChart" accelerator="Shortcut+B" onAction="#handle" text="Generic Bar Chart" />
+                  <MenuItem id="GenericBarChart" onAction="#handle" text="Generic Bar Chart" />
                   <MenuItem id="GenericScatterChart" onAction="#handle" text="Generic Scatter Chart" />
                   <Menu text="_System">
                      <items>

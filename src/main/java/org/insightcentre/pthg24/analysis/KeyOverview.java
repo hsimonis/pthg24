@@ -20,13 +20,13 @@ public class KeyOverview {
         assert(exportDir.endsWith("/"));
         String fullName= exportDir+fileName;
         try{
-            int nrColumns = 7;
+            int nrColumns = 6;
             PrintWriter out = new PrintWriter(fullName);
             List<Work> sorted  = sortedWorks(base);
-            out.printf("{\\scriptsize\n");
+//            out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{*{%d}{l}}\n",nrColumns);
             out.printf("\\rowcolor{white}\\caption{Key Overview (Total: %d)}\\\\ \\toprule\n",sorted.size());
-            out.printf("\\rowcolor{white}1 & 2 & 3 & 4 & 5 & 6 & 7\\\\ \\midrule\n");
+            out.printf("\\rowcolor{white}1 & 2 & 3 & 4 & 5 & 6\\\\ \\midrule\n");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
@@ -42,7 +42,7 @@ public class KeyOverview {
                 }
             }
             out.printf("\\end{longtable}\n");
-            out.printf("}\n\n");
+//            out.printf("}\n\n");
             out.close();
         } catch(IOException e){
             severe("Cannot write file "+fullName+", exception "+e.getMessage());

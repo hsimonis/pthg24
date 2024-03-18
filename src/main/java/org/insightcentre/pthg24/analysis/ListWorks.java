@@ -35,14 +35,14 @@ public class ListWorks {
 
     private void showTable(PrintWriter out,Scenario base,List<Work> works,boolean showLabel){
         out.printf("{\\scriptsize\n");
-        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{7cm}rrrp{3cm}rrr}\n");
+        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{6.5cm}rrrp{2.5cm}rrrrr}\n");
         out.printf("\\rowcolor{white}\\caption{Works from bibtex (Total %d)}\\\\ \\toprule\n",works.size());
-        out.printf("\\rowcolor{white}Key & Authors & Title & LC & Cite & Year & \\shortstack{Conference\\\\/Journal} & Pages & b & c \\\\ \\midrule");
+        out.printf("\\rowcolor{white}Key & Authors & Title & LC & Cite & Year & \\shortstack{Conference\\\\/Journal} & Pages & \\shortstack{Nr\\\\Cites} & \\shortstack{Nr\\\\Refs} & b & c \\\\ \\midrule");
         out.printf("\\endhead\n");
         out.printf("\\bottomrule\n");
         out.printf("\\endfoot\n");
         for(Work a:works){
-            out.printf("%s%s \\href{%s}{%s} & %s & %s & %s & \\cite{%s} & %d & %s & %d & %s & %s",
+            out.printf("%s%s \\href{%s}{%s} & %s & %s & %s & \\cite{%s} & %d & %s & %d & %d & %d & %s & %s",
                     rowLabel("a:"+a.getName(),showLabel),
                     a.getKey(),a.getUrl(),a.getKey(),
                     authors(a),
@@ -52,6 +52,8 @@ public class ListWorks {
                     a.getYear(),
                     confOrJournal(a),
                     a.getNrPages(),
+                    a.getNrCitations(),
+                    a.getNrReferences(),
                     bLabelRef(a),
                     cLabelRef(a));
             out.printf("\\\\\n");
@@ -87,6 +89,14 @@ public class ListWorks {
             return shortProc(((Paper)w).getProceedings());
         } else if (w instanceof Article){
             return nameOf(((Article)w).getJournal());
+        } else if (w instanceof InCollection){
+            return nameOf(((InCollection)w).getCollection());
+        } else if (w instanceof InBook){
+            return safe(((InBook)w).getBooktitle());
+        } else if (w instanceof Book){
+            return "Book";
+        } else if (w instanceof PhDThesis){
+            return nameOf(((PhDThesis)w).getSchool());
         } else {
             return "n/a";
         }
@@ -119,6 +129,26 @@ public class ListWorks {
                         collect(Collectors.toUnmodifiableList());
             case ARTICLE:
                 return base.getListArticle().stream().
+                        sorted(Comparator.comparing(Work::getYear).reversed().
+                                thenComparing(Work::getName)).
+                        collect(Collectors.toUnmodifiableList());
+            case BOOK:
+                return base.getListBook().stream().
+                        sorted(Comparator.comparing(Work::getYear).reversed().
+                                thenComparing(Work::getName)).
+                        collect(Collectors.toUnmodifiableList());
+            case THESIS:
+                return base.getListPhDThesis().stream().
+                        sorted(Comparator.comparing(Work::getYear).reversed().
+                                thenComparing(Work::getName)).
+                        collect(Collectors.toUnmodifiableList());
+            case INBOOK:
+                return base.getListInBook().stream().
+                        sorted(Comparator.comparing(Work::getYear).reversed().
+                                thenComparing(Work::getName)).
+                        collect(Collectors.toUnmodifiableList());
+            case INCOLLECTION:
+                return base.getListInCollection().stream().
                         sorted(Comparator.comparing(Work::getYear).reversed().
                                 thenComparing(Work::getName)).
                         collect(Collectors.toUnmodifiableList());
