@@ -155,11 +155,14 @@ public class ImportBib {
         return res;
     }
 
+    /*
+    replace "Name, FirstName" with "FirstName Name"
+     */
     private String normalize(String name){
         if (name.contains(",")){
             String[] split = name.split(",");
             assert(split.length == 2);
-            return split[1]+" "+split[0];
+            return split[1].trim()+" "+split[0].trim();
         }
         return name;
     }

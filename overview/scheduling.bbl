@@ -359,6 +359,14 @@ Maliheh~Aramon Bajestani and J.~Christopher Beck.
   {https://doi.org/10.1007/S10951-015-0416-2}
   {\path{doi:10.1007/S10951-015-0416-2}}.
 
+\bibitem{Baptiste02}
+Philippe Baptiste.
+\newblock {\em {R{\'e}sultats de complexit{\'e} et programmation par
+  contraintes pour l'ordonnancement}}.
+\newblock Habilitation {\`a} diriger des recherches, {Universit{\'e} de
+  Technologie de Compi{\`e}gne}, July 2002.
+\newblock URL: \url{https://theses.hal.science/tel-00124998}.
+
 \bibitem{Baptiste09}
 Philippe Baptiste.
 \newblock Constraint-based schedulers, do they really work?
@@ -1430,6 +1438,13 @@ Levi~Ribeiro de~Abreu, Marcelo~Seido Nagano, and Bruno~A. Prata.
 \newblock \href {https://doi.org/10.1080/00207543.2022.2154404}
   {\path{doi:10.1080/00207543.2022.2154404}}.
 
+\bibitem{Clercq12}
+Alexis de~Clercq.
+\newblock {\em {Ordonnancement cumulatif avec d{\'e}passements de capacit{\'e}
+  : Contrainte globale et d{\'e}compositions}}.
+\newblock Theses, {Ecole des Mines de Nantes}, October 2012.
+\newblock URL: \url{https://theses.hal.science/tel-00794323}.
+
 \bibitem{BandaSC11}
 Maria~Garcia de~la Banda, Peter~J. Stuckey, and Geoffrey Chu.
 \newblock Solving talent scheduling with dynamic programming.
@@ -1605,6 +1620,13 @@ Nikolaos Efthymiou and Neil Yorke{-}Smith.
   238--253. Springer, 2023.
 \newblock \href {https://doi.org/10.1007/978-3-031-33271-5\_16}
   {\path{doi:10.1007/978-3-031-33271-5\_16}}.
+
+\bibitem{Elkhyari03}
+Abdallah Elkhyari.
+\newblock {\em {Outils d'aide {\`a} la d{\'e}cision pour des probl{\`e}mes
+  d'ordonnancement dynamiques}}.
+\newblock Theses, {Universit{\'e} de Nantes}, November 2003.
+\newblock URL: \url{https://theses.hal.science/tel-00008377}.
 
 \bibitem{ElkhyariGJ02}
 Abdallah Elkhyari, Christelle Gu{\'{e}}ret, and Narendra Jussien.
@@ -1795,6 +1817,13 @@ Sara Frimodig and Christian Schulte.
 \newblock \href {https://doi.org/10.1007/978-3-030-30048-7\_25}
   {\path{doi:10.1007/978-3-030-30048-7\_25}}.
 
+\bibitem{Froger16}
+Aur{\'e}lien Froger.
+\newblock {\em {Maintenance scheduling in the electricity industry : a
+  particular focus on a problem rising in the onshore wind industry}}.
+\newblock Theses, {Universit{\'e} d'Angers}, December 2016.
+\newblock URL: \url{https://theses.hal.science/tel-01440836}.
+
 \bibitem{FrohnerTR19}
 Nikolaus Frohner, Stephan Teuschl, and G{\"{u}}nther~R. Raidl.
 \newblock Casual employee scheduling with constraint programming and
@@ -1981,6 +2010,12 @@ Mirco Gelain, Maria~Silvia Pini, Francesca Rossi, Kristen~Brent Venable, and
 \newblock \href {https://doi.org/10.1007/978-3-319-59776-8\_32}
   {\path{doi:10.1007/978-3-319-59776-8\_32}}.
 
+\bibitem{German18}
+Grigori German.
+\newblock {\em {Constraint programming for lot-sizing problems}}.
+\newblock Theses, {Universit{\'e} Grenoble Alpes}, March 2018.
+\newblock URL: \url{https://theses.hal.science/tel-01896325}.
+
 \bibitem{Geske05}
 Ulrich Geske.
 \newblock Railway scheduling with declarative constraint programming.
@@ -2147,6 +2182,12 @@ Diarmuid Grimes, Georgiana Ifrim, Barry O'Sullivan, and Helmut Simonis.
 \newblock URL: \url{https://doi.org/10.1016/j.suscom.2014.08.009}, \href
   {https://doi.org/10.1016/J.SUSCOM.2014.08.009}
   {\path{doi:10.1016/J.SUSCOM.2014.08.009}}.
+
+\bibitem{Groleaz21}
+Lucas Groleaz.
+\newblock {\em {The Group Cumulative Scheduling Problem}}.
+\newblock Theses, {Universit{\'e} de Lyon}, June 2021.
+\newblock URL: \url{https://hal.science/tel-03266690}.
 
 \bibitem{GroleazNS20a}
 Lucas Groleaz, Samba~Ndojh Ndiaye, and Christine Solnon.
@@ -3174,6 +3215,13 @@ Alexandre Duarte~{de Almeida} Lemos.
 \newblock URL:
   \url{https://scholar.tecnico.ulisboa.pt/records/u5RPHM-pu_yoOLXJF7BHrgJx47D827b0xHb3}.
 
+\bibitem{Letort13}
+Arnaud Letort.
+\newblock {\em {Passage {\`a} l'{\'e}chelle pour les contraintes
+  d'ordonnancement multi-ressources}}.
+\newblock Theses, {Ecole des Mines de Nantes}, October 2013.
+\newblock URL: \url{https://theses.hal.science/tel-00932215}.
+
 \bibitem{LetortBC12}
 Arnaud Letort, Nicolas Beldiceanu, and Mats Carlsson.
 \newblock A scalable sweep algorithm for the cumulative constraint.
@@ -3806,6 +3854,13 @@ Bahman Naderi, Rub\'{e}n Ruiz, and Vahid Roshanaei.
 \newblock \href {http://arxiv.org/abs/https://doi.org/10.1287/ijoc.2023.1287}
   {\path{arXiv:https://doi.org/10.1287/ijoc.2023.1287}}, \href
   {https://doi.org/10.1287/ijoc.2023.1287} {\path{doi:10.1287/ijoc.2023.1287}}.
+
+\bibitem{Nattaf16}
+Margaux Nattaf.
+\newblock {\em {Ordonnancement sous contraintes d'{\'e}nergie}}.
+\newblock Theses, {UPS Toulouse - Universit{\'e} Toulouse 3 Paul Sabatier},
+  October 2016.
+\newblock URL: \url{https://laas.hal.science/tel-01417288}.
 
 \bibitem{NattafAL15}
 Margaux Nattaf, Christian Artigues, and Pierre Lopez.
@@ -5461,6 +5516,14 @@ Francisco Yuraszeck, Elizabeth Montero, Dario Canut{-}de{-}Bon, Nicol{\'{a}}s
 \newblock {\em {IEEE} Access}, 11:144928--144938, 2023.
 \newblock \href {https://doi.org/10.1109/ACCESS.2023.3345793}
   {\path{doi:10.1109/ACCESS.2023.3345793}}.
+
+\bibitem{Zahout21}
+Boukhalfa Zahout.
+\newblock {\em {Algorithmes exacts et approch{\'e}s pour l'ordonnancement des
+  travaux multiressources {\`a} intervalles fixes dans des syst{\`e}mes
+  distribu{\'e}s : approche monocrit{\`e}re et multiagent}}.
+\newblock Theses, {Universit{\'e} de Tours - LIFAT}, June 2021.
+\newblock URL: \url{https://hal.science/tel-03606639}.
 
 \bibitem{ZarandiKS16}
 M.~H.~Fazel Zarandi, H.~Khorshidian, and Mohsen~Akbarpour Shirazi.
