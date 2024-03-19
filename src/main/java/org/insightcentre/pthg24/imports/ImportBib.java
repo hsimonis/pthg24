@@ -144,6 +144,7 @@ public class ImportBib {
         List<Author> res = new ArrayList<>();
         String[] split = authors.split(" and ");
         for (String s : split) {
+            s = normalize(s);
             Author author = findAuthor(s);
             author.incNrWorks();
             Authorship ship = new Authorship(base);
@@ -152,6 +153,15 @@ public class ImportBib {
             res.add(author);
         }
         return res;
+    }
+
+    private String normalize(String name){
+        if (name.contains(",")){
+            String[] split = name.split(",");
+            assert(split.length == 2);
+            return split[1]+" "+split[0];
+        }
+        return name;
     }
 
     private int authorNr=0;

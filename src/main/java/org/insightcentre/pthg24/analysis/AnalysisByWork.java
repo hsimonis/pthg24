@@ -70,7 +70,10 @@ public class AnalysisByWork {
     }
 
     private boolean workType(Work w,WorkType type){
-        return (w instanceof Article && type == ARTICLE) || (w instanceof Paper && type == PAPER)|| (w instanceof PhDThesis && type == THESIS);
+        return (w instanceof Article && type == ARTICLE) ||
+                (w instanceof Paper && type == PAPER)||
+                (w instanceof PhDThesis && type == THESIS)||
+                (w instanceof InCollection && type == INCOLLECTION);
     }
 
     public static String concepts(Scenario base,Work w,ConceptType type){
