@@ -125,6 +125,32 @@ Ola Angelsmark and Peter Jonsson.
 \newblock \href {https://doi.org/10.1007/3-540-45349-0\_35}
   {\path{doi:10.1007/3-540-45349-0\_35}}.
 
+\bibitem{AntunesABDEGGOL18}
+Mark Antunes, Vincent Armant, Kenneth~N. Brown, Daniel~A. Desmond, Guillaume
+  Escamocher, Anne{-}Marie George, Diarmuid Grimes, Mike O'Keeffe, Yiqing Lin,
+  Barry O'Sullivan, Cemalettin Ozturk, Luis Quesada, Mohamed Siala, Helmut
+  Simonis, and Nic Wilson.
+\newblock Assigning and scheduling service visits in a mixed urban/rural
+  setting.
+\newblock In Lefteri~H. Tsoukalas, {\'{E}}ric Gr{\'{e}}goire, and Miltiadis
+  Alamaniotis, editors, {\em {IEEE} 30th International Conference on Tools with
+  Artificial Intelligence, {ICTAI} 2018, 5-7 November 2018, Volos, Greece},
+  pages 114--121. {IEEE}, 2018.
+\newblock \href {https://doi.org/10.1109/ICTAI.2018.00027}
+  {\path{doi:10.1109/ICTAI.2018.00027}}.
+
+\bibitem{AntunesABDEGGOL20}
+Mark Antunes, Vincent Armant, Kenneth~N. Brown, Daniel~A. Desmond, Guillaume
+  Escamocher, Anne{-}Marie George, Diarmuid Grimes, Mike O'Keeffe, Yiqing Lin,
+  Barry O'Sullivan, Cemalettin Ozturk, Luis Quesada, Mohamed Siala, Helmut
+  Simonis, and Nic Wilson.
+\newblock Assigning and scheduling service visits in a mixed urban/rural
+  setting.
+\newblock {\em Int. J. Artif. Intell. Tools}, 29(03n04):2060007:1--2060007:31,
+  2020.
+\newblock \href {https://doi.org/10.1142/S0218213020600076}
+  {\path{doi:10.1142/S0218213020600076}}.
+
 \bibitem{AntuoriHHEN20}
 Valentin Antuori, Emmanuel Hebrard, Marie{-}Jos{\'{e}} Huguet, Siham
   Essodaigui, and Alain Nguyen.
@@ -2577,6 +2603,17 @@ Felix H{\"{u}}bner, Patrick Gerhards, Christian St{\"{u}}rck, and Rebekka Volk.
   {https://doi.org/10.1007/S10951-021-00682-X}
   {\path{doi:10.1007/S10951-021-00682-X}}.
 
+\bibitem{HurleyOS16}
+Barry Hurley, Barry O'Sullivan, and Helmut Simonis.
+\newblock {ICON} loop energy show case.
+\newblock In Christian Bessiere, Luc~De Raedt, Lars Kotthoff, Siegfried
+  Nijssen, Barry O'Sullivan, and Dino Pedreschi, editors, {\em Data Mining and
+  Constraint Programming - Foundations of a Cross-Disciplinary Approach},
+  volume 10101 of {\em Lecture Notes in Computer Science}, pages 334--347.
+  Springer, 2016.
+\newblock \href {https://doi.org/10.1007/978-3-319-50137-6\_15}
+  {\path{doi:10.1007/978-3-319-50137-6\_15}}.
+
 \bibitem{IfrimOS12}
 Georgiana Ifrim, Barry O'Sullivan, and Helmut Simonis.
 \newblock Properties of energy-price forecasts for scheduling.
@@ -4546,6 +4583,16 @@ Gilles Simonin, Christian Artigues, Emmanuel Hebrard, and Pierre Lopez.
   {https://doi.org/10.1007/S10601-014-9169-3}
   {\path{doi:10.1007/S10601-014-9169-3}}.
 
+\bibitem{Simonis95a}
+Helmut Simonis.
+\newblock Application development with the {CHIP} system.
+\newblock In Gabriel~M. Kuper and Mark Wallace, editors, {\em Constraint
+  Databases and Applications, {ESPRIT} {WG} {CONTESSA} Workshop,
+  Friedrichshafen, Germany, September 8-9, 1995, Proceedings}, volume 1034 of
+  {\em Lecture Notes in Computer Science}, pages 1--21. Springer, 1995.
+\newblock \href {https://doi.org/10.1007/3-540-60794-3\_11}
+  {\path{doi:10.1007/3-540-60794-3\_11}}.
+
 \bibitem{Simonis95}
 Helmut Simonis.
 \newblock The {CHIP} system and its applications.
@@ -4556,6 +4603,17 @@ Helmut Simonis.
 \newblock \href {https://doi.org/10.1007/3-540-60299-2\_42}
   {\path{doi:10.1007/3-540-60299-2\_42}}.
 
+\bibitem{Simonis99}
+Helmut Simonis.
+\newblock Building industrial applications with constraint programming.
+\newblock In Hubert Comon, Claude March{\'{e}}, and Ralf Treinen, editors, {\em
+  Constraints in Computational Logics: Theory and Applications, International
+  Summer School, CCL'99 Gif-sur-Yvette, France, September 5-8, 1999, Revised
+  Lectures}, volume 2002 of {\em Lecture Notes in Computer Science}, pages
+  271--309. Springer, 1999.
+\newblock \href {https://doi.org/10.1007/3-540-45406-3\_6}
+  {\path{doi:10.1007/3-540-45406-3\_6}}.
+
 \bibitem{Simonis07}
 Helmut Simonis.
 \newblock Models for global constraint applications.
@@ -4563,6 +4621,13 @@ Helmut Simonis.
 \newblock URL: \url{https://doi.org/10.1007/s10601-006-9011-7}, \href
   {https://doi.org/10.1007/S10601-006-9011-7}
   {\path{doi:10.1007/S10601-006-9011-7}}.
+
+\bibitem{SimonisCK00}
+Helmut Simonis, Philippe Charlier, and Philip Kay.
+\newblock Constraint handling in an integrated transportation problem.
+\newblock {\em {IEEE} Intell. Syst.}, 15(1):26--32, 2000.
+\newblock \href {https://doi.org/10.1109/5254.820326}
+  {\path{doi:10.1109/5254.820326}}.
 
 \bibitem{SimonisC95}
 Helmut Simonis and Trijntje Cornelissens.

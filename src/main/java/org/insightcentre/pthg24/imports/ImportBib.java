@@ -59,6 +59,7 @@ public class ImportBib {
                         inc.setName(workKey.toString());
                         inc.setKey(shortKey(workKey.toString()));
                         inc.setCollection(findCollection(fieldString(entry,KEY_BOOKTITLE)));
+                        inc.setLocalCopy("works/"+inc.getKey()+".pdf");
                         work=inc;
                         break;
                     case "inbook":
@@ -66,6 +67,7 @@ public class ImportBib {
                         inb.setName(workKey.toString());
                         inb.setKey(shortKey(workKey.toString()));
                         inb.setBooktitle(fieldString(entry,KEY_BOOKTITLE));
+                        inb.setLocalCopy("works/"+inb.getKey()+".pdf");
                         work=inb;
                         break;
                     case "phdthesis":
@@ -248,8 +250,8 @@ public class ImportBib {
             return "ICAPS";
         }
         String[] series = new String[]{"CPAIOR","ECAI","AAAI","IJCAI","ICTAI","ICAPS","GECCO","CoDIT","ICAART",
-                "ICNSC","ICCL","Fog-IoT","EUROCAST","FUZZ-IEEE","ICRA","IDC","RAAD","ACIIDS","AICCC","AIAI",
-                "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE",
+                "ICNSC","ICCL","Fog-IoT","EUROCAST","FUZZ-IEEE","ICRA","IDC","RAAD","ACIIDS","AICCC","AIAI","CONTESSA",
+                "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE","CCL'99",
                 "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL","ICORES","SOCS","SAT",
                 "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA"};
         for(String cand:series) {
