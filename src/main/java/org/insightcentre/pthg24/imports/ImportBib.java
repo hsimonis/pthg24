@@ -1,15 +1,13 @@
 package org.insightcentre.pthg24.imports;
 
 import org.insightcentre.pthg24.datamodel.*;
+import org.insightcentre.pthg24.datamodel.Collection;
 import org.jbibtex.*;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.insightcentre.pthg24.analysis.ListWorks.localCopyExists;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
@@ -21,6 +19,7 @@ public class ImportBib {
         this.base = base;
         assert(importDir.endsWith("/"));
         String fullName = importDir+fileName;
+        initAlias(base);
         try{
             Reader reader = new FileReader(fullName);
             //??? I do not know if the following would help, it does not seem to be required with DBLP entries
@@ -32,8 +31,7 @@ public class ImportBib {
             reader.close();
             Map<Key, BibTeXEntry> entryMap = database.getEntries();
 
-            Collection<BibTeXEntry> entries = entryMap.values();
-            for(BibTeXEntry entry : entries){
+            for(BibTeXEntry entry : entryMap.values()){
                 Key workKey = entry.getKey();
                 Key type = entry.getType();
                 Work work=null;
@@ -84,6 +82,12 @@ public class ImportBib {
                         b.setKey(shortKey(workKey.toString()));
                         work=b;
                         break;
+//                    case "collection":
+//                        Collection c = new Collection(base);
+//                        c.setName(workKey.toString());
+//                        c.setKey(shortKey(workKey.toString()));
+//                        work=c;
+//                        break;
                     default:
                        warning("Work type "+type+" for entry "+workKey.toString()+" not implemented");
                 }
@@ -227,9 +231,21 @@ public class ImportBib {
         }
     }
 
+    Hashtable<String,Journal> aliasHash = new Hashtable<>();
+
+    private void initAlias(Scenario base){
+        for(JournalAlias ja:base.getListJournalAlias()){
+            aliasHash.put(ja.getAlias(),ja.getJournal());
+            aliasHash.put(ja.getJournal().getName(),ja.getJournal());
+        }
+    }
+
     private Journal findJournal(String name){
         if (name == null){
             return null;
+        }
+        if (aliasHash.get(name) != null){
+            return aliasHash.get(name);
         }
         Journal res = Journal.findByName(base,name);
         if (res == null){
@@ -247,8 +263,17 @@ public class ImportBib {
         if (res == null){
             res = new Proceedings(base);
             res.setName(name);
-            res.setSeries(extractSeries(name));
-            res.setShortName(res.getSeries()+" "+year);
+            res.setConferenceSeries(findSeries(extractSeries(name)));
+            res.setShortName(res.getConferenceSeries().getName()+" "+year);
+        }
+        return res;
+    }
+
+    private ConferenceSeries findSeries(String name){
+        ConferenceSeries res = ConferenceSeries.findByName(base,name);
+        if (res == null){
+            res = new ConferenceSeries(base);
+            res.setName(name);
         }
         return res;
     }
@@ -266,7 +291,9 @@ public class ImportBib {
                 "ICNSC","ICCL","Fog-IoT","EUROCAST","FUZZ-IEEE","ICRA","IDC","RAAD","ACIIDS","AICCC","AIAI","CONTESSA",
                 "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE","CCL'99",
                 "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL","ICORES","SOCS","SAT",
-                "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA"};
+                "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA",
+                "Canadian AI","CSCLP","LION"
+        };
         for(String cand:series) {
             if (text.contains(cand)) {
                 return cand;
@@ -298,6 +325,9 @@ public class ImportBib {
         }
         if (text.equals("Constraint Programming")){
             return "Constraint Programming";
+        }
+        if (text.contains("Operations Research Proceedings")){
+            return "Operations Research Proceedings";
         }
         return null;
     }

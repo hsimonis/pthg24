@@ -23,7 +23,7 @@ public class MissingLocalCopy {
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{llp{5cm}p{10cm}rp{3cm}l}\n");
+            out.printf("\\begin{longtable}{p{2cm}p{2cm}p{5cm}p{10cm}rp{3cm}l}\n");
             out.printf("\\rowcolor{white}\\caption{%s without Local Copy}\\\\ \\toprule\n",type);
             out.printf("\\rowcolor{white}Key & URL & Authors & Title & Year & \\shortstack{Conference\\\\/Journal} & Cite\\\\ \\midrule\n");
             out.printf("\\endhead\n");

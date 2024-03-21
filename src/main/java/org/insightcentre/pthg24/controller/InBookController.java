@@ -2,25 +2,32 @@ package org.insightcentre.pthg24.controller;
 
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
+import java.lang.Boolean;
 import java.lang.Exception;
 import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.lang.SuppressWarnings;
 import java.lang.reflect.Field;
+import javafx.beans.property.Property;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.Callback;
 import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.InBook;
 
 /**
- * Generated at 19:06:17 on 2024-03-18 */
+ * Generated at 13:53:23 on 2024-03-21 */
 public class InBookController extends Table3Controller {
 	@FXML
 	private TableView<InBook> table;
@@ -62,6 +69,9 @@ public class InBookController extends Table3Controller {
 	private TableColumn<InBook, Integer> nrLinks;
 
 	@FXML
+	private TableColumn<InBook, Boolean> background;
+
+	@FXML
 	private TableColumn<InBook, String> dataAvail;
 
 	@FXML
@@ -80,7 +90,7 @@ public class InBookController extends Table3Controller {
 	private TableColumn<InBook, String> constraints;
 
 	@FXML
-	private TableColumn<InBook, String> basedOn;
+	private TableColumn<InBook, String> relatedTo;
 
 	@FXML
 	private TableColumn<InBook, Integer> nrCitations;
@@ -154,6 +164,9 @@ public class InBookController extends Table3Controller {
 		nrLinks.setCellValueFactory(new PropertyValueFactory<>("nrLinks"));
 		nrLinks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		nrLinks.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrLinks(event.getNewValue()); mainApp.reset();});
+		choices.add("background");
+		background.setCellValueFactory(new BackgroundCallback());
+		background.setCellFactory(CheckBoxTableCell.forTableColumn(background));
 		choices.add("dataAvail");
 		dataAvail.setCellValueFactory(new PropertyValueFactory<>("dataAvail"));
 		dataAvail.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -178,10 +191,10 @@ public class InBookController extends Table3Controller {
 		constraints.setCellValueFactory(new PropertyValueFactory<>("constraints"));
 		constraints.setCellFactory(TextFieldTableCell.forTableColumn());
 		constraints.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setConstraints(event.getNewValue()); mainApp.reset();});
-		choices.add("basedOn");
-		basedOn.setCellValueFactory(new PropertyValueFactory<>("basedOn"));
-		basedOn.setCellFactory(TextFieldTableCell.forTableColumn());
-		basedOn.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setBasedOn(event.getNewValue()); mainApp.reset();});
+		choices.add("relatedTo");
+		relatedTo.setCellValueFactory(new PropertyValueFactory<>("relatedTo"));
+		relatedTo.setCellFactory(TextFieldTableCell.forTableColumn());
+		relatedTo.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRelatedTo(event.getNewValue()); mainApp.reset();});
 		choices.add("nrCitations");
 		nrCitations.setCellValueFactory(new PropertyValueFactory<>("nrCitations"));
 		nrCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
@@ -247,6 +260,21 @@ public class InBookController extends Table3Controller {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	class BackgroundCallback implements Callback<TableColumn.CellDataFeatures<InBook, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<InBook, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().backgroundWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setBackground(newValue);
+				}
+			});
+			return prop;
 		}
 	}
 }

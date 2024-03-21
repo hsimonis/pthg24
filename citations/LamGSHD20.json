@@ -1,0 +1,65 @@
+[
+    {
+        "author_sc": "no",
+        "cited": "10.1007/s43069-020-00023-2",
+        "oci": "06130167246-06202278921",
+        "journal_sc": "no",
+        "citing": "10.1016/j.cor.2022.105916",
+        "creation": "2022-10",
+        "timespan": "P2Y1M"
+    },
+    {
+        "author_sc": "yes",
+        "cited": "10.1007/s43069-020-00023-2",
+        "oci": "06130167604-06202278921",
+        "journal_sc": "no",
+        "citing": "10.1016/j.cor.2022.105870",
+        "creation": "2022-09",
+        "timespan": "P2Y0M"
+    },
+    {
+        "author_sc": "yes",
+        "cited": "10.1007/s43069-020-00023-2",
+        "oci": "06130167634-06202278921",
+        "journal_sc": "no",
+        "citing": "10.1016/j.cor.2022.105809",
+        "creation": "2022-08",
+        "timespan": "P1Y11M"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1007/s43069-020-00023-2",
+        "oci": "061503443081-06202278921",
+        "journal_sc": "no",
+        "citing": "10.1007/s10479-022-04891-1",
+        "creation": "2022-08-08",
+        "timespan": "P1Y11M"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1007/s43069-020-00023-2",
+        "oci": "06301728284-06202278921",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-030-78230-6_3",
+        "creation": "2021",
+        "timespan": "P0Y"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1007/s43069-020-00023-2",
+        "oci": "0642078894-06202278921",
+        "journal_sc": "yes",
+        "citing": "10.1007/s43069-023-00242-3",
+        "creation": "2023-08-04",
+        "timespan": "P2Y11M"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1007/s43069-020-00023-2",
+        "oci": "0651083139-06202278921",
+        "journal_sc": "no",
+        "citing": "10.52843/cassyni.zxy00z",
+        "creation": "2021-02-11",
+        "timespan": "P0Y5M"
+    }
+]

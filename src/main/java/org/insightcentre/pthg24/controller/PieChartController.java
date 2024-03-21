@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 19:06:17 on 2024-03-18 */
+ * Generated at 13:53:23 on 2024-03-21 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -59,6 +59,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("key");
 		attributeNames.add("nrWorks");
 		attributeNames.add("nrCitations");
+		attributeNames.add("nrBackgroundWorks");
+		attributeNames.add("nrBackgroundCitations");
 		choicesMap.put("Author", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -73,13 +75,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
+		attributeNames.add("background");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
 		attributeNames.add("cpSystem");
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
-		attributeNames.add("basedOn");
+		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		choicesMap.put("Work", attributeNames);
@@ -96,13 +99,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
+		attributeNames.add("background");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
 		attributeNames.add("cpSystem");
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
-		attributeNames.add("basedOn");
+		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		attributeNames.add("proceedings");
@@ -120,13 +124,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
+		attributeNames.add("background");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
 		attributeNames.add("cpSystem");
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
-		attributeNames.add("basedOn");
+		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		attributeNames.add("journal");
@@ -144,13 +149,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
+		attributeNames.add("background");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
 		attributeNames.add("cpSystem");
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
-		attributeNames.add("basedOn");
+		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		attributeNames.add("school");
@@ -168,13 +174,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
+		attributeNames.add("background");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
 		attributeNames.add("cpSystem");
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
-		attributeNames.add("basedOn");
+		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		attributeNames.add("collection");
@@ -192,13 +199,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
+		attributeNames.add("background");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
 		attributeNames.add("cpSystem");
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
-		attributeNames.add("basedOn");
+		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		attributeNames.add("booktitle");
@@ -216,13 +224,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
+		attributeNames.add("background");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
 		attributeNames.add("solutionAvail");
 		attributeNames.add("cpSystem");
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
-		attributeNames.add("basedOn");
+		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		choicesMap.put("Book", attributeNames);
@@ -234,12 +243,28 @@ public class PieChartController extends ChartController {
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
 		attributeNames.add("shortName");
-		attributeNames.add("series");
+		attributeNames.add("conferenceSeries");
 		choicesMap.put("Proceedings", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("nrPapers");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrBackgroundPapers");
+		attributeNames.add("nrBackgroundCitations");
+		choicesMap.put("ConferenceSeries", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
 		attributeNames.add("shortName");
+		attributeNames.add("nrArticles");
+		attributeNames.add("nrBackgroundArticles");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrBackgroundCitations");
 		choicesMap.put("Journal", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("journal");
+		attributeNames.add("alias");
+		choicesMap.put("JournalAlias", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
 		choicesMap.put("School", attributeNames);
@@ -344,8 +369,14 @@ public class PieChartController extends ChartController {
 			else if (className.equals("Proceedings")) {
 				objectList = mainApp.getProceedingsData();
 			}
+			else if (className.equals("ConferenceSeries")) {
+				objectList = mainApp.getConferenceSeriesData();
+			}
 			else if (className.equals("Journal")) {
 				objectList = mainApp.getJournalData();
+			}
+			else if (className.equals("JournalAlias")) {
+				objectList = mainApp.getJournalAliasData();
 			}
 			else if (className.equals("School")) {
 				objectList = mainApp.getSchoolData();

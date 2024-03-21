@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 19:06:17 on 2024-03-18 */
+ * Generated at 13:53:23 on 2024-03-21 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -27,6 +27,8 @@ public class BarChartController extends ChartController {
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nrWorks");
 		attributeNames.add("nrCitations");
+		attributeNames.add("nrBackgroundWorks");
+		attributeNames.add("nrBackgroundCitations");
 		choicesMap.put("Author", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
@@ -77,6 +79,18 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		choicesMap.put("Book", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nrPapers");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrBackgroundPapers");
+		attributeNames.add("nrBackgroundCitations");
+		choicesMap.put("ConferenceSeries", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nrArticles");
+		attributeNames.add("nrBackgroundArticles");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrBackgroundCitations");
+		choicesMap.put("Journal", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("count");
 		choicesMap.put("ConceptWork", attributeNames);
@@ -144,8 +158,14 @@ public class BarChartController extends ChartController {
 			else if (className.equals("Proceedings")) {
 				objectList = mainApp.getProceedingsData();
 			}
+			else if (className.equals("ConferenceSeries")) {
+				objectList = mainApp.getConferenceSeriesData();
+			}
 			else if (className.equals("Journal")) {
 				objectList = mainApp.getJournalData();
+			}
+			else if (className.equals("JournalAlias")) {
+				objectList = mainApp.getJournalAliasData();
 			}
 			else if (className.equals("School")) {
 				objectList = mainApp.getSchoolData();

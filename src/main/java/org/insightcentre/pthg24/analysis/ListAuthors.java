@@ -48,16 +48,18 @@ public class ListAuthors {
 
     private List<Author> sortedAuthors(Scenario base){
         return base.getListAuthor().stream().
+                filter(x->x.getNrWorks() > 0).
                 sorted(Comparator.comparing(Author::getNrWorks).reversed().
                         thenComparing(Author::getFamilyName)).
-                collect(Collectors.toUnmodifiableList());
+                toList();
     }
 
     private List<Authorship> sortedAuthorship(Scenario base,Author a){
         return base.getListAuthorship().stream().
-                filter(x->x.getAuthor()==a).
+                filter(x -> x.getAuthor() == a).
+                filter(x -> !x.getWork().getBackground()).
                 sorted(Comparator.comparing(this::year).reversed()).
-                collect(Collectors.toUnmodifiableList());
+                toList();
     }
 
     private int year(Authorship as){

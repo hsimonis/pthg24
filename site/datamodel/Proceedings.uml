@@ -1,4 +1,4 @@
  class Proceedings {
-String series
+ConferenceSeries conferenceSeries
 String shortName
 }

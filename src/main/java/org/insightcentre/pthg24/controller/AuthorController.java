@@ -19,7 +19,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Author;
 
 /**
- * Generated at 19:06:17 on 2024-03-18 */
+ * Generated at 13:53:22 on 2024-03-21 */
 public class AuthorController extends Table3Controller {
 	@FXML
 	private TableView<Author> table;
@@ -41,6 +41,12 @@ public class AuthorController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Author, Integer> nrCitations;
+
+	@FXML
+	private TableColumn<Author, Integer> nrBackgroundWorks;
+
+	@FXML
+	private TableColumn<Author, Integer> nrBackgroundCitations;
 
 	private GeneratedJfxApp mainApp;
 
@@ -83,6 +89,14 @@ public class AuthorController extends Table3Controller {
 		nrCitations.setCellValueFactory(new PropertyValueFactory<>("nrCitations"));
 		nrCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		nrCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrCitations(event.getNewValue()); mainApp.reset();});
+		choices.add("nrBackgroundWorks");
+		nrBackgroundWorks.setCellValueFactory(new PropertyValueFactory<>("nrBackgroundWorks"));
+		nrBackgroundWorks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrBackgroundWorks.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrBackgroundWorks(event.getNewValue()); mainApp.reset();});
+		choices.add("nrBackgroundCitations");
+		nrBackgroundCitations.setCellValueFactory(new PropertyValueFactory<>("nrBackgroundCitations"));
+		nrBackgroundCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrBackgroundCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrBackgroundCitations(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

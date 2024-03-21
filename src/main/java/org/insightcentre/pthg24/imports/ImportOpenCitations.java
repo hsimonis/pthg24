@@ -32,6 +32,7 @@ public class ImportOpenCitations {
         this.base = base;
         this.citationDir = citationDir;
         assert(citationDir.endsWith("/"));
+        info("Reading opencitations");
         initWorkLookup();
         for(Work w:base.getListWork().stream().sorted(Comparator.comparing(Work::getYear)).collect(Collectors.toUnmodifiableList())) {
             info("Citations "+w.getName());
@@ -121,6 +122,9 @@ public class ImportOpenCitations {
 
     private void initWorkLookup(){
         for(Work w:base.getListWork()){
+            if (w.getYear() == null){
+                severe("Missing year "+w.getName());
+            }
             doiLookup.put(properDOI(w.getDoi()),w);
         }
     }

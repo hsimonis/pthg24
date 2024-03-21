@@ -1,3 +1,7 @@
  class Journal {
+Integer nrArticles
+Integer nrBackgroundArticles
+Integer nrBackgroundCitations
+Integer nrCitations
 String shortName
 }

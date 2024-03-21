@@ -12,13 +12,15 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import org.insightcentre.pthg24.GeneratedJfxApp;
+import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 
 /**
- * Generated at 19:06:17 on 2024-03-18 */
+ * Generated at 13:53:23 on 2024-03-21 */
 public class ProceedingsController extends Table3Controller {
 	@FXML
 	private TableView<Proceedings> table;
@@ -30,7 +32,7 @@ public class ProceedingsController extends Table3Controller {
 	private TableColumn<Proceedings, String> shortName;
 
 	@FXML
-	private TableColumn<Proceedings, String> series;
+	private TableColumn<Proceedings, ConferenceSeries> conferenceSeries;
 
 	private GeneratedJfxApp mainApp;
 
@@ -38,6 +40,8 @@ public class ProceedingsController extends Table3Controller {
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
 		table.setItems(mainApp.getProceedingsData());
+		conferenceSeries.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getConferenceSeriesData()));
+		conferenceSeries.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setConferenceSeries(event.getNewValue()); mainApp.reset();});
 	}
 
 	public TableView<Proceedings> getTable() {
@@ -57,10 +61,8 @@ public class ProceedingsController extends Table3Controller {
 		shortName.setCellValueFactory(new PropertyValueFactory<>("shortName"));
 		shortName.setCellFactory(TextFieldTableCell.forTableColumn());
 		shortName.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setShortName(event.getNewValue()); mainApp.reset();});
-		choices.add("series");
-		series.setCellValueFactory(new PropertyValueFactory<>("series"));
-		series.setCellFactory(TextFieldTableCell.forTableColumn());
-		series.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSeries(event.getNewValue()); mainApp.reset();});
+		choices.add("conferenceSeries");
+		conferenceSeries.setCellValueFactory(new PropertyValueFactory<>("conferenceSeries"));
 		initialize(choices);
 	}
 

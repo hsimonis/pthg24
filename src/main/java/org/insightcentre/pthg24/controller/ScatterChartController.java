@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 19:06:17 on 2024-03-18 */
+ * Generated at 13:53:23 on 2024-03-21 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -55,6 +55,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrWorks");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
+		attributeNames.add("nrBackgroundWorks");
+		filterNames.add("nrBackgroundWorks");
+		attributeNames.add("nrBackgroundCitations");
+		filterNames.add("nrBackgroundCitations");
 		choicesMap.put("Author", attributeNames);
 		filterMap.put("Author", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -75,13 +79,14 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrPages");
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
+		filterNames.add("background");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
 		filterNames.add("cpSystem");
 		filterNames.add("classification");
 		filterNames.add("constraints");
-		filterNames.add("basedOn");
+		filterNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -106,13 +111,14 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrPages");
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
+		filterNames.add("background");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
 		filterNames.add("cpSystem");
 		filterNames.add("classification");
 		filterNames.add("constraints");
-		filterNames.add("basedOn");
+		filterNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -138,13 +144,14 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrPages");
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
+		filterNames.add("background");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
 		filterNames.add("cpSystem");
 		filterNames.add("classification");
 		filterNames.add("constraints");
-		filterNames.add("basedOn");
+		filterNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -170,13 +177,14 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrPages");
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
+		filterNames.add("background");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
 		filterNames.add("cpSystem");
 		filterNames.add("classification");
 		filterNames.add("constraints");
-		filterNames.add("basedOn");
+		filterNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -202,13 +210,14 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrPages");
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
+		filterNames.add("background");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
 		filterNames.add("cpSystem");
 		filterNames.add("classification");
 		filterNames.add("constraints");
-		filterNames.add("basedOn");
+		filterNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -234,13 +243,14 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrPages");
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
+		filterNames.add("background");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
 		filterNames.add("cpSystem");
 		filterNames.add("classification");
 		filterNames.add("constraints");
-		filterNames.add("basedOn");
+		filterNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -266,13 +276,14 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrPages");
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
+		filterNames.add("background");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
 		filterNames.add("cpSystem");
 		filterNames.add("classification");
 		filterNames.add("constraints");
-		filterNames.add("basedOn");
+		filterNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -287,9 +298,39 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("work");
 		filterNames.add("name");
 		filterNames.add("shortName");
-		filterNames.add("series");
+		filterNames.add("conferenceSeries");
+		filterNames.add("name");
+		attributeNames.add("nrPapers");
+		filterNames.add("nrPapers");
+		attributeNames.add("nrCitations");
+		filterNames.add("nrCitations");
+		attributeNames.add("nrBackgroundPapers");
+		filterNames.add("nrBackgroundPapers");
+		attributeNames.add("nrBackgroundCitations");
+		filterNames.add("nrBackgroundCitations");
+		choicesMap.put("ConferenceSeries", attributeNames);
+		filterMap.put("ConferenceSeries", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
 		filterNames.add("name");
 		filterNames.add("shortName");
+		attributeNames.add("nrArticles");
+		filterNames.add("nrArticles");
+		attributeNames.add("nrBackgroundArticles");
+		filterNames.add("nrBackgroundArticles");
+		attributeNames.add("nrCitations");
+		filterNames.add("nrCitations");
+		attributeNames.add("nrBackgroundCitations");
+		filterNames.add("nrBackgroundCitations");
+		choicesMap.put("Journal", attributeNames);
+		filterMap.put("Journal", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("journal");
+		filterNames.add("alias");
 		filterNames.add("name");
 		filterNames.add("name");
 		filterNames.add("name");
@@ -406,8 +447,14 @@ public class ScatterChartController extends ChartXYFilterController {
 			else if (className.equals("Proceedings")) {
 				objectList = mainApp.getProceedingsData();
 			}
+			else if (className.equals("ConferenceSeries")) {
+				objectList = mainApp.getConferenceSeriesData();
+			}
 			else if (className.equals("Journal")) {
 				objectList = mainApp.getJournalData();
+			}
+			else if (className.equals("JournalAlias")) {
+				objectList = mainApp.getJournalAliasData();
 			}
 			else if (className.equals("School")) {
 				objectList = mainApp.getSchoolData();

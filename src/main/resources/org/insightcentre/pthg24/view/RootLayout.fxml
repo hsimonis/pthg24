@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<!--Generated at 19:06:17 on 2024-03-18-->
+<!--Generated at 13:53:23 on 2024-03-21-->
 
 
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.RootController">
@@ -76,7 +76,9 @@
                   <MenuItem id="bookPage" accelerator="Shortcut+B" onAction="#handle" text="Book" />
                   <MenuItem id="authorshipPage" onAction="#handle" text="Authorship" />
                   <MenuItem id="proceedingsPage" onAction="#handle" text="Proceedings" />
+                  <MenuItem id="conferenceSeriesPage" onAction="#handle" text="ConferenceSeries" />
                   <MenuItem id="journalPage" accelerator="Shortcut+J" onAction="#handle" text="Journal" />
+                  <MenuItem id="journalAliasPage" onAction="#handle" text="JournalAlias" />
                   <MenuItem id="schoolPage" onAction="#handle" text="School" />
                   <MenuItem id="collectionPage" onAction="#handle" text="Collection" />
                   <MenuItem id="conceptWorkPage" onAction="#handle" text="ConceptWork" />

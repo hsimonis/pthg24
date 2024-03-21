@@ -1,0 +1,6 @@
+ class ConferenceSeries {
+Integer nrBackgroundCitations
+Integer nrBackgroundPapers
+Integer nrCitations
+Integer nrPapers
+}

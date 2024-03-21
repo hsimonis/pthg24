@@ -27,7 +27,7 @@ public class ListWorksManual {
             out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}>{\\raggedright\\arraybackslash}p{6cm}lp{2cm}rrrrlp{2cm}p{2cm}rr}\n");
             out.printf("\\rowcolor{white}\\caption{Manually Defined %s Properties}\\\\ \\toprule\n",type);
             out.printf("\\rowcolor{white}Key & Title (Local Copy) & \\shortstack{CP\\\\System} & Bench & Links & \\shortstack{Data\\\\Avail} & " +
-                    "\\shortstack{Sol\\\\Avail} & \\shortstack{Code\\\\Avail} & \\shortstack{Based\\\\On} & " +
+                    "\\shortstack{Sol\\\\Avail} & \\shortstack{Code\\\\Avail} & \\shortstack{Related\\\\To} & " +
                     "Classification & Constraints & a & b\\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
@@ -45,7 +45,7 @@ public class ListWorksManual {
                         a.getDataAvail(),
                         a.getSolutionAvail(),
                         a.getCodeAvail(),
-                        a.getBasedOn(),
+                        a.getRelatedTo(),
                         a.getClassification(),
                         a.getConstraints(),
                         aLabelRef(a),

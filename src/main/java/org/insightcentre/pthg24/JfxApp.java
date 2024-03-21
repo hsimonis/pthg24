@@ -13,6 +13,7 @@ import org.insightcentre.pthg24.imports.*;
 import org.insightcentre.pthg24.pdfgrep.RunPDFGrep;
 import org.insightcentre.pthg24.pdfgrep.RunPDFInfo;
 import org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL;
+import org.insightcentre.pthg24.reports.PublicationReport;
 
 import static org.insightcentre.pthg24.datamodel.WorkType.*;
 
@@ -34,7 +35,9 @@ public class JfxApp extends GeneratedJfxApp {
                 String bibDir = "overview/";
                 String exportDir = "exports/";
                 new ImportConcepts(base,"imports/","concepts.json");
+                new ImportAlias(base,"imports/","alias.json");
                 new ImportBib(base,bibDir,"bib.bib");
+                new ImportBackground(base,"imports/","background.json");
                 new ImportExtra(base,"imports/","manual.csv");
                 new ImportOpenCitations(base,"citations/");
                 new ImportOpenReferences(base,"references/");
@@ -69,6 +72,8 @@ public class JfxApp extends GeneratedJfxApp {
                 new UnmatchedConcepts(base,exportDir,"unmatchedconcept.tex");
                 new KeyOverview(base,exportDir,"keylist.tex");
                 new WorksByAuthor(base,exportDir,"worksbyauthor.tex");
+
+                new PublicationReport(base,"reports/").produce("publications","Publication Report","H. Simonis");
 
                 return base;
         }

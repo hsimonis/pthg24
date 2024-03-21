@@ -2,6 +2,7 @@ enum WorkType
 WorkType: ARTICLE
 WorkType: PAPER
 WorkType: BOOK
+WorkType: COLLECTION
 WorkType: THESIS
 WorkType: INCOLLECTION
 WorkType: INBOOK

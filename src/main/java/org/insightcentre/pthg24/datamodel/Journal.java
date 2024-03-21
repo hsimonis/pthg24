@@ -16,7 +16,9 @@ import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Proceedings;
+import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
+import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
@@ -50,6 +52,34 @@ public  class Journal extends ApplicationObject{
  *
 */
 
+    public Integer nrArticles;
+
+/**
+ *  
+ *
+*/
+
+    public Integer nrBackgroundArticles;
+
+/**
+ *  
+ *
+*/
+
+    public Integer nrBackgroundCitations;
+
+/**
+ *  
+ *
+*/
+
+    public Integer nrCitations;
+
+/**
+ *  
+ *
+*/
+
     public String shortName;
 
 /**
@@ -71,6 +101,10 @@ public  class Journal extends ApplicationObject{
 
     public Journal(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setNrArticles(0);
+        setNrBackgroundArticles(0);
+        setNrBackgroundCitations(0);
+        setNrCitations(0);
         setShortName("");
         applicationDataset.addJournal(this);
     }
@@ -85,10 +119,18 @@ public  class Journal extends ApplicationObject{
     public Journal(ApplicationDataset applicationDataset,
             Integer id,
             String name,
+            Integer nrArticles,
+            Integer nrBackgroundArticles,
+            Integer nrBackgroundCitations,
+            Integer nrCitations,
             String shortName){
         super(applicationDataset,
             id,
             name);
+        setNrArticles(nrArticles);
+        setNrBackgroundArticles(nrBackgroundArticles);
+        setNrBackgroundCitations(nrBackgroundCitations);
+        setNrCitations(nrCitations);
         setShortName(shortName);
         applicationDataset.addJournal(this);
     }
@@ -97,6 +139,10 @@ public  class Journal extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
+            other.nrArticles,
+            other.nrBackgroundArticles,
+            other.nrBackgroundCitations,
+            other.nrCitations,
             other.shortName);
     }
 
@@ -108,8 +154,49 @@ public  class Journal extends ApplicationObject{
 */
 
     public Boolean remove(){
+        getApplicationDataset().cascadeJournalAliasJournal(this);
         getApplicationDataset().cascadeArticleJournal(this);
         return getApplicationDataset().removeJournal(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  get attribute nrArticles
+ *
+ * @return Integer
+*/
+
+    public Integer getNrArticles(){
+        return this.nrArticles;
+    }
+
+/**
+ *  get attribute nrBackgroundArticles
+ *
+ * @return Integer
+*/
+
+    public Integer getNrBackgroundArticles(){
+        return this.nrBackgroundArticles;
+    }
+
+/**
+ *  get attribute nrBackgroundCitations
+ *
+ * @return Integer
+*/
+
+    public Integer getNrBackgroundCitations(){
+        return this.nrBackgroundCitations;
+    }
+
+/**
+ *  get attribute nrCitations
+ *
+ * @return Integer
+*/
+
+    public Integer getNrCitations(){
+        return this.nrCitations;
     }
 
 /**
@@ -123,6 +210,54 @@ public  class Journal extends ApplicationObject{
     }
 
 /**
+ *  set attribute nrArticles, mark dataset as dirty, mark dataset as not valid
+@param nrArticles Integer
+ *
+*/
+
+    public void setNrArticles(Integer nrArticles){
+        this.nrArticles = nrArticles;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute nrBackgroundArticles, mark dataset as dirty, mark dataset as not valid
+@param nrBackgroundArticles Integer
+ *
+*/
+
+    public void setNrBackgroundArticles(Integer nrBackgroundArticles){
+        this.nrBackgroundArticles = nrBackgroundArticles;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute nrBackgroundCitations, mark dataset as dirty, mark dataset as not valid
+@param nrBackgroundCitations Integer
+ *
+*/
+
+    public void setNrBackgroundCitations(Integer nrBackgroundCitations){
+        this.nrBackgroundCitations = nrBackgroundCitations;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute nrCitations, mark dataset as dirty, mark dataset as not valid
+@param nrCitations Integer
+ *
+*/
+
+    public void setNrCitations(Integer nrCitations){
+        this.nrCitations = nrCitations;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute shortName, mark dataset as dirty, mark dataset as not valid
 @param shortName String
  *
@@ -130,6 +265,50 @@ public  class Journal extends ApplicationObject{
 
     public void setShortName(String shortName){
         this.shortName = shortName;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute nrArticles, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrArticles(){
+        this.nrArticles++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute nrBackgroundArticles, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrBackgroundArticles(){
+        this.nrBackgroundArticles++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute nrBackgroundCitations, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrBackgroundCitations(){
+        this.nrBackgroundCitations++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute nrCitations, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrCitations(){
+        this.nrCitations++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -151,7 +330,7 @@ public  class Journal extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getShortName();
+        return ""+ " " +getId()+ " " +getName()+ " " +getNrArticles()+ " " +getNrBackgroundArticles()+ " " +getNrBackgroundCitations()+ " " +getNrCitations()+ " " +getShortName();
     }
 
 /**
@@ -175,8 +354,52 @@ public  class Journal extends ApplicationObject{
          out.println("<journal "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
+            " nrArticles=\""+toXMLNrArticles()+"\""+
+            " nrBackgroundArticles=\""+toXMLNrBackgroundArticles()+"\""+
+            " nrBackgroundCitations=\""+toXMLNrBackgroundCitations()+"\""+
+            " nrCitations=\""+toXMLNrCitations()+"\""+
             " shortName=\""+toXMLShortName()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLNrArticles(){
+        return this.getNrArticles().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLNrBackgroundArticles(){
+        return this.getNrBackgroundArticles().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLNrBackgroundCitations(){
+        return this.getNrBackgroundCitations().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLNrCitations(){
+        return this.getNrCitations().toString();
+    }
 
 /**
  * helper method for toXML(), prcess one attribute
@@ -195,11 +418,11 @@ public  class Journal extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Journal</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"</tr>";
+        return "<tr><th>Journal</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>NrArticles</th>"+"<th>NrBackgroundArticles</th>"+"<th>NrCitations</th>"+"<th>NrBackgroundCitations</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getNrArticles()+"</td>"+ " " +"<td>"+getNrBackgroundArticles()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrBackgroundCitations()+"</td>"+"</tr>";
     }
 
 /**
@@ -319,10 +542,26 @@ public  class Journal extends ApplicationObject{
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
+      if(!this.getNrArticles().equals(b.getNrArticles())){
+         System.out.println("NrArticles");
+        }
+      if(!this.getNrBackgroundArticles().equals(b.getNrBackgroundArticles())){
+         System.out.println("NrBackgroundArticles");
+        }
+      if(!this.getNrBackgroundCitations().equals(b.getNrBackgroundCitations())){
+         System.out.println("NrBackgroundCitations");
+        }
+      if(!this.getNrCitations().equals(b.getNrCitations())){
+         System.out.println("NrCitations");
+        }
       if(!this.getShortName().equals(b.getShortName())){
          System.out.println("ShortName");
         }
         return  this.getName().equals(b.getName()) &&
+          this.getNrArticles().equals(b.getNrArticles()) &&
+          this.getNrBackgroundArticles().equals(b.getNrBackgroundArticles()) &&
+          this.getNrBackgroundCitations().equals(b.getNrBackgroundCitations()) &&
+          this.getNrCitations().equals(b.getNrCitations()) &&
           this.getShortName().equals(b.getShortName());
     }
 

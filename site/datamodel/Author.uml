@@ -1,6 +1,8 @@
  class Author {
 String familyName
 String key
+Integer nrBackgroundCitations
+Integer nrBackgroundWorks
 Integer nrCitations
 Integer nrWorks
 String shortName

@@ -3,6 +3,7 @@ package org.insightcentre.pthg24.controller;
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
 import java.lang.Exception;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -18,7 +19,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Journal;
 
 /**
- * Generated at 19:06:17 on 2024-03-18 */
+ * Generated at 13:53:23 on 2024-03-21 */
 public class JournalController extends Table3Controller {
 	@FXML
 	private TableView<Journal> table;
@@ -28,6 +29,18 @@ public class JournalController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Journal, String> shortName;
+
+	@FXML
+	private TableColumn<Journal, Integer> nrArticles;
+
+	@FXML
+	private TableColumn<Journal, Integer> nrBackgroundArticles;
+
+	@FXML
+	private TableColumn<Journal, Integer> nrCitations;
+
+	@FXML
+	private TableColumn<Journal, Integer> nrBackgroundCitations;
 
 	private GeneratedJfxApp mainApp;
 
@@ -54,6 +67,22 @@ public class JournalController extends Table3Controller {
 		shortName.setCellValueFactory(new PropertyValueFactory<>("shortName"));
 		shortName.setCellFactory(TextFieldTableCell.forTableColumn());
 		shortName.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setShortName(event.getNewValue()); mainApp.reset();});
+		choices.add("nrArticles");
+		nrArticles.setCellValueFactory(new PropertyValueFactory<>("nrArticles"));
+		nrArticles.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrArticles.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrArticles(event.getNewValue()); mainApp.reset();});
+		choices.add("nrBackgroundArticles");
+		nrBackgroundArticles.setCellValueFactory(new PropertyValueFactory<>("nrBackgroundArticles"));
+		nrBackgroundArticles.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrBackgroundArticles.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrBackgroundArticles(event.getNewValue()); mainApp.reset();});
+		choices.add("nrCitations");
+		nrCitations.setCellValueFactory(new PropertyValueFactory<>("nrCitations"));
+		nrCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrCitations(event.getNewValue()); mainApp.reset();});
+		choices.add("nrBackgroundCitations");
+		nrBackgroundCitations.setCellValueFactory(new PropertyValueFactory<>("nrBackgroundCitations"));
+		nrBackgroundCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrBackgroundCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrBackgroundCitations(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

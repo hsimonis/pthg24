@@ -16,7 +16,9 @@ import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Proceedings;
+import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
+import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
@@ -190,11 +192,25 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<Proceedings> listProceedings = new ArrayList<Proceedings>();
 
 /**
+ *  This lists holds all items of class ConferenceSeries and its subclasses
+ *
+*/
+
+    List<ConferenceSeries> listConferenceSeries = new ArrayList<ConferenceSeries>();
+
+/**
  *  This lists holds all items of class Journal and its subclasses
  *
 */
 
     List<Journal> listJournal = new ArrayList<Journal>();
+
+/**
+ *  This lists holds all items of class JournalAlias and its subclasses
+ *
+*/
+
+    List<JournalAlias> listJournalAlias = new ArrayList<JournalAlias>();
 
 /**
  *  This lists holds all items of class School and its subclasses
@@ -378,9 +394,11 @@ public int compareTo(ApplicationDataset ds2){
                              "Collection",
                              "Concept",
                              "ConceptWork",
+                             "ConferenceSeries",
                              "InBook",
                              "InCollection",
                              "Journal",
+                             "JournalAlias",
                              "MissingCitedWork",
                              "MissingCitingWork",
                              "Paper",
@@ -457,7 +475,9 @@ public int compareTo(ApplicationDataset ds2){
         resetListBook();
         resetListAuthorship();
         resetListProceedings();
+        resetListConferenceSeries();
         resetListJournal();
+        resetListJournalAlias();
         resetListSchool();
         resetListCollection();
         resetListConceptWork();
@@ -992,6 +1012,40 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class ConferenceSeries
+ *
+*/
+
+    public Iterator<ConferenceSeries> getIteratorConferenceSeries(){
+        return listConferenceSeries.iterator();
+    }
+
+/**
+ *  Getter for list of class ConferenceSeries
+ *
+*/
+
+    public List<ConferenceSeries> getListConferenceSeries(){
+        return listConferenceSeries;
+    }
+
+/**
+ *  reset the list of class ConferenceSeries; use with care, does not call cascades
+ *
+*/
+
+    public void resetListConferenceSeries(){
+        listConferenceSeries = new ArrayList<ConferenceSeries>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof ConferenceSeries)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Iterator for list of class Journal
  *
 */
@@ -1019,6 +1073,40 @@ public int compareTo(ApplicationDataset ds2){
         List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
         for(ApplicationObject a:listApplicationObject){
             if (!(a instanceof Journal)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class JournalAlias
+ *
+*/
+
+    public Iterator<JournalAlias> getIteratorJournalAlias(){
+        return listJournalAlias.iterator();
+    }
+
+/**
+ *  Getter for list of class JournalAlias
+ *
+*/
+
+    public List<JournalAlias> getListJournalAlias(){
+        return listJournalAlias;
+    }
+
+/**
+ *  reset the list of class JournalAlias; use with care, does not call cascades
+ *
+*/
+
+    public void resetListJournalAlias(){
+        listJournalAlias = new ArrayList<JournalAlias>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof JournalAlias)){
                 newListApplicationObject.add(a);
             }
         }
@@ -1374,6 +1462,42 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(Work b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class ConferenceSeries; remove all dependent objects of class Proceedings which refer to item through their attribute conferenceSeries
+ *
+*/
+
+    public void cascadeProceedingsConferenceSeries(ConferenceSeries item){
+        assert item != null;
+        List<Proceedings> toRemove = new ArrayList<Proceedings>();
+        for(Proceedings a:getListProceedings()) {
+         if (a.getConferenceSeries() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Proceedings b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Journal; remove all dependent objects of class JournalAlias which refer to item through their attribute journal
+ *
+*/
+
+    public void cascadeJournalAliasJournal(Journal item){
+        assert item != null;
+        List<JournalAlias> toRemove = new ArrayList<JournalAlias>();
+        for(JournalAlias a:getListJournalAlias()) {
+         if (a.getJournal() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(JournalAlias b:toRemove) {
             b.remove();
         }
     }
@@ -1915,6 +2039,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class ConferenceSeries
+ *
+*/
+
+    public void addConferenceSeries(ConferenceSeries conferenceSeries){
+        assert conferenceSeries != null;
+        this.listConferenceSeries.add(conferenceSeries);
+    }
+
+/**
+ *  remove an item from the list for class ConferenceSeries
+ *
+*/
+
+    public Boolean removeConferenceSeries(ConferenceSeries conferenceSeries){
+        assert conferenceSeries != null;
+        return this.listConferenceSeries.remove(conferenceSeries);
+    }
+
+/**
  *  add an item to the list for class Journal
  *
 */
@@ -1932,6 +2076,26 @@ public int compareTo(ApplicationDataset ds2){
     public Boolean removeJournal(Journal journal){
         assert journal != null;
         return this.listJournal.remove(journal);
+    }
+
+/**
+ *  add an item to the list for class JournalAlias
+ *
+*/
+
+    public void addJournalAlias(JournalAlias journalAlias){
+        assert journalAlias != null;
+        this.listJournalAlias.add(journalAlias);
+    }
+
+/**
+ *  remove an item from the list for class JournalAlias
+ *
+*/
+
+    public Boolean removeJournalAlias(JournalAlias journalAlias){
+        assert journalAlias != null;
+        return this.listJournalAlias.remove(journalAlias);
     }
 
 /**
@@ -2110,6 +2274,9 @@ public int compareTo(ApplicationDataset ds2){
         for(ConceptWork x:getListConceptWork()){
             System.out.println(x);
         }
+        for(ConferenceSeries x:getListConferenceSeries()){
+            System.out.println(x);
+        }
         for(InBook x:getListInBook()){
             System.out.println(x);
         }
@@ -2117,6 +2284,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(Journal x:getListJournal()){
+            System.out.println(x);
+        }
+        for(JournalAlias x:getListJournalAlias()){
             System.out.println(x);
         }
         for(MissingCitedWork x:getListMissingCitedWork()){
@@ -2209,6 +2379,9 @@ public int compareTo(ApplicationDataset ds2){
         for(ConceptWork x:getListConceptWork()){
             if (x.getClass().equals(ConceptWork.class)) x.toXML(out);
         }
+        for(ConferenceSeries x:getListConferenceSeries()){
+            if (x.getClass().equals(ConferenceSeries.class)) x.toXML(out);
+        }
         for(InBook x:getListInBook()){
             if (x.getClass().equals(InBook.class)) x.toXML(out);
         }
@@ -2217,6 +2390,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(Journal x:getListJournal()){
             if (x.getClass().equals(Journal.class)) x.toXML(out);
+        }
+        for(JournalAlias x:getListJournalAlias()){
+            if (x.getClass().equals(JournalAlias.class)) x.toXML(out);
         }
         for(MissingCitedWork x:getListMissingCitedWork()){
             if (x.getClass().equals(MissingCitedWork.class)) x.toXML(out);
@@ -2343,9 +2519,11 @@ public int compareTo(ApplicationDataset ds2){
         compareCollection(this.getListCollection(),compare.getListCollection());
         compareConcept(this.getListConcept(),compare.getListConcept());
         compareConceptWork(this.getListConceptWork(),compare.getListConceptWork());
+        compareConferenceSeries(this.getListConferenceSeries(),compare.getListConferenceSeries());
         compareInBook(this.getListInBook(),compare.getListInBook());
         compareInCollection(this.getListInCollection(),compare.getListInCollection());
         compareJournal(this.getListJournal(),compare.getListJournal());
+        compareJournalAlias(this.getListJournalAlias(),compare.getListJournalAlias());
         compareMissingCitedWork(this.getListMissingCitedWork(),compare.getListMissingCitedWork());
         compareMissingCitingWork(this.getListMissingCitingWork(),compare.getListMissingCitingWork());
         comparePaper(this.getListPaper(),compare.getListPaper());
@@ -2573,6 +2751,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types ConferenceSeries, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareConferenceSeries(List<ConferenceSeries> aList,List<ConferenceSeries> bList){
+        System.out.println("Comparing ConferenceSeries");
+        for(ConferenceSeries a:aList){
+            ConferenceSeries b= ConferenceSeries.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConferenceSeries A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConferenceSeries A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConferenceSeries B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(ConferenceSeries b: bList){
+            ConferenceSeries a = ConferenceSeries.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConferenceSeries B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types InBook, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -2640,6 +2842,30 @@ public int compareTo(ApplicationDataset ds2){
             Journal a = Journal.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Journal B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types JournalAlias, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareJournalAlias(List<JournalAlias> aList,List<JournalAlias> bList){
+        System.out.println("Comparing JournalAlias");
+        for(JournalAlias a:aList){
+            JournalAlias b= JournalAlias.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"JournalAlias A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"JournalAlias A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"JournalAlias B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(JournalAlias b: bList){
+            JournalAlias a = JournalAlias.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"JournalAlias B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -2827,9 +3053,11 @@ public int compareTo(ApplicationDataset ds2){
         checkCollection(this.getListCollection());
         checkConcept(this.getListConcept());
         checkConceptWork(this.getListConceptWork());
+        checkConferenceSeries(this.getListConferenceSeries());
         checkInBook(this.getListInBook());
         checkInCollection(this.getListInCollection());
         checkJournal(this.getListJournal());
+        checkJournalAlias(this.getListJournalAlias());
         checkMissingCitedWork(this.getListMissingCitedWork());
         checkMissingCitingWork(this.getListMissingCitingWork());
         checkPaper(this.getListPaper());
@@ -2941,6 +3169,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<ConferenceSeries> dataset list of all items of type ConferenceSeries
+*/
+
+    public void checkConferenceSeries(List<ConferenceSeries> list){
+        for(ConferenceSeries a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<InBook> dataset list of all items of type InBook
 */
 
@@ -2968,6 +3207,17 @@ public int compareTo(ApplicationDataset ds2){
 
     public void checkJournal(List<Journal> list){
         for(Journal a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<JournalAlias> dataset list of all items of type JournalAlias
+*/
+
+    public void checkJournalAlias(List<JournalAlias> list){
+        for(JournalAlias a:list){
             a.check();
         }
     }
@@ -3071,9 +3321,11 @@ public int compareTo(ApplicationDataset ds2){
         Collection.dummy(this);
         Concept.dummy(this);
         ConceptWork.dummy(this);
+        ConferenceSeries.dummy(this);
         InBook.dummy(this);
         InCollection.dummy(this);
         Journal.dummy(this);
+        JournalAlias.dummy(this);
         MissingCitedWork.dummy(this);
         MissingCitingWork.dummy(this);
         Paper.dummy(this);

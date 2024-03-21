@@ -31,9 +31,11 @@ import org.insightcentre.pthg24.datamodel.Citation;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
+import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.Journal;
+import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.Paper;
@@ -46,7 +48,7 @@ import org.insightcentre.pthg24.datamodel.Work;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 19:06:16 on 2024-03-18 */
+ * Generated at 13:53:22 on 2024-03-21 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -86,7 +88,11 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<Proceedings> proceedingsData = FXCollections.observableArrayList();
 
+	private ObservableList<ConferenceSeries> conferenceSeriesData = FXCollections.observableArrayList();
+
 	private ObservableList<Journal> journalData = FXCollections.observableArrayList();
+
+	private ObservableList<JournalAlias> journalAliasData = FXCollections.observableArrayList();
 
 	private ObservableList<School> schoolData = FXCollections.observableArrayList();
 
@@ -117,7 +123,9 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("Book", "Book");
 		tableViews.put("Authorship", "Authorship");
 		tableViews.put("Proceedings", "Proceedings");
+		tableViews.put("ConferenceSeries", "ConferenceSeries");
 		tableViews.put("Journal", "Journal");
+		tableViews.put("JournalAlias", "JournalAlias");
 		tableViews.put("School", "School");
 		tableViews.put("Collection", "Collection");
 		tableViews.put("ConceptWork", "ConceptWork");
@@ -225,8 +233,12 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		authorshipData.addAll(base.getListAuthorship());
 		proceedingsData.clear();
 		proceedingsData.addAll(base.getListProceedings());
+		conferenceSeriesData.clear();
+		conferenceSeriesData.addAll(base.getListConferenceSeries());
 		journalData.clear();
 		journalData.addAll(base.getListJournal());
+		journalAliasData.clear();
+		journalAliasData.addAll(base.getListJournalAlias());
 		schoolData.clear();
 		schoolData.addAll(base.getListSchool());
 		collectionData.clear();
@@ -302,8 +314,16 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		return proceedingsData;
 	}
 
+	public ObservableList<ConferenceSeries> getConferenceSeriesData() {
+		return conferenceSeriesData;
+	}
+
 	public ObservableList<Journal> getJournalData() {
 		return journalData;
+	}
+
+	public ObservableList<JournalAlias> getJournalAliasData() {
+		return journalAliasData;
 	}
 
 	public ObservableList<School> getSchoolData() {

@@ -16,7 +16,9 @@ import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Proceedings;
+import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
+import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
@@ -64,7 +66,9 @@ public abstract class Work extends ApplicationObject{
  *
 */
 
-    public String basedOn;
+    public Boolean background;
+
+    private transient BooleanProperty backgroundWrapper;
 
 /**
  *  
@@ -162,6 +166,13 @@ public abstract class Work extends ApplicationObject{
  *
 */
 
+    public String relatedTo;
+
+/**
+ *  
+ *
+*/
+
     public String solutionAvail;
 
 /**
@@ -206,7 +217,7 @@ public abstract class Work extends ApplicationObject{
         super(applicationDataset);
         setAuthor("");
         setAuthors(new ArrayList<Author>());
-        setBasedOn("");
+        setBackground(false);
         setClassification("");
         setCodeAvail("");
         setConstraints("");
@@ -220,6 +231,7 @@ public abstract class Work extends ApplicationObject{
         setNrPages(0);
         setNrReferences(0);
         setPages("");
+        setRelatedTo("");
         setSolutionAvail("");
         setTitle("");
         setUrl("");
@@ -239,7 +251,7 @@ public abstract class Work extends ApplicationObject{
             String name,
             String author,
             List<Author> authors,
-            String basedOn,
+            Boolean background,
             String classification,
             String codeAvail,
             String constraints,
@@ -253,6 +265,7 @@ public abstract class Work extends ApplicationObject{
             Integer nrPages,
             Integer nrReferences,
             String pages,
+            String relatedTo,
             String solutionAvail,
             String title,
             String url,
@@ -262,7 +275,7 @@ public abstract class Work extends ApplicationObject{
             name);
         setAuthor(author);
         setAuthors(authors);
-        setBasedOn(basedOn);
+        setBackground(background);
         setClassification(classification);
         setCodeAvail(codeAvail);
         setConstraints(constraints);
@@ -276,6 +289,7 @@ public abstract class Work extends ApplicationObject{
         setNrPages(nrPages);
         setNrReferences(nrReferences);
         setPages(pages);
+        setRelatedTo(relatedTo);
         setSolutionAvail(solutionAvail);
         setTitle(title);
         setUrl(url);
@@ -289,7 +303,7 @@ public abstract class Work extends ApplicationObject{
             other.name,
             other.author,
             other.authors,
-            other.basedOn,
+            other.background,
             other.classification,
             other.codeAvail,
             other.constraints,
@@ -303,6 +317,7 @@ public abstract class Work extends ApplicationObject{
             other.nrPages,
             other.nrReferences,
             other.pages,
+            other.relatedTo,
             other.solutionAvail,
             other.title,
             other.url,
@@ -347,13 +362,21 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
- *  get attribute basedOn
+ *  get attribute background
  *
- * @return String
+ * @return Boolean
 */
 
-    public String getBasedOn(){
-        return this.basedOn;
+    public Boolean getBackground(){
+        return this.background;
+    }
+
+    public BooleanProperty backgroundWrapperProperty() {
+        if (backgroundWrapper == null) {
+            backgroundWrapper = new SimpleBooleanProperty();
+        }
+        backgroundWrapper.set(background);
+        return backgroundWrapper;
     }
 
 /**
@@ -487,6 +510,16 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  get attribute relatedTo
+ *
+ * @return String
+*/
+
+    public String getRelatedTo(){
+        return this.relatedTo;
+    }
+
+/**
  *  get attribute solutionAvail
  *
  * @return String
@@ -551,13 +584,13 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
- *  set attribute basedOn, mark dataset as dirty, mark dataset as not valid
-@param basedOn String
+ *  set attribute background, mark dataset as dirty, mark dataset as not valid
+@param background Boolean
  *
 */
 
-    public void setBasedOn(String basedOn){
-        this.basedOn = basedOn;
+    public void setBackground(Boolean background){
+        this.background = background;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -719,6 +752,18 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  set attribute relatedTo, mark dataset as dirty, mark dataset as not valid
+@param relatedTo String
+ *
+*/
+
+    public void setRelatedTo(String relatedTo){
+        this.relatedTo = relatedTo;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute solutionAvail, mark dataset as dirty, mark dataset as not valid
 @param solutionAvail String
  *
@@ -838,7 +883,7 @@ public abstract class Work extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBasedOn()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrCitations()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getPages()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrCitations()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getPages()+ " " +getRelatedTo()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear();
     }
 
 /**
@@ -864,7 +909,7 @@ public abstract class Work extends ApplicationObject{
             " name=\""+toXMLName()+"\""+
             " author=\""+toXMLAuthor()+"\""+
             " authors=\""+toXMLAuthors()+"\""+
-            " basedOn=\""+toXMLBasedOn()+"\""+
+            " background=\""+toXMLBackground()+"\""+
             " classification=\""+toXMLClassification()+"\""+
             " codeAvail=\""+toXMLCodeAvail()+"\""+
             " constraints=\""+toXMLConstraints()+"\""+
@@ -878,6 +923,7 @@ public abstract class Work extends ApplicationObject{
             " nrPages=\""+toXMLNrPages()+"\""+
             " nrReferences=\""+toXMLNrReferences()+"\""+
             " pages=\""+toXMLPages()+"\""+
+            " relatedTo=\""+toXMLRelatedTo()+"\""+
             " solutionAvail=\""+toXMLSolutionAvail()+"\""+
             " title=\""+toXMLTitle()+"\""+
             " url=\""+toXMLUrl()+"\""+
@@ -914,8 +960,8 @@ public abstract class Work extends ApplicationObject{
  * @return String
 */
 
-    String toXMLBasedOn(){
-        return this.safeXML(getBasedOn());
+    String toXMLBackground(){
+        return this.getBackground().toString();
     }
 
 /**
@@ -1046,6 +1092,16 @@ public abstract class Work extends ApplicationObject{
 
     String toXMLPages(){
         return this.safeXML(getPages());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLRelatedTo(){
+        return this.safeXML(getRelatedTo());
     }
 
 /**
@@ -1187,8 +1243,8 @@ public abstract class Work extends ApplicationObject{
         }
       if (true) {         System.out.println("Authors");
         }
-      if(!this.getBasedOn().equals(b.getBasedOn())){
-         System.out.println("BasedOn");
+      if(!this.getBackground().equals(b.getBackground())){
+         System.out.println("Background");
         }
       if(!this.getClassification().equals(b.getClassification())){
          System.out.println("Classification");
@@ -1232,6 +1288,9 @@ public abstract class Work extends ApplicationObject{
       if(!this.getPages().equals(b.getPages())){
          System.out.println("Pages");
         }
+      if(!this.getRelatedTo().equals(b.getRelatedTo())){
+         System.out.println("RelatedTo");
+        }
       if(!this.getSolutionAvail().equals(b.getSolutionAvail())){
          System.out.println("SolutionAvail");
         }
@@ -1246,7 +1305,7 @@ public abstract class Work extends ApplicationObject{
         }
         return  this.getAuthor().equals(b.getAuthor()) &&
           true &&
-          this.getBasedOn().equals(b.getBasedOn()) &&
+          this.getBackground().equals(b.getBackground()) &&
           this.getClassification().equals(b.getClassification()) &&
           this.getCodeAvail().equals(b.getCodeAvail()) &&
           this.getConstraints().equals(b.getConstraints()) &&
@@ -1261,6 +1320,7 @@ public abstract class Work extends ApplicationObject{
           this.getNrPages().equals(b.getNrPages()) &&
           this.getNrReferences().equals(b.getNrReferences()) &&
           this.getPages().equals(b.getPages()) &&
+          this.getRelatedTo().equals(b.getRelatedTo()) &&
           this.getSolutionAvail().equals(b.getSolutionAvail()) &&
           this.getTitle().equals(b.getTitle()) &&
           this.getUrl().equals(b.getUrl()) &&

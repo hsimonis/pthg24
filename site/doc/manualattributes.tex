@@ -21,6 +21,8 @@ $\square$\ & familyName &  \\
 $\square$\ & key &  \\
 $\square$\ & nrWorks &  \\
 $\square$\ & nrCitations &  \\
+$\square$\ & nrBackgroundWorks &  \\
+$\square$\ & nrBackgroundCitations &  \\
 \end{longtable}
 \label{attr:Author}
 \end{table}
@@ -101,6 +103,19 @@ $\square$\ & matchLevel &  \\
 \end{table}
 
 \begin{table}
+\caption{ConferenceSeries  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & nrPapers &  \\
+$\square$\ & nrCitations &  \\
+$\square$\ & nrBackgroundPapers &  \\
+$\square$\ & nrBackgroundCitations &  \\
+\end{longtable}
+\label{attr:ConferenceSeries}
+\end{table}
+
+\begin{table}
 \caption{InBook  }
 
 \begin{longtable}{llp{8cm}}
@@ -120,17 +135,32 @@ $\square$\ & collection &  \\
 \label{attr:InCollection}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Journal  }
 
 \begin{longtable}{llp{8cm}}
 & Attribute & Description \\
 $\square$\ & shortName &  \\
+$\square$\ & nrArticles &  \\
+$\square$\ & nrBackgroundArticles &  \\
+$\square$\ & nrCitations &  \\
+$\square$\ & nrBackgroundCitations &  \\
 \end{longtable}
 \label{attr:Journal}
 \end{table}
 
-\clearpage
+\begin{table}
+\caption{JournalAlias  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & journal &  \\
+$\square$\ & alias &  \\
+\end{longtable}
+\label{attr:JournalAlias}
+\end{table}
+
 \begin{table}
 \caption{MissingCitedWork  }
 
@@ -163,6 +193,7 @@ $\square$\ & proceedings &  \\
 \label{attr:Paper}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{PhDThesis  }
 
@@ -179,12 +210,11 @@ $\square$\ & school &  \\
 \begin{longtable}{llp{8cm}}
 & Attribute & Description \\
 $\square$\ & shortName &  \\
-$\square$\ & series &  \\
+$\square$\ & conferenceSeries &  \\
 \end{longtable}
 \label{attr:Proceedings}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Reference  }
 
@@ -221,6 +251,7 @@ $\square$\ & journalSC &  \\
 \label{attr:School}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Work  }
 
@@ -237,13 +268,14 @@ $\square$\ & year &  \\
 $\square$\ & pages &  \\
 $\square$\ & nrPages &  \\
 $\square$\ & nrLinks &  \\
+$\square$\ & background &  \\
 $\square$\ & dataAvail &  \\
 $\square$\ & codeAvail &  \\
 $\square$\ & solutionAvail &  \\
 $\square$\ & cpSystem &  \\
 $\square$\ & classification &  \\
 $\square$\ & constraints &  \\
-$\square$\ & basedOn &  \\
+$\square$\ & relatedTo &  \\
 $\square$\ & nrCitations &  \\
 $\square$\ & nrReferences &  \\
 \end{longtable}

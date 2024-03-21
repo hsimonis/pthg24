@@ -312,6 +312,25 @@ public ConceptType getConceptType(String attributeName,
         return res;
     }
 
+    public ConferenceSeries getConferenceSeries(String attributeName,
+                               Attributes attributes) {
+        return (ConferenceSeries) find(getId(attributeName,attributes));
+    }
+
+    public List<ConferenceSeries> getConferenceSeriesCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<ConferenceSeries> res = new ArrayList<ConferenceSeries>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((ConferenceSeries) find(id));
+            }
+        }
+        return res;
+    }
+
     public InBook getInBook(String attributeName,
                                Attributes attributes) {
         return (InBook) find(getId(attributeName,attributes));
@@ -364,6 +383,25 @@ public ConceptType getConceptType(String attributeName,
             if (words[i].length() > 0) {
                 int id = Integer.parseInt(words[i].substring(3));
                 res.add((Journal) find(id));
+            }
+        }
+        return res;
+    }
+
+    public JournalAlias getJournalAlias(String attributeName,
+                               Attributes attributes) {
+        return (JournalAlias) find(getId(attributeName,attributes));
+    }
+
+    public List<JournalAlias> getJournalAliasCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<JournalAlias> res = new ArrayList<JournalAlias>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((JournalAlias) find(id));
             }
         }
         return res;
@@ -596,7 +634,7 @@ public ConceptType getConceptType(String attributeName,
                         getString("name", attributes, "dummy"),
                         getString("author",attributes,""),
                         null,
-                        getString("basedOn",attributes,""),
+                        getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
@@ -610,6 +648,7 @@ public ConceptType getConceptType(String attributeName,
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
                         getString("pages",attributes,""),
+                        getString("relatedTo",attributes,""),
                         getString("solutionAvail",attributes,""),
                         getString("title",attributes,""),
                         getString("url",attributes,""),
@@ -624,6 +663,8 @@ public ConceptType getConceptType(String attributeName,
                         getString("name", attributes, "dummy"),
                         getString("familyName",attributes,""),
                         getString("key",attributes,""),
+                        getInteger("nrBackgroundCitations",attributes,0),
+                        getInteger("nrBackgroundWorks",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrWorks",attributes,0),
                         getString("shortName",attributes,"")
@@ -645,7 +686,7 @@ public ConceptType getConceptType(String attributeName,
                         getString("name", attributes, "dummy"),
                         getString("author",attributes,""),
                         null,
-                        getString("basedOn",attributes,""),
+                        getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
@@ -659,6 +700,7 @@ public ConceptType getConceptType(String attributeName,
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
                         getString("pages",attributes,""),
+                        getString("relatedTo",attributes,""),
                         getString("solutionAvail",attributes,""),
                         getString("title",attributes,""),
                         getString("url",attributes,""),
@@ -710,6 +752,17 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         null
                         ));
+            } else if (qname.equals("conferenceSeries")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new ConferenceSeries(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getInteger("nrBackgroundCitations",attributes,0),
+                        getInteger("nrBackgroundPapers",attributes,0),
+                        getInteger("nrCitations",attributes,0),
+                        getInteger("nrPapers",attributes,0)
+                        ));
             } else if (qname.equals("inBook")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -718,7 +771,7 @@ public ConceptType getConceptType(String attributeName,
                         getString("name", attributes, "dummy"),
                         getString("author",attributes,""),
                         null,
-                        getString("basedOn",attributes,""),
+                        getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
@@ -732,6 +785,7 @@ public ConceptType getConceptType(String attributeName,
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
                         getString("pages",attributes,""),
+                        getString("relatedTo",attributes,""),
                         getString("solutionAvail",attributes,""),
                         getString("title",attributes,""),
                         getString("url",attributes,""),
@@ -746,7 +800,7 @@ public ConceptType getConceptType(String attributeName,
                         getString("name", attributes, "dummy"),
                         getString("author",attributes,""),
                         null,
-                        getString("basedOn",attributes,""),
+                        getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
@@ -760,6 +814,7 @@ public ConceptType getConceptType(String attributeName,
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
                         getString("pages",attributes,""),
+                        getString("relatedTo",attributes,""),
                         getString("solutionAvail",attributes,""),
                         getString("title",attributes,""),
                         getString("url",attributes,""),
@@ -772,7 +827,20 @@ public ConceptType getConceptType(String attributeName,
                 store(id, new Journal(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getInteger("nrArticles",attributes,0),
+                        getInteger("nrBackgroundArticles",attributes,0),
+                        getInteger("nrBackgroundCitations",attributes,0),
+                        getInteger("nrCitations",attributes,0),
                         getString("shortName",attributes,"")
+                        ));
+            } else if (qname.equals("journalAlias")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new JournalAlias(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getString("alias",attributes,""),
+                        null
                         ));
             } else if (qname.equals("missingCitedWork")) {
                 assert (base != null);
@@ -800,7 +868,7 @@ public ConceptType getConceptType(String attributeName,
                         getString("name", attributes, "dummy"),
                         getString("author",attributes,""),
                         null,
-                        getString("basedOn",attributes,""),
+                        getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
@@ -814,6 +882,7 @@ public ConceptType getConceptType(String attributeName,
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
                         getString("pages",attributes,""),
+                        getString("relatedTo",attributes,""),
                         getString("solutionAvail",attributes,""),
                         getString("title",attributes,""),
                         getString("url",attributes,""),
@@ -828,7 +897,7 @@ public ConceptType getConceptType(String attributeName,
                         getString("name", attributes, "dummy"),
                         getString("author",attributes,""),
                         null,
-                        getString("basedOn",attributes,""),
+                        getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
@@ -842,6 +911,7 @@ public ConceptType getConceptType(String attributeName,
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
                         getString("pages",attributes,""),
+                        getString("relatedTo",attributes,""),
                         getString("solutionAvail",attributes,""),
                         getString("title",attributes,""),
                         getString("url",attributes,""),
@@ -854,7 +924,7 @@ public ConceptType getConceptType(String attributeName,
                 store(id, new Proceedings(base,
                         id,
                         getString("name", attributes, "dummy"),
-                        getString("series",attributes,""),
+                        null,
                         getString("shortName",attributes,"")
                         ));
             } else if (qname.equals("reference")) {
@@ -964,6 +1034,10 @@ public ConceptType getConceptType(String attributeName,
                  item.setConcept(getConcept("concept",attributes));
                  item.setMatchLevel(getMatchLevel("matchLevel",attributes));
                  item.setWork(getWork("work",attributes));
+            } else if (qname.equals("conferenceSeries")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                ConferenceSeries item = (ConferenceSeries) find(id);
             } else if (qname.equals("inBook")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -979,6 +1053,11 @@ public ConceptType getConceptType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 Journal item = (Journal) find(id);
+            } else if (qname.equals("journalAlias")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                JournalAlias item = (JournalAlias) find(id);
+                 item.setJournal(getJournal("journal",attributes));
             } else if (qname.equals("missingCitedWork")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1003,6 +1082,7 @@ public ConceptType getConceptType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 Proceedings item = (Proceedings) find(id);
+                 item.setConferenceSeries(getConferenceSeries("conferenceSeries",attributes));
             } else if (qname.equals("reference")) {
                 assert (base != null);
                 int id = getId("id", attributes);

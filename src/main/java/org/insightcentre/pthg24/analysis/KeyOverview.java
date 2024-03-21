@@ -34,7 +34,7 @@ public class KeyOverview {
             for(Work w:sorted){
                 out.printf("\\href{%s}{%s}~\\cite{%s}",
                         w.getLocalCopy(),safe(w.getName()),
-                        w.getName());
+                        safe(w.getName()));
                 if (++i % nrColumns == 0){
                     out.printf("\\\\ \n");
                 } else {
@@ -51,8 +51,9 @@ public class KeyOverview {
 
     private List<Work> sortedWorks(Scenario base){
         return base.getListWork().stream().
+                filter(x -> !x.getBackground()).
                 sorted(Comparator.comparing(Work::getName)).
-                collect(Collectors.toUnmodifiableList());
+                toList();
     }
 
 

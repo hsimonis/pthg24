@@ -51,8 +51,9 @@ public class AnalysisByConcept {
 
     private List<Concept> sortedConcepts(Scenario base,ConceptType type){
         return base.getListConcept().stream().
-                filter(x->x.getConceptType()==type).
-                sorted(Comparator.comparing(Concept::getName)).collect(Collectors.toUnmodifiableList());
+                filter(x -> x.getConceptType() == type).
+                sorted(Comparator.comparing(Concept::getName)).
+                toList();
     }
 
     private String dirName(Work w){
@@ -66,18 +67,18 @@ public class AnalysisByConcept {
     private List<Work> sortedWorks(Scenario base){
         return base.getListWork().stream().
                 sorted(Comparator.comparing(Work::getName)).
-                collect(Collectors.toUnmodifiableList());
+                toList();
     }
 
     private String concepts(Scenario base, Concept c, MatchLevel level){
         int limit = 30;
         List<String> citations = base.getListConceptWork().stream().
-                filter(x->x.getConcept()==c).
-                filter(x->x.getMatchLevel()==level).
+                filter(x -> x.getConcept() == c).
+                filter(x -> x.getMatchLevel() == level).
+                filter(x -> !x.getWork().getBackground()).
                 sorted(Comparator.comparing(this::getYear).reversed()).
-                map(x->citation(x.getWork())).
-
-                collect(Collectors.toUnmodifiableList());
+                map(x -> citation(x.getWork())).
+                toList();
         if (citations.size() > limit){
             return String.join(", ", citations.subList(0,limit-1))+"... (Total: "+citations.size()+")";
         } else {

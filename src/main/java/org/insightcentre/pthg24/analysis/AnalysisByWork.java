@@ -63,10 +63,11 @@ public class AnalysisByWork {
 
     private List<Work> sortedWorks(Scenario base,WorkType type){
         return base.getListWork().stream().
-                filter(x->workType(x,type)).
-                filter(x->!x.getLocalCopy().equals("")).
+                filter(x -> workType(x, type)).
+                filter(x -> !x.getLocalCopy().equals("")).
+                filter(x -> !x.getBackground()).
                 sorted(Comparator.comparing(Work::getName)).
-                collect(Collectors.toUnmodifiableList());
+                toList();
     }
 
     private boolean workType(Work w,WorkType type){
@@ -78,11 +79,11 @@ public class AnalysisByWork {
 
     public static String concepts(Scenario base,Work w,ConceptType type){
         List<String> concepts = base.getListConceptWork().stream().
-                filter(x->x.getWork()==w).
-                filter(x->x.getMatchLevel() != None).
-                filter(x->x.getConcept().getConceptType()==type).
-                map(x->safer(safe(x.getConcept().getName()))).
-                collect(Collectors.toUnmodifiableList());
+                filter(x -> x.getWork() == w).
+                filter(x -> x.getMatchLevel() != None).
+                filter(x -> x.getConcept().getConceptType() == type).
+                map(x -> safer(safe(x.getConcept().getName()))).
+                toList();
         return String.join(", ",concepts);
     }
 

@@ -16,7 +16,9 @@ import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Proceedings;
+import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
+import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
@@ -50,7 +52,7 @@ public  class Proceedings extends ApplicationObject{
  *
 */
 
-    public String series;
+    public ConferenceSeries conferenceSeries;
 
 /**
  *  
@@ -78,7 +80,7 @@ public  class Proceedings extends ApplicationObject{
 
     public Proceedings(ApplicationDataset applicationDataset){
         super(applicationDataset);
-        setSeries("");
+        setConferenceSeries(null);
         setShortName("");
         applicationDataset.addProceedings(this);
     }
@@ -93,12 +95,12 @@ public  class Proceedings extends ApplicationObject{
     public Proceedings(ApplicationDataset applicationDataset,
             Integer id,
             String name,
-            String series,
+            ConferenceSeries conferenceSeries,
             String shortName){
         super(applicationDataset,
             id,
             name);
-        setSeries(series);
+        setConferenceSeries(conferenceSeries);
         setShortName(shortName);
         applicationDataset.addProceedings(this);
     }
@@ -107,7 +109,7 @@ public  class Proceedings extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
-            other.series,
+            other.conferenceSeries,
             other.shortName);
     }
 
@@ -124,13 +126,13 @@ public  class Proceedings extends ApplicationObject{
     }
 
 /**
- *  get attribute series
+ *  get attribute conferenceSeries
  *
- * @return String
+ * @return ConferenceSeries
 */
 
-    public String getSeries(){
-        return this.series;
+    public ConferenceSeries getConferenceSeries(){
+        return this.conferenceSeries;
     }
 
 /**
@@ -144,13 +146,13 @@ public  class Proceedings extends ApplicationObject{
     }
 
 /**
- *  set attribute series, mark dataset as dirty, mark dataset as not valid
-@param series String
+ *  set attribute conferenceSeries, mark dataset as dirty, mark dataset as not valid
+@param conferenceSeries ConferenceSeries
  *
 */
 
-    public void setSeries(String series){
-        this.series = series;
+    public void setConferenceSeries(ConferenceSeries conferenceSeries){
+        this.conferenceSeries = conferenceSeries;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -184,7 +186,7 @@ public  class Proceedings extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getSeries()+ " " +getShortName();
+        return ""+ " " +getId()+ " " +getName()+ " " +getConferenceSeries().toColumnString()+ " " +getShortName();
     }
 
 /**
@@ -208,7 +210,7 @@ public  class Proceedings extends ApplicationObject{
          out.println("<proceedings "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
-            " series=\""+toXMLSeries()+"\""+
+            " conferenceSeries=\""+toXMLConferenceSeries()+"\""+
             " shortName=\""+toXMLShortName()+"\""+" />");
      }
 
@@ -218,8 +220,8 @@ public  class Proceedings extends ApplicationObject{
  * @return String
 */
 
-    String toXMLSeries(){
-        return this.safeXML(getSeries());
+    String toXMLConferenceSeries(){
+        return "ID_"+this.getConferenceSeries().getId().toString();
     }
 
 /**
@@ -239,11 +241,11 @@ public  class Proceedings extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Proceedings</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>Series</th>"+"</tr>";
+        return "<tr><th>Proceedings</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>ConferenceSeries</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getSeries()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getConferenceSeries().toColumnString()+"</td>"+"</tr>";
     }
 
 /**
@@ -360,17 +362,17 @@ public  class Proceedings extends ApplicationObject{
 */
 
     public Boolean applicationEqual(Proceedings b){
+      if(!this.getConferenceSeries().applicationSame(b.getConferenceSeries())){
+         System.out.println("ConferenceSeries");
+        }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
-        }
-      if(!this.getSeries().equals(b.getSeries())){
-         System.out.println("Series");
         }
       if(!this.getShortName().equals(b.getShortName())){
          System.out.println("ShortName");
         }
-        return  this.getName().equals(b.getName()) &&
-          this.getSeries().equals(b.getSeries()) &&
+        return  this.getConferenceSeries().applicationSame(b.getConferenceSeries()) &&
+          this.getName().equals(b.getName()) &&
           this.getShortName().equals(b.getShortName());
     }
 
@@ -382,6 +384,9 @@ public  class Proceedings extends ApplicationObject{
     public void check(){
         if (getApplicationDataset() == null){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"applicationDataset","Proceedings",(getApplicationDataset()==null?"null":getApplicationDataset().toString()),"",WarningType.NOTNULL);
+        }
+        if (getConferenceSeries() == null){
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"conferenceSeries","Proceedings",(getConferenceSeries()==null?"null":getConferenceSeries().toString()),"",WarningType.NOTNULL);
         }
     }
 
@@ -399,6 +404,9 @@ public  class Proceedings extends ApplicationObject{
     }
 
    public List<ApplicationObjectInterface> getFeasibleValues(ApplicationDatasetInterface base,String attrName){
+      if (attrName.equals("conferenceSeries")){
+         return (List) ((Scenario)base).getListConferenceSeries();
+      }
       return null;
    }
 

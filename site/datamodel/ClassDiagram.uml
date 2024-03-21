@@ -32,9 +32,11 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include Collection.uml
 !include Concept.uml
 !include ConceptWork.uml
+!include ConferenceSeries.uml
 !include InBook.uml
 !include InCollection.uml
 !include Journal.uml
+!include JournalAlias.uml
 !include MissingCitedWork.uml
 !include MissingCitingWork.uml
 !include Paper.uml
@@ -61,6 +63,8 @@ Work <|-- InBook
 Work <|-- Book
 ApplicationDataset  *-- ApplicationObject 
 Author "1..*" *-- Work : authors
+ConferenceSeries  *-- Proceedings 
+Journal  *-- JournalAlias 
 Journal  *-- Article 
 Proceedings  *-- Paper 
 School  *-- PhDThesis 

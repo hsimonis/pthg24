@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 19:06:17 on 2024-03-18-->
+<!--Generated at 13:53:23 on 2024-03-21-->
 
 
 <Tab text="Proceedings" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.ProceedingsController">
@@ -20,7 +20,7 @@
             <columns>
                <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
                <TableColumn fx:id="shortName" styleClass="right-aligned" text="ShortName" />
-               <TableColumn fx:id="series" styleClass="right-aligned" text="Series" />
+               <TableColumn fx:id="conferenceSeries" styleClass="right-aligned" text="ConferenceSeries" />
             </columns>
          </TableView>
       </center>

@@ -1,7 +1,7 @@
 abstract class Work {
 String author
 List<Author> authors
-String basedOn
+Boolean background
 String classification
 String codeAvail
 String constraints
@@ -15,6 +15,7 @@ Integer nrLinks
 Integer nrPages
 Integer nrReferences
 String pages
+String relatedTo
 String solutionAvail
 String title
 String url

@@ -16,7 +16,9 @@ import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Proceedings;
+import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
+import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
@@ -64,6 +66,20 @@ public  class Author extends ApplicationObject implements AppearInCollection{
  *
 */
 
+    public Integer nrBackgroundCitations;
+
+/**
+ *  
+ *
+*/
+
+    public Integer nrBackgroundWorks;
+
+/**
+ *  
+ *
+*/
+
     public Integer nrCitations;
 
 /**
@@ -101,6 +117,8 @@ public  class Author extends ApplicationObject implements AppearInCollection{
         super(applicationDataset);
         setFamilyName("");
         setKey("");
+        setNrBackgroundCitations(0);
+        setNrBackgroundWorks(0);
         setNrCitations(0);
         setNrWorks(0);
         setShortName("");
@@ -119,6 +137,8 @@ public  class Author extends ApplicationObject implements AppearInCollection{
             String name,
             String familyName,
             String key,
+            Integer nrBackgroundCitations,
+            Integer nrBackgroundWorks,
             Integer nrCitations,
             Integer nrWorks,
             String shortName){
@@ -127,6 +147,8 @@ public  class Author extends ApplicationObject implements AppearInCollection{
             name);
         setFamilyName(familyName);
         setKey(key);
+        setNrBackgroundCitations(nrBackgroundCitations);
+        setNrBackgroundWorks(nrBackgroundWorks);
         setNrCitations(nrCitations);
         setNrWorks(nrWorks);
         setShortName(shortName);
@@ -139,6 +161,8 @@ public  class Author extends ApplicationObject implements AppearInCollection{
             other.name,
             other.familyName,
             other.key,
+            other.nrBackgroundCitations,
+            other.nrBackgroundWorks,
             other.nrCitations,
             other.nrWorks,
             other.shortName);
@@ -188,6 +212,26 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 
     public String getKey(){
         return this.key;
+    }
+
+/**
+ *  get attribute nrBackgroundCitations
+ *
+ * @return Integer
+*/
+
+    public Integer getNrBackgroundCitations(){
+        return this.nrBackgroundCitations;
+    }
+
+/**
+ *  get attribute nrBackgroundWorks
+ *
+ * @return Integer
+*/
+
+    public Integer getNrBackgroundWorks(){
+        return this.nrBackgroundWorks;
     }
 
 /**
@@ -245,6 +289,30 @@ public  class Author extends ApplicationObject implements AppearInCollection{
     }
 
 /**
+ *  set attribute nrBackgroundCitations, mark dataset as dirty, mark dataset as not valid
+@param nrBackgroundCitations Integer
+ *
+*/
+
+    public void setNrBackgroundCitations(Integer nrBackgroundCitations){
+        this.nrBackgroundCitations = nrBackgroundCitations;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute nrBackgroundWorks, mark dataset as dirty, mark dataset as not valid
+@param nrBackgroundWorks Integer
+ *
+*/
+
+    public void setNrBackgroundWorks(Integer nrBackgroundWorks){
+        this.nrBackgroundWorks = nrBackgroundWorks;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute nrCitations, mark dataset as dirty, mark dataset as not valid
 @param nrCitations Integer
  *
@@ -276,6 +344,28 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 
     public void setShortName(String shortName){
         this.shortName = shortName;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute nrBackgroundCitations, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrBackgroundCitations(){
+        this.nrBackgroundCitations++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute nrBackgroundWorks, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrBackgroundWorks(){
+        this.nrBackgroundWorks++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -319,7 +409,7 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getFamilyName()+ " " +getKey()+ " " +getNrCitations()+ " " +getNrWorks()+ " " +getShortName();
+        return ""+ " " +getId()+ " " +getName()+ " " +getFamilyName()+ " " +getKey()+ " " +getNrBackgroundCitations()+ " " +getNrBackgroundWorks()+ " " +getNrCitations()+ " " +getNrWorks()+ " " +getShortName();
     }
 
 /**
@@ -345,6 +435,8 @@ public  class Author extends ApplicationObject implements AppearInCollection{
             " name=\""+toXMLName()+"\""+
             " familyName=\""+toXMLFamilyName()+"\""+
             " key=\""+toXMLKey()+"\""+
+            " nrBackgroundCitations=\""+toXMLNrBackgroundCitations()+"\""+
+            " nrBackgroundWorks=\""+toXMLNrBackgroundWorks()+"\""+
             " nrCitations=\""+toXMLNrCitations()+"\""+
             " nrWorks=\""+toXMLNrWorks()+"\""+
             " shortName=\""+toXMLShortName()+"\""+" />");
@@ -368,6 +460,26 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 
     String toXMLKey(){
         return this.safeXML(getKey());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLNrBackgroundCitations(){
+        return this.getNrBackgroundCitations().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLNrBackgroundWorks(){
+        return this.getNrBackgroundWorks().toString();
     }
 
 /**
@@ -407,11 +519,11 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Author</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>FamilyName</th>"+"<th>Key</th>"+"<th>NrWorks</th>"+"<th>NrCitations</th>"+"</tr>";
+        return "<tr><th>Author</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>FamilyName</th>"+"<th>Key</th>"+"<th>NrWorks</th>"+"<th>NrCitations</th>"+"<th>NrBackgroundWorks</th>"+"<th>NrBackgroundCitations</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getFamilyName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getNrWorks()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getFamilyName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getNrWorks()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrBackgroundWorks()+"</td>"+ " " +"<td>"+getNrBackgroundCitations()+"</td>"+"</tr>";
     }
 
 /**
@@ -537,6 +649,12 @@ public  class Author extends ApplicationObject implements AppearInCollection{
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
+      if(!this.getNrBackgroundCitations().equals(b.getNrBackgroundCitations())){
+         System.out.println("NrBackgroundCitations");
+        }
+      if(!this.getNrBackgroundWorks().equals(b.getNrBackgroundWorks())){
+         System.out.println("NrBackgroundWorks");
+        }
       if(!this.getNrCitations().equals(b.getNrCitations())){
          System.out.println("NrCitations");
         }
@@ -549,6 +667,8 @@ public  class Author extends ApplicationObject implements AppearInCollection{
         return  this.getFamilyName().equals(b.getFamilyName()) &&
           this.getKey().equals(b.getKey()) &&
           this.getName().equals(b.getName()) &&
+          this.getNrBackgroundCitations().equals(b.getNrBackgroundCitations()) &&
+          this.getNrBackgroundWorks().equals(b.getNrBackgroundWorks()) &&
           this.getNrCitations().equals(b.getNrCitations()) &&
           this.getNrWorks().equals(b.getNrWorks()) &&
           this.getShortName().equals(b.getShortName());

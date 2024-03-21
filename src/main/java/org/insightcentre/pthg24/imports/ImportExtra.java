@@ -28,7 +28,7 @@ public class ImportExtra {
                 String system = nextLine[col++].trim();
                 String data = nextLine[col++].trim();
                 String code = nextLine[col++].trim();
-                String basedOn = nextLine[col++].trim();
+                String relatedTo = nextLine[col++].trim();
                 String classification = nextLine[col++].trim();
                 String constraints = nextLine[col++].trim();
 
@@ -40,7 +40,7 @@ public class ImportExtra {
                 w.setCpSystem(system);
                 w.setDataAvail(data);
                 w.setCodeAvail(code);
-                w.setBasedOn(basedOn);
+                w.setRelatedTo(relatedTo);
                 w.setClassification(classification);
                 w.setConstraints(constraints);
                 if (nextLine.length> 7){

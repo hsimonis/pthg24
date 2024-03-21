@@ -119,39 +119,48 @@ public class ListWorks {
         return a.getLocalCopy() != null && !a.getLocalCopy().equals("");
     }
 
+    public static List<Work> notBackground(List<Work> list){
+        return list.stream().filter(x->!x.getBackground()).collect(Collectors.toList());
+    }
+
     public static List<Work> sortedWorks(Scenario base,WorkType type){
         switch(type) {
 
             case PAPER:
-                return base.getListPaper().stream().
+                return notBackground(base.getListPaper().stream().
                         sorted(Comparator.comparing(Work::getYear).reversed().
                                 thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList());
+                        collect(Collectors.toUnmodifiableList()));
             case ARTICLE:
-                return base.getListArticle().stream().
+                return notBackground(base.getListArticle().stream().
                         sorted(Comparator.comparing(Work::getYear).reversed().
                                 thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList());
+                        collect(Collectors.toUnmodifiableList()));
             case BOOK:
-                return base.getListBook().stream().
+                return notBackground(base.getListBook().stream().
                         sorted(Comparator.comparing(Work::getYear).reversed().
                                 thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList());
+                        collect(Collectors.toUnmodifiableList()));
+//            case COLLECTION:
+//                return notBackground(base.getListCollection().stream().
+//                        sorted(Comparator.comparing(Work::getYear).reversed().
+//                                thenComparing(Work::getName)).
+//                        collect(Collectors.toUnmodifiableList()));
             case THESIS:
-                return base.getListPhDThesis().stream().
+                return notBackground(base.getListPhDThesis().stream().
                         sorted(Comparator.comparing(Work::getYear).reversed().
                                 thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList());
+                        collect(Collectors.toUnmodifiableList()));
             case INBOOK:
-                return base.getListInBook().stream().
+                return notBackground(base.getListInBook().stream().
                         sorted(Comparator.comparing(Work::getYear).reversed().
                                 thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList());
+                        collect(Collectors.toUnmodifiableList()));
             case INCOLLECTION:
-                return base.getListInCollection().stream().
+                return notBackground(base.getListInCollection().stream().
                         sorted(Comparator.comparing(Work::getYear).reversed().
                                 thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList());
+                        collect(Collectors.toUnmodifiableList()));
             default:
                 return new ArrayList<>();
         }

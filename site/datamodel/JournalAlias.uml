@@ -1,0 +1,4 @@
+ class JournalAlias {
+String alias
+Journal journal
+}
