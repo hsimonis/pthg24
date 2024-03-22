@@ -181,7 +181,7 @@ public class PublicationReport extends AbstractReport{
                 filter(x->x<200).
                 sorted().
                 toList(),new LinePlotFunctions<>(x->x,x->citationCount(map,x))).
-                grid().
+//                grid().
                 width(25).height(15).
                 title("Nr Citation Distribution Plot ").
                 xlabel("Nr Citations").ylabel("Nr Works").
