@@ -186,6 +186,7 @@
 {"type":"CPSystems", "label": "OR-Tools" ,"regExpr":"or.?tools"},
 {"type":"CPSystems", "label": "OPL" ,"regExpr":"OPL"},
 {"type":"CPSystems", "label": "CHIP" ,"regExpr":"CHIP","caseSensitive":true,"revision":1},
+{"type":"CPSystems", "label": "SCIP" ,"regExpr":"SCIP","caseSensitive":true},
 {"type":"CPSystems", "label": "Z3" ,"regExpr":"Z3"},
 {"type":"CPSystems", "label": "OZ" ,"regExpr":"OZ"},
 {"type":"CPSystems", "label": "Claire" ,"regExpr":"claire"},

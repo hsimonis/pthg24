@@ -171,7 +171,7 @@ Ola Angelsmark and Peter Jonsson.
 \newblock \href {https://doi.org/10.1007/3-540-45349-0\_35}
   {\path{doi:10.1007/3-540-45349-0\_35}}.
 
-\bibitem{AntunesABDEGGOL18}
+\bibitem{AntunesABD18}
 Mark Antunes, Vincent Armant, Kenneth~N. Brown, Daniel~A. Desmond, Guillaume
   Escamocher, Anne{-}Marie George, Diarmuid Grimes, Mike O'Keeffe, Yiqing Lin,
   Barry O'Sullivan, Cemalettin Ozturk, Luis Quesada, Mohamed Siala, Helmut
@@ -185,7 +185,7 @@ Mark Antunes, Vincent Armant, Kenneth~N. Brown, Daniel~A. Desmond, Guillaume
 \newblock \href {https://doi.org/10.1109/ICTAI.2018.00027}
   {\path{doi:10.1109/ICTAI.2018.00027}}.
 
-\bibitem{AntunesABDEGGOL20}
+\bibitem{AntunesABD20}
 Mark Antunes, Vincent Armant, Kenneth~N. Brown, Daniel~A. Desmond, Guillaume
   Escamocher, Anne{-}Marie George, Diarmuid Grimes, Mike O'Keeffe, Yiqing Lin,
   Barry O'Sullivan, Cemalettin Ozturk, Luis Quesada, Mohamed Siala, Helmut
@@ -1338,6 +1338,16 @@ Pedro~M. Castro, Ignacio~E. Grossmann, and Louis-Martin Rousseau.
   {https://doi.org/10.1007/978-1-4419-1644-0_4}
   {\path{doi:10.1007/978-1-4419-1644-0_4}}.
 
+\bibitem{CatusseCBL16}
+Nicolas Catusse, Hadrien Cambazard, Nadia Brauner, Pierre Lemaire, Bernard
+  Penz, Anne{-}Marie Lagrange, and Pascal Rubini.
+\newblock A branch-and-price algorithm for scheduling observations on a
+  telescope.
+\newblock In Subbarao Kambhampati, editor, {\em Proceedings of the Twenty-Fifth
+  International Joint Conference on Artificial Intelligence, {IJCAI} 2016, New
+  York, NY, USA, 9-15 July 2016}, pages 3060--3066. {IJCAI/AAAI} Press, 2016.
+\newblock URL: \url{http://www.ijcai.org/Abstract/16/434}.
+
 \bibitem{CauwelaertDMS16}
 Sascha~Van Cauwelaert, Cyrille Dejemeppe, Jean{-}No{\"{e}}l Monette, and Pierre
   Schaus.
@@ -1760,6 +1770,14 @@ Bistra Dilkina, Lei Duan, and William~S. Havens.
   Computer Science}, pages 762--766. Springer, 2005.
 \newblock \href {https://doi.org/10.1007/11564751\_60}
   {\path{doi:10.1007/11564751\_60}}.
+
+\bibitem{DincbasHSAGB88}
+Mehmet Dincbas, Pascal~Van Hentenryck, Helmut Simonis, Abderrahmane Aggoun,
+  Thomas Graf, and Fran{\c{c}}oise Berthier.
+\newblock The constraint logic programming language {CHIP}.
+\newblock In {\em Proceedings of the International Conference on Fifth
+  Generation Computer Systems, {FGCS} 1988, Tokyo, Japan, November 28-December
+  2, 1988}, pages 693--702. {OHMSHA} Ltd. Tokyo and Springer-Verlag, 1988.
 
 \bibitem{DincbasSH90}
 Mehmet Dincbas, Helmut Simonis, and Pascal~Van Hentenryck.
@@ -2689,7 +2707,7 @@ Iiro Harjunkoski and Ignacio~E. Grossmann.
   {https://doi.org/10.1016/s0098-1354(02)00100-x}
   {\path{doi:10.1016/s0098-1354(02)00100-x}}.
 
-\bibitem{HarjunkoskiMBCEGHMSW14}
+\bibitem{HarjunkoskiMBC14}
 Iiro Harjunkoski, Christos~T. Maravelias, Peter Bongers, Pedro~M. Castro,
   Sebastian Engell, Ignacio~E. Grossmann, John~N. Hooker, Carlos Méndez, Guido
   Sand, and John Wassick.
@@ -3052,6 +3070,14 @@ John~N. Hooker and Hong Yan.
   Lecture Notes in Computer Science}, pages 686--690. Springer, 2002.
 \newblock \href {https://doi.org/10.1007/3-540-46135-3\_46}
   {\path{doi:10.1007/3-540-46135-3\_46}}.
+
+\bibitem{HoundjiSW19}
+Vinas{\'{e}}tan~Ratheil Houndji, Pierre Schaus, and Laurence~A. Wolsey.
+\newblock The item dependent stockingcost constraint.
+\newblock {\em Constraints An Int. J.}, 24(2):183--209, 2019.
+\newblock URL: \url{https://doi.org/10.1007/s10601-018-9300-y}, \href
+  {https://doi.org/10.1007/S10601-018-9300-Y}
+  {\path{doi:10.1007/S10601-018-9300-Y}}.
 
 \bibitem{HoundjiSWD14}
 Vinas{\'{e}}tan~Ratheil Houndji, Pierre Schaus, Laurence~A. Wolsey, and Yves
@@ -4097,6 +4123,25 @@ Arnaud Malapert.
 \newblock PhD thesis, {\'{E}}cole des mines de Nantes, France, 2011.
 \newblock URL: \url{https://tel.archives-ouvertes.fr/tel-00630122}.
 
+\bibitem{MalapertCGJLR12}
+Arnaud Malapert, Hadrien Cambazard, Christelle Gu{\'{e}}ret, Narendra Jussien,
+  Andr{\'{e}} Langevin, and Louis{-}Martin Rousseau.
+\newblock An optimal constraint programming approach to the open-shop problem.
+\newblock {\em {INFORMS} J. Comput.}, 24(2):228--244, 2012.
+\newblock URL: \url{https://doi.org/10.1287/ijoc.1100.0446}, \href
+  {https://doi.org/10.1287/IJOC.1100.0446} {\path{doi:10.1287/IJOC.1100.0446}}.
+
+\bibitem{MalapertCGJLR13}
+Arnaud Malapert, Hadrien Cambazard, Christelle Gu{\'{e}}ret, Narendra Jussien,
+  Andr{\'{e}} Langevin, and Louis{-}Martin Rousseau.
+\newblock An optimal constraint programming approach to the open-shop problem.
+\newblock In Daniel Borrajo, Subbarao Kambhampati, Angelo Oddi, and Simone
+  Fratini, editors, {\em Proceedings of the Twenty-Third International
+  Conference on Automated Planning and Scheduling, {ICAPS} 2013, Rome, Italy,
+  June 10-14, 2013}. {AAAI}, 2013.
+\newblock URL:
+  \url{http://www.aaai.org/ocs/index.php/ICAPS/ICAPS13/paper/view/6016}.
+
 \bibitem{MalapertN19}
 Arnaud Malapert and Margaux Nattaf.
 \newblock A new cp-approach for a parallel machine scheduling problem with time
@@ -4484,6 +4529,35 @@ Margaux Nattaf, Christian Artigues, and Pierre Lopez.
   {https://doi.org/10.1007/S10601-017-9271-4}
   {\path{doi:10.1007/S10601-017-9271-4}}.
 
+\bibitem{NattafALR16}
+Margaux Nattaf, Christian Artigues, Pierre Lopez, and David Rivreau.
+\newblock Energetic reasoning and mixed-integer linear programming for
+  scheduling with a continuous resource and linear efficiency functions.
+\newblock {\em {OR} Spectr.}, 38(2):459--492, 2016.
+\newblock URL: \url{https://doi.org/10.1007/s00291-015-0423-x}, \href
+  {https://doi.org/10.1007/S00291-015-0423-X}
+  {\path{doi:10.1007/S00291-015-0423-X}}.
+
+\bibitem{NattafDYW19}
+Margaux Nattaf, St{\'{e}}phane Dauz{\`{e}}re{-}P{\'{e}}r{\`{e}}s, Claude Yugma,
+  and Cheng{-}Hung Wu.
+\newblock Parallel machine scheduling with time constraints on machine
+  qualifications.
+\newblock {\em Comput. Oper. Res.}, 107:61--76, 2019.
+\newblock URL: \url{https://doi.org/10.1016/j.cor.2019.03.004}, \href
+  {https://doi.org/10.1016/J.COR.2019.03.004}
+  {\path{doi:10.1016/J.COR.2019.03.004}}.
+
+\bibitem{NattafHKAL19}
+Margaux Nattaf, Mark{\'{o}} Horv{\'{a}}th, Tam{\'{a}}s Kis, Christian Artigues,
+  and Pierre Lopez.
+\newblock Polyhedral results and valid inequalities for the continuous
+  energy-constrained scheduling problem.
+\newblock {\em Discret. Appl. Math.}, 258:188--203, 2019.
+\newblock URL: \url{https://doi.org/10.1016/j.dam.2018.11.008}, \href
+  {https://doi.org/10.1016/J.DAM.2018.11.008}
+  {\path{doi:10.1016/J.DAM.2018.11.008}}.
+
 \bibitem{NattafM20}
 Margaux Nattaf and Arnaud Malapert.
 \newblock Filtering rules for flow time minimization in a parallel machine
@@ -4746,6 +4820,16 @@ Joseph~C. Pemberton and Flavius~Galiber III.
   Science}, pages 101--114. {DIMACS/AMS}, 1998.
 \newblock URL: \url{https://doi.org/10.1090/dimacs/057/06}, \href
   {https://doi.org/10.1090/DIMACS/057/06} {\path{doi:10.1090/DIMACS/057/06}}.
+
+\bibitem{PenzDN23}
+Louise Penz, St{\'{e}}phane Dauz{\`{e}}re{-}P{\'{e}}r{\`{e}}s, and Margaux
+  Nattaf.
+\newblock Minimizing the sum of completion times on a single machine with
+  health index and flexible maintenance operations.
+\newblock {\em Comput. Oper. Res.}, 151:106092, 2023.
+\newblock URL: \url{https://doi.org/10.1016/j.cor.2022.106092}, \href
+  {https://doi.org/10.1016/J.COR.2022.106092}
+  {\path{doi:10.1016/J.COR.2022.106092}}.
 
 \bibitem{PerezGSL23}
 Guillaume Perez, Ga{\"{e}}l Glorian, Wijnand Suijlen, and Arnaud Lallouet.
@@ -5080,6 +5164,16 @@ Hani~El Sakkout and Mark Wallace.
 \newblock {\em Constraints An Int. J.}, 5(4):359--388, 2000.
 \newblock \href {https://doi.org/10.1023/A:1009856210543}
   {\path{doi:10.1023/A:1009856210543}}.
+
+\bibitem{SchausD08}
+Pierre Schaus and Yves Deville.
+\newblock A global constraint for bin-packing with precedences: Application to
+  the assembly line balancing problem.
+\newblock In Dieter Fox and Carla~P. Gomes, editors, {\em Proceedings of the
+  Twenty-Third {AAAI} Conference on Artificial Intelligence, {AAAI} 2008,
+  Chicago, Illinois, USA, July 13-17, 2008}, pages 369--374. {AAAI} Press,
+  2008.
+\newblock URL: \url{http://www.aaai.org/Library/AAAI/2008/aaai08-058.php}.
 
 \bibitem{SchausHMCMD11}
 Pierre Schaus, Pascal~Van Hentenryck, Jean{-}No{\"{e}}l Monette, Carleton
@@ -5615,6 +5709,18 @@ Dhananjay~R. Thiruvady, Mark Wallace, Hanyu Gu, and Andreas Schutt.
 \newblock URL: \url{https://doi.org/10.1007/s10732-014-9260-3}, \href
   {https://doi.org/10.1007/S10732-014-9260-3}
   {\path{doi:10.1007/S10732-014-9260-3}}.
+
+\bibitem{ThomasKS20}
+Charles Thomas, Roger Kameugne, and Pierre Schaus.
+\newblock Insertion sequence variables for hybrid routing and scheduling
+  problems.
+\newblock In Emmanuel Hebrard and Nysret Musliu, editors, {\em Integration of
+  Constraint Programming, Artificial Intelligence, and Operations Research -
+  17th International Conference, {CPAIOR} 2020, Vienna, Austria, September
+  21-24, 2020, Proceedings}, volume 12296 of {\em Lecture Notes in Computer
+  Science}, pages 457--474. Springer, 2020.
+\newblock \href {https://doi.org/10.1007/978-3-030-58942-4\_30}
+  {\path{doi:10.1007/978-3-030-58942-4\_30}}.
 
 \bibitem{Thorsteinsson01}
 Erlendur~S. Thorsteinsson.

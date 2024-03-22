@@ -5,8 +5,11 @@ import framework.reports.visualization.plot.distributionplot.DistributionPlot;
 import framework.reports.visualization.plot.distributionplot.DistributionPlotOrdering;
 import framework.reports.visualization.plot.lineplot.LinePlot;
 import framework.reports.visualization.plot.lineplot.LinePlotFunctions;
+import framework.reports.visualization.tabular.table.TableDraw;
+import org.insightcentre.pthg24.analysis.ListWorks;
 import org.insightcentre.pthg24.datamodel.*;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -28,6 +31,7 @@ public class PublicationReport extends AbstractReport{
                 base.getListWork().stream().filter(x->!x.getBackground()).filter(x->x instanceof PhDThesis).collect(Collectors.toList()));
         coAuthorDistributionPlot(base.getListWork().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
         workDistributionPlot(base.getListAuthor().stream().filter(x->x.getNrWorks() >0).collect(Collectors.toList()));
+        citationDistributionPlot(base.getListWork().stream().filter(x->!x.getBackground()).toList());
     }
 
     private void bySeries(List<Paper> work){
@@ -169,4 +173,28 @@ public class PublicationReport extends AbstractReport{
                 xlabel("Nr Works").ylabel("Co-Author Count").
                 generate().latex(tex);
     }
+
+    private void citationDistributionPlot(List<Work> works){
+        Map<Integer,List<Work>> map = works.stream().collect(groupingBy(Work::getNrCitations));
+        new LinePlot<>(map.keySet().stream().
+                filter(x->x>0).
+                filter(x->x<200).
+                sorted().
+                toList(),new LinePlotFunctions<>(x->x,x->citationCount(map,x))).
+                grid().
+                width(25).height(15).
+                title("Nr Citation Distribution Plot ").
+                xlabel("Nr Citations").ylabel("Nr Works").
+                generate().latex(tex);
+    }
+
+    private int citationCount(Map<Integer,List<Work>> map,Integer x){
+        List<Work> list = map.get(x);
+        if (list==null){
+            return 0;
+        }
+        return list.size();
+    }
+
+
 }

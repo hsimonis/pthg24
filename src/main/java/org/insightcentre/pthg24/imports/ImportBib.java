@@ -292,7 +292,7 @@ public class ImportBib {
                 "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE","CCL'99",
                 "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL","ICORES","SOCS","SAT",
                 "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA",
-                "Canadian AI","CSCLP","LION"
+                "Canadian AI","CSCLP","LION","FGCS"
         };
         for(String cand:series) {
             if (text.contains(cand)) {

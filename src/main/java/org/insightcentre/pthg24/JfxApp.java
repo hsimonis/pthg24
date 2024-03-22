@@ -15,6 +15,8 @@ import org.insightcentre.pthg24.pdfgrep.RunPDFInfo;
 import org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL;
 import org.insightcentre.pthg24.reports.PublicationReport;
 
+import java.util.Comparator;
+
 import static org.insightcentre.pthg24.datamodel.WorkType.*;
 
 public class JfxApp extends GeneratedJfxApp {
@@ -57,6 +59,15 @@ public class JfxApp extends GeneratedJfxApp {
                 new ListWorks(base,THESIS,exportDir,"thesis.tex");
                 new ListWorks(base,INCOLLECTION,exportDir,"incollection.tex");
                 new ListWorks(base,INBOOK,exportDir,"inbook.tex");
+                new ListWorks(base,base.getListWork().stream().
+                        filter(x->!x.getBackground()).
+                        sorted(Comparator.comparing(Work::getNrCitations).reversed()).
+                        limit(30).
+                        toList(),exportDir,"mostcited.tex");
+                new ListWorks(base,base.getListWork().stream().
+                        filter(Work::getBackground).
+                        sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getKey)).
+                        toList(),exportDir,"background.tex");
 
                 new ListAuthors(base,exportDir,"authors.tex");
                 new AnalysisByWork(base,ARTICLE,exportDir,"conceptsarticle.tex");
@@ -73,7 +84,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new KeyOverview(base,exportDir,"keylist.tex");
                 new WorksByAuthor(base,exportDir,"worksbyauthor.tex");
 
-                new PublicationReport(base,"reports/").produce("publications","Publication Report","H. Simonis");
+                new PublicationReport(base,"reports/").produce("publications","Publication Report","H. Simonis and Cemalettin Öztürk");
 
                 return base;
         }

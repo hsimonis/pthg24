@@ -32,6 +32,17 @@ public class ListWorks {
             severe("Cannot write file: "+fullName+", exception "+e.getMessage());
         }
     }
+    public ListWorks(Scenario base, List<Work> works, String exportDir, String fileName){
+        assert(exportDir.endsWith("/"));
+        String fullName= exportDir+fileName;
+        try{
+            PrintWriter out = new PrintWriter(fullName);
+            showTable(out,base,works,false);
+            out.close();
+        } catch(IOException e){
+            severe("Cannot write file: "+fullName+", exception "+e.getMessage());
+        }
+    }
 
     private void showTable(PrintWriter out,Scenario base,List<Work> works,boolean showLabel){
         out.printf("{\\scriptsize\n");
@@ -74,14 +85,18 @@ public class ListWorks {
         return "\\ref{a:"+w.getName()+"}";
     }
     public static String bLabelRef(Work w){
-        if (w.getLocalCopy().equals("")){
+        if (w.getLocalCopy().equals("") || w.getBackground()){
             return "No";
         } else {
             return "\\ref{b:"+w.getName()+"}";
         }
     }
     public static String cLabelRef(Work w){
-        return "\\ref{c:"+w.getName()+"}";
+        if (!w.getBackground() && (w instanceof Paper || w instanceof Article)) {
+            return "\\ref{c:" + w.getName() + "}";
+        } else {
+            return "n/a";
+        }
     }
 
     private String confOrJournal(Work w){
@@ -174,7 +189,11 @@ public class ListWorks {
     }
 
     private static String hyperref(Author a){
-        return "\\hyperref[auth:"+a.getKey()+"]{"+a.getShortName()+"}";
+        if (a.getNrWorks() > 0) {
+            return "\\hyperref[auth:" + a.getKey() + "]{" + a.getShortName() + "}";
+        } else {
+            return a.getShortName();
+        }
 
     }
 
