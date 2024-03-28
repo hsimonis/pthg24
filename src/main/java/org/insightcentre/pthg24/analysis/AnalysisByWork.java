@@ -9,8 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
-import static org.insightcentre.pthg24.analysis.ListWorks.aLabelRef;
-import static org.insightcentre.pthg24.analysis.ListWorks.cLabelRef;
+import static org.insightcentre.pthg24.analysis.ListWorks.*;
 import static org.insightcentre.pthg24.datamodel.ConceptType.*;
 import static org.insightcentre.pthg24.datamodel.MatchLevel.None;
 import static org.insightcentre.pthg24.datamodel.WorkType.*;
@@ -36,7 +35,7 @@ public class AnalysisByWork {
             for(Work w:sortedWorks(base,type)){
                 out.printf("\\rowlabel{%s}\\href{%s}{%s}~\\cite{%s}",
                         "b:"+w.getName(),
-                        w.getLocalCopy(),safe(w.getName()),
+                        local(w.getLocalCopy()),safe(w.getName()),
                         w.getName());
                 out.printf(" & %d",w.getNrPages());
                 out.printf(" & %s",concepts(base,w,Concepts));

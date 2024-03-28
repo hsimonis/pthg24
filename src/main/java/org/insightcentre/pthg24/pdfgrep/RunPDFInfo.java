@@ -18,18 +18,18 @@ import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class RunPDFInfo {
-    public RunPDFInfo(Scenario base){
+    public RunPDFInfo(Scenario base,String bibDir){
         for (Work a : base.getListWork().stream().
                 filter(x -> x.getLocalCopy() != null).
                 filter(x -> !x.getLocalCopy().equals("")).
-                filter(x->x.getNrPages()==null || x.getNrPages() == 1).
+                filter(x -> x.getNrPages() == null || x.getNrPages() == 1).
                 sorted(Comparator.comparing(Work::getName)).
-                collect(Collectors.toUnmodifiableList())) {
+                toList()) {
             String logFile = "info.txt";
             deleteExistingResultFile("greps/", logFile);
             runPDFInfo("greps/",
                     "C:/texlive/2022/bin/win32/pdfinfo",
-                    "../overview/" + a.getLocalCopy(),
+                    "../"+a.getLocalCopy(),
                     logFile);
             int nrPages = parseResult("greps/", logFile);
             info(a.getName() + ": " + nrPages);

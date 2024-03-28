@@ -34,22 +34,35 @@ public class JfxApp extends GeneratedJfxApp {
                 Scenario base = new Scenario();
                 IrishCalendar.buildCalendar();
                 base.setDirty(false);
+//                String prefix ="cars/";
+//                String bibFile = "cars.bib";
+
+                String prefix ="";
+                String bibFile = "bib.bib";
+
                 String bibDir = "overview/";
-                String exportDir = "exports/";
-                new ImportConcepts(base,"imports/","concepts.json");
-                new ImportAlias(base,"imports/","alias.json");
-                new ImportBib(base,bibDir,"bib.bib");
-                new ImportBackground(base,"imports/","background.json");
-                new ImportExtra(base,"imports/","manual.csv");
-                new ImportOpenCitations(base,"citations/");
-                new ImportOpenReferences(base,"references/");
+                String importDir = prefix+"imports/";
+                String exportDir = prefix+"exports/";
+                String citationsDir = prefix+"citations/";
+                String referencesDir = prefix+"references/";
+                String reportDir = prefix+"reports/";
+                String worksDir = prefix+"works/";
+
+
+                new ImportConcepts(base,importDir,"concepts.json");
+                new ImportAlias(base,importDir,"alias.json");
+                new ImportBib(base,bibDir,bibFile,worksDir);
+                new ImportBackground(base,importDir,"background.json");
+                new ImportExtra(base,importDir,"manual.csv");
+                new ImportOpenCitations(base,citationsDir);
+                new ImportOpenReferences(base,referencesDir);
                 new FindMissingCitingWorks(base);
                 new FindMissingCitedWorks(base);
                 new AuthorCitations(base);
 
-                new RunPDFInfo(base);
-                new RunPDFGrep(base);
-                new RunPDFInfoURL(base);
+                new RunPDFInfo(base,bibDir);
+                new RunPDFGrep(base,importDir);
+                new RunPDFInfoURL(base,bibDir);
                 new FindConnectedPapers(base);
                 new ListWorks(base,PAPER,exportDir,"papers.tex");
                 new ListWorksManual(base,PAPER,exportDir,"papersmanual.tex");
@@ -84,7 +97,10 @@ public class JfxApp extends GeneratedJfxApp {
                 new KeyOverview(base,exportDir,"keylist.tex");
                 new WorksByAuthor(base,exportDir,"worksbyauthor.tex");
 
-                new PublicationReport(base,"reports/").produce("publications","Publication Report","H. Simonis and Cemalettin Öztürk");
+                new PublicationReport(base,reportDir).
+                        produce("publications",
+                                "Publication Report",
+                                "H. Simonis and Cemalettin Öztürk");
 
                 return base;
         }

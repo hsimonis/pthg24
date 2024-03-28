@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.ListWorks.local;
 import static org.insightcentre.pthg24.datamodel.ConceptType.*;
 import static org.insightcentre.pthg24.datamodel.MatchLevel.*;
 import static org.insightcentre.pthg24.imports.Importer.safer;
@@ -91,7 +92,7 @@ public class AnalysisByConcept {
     }
 
     public static String citation(Work w){
-        return "\\href{"+w.getLocalCopy()+"}{"+w.getName()+"}~\\cite{"+safer(w.getName())+"}";
+        return "\\href{"+local(w.getLocalCopy())+"}{"+w.getName()+"}~\\cite{"+safer(w.getName())+"}";
     }
 
 

@@ -1,0 +1,432 @@
+\documentclass[a4paper]{article}
+\usepackage[a4paper,margin=1in,landscape]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.14}
+\usepgfplotslibrary{dateplot}
+\usetikzlibrary{plotmarks}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{eurosym}
+\usepackage{forest}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lfoot{Section \leftmark}
+\cfoot{}
+\rfoot{\thepage}
+\rhead{Generated: \today}
+\chead{}
+\lhead{Publication Report}
+\usepackage{hyperref}
+\title{Publication Report}
+\author{H. Simonis and Cemalettin Öztürk}
+\date{Report Generated on \today}
+
+\begin{document}
+\maketitle
+\begin{tikzpicture}
+\begin{axis}[title=Conference Paper Count by Conference Series (Count > 1),xlabel=Conference Series,ylabel=Paper Count,width=20cm,height=10cm,ybar,symbolic x coords={CPAIOR,CP},
+    xtick=data,
+    nodes near coords, 
+    nodes near coords align={rotate=30),anchor=west},
+    x tick label style={rotate=30),anchor=east},
+]
+\addplot+[] coordinates {
+(CPAIOR,2.000000)
+(CP,2.000000)
+};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[title=Citation Count by Conference Series (Paper Count > 1),xlabel=Conference Series,ylabel=Citation Count,width=20cm,height=10cm,ybar,symbolic x coords={CP,CPAIOR},
+    xtick=data,
+    nodes near coords, 
+    nodes near coords align={rotate=30),anchor=west},
+    x tick label style={rotate=30),anchor=east},
+]
+\addplot+[] coordinates {
+(CP,86.000000)
+(CPAIOR,19.000000)
+};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[title=Average Citation Count per Paper by Conference Series (Paper Count > 1),xlabel=Conference Series,ylabel=Average Citation Count,width=20cm,height=10cm,ybar,symbolic x coords={CP,CPAIOR},
+    xtick=data,
+    nodes near coords, 
+    nodes near coords align={rotate=30),anchor=west},
+    x tick label style={rotate=30),anchor=east},
+]
+\addplot+[] coordinates {
+(CP,43.000000)
+(CPAIOR,9.500000)
+};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[title=Article Count by Journal (Count > 1),xlabel=Journal,ylabel=Article Count,width=22cm,height=10cm,ybar,symbolic x coords={Constraints An Int. J.,European Journal of Operational Research,Computers \  Industrial Engineering},
+    xtick=data,
+    nodes near coords, 
+    nodes near coords align={rotate=30),anchor=west},
+    x tick label style={rotate=30),anchor=east},
+]
+\addplot+[] coordinates {
+(Constraints An Int. J.,3.000000)
+(European Journal of Operational Research,2.000000)
+(Computers \  Industrial Engineering,2.000000)
+};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[title=Citation Count by Journal (Article Count > 1),xlabel=Journal,ylabel=Citation Count,width=22cm,height=10cm,ybar,symbolic x coords={European Journal of Operational Research,Constraints An Int. J.,Computers \  Industrial Engineering},
+    xtick=data,
+    nodes near coords, 
+    nodes near coords align={rotate=30),anchor=west},
+    x tick label style={rotate=30),anchor=east},
+]
+\addplot+[] coordinates {
+(European Journal of Operational Research,454.000000)
+(Constraints An Int. J.,47.000000)
+(Computers \  Industrial Engineering,32.000000)
+};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[title=Average Citation Count per Article by Journal (Article Count > 1),xlabel=Journal,ylabel=Average Citation Count,width=22cm,height=10cm,ybar,symbolic x coords={European Journal of Operational Research,Computers \  Industrial Engineering,Constraints An Int. J.},
+    xtick=data,
+    nodes near coords, 
+    nodes near coords align={rotate=30),anchor=west},
+    x tick label style={rotate=30),anchor=east},
+]
+\addplot+[] coordinates {
+(European Journal of Operational Research,227.000000)
+(Computers \  Industrial Engineering,16.000000)
+(Constraints An Int. J.,15.666667)
+};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[title=Works by Year,xlabel=Year,ylabel=Count,legend pos=north west,,width=25cm,height=12cm]
+\addplot+[] coordinates {
+    (1986.000000,1.000000)
+    (1988.000000,1.000000)
+    (1994.000000,1.000000)
+    (1995.000000,1.000000)
+    (1997.000000,1.000000)
+    (1998.000000,1.000000)
+    (2003.000000,1.000000)
+    (2004.000000,2.000000)
+    (2005.000000,1.000000)
+    (2006.000000,1.000000)
+    (2008.000000,1.000000)
+    (2009.000000,3.000000)
+    (2011.000000,1.000000)
+    (2013.000000,2.000000)
+    (2014.000000,3.000000)
+    (2015.000000,3.000000)
+    (2017.000000,1.000000)
+    (2018.000000,1.000000)
+    (2019.000000,1.000000)
+    (2021.000000,1.000000)
+    (2022.000000,1.000000)
+};
+\addlegendentry{All}
+\addplot+[] coordinates {
+    (1986.000000,0.000000)
+    (1988.000000,1.000000)
+    (1994.000000,0.000000)
+    (1995.000000,0.000000)
+    (1997.000000,1.000000)
+    (1998.000000,0.000000)
+    (2003.000000,1.000000)
+    (2004.000000,1.000000)
+    (2005.000000,1.000000)
+    (2006.000000,1.000000)
+    (2008.000000,0.000000)
+    (2009.000000,0.000000)
+    (2011.000000,1.000000)
+    (2013.000000,1.000000)
+    (2014.000000,1.000000)
+    (2015.000000,0.000000)
+    (2017.000000,0.000000)
+    (2018.000000,0.000000)
+    (2019.000000,0.000000)
+    (2021.000000,0.000000)
+    (2022.000000,0.000000)
+};
+\addlegendentry{Papers}
+\addplot+[] coordinates {
+    (1986.000000,1.000000)
+    (1988.000000,0.000000)
+    (1994.000000,1.000000)
+    (1995.000000,1.000000)
+    (1997.000000,0.000000)
+    (1998.000000,1.000000)
+    (2003.000000,0.000000)
+    (2004.000000,1.000000)
+    (2005.000000,0.000000)
+    (2006.000000,0.000000)
+    (2008.000000,1.000000)
+    (2009.000000,3.000000)
+    (2011.000000,0.000000)
+    (2013.000000,1.000000)
+    (2014.000000,2.000000)
+    (2015.000000,2.000000)
+    (2017.000000,1.000000)
+    (2018.000000,1.000000)
+    (2019.000000,1.000000)
+    (2021.000000,1.000000)
+    (2022.000000,1.000000)
+};
+\addlegendentry{Articles}
+\addplot+[] coordinates {
+    (1986.000000,0.000000)
+    (1988.000000,0.000000)
+    (1994.000000,0.000000)
+    (1995.000000,0.000000)
+    (1997.000000,0.000000)
+    (1998.000000,0.000000)
+    (2003.000000,0.000000)
+    (2004.000000,0.000000)
+    (2005.000000,0.000000)
+    (2006.000000,0.000000)
+    (2008.000000,0.000000)
+    (2009.000000,0.000000)
+    (2011.000000,0.000000)
+    (2013.000000,0.000000)
+    (2014.000000,0.000000)
+    (2015.000000,1.000000)
+    (2017.000000,0.000000)
+    (2018.000000,0.000000)
+    (2019.000000,0.000000)
+    (2021.000000,0.000000)
+    (2022.000000,0.000000)
+};
+\addlegendentry{Thesis}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[title=Citations by Year,xlabel=Year,ylabel=Citations,legend pos=north west,,width=25cm,height=12cm]
+\addplot+[] coordinates {
+    (1986.000000,74.000000)
+    (1988.000000,0.000000)
+    (1994.000000,24.000000)
+    (1995.000000,28.000000)
+    (1997.000000,53.000000)
+    (1998.000000,0.000000)
+    (2003.000000,46.000000)
+    (2004.000000,86.000000)
+    (2005.000000,0.000000)
+    (2006.000000,33.000000)
+    (2008.000000,146.000000)
+    (2009.000000,321.000000)
+    (2011.000000,0.000000)
+    (2013.000000,31.000000)
+    (2014.000000,20.000000)
+    (2015.000000,15.000000)
+    (2017.000000,3.000000)
+    (2018.000000,0.000000)
+    (2019.000000,8.000000)
+    (2021.000000,0.000000)
+    (2022.000000,2.000000)
+};
+\addlegendentry{All}
+\addplot+[] coordinates {
+    (1986.000000,0.000000)
+    (1988.000000,0.000000)
+    (1994.000000,0.000000)
+    (1995.000000,0.000000)
+    (1997.000000,53.000000)
+    (1998.000000,0.000000)
+    (2003.000000,46.000000)
+    (2004.000000,17.000000)
+    (2005.000000,0.000000)
+    (2006.000000,33.000000)
+    (2008.000000,0.000000)
+    (2009.000000,0.000000)
+    (2011.000000,0.000000)
+    (2013.000000,0.000000)
+    (2014.000000,2.000000)
+    (2015.000000,0.000000)
+    (2017.000000,0.000000)
+    (2018.000000,0.000000)
+    (2019.000000,0.000000)
+    (2021.000000,0.000000)
+    (2022.000000,0.000000)
+};
+\addlegendentry{Papers}
+\addplot+[] coordinates {
+    (1986.000000,74.000000)
+    (1988.000000,0.000000)
+    (1994.000000,24.000000)
+    (1995.000000,28.000000)
+    (1997.000000,0.000000)
+    (1998.000000,0.000000)
+    (2003.000000,0.000000)
+    (2004.000000,69.000000)
+    (2005.000000,0.000000)
+    (2006.000000,0.000000)
+    (2008.000000,146.000000)
+    (2009.000000,321.000000)
+    (2011.000000,0.000000)
+    (2013.000000,31.000000)
+    (2014.000000,18.000000)
+    (2015.000000,15.000000)
+    (2017.000000,3.000000)
+    (2018.000000,0.000000)
+    (2019.000000,8.000000)
+    (2021.000000,0.000000)
+    (2022.000000,2.000000)
+};
+\addlegendentry{Articles}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[title=Citations Per Work by Year,xlabel=Year,ylabel=Avg Citations,legend pos=north west,,width=25cm,height=12cm]
+\addplot+[] coordinates {
+    (1986.000000,74.000000)
+    (1988.000000,0.000000)
+    (1994.000000,24.000000)
+    (1995.000000,28.000000)
+    (1997.000000,53.000000)
+    (1998.000000,0.000000)
+    (2003.000000,46.000000)
+    (2004.000000,43.000000)
+    (2005.000000,0.000000)
+    (2006.000000,33.000000)
+    (2008.000000,146.000000)
+    (2009.000000,107.000000)
+    (2011.000000,0.000000)
+    (2013.000000,15.500000)
+    (2014.000000,6.666667)
+    (2015.000000,5.000000)
+    (2017.000000,3.000000)
+    (2018.000000,0.000000)
+    (2019.000000,8.000000)
+    (2021.000000,0.000000)
+    (2022.000000,2.000000)
+};
+\addlegendentry{All}
+\addplot+[] coordinates {
+    (1986.000000,0.000000)
+    (1988.000000,0.000000)
+    (1994.000000,0.000000)
+    (1995.000000,0.000000)
+    (1997.000000,53.000000)
+    (1998.000000,0.000000)
+    (2003.000000,46.000000)
+    (2004.000000,17.000000)
+    (2005.000000,0.000000)
+    (2006.000000,33.000000)
+    (2008.000000,0.000000)
+    (2009.000000,0.000000)
+    (2011.000000,0.000000)
+    (2013.000000,0.000000)
+    (2014.000000,2.000000)
+    (2015.000000,0.000000)
+    (2017.000000,0.000000)
+    (2018.000000,0.000000)
+    (2019.000000,0.000000)
+    (2021.000000,0.000000)
+    (2022.000000,0.000000)
+};
+\addlegendentry{Papers}
+\addplot+[] coordinates {
+    (1986.000000,74.000000)
+    (1988.000000,0.000000)
+    (1994.000000,24.000000)
+    (1995.000000,28.000000)
+    (1997.000000,0.000000)
+    (1998.000000,0.000000)
+    (2003.000000,0.000000)
+    (2004.000000,69.000000)
+    (2005.000000,0.000000)
+    (2006.000000,0.000000)
+    (2008.000000,146.000000)
+    (2009.000000,107.000000)
+    (2011.000000,0.000000)
+    (2013.000000,31.000000)
+    (2014.000000,9.000000)
+    (2015.000000,7.500000)
+    (2017.000000,3.000000)
+    (2018.000000,0.000000)
+    (2019.000000,8.000000)
+    (2021.000000,0.000000)
+    (2022.000000,2.000000)
+};
+\addlegendentry{Articles}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[title=Number of Co-Authors per Work,xlabel=Nr Co-Authors,ylabel=Count,width=20cm,height=10cm,ybar,symbolic x coords={1,2,3,4,5,6},
+    xtick=data,
+    nodes near coords, 
+    nodes near coords align={rotate=30,anchor=west},
+    x tick label style={rotate=30,anchor=east},
+]
+\addplot+[] coordinates {
+(1,4.000000)
+(2,10.000000)
+(3,8.000000)
+(4,5.000000)
+(5,1.000000)
+(6,1.000000)
+};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[title=Number of Works per Co-Author,xlabel=Nr Works,ylabel=Co-Author Count,width=20cm,height=10cm,ybar,symbolic x coords={1,2,3,4},
+    xtick=data,
+    nodes near coords, 
+    nodes near coords align={rotate=30,anchor=west},
+    x tick label style={rotate=30,anchor=east},
+]
+\addplot+[] coordinates {
+(1,56.000000)
+(2,8.000000)
+(3,1.000000)
+(4,1.000000)
+};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[title=Nr Citation Distribution Plot ,xlabel=Nr Citations,ylabel=Nr Works,,width=25cm,height=15cm]
+\addplot+[] coordinates {
+    (2.000000,2.000000)
+    (3.000000,2.000000)
+    (8.000000,1.000000)
+    (13.000000,1.000000)
+    (15.000000,2.000000)
+    (17.000000,1.000000)
+    (24.000000,1.000000)
+    (28.000000,1.000000)
+    (31.000000,1.000000)
+    (33.000000,1.000000)
+    (46.000000,1.000000)
+    (53.000000,1.000000)
+    (69.000000,1.000000)
+    (74.000000,1.000000)
+    (146.000000,1.000000)
+};
+\addlegendentry{}
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

@@ -15,7 +15,7 @@ import static org.jbibtex.BibTeXEntry.*;
 
 public class ImportBib {
     Scenario base;
-    public ImportBib(Scenario base, String importDir, String fileName){
+    public ImportBib(Scenario base, String importDir, String fileName,String worksDir){
         this.base = base;
         assert(importDir.endsWith("/"));
         String fullName = importDir+fileName;
@@ -41,7 +41,7 @@ public class ImportBib {
                         art.setName(workKey.toString());
                         art.setKey(shortKey(workKey.toString()));
                         art.setJournal(findJournal(fieldString(entry,KEY_JOURNAL)));
-                        art.setLocalCopy("works/"+art.getKey()+".pdf");
+                        art.setLocalCopy(worksDir+art.getKey()+".pdf");
                         work = art;
                         break;
                     case "inproceedings":
@@ -49,7 +49,7 @@ public class ImportBib {
                         pap.setName(workKey.toString());
                         pap.setKey(shortKey(workKey.toString()));
                         pap.setProceedings(findProceedings(fieldString(entry,KEY_BOOKTITLE),fieldInteger(entry,KEY_YEAR)));
-                        pap.setLocalCopy("works/"+pap.getKey()+".pdf");
+                        pap.setLocalCopy(worksDir+pap.getKey()+".pdf");
                         work=pap;
                         break;
                     case "incollection":
@@ -57,7 +57,7 @@ public class ImportBib {
                         inc.setName(workKey.toString());
                         inc.setKey(shortKey(workKey.toString()));
                         inc.setCollection(findCollection(fieldString(entry,KEY_BOOKTITLE)));
-                        inc.setLocalCopy("works/"+inc.getKey()+".pdf");
+                        inc.setLocalCopy(worksDir+inc.getKey()+".pdf");
                         work=inc;
                         break;
                     case "inbook":
@@ -65,7 +65,7 @@ public class ImportBib {
                         inb.setName(workKey.toString());
                         inb.setKey(shortKey(workKey.toString()));
                         inb.setBooktitle(fieldString(entry,KEY_BOOKTITLE));
-                        inb.setLocalCopy("works/"+inb.getKey()+".pdf");
+                        inb.setLocalCopy(worksDir+inb.getKey()+".pdf");
                         work=inb;
                         break;
                     case "phdthesis":
@@ -73,7 +73,7 @@ public class ImportBib {
                         phd.setName(workKey.toString());
                         phd.setKey(shortKey(workKey.toString()));
                         phd.setSchool(findSchool(fieldString(entry,KEY_SCHOOL)));
-                        phd.setLocalCopy("works/"+phd.getKey()+".pdf");
+                        phd.setLocalCopy(worksDir+phd.getKey()+".pdf");
                         work=phd;
                         break;
                     case "book":
@@ -263,6 +263,7 @@ public class ImportBib {
         if (res == null){
             res = new Proceedings(base);
             res.setName(name);
+            info("Conf "+name);
             res.setConferenceSeries(findSeries(extractSeries(name)));
             res.setShortName(res.getConferenceSeries().getName()+" "+year);
         }
@@ -270,6 +271,7 @@ public class ImportBib {
     }
 
     private ConferenceSeries findSeries(String name){
+        info("series "+name);
         ConferenceSeries res = ConferenceSeries.findByName(base,name);
         if (res == null){
             res = new ConferenceSeries(base);
@@ -292,7 +294,7 @@ public class ImportBib {
                 "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE","CCL'99",
                 "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL","ICORES","SOCS","SAT",
                 "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA",
-                "Canadian AI","CSCLP","LION","FGCS"
+                "Canadian AI","CSCLP","LION","FGCS","EvoWorkshop","Conf AI"
         };
         for(String cand:series) {
             if (text.contains(cand)) {
@@ -328,6 +330,12 @@ public class ImportBib {
         }
         if (text.contains("Operations Research Proceedings")){
             return "Operations Research Proceedings";
+        }
+        if (text.contains("Genetic and evolutionary computation")){
+            return "Genetic and evolutionary computation";
+        }
+        if (text.contains("Australian Joint Conference on Artificial Intelligence")){
+            return "Australian Joint Conference on Artificial Intelligence";
         }
         return null;
     }

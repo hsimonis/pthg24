@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.ListWorks.local;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class KeyOverview {
@@ -33,7 +34,7 @@ public class KeyOverview {
             int i = 0;
             for(Work w:sorted){
                 out.printf("\\href{%s}{%s}~\\cite{%s}",
-                        w.getLocalCopy(),safe(w.getName()),
+                        local(w.getLocalCopy()),safe(w.getName()),
                         safe(w.getName()));
                 if (++i % nrColumns == 0){
                     out.printf("\\\\ \n");

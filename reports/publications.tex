@@ -31,7 +31,7 @@
 \begin{document}
 \maketitle
 \begin{tikzpicture}
-\begin{axis}[title=Conference Paper Count by Conference Series (Count > 1),xlabel=Conference Series,ylabel=Paper Count,width=20cm,height=10cm,ybar,symbolic x coords={CP,CPAIOR,ICAPS,AAAI,ECAI,IJCAI,ICAART,ICRA,INAP,CSCLP,ICTAI,ICNSC,GOR,PACT},
+\begin{axis}[title=Conference Paper Count by Conference Series (Count > 1),xlabel=Conference Series,ylabel=Paper Count,width=20cm,height=10cm,ybar,symbolic x coords={CP,CPAIOR,ICAPS,AAAI,ECAI,IJCAI,ICAART,ICRA,INAP,CSCLP,ICTAI,ICNSC,GOR,PACT,ICORES},
     xtick=data,
     nodes near coords, 
     nodes near coords align={rotate=30),anchor=west},
@@ -41,7 +41,7 @@
 (CP,119.000000)
 (CPAIOR,92.000000)
 (ICAPS,14.000000)
-(AAAI,7.000000)
+(AAAI,8.000000)
 (ECAI,6.000000)
 (IJCAI,6.000000)
 (ICAART,4.000000)
@@ -52,12 +52,13 @@
 (ICNSC,2.000000)
 (GOR,2.000000)
 (PACT,2.000000)
+(ICORES,2.000000)
 };
 \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
-\begin{axis}[title=Citation Count by Conference Series (Paper Count > 1),xlabel=Conference Series,ylabel=Citation Count,width=20cm,height=10cm,ybar,symbolic x coords={CP,CPAIOR,ICRA,INAP,CSCLP,GOR,ICTAI,AAAI,IJCAI,ICAPS,ECAI,ICAART,ICNSC,PACT},
+\begin{axis}[title=Citation Count by Conference Series (Paper Count > 1),xlabel=Conference Series,ylabel=Citation Count,width=20cm,height=10cm,ybar,symbolic x coords={CP,CPAIOR,ICRA,INAP,CSCLP,GOR,ICTAI,AAAI,IJCAI,ICAPS,ECAI,ICAART,ICNSC,PACT,ICORES},
     xtick=data,
     nodes near coords, 
     nodes near coords align={rotate=30),anchor=west},
@@ -78,12 +79,13 @@
 (ICAART,0.000000)
 (ICNSC,0.000000)
 (PACT,0.000000)
+(ICORES,0.000000)
 };
 \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
-\begin{axis}[title=Average Citation Count per Paper by Conference Series (Paper Count > 1),xlabel=Conference Series,ylabel=Average Citation Count,width=20cm,height=10cm,ybar,symbolic x coords={ICRA,CP,CPAIOR,INAP,CSCLP,GOR,ICTAI,IJCAI,AAAI,ICAPS,ECAI,ICAART,ICNSC,PACT},
+\begin{axis}[title=Average Citation Count per Paper by Conference Series (Paper Count > 1),xlabel=Conference Series,ylabel=Average Citation Count,width=20cm,height=10cm,ybar,symbolic x coords={ICRA,CP,CPAIOR,INAP,CSCLP,GOR,ICTAI,IJCAI,AAAI,ICAPS,ECAI,ICAART,ICNSC,PACT,ICORES},
     xtick=data,
     nodes near coords, 
     nodes near coords align={rotate=30),anchor=west},
@@ -98,12 +100,13 @@
 (GOR,2.500000)
 (ICTAI,0.333333)
 (IJCAI,0.166667)
-(AAAI,0.142857)
+(AAAI,0.125000)
 (ICAPS,0.000000)
 (ECAI,0.000000)
 (ICAART,0.000000)
 (ICNSC,0.000000)
 (PACT,0.000000)
+(ICORES,0.000000)
 };
 \end{axis}
 \end{tikzpicture}
@@ -268,7 +271,7 @@
     (2021.000000,31.000000)
     (2022.000000,39.000000)
     (2023.000000,42.000000)
-    (2024.000000,3.000000)
+    (2024.000000,4.000000)
 };
 \addlegendentry{All}
 \addplot+[] coordinates {
@@ -306,7 +309,7 @@
     (2021.000000,12.000000)
     (2022.000000,16.000000)
     (2023.000000,15.000000)
-    (2024.000000,0.000000)
+    (2024.000000,1.000000)
 };
 \addlegendentry{Papers}
 \addplot+[] coordinates {
@@ -636,8 +639,8 @@
 \addplot+[] coordinates {
 (1,99.000000)
 (2,174.000000)
-(3,185.000000)
-(4,115.000000)
+(3,186.000000)
+(4,116.000000)
 (5,49.000000)
 (6,14.000000)
 (7,4.000000)
@@ -656,16 +659,16 @@
     x tick label style={rotate=30,anchor=east},
 ]
 \addplot+[] coordinates {
-(1,699.000000)
+(1,703.000000)
 (2,147.000000)
-(3,65.000000)
-(4,31.000000)
+(3,64.000000)
+(4,32.000000)
 (5,11.000000)
-(6,7.000000)
-(7,6.000000)
+(6,6.000000)
+(7,7.000000)
 (8,5.000000)
-(9,5.000000)
-(10,2.000000)
+(9,4.000000)
+(10,3.000000)
 (11,4.000000)
 (12,1.000000)
 (13,2.000000)

@@ -19,14 +19,17 @@ public class WorksByAuthor {
         try{
             PrintWriter out = new PrintWriter(fullName);
 
-            for(Author a:sortedAuthors(base).stream().filter(x->x.getNrWorks() >= 5).collect(Collectors.toUnmodifiableList())) {
-                out.printf("\\subsection{Works by %s}\n",a.getName());
-                out.printf("\\label{sec:%s}\n",a.getKey());
+            for(Author a: sortedAuthors(base).stream().filter(x -> x.getNrWorks() >= 5).
+                    toList()) {
                 List<Work> works = base.getListAuthorship().stream().
-                        filter(x->x.getAuthor()==a).
+                        filter(x -> x.getAuthor() == a).
                         map(Authorship::getWork).
+                        filter(x->!x.getBackground()).
                         sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList());
+                        toList();
+                out.printf("\\clearpage\n");
+                out.printf("\\subsection{%d Works by %s}\n",works.size(),a.getName());
+                out.printf("\\label{sec:%s}\n",a.getKey());
                 new ListWorks(out,base,works,false);
             }
             out.close();
@@ -39,14 +42,14 @@ public class WorksByAuthor {
         return base.getListAuthor().stream().
                 sorted(Comparator.comparing(Author::getNrWorks).reversed().
                         thenComparing(Author::getFamilyName)).
-                collect(Collectors.toUnmodifiableList());
+                toList();
     }
 
     private List<Authorship> sortedAuthorship(Scenario base,Author a){
         return base.getListAuthorship().stream().
-                filter(x->x.getAuthor()==a).
+                filter(x -> x.getAuthor() == a).
                 sorted(Comparator.comparing(this::year).reversed()).
-                collect(Collectors.toUnmodifiableList());
+                toList();
     }
 
     private int year(Authorship as){

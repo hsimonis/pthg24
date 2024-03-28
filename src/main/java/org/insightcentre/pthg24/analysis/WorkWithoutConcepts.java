@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.ListWorks.authors;
+import static org.insightcentre.pthg24.analysis.ListWorks.local;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class WorkWithoutConcepts {
@@ -30,7 +31,7 @@ public class WorkWithoutConcepts {
             for(Work w:missing){
                 out.printf("%s & \\href{%s}{%s} & %s & %s & %d & %s & \\cite{%s} & %d\\\\",
                         safe(w.getName()),
-                        w.getLocalCopy(),"Yes",//safe(w.getName()),
+                        local(w.getLocalCopy()),"Yes",//safe(w.getName()),
                         authors(w),
                         safe(w.getTitle()),
                         w.getYear(),

@@ -406,7 +406,7 @@ public  class ConferenceSeries extends ApplicationObject{
 
     public static ConferenceSeries findByName(ApplicationDataset base, String name){
         for(ConferenceSeries a:base.getListConferenceSeries()) {
-            if (a.getName().equals(name)){
+            if (a != null && name != null && a.getName().equals(name)){
                 return a;
             }
         }

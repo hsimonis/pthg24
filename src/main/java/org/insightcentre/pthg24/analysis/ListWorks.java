@@ -48,7 +48,9 @@ public class ListWorks {
         out.printf("{\\scriptsize\n");
         out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{6.5cm}rrrp{2.5cm}rrrrr}\n");
         out.printf("\\rowcolor{white}\\caption{Works from bibtex (Total %d)}\\\\ \\toprule\n",works.size());
-        out.printf("\\rowcolor{white}Key & Authors & Title & LC & Cite & Year & \\shortstack{Conference\\\\/Journal} & Pages & \\shortstack{Nr\\\\Cites} & \\shortstack{Nr\\\\Refs} & b & c \\\\ \\midrule");
+        out.printf("\\rowcolor{white}\\shortstack{Key\\\\Source} & Authors & Title & LC & Cite & Year & " +
+                "\\shortstack{Conference\\\\/Journal\\\\/School} & Pages & \\shortstack{Nr\\\\Cites} & " +
+                "\\shortstack{Nr\\\\Refs} & b & c \\\\ \\midrule");
         out.printf("\\endhead\n");
         out.printf("\\bottomrule\n");
         out.printf("\\endfoot\n");
@@ -58,7 +60,7 @@ public class ListWorks {
                     a.getKey(),a.getUrl(),a.getKey(),
                     authors(a),
                     safe(a.getTitle()),
-                    (localCopyExists1(a)?"\\href{"+a.getLocalCopy()+"}{Yes}":"No"),
+                    (localCopyExists1(a)?"\\href{"+local(a.getLocalCopy())+"}{Yes}":"No"),
                     a.getName(),
                     a.getYear(),
                     confOrJournal(a),
@@ -81,6 +83,10 @@ public class ListWorks {
         return "";
     }
 
+
+    public static String local(String lc){
+        return "../"+lc;
+    }
     public static String aLabelRef(Work w){
         return "\\ref{a:"+w.getName()+"}";
     }
@@ -126,7 +132,7 @@ public class ListWorks {
     }
 
     public static boolean localCopyExists(Work a){
-        Path path = Paths.get("overview/"+a.getLocalCopy());
+        Path path = Paths.get(a.getLocalCopy());
         return Files.exists(path);
     }
 

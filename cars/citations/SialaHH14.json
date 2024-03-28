@@ -1,0 +1,29 @@
+[
+    {
+        "author_sc": "no",
+        "cited": "10.1007/s10601-013-9150-6",
+        "oci": "061301142441-0690166856",
+        "journal_sc": "no",
+        "citing": "10.1109/access.2017.2744262",
+        "creation": "2017",
+        "timespan": "P3Y"
+    },
+    {
+        "author_sc": "yes",
+        "cited": "10.1007/s10601-013-9150-6",
+        "oci": "06202144855-0690166856",
+        "journal_sc": "no",
+        "citing": "10.1016/j.engappai.2014.10.009",
+        "creation": "2015-02",
+        "timespan": "P1Y4M"
+    },
+    {
+        "author_sc": "yes",
+        "cited": "10.1007/s10601-013-9150-6",
+        "oci": "062602674316-0690166856",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-319-07046-9_19",
+        "creation": "2014",
+        "timespan": "P0Y"
+    }
+]

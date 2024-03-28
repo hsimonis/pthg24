@@ -18,30 +18,28 @@ import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class RunPDFGrep {
-    public RunPDFGrep(Scenario base){
-        String savedFile = "imports/savedConceptWork.json";
+    public RunPDFGrep(Scenario base,String importDir){
+        String savedFile = importDir+"savedConceptWork.json";
+        String tmpFile = importDir+"tmpConceptWork.json";
         ConceptWorkHash cwh = new ConceptWorkHash(base,savedFile);
         for(ConceptType ct:ConceptType.values()) {
             for (Concept c : base.getListConcept().stream().
                     filter(x -> x.getConceptType() == ct).
                     sorted(Comparator.comparing(Concept::getLabel)).
-//                    limit(5).
-                    collect(Collectors.toUnmodifiableList())) {
+                    toList()) {
                 info("Type " + c.getConceptType() + " Concept " + c.getName());
                 for (Work a : base.getListWork().stream().
                         filter(x -> x.getLocalCopy() != null).
                         filter(x -> !x.getLocalCopy().equals("")).
                         sorted(Comparator.comparing(Work::getName)).
-//                        limit(150).
-
-                        collect(Collectors.toUnmodifiableList())) {
+                        toList()) {
                     if (!cwh.present(c,a)) {
                         String logFile = "log.txt";
                         deleteExistingResultFile("greps/", logFile);
                         runPDFGrep(c.getCaseSensitive(),"greps/",
                                 "C:/cygwin64/bin/pdfgrep",
                                 c.getRegExpr(),
-                                "../overview/" + a.getLocalCopy(),
+                                "../"+ a.getLocalCopy(),
                                 logFile);
                         int v = parseResult("greps/", logFile);
                         info(a.getName() + ": " + v);
@@ -56,6 +54,8 @@ public class RunPDFGrep {
 
                 }
             }
+            cwh.save(tmpFile);
+
         }
         cwh.save(savedFile);
     }

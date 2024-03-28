@@ -1092,6 +1092,16 @@ Alessio Bonfietti, Alessandro Zanarini, Michele Lombardi, and Michela Milano.
 \newblock \href {https://doi.org/10.1007/978-3-319-44953-1\_8}
   {\path{doi:10.1007/978-3-319-44953-1\_8}}.
 
+\bibitem{BonninMNE24}
+Camille Bonnin, Arnaud Malapert, Margaux Nattaf, and Marie{-}Laure Espinouse.
+\newblock Toward a global constraint for minimizing the flowtime.
+\newblock In Federico Liberatore, Slawo Wesolkowski, and Greg~H. Parlier,
+  editors, {\em Proceedings of the 13th International Conference on Operations
+  Research and Enterprise Systems, {ICORES} 2024, Rome, Italy, February 24-26,
+  2024}, pages 70--81. {SCITEPRESS}, 2024.
+\newblock \href {https://doi.org/10.5220/0012310200003639}
+  {\path{doi:10.5220/0012310200003639}}.
+
 \bibitem{BoothNB16}
 Kyle E.~C. Booth, Goldie Nejat, and J.~Christopher Beck.
 \newblock A constraint programming approach to multi-robot task allocation and
@@ -2107,6 +2117,15 @@ J{\'{e}}r{\^{o}}me Fortin, Pawel Zielinski, Didier Dubois, and
   Computer Science}, pages 226--240. Springer, 2005.
 \newblock \href {https://doi.org/10.1007/11564751\_19}
   {\path{doi:10.1007/11564751\_19}}.
+
+\bibitem{FoxAS82}
+Mark~S. Fox, Bradley~P. Allen, and Gary Strohm.
+\newblock Job-shop scheduling: An investigation in constraint-directed
+  reasoning.
+\newblock In David~L. Waltz, editor, {\em Proceedings of the National
+  Conference on Artificial Intelligence, Pittsburgh, PA, USA, August 18-20,
+  1982}, pages 155--158. {AAAI} Press, 1982.
+\newblock URL: \url{http://www.aaai.org/Library/AAAI/1982/aaai82-037.php}.
 
 \bibitem{FrankK05}
 Jeremy Frank and Elif K{\"{u}}rkl{\"{u}}.

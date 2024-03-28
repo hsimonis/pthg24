@@ -38,7 +38,7 @@ public class ListWorksManual {
                         a.getName(),
                         a.getUrl(),safe(a.getName()),
                         a.getName(),
-                        a.getLocalCopy(), safe(a.getTitle()),
+                        local(a.getLocalCopy()), safe(a.getTitle()),
                         a.getCpSystem(),
                         concepts(base,a,Benchmarks),
                         a.getNrLinks(),
