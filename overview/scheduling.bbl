@@ -2444,6 +2444,17 @@ Vikas Goel, M.~Slusky, Willem{-}Jan van Hoeve, Kevin~C. Furman, and Yufen Shao.
   {https://doi.org/10.1016/J.EJOR.2014.09.048}
   {\path{doi:10.1016/J.EJOR.2014.09.048}}.
 
+\bibitem{GokGSTO20}
+Yagmur~S. G\"{o}k, Daniel Guimarans, Peter~J. Stuckey, Maurizio Tomasella, and
+  Cemalettin Ozturk.
+\newblock Robust resource planning for aircraft ground operations.
+\newblock In {\em Integration of Constraint Programming, Artificial
+  Intelligence, and Operations Research: 17th International Conference, CPAIOR
+  2020, Vienna, Austria, September 21–24, 2020, Proceedings}, page 222–238,
+  Berlin, Heidelberg, 2020. Springer-Verlag.
+\newblock \href {https://doi.org/10.1007/978-3-030-58942-4_15}
+  {\path{doi:10.1007/978-3-030-58942-4_15}}.
+
 \bibitem{GokgurHO18}
 Burak G{\"{o}}kg{\"{u}}r, Brahim Hnich, and Selin {\"{O}}zpeynirci.
 \newblock Parallel machine scheduling with tool loading: a constraint
@@ -2660,6 +2671,17 @@ Olivier Guyon, Pierre Lemaire, Éric Pinson, and David Rivreau.
 \newblock URL: \url{http://dx.doi.org/10.1007/s10479-012-1132-3}, \href
   {https://doi.org/10.1007/s10479-012-1132-3}
   {\path{doi:10.1007/s10479-012-1132-3}}.
+
+\bibitem{GokPTGO23}
+Yagmur~S. Gök, Silvia Padrón, Maurizio Tomasella, Daniel Guimarans, and
+  Cemalettin Ozturk.
+\newblock {Constraint-based robust planning and scheduling of airport apron
+  operations through simheuristics}.
+\newblock {\em Annals of Operations Research}, 320(2):795--830, January 2023.
+\newblock URL:
+  \url{https://ideas.repec.org/a/spr/annopr/v320y2023i2d10.1007_s10479-022-04547-0.html},
+  \href {https://doi.org/10.1007/s10479-022-04547-}
+  {\path{doi:10.1007/s10479-022-04547-}}.
 
 \bibitem{HachemiGR11}
 Nizar~El Hachemi, Michel Gendreau, and Louis{-}Martin Rousseau.
@@ -4732,6 +4754,27 @@ Olga Ohrimenko, Peter~J. Stuckey, and Michael Codish.
   {https://doi.org/10.1007/s10601-008-9064-x}
   {\path{doi:10.1007/s10601-008-9064-x}}.
 
+\bibitem{OrnekO16}
+Arslan Ornek and Cemalettin Ozturk.
+\newblock Optimisation and constraint based heuristic methods for advanced
+  planning and scheduling systems.
+\newblock {\em International Journal of Industrial Engineering: Theory,
+  Applications and Practice}, 23(1), Mar. 2016.
+\newblock URL:
+  \url{https://journals.sfu.ca/ijietap/index.php/ijie/article/view/1930}, \href
+  {https://doi.org/10.23055/ijietap.2016.23.1.1930}
+  {\path{doi:10.23055/ijietap.2016.23.1.1930}}.
+
+\bibitem{OrnekOS20}
+M.~Arslan Ornek, Cemalettin Ozturk, and Ipek Sugut.
+\newblock {Integer and constraint programming model formulations for
+  flight-gate assignment problem}.
+\newblock {\em Operational Research}, 22(1):135--163, March 2022.
+\newblock URL:
+  \url{https://ideas.repec.org/a/spr/operea/v22y2022i1d10.1007_s12351-020-00563-9.html},
+  \href {https://doi.org/10.1007/s12351-020-00563-}
+  {\path{doi:10.1007/s12351-020-00563-}}.
+
 \bibitem{OuelletQ13}
 Pierre Ouellet and Claude{-}Guy Quimper.
 \newblock Time-table extended-edge-finding for the cumulative constraint.
@@ -4775,6 +4818,17 @@ Soukaina Oujana, Lionel Amodeo, Farouk Yalaoui, and D.~Brodart.
 \newblock URL: \url{https://doi.org/10.1109/CoDIT55151.2022.9803972}, \href
   {https://doi.org/10.1109/CODIT55151.2022.9803972}
   {\path{doi:10.1109/CODIT55151.2022.9803972}}.
+
+\bibitem{OzturkTHO10}
+Cemalettin Ozturk, Semra Tunali, Brahim Hnich, and Arslan~M. Ornek.
+\newblock Simultaneous balancing and scheduling of flexible mixed model
+  assembly lines with sequence-dependent setup times.
+\newblock {\em Electronic Notes in Discrete Mathematics}, 36:65--72, 2010.
+\newblock ISCO 2010 - International Symposium on Combinatorial Optimization.
+\newblock URL:
+  \url{https://www.sciencedirect.com/science/article/pii/S1571065310000107},
+  \href {https://doi.org/https://doi.org/10.1016/j.endm.2010.05.009}
+  {\path{doi:https://doi.org/10.1016/j.endm.2010.05.009}}.
 
 \bibitem{OzturkTHO13}
 Cemalettin {\"{O}}zt{\"{u}}rk, Semra Tunali, Brahim Hnich, and M.~Arslan Ornek.
@@ -6563,6 +6617,27 @@ Xin Zou and Lihui Zhang.
   with atypical activities considering soft logic.
 \newblock {\em Automation in Construction}, 109:102990, 2020.
 \newblock URL: \url{https://api.semanticscholar.org/CorpusID:208840808}.
+
+\bibitem{OzturkTHO12}
+C.~Öztürk, S.~Tunalı, B.~Hnich, and M.A. Örnek.
+\newblock A constraint programming model for balancing and scheduling of
+  flexible mixed model assembly lines with parallel stations.
+\newblock {\em IFAC Proceedings Volumes}, 45(6):420--425, 2012.
+\newblock 14th IFAC Symposium on Information Control Problems in Manufacturing.
+\newblock URL:
+  \url{https://www.sciencedirect.com/science/article/pii/S1474667016331858},
+  \href {https://doi.org/https://doi.org/10.3182/20120523-3-RO-2023.00160}
+  {\path{doi:https://doi.org/10.3182/20120523-3-RO-2023.00160}}.
+
+\bibitem{OzturkTHO15}
+Cemalettin Öztürk, Semra Tunalı, Brahim Hnich, and Arslan Örnek.
+\newblock Cyclic scheduling of flexible mixed model assembly lines with
+  parallel stations.
+\newblock {\em Journal of Manufacturing Systems}, 36:147--158, 2015.
+\newblock URL:
+  \url{https://www.sciencedirect.com/science/article/pii/S0278612515000527},
+  \href {https://doi.org/https://doi.org/10.1016/j.jmsy.2015.05.004}
+  {\path{doi:https://doi.org/10.1016/j.jmsy.2015.05.004}}.
 
 \bibitem{GurEA19}
 Şeyda G{\"u}r, Tamer Eren, and Hacı~Mehmet Alakaş.

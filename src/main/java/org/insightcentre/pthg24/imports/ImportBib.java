@@ -35,7 +35,7 @@ public class ImportBib {
                 Key workKey = entry.getKey();
                 Key type = entry.getType();
                 Work work=null;
-                switch (type.toString()){
+                switch (type.toString().toLowerCase()){
                     case "article":
                         Article art = new Article(base);
                         art.setName(workKey.toString());
