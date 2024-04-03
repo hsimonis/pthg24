@@ -4221,6 +4221,17 @@ Christos~T. Maravelias and Ignacio~E. Grossmann.
 \newblock \href {https://doi.org/10.1007/978-3-540-24664-0\_1}
   {\path{doi:10.1007/978-3-540-24664-0\_1}}.
 
+\bibitem{MarliereSPR23}
+Grégory Marlière, Sonia {Sobieraj Richard}, Paola Pellegrini, and Joaquin
+  Rodriguez.
+\newblock A conditional time-intervals formulation of the real-time railway
+  traffic management problem.
+\newblock {\em Control Engineering Practice}, 133:105430, 2023.
+\newblock URL:
+  \url{https://www.sciencedirect.com/science/article/pii/S0967066122002611},
+  \href {https://doi.org/https://doi.org/10.1016/j.conengprac.2022.105430}
+  {\path{doi:https://doi.org/10.1016/j.conengprac.2022.105430}}.
+
 \bibitem{MartinPY01}
 Fae Martin, Arthur Pinkney, and Xinghuo Yu.
 \newblock Cane railway scheduling via constraint logic programming: Labelling
@@ -5133,11 +5144,25 @@ Robert Rodosek and Mark Wallace.
 \newblock \href {https://doi.org/10.1007/3-540-49481-2\_28}
   {\path{doi:10.1007/3-540-49481-2\_28}}.
 
+\bibitem{Rodriguez07b}
+Joaquin Rodriguez.
+\newblock A study of the use of state resources in a constraint-based model for
+  routing and scheduling trains.
+\newblock In {\em 2nd International Seminar on Railway Operations Modelling and
+  Analysis}, Hannover, Germany, March 2007.
+
 \bibitem{RodriguezDG02}
 Joaquin Rodriguez, Xavier Delorme, and Xavier Gandibleux.
 \newblock Railway infrastructure saturation using constraint programming
   approach.
 \newblock {\em Computers in Railways VIII}, pages 807--816, 01 2002.
+
+\bibitem{RodriguezS09}
+Joaquin Rodriguez and Sonia Sobieraj.
+\newblock A study of an incremental texture-based heuristic for the train
+  routing and scheduling problem.
+\newblock In {\em 3nd International Seminar on Railway Operations Modelling and
+  Analysis}, Zurich, Switzerland, February 2009.
 
 \bibitem{Rodriguez07}
 Joaquín Rodriguez.
