@@ -63,6 +63,8 @@
 {"type":"ApplicationAreas", "label": "shipping line" ,"regExpr":"shipping line"},
 {"type":"ApplicationAreas", "label": "surgery" ,"regExpr":"surgery"},
 {"type":"ApplicationAreas", "label": "operating room" ,"regExpr":"operating room"},
+{"type":"ApplicationAreas", "label": "maintenance scheduling" ,"regExpr":"maintenance scheduling"},
+{"type":"ApplicationAreas", "label": "workforce scheduling" ,"regExpr":"workforce scheduling"},
 
 {"type":"Benchmarks", "label": "benchmark" ,"regExpr":"benchmark"},
 {"type":"Benchmarks", "label": "generated instance" ,"regExpr":"generated instance"},
@@ -173,7 +175,17 @@
 {"type":"Concepts", "label": "no-wait" ,"regExpr":"no.?wait"},
 {"type":"Concepts", "label": "blocking constraint" ,"regExpr":"blocking constraint"},
 {"type":"Concepts", "label": "Benders Decomposition" ,"regExpr":"benders decomposition"},
-{"type":"Concepts", "label": "Logic-Based Benders Decomposition" ,"regExpr":"logic[\\s-]based\\sbenders\\sdecomposition"},
+{"type":"Concepts", "label": "Logic-Based Benders Decomposition" ,"regExpr":"logic.?based.?benders.?decomposition","revision":1},
+{"type":"Concepts", "label": "periodic" ,"regExpr":"periodic"},
+{"type":"Concepts", "label": "stochastic" ,"regExpr":"stochastic"},
+{"type":"Concepts", "label": "preemptive" ,"regExpr":"preemptive"},
+{"type":"Concepts", "label": "online scheduling" ,"regExpr":"online.?scheduling"},
+{"type":"Concepts", "label": "two-machine scheduling" ,"regExpr":"two.?machine scheduling"},
+{"type":"Concepts", "label": "one-machine scheduling" ,"regExpr":"one.?machine scheduling"},
+{"type":"Concepts", "label": "single-machine scheduling" ,"regExpr":"single.?machine scheduling"},
+{"type":"Concepts", "label": "single-stage scheduling" ,"regExpr":"single.?stage scheduling"},
+{"type":"Concepts", "label": "two-stage scheduling" ,"regExpr":"two.?stage scheduling"},
+{"type":"Concepts", "label": "order scheduling" ,"regExpr":"order scheduling"},
 
 
 {"type":"Constraints", "label": "AllDiff constraint","regExpr":"AllDiff constraint"},

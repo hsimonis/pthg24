@@ -5144,6 +5144,18 @@ Robert Rodosek and Mark Wallace.
 \newblock \href {https://doi.org/10.1007/3-540-49481-2\_28}
   {\path{doi:10.1007/3-540-49481-2\_28}}.
 
+\bibitem{Rodriguez07}
+Joaquin Rodriguez.
+\newblock A constraint programming model for real-time train scheduling at
+  junctions.
+\newblock {\em Transportation Research Part B: Methodological}, 41(2):231--245,
+  2007.
+\newblock Advanced Modelling of Train Operations in Stations and Networks.
+\newblock URL:
+  \url{https://www.sciencedirect.com/science/article/pii/S0191261506000233},
+  \href {https://doi.org/https://doi.org/10.1016/j.trb.2006.02.006}
+  {\path{doi:https://doi.org/10.1016/j.trb.2006.02.006}}.
+
 \bibitem{Rodriguez07b}
 Joaquin Rodriguez.
 \newblock A study of the use of state resources in a constraint-based model for
@@ -5163,18 +5175,6 @@ Joaquin Rodriguez and Sonia Sobieraj.
   routing and scheduling problem.
 \newblock In {\em 3nd International Seminar on Railway Operations Modelling and
   Analysis}, Zurich, Switzerland, February 2009.
-
-\bibitem{Rodriguez07}
-Joaquín Rodriguez.
-\newblock A constraint programming model for real-time train scheduling at
-  junctions.
-\newblock {\em Transportation Research Part B: Methodological}, 41(2):231--245,
-  2007.
-\newblock Advanced Modelling of Train Operations in Stations and Networks.
-\newblock URL:
-  \url{https://www.sciencedirect.com/science/article/pii/S0191261506000233},
-  \href {https://doi.org/https://doi.org/10.1016/j.trb.2006.02.006}
-  {\path{doi:https://doi.org/10.1016/j.trb.2006.02.006}}.
 
 \bibitem{RoshanaeiBAUB20}
 Vahid Roshanaei, Kyle~E.C. Booth, Dionne~M. Aleman, David~R. Urbach, and
