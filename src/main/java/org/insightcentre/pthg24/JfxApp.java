@@ -13,6 +13,7 @@ import org.insightcentre.pthg24.imports.*;
 import org.insightcentre.pthg24.pdfgrep.RunPDFGrep;
 import org.insightcentre.pthg24.pdfgrep.RunPDFInfo;
 import org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL;
+import org.insightcentre.pthg24.reports.CoauthorGraph;
 import org.insightcentre.pthg24.reports.PublicationReport;
 
 import java.util.Comparator;
@@ -37,8 +38,11 @@ public class JfxApp extends GeneratedJfxApp {
 //                String prefix ="cars/";
 //                String bibFile = "cars.bib";
 
-                String prefix ="";
-                String bibFile = "bib.bib";
+                String prefix ="mobilehealth/";
+                String bibFile = "mobilehealth.bib";
+
+//                String prefix ="";
+//                String bibFile = "bib.bib";
 
                 String bibDir = "overview/";
                 String importDir = prefix+"imports/";
@@ -47,6 +51,7 @@ public class JfxApp extends GeneratedJfxApp {
                 String referencesDir = prefix+"references/";
                 String reportDir = prefix+"reports/";
                 String worksDir = prefix+"works/";
+                String graphvizDir = prefix+"graphviz/";
 
 
                 new ImportConcepts(base,importDir,"concepts.json");
@@ -64,6 +69,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new RunPDFGrep(base,importDir);
                 new RunPDFInfoURL(base,bibDir);
                 new FindConnectedPapers(base);
+                new FindCoauthorLinks(base);
                 new ListWorks(base,PAPER,exportDir,"papers.tex");
                 new ListWorksManual(base,PAPER,exportDir,"papersmanual.tex");
                 new ListWorks(base,ARTICLE,exportDir,"articles.tex");
@@ -96,6 +102,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new UnmatchedConcepts(base,exportDir,"unmatchedconcept.tex");
                 new KeyOverview(base,exportDir,"keylist.tex");
                 new WorksByAuthor(base,exportDir,"worksbyauthor.tex");
+                new CoauthorGraph(base,5,graphvizDir,reportDir,"coauthors.pdf");
 
                 new PublicationReport(base,reportDir).
                         produce("publications",

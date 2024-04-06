@@ -28,6 +28,7 @@ import org.insightcentre.pthg24.datamodel.Author;
 import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Citation;
+import org.insightcentre.pthg24.datamodel.Coauthor;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
@@ -48,7 +49,7 @@ import org.insightcentre.pthg24.datamodel.Work;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 13:53:22 on 2024-03-21 */
+ * Generated at 08:30:10 on 2024-04-05 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -108,6 +109,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<MissingCitedWork> missingCitedWorkData = FXCollections.observableArrayList();
 
+	private ObservableList<Coauthor> coauthorData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
 		fs = minimalDataset();
@@ -133,6 +136,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("Reference", "Reference");
 		tableViews.put("MissingCitingWork", "MissingCitingWork");
 		tableViews.put("MissingCitedWork", "MissingCitedWork");
+		tableViews.put("Coauthor", "Coauthor");
 		tableViews.put("Scenario", "Scenario");
 		tableViews.put("Scenario Differences", "ApplicationDifference");
 		tableViews.put("Warnings", "ApplicationWarning");
@@ -253,6 +257,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		missingCitingWorkData.addAll(base.getListMissingCitingWork());
 		missingCitedWorkData.clear();
 		missingCitedWorkData.addAll(base.getListMissingCitedWork());
+		coauthorData.clear();
+		coauthorData.addAll(base.getListCoauthor());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -352,5 +358,9 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<MissingCitedWork> getMissingCitedWorkData() {
 		return missingCitedWorkData;
+	}
+
+	public ObservableList<Coauthor> getCoauthorData() {
+		return coauthorData;
 	}
 }

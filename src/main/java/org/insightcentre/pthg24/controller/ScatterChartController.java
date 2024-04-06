@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 13:53:23 on 2024-03-21 */
+ * Generated at 08:30:11 on 2024-04-05 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -382,6 +382,22 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames = FXCollections.observableArrayList();
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("author1");
+		filterNames.add("author2");
+		attributeNames.add("nrWorks");
+		filterNames.add("nrWorks");
+		attributeNames.add("nrCites");
+		filterNames.add("nrCites");
+		attributeNames.add("earliestYear");
+		filterNames.add("earliestYear");
+		attributeNames.add("latestYear");
+		filterNames.add("latestYear");
+		choicesMap.put("Coauthor", attributeNames);
+		filterMap.put("Coauthor", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -476,6 +492,9 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("MissingCitedWork")) {
 				objectList = mainApp.getMissingCitedWorkData();
+			}
+			else if (className.equals("Coauthor")) {
+				objectList = mainApp.getCoauthorData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

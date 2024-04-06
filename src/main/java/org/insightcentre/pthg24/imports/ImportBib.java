@@ -337,7 +337,10 @@ public class ImportBib {
         if (text.contains("Australian Joint Conference on Artificial Intelligence")){
             return "Australian Joint Conference on Artificial Intelligence";
         }
-        return null;
+        if (text.contains("Railway Operations Modelling and Analysis")){
+            return "Railway Operations Modelling and Analysis";
+        }
+        return "unknown";
     }
 
     /*

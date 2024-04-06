@@ -29,6 +29,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include Authorship.uml
 !include Book.uml
 !include Citation.uml
+!include Coauthor.uml
 !include Collection.uml
 !include Concept.uml
 !include ConceptWork.uml
@@ -77,6 +78,8 @@ Work  *-- Citation : citedWork
 Work  *-- Citation : citingWork
 Work  *-- Reference : citedWork
 Work  *-- Reference : citingWork
+Author  *-- Coauthor : author1
+Author  *-- Coauthor : author2
 header
 Datamodel of Application pthg24
 endheader

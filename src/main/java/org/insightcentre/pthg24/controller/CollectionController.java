@@ -18,7 +18,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Collection;
 
 /**
- * Generated at 13:53:23 on 2024-03-21 */
+ * Generated at 08:30:11 on 2024-04-05 */
 public class CollectionController extends Table3Controller {
 	@FXML
 	private TableView<Collection> table;

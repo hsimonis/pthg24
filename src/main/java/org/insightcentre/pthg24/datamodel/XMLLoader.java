@@ -255,6 +255,25 @@ public ConceptType getConceptType(String attributeName,
         return res;
     }
 
+    public Coauthor getCoauthor(String attributeName,
+                               Attributes attributes) {
+        return (Coauthor) find(getId(attributeName,attributes));
+    }
+
+    public List<Coauthor> getCoauthorCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<Coauthor> res = new ArrayList<Coauthor>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((Coauthor) find(id));
+            }
+        }
+        return res;
+    }
+
     public Collection getCollection(String attributeName,
                                Attributes attributes) {
         return (Collection) find(getId(attributeName,attributes));
@@ -722,6 +741,19 @@ public ConceptType getConceptType(String attributeName,
                         getString("oci",attributes,""),
                         getString("timespan",attributes,"")
                         ));
+            } else if (qname.equals("coauthor")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new Coauthor(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        null,
+                        null,
+                        getInteger("earliestYear",attributes,0),
+                        getInteger("latestYear",attributes,0),
+                        getInteger("nrCites",attributes,0),
+                        getInteger("nrWorks",attributes,0)
+                        ));
             } else if (qname.equals("collection")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1018,6 +1050,12 @@ public ConceptType getConceptType(String attributeName,
                 Citation item = (Citation) find(id);
                  item.setCitedWork(getWork("citedWork",attributes));
                  item.setCitingWork(getWork("citingWork",attributes));
+            } else if (qname.equals("coauthor")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                Coauthor item = (Coauthor) find(id);
+                 item.setAuthor1(getAuthor("author1",attributes));
+                 item.setAuthor2(getAuthor("author2",attributes));
             } else if (qname.equals("collection")) {
                 assert (base != null);
                 int id = getId("id", attributes);

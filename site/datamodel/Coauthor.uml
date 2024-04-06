@@ -1,0 +1,8 @@
+ class Coauthor {
+Author author1
+Author author2
+Integer earliestYear
+Integer latestYear
+Integer nrCites
+Integer nrWorks
+}

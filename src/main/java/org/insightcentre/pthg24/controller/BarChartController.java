@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 13:53:23 on 2024-03-21 */
+ * Generated at 08:30:11 on 2024-04-05 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -101,6 +101,12 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrCitations");
 		choicesMap.put("MissingCitedWork", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nrWorks");
+		attributeNames.add("nrCites");
+		attributeNames.add("earliestYear");
+		attributeNames.add("latestYear");
+		choicesMap.put("Coauthor", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -187,6 +193,9 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("MissingCitedWork")) {
 				objectList = mainApp.getMissingCitedWorkData();
+			}
+			else if (className.equals("Coauthor")) {
+				objectList = mainApp.getCoauthorData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

@@ -10,6 +10,7 @@
 				<xs:element ref="authorship" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="book" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="citation" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="coauthor" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="collection" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="concept" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="conceptWork" minOccurs="0" maxOccurs="unbounded"/>
@@ -144,6 +145,19 @@
 			<xs:attribute name="journalSC" use="required" type="xs:string"/>
 			<xs:attribute name="oci" use="required" type="xs:string"/>
 			<xs:attribute name="timespan" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="coauthor">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="author1" use="required" type="xs:IDREF"/>
+			<xs:attribute name="author2" use="required" type="xs:IDREF"/>
+			<xs:attribute name="earliestYear" use="required" type="xs:integer"/>
+			<xs:attribute name="latestYear" use="required" type="xs:integer"/>
+			<xs:attribute name="nrCites" use="required" type="xs:integer"/>
+			<xs:attribute name="nrWorks" use="required" type="xs:integer"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="collection">

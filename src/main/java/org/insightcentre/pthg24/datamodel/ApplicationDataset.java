@@ -26,6 +26,7 @@ import org.insightcentre.pthg24.datamodel.Citation;
 import org.insightcentre.pthg24.datamodel.Reference;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.MissingCitedWork;
+import org.insightcentre.pthg24.datamodel.Coauthor;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -262,6 +263,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<MissingCitedWork> listMissingCitedWork = new ArrayList<MissingCitedWork>();
 
 /**
+ *  This lists holds all items of class Coauthor and its subclasses
+ *
+*/
+
+    List<Coauthor> listCoauthor = new ArrayList<Coauthor>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -391,6 +399,7 @@ public int compareTo(ApplicationDataset ds2){
                              "Authorship",
                              "Book",
                              "Citation",
+                             "Coauthor",
                              "Collection",
                              "Concept",
                              "ConceptWork",
@@ -485,6 +494,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListReference();
         resetListMissingCitingWork();
         resetListMissingCitedWork();
+        resetListCoauthor();
     }
 
 /**
@@ -1352,6 +1362,40 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class Coauthor
+ *
+*/
+
+    public Iterator<Coauthor> getIteratorCoauthor(){
+        return listCoauthor.iterator();
+    }
+
+/**
+ *  Getter for list of class Coauthor
+ *
+*/
+
+    public List<Coauthor> getListCoauthor(){
+        return listCoauthor;
+    }
+
+/**
+ *  reset the list of class Coauthor; use with care, does not call cascades
+ *
+*/
+
+    public void resetListCoauthor(){
+        listCoauthor = new ArrayList<Coauthor>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Coauthor)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -1714,6 +1758,42 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(Reference b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Author; remove all dependent objects of class Coauthor which refer to item through their attribute author1
+ *
+*/
+
+    public void cascadeCoauthorAuthor1(Author item){
+        assert item != null;
+        List<Coauthor> toRemove = new ArrayList<Coauthor>();
+        for(Coauthor a:getListCoauthor()) {
+         if (a.getAuthor1() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Coauthor b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Author; remove all dependent objects of class Coauthor which refer to item through their attribute author2
+ *
+*/
+
+    public void cascadeCoauthorAuthor2(Author item){
+        assert item != null;
+        List<Coauthor> toRemove = new ArrayList<Coauthor>();
+        for(Coauthor a:getListCoauthor()) {
+         if (a.getAuthor2() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Coauthor b:toRemove) {
             b.remove();
         }
     }
@@ -2239,6 +2319,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class Coauthor
+ *
+*/
+
+    public void addCoauthor(Coauthor coauthor){
+        assert coauthor != null;
+        this.listCoauthor.add(coauthor);
+    }
+
+/**
+ *  remove an item from the list for class Coauthor
+ *
+*/
+
+    public Boolean removeCoauthor(Coauthor coauthor){
+        assert coauthor != null;
+        return this.listCoauthor.remove(coauthor);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -2263,6 +2363,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(Citation x:getListCitation()){
+            System.out.println(x);
+        }
+        for(Coauthor x:getListCoauthor()){
             System.out.println(x);
         }
         for(Collection x:getListCollection()){
@@ -2369,6 +2472,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(Citation x:getListCitation()){
             if (x.getClass().equals(Citation.class)) x.toXML(out);
+        }
+        for(Coauthor x:getListCoauthor()){
+            if (x.getClass().equals(Coauthor.class)) x.toXML(out);
         }
         for(Collection x:getListCollection()){
             if (x.getClass().equals(Collection.class)) x.toXML(out);
@@ -2516,6 +2622,7 @@ public int compareTo(ApplicationDataset ds2){
         compareAuthorship(this.getListAuthorship(),compare.getListAuthorship());
         compareBook(this.getListBook(),compare.getListBook());
         compareCitation(this.getListCitation(),compare.getListCitation());
+        compareCoauthor(this.getListCoauthor(),compare.getListCoauthor());
         compareCollection(this.getListCollection(),compare.getListCollection());
         compareConcept(this.getListConcept(),compare.getListConcept());
         compareConceptWork(this.getListConceptWork(),compare.getListConceptWork());
@@ -2674,6 +2781,30 @@ public int compareTo(ApplicationDataset ds2){
             Citation a = Citation.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Citation B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types Coauthor, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareCoauthor(List<Coauthor> aList,List<Coauthor> bList){
+        System.out.println("Comparing Coauthor");
+        for(Coauthor a:aList){
+            Coauthor b= Coauthor.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Coauthor A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Coauthor A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Coauthor B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Coauthor b: bList){
+            Coauthor a = Coauthor.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Coauthor B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -3050,6 +3181,7 @@ public int compareTo(ApplicationDataset ds2){
         checkAuthorship(this.getListAuthorship());
         checkBook(this.getListBook());
         checkCitation(this.getListCitation());
+        checkCoauthor(this.getListCoauthor());
         checkCollection(this.getListCollection());
         checkConcept(this.getListConcept());
         checkConceptWork(this.getListConceptWork());
@@ -3130,6 +3262,17 @@ public int compareTo(ApplicationDataset ds2){
 
     public void checkCitation(List<Citation> list){
         for(Citation a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<Coauthor> dataset list of all items of type Coauthor
+*/
+
+    public void checkCoauthor(List<Coauthor> list){
+        for(Coauthor a:list){
             a.check();
         }
     }
@@ -3318,6 +3461,7 @@ public int compareTo(ApplicationDataset ds2){
         Authorship.dummy(this);
         Book.dummy(this);
         Citation.dummy(this);
+        Coauthor.dummy(this);
         Collection.dummy(this);
         Concept.dummy(this);
         ConceptWork.dummy(this);
