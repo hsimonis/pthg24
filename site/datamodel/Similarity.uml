@@ -1,0 +1,13 @@
+ class Similarity {
+Integer cite1
+Integer cite2
+Integer nrSharedCitations
+Integer nrSharedReferences
+Integer ref1
+Integer ref2
+Double similarity
+Double similarityCite
+Double similarityRef
+Work work1
+Work work2
+}

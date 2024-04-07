@@ -46,6 +46,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include Reference.uml
 !include Scenario.uml
 !include School.uml
+!include Similarity.uml
 !include Work.uml
 !include DifferenceType.uml
 !include WarningType.uml
@@ -80,6 +81,8 @@ Work  *-- Reference : citedWork
 Work  *-- Reference : citingWork
 Author  *-- Coauthor : author1
 Author  *-- Coauthor : author2
+Work  *-- Similarity : work1
+Work  *-- Similarity : work2
 header
 Datamodel of Application pthg24
 endheader

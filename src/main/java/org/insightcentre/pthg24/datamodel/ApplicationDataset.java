@@ -27,6 +27,7 @@ import org.insightcentre.pthg24.datamodel.Reference;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.Coauthor;
+import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -270,6 +271,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<Coauthor> listCoauthor = new ArrayList<Coauthor>();
 
 /**
+ *  This lists holds all items of class Similarity and its subclasses
+ *
+*/
+
+    List<Similarity> listSimilarity = new ArrayList<Similarity>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -415,7 +423,8 @@ public int compareTo(ApplicationDataset ds2){
                              "Proceedings",
                              "Reference",
                              "Scenario",
-                             "School");
+                             "School",
+                             "Similarity");
     }
 
 /**
@@ -495,6 +504,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListMissingCitingWork();
         resetListMissingCitedWork();
         resetListCoauthor();
+        resetListSimilarity();
     }
 
 /**
@@ -1396,6 +1406,40 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class Similarity
+ *
+*/
+
+    public Iterator<Similarity> getIteratorSimilarity(){
+        return listSimilarity.iterator();
+    }
+
+/**
+ *  Getter for list of class Similarity
+ *
+*/
+
+    public List<Similarity> getListSimilarity(){
+        return listSimilarity;
+    }
+
+/**
+ *  reset the list of class Similarity; use with care, does not call cascades
+ *
+*/
+
+    public void resetListSimilarity(){
+        listSimilarity = new ArrayList<Similarity>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Similarity)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -1794,6 +1838,42 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(Coauthor b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class Similarity which refer to item through their attribute work1
+ *
+*/
+
+    public void cascadeSimilarityWork1(Work item){
+        assert item != null;
+        List<Similarity> toRemove = new ArrayList<Similarity>();
+        for(Similarity a:getListSimilarity()) {
+         if (a.getWork1() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Similarity b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class Similarity which refer to item through their attribute work2
+ *
+*/
+
+    public void cascadeSimilarityWork2(Work item){
+        assert item != null;
+        List<Similarity> toRemove = new ArrayList<Similarity>();
+        for(Similarity a:getListSimilarity()) {
+         if (a.getWork2() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Similarity b:toRemove) {
             b.remove();
         }
     }
@@ -2339,6 +2419,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class Similarity
+ *
+*/
+
+    public void addSimilarity(Similarity similarity){
+        assert similarity != null;
+        this.listSimilarity.add(similarity);
+    }
+
+/**
+ *  remove an item from the list for class Similarity
+ *
+*/
+
+    public Boolean removeSimilarity(Similarity similarity){
+        assert similarity != null;
+        return this.listSimilarity.remove(similarity);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -2414,6 +2514,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(School x:getListSchool()){
+            System.out.println(x);
+        }
+        for(Similarity x:getListSimilarity()){
             System.out.println(x);
         }
     }
@@ -2520,6 +2623,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(School x:getListSchool()){
             if (x.getClass().equals(School.class)) x.toXML(out);
+        }
+        for(Similarity x:getListSimilarity()){
+            if (x.getClass().equals(Similarity.class)) x.toXML(out);
         }
         out.println("</body>");
         out.close();
@@ -2638,6 +2744,7 @@ public int compareTo(ApplicationDataset ds2){
         compareProceedings(this.getListProceedings(),compare.getListProceedings());
         compareReference(this.getListReference(),compare.getListReference());
         compareSchool(this.getListSchool(),compare.getListSchool());
+        compareSimilarity(this.getListSimilarity(),compare.getListSimilarity());
         System.out.println("Done Comparing ApplicationDataset");
     }
 
@@ -3170,6 +3277,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types Similarity, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareSimilarity(List<Similarity> aList,List<Similarity> bList){
+        System.out.println("Comparing Similarity");
+        for(Similarity a:aList){
+            Similarity b= Similarity.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Similarity A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Similarity A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Similarity B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Similarity b: bList){
+            Similarity a = Similarity.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Similarity B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * check all objects in dataset for internal consistency, based on multiplicity
  * and restrictions; create applicationWarning if inconsistent
 */
@@ -3198,6 +3329,7 @@ public int compareTo(ApplicationDataset ds2){
         checkReference(this.getListReference());
         checkScenario(this.getListScenario());
         checkSchool(this.getListSchool());
+        checkSimilarity(this.getListSimilarity());
     }
 
 /**
@@ -3453,6 +3585,17 @@ public int compareTo(ApplicationDataset ds2){
         }
     }
 
+/**
+ * helper method for checkAll()
+ * @param list List<Similarity> dataset list of all items of type Similarity
+*/
+
+    public void checkSimilarity(List<Similarity> list){
+        for(Similarity a:list){
+            a.check();
+        }
+    }
+
    public void generateDummies(){
         ApplicationDifference.dummy(this);
         ApplicationWarning.dummy(this);
@@ -3478,6 +3621,7 @@ public int compareTo(ApplicationDataset ds2){
         Reference.dummy(this);
         Scenario.dummy(this);
         School.dummy(this);
+        Similarity.dummy(this);
    }
 
 /**

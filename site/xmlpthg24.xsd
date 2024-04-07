@@ -27,6 +27,7 @@
 				<xs:element ref="reference" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="scenario" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="school" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="similarity" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -394,6 +395,24 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="similarity">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="cite1" use="required" type="xs:integer"/>
+			<xs:attribute name="cite2" use="required" type="xs:integer"/>
+			<xs:attribute name="nrSharedCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="nrSharedReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="ref1" use="required" type="xs:integer"/>
+			<xs:attribute name="ref2" use="required" type="xs:integer"/>
+			<xs:attribute name="similarity" use="required" type="xs:double"/>
+			<xs:attribute name="similarityCite" use="required" type="xs:double"/>
+			<xs:attribute name="similarityRef" use="required" type="xs:double"/>
+			<xs:attribute name="work1" use="required" type="xs:IDREF"/>
+			<xs:attribute name="work2" use="required" type="xs:IDREF"/>
 		</xs:complexType>
 	</xs:element>
 </xs:schema>

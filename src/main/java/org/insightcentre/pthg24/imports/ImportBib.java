@@ -165,6 +165,9 @@ public class ImportBib {
     private String normalize(String name){
         if (name.contains(",")){
             String[] split = name.split(",");
+            if (split.length != 2) {
+                severe("Name has too many commas "+name);
+            }
             assert(split.length == 2);
             return split[1].trim()+" "+split[0].trim();
         }
@@ -294,7 +297,7 @@ public class ImportBib {
                 "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE","CCL'99",
                 "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL","ICORES","SOCS","SAT",
                 "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA",
-                "Canadian AI","CSCLP","LION","FGCS","EvoWorkshop","Conf AI"
+                "Canadian AI","CSCLP","LION","FGCS","EvoWorkshop","Conf AI","ICOA"
         };
         for(String cand:series) {
             if (text.contains(cand)) {
@@ -331,8 +334,11 @@ public class ImportBib {
         if (text.contains("Operations Research Proceedings")){
             return "Operations Research Proceedings";
         }
-        if (text.contains("Genetic and evolutionary computation")){
-            return "Genetic and evolutionary computation";
+        if (text.toLowerCase().contains("international joint conference on artificial intelligence")){
+            return "IJCAI";
+        }
+        if (text.toLowerCase().contains("genetic and evolutionary computation")){
+            return "GECCO";
         }
         if (text.contains("Australian Joint Conference on Artificial Intelligence")){
             return "Australian Joint Conference on Artificial Intelligence";

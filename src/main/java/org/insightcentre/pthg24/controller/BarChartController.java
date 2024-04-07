@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 08:30:11 on 2024-04-05 */
+ * Generated at 11:41:24 on 2024-04-07 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -107,6 +107,17 @@ public class BarChartController extends ChartController {
 		attributeNames.add("latestYear");
 		choicesMap.put("Coauthor", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("ref1");
+		attributeNames.add("ref2");
+		attributeNames.add("nrSharedReferences");
+		attributeNames.add("cite1");
+		attributeNames.add("cite2");
+		attributeNames.add("nrSharedCitations");
+		attributeNames.add("similarityRef");
+		attributeNames.add("similarityCite");
+		attributeNames.add("similarity");
+		choicesMap.put("Similarity", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -196,6 +207,9 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("Coauthor")) {
 				objectList = mainApp.getCoauthorData();
+			}
+			else if (className.equals("Similarity")) {
+				objectList = mainApp.getSimilarityData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

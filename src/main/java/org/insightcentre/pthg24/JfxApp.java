@@ -40,9 +40,13 @@ public class JfxApp extends GeneratedJfxApp {
 
                 String prefix ="mobilehealth/";
                 String bibFile = "mobilehealth.bib";
+                String authors="G. Tacadao and B. O'Sullivan and L. Quesada and H. Simonis";
+                int coauthorLimit = 2;
 
 //                String prefix ="";
 //                String bibFile = "bib.bib";
+//                String authors="Helmut Simonis and Cemalettin Öztürk";
+//                int coauthorLimit = 5;
 
                 String bibDir = "overview/";
                 String importDir = prefix+"imports/";
@@ -102,12 +106,13 @@ public class JfxApp extends GeneratedJfxApp {
                 new UnmatchedConcepts(base,exportDir,"unmatchedconcept.tex");
                 new KeyOverview(base,exportDir,"keylist.tex");
                 new WorksByAuthor(base,exportDir,"worksbyauthor.tex");
-                new CoauthorGraph(base,5,graphvizDir,reportDir,"coauthors.pdf");
+                new CoauthorGraph(base,coauthorLimit,graphvizDir,reportDir,"coauthors.pdf");
+                new SimilarityMeasure(base);
 
                 new PublicationReport(base,reportDir).
                         produce("publications",
                                 "Publication Report",
-                                "H. Simonis and Cemalettin Öztürk");
+                                authors);
 
                 return base;
         }

@@ -578,6 +578,25 @@ public ConceptType getConceptType(String attributeName,
         return res;
     }
 
+    public Similarity getSimilarity(String attributeName,
+                               Attributes attributes) {
+        return (Similarity) find(getId(attributeName,attributes));
+    }
+
+    public List<Similarity> getSimilarityCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<Similarity> res = new ArrayList<Similarity>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((Similarity) find(id));
+            }
+        }
+        return res;
+    }
+
     public Work getWork(String attributeName,
                                Attributes attributes) {
         return (Work) find(getId(attributeName,attributes));
@@ -982,6 +1001,24 @@ public ConceptType getConceptType(String attributeName,
                         id,
                         getString("name", attributes, "dummy")
                         ));
+            } else if (qname.equals("similarity")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new Similarity(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getInteger("cite1",attributes,0),
+                        getInteger("cite2",attributes,0),
+                        getInteger("nrSharedCitations",attributes,0),
+                        getInteger("nrSharedReferences",attributes,0),
+                        getInteger("ref1",attributes,0),
+                        getInteger("ref2",attributes,0),
+                        getDouble("similarity",attributes,0.0),
+                        getDouble("similarityCite",attributes,0.0),
+                        getDouble("similarityRef",attributes,0.0),
+                        null,
+                        null
+                        ));
             } else {
                 System.out.println("Element Structure " + qname);
                 numNodes++;
@@ -1131,6 +1168,12 @@ public ConceptType getConceptType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 School item = (School) find(id);
+            } else if (qname.equals("similarity")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                Similarity item = (Similarity) find(id);
+                 item.setWork1(getWork("work1",attributes));
+                 item.setWork2(getWork("work2",attributes));
             } else {
                 System.out.println("Element Structure " + qname);
                 numNodes++;

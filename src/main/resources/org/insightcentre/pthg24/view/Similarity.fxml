@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+
+<!--Generated at 11:41:24 on 2024-04-07-->
+
+
+<Tab text="Similarity" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.SimilarityController">
+   <BorderPane>
+      <center>
+         <TableView fx:id="table" editable="true">
+            <columns>
+               <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
+               <TableColumn fx:id="work1" styleClass="right-aligned" text="Work1" />
+               <TableColumn fx:id="work2" styleClass="right-aligned" text="Work2" />
+               <TableColumn fx:id="ref1" styleClass="right-aligned" text="Ref1" />
+               <TableColumn fx:id="ref2" styleClass="right-aligned" text="Ref2" />
+               <TableColumn fx:id="nrSharedReferences" styleClass="right-aligned" text="NrSharedReferences" />
+               <TableColumn fx:id="cite1" styleClass="right-aligned" text="Cite1" />
+               <TableColumn fx:id="cite2" styleClass="right-aligned" text="Cite2" />
+               <TableColumn fx:id="nrSharedCitations" styleClass="right-aligned" text="NrSharedCitations" />
+               <TableColumn fx:id="similarityRef" styleClass="right-aligned" text="SimilarityRef" />
+               <TableColumn fx:id="similarityCite" styleClass="right-aligned" text="SimilarityCite" />
+               <TableColumn fx:id="similarity" styleClass="right-aligned" text="Similarity" />
+            </columns>
+         </TableView>
+      </center>
+      <bottom>
+         <TitledPane fx:id="filterPane" expanded="false" text="Filter">
+            <content>
+               <HBox alignment="center" spacing="5.0">
+                  <ChoiceBox fx:id="filterChoiceBox" />
+                  <ChoiceBox fx:id="filterComparisonBox" />
+                  <TextField fx:id="filterTextField" />
+               </HBox>
+            </content>
+         </TitledPane>
+      </bottom>
+   </BorderPane>
+</Tab>

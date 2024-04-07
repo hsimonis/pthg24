@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<!--Generated at 08:30:11 on 2024-04-05-->
+<!--Generated at 11:41:24 on 2024-04-07-->
 
 
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.RootController">
@@ -87,6 +87,7 @@
                   <MenuItem id="missingCitingWorkPage" onAction="#handle" text="MissingCitingWork" />
                   <MenuItem id="missingCitedWorkPage" onAction="#handle" text="MissingCitedWork" />
                   <MenuItem id="coauthorPage" onAction="#handle" text="Coauthor" />
+                  <MenuItem id="similarityPage" onAction="#handle" text="Similarity" />
                   <MenuItem id="scenarioPage" onAction="#handle" text="Scenario" />
                   <MenuItem id="GenericPieChart" onAction="#handle" text="Generic Pie Chart" />
                   <MenuItem id="GenericBarChart" onAction="#handle" text="Generic Bar Chart" />

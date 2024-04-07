@@ -1,5 +1,8 @@
 package org.insightcentre.pthg24.reports;
 
+import framework.reports.visualization.heatmap.HeatMapColoring;
+import framework.reports.visualization.heatmap.HeatMapFunctions;
+import framework.reports.visualization.heatmap.HeatMap;
 import framework.reports.visualization.plot.barplot.BarPlot;
 import framework.reports.visualization.plot.distributionplot.DistributionPlot;
 import framework.reports.visualization.plot.distributionplot.DistributionPlotOrdering;
@@ -14,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static framework.reports.visualization.heatmap.ColorScheme.defineColors;
 import static java.util.stream.Collectors.groupingBy;
 import static org.insightcentre.pthg24.logging.LogShortcut.info;
 
@@ -23,6 +27,7 @@ public class PublicationReport extends AbstractReport{
     }
 
     public void content(){
+        tex.printf("%s\n\n",defineColors());
         bySeries(base.getListPaper().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
         byJournal(base.getListArticle().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
         byYear(base.getListWork().stream().filter(x->!x.getBackground()).collect(Collectors.toList()),
@@ -32,6 +37,26 @@ public class PublicationReport extends AbstractReport{
         coAuthorDistributionPlot(base.getListWork().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
         workDistributionPlot(base.getListAuthor().stream().filter(x->x.getNrWorks() >0).collect(Collectors.toList()));
         citationDistributionPlot(base.getListWork().stream().filter(x->!x.getBackground()).toList());
+
+
+        new HeatMap<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarity())).toList(),
+                new HeatMapFunctions<>(Similarity::getWork1,
+                        Similarity::getWork2,
+                        this::nameOf,
+                        this::nameOf,
+                        x->(int)Math.round(x.getSimilarity()*1000)),
+                45,22).
+                coloring(HeatMapColoring.PERCENTOFMAXIMUM).
+                colorSaturation(40).
+                width(25).height(15).
+                generate().latex(tex);
+
+        clearpage();
+        tex.printf("\\begin{figure}[htbp]\n");
+        tex.printf("\\caption{Coauthor Graph Drawn with fdp (Graphviz)}\n");
+        tex.printf("\\centering\n");
+        tex.printf("\\includegraphics[width=.6\\textwidth]{../graphviz/fdp.pdf}\n\n");
+        tex.printf("\\end{figure}\n\n");
     }
 
     private void bySeries(List<Paper> work){

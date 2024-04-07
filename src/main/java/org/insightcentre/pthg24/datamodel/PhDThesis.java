@@ -27,6 +27,7 @@ import org.insightcentre.pthg24.datamodel.Reference;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.Coauthor;
+import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -180,6 +181,8 @@ public  class PhDThesis extends Work{
         getApplicationDataset().cascadeCitationCitingWork(this);
         getApplicationDataset().cascadeReferenceCitedWork(this);
         getApplicationDataset().cascadeReferenceCitingWork(this);
+        getApplicationDataset().cascadeSimilarityWork1(this);
+        getApplicationDataset().cascadeSimilarityWork2(this);
         return getApplicationDataset().removePhDThesis(this) && getApplicationDataset().removeWork(this) && getApplicationDataset().removeApplicationObject(this);
     }
 

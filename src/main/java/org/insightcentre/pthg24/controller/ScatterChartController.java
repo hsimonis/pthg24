@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 08:30:11 on 2024-04-05 */
+ * Generated at 11:41:24 on 2024-04-07 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -398,6 +398,32 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames = FXCollections.observableArrayList();
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("work1");
+		filterNames.add("work2");
+		attributeNames.add("ref1");
+		filterNames.add("ref1");
+		attributeNames.add("ref2");
+		filterNames.add("ref2");
+		attributeNames.add("nrSharedReferences");
+		filterNames.add("nrSharedReferences");
+		attributeNames.add("cite1");
+		filterNames.add("cite1");
+		attributeNames.add("cite2");
+		filterNames.add("cite2");
+		attributeNames.add("nrSharedCitations");
+		filterNames.add("nrSharedCitations");
+		attributeNames.add("similarityRef");
+		filterNames.add("similarityRef");
+		attributeNames.add("similarityCite");
+		filterNames.add("similarityCite");
+		attributeNames.add("similarity");
+		filterNames.add("similarity");
+		choicesMap.put("Similarity", attributeNames);
+		filterMap.put("Similarity", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -495,6 +521,9 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("Coauthor")) {
 				objectList = mainApp.getCoauthorData();
+			}
+			else if (className.equals("Similarity")) {
+				objectList = mainApp.getSimilarityData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

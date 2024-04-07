@@ -45,11 +45,12 @@ import org.insightcentre.pthg24.datamodel.Proceedings;
 import org.insightcentre.pthg24.datamodel.Reference;
 import org.insightcentre.pthg24.datamodel.Scenario;
 import org.insightcentre.pthg24.datamodel.School;
+import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.Work;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 08:30:10 on 2024-04-05 */
+ * Generated at 11:41:23 on 2024-04-07 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -111,6 +112,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<Coauthor> coauthorData = FXCollections.observableArrayList();
 
+	private ObservableList<Similarity> similarityData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
 		fs = minimalDataset();
@@ -137,6 +140,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("MissingCitingWork", "MissingCitingWork");
 		tableViews.put("MissingCitedWork", "MissingCitedWork");
 		tableViews.put("Coauthor", "Coauthor");
+		tableViews.put("Similarity", "Similarity");
 		tableViews.put("Scenario", "Scenario");
 		tableViews.put("Scenario Differences", "ApplicationDifference");
 		tableViews.put("Warnings", "ApplicationWarning");
@@ -259,6 +263,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		missingCitedWorkData.addAll(base.getListMissingCitedWork());
 		coauthorData.clear();
 		coauthorData.addAll(base.getListCoauthor());
+		similarityData.clear();
+		similarityData.addAll(base.getListSimilarity());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -362,5 +368,9 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<Coauthor> getCoauthorData() {
 		return coauthorData;
+	}
+
+	public ObservableList<Similarity> getSimilarityData() {
+		return similarityData;
 	}
 }
