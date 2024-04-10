@@ -8,8 +8,6 @@ import framework.reports.visualization.plot.distributionplot.DistributionPlot;
 import framework.reports.visualization.plot.distributionplot.DistributionPlotOrdering;
 import framework.reports.visualization.plot.lineplot.LinePlot;
 import framework.reports.visualization.plot.lineplot.LinePlotFunctions;
-import framework.reports.visualization.tabular.table.TableDraw;
-import org.insightcentre.pthg24.analysis.ListWorks;
 import org.insightcentre.pthg24.datamodel.*;
 
 import java.util.Comparator;
