@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 11:41:24 on 2024-04-07 */
+ * Generated at 13:06:16 on 2024-04-09 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -23,6 +23,7 @@ public class BarChartController extends ChartController {
 	private void initialize() {
 		ObservableList<String> attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("revision");
+		attributeNames.add("nrOccurrences");
 		choicesMap.put("Concept", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nrWorks");
@@ -101,6 +102,11 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrCitations");
 		choicesMap.put("MissingCitedWork", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nrCited");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrLinks");
+		choicesMap.put("MissingWork", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nrWorks");
 		attributeNames.add("nrCites");
 		attributeNames.add("earliestYear");
@@ -115,6 +121,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrSharedCitations");
 		attributeNames.add("similarityRef");
 		attributeNames.add("similarityCite");
+		attributeNames.add("similarityConcept");
 		attributeNames.add("similarity");
 		choicesMap.put("Similarity", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -204,6 +211,9 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("MissingCitedWork")) {
 				objectList = mainApp.getMissingCitedWorkData();
+			}
+			else if (className.equals("MissingWork")) {
+				objectList = mainApp.getMissingWorkData();
 			}
 			else if (className.equals("Coauthor")) {
 				objectList = mainApp.getCoauthorData();

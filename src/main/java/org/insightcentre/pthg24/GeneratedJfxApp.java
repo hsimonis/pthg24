@@ -39,6 +39,7 @@ import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
+import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.Proceedings;
@@ -50,7 +51,7 @@ import org.insightcentre.pthg24.datamodel.Work;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 11:41:23 on 2024-04-07 */
+ * Generated at 13:06:16 on 2024-04-09 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -110,6 +111,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<MissingCitedWork> missingCitedWorkData = FXCollections.observableArrayList();
 
+	private ObservableList<MissingWork> missingWorkData = FXCollections.observableArrayList();
+
 	private ObservableList<Coauthor> coauthorData = FXCollections.observableArrayList();
 
 	private ObservableList<Similarity> similarityData = FXCollections.observableArrayList();
@@ -139,6 +142,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("Reference", "Reference");
 		tableViews.put("MissingCitingWork", "MissingCitingWork");
 		tableViews.put("MissingCitedWork", "MissingCitedWork");
+		tableViews.put("MissingWork", "MissingWork");
 		tableViews.put("Coauthor", "Coauthor");
 		tableViews.put("Similarity", "Similarity");
 		tableViews.put("Scenario", "Scenario");
@@ -261,6 +265,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		missingCitingWorkData.addAll(base.getListMissingCitingWork());
 		missingCitedWorkData.clear();
 		missingCitedWorkData.addAll(base.getListMissingCitedWork());
+		missingWorkData.clear();
+		missingWorkData.addAll(base.getListMissingWork());
 		coauthorData.clear();
 		coauthorData.addAll(base.getListCoauthor());
 		similarityData.clear();
@@ -364,6 +370,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<MissingCitedWork> getMissingCitedWorkData() {
 		return missingCitedWorkData;
+	}
+
+	public ObservableList<MissingWork> getMissingWorkData() {
+		return missingWorkData;
 	}
 
 	public ObservableList<Coauthor> getCoauthorData() {

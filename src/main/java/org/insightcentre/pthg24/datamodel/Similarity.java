@@ -26,6 +26,7 @@ import org.insightcentre.pthg24.datamodel.Citation;
 import org.insightcentre.pthg24.datamodel.Reference;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.MissingCitedWork;
+import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Coauthor;
 import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
@@ -110,6 +111,13 @@ public  class Similarity extends ApplicationObject{
  *
 */
 
+    public Double similarityConcept;
+
+/**
+ *  
+ *
+*/
+
     public Double similarityRef;
 
 /**
@@ -153,6 +161,7 @@ public  class Similarity extends ApplicationObject{
         setRef2(0);
         setSimilarity(0.0);
         setSimilarityCite(0.0);
+        setSimilarityConcept(0.0);
         setSimilarityRef(0.0);
         setWork1(null);
         setWork2(null);
@@ -177,6 +186,7 @@ public  class Similarity extends ApplicationObject{
             Integer ref2,
             Double similarity,
             Double similarityCite,
+            Double similarityConcept,
             Double similarityRef,
             Work work1,
             Work work2){
@@ -191,6 +201,7 @@ public  class Similarity extends ApplicationObject{
         setRef2(ref2);
         setSimilarity(similarity);
         setSimilarityCite(similarityCite);
+        setSimilarityConcept(similarityConcept);
         setSimilarityRef(similarityRef);
         setWork1(work1);
         setWork2(work2);
@@ -209,6 +220,7 @@ public  class Similarity extends ApplicationObject{
             other.ref2,
             other.similarity,
             other.similarityCite,
+            other.similarityConcept,
             other.similarityRef,
             other.work1,
             other.work2);
@@ -303,6 +315,16 @@ public  class Similarity extends ApplicationObject{
 
     public Double getSimilarityCite(){
         return this.similarityCite;
+    }
+
+/**
+ *  get attribute similarityConcept
+ *
+ * @return Double
+*/
+
+    public Double getSimilarityConcept(){
+        return this.similarityConcept;
     }
 
 /**
@@ -432,6 +454,18 @@ public  class Similarity extends ApplicationObject{
     }
 
 /**
+ *  set attribute similarityConcept, mark dataset as dirty, mark dataset as not valid
+@param similarityConcept Double
+ *
+*/
+
+    public void setSimilarityConcept(Double similarityConcept){
+        this.similarityConcept = similarityConcept;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute similarityRef, mark dataset as dirty, mark dataset as not valid
 @param similarityRef Double
  *
@@ -550,7 +584,7 @@ public  class Similarity extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getCite1()+ " " +getCite2()+ " " +getNrSharedCitations()+ " " +getNrSharedReferences()+ " " +getRef1()+ " " +getRef2()+ " " +getSimilarity()+ " " +getSimilarityCite()+ " " +getSimilarityRef()+ " " +getWork1().toColumnString()+ " " +getWork2().toColumnString();
+        return ""+ " " +getId()+ " " +getName()+ " " +getCite1()+ " " +getCite2()+ " " +getNrSharedCitations()+ " " +getNrSharedReferences()+ " " +getRef1()+ " " +getRef2()+ " " +getSimilarity()+ " " +getSimilarityCite()+ " " +getSimilarityConcept()+ " " +getSimilarityRef()+ " " +getWork1().toColumnString()+ " " +getWork2().toColumnString();
     }
 
 /**
@@ -582,6 +616,7 @@ public  class Similarity extends ApplicationObject{
             " ref2=\""+toXMLRef2()+"\""+
             " similarity=\""+toXMLSimilarity()+"\""+
             " similarityCite=\""+toXMLSimilarityCite()+"\""+
+            " similarityConcept=\""+toXMLSimilarityConcept()+"\""+
             " similarityRef=\""+toXMLSimilarityRef()+"\""+
             " work1=\""+toXMLWork1()+"\""+
             " work2=\""+toXMLWork2()+"\""+" />");
@@ -673,6 +708,16 @@ public  class Similarity extends ApplicationObject{
  * @return String
 */
 
+    String toXMLSimilarityConcept(){
+        return this.getSimilarityConcept().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLSimilarityRef(){
         return this.getSimilarityRef().toString();
     }
@@ -704,11 +749,11 @@ public  class Similarity extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Similarity</th>"+"<th>Name</th>"+"<th>Work1</th>"+"<th>Work2</th>"+"<th>Ref1</th>"+"<th>Ref2</th>"+"<th>NrSharedReferences</th>"+"<th>Cite1</th>"+"<th>Cite2</th>"+"<th>NrSharedCitations</th>"+"<th>SimilarityRef</th>"+"<th>SimilarityCite</th>"+"<th>Similarity</th>"+"</tr>";
+        return "<tr><th>Similarity</th>"+"<th>Name</th>"+"<th>Work1</th>"+"<th>Work2</th>"+"<th>Ref1</th>"+"<th>Ref2</th>"+"<th>NrSharedReferences</th>"+"<th>Cite1</th>"+"<th>Cite2</th>"+"<th>NrSharedCitations</th>"+"<th>SimilarityRef</th>"+"<th>SimilarityCite</th>"+"<th>SimilarityConcept</th>"+"<th>Similarity</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getWork1().toColumnString()+"</td>"+ " " +"<td>"+getWork2().toColumnString()+"</td>"+ " " +"<td>"+getRef1()+"</td>"+ " " +"<td>"+getRef2()+"</td>"+ " " +"<td>"+getNrSharedReferences()+"</td>"+ " " +"<td>"+getCite1()+"</td>"+ " " +"<td>"+getCite2()+"</td>"+ " " +"<td>"+getNrSharedCitations()+"</td>"+ " " +"<td>"+getSimilarityRef()+"</td>"+ " " +"<td>"+getSimilarityCite()+"</td>"+ " " +"<td>"+getSimilarity()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getWork1().toColumnString()+"</td>"+ " " +"<td>"+getWork2().toColumnString()+"</td>"+ " " +"<td>"+getRef1()+"</td>"+ " " +"<td>"+getRef2()+"</td>"+ " " +"<td>"+getNrSharedReferences()+"</td>"+ " " +"<td>"+getCite1()+"</td>"+ " " +"<td>"+getCite2()+"</td>"+ " " +"<td>"+getNrSharedCitations()+"</td>"+ " " +"<td>"+getSimilarityRef()+"</td>"+ " " +"<td>"+getSimilarityCite()+"</td>"+ " " +"<td>"+getSimilarityConcept()+"</td>"+ " " +"<td>"+getSimilarity()+"</td>"+"</tr>";
     }
 
 /**
@@ -852,6 +897,9 @@ public  class Similarity extends ApplicationObject{
       if(!this.getSimilarityCite().equals(b.getSimilarityCite())){
          System.out.println("SimilarityCite");
         }
+      if(!this.getSimilarityConcept().equals(b.getSimilarityConcept())){
+         System.out.println("SimilarityConcept");
+        }
       if(!this.getSimilarityRef().equals(b.getSimilarityRef())){
          System.out.println("SimilarityRef");
         }
@@ -870,6 +918,7 @@ public  class Similarity extends ApplicationObject{
           this.getRef2().equals(b.getRef2()) &&
           this.getSimilarity().equals(b.getSimilarity()) &&
           this.getSimilarityCite().equals(b.getSimilarityCite()) &&
+          this.getSimilarityConcept().equals(b.getSimilarityConcept()) &&
           this.getSimilarityRef().equals(b.getSimilarityRef()) &&
           this.getWork1().applicationSame(b.getWork1()) &&
           this.getWork2().applicationSame(b.getWork2());

@@ -22,7 +22,7 @@ import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 11:41:24 on 2024-04-07 */
+ * Generated at 13:06:16 on 2024-04-09 */
 public class SimilarityController extends Table3Controller {
 	@FXML
 	private TableView<Similarity> table;
@@ -59,6 +59,9 @@ public class SimilarityController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Similarity, Double> similarityCite;
+
+	@FXML
+	private TableColumn<Similarity, Double> similarityConcept;
 
 	@FXML
 	private TableColumn<Similarity, Double> similarity;
@@ -124,6 +127,10 @@ public class SimilarityController extends Table3Controller {
 		similarityCite.setCellValueFactory(new PropertyValueFactory<>("similarityCite"));
 		similarityCite.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
 		similarityCite.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSimilarityCite(event.getNewValue()); mainApp.reset();});
+		choices.add("similarityConcept");
+		similarityConcept.setCellValueFactory(new PropertyValueFactory<>("similarityConcept"));
+		similarityConcept.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		similarityConcept.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSimilarityConcept(event.getNewValue()); mainApp.reset();});
 		choices.add("similarity");
 		similarity.setCellValueFactory(new PropertyValueFactory<>("similarity"));
 		similarity.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));

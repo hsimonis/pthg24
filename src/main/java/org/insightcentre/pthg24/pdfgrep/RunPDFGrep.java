@@ -11,8 +11,11 @@ import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.groupingBy;
 import static org.insightcentre.pthg24.datamodel.MatchLevel.*;
 import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
@@ -58,6 +61,7 @@ public class RunPDFGrep {
 
         }
         cwh.save(savedFile);
+        updateNrOccurences(base);
     }
 
 
@@ -138,6 +142,14 @@ public class RunPDFGrep {
             return Medium;
         } else {
             return Strong;
+        }
+    }
+
+    private void updateNrOccurences(Scenario base){
+        Map<Concept, List<ConceptWork>> map = base.getListConceptWork().stream().collect(groupingBy(ConceptWork::getConcept));
+        for(Concept c:map.keySet()){
+            int nrOccurs = map.get(c).stream().mapToInt(ConceptWork::getCount).sum();
+            c.setNrOccurrences(nrOccurs);
         }
     }
 }

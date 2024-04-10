@@ -26,6 +26,7 @@ import org.insightcentre.pthg24.datamodel.Citation;
 import org.insightcentre.pthg24.datamodel.Reference;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.MissingCitedWork;
+import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Coauthor;
 import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
@@ -77,6 +78,13 @@ public  class Concept extends ApplicationObject{
  *
 */
 
+    public Integer nrOccurrences;
+
+/**
+ *  
+ *
+*/
+
     public String regExpr;
 
 /**
@@ -108,6 +116,7 @@ public  class Concept extends ApplicationObject{
         setCaseSensitive(false);
         setConceptType(null);
         setLabel("");
+        setNrOccurrences(0);
         setRegExpr("");
         setRevision(0);
         applicationDataset.addConcept(this);
@@ -126,6 +135,7 @@ public  class Concept extends ApplicationObject{
             Boolean caseSensitive,
             ConceptType conceptType,
             String label,
+            Integer nrOccurrences,
             String regExpr,
             Integer revision){
         super(applicationDataset,
@@ -134,6 +144,7 @@ public  class Concept extends ApplicationObject{
         setCaseSensitive(caseSensitive);
         setConceptType(conceptType);
         setLabel(label);
+        setNrOccurrences(nrOccurrences);
         setRegExpr(regExpr);
         setRevision(revision);
         applicationDataset.addConcept(this);
@@ -146,6 +157,7 @@ public  class Concept extends ApplicationObject{
             other.caseSensitive,
             other.conceptType,
             other.label,
+            other.nrOccurrences,
             other.regExpr,
             other.revision);
     }
@@ -198,6 +210,16 @@ public  class Concept extends ApplicationObject{
 
     public String getLabel(){
         return this.label;
+    }
+
+/**
+ *  get attribute nrOccurrences
+ *
+ * @return Integer
+*/
+
+    public Integer getNrOccurrences(){
+        return this.nrOccurrences;
     }
 
 /**
@@ -257,6 +279,18 @@ public  class Concept extends ApplicationObject{
     }
 
 /**
+ *  set attribute nrOccurrences, mark dataset as dirty, mark dataset as not valid
+@param nrOccurrences Integer
+ *
+*/
+
+    public void setNrOccurrences(Integer nrOccurrences){
+        this.nrOccurrences = nrOccurrences;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute regExpr, mark dataset as dirty, mark dataset as not valid
 @param regExpr String
  *
@@ -276,6 +310,17 @@ public  class Concept extends ApplicationObject{
 
     public void setRevision(Integer revision){
         this.revision = revision;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute nrOccurrences, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrOccurrences(){
+        this.nrOccurrences++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -308,7 +353,7 @@ public  class Concept extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getCaseSensitive()+ " " +getConceptType()+ " " +getLabel()+ " " +getRegExpr()+ " " +getRevision();
+        return ""+ " " +getId()+ " " +getName()+ " " +getCaseSensitive()+ " " +getConceptType()+ " " +getLabel()+ " " +getNrOccurrences()+ " " +getRegExpr()+ " " +getRevision();
     }
 
 /**
@@ -335,6 +380,7 @@ public  class Concept extends ApplicationObject{
             " caseSensitive=\""+toXMLCaseSensitive()+"\""+
             " conceptType=\""+toXMLConceptType()+"\""+
             " label=\""+toXMLLabel()+"\""+
+            " nrOccurrences=\""+toXMLNrOccurrences()+"\""+
             " regExpr=\""+toXMLRegExpr()+"\""+
             " revision=\""+toXMLRevision()+"\""+" />");
      }
@@ -375,6 +421,16 @@ public  class Concept extends ApplicationObject{
  * @return String
 */
 
+    String toXMLNrOccurrences(){
+        return this.getNrOccurrences().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLRegExpr(){
         return this.safeXML(getRegExpr());
     }
@@ -396,11 +452,11 @@ public  class Concept extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Concept</th>"+"<th>Name</th>"+"<th>ConceptType</th>"+"<th>Label</th>"+"<th>RegExpr</th>"+"<th>CaseSensitive</th>"+"<th>Revision</th>"+"</tr>";
+        return "<tr><th>Concept</th>"+"<th>Name</th>"+"<th>ConceptType</th>"+"<th>Label</th>"+"<th>RegExpr</th>"+"<th>CaseSensitive</th>"+"<th>Revision</th>"+"<th>NrOccurrences</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getConceptType()+"</td>"+ " " +"<td>"+getLabel()+"</td>"+ " " +"<td>"+getRegExpr()+"</td>"+ " " +"<td>"+getCaseSensitive()+"</td>"+ " " +"<td>"+getRevision()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getConceptType()+"</td>"+ " " +"<td>"+getLabel()+"</td>"+ " " +"<td>"+getRegExpr()+"</td>"+ " " +"<td>"+getCaseSensitive()+"</td>"+ " " +"<td>"+getRevision()+"</td>"+ " " +"<td>"+getNrOccurrences()+"</td>"+"</tr>";
     }
 
 /**
@@ -529,6 +585,9 @@ public  class Concept extends ApplicationObject{
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
+      if(!this.getNrOccurrences().equals(b.getNrOccurrences())){
+         System.out.println("NrOccurrences");
+        }
       if(!this.getRegExpr().equals(b.getRegExpr())){
          System.out.println("RegExpr");
         }
@@ -539,6 +598,7 @@ public  class Concept extends ApplicationObject{
           this.getConceptType().equals(b.getConceptType()) &&
           this.getLabel().equals(b.getLabel()) &&
           this.getName().equals(b.getName()) &&
+          this.getNrOccurrences().equals(b.getNrOccurrences()) &&
           this.getRegExpr().equals(b.getRegExpr()) &&
           this.getRevision().equals(b.getRevision());
     }

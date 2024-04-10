@@ -1,0 +1,6 @@
+ class MissingWork {
+String doi
+Integer nrCitations
+Integer nrCited
+Integer nrLinks
+}

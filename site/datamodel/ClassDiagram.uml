@@ -40,6 +40,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include JournalAlias.uml
 !include MissingCitedWork.uml
 !include MissingCitingWork.uml
+!include MissingWork.uml
 !include Paper.uml
 !include PhDThesis.uml
 !include Proceedings.uml

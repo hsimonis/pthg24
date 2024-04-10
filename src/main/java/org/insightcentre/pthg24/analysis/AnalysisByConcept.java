@@ -53,6 +53,7 @@ public class AnalysisByConcept {
     private List<Concept> sortedConcepts(Scenario base,ConceptType type){
         return base.getListConcept().stream().
                 filter(x -> x.getConceptType() == type).
+                filter(x->x.getNrOccurrences() > 0).
                 sorted(Comparator.comparing(Concept::getName)).
                 toList();
     }

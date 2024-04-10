@@ -464,6 +464,25 @@ public ConceptType getConceptType(String attributeName,
         return res;
     }
 
+    public MissingWork getMissingWork(String attributeName,
+                               Attributes attributes) {
+        return (MissingWork) find(getId(attributeName,attributes));
+    }
+
+    public List<MissingWork> getMissingWorkCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<MissingWork> res = new ArrayList<MissingWork>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((MissingWork) find(id));
+            }
+        }
+        return res;
+    }
+
     public Paper getPaper(String attributeName,
                                Attributes attributes) {
         return (Paper) find(getId(attributeName,attributes));
@@ -789,6 +808,7 @@ public ConceptType getConceptType(String attributeName,
                         getBoolean("caseSensitive",attributes,false),
                         null,
                         getString("label",attributes,""),
+                        getInteger("nrOccurrences",attributes,0),
                         getString("regExpr",attributes,""),
                         getInteger("revision",attributes,0)
                         ));
@@ -911,6 +931,17 @@ public ConceptType getConceptType(String attributeName,
                         getString("doi",attributes,""),
                         getInteger("nrCited",attributes,0)
                         ));
+            } else if (qname.equals("missingWork")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new MissingWork(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getString("doi",attributes,""),
+                        getInteger("nrCitations",attributes,0),
+                        getInteger("nrCited",attributes,0),
+                        getInteger("nrLinks",attributes,0)
+                        ));
             } else if (qname.equals("paper")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1015,6 +1046,7 @@ public ConceptType getConceptType(String attributeName,
                         getInteger("ref2",attributes,0),
                         getDouble("similarity",attributes,0.0),
                         getDouble("similarityCite",attributes,0.0),
+                        getDouble("similarityConcept",attributes,0.0),
                         getDouble("similarityRef",attributes,0.0),
                         null,
                         null
@@ -1141,6 +1173,10 @@ public ConceptType getConceptType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 MissingCitingWork item = (MissingCitingWork) find(id);
+            } else if (qname.equals("missingWork")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                MissingWork item = (MissingWork) find(id);
             } else if (qname.equals("paper")) {
                 assert (base != null);
                 int id = getId("id", attributes);

@@ -45,9 +45,35 @@ public class PublicationReport extends AbstractReport{
                         this::nameOf,
                         this::nameOf,
                         x->(int)Math.round(x.getSimilarity()*1000)),
-                45,22).
+                42,22).
                 coloring(HeatMapColoring.PERCENTOFMAXIMUM).
                 colorSaturation(40).
+                caption("Similarity Measure (*1000) based on References and Citations (high = similar)").
+                width(25).height(15).
+                generate().latex(tex);
+        new HeatMap<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarityConcept())).toList(),
+                new HeatMapFunctions<>(Similarity::getWork1,
+                        Similarity::getWork2,
+                        this::nameOf,
+                        this::nameOf,
+                        x->(int)Math.round(x.getSimilarityConcept())),
+                55,35).
+                coloring(HeatMapColoring.PERCENTOFMAXIMUM).
+                colorSaturation(40).
+                caption("Similarity Measure based on Extracted Concepts (low = similar)").
+                width(25).height(15).
+                generate().latex(tex);
+
+        new DistributionPlot<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarity())).toList(),this::similar).
+                ordering(DistributionPlotOrdering.LABEL).
+                title("Distribution Plot of Similarity Values by References and Citations (High value is similar)").
+                xlabel("Similarity Value").ylabel("Count").
+                width(25).height(15).
+                generate().latex(tex);
+        new DistributionPlot<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarityConcept())).toList(),this::similarConcept).
+                ordering(DistributionPlotOrdering.NR).
+                title("Distribution Plot of Similarity Values by Concept (Low value is similar)").
+                xlabel("Similarity Value").ylabel("Count").
                 width(25).height(15).
                 generate().latex(tex);
 
@@ -57,6 +83,15 @@ public class PublicationReport extends AbstractReport{
         tex.printf("\\centering\n");
         tex.printf("\\includegraphics[width=.6\\textwidth]{../graphviz/fdp.pdf}\n\n");
         tex.printf("\\end{figure}\n\n");
+    }
+
+    private String similar(Similarity s){
+        return String.format("%.2f",Math.round(s.getSimilarity()*10.0)/10.0);
+//        return (int) Math.round(s.getSimilarity()*10.0);
+    }
+    private int similarConcept(Similarity s){
+//        return String.format("%.2f",Math.round(s.getSimilarity()*10.0)/10.0);
+        return (int) Math.round(s.getSimilarityConcept());
     }
 
     private void bySeries(List<Paper> work){

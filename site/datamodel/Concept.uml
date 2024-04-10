@@ -2,6 +2,7 @@
 Boolean caseSensitive
 ConceptType conceptType
 String label
+Integer nrOccurrences
 String regExpr
 Integer revision
 }

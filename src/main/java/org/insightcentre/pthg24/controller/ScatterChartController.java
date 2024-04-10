@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 11:41:24 on 2024-04-07 */
+ * Generated at 13:06:16 on 2024-04-09 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -42,6 +42,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("caseSensitive");
 		attributeNames.add("revision");
 		filterNames.add("revision");
+		attributeNames.add("nrOccurrences");
+		filterNames.add("nrOccurrences");
 		choicesMap.put("Concept", attributeNames);
 		filterMap.put("Concept", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -383,6 +385,19 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
 		filterNames.add("name");
+		filterNames.add("doi");
+		attributeNames.add("nrCited");
+		filterNames.add("nrCited");
+		attributeNames.add("nrCitations");
+		filterNames.add("nrCitations");
+		attributeNames.add("nrLinks");
+		filterNames.add("nrLinks");
+		choicesMap.put("MissingWork", attributeNames);
+		filterMap.put("MissingWork", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
 		filterNames.add("author1");
 		filterNames.add("author2");
 		attributeNames.add("nrWorks");
@@ -417,6 +432,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("similarityRef");
 		attributeNames.add("similarityCite");
 		filterNames.add("similarityCite");
+		attributeNames.add("similarityConcept");
+		filterNames.add("similarityConcept");
 		attributeNames.add("similarity");
 		filterNames.add("similarity");
 		choicesMap.put("Similarity", attributeNames);
@@ -518,6 +535,9 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("MissingCitedWork")) {
 				objectList = mainApp.getMissingCitedWorkData();
+			}
+			else if (className.equals("MissingWork")) {
+				objectList = mainApp.getMissingWorkData();
 			}
 			else if (className.equals("Coauthor")) {
 				objectList = mainApp.getCoauthorData();

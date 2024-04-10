@@ -28,7 +28,7 @@ import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptType;
 
 /**
- * Generated at 11:41:24 on 2024-04-07 */
+ * Generated at 13:06:16 on 2024-04-09 */
 public class ConceptController extends Table3Controller {
 	@FXML
 	private TableView<Concept> table;
@@ -50,6 +50,9 @@ public class ConceptController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Concept, Integer> revision;
+
+	@FXML
+	private TableColumn<Concept, Integer> nrOccurrences;
 
 	private GeneratedJfxApp mainApp;
 
@@ -92,6 +95,10 @@ public class ConceptController extends Table3Controller {
 		revision.setCellValueFactory(new PropertyValueFactory<>("revision"));
 		revision.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		revision.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRevision(event.getNewValue()); mainApp.reset();});
+		choices.add("nrOccurrences");
+		nrOccurrences.setCellValueFactory(new PropertyValueFactory<>("nrOccurrences"));
+		nrOccurrences.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrOccurrences.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrOccurrences(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

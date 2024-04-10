@@ -26,6 +26,7 @@ import org.insightcentre.pthg24.datamodel.Citation;
 import org.insightcentre.pthg24.datamodel.Reference;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.MissingCitedWork;
+import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Coauthor;
 import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
@@ -264,6 +265,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<MissingCitedWork> listMissingCitedWork = new ArrayList<MissingCitedWork>();
 
 /**
+ *  This lists holds all items of class MissingWork and its subclasses
+ *
+*/
+
+    List<MissingWork> listMissingWork = new ArrayList<MissingWork>();
+
+/**
  *  This lists holds all items of class Coauthor and its subclasses
  *
 */
@@ -418,6 +426,7 @@ public int compareTo(ApplicationDataset ds2){
                              "JournalAlias",
                              "MissingCitedWork",
                              "MissingCitingWork",
+                             "MissingWork",
                              "Paper",
                              "PhDThesis",
                              "Proceedings",
@@ -503,6 +512,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListReference();
         resetListMissingCitingWork();
         resetListMissingCitedWork();
+        resetListMissingWork();
         resetListCoauthor();
         resetListSimilarity();
     }
@@ -1365,6 +1375,40 @@ public int compareTo(ApplicationDataset ds2){
         List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
         for(ApplicationObject a:listApplicationObject){
             if (!(a instanceof MissingCitedWork)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class MissingWork
+ *
+*/
+
+    public Iterator<MissingWork> getIteratorMissingWork(){
+        return listMissingWork.iterator();
+    }
+
+/**
+ *  Getter for list of class MissingWork
+ *
+*/
+
+    public List<MissingWork> getListMissingWork(){
+        return listMissingWork;
+    }
+
+/**
+ *  reset the list of class MissingWork; use with care, does not call cascades
+ *
+*/
+
+    public void resetListMissingWork(){
+        listMissingWork = new ArrayList<MissingWork>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof MissingWork)){
                 newListApplicationObject.add(a);
             }
         }
@@ -2399,6 +2443,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class MissingWork
+ *
+*/
+
+    public void addMissingWork(MissingWork missingWork){
+        assert missingWork != null;
+        this.listMissingWork.add(missingWork);
+    }
+
+/**
+ *  remove an item from the list for class MissingWork
+ *
+*/
+
+    public Boolean removeMissingWork(MissingWork missingWork){
+        assert missingWork != null;
+        return this.listMissingWork.remove(missingWork);
+    }
+
+/**
  *  add an item to the list for class Coauthor
  *
 */
@@ -2496,6 +2560,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(MissingCitingWork x:getListMissingCitingWork()){
+            System.out.println(x);
+        }
+        for(MissingWork x:getListMissingWork()){
             System.out.println(x);
         }
         for(Paper x:getListPaper()){
@@ -2608,6 +2675,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(MissingCitingWork x:getListMissingCitingWork()){
             if (x.getClass().equals(MissingCitingWork.class)) x.toXML(out);
+        }
+        for(MissingWork x:getListMissingWork()){
+            if (x.getClass().equals(MissingWork.class)) x.toXML(out);
         }
         for(Paper x:getListPaper()){
             if (x.getClass().equals(Paper.class)) x.toXML(out);
@@ -2739,6 +2809,7 @@ public int compareTo(ApplicationDataset ds2){
         compareJournalAlias(this.getListJournalAlias(),compare.getListJournalAlias());
         compareMissingCitedWork(this.getListMissingCitedWork(),compare.getListMissingCitedWork());
         compareMissingCitingWork(this.getListMissingCitingWork(),compare.getListMissingCitingWork());
+        compareMissingWork(this.getListMissingWork(),compare.getListMissingWork());
         comparePaper(this.getListPaper(),compare.getListPaper());
         comparePhDThesis(this.getListPhDThesis(),compare.getListPhDThesis());
         compareProceedings(this.getListProceedings(),compare.getListProceedings());
@@ -3157,6 +3228,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types MissingWork, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareMissingWork(List<MissingWork> aList,List<MissingWork> bList){
+        System.out.println("Comparing MissingWork");
+        for(MissingWork a:aList){
+            MissingWork b= MissingWork.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingWork A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingWork A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingWork B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(MissingWork b: bList){
+            MissingWork a = MissingWork.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingWork B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types Paper, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -3323,6 +3418,7 @@ public int compareTo(ApplicationDataset ds2){
         checkJournalAlias(this.getListJournalAlias());
         checkMissingCitedWork(this.getListMissingCitedWork());
         checkMissingCitingWork(this.getListMissingCitingWork());
+        checkMissingWork(this.getListMissingWork());
         checkPaper(this.getListPaper());
         checkPhDThesis(this.getListPhDThesis());
         checkProceedings(this.getListProceedings());
@@ -3521,6 +3617,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<MissingWork> dataset list of all items of type MissingWork
+*/
+
+    public void checkMissingWork(List<MissingWork> list){
+        for(MissingWork a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<Paper> dataset list of all items of type Paper
 */
 
@@ -3615,6 +3722,7 @@ public int compareTo(ApplicationDataset ds2){
         JournalAlias.dummy(this);
         MissingCitedWork.dummy(this);
         MissingCitingWork.dummy(this);
+        MissingWork.dummy(this);
         Paper.dummy(this);
         PhDThesis.dummy(this);
         Proceedings.dummy(this);

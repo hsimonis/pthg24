@@ -21,6 +21,7 @@
 				<xs:element ref="journalAlias" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingCitedWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingCitingWork" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="missingWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="paper" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="phDThesis" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="proceedings" minOccurs="0" maxOccurs="unbounded"/>
@@ -176,6 +177,7 @@
 			<xs:attribute name="caseSensitive" use="required" type="xs:boolean"/>
 			<xs:attribute name="conceptType" use="required" type="xs:string"/>
 			<xs:attribute name="label" use="required" type="xs:string"/>
+			<xs:attribute name="nrOccurrences" use="required" type="xs:integer"/>
 			<xs:attribute name="regExpr" use="required" type="xs:string"/>
 			<xs:attribute name="revision" use="required" type="xs:integer"/>
 		</xs:complexType>
@@ -299,6 +301,17 @@
 			<xs:attribute name="nrCited" use="required" type="xs:integer"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="missingWork">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="nrCited" use="required" type="xs:integer"/>
+			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="paper">
 		<xs:complexType>
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
@@ -410,6 +423,7 @@
 			<xs:attribute name="ref2" use="required" type="xs:integer"/>
 			<xs:attribute name="similarity" use="required" type="xs:double"/>
 			<xs:attribute name="similarityCite" use="required" type="xs:double"/>
+			<xs:attribute name="similarityConcept" use="required" type="xs:double"/>
 			<xs:attribute name="similarityRef" use="required" type="xs:double"/>
 			<xs:attribute name="work1" use="required" type="xs:IDREF"/>
 			<xs:attribute name="work2" use="required" type="xs:IDREF"/>

@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 11:41:24 on 2024-04-07 */
+ * Generated at 13:06:16 on 2024-04-09 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -51,6 +51,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("regExpr");
 		attributeNames.add("caseSensitive");
 		attributeNames.add("revision");
+		attributeNames.add("nrOccurrences");
 		choicesMap.put("Concept", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -314,6 +315,13 @@ public class PieChartController extends ChartController {
 		choicesMap.put("MissingCitedWork", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("doi");
+		attributeNames.add("nrCited");
+		attributeNames.add("nrCitations");
+		attributeNames.add("nrLinks");
+		choicesMap.put("MissingWork", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
 		attributeNames.add("author1");
 		attributeNames.add("author2");
 		attributeNames.add("nrWorks");
@@ -333,6 +341,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrSharedCitations");
 		attributeNames.add("similarityRef");
 		attributeNames.add("similarityCite");
+		attributeNames.add("similarityConcept");
 		attributeNames.add("similarity");
 		choicesMap.put("Similarity", attributeNames);
 		ObservableList<String> classes = FXCollections.observableArrayList();
@@ -421,6 +430,9 @@ public class PieChartController extends ChartController {
 			}
 			else if (className.equals("MissingCitedWork")) {
 				objectList = mainApp.getMissingCitedWorkData();
+			}
+			else if (className.equals("MissingWork")) {
+				objectList = mainApp.getMissingWorkData();
 			}
 			else if (className.equals("Coauthor")) {
 				objectList = mainApp.getCoauthorData();

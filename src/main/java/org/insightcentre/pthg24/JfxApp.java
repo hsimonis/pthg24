@@ -19,6 +19,7 @@ import org.insightcentre.pthg24.reports.PublicationReport;
 import java.util.Comparator;
 
 import static org.insightcentre.pthg24.datamodel.WorkType.*;
+import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class JfxApp extends GeneratedJfxApp {
 
@@ -35,27 +36,52 @@ public class JfxApp extends GeneratedJfxApp {
                 Scenario base = new Scenario();
                 IrishCalendar.buildCalendar();
                 base.setDirty(false);
-//                String prefix ="cars/";
-//                String bibFile = "cars.bib";
 
-                String prefix ="mobilehealth/";
-                String bibFile = "mobilehealth.bib";
-                String authors="G. Tacadao and B. O'Sullivan and L. Quesada and H. Simonis";
-                int coauthorLimit = 2;
+                String type = "mobilehealth"; // others "cars" "mobilehealth"
 
-//                String prefix ="";
-//                String bibFile = "bib.bib";
-//                String authors="Helmut Simonis and Cemalettin Öztürk";
-//                int coauthorLimit = 5;
+                // these must be set for each type
+                String prefix = "cars/"; // the overall directory where data for this type is kept
+                String bibDir = prefix + "imports/"; // the directory where the bib file is placed
+                String bibFile = "cars.bib"; // the name of hte bib file to read
+                String authors = "Helmut Simonis"; // authors for this particular type
+                int coauthorLimit = 2; // how many works an author needs to have to be included in coauthor graph
 
-                String bibDir = "overview/";
-                String importDir = prefix+"imports/";
-                String exportDir = prefix+"exports/";
-                String citationsDir = prefix+"citations/";
-                String referencesDir = prefix+"references/";
-                String reportDir = prefix+"reports/";
-                String worksDir = prefix+"works/";
-                String graphvizDir = prefix+"graphviz/";
+                switch(type) {
+                        case "cars":
+                                prefix = "cars/";
+                                bibDir = prefix + "imports/";
+                                bibFile = "cars.bib";
+                                authors = "Helmut Simonis";
+                                coauthorLimit = 2;
+                                break;
+                        case "mobilehealth":
+                                prefix = "mobilehealth/";
+                                bibDir = prefix + "imports/";
+                                bibFile = "mobilehealth.bib";
+                                authors = "G. Tacadao and B. O'Sullivan and L. Quesada and H. Simonis";
+                                coauthorLimit = 2;
+                                break;
+                        case "scheduling":
+                                // settings for scheduling are a bit different
+                                prefix = "";
+                                bibDir = "overview/";
+                                bibFile = "bib.bib";
+                                authors = "Helmut Simonis and Cemalettin Öztürk";
+                                coauthorLimit = 5;
+                                break;
+                        default:
+                                severe("Bad type " + type);
+                                assert (false);
+                }
+
+                // other directories where specific data are stored
+                String importDir = prefix+"imports/"; // input dir where input data is kept and work concepts are cached
+                String exportDir = prefix+"exports/"; // output dir where latex fragments are created
+                String citationsDir = prefix+"citations/"; // input/output dir where citations of works are cached
+                String referencesDir = prefix+"references/"; // input/output dir where references for works are cached
+                String reportDir = prefix+"reports/"; // output dir where reports are generated
+                String worksDir = prefix+"works/"; // input dir containing local copies of works
+                String graphvizDir = prefix+"graphviz/"; // output dir for graphviz graphs
 
 
                 new ImportConcepts(base,importDir,"concepts.json");
@@ -67,6 +93,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new ImportOpenReferences(base,referencesDir);
                 new FindMissingCitingWorks(base);
                 new FindMissingCitedWorks(base);
+                new FindMissingWorks(base);
                 new AuthorCitations(base);
 
                 new RunPDFInfo(base,bibDir);
@@ -108,6 +135,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new WorksByAuthor(base,exportDir,"worksbyauthor.tex");
                 new CoauthorGraph(base,coauthorLimit,graphvizDir,reportDir,"coauthors.pdf");
                 new SimilarityMeasure(base);
+                new ListSimilarity(base,exportDir,"mostsimilar.tex");
 
                 new PublicationReport(base,reportDir).
                         produce("publications",
