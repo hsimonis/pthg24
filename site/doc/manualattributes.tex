@@ -1,6 +1,18 @@
 \chapter{Attributes}
 These are the attributes of each class. Here you will find the class name and a table of the attributes.     
 \begin{table}
+\caption{Affiliation  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & shortName &  \\
+$\square$\ & nrUsed &  \\
+\end{longtable}
+\label{attr:Affiliation}
+\end{table}
+
+\clearpage
+\begin{table}
 \caption{Article  }
 
 \begin{longtable}{llp{8cm}}
@@ -10,7 +22,6 @@ $\square$\ & journal &  \\
 \label{attr:Article}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Author  }
 
@@ -18,6 +29,9 @@ $\square$\ & journal &  \\
 & Attribute & Description \\
 $\square$\ & shortName &  \\
 $\square$\ & familyName &  \\
+$\square$\ & crossFamily &  \\
+$\square$\ & crossGiven &  \\
+$\square$\ & orcid &  \\
 $\square$\ & key &  \\
 $\square$\ & nrWorks &  \\
 $\square$\ & nrCitations &  \\
@@ -32,8 +46,11 @@ $\square$\ & nrBackgroundCitations &  \\
 
 \begin{longtable}{llp{8cm}}
 & Attribute & Description \\
+$\square$\ & seqNr &  \\
+$\square$\ & sequence &  \\
 $\square$\ & author &  \\
 $\square$\ & work &  \\
+$\square$\ & affiliation &  \\
 \end{longtable}
 \label{attr:Authorship}
 \end{table}
@@ -65,6 +82,7 @@ $\square$\ & journalSC &  \\
 \label{attr:Citation}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Coauthor  }
 
@@ -80,7 +98,6 @@ $\square$\ & latestYear &  \\
 \label{attr:Coauthor}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Collection  }
 
@@ -131,6 +148,35 @@ $\square$\ & nrBackgroundCitations &  \\
 \label{attr:ConferenceSeries}
 \end{table}
 
+\clearpage
+\begin{table}
+\caption{CrossReference  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & key &  \\
+$\square$\ & work &  \\
+$\square$\ & referredWork &  \\
+$\square$\ & missingWork &  \\
+$\square$\ & missingCross &  \\
+$\square$\ & year &  \\
+$\square$\ & author &  \\
+$\square$\ & source &  \\
+$\square$\ & title &  \\
+\end{longtable}
+\label{attr:CrossReference}
+\end{table}
+
+\begin{table}
+\caption{DoiReference  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & doi &  \\
+\end{longtable}
+\label{attr:DoiReference}
+\end{table}
+
 \begin{table}
 \caption{InBook  }
 
@@ -141,7 +187,6 @@ $\square$\ & booktitle &  \\
 \label{attr:InBook}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{InCollection  }
 
@@ -166,6 +211,7 @@ $\square$\ & nrBackgroundCitations &  \\
 \label{attr:Journal}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{JournalAlias  }
 
@@ -199,20 +245,46 @@ $\square$\ & nrCited &  \\
 \label{attr:MissingCitingWork}
 \end{table}
 
-\clearpage
+\begin{table}
+\caption{MissingCross  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & doi &  \\
+$\square$\ & count &  \\
+$\square$\ & year &  \\
+$\square$\ & author &  \\
+$\square$\ & source &  \\
+$\square$\ & title &  \\
+$\square$\ & url &  \\
+$\square$\ & type &  \\
+$\square$\ & crossrefReferences &  \\
+$\square$\ & crossrefCitations &  \\
+\end{longtable}
+\label{attr:MissingCross}
+\end{table}
+
 \begin{table}
 \caption{MissingWork  }
 
 \begin{longtable}{llp{8cm}}
 & Attribute & Description \\
 $\square$\ & doi &  \\
+$\square$\ & encoded &  \\
 $\square$\ & nrCited &  \\
 $\square$\ & nrCitations &  \\
 $\square$\ & nrLinks &  \\
+$\square$\ & year &  \\
+$\square$\ & title &  \\
+$\square$\ & url &  \\
+$\square$\ & type &  \\
+$\square$\ & crossrefReferences &  \\
+$\square$\ & crossrefCitations &  \\
 \end{longtable}
 \label{attr:MissingWork}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Paper  }
 
@@ -262,7 +334,6 @@ $\square$\ & journalSC &  \\
 \label{attr:Reference}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Scenario  This class describes the dataset for the application. Typically there is a single instance of this class in the application at all times.}
 
@@ -272,6 +343,7 @@ $\square$\ & journalSC &  \\
 \label{attr:Scenario}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{School  }
 
@@ -303,6 +375,15 @@ $\square$\ & similarity &  \\
 \end{table}
 
 \begin{table}
+\caption{UncategorizedReference  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+\end{longtable}
+\label{attr:UncategorizedReference}
+\end{table}
+
+\begin{table}
 \caption{Work  }
 
 \begin{longtable}{llp{8cm}}
@@ -328,6 +409,12 @@ $\square$\ & constraints &  \\
 $\square$\ & relatedTo &  \\
 $\square$\ & nrCitations &  \\
 $\square$\ & nrReferences &  \\
+$\square$\ & crossrefCitations &  \\
+$\square$\ & crossrefReferences &  \\
+$\square$\ & nrCitationsCovered &  \\
+$\square$\ & nrReferencesCovered &  \\
+$\square$\ & percentCitationsCovered &  \\
+$\square$\ & percentReferencesCovered &  \\
 \end{longtable}
 \label{attr:Work}
 \end{table}

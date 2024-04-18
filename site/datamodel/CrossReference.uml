@@ -1,0 +1,11 @@
+abstract class CrossReference {
+String author
+String key
+MissingCross missingCross
+MissingWork missingWork
+Work referredWork
+String source
+String title
+Work work
+Integer year
+}

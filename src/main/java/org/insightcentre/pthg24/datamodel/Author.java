@@ -15,6 +15,7 @@ import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
+import org.insightcentre.pthg24.datamodel.Affiliation;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
@@ -29,6 +30,10 @@ import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Coauthor;
 import org.insightcentre.pthg24.datamodel.Similarity;
+import org.insightcentre.pthg24.datamodel.CrossReference;
+import org.insightcentre.pthg24.datamodel.UncategorizedReference;
+import org.insightcentre.pthg24.datamodel.DoiReference;
+import org.insightcentre.pthg24.datamodel.MissingCross;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -50,6 +55,20 @@ import framework.AppearInCollection;
 */
 
 public  class Author extends ApplicationObject implements AppearInCollection{
+/**
+ *  
+ *
+*/
+
+    public String crossFamily;
+
+/**
+ *  
+ *
+*/
+
+    public String crossGiven;
+
 /**
  *  
  *
@@ -97,6 +116,13 @@ public  class Author extends ApplicationObject implements AppearInCollection{
  *
 */
 
+    public String orcid;
+
+/**
+ *  
+ *
+*/
+
     public String shortName;
 
 /**
@@ -118,12 +144,15 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 
     public Author(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setCrossFamily("");
+        setCrossGiven("");
         setFamilyName("");
         setKey("");
         setNrBackgroundCitations(0);
         setNrBackgroundWorks(0);
         setNrCitations(0);
         setNrWorks(0);
+        setOrcid("");
         setShortName("");
         applicationDataset.addAuthor(this);
     }
@@ -138,22 +167,28 @@ public  class Author extends ApplicationObject implements AppearInCollection{
     public Author(ApplicationDataset applicationDataset,
             Integer id,
             String name,
+            String crossFamily,
+            String crossGiven,
             String familyName,
             String key,
             Integer nrBackgroundCitations,
             Integer nrBackgroundWorks,
             Integer nrCitations,
             Integer nrWorks,
+            String orcid,
             String shortName){
         super(applicationDataset,
             id,
             name);
+        setCrossFamily(crossFamily);
+        setCrossGiven(crossGiven);
         setFamilyName(familyName);
         setKey(key);
         setNrBackgroundCitations(nrBackgroundCitations);
         setNrBackgroundWorks(nrBackgroundWorks);
         setNrCitations(nrCitations);
         setNrWorks(nrWorks);
+        setOrcid(orcid);
         setShortName(shortName);
         applicationDataset.addAuthor(this);
     }
@@ -162,12 +197,15 @@ public  class Author extends ApplicationObject implements AppearInCollection{
         this(other.applicationDataset,
             other.id,
             other.name,
+            other.crossFamily,
+            other.crossGiven,
             other.familyName,
             other.key,
             other.nrBackgroundCitations,
             other.nrBackgroundWorks,
             other.nrCitations,
             other.nrWorks,
+            other.orcid,
             other.shortName);
     }
 
@@ -197,6 +235,26 @@ public  class Author extends ApplicationObject implements AppearInCollection{
         List<Author> l = new ArrayList<Author>();
         l.addAll(Arrays.asList(pList));
         return l;
+    }
+
+/**
+ *  get attribute crossFamily
+ *
+ * @return String
+*/
+
+    public String getCrossFamily(){
+        return this.crossFamily;
+    }
+
+/**
+ *  get attribute crossGiven
+ *
+ * @return String
+*/
+
+    public String getCrossGiven(){
+        return this.crossGiven;
     }
 
 /**
@@ -260,6 +318,16 @@ public  class Author extends ApplicationObject implements AppearInCollection{
     }
 
 /**
+ *  get attribute orcid
+ *
+ * @return String
+*/
+
+    public String getOrcid(){
+        return this.orcid;
+    }
+
+/**
  *  get attribute shortName
  *
  * @return String
@@ -267,6 +335,30 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 
     public String getShortName(){
         return this.shortName;
+    }
+
+/**
+ *  set attribute crossFamily, mark dataset as dirty, mark dataset as not valid
+@param crossFamily String
+ *
+*/
+
+    public void setCrossFamily(String crossFamily){
+        this.crossFamily = crossFamily;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute crossGiven, mark dataset as dirty, mark dataset as not valid
+@param crossGiven String
+ *
+*/
+
+    public void setCrossGiven(String crossGiven){
+        this.crossGiven = crossGiven;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -337,6 +429,18 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 
     public void setNrWorks(Integer nrWorks){
         this.nrWorks = nrWorks;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute orcid, mark dataset as dirty, mark dataset as not valid
+@param orcid String
+ *
+*/
+
+    public void setOrcid(String orcid){
+        this.orcid = orcid;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -414,7 +518,7 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getFamilyName()+ " " +getKey()+ " " +getNrBackgroundCitations()+ " " +getNrBackgroundWorks()+ " " +getNrCitations()+ " " +getNrWorks()+ " " +getShortName();
+        return ""+ " " +getId()+ " " +getName()+ " " +getCrossFamily()+ " " +getCrossGiven()+ " " +getFamilyName()+ " " +getKey()+ " " +getNrBackgroundCitations()+ " " +getNrBackgroundWorks()+ " " +getNrCitations()+ " " +getNrWorks()+ " " +getOrcid()+ " " +getShortName();
     }
 
 /**
@@ -438,14 +542,37 @@ public  class Author extends ApplicationObject implements AppearInCollection{
          out.println("<author "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
+            " crossFamily=\""+toXMLCrossFamily()+"\""+
+            " crossGiven=\""+toXMLCrossGiven()+"\""+
             " familyName=\""+toXMLFamilyName()+"\""+
             " key=\""+toXMLKey()+"\""+
             " nrBackgroundCitations=\""+toXMLNrBackgroundCitations()+"\""+
             " nrBackgroundWorks=\""+toXMLNrBackgroundWorks()+"\""+
             " nrCitations=\""+toXMLNrCitations()+"\""+
             " nrWorks=\""+toXMLNrWorks()+"\""+
+            " orcid=\""+toXMLOrcid()+"\""+
             " shortName=\""+toXMLShortName()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLCrossFamily(){
+        return this.safeXML(getCrossFamily());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLCrossGiven(){
+        return this.safeXML(getCrossGiven());
+    }
 
 /**
  * helper method for toXML(), prcess one attribute
@@ -513,6 +640,16 @@ public  class Author extends ApplicationObject implements AppearInCollection{
  * @return String
 */
 
+    String toXMLOrcid(){
+        return this.safeXML(getOrcid());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLShortName(){
         return this.safeXML(getShortName());
     }
@@ -524,11 +661,11 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Author</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>FamilyName</th>"+"<th>Key</th>"+"<th>NrWorks</th>"+"<th>NrCitations</th>"+"<th>NrBackgroundWorks</th>"+"<th>NrBackgroundCitations</th>"+"</tr>";
+        return "<tr><th>Author</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>FamilyName</th>"+"<th>CrossFamily</th>"+"<th>CrossGiven</th>"+"<th>Orcid</th>"+"<th>Key</th>"+"<th>NrWorks</th>"+"<th>NrCitations</th>"+"<th>NrBackgroundWorks</th>"+"<th>NrBackgroundCitations</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getFamilyName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getNrWorks()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrBackgroundWorks()+"</td>"+ " " +"<td>"+getNrBackgroundCitations()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getFamilyName()+"</td>"+ " " +"<td>"+getCrossFamily()+"</td>"+ " " +"<td>"+getCrossGiven()+"</td>"+ " " +"<td>"+getOrcid()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getNrWorks()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrBackgroundWorks()+"</td>"+ " " +"<td>"+getNrBackgroundCitations()+"</td>"+"</tr>";
     }
 
 /**
@@ -645,6 +782,12 @@ public  class Author extends ApplicationObject implements AppearInCollection{
 */
 
     public Boolean applicationEqual(Author b){
+      if(!this.getCrossFamily().equals(b.getCrossFamily())){
+         System.out.println("CrossFamily");
+        }
+      if(!this.getCrossGiven().equals(b.getCrossGiven())){
+         System.out.println("CrossGiven");
+        }
       if(!this.getFamilyName().equals(b.getFamilyName())){
          System.out.println("FamilyName");
         }
@@ -666,16 +809,22 @@ public  class Author extends ApplicationObject implements AppearInCollection{
       if(!this.getNrWorks().equals(b.getNrWorks())){
          System.out.println("NrWorks");
         }
+      if(!this.getOrcid().equals(b.getOrcid())){
+         System.out.println("Orcid");
+        }
       if(!this.getShortName().equals(b.getShortName())){
          System.out.println("ShortName");
         }
-        return  this.getFamilyName().equals(b.getFamilyName()) &&
+        return  this.getCrossFamily().equals(b.getCrossFamily()) &&
+          this.getCrossGiven().equals(b.getCrossGiven()) &&
+          this.getFamilyName().equals(b.getFamilyName()) &&
           this.getKey().equals(b.getKey()) &&
           this.getName().equals(b.getName()) &&
           this.getNrBackgroundCitations().equals(b.getNrBackgroundCitations()) &&
           this.getNrBackgroundWorks().equals(b.getNrBackgroundWorks()) &&
           this.getNrCitations().equals(b.getNrCitations()) &&
           this.getNrWorks().equals(b.getNrWorks()) &&
+          this.getOrcid().equals(b.getOrcid()) &&
           this.getShortName().equals(b.getShortName());
     }
 

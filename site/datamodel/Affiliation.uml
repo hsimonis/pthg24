@@ -1,0 +1,4 @@
+ class Affiliation {
+Integer nrUsed
+String shortName
+}

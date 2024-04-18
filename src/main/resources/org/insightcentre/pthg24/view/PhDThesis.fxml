@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 13:06:16 on 2024-04-09-->
+<!--Generated at 11:56:49 on 2024-04-18-->
 
 
 <Tab text="PhDThesis" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.PhDThesisController">
@@ -40,6 +40,12 @@
                <TableColumn fx:id="relatedTo" styleClass="right-aligned" text="RelatedTo" />
                <TableColumn fx:id="nrCitations" styleClass="right-aligned" text="NrCitations" />
                <TableColumn fx:id="nrReferences" styleClass="right-aligned" text="NrReferences" />
+               <TableColumn fx:id="crossrefCitations" styleClass="right-aligned" text="CrossrefCitations" />
+               <TableColumn fx:id="crossrefReferences" styleClass="right-aligned" text="CrossrefReferences" />
+               <TableColumn fx:id="nrCitationsCovered" styleClass="right-aligned" text="NrCitationsCovered" />
+               <TableColumn fx:id="nrReferencesCovered" styleClass="right-aligned" text="NrReferencesCovered" />
+               <TableColumn fx:id="percentCitationsCovered" styleClass="right-aligned" text="PercentCitationsCovered" />
+               <TableColumn fx:id="percentReferencesCovered" styleClass="right-aligned" text="PercentReferencesCovered" />
                <TableColumn fx:id="school" styleClass="right-aligned" text="School" />
             </columns>
          </TableView>

@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 13:06:16 on 2024-04-09 */
+ * Generated at 11:56:49 on 2024-04-18 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -37,6 +37,12 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrLinks");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		choicesMap.put("Work", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
@@ -44,6 +50,12 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrLinks");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		choicesMap.put("Paper", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
@@ -51,6 +63,12 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrLinks");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
@@ -58,6 +76,12 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrLinks");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		choicesMap.put("PhDThesis", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
@@ -65,6 +89,12 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrLinks");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		choicesMap.put("InCollection", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
@@ -72,6 +102,12 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrLinks");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		choicesMap.put("InBook", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
@@ -79,7 +115,19 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrLinks");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		choicesMap.put("Book", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("seqNr");
+		choicesMap.put("Authorship", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nrUsed");
+		choicesMap.put("Affiliation", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nrPapers");
 		attributeNames.add("nrCitations");
@@ -105,6 +153,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrCited");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrLinks");
+		attributeNames.add("year");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("crossrefCitations");
 		choicesMap.put("MissingWork", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nrWorks");
@@ -124,6 +175,21 @@ public class BarChartController extends ChartController {
 		attributeNames.add("similarityConcept");
 		attributeNames.add("similarity");
 		choicesMap.put("Similarity", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("year");
+		choicesMap.put("CrossReference", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("year");
+		choicesMap.put("UncategorizedReference", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("year");
+		choicesMap.put("DoiReference", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("count");
+		attributeNames.add("year");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("crossrefCitations");
+		choicesMap.put("MissingCross", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
@@ -179,6 +245,9 @@ public class BarChartController extends ChartController {
 			else if (className.equals("Authorship")) {
 				objectList = mainApp.getAuthorshipData();
 			}
+			else if (className.equals("Affiliation")) {
+				objectList = mainApp.getAffiliationData();
+			}
 			else if (className.equals("Proceedings")) {
 				objectList = mainApp.getProceedingsData();
 			}
@@ -220,6 +289,18 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("Similarity")) {
 				objectList = mainApp.getSimilarityData();
+			}
+			else if (className.equals("CrossReference")) {
+				objectList = mainApp.getCrossReferenceData();
+			}
+			else if (className.equals("UncategorizedReference")) {
+				objectList = mainApp.getUncategorizedReferenceData();
+			}
+			else if (className.equals("DoiReference")) {
+				objectList = mainApp.getDoiReferenceData();
+			}
+			else if (className.equals("MissingCross")) {
+				objectList = mainApp.getMissingCrossData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

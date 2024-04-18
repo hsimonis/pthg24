@@ -3,6 +3,7 @@ package org.insightcentre.pthg24.controller;
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
 import java.lang.Boolean;
+import java.lang.Double;
 import java.lang.Exception;
 import java.lang.Integer;
 import java.lang.Object;
@@ -29,7 +30,7 @@ import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 
 /**
- * Generated at 13:06:16 on 2024-04-09 */
+ * Generated at 11:56:49 on 2024-04-18 */
 public class PaperController extends Table3Controller {
 	@FXML
 	private TableView<Paper> table;
@@ -99,6 +100,24 @@ public class PaperController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Paper, Integer> nrReferences;
+
+	@FXML
+	private TableColumn<Paper, Integer> crossrefCitations;
+
+	@FXML
+	private TableColumn<Paper, Integer> crossrefReferences;
+
+	@FXML
+	private TableColumn<Paper, Integer> nrCitationsCovered;
+
+	@FXML
+	private TableColumn<Paper, Integer> nrReferencesCovered;
+
+	@FXML
+	private TableColumn<Paper, Double> percentCitationsCovered;
+
+	@FXML
+	private TableColumn<Paper, Double> percentReferencesCovered;
 
 	@FXML
 	private TableColumn<Paper, Proceedings> proceedings;
@@ -207,6 +226,30 @@ public class PaperController extends Table3Controller {
 		nrReferences.setCellValueFactory(new PropertyValueFactory<>("nrReferences"));
 		nrReferences.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		nrReferences.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrReferences(event.getNewValue()); mainApp.reset();});
+		choices.add("crossrefCitations");
+		crossrefCitations.setCellValueFactory(new PropertyValueFactory<>("crossrefCitations"));
+		crossrefCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		crossrefCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCrossrefCitations(event.getNewValue()); mainApp.reset();});
+		choices.add("crossrefReferences");
+		crossrefReferences.setCellValueFactory(new PropertyValueFactory<>("crossrefReferences"));
+		crossrefReferences.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		crossrefReferences.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCrossrefReferences(event.getNewValue()); mainApp.reset();});
+		choices.add("nrCitationsCovered");
+		nrCitationsCovered.setCellValueFactory(new PropertyValueFactory<>("nrCitationsCovered"));
+		nrCitationsCovered.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrCitationsCovered.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrCitationsCovered(event.getNewValue()); mainApp.reset();});
+		choices.add("nrReferencesCovered");
+		nrReferencesCovered.setCellValueFactory(new PropertyValueFactory<>("nrReferencesCovered"));
+		nrReferencesCovered.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrReferencesCovered.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrReferencesCovered(event.getNewValue()); mainApp.reset();});
+		choices.add("percentCitationsCovered");
+		percentCitationsCovered.setCellValueFactory(new PropertyValueFactory<>("percentCitationsCovered"));
+		percentCitationsCovered.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		percentCitationsCovered.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPercentCitationsCovered(event.getNewValue()); mainApp.reset();});
+		choices.add("percentReferencesCovered");
+		percentReferencesCovered.setCellValueFactory(new PropertyValueFactory<>("percentReferencesCovered"));
+		percentReferencesCovered.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		percentReferencesCovered.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPercentReferencesCovered(event.getNewValue()); mainApp.reset();});
 		choices.add("proceedings");
 		proceedings.setCellValueFactory(new PropertyValueFactory<>("proceedings"));
 		initialize(choices);

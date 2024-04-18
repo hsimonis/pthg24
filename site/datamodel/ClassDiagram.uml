@@ -20,6 +20,7 @@ List<String> getListOfClassNames()
 interface ApplicationObjectComperator{
 int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 }
+!include Affiliation.uml
 !include ApplicationDataset.uml
 !include ApplicationDifference.uml
 !include ApplicationObject.uml
@@ -34,12 +35,15 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include Concept.uml
 !include ConceptWork.uml
 !include ConferenceSeries.uml
+!include CrossReference.uml
+!include DoiReference.uml
 !include InBook.uml
 !include InCollection.uml
 !include Journal.uml
 !include JournalAlias.uml
 !include MissingCitedWork.uml
 !include MissingCitingWork.uml
+!include MissingCross.uml
 !include MissingWork.uml
 !include Paper.uml
 !include PhDThesis.uml
@@ -48,6 +52,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include Scenario.uml
 !include School.uml
 !include Similarity.uml
+!include UncategorizedReference.uml
 !include Work.uml
 !include DifferenceType.uml
 !include WarningType.uml
@@ -64,6 +69,8 @@ Work <|-- PhDThesis
 Work <|-- InCollection
 Work <|-- InBook
 Work <|-- Book
+CrossReference <|-- UncategorizedReference
+CrossReference <|-- DoiReference
 ApplicationDataset  *-- ApplicationObject 
 Author "1..*" *-- Work : authors
 ConferenceSeries  *-- Proceedings 
@@ -74,6 +81,7 @@ School  *-- PhDThesis
 Collection  *-- InCollection 
 Author  *-- Authorship 
 Work  *-- Authorship 
+Affiliation "0..*" *-- Authorship 
 Concept  *-- ConceptWork 
 Work  *-- ConceptWork 
 Work  *-- Citation : citedWork
@@ -84,6 +92,10 @@ Author  *-- Coauthor : author1
 Author  *-- Coauthor : author2
 Work  *-- Similarity : work1
 Work  *-- Similarity : work2
+Work  *-- CrossReference 
+Work "0..1" *-- CrossReference : referredWork
+MissingWork "0..1" *-- CrossReference 
+MissingCross "0..1" *-- CrossReference 
 header
 Datamodel of Application pthg24
 endheader

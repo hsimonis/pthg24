@@ -11,7 +11,10 @@ import static java.util.stream.Collectors.groupingBy;
 
 public class FindMissingCitingWorks {
     public FindMissingCitingWorks(Scenario base){
-        Map<String, List<Citation>> map = base.getListCitation().stream().filter(x->x.getCitingWork()==null).collect(groupingBy(Citation::getCiting));
+        Map<String, List<Citation>> map = base.getListCitation().stream().
+                filter(x->x.getCitingWork()==null).
+                filter(x->x.getCitedWork() != null && !x.getCitedWork().getBackground()).
+                collect(groupingBy(Citation::getCiting));
         for(String s:map.keySet()){
             List<Citation> citations = map.get(s);
             MissingCitingWork mcw = new MissingCitingWork(base);

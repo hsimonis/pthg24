@@ -3,10 +3,12 @@ package org.insightcentre.pthg24.controller;
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
 import java.lang.Exception;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.reflect.Field;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,7 +23,7 @@ import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 13:06:16 on 2024-04-09 */
+ * Generated at 11:56:49 on 2024-04-18 */
 public class AuthorshipController extends Table3Controller {
 	@FXML
 	private TableView<Authorship> table;
@@ -30,10 +32,19 @@ public class AuthorshipController extends Table3Controller {
 	private TableColumn<Authorship, String> name;
 
 	@FXML
+	private TableColumn<Authorship, Integer> seqNr;
+
+	@FXML
+	private TableColumn<Authorship, String> sequence;
+
+	@FXML
 	private TableColumn<Authorship, Author> author;
 
 	@FXML
 	private TableColumn<Authorship, Work> work;
+
+	@FXML
+	private TableColumn<Authorship, String> affiliation;
 
 	private GeneratedJfxApp mainApp;
 
@@ -60,10 +71,20 @@ public class AuthorshipController extends Table3Controller {
 		name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		name.setCellFactory(TextFieldTableCell.forTableColumn());
 		name.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setName(event.getNewValue()); mainApp.reset();});
+		choices.add("seqNr");
+		seqNr.setCellValueFactory(new PropertyValueFactory<>("seqNr"));
+		seqNr.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		seqNr.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSeqNr(event.getNewValue()); mainApp.reset();});
+		choices.add("sequence");
+		sequence.setCellValueFactory(new PropertyValueFactory<>("sequence"));
+		sequence.setCellFactory(TextFieldTableCell.forTableColumn());
+		sequence.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSequence(event.getNewValue()); mainApp.reset();});
 		choices.add("author");
 		author.setCellValueFactory(new PropertyValueFactory<>("author"));
 		choices.add("work");
 		work.setCellValueFactory(new PropertyValueFactory<>("work"));
+		choices.add("affiliation");
+		affiliation.setCellValueFactory(cellData -> new SimpleStringProperty(convert(cellData.getValue().getAffiliation())));
 		initialize(choices);
 	}
 

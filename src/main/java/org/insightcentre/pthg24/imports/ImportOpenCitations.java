@@ -22,6 +22,7 @@ import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.stream.Collectors;
 
+import static org.insightcentre.pthg24.imports.ImportCrossref.properDOI;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
 
 public class ImportOpenCitations {
@@ -85,10 +86,11 @@ public class ImportOpenCitations {
 
     private void interpret(Work w,String body){
         JSONArray arr = new JSONArray(body);
+        int covered = 0;
         for(int i=0;i<arr.length();i++){
             JSONObject obj = arr.getJSONObject(i);
-            String citing = obj.getString("citing");
-            String cited = obj.getString("cited");
+            String citing = obj.getString("citing").toLowerCase();
+            String cited = obj.getString("cited").toLowerCase();
             String oci = obj.getString("oci");
             String creation = obj.getString("creation");
             String timespan = obj.getString("timespan");
@@ -99,6 +101,9 @@ public class ImportOpenCitations {
             citation.setOci(oci);
             citation.setCitedWork(w);
             citation.setCitingWork(workLookup(citing));
+            if (citation.getCitingWork()!= null){
+                covered++;
+            }
             citation.setCited(cited);
             citation.setCiting(citing);
             citation.setCreation(creation);
@@ -107,6 +112,8 @@ public class ImportOpenCitations {
             citation.setJournalSC(journal_sc);
         }
         w.setNrCitations(arr.length());
+        w.setNrCitationsCovered(covered);
+        w.setPercentCitationsCovered(100.0*covered/arr.length());
     }
 
     private boolean exists(String fileName){
@@ -125,20 +132,15 @@ public class ImportOpenCitations {
             if (w.getYear() == null){
                 severe("Missing year "+w.getName());
             }
-            doiLookup.put(properDOI(w.getDoi()),w);
+            String doi = properDOI(w.getDoi());
+            if (doi != null) {
+                doiLookup.put(doi, w);
+            }
         }
     }
     private Work workLookup(String doi){
         return doiLookup.get(doi);
     }
 
-    private String properDOI(String text){
-        if (text.startsWith("10.")){
-            return text.replace("\\","").toLowerCase();
-        }
-        if (text.startsWith("https://doi.org/")){
-            return text.substring(16).replace("\\","").toLowerCase();
-        }
-        return "";
-    }
+
 }

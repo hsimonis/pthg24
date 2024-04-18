@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 13:06:16 on 2024-04-09 */
+ * Generated at 11:56:49 on 2024-04-18 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -57,6 +57,9 @@ public class PieChartController extends ChartController {
 		attributeNames.add("name");
 		attributeNames.add("shortName");
 		attributeNames.add("familyName");
+		attributeNames.add("crossFamily");
+		attributeNames.add("crossGiven");
+		attributeNames.add("orcid");
 		attributeNames.add("key");
 		attributeNames.add("nrWorks");
 		attributeNames.add("nrCitations");
@@ -86,6 +89,12 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		choicesMap.put("Work", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -110,6 +119,12 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("proceedings");
 		choicesMap.put("Paper", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -135,6 +150,12 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("journal");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -160,6 +181,12 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("school");
 		choicesMap.put("PhDThesis", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -185,6 +212,12 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("collection");
 		choicesMap.put("InCollection", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -210,6 +243,12 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("booktitle");
 		choicesMap.put("InBook", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -235,12 +274,26 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relatedTo");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
 		choicesMap.put("Book", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("seqNr");
+		attributeNames.add("sequence");
 		attributeNames.add("author");
 		attributeNames.add("work");
+		attributeNames.add("affiliation");
 		choicesMap.put("Authorship", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("shortName");
+		attributeNames.add("nrUsed");
+		choicesMap.put("Affiliation", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
 		attributeNames.add("shortName");
@@ -316,9 +369,16 @@ public class PieChartController extends ChartController {
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
 		attributeNames.add("doi");
+		attributeNames.add("encoded");
 		attributeNames.add("nrCited");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrLinks");
+		attributeNames.add("year");
+		attributeNames.add("title");
+		attributeNames.add("url");
+		attributeNames.add("type");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("crossrefCitations");
 		choicesMap.put("MissingWork", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -344,6 +404,56 @@ public class PieChartController extends ChartController {
 		attributeNames.add("similarityConcept");
 		attributeNames.add("similarity");
 		choicesMap.put("Similarity", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("key");
+		attributeNames.add("work");
+		attributeNames.add("referredWork");
+		attributeNames.add("missingWork");
+		attributeNames.add("missingCross");
+		attributeNames.add("year");
+		attributeNames.add("author");
+		attributeNames.add("source");
+		attributeNames.add("title");
+		choicesMap.put("CrossReference", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("key");
+		attributeNames.add("work");
+		attributeNames.add("referredWork");
+		attributeNames.add("missingWork");
+		attributeNames.add("missingCross");
+		attributeNames.add("year");
+		attributeNames.add("author");
+		attributeNames.add("source");
+		attributeNames.add("title");
+		choicesMap.put("UncategorizedReference", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("key");
+		attributeNames.add("work");
+		attributeNames.add("referredWork");
+		attributeNames.add("missingWork");
+		attributeNames.add("missingCross");
+		attributeNames.add("year");
+		attributeNames.add("author");
+		attributeNames.add("source");
+		attributeNames.add("title");
+		attributeNames.add("doi");
+		choicesMap.put("DoiReference", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("doi");
+		attributeNames.add("count");
+		attributeNames.add("year");
+		attributeNames.add("author");
+		attributeNames.add("source");
+		attributeNames.add("title");
+		attributeNames.add("url");
+		attributeNames.add("type");
+		attributeNames.add("crossrefReferences");
+		attributeNames.add("crossrefCitations");
+		choicesMap.put("MissingCross", attributeNames);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -398,6 +508,9 @@ public class PieChartController extends ChartController {
 			else if (className.equals("Authorship")) {
 				objectList = mainApp.getAuthorshipData();
 			}
+			else if (className.equals("Affiliation")) {
+				objectList = mainApp.getAffiliationData();
+			}
 			else if (className.equals("Proceedings")) {
 				objectList = mainApp.getProceedingsData();
 			}
@@ -439,6 +552,18 @@ public class PieChartController extends ChartController {
 			}
 			else if (className.equals("Similarity")) {
 				objectList = mainApp.getSimilarityData();
+			}
+			else if (className.equals("CrossReference")) {
+				objectList = mainApp.getCrossReferenceData();
+			}
+			else if (className.equals("UncategorizedReference")) {
+				objectList = mainApp.getUncategorizedReferenceData();
+			}
+			else if (className.equals("DoiReference")) {
+				objectList = mainApp.getDoiReferenceData();
+			}
+			else if (className.equals("MissingCross")) {
+				objectList = mainApp.getMissingCrossData();
 			}
 			if (objectList != null) {
 				Map<String, Integer> countMap = new HashMap<String, Integer>();

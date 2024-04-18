@@ -1,9 +1,12 @@
  class Author {
+String crossFamily
+String crossGiven
 String familyName
 String key
 Integer nrBackgroundCitations
 Integer nrBackgroundWorks
 Integer nrCitations
 Integer nrWorks
+String orcid
 String shortName
 }

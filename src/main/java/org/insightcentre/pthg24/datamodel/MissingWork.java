@@ -15,6 +15,7 @@ import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
+import org.insightcentre.pthg24.datamodel.Affiliation;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
@@ -29,6 +30,10 @@ import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Coauthor;
 import org.insightcentre.pthg24.datamodel.Similarity;
+import org.insightcentre.pthg24.datamodel.CrossReference;
+import org.insightcentre.pthg24.datamodel.UncategorizedReference;
+import org.insightcentre.pthg24.datamodel.DoiReference;
+import org.insightcentre.pthg24.datamodel.MissingCross;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -55,7 +60,28 @@ public  class MissingWork extends ApplicationObject{
  *
 */
 
+    public Integer crossrefCitations;
+
+/**
+ *  
+ *
+*/
+
+    public Integer crossrefReferences;
+
+/**
+ *  
+ *
+*/
+
     public String doi;
+
+/**
+ *  
+ *
+*/
+
+    public String encoded;
 
 /**
  *  
@@ -79,6 +105,34 @@ public  class MissingWork extends ApplicationObject{
     public Integer nrLinks;
 
 /**
+ *  
+ *
+*/
+
+    public String title;
+
+/**
+ *  
+ *
+*/
+
+    public String type;
+
+/**
+ *  
+ *
+*/
+
+    public String url;
+
+/**
+ *  
+ *
+*/
+
+    public Integer year;
+
+/**
  *  No-arg constructor for use in TableView
  *
 */
@@ -97,10 +151,17 @@ public  class MissingWork extends ApplicationObject{
 
     public MissingWork(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setCrossrefCitations(0);
+        setCrossrefReferences(0);
         setDoi("");
+        setEncoded("");
         setNrCitations(0);
         setNrCited(0);
         setNrLinks(0);
+        setTitle("");
+        setType("");
+        setUrl("");
+        setYear(0);
         applicationDataset.addMissingWork(this);
     }
 
@@ -114,17 +175,31 @@ public  class MissingWork extends ApplicationObject{
     public MissingWork(ApplicationDataset applicationDataset,
             Integer id,
             String name,
+            Integer crossrefCitations,
+            Integer crossrefReferences,
             String doi,
+            String encoded,
             Integer nrCitations,
             Integer nrCited,
-            Integer nrLinks){
+            Integer nrLinks,
+            String title,
+            String type,
+            String url,
+            Integer year){
         super(applicationDataset,
             id,
             name);
+        setCrossrefCitations(crossrefCitations);
+        setCrossrefReferences(crossrefReferences);
         setDoi(doi);
+        setEncoded(encoded);
         setNrCitations(nrCitations);
         setNrCited(nrCited);
         setNrLinks(nrLinks);
+        setTitle(title);
+        setType(type);
+        setUrl(url);
+        setYear(year);
         applicationDataset.addMissingWork(this);
     }
 
@@ -132,10 +207,17 @@ public  class MissingWork extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
+            other.crossrefCitations,
+            other.crossrefReferences,
             other.doi,
+            other.encoded,
             other.nrCitations,
             other.nrCited,
-            other.nrLinks);
+            other.nrLinks,
+            other.title,
+            other.type,
+            other.url,
+            other.year);
     }
 
 /**
@@ -146,7 +228,28 @@ public  class MissingWork extends ApplicationObject{
 */
 
     public Boolean remove(){
+        getApplicationDataset().cascadeCrossReferenceMissingWork(this);
         return getApplicationDataset().removeMissingWork(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  get attribute crossrefCitations
+ *
+ * @return Integer
+*/
+
+    public Integer getCrossrefCitations(){
+        return this.crossrefCitations;
+    }
+
+/**
+ *  get attribute crossrefReferences
+ *
+ * @return Integer
+*/
+
+    public Integer getCrossrefReferences(){
+        return this.crossrefReferences;
     }
 
 /**
@@ -157,6 +260,16 @@ public  class MissingWork extends ApplicationObject{
 
     public String getDoi(){
         return this.doi;
+    }
+
+/**
+ *  get attribute encoded
+ *
+ * @return String
+*/
+
+    public String getEncoded(){
+        return this.encoded;
     }
 
 /**
@@ -190,6 +303,70 @@ public  class MissingWork extends ApplicationObject{
     }
 
 /**
+ *  get attribute title
+ *
+ * @return String
+*/
+
+    public String getTitle(){
+        return this.title;
+    }
+
+/**
+ *  get attribute type
+ *
+ * @return String
+*/
+
+    public String getType(){
+        return this.type;
+    }
+
+/**
+ *  get attribute url
+ *
+ * @return String
+*/
+
+    public String getUrl(){
+        return this.url;
+    }
+
+/**
+ *  get attribute year
+ *
+ * @return Integer
+*/
+
+    public Integer getYear(){
+        return this.year;
+    }
+
+/**
+ *  set attribute crossrefCitations, mark dataset as dirty, mark dataset as not valid
+@param crossrefCitations Integer
+ *
+*/
+
+    public void setCrossrefCitations(Integer crossrefCitations){
+        this.crossrefCitations = crossrefCitations;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute crossrefReferences, mark dataset as dirty, mark dataset as not valid
+@param crossrefReferences Integer
+ *
+*/
+
+    public void setCrossrefReferences(Integer crossrefReferences){
+        this.crossrefReferences = crossrefReferences;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute doi, mark dataset as dirty, mark dataset as not valid
 @param doi String
  *
@@ -197,6 +374,18 @@ public  class MissingWork extends ApplicationObject{
 
     public void setDoi(String doi){
         this.doi = doi;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute encoded, mark dataset as dirty, mark dataset as not valid
+@param encoded String
+ *
+*/
+
+    public void setEncoded(String encoded){
+        this.encoded = encoded;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -238,6 +427,76 @@ public  class MissingWork extends ApplicationObject{
     }
 
 /**
+ *  set attribute title, mark dataset as dirty, mark dataset as not valid
+@param title String
+ *
+*/
+
+    public void setTitle(String title){
+        this.title = title;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute type, mark dataset as dirty, mark dataset as not valid
+@param type String
+ *
+*/
+
+    public void setType(String type){
+        this.type = type;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute url, mark dataset as dirty, mark dataset as not valid
+@param url String
+ *
+*/
+
+    public void setUrl(String url){
+        this.url = url;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute year, mark dataset as dirty, mark dataset as not valid
+@param year Integer
+ *
+*/
+
+    public void setYear(Integer year){
+        this.year = year;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute crossrefCitations, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incCrossrefCitations(){
+        this.crossrefCitations++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute crossrefReferences, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incCrossrefReferences(){
+        this.crossrefReferences++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  inc attribute nrCitations, mark dataset as dirty, mark dataset as not valid
  *
 */
@@ -271,6 +530,17 @@ public  class MissingWork extends ApplicationObject{
     }
 
 /**
+ *  inc attribute year, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incYear(){
+        this.year++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  override generic toString() method, show all attributes in human readable form
  * @return String details of the format are not clearly defined at the moment
 */
@@ -287,7 +557,7 @@ public  class MissingWork extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getDoi()+ " " +getNrCitations()+ " " +getNrCited()+ " " +getNrLinks();
+        return ""+ " " +getId()+ " " +getName()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getDoi()+ " " +getEncoded()+ " " +getNrCitations()+ " " +getNrCited()+ " " +getNrLinks()+ " " +getTitle()+ " " +getType()+ " " +getUrl()+ " " +getYear();
     }
 
 /**
@@ -311,11 +581,38 @@ public  class MissingWork extends ApplicationObject{
          out.println("<missingWork "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
+            " crossrefCitations=\""+toXMLCrossrefCitations()+"\""+
+            " crossrefReferences=\""+toXMLCrossrefReferences()+"\""+
             " doi=\""+toXMLDoi()+"\""+
+            " encoded=\""+toXMLEncoded()+"\""+
             " nrCitations=\""+toXMLNrCitations()+"\""+
             " nrCited=\""+toXMLNrCited()+"\""+
-            " nrLinks=\""+toXMLNrLinks()+"\""+" />");
+            " nrLinks=\""+toXMLNrLinks()+"\""+
+            " title=\""+toXMLTitle()+"\""+
+            " type=\""+toXMLType()+"\""+
+            " url=\""+toXMLUrl()+"\""+
+            " year=\""+toXMLYear()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLCrossrefCitations(){
+        return this.getCrossrefCitations().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLCrossrefReferences(){
+        return this.getCrossrefReferences().toString();
+    }
 
 /**
  * helper method for toXML(), prcess one attribute
@@ -325,6 +622,16 @@ public  class MissingWork extends ApplicationObject{
 
     String toXMLDoi(){
         return this.safeXML(getDoi());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLEncoded(){
+        return this.safeXML(getEncoded());
     }
 
 /**
@@ -358,17 +665,57 @@ public  class MissingWork extends ApplicationObject{
     }
 
 /**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLTitle(){
+        return this.safeXML(getTitle());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLType(){
+        return this.safeXML(getType());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLUrl(){
+        return this.safeXML(getUrl());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLYear(){
+        return this.getYear().toString();
+    }
+
+/**
  * show object as one row in an HTML table
  * 
  * @return String of form <tr>...</tr>
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>MissingWork</th>"+"<th>Name</th>"+"<th>Doi</th>"+"<th>NrCited</th>"+"<th>NrCitations</th>"+"<th>NrLinks</th>"+"</tr>";
+        return "<tr><th>MissingWork</th>"+"<th>Name</th>"+"<th>Doi</th>"+"<th>Encoded</th>"+"<th>NrCited</th>"+"<th>NrCitations</th>"+"<th>NrLinks</th>"+"<th>Year</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Type</th>"+"<th>CrossrefReferences</th>"+"<th>CrossrefCitations</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getNrCited()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getEncoded()+"</td>"+ " " +"<td>"+getNrCited()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getType()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+"</tr>";
     }
 
 /**
@@ -485,8 +832,17 @@ public  class MissingWork extends ApplicationObject{
 */
 
     public Boolean applicationEqual(MissingWork b){
+      if(!this.getCrossrefCitations().equals(b.getCrossrefCitations())){
+         System.out.println("CrossrefCitations");
+        }
+      if(!this.getCrossrefReferences().equals(b.getCrossrefReferences())){
+         System.out.println("CrossrefReferences");
+        }
       if(!this.getDoi().equals(b.getDoi())){
          System.out.println("Doi");
+        }
+      if(!this.getEncoded().equals(b.getEncoded())){
+         System.out.println("Encoded");
         }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
@@ -500,11 +856,30 @@ public  class MissingWork extends ApplicationObject{
       if(!this.getNrLinks().equals(b.getNrLinks())){
          System.out.println("NrLinks");
         }
-        return  this.getDoi().equals(b.getDoi()) &&
+      if(!this.getTitle().equals(b.getTitle())){
+         System.out.println("Title");
+        }
+      if(!this.getType().equals(b.getType())){
+         System.out.println("Type");
+        }
+      if(!this.getUrl().equals(b.getUrl())){
+         System.out.println("Url");
+        }
+      if(!this.getYear().equals(b.getYear())){
+         System.out.println("Year");
+        }
+        return  this.getCrossrefCitations().equals(b.getCrossrefCitations()) &&
+          this.getCrossrefReferences().equals(b.getCrossrefReferences()) &&
+          this.getDoi().equals(b.getDoi()) &&
+          this.getEncoded().equals(b.getEncoded()) &&
           this.getName().equals(b.getName()) &&
           this.getNrCitations().equals(b.getNrCitations()) &&
           this.getNrCited().equals(b.getNrCited()) &&
-          this.getNrLinks().equals(b.getNrLinks());
+          this.getNrLinks().equals(b.getNrLinks()) &&
+          this.getTitle().equals(b.getTitle()) &&
+          this.getType().equals(b.getType()) &&
+          this.getUrl().equals(b.getUrl()) &&
+          this.getYear().equals(b.getYear());
     }
 
 /**

@@ -15,6 +15,7 @@ import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
+import org.insightcentre.pthg24.datamodel.Affiliation;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
@@ -29,6 +30,10 @@ import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Coauthor;
 import org.insightcentre.pthg24.datamodel.Similarity;
+import org.insightcentre.pthg24.datamodel.CrossReference;
+import org.insightcentre.pthg24.datamodel.UncategorizedReference;
+import org.insightcentre.pthg24.datamodel.DoiReference;
+import org.insightcentre.pthg24.datamodel.MissingCross;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -188,6 +193,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<Authorship> listAuthorship = new ArrayList<Authorship>();
 
 /**
+ *  This lists holds all items of class Affiliation and its subclasses
+ *
+*/
+
+    List<Affiliation> listAffiliation = new ArrayList<Affiliation>();
+
+/**
  *  This lists holds all items of class Proceedings and its subclasses
  *
 */
@@ -284,6 +296,34 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
 */
 
     List<Similarity> listSimilarity = new ArrayList<Similarity>();
+
+/**
+ *  This lists holds all items of class CrossReference and its subclasses
+ *
+*/
+
+    List<CrossReference> listCrossReference = new ArrayList<CrossReference>();
+
+/**
+ *  This lists holds all items of class UncategorizedReference and its subclasses
+ *
+*/
+
+    List<UncategorizedReference> listUncategorizedReference = new ArrayList<UncategorizedReference>();
+
+/**
+ *  This lists holds all items of class DoiReference and its subclasses
+ *
+*/
+
+    List<DoiReference> listDoiReference = new ArrayList<DoiReference>();
+
+/**
+ *  This lists holds all items of class MissingCross and its subclasses
+ *
+*/
+
+    List<MissingCross> listMissingCross = new ArrayList<MissingCross>();
 
 /**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
@@ -408,7 +448,8 @@ public int compareTo(ApplicationDataset ds2){
     }
 
     public List<String> getListOfClassNames(){
-        return Arrays.asList("ApplicationDifference",
+        return Arrays.asList("Affiliation",
+                             "ApplicationDifference",
                              "ApplicationWarning",
                              "Article",
                              "Author",
@@ -420,12 +461,14 @@ public int compareTo(ApplicationDataset ds2){
                              "Concept",
                              "ConceptWork",
                              "ConferenceSeries",
+                             "DoiReference",
                              "InBook",
                              "InCollection",
                              "Journal",
                              "JournalAlias",
                              "MissingCitedWork",
                              "MissingCitingWork",
+                             "MissingCross",
                              "MissingWork",
                              "Paper",
                              "PhDThesis",
@@ -433,7 +476,8 @@ public int compareTo(ApplicationDataset ds2){
                              "Reference",
                              "Scenario",
                              "School",
-                             "Similarity");
+                             "Similarity",
+                             "UncategorizedReference");
     }
 
 /**
@@ -501,6 +545,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListInBook();
         resetListBook();
         resetListAuthorship();
+        resetListAffiliation();
         resetListProceedings();
         resetListConferenceSeries();
         resetListJournal();
@@ -515,6 +560,10 @@ public int compareTo(ApplicationDataset ds2){
         resetListMissingWork();
         resetListCoauthor();
         resetListSimilarity();
+        resetListCrossReference();
+        resetListUncategorizedReference();
+        resetListDoiReference();
+        resetListMissingCross();
     }
 
 /**
@@ -1008,6 +1057,40 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class Affiliation
+ *
+*/
+
+    public Iterator<Affiliation> getIteratorAffiliation(){
+        return listAffiliation.iterator();
+    }
+
+/**
+ *  Getter for list of class Affiliation
+ *
+*/
+
+    public List<Affiliation> getListAffiliation(){
+        return listAffiliation;
+    }
+
+/**
+ *  reset the list of class Affiliation; use with care, does not call cascades
+ *
+*/
+
+    public void resetListAffiliation(){
+        listAffiliation = new ArrayList<Affiliation>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Affiliation)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Iterator for list of class Proceedings
  *
 */
@@ -1484,6 +1567,158 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class CrossReference
+ *
+*/
+
+    public Iterator<CrossReference> getIteratorCrossReference(){
+        return listCrossReference.iterator();
+    }
+
+/**
+ *  Getter for list of class CrossReference
+ *
+*/
+
+    public List<CrossReference> getListCrossReference(){
+        return listCrossReference;
+    }
+
+/**
+ *  reset the list of class CrossReference; use with care, does not call cascades
+ *
+*/
+
+    public void resetListCrossReference(){
+        listCrossReference = new ArrayList<CrossReference>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof CrossReference)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+        resetListUncategorizedReference();
+        resetListDoiReference();
+    }
+
+/**
+ *  Iterator for list of class UncategorizedReference
+ *
+*/
+
+    public Iterator<UncategorizedReference> getIteratorUncategorizedReference(){
+        return listUncategorizedReference.iterator();
+    }
+
+/**
+ *  Getter for list of class UncategorizedReference
+ *
+*/
+
+    public List<UncategorizedReference> getListUncategorizedReference(){
+        return listUncategorizedReference;
+    }
+
+/**
+ *  reset the list of class UncategorizedReference; use with care, does not call cascades
+ *
+*/
+
+    public void resetListUncategorizedReference(){
+        listUncategorizedReference = new ArrayList<UncategorizedReference>();
+        List<CrossReference> newListCrossReference = new ArrayList<CrossReference>();
+        for(CrossReference a:listCrossReference){
+            if (!(a instanceof UncategorizedReference)){
+                newListCrossReference.add(a);
+            }
+        }
+       listCrossReference = newListCrossReference;
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof UncategorizedReference)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class DoiReference
+ *
+*/
+
+    public Iterator<DoiReference> getIteratorDoiReference(){
+        return listDoiReference.iterator();
+    }
+
+/**
+ *  Getter for list of class DoiReference
+ *
+*/
+
+    public List<DoiReference> getListDoiReference(){
+        return listDoiReference;
+    }
+
+/**
+ *  reset the list of class DoiReference; use with care, does not call cascades
+ *
+*/
+
+    public void resetListDoiReference(){
+        listDoiReference = new ArrayList<DoiReference>();
+        List<CrossReference> newListCrossReference = new ArrayList<CrossReference>();
+        for(CrossReference a:listCrossReference){
+            if (!(a instanceof DoiReference)){
+                newListCrossReference.add(a);
+            }
+        }
+       listCrossReference = newListCrossReference;
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof DoiReference)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class MissingCross
+ *
+*/
+
+    public Iterator<MissingCross> getIteratorMissingCross(){
+        return listMissingCross.iterator();
+    }
+
+/**
+ *  Getter for list of class MissingCross
+ *
+*/
+
+    public List<MissingCross> getListMissingCross(){
+        return listMissingCross;
+    }
+
+/**
+ *  reset the list of class MissingCross; use with care, does not call cascades
+ *
+*/
+
+    public void resetListMissingCross(){
+        listMissingCross = new ArrayList<MissingCross>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof MissingCross)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -1743,6 +1978,24 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Removing object item of class Affiliation; remove all dependent objects of class Authorship which refer to item through their attribute affiliation
+ *
+*/
+
+    public void cascadeAuthorshipAffiliation(Affiliation item){
+        assert item != null;
+        List<Authorship> toRemove = new ArrayList<Authorship>();
+        for(Authorship a:getListAuthorship()) {
+         if (a.getAffiliation().contains(item)) {
+            a.getAffiliation().remove(item);
+         }
+        }
+        for(Authorship b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
  *  Removing object item of class Concept; remove all dependent objects of class ConceptWork which refer to item through their attribute concept
  *
 */
@@ -1918,6 +2171,78 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(Similarity b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class CrossReference which refer to item through their attribute work
+ *
+*/
+
+    public void cascadeCrossReferenceWork(Work item){
+        assert item != null;
+        List<CrossReference> toRemove = new ArrayList<CrossReference>();
+        for(CrossReference a:getListCrossReference()) {
+         if (a.getWork() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(CrossReference b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class CrossReference which refer to item through their attribute referredWork
+ *
+*/
+
+    public void cascadeCrossReferenceReferredWork(Work item){
+        assert item != null;
+        List<CrossReference> toRemove = new ArrayList<CrossReference>();
+        for(CrossReference a:getListCrossReference()) {
+         if (a.getReferredWork() == item) {
+            a.setReferredWork(null);
+         }
+        }
+        for(CrossReference b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class MissingWork; remove all dependent objects of class CrossReference which refer to item through their attribute missingWork
+ *
+*/
+
+    public void cascadeCrossReferenceMissingWork(MissingWork item){
+        assert item != null;
+        List<CrossReference> toRemove = new ArrayList<CrossReference>();
+        for(CrossReference a:getListCrossReference()) {
+         if (a.getMissingWork() == item) {
+            a.setMissingWork(null);
+         }
+        }
+        for(CrossReference b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class MissingCross; remove all dependent objects of class CrossReference which refer to item through their attribute missingCross
+ *
+*/
+
+    public void cascadeCrossReferenceMissingCross(MissingCross item){
+        assert item != null;
+        List<CrossReference> toRemove = new ArrayList<CrossReference>();
+        for(CrossReference a:getListCrossReference()) {
+         if (a.getMissingCross() == item) {
+            a.setMissingCross(null);
+         }
+        }
+        for(CrossReference b:toRemove) {
             b.remove();
         }
     }
@@ -2223,6 +2548,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class Affiliation
+ *
+*/
+
+    public void addAffiliation(Affiliation affiliation){
+        assert affiliation != null;
+        this.listAffiliation.add(affiliation);
+    }
+
+/**
+ *  remove an item from the list for class Affiliation
+ *
+*/
+
+    public Boolean removeAffiliation(Affiliation affiliation){
+        assert affiliation != null;
+        return this.listAffiliation.remove(affiliation);
+    }
+
+/**
  *  add an item to the list for class Proceedings
  *
 */
@@ -2503,11 +2848,94 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class CrossReference
+ *
+*/
+
+    public void addCrossReference(CrossReference crossReference){
+        assert crossReference != null;
+        this.listCrossReference.add(crossReference);
+    }
+
+/**
+ *  remove an item from the list for class CrossReference
+ *
+*/
+
+    public Boolean removeCrossReference(CrossReference crossReference){
+        assert crossReference != null;
+        return this.listCrossReference.remove(crossReference);
+    }
+
+/**
+ *  add an item to the list for class UncategorizedReference
+ *
+*/
+
+    public void addUncategorizedReference(UncategorizedReference uncategorizedReference){
+        assert uncategorizedReference != null;
+        this.listUncategorizedReference.add(uncategorizedReference);
+    }
+
+/**
+ *  remove an item from the list for class UncategorizedReference
+ *
+*/
+
+    public Boolean removeUncategorizedReference(UncategorizedReference uncategorizedReference){
+        assert uncategorizedReference != null;
+        return this.listUncategorizedReference.remove(uncategorizedReference);
+    }
+
+/**
+ *  add an item to the list for class DoiReference
+ *
+*/
+
+    public void addDoiReference(DoiReference doiReference){
+        assert doiReference != null;
+        this.listDoiReference.add(doiReference);
+    }
+
+/**
+ *  remove an item from the list for class DoiReference
+ *
+*/
+
+    public Boolean removeDoiReference(DoiReference doiReference){
+        assert doiReference != null;
+        return this.listDoiReference.remove(doiReference);
+    }
+
+/**
+ *  add an item to the list for class MissingCross
+ *
+*/
+
+    public void addMissingCross(MissingCross missingCross){
+        assert missingCross != null;
+        this.listMissingCross.add(missingCross);
+    }
+
+/**
+ *  remove an item from the list for class MissingCross
+ *
+*/
+
+    public Boolean removeMissingCross(MissingCross missingCross){
+        assert missingCross != null;
+        return this.listMissingCross.remove(missingCross);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
 
     public void dump(){
+        for(Affiliation x:getListAffiliation()){
+            System.out.println(x);
+        }
         for(ApplicationDifference x:getListApplicationDifference()){
             System.out.println(x);
         }
@@ -2544,6 +2972,9 @@ public int compareTo(ApplicationDataset ds2){
         for(ConferenceSeries x:getListConferenceSeries()){
             System.out.println(x);
         }
+        for(DoiReference x:getListDoiReference()){
+            System.out.println(x);
+        }
         for(InBook x:getListInBook()){
             System.out.println(x);
         }
@@ -2560,6 +2991,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(MissingCitingWork x:getListMissingCitingWork()){
+            System.out.println(x);
+        }
+        for(MissingCross x:getListMissingCross()){
             System.out.println(x);
         }
         for(MissingWork x:getListMissingWork()){
@@ -2584,6 +3018,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(Similarity x:getListSimilarity()){
+            System.out.println(x);
+        }
+        for(UncategorizedReference x:getListUncategorizedReference()){
             System.out.println(x);
         }
     }
@@ -2622,6 +3059,9 @@ public int compareTo(ApplicationDataset ds2){
         for(Scenario x:getListScenario()){
             if (x.getClass().equals(Scenario.class)) x.toXML(out);
         }
+        for(Affiliation x:getListAffiliation()){
+            if (x.getClass().equals(Affiliation.class)) x.toXML(out);
+        }
         for(ApplicationDifference x:getListApplicationDifference()){
             if (x.getClass().equals(ApplicationDifference.class)) x.toXML(out);
         }
@@ -2658,6 +3098,9 @@ public int compareTo(ApplicationDataset ds2){
         for(ConferenceSeries x:getListConferenceSeries()){
             if (x.getClass().equals(ConferenceSeries.class)) x.toXML(out);
         }
+        for(DoiReference x:getListDoiReference()){
+            if (x.getClass().equals(DoiReference.class)) x.toXML(out);
+        }
         for(InBook x:getListInBook()){
             if (x.getClass().equals(InBook.class)) x.toXML(out);
         }
@@ -2675,6 +3118,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(MissingCitingWork x:getListMissingCitingWork()){
             if (x.getClass().equals(MissingCitingWork.class)) x.toXML(out);
+        }
+        for(MissingCross x:getListMissingCross()){
+            if (x.getClass().equals(MissingCross.class)) x.toXML(out);
         }
         for(MissingWork x:getListMissingWork()){
             if (x.getClass().equals(MissingWork.class)) x.toXML(out);
@@ -2696,6 +3142,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(Similarity x:getListSimilarity()){
             if (x.getClass().equals(Similarity.class)) x.toXML(out);
+        }
+        for(UncategorizedReference x:getListUncategorizedReference()){
+            if (x.getClass().equals(UncategorizedReference.class)) x.toXML(out);
         }
         out.println("</body>");
         out.close();
@@ -2792,6 +3241,7 @@ public int compareTo(ApplicationDataset ds2){
     public void compare(ApplicationDatasetInterface c){
         ApplicationDataset compare = (ApplicationDataset) c;
         System.out.println("Comparing ApplicationDataset");
+        compareAffiliation(this.getListAffiliation(),compare.getListAffiliation());
         compareApplicationWarning(this.getListApplicationWarning(),compare.getListApplicationWarning());
         compareArticle(this.getListArticle(),compare.getListArticle());
         compareAuthor(this.getListAuthor(),compare.getListAuthor());
@@ -2803,12 +3253,14 @@ public int compareTo(ApplicationDataset ds2){
         compareConcept(this.getListConcept(),compare.getListConcept());
         compareConceptWork(this.getListConceptWork(),compare.getListConceptWork());
         compareConferenceSeries(this.getListConferenceSeries(),compare.getListConferenceSeries());
+        compareDoiReference(this.getListDoiReference(),compare.getListDoiReference());
         compareInBook(this.getListInBook(),compare.getListInBook());
         compareInCollection(this.getListInCollection(),compare.getListInCollection());
         compareJournal(this.getListJournal(),compare.getListJournal());
         compareJournalAlias(this.getListJournalAlias(),compare.getListJournalAlias());
         compareMissingCitedWork(this.getListMissingCitedWork(),compare.getListMissingCitedWork());
         compareMissingCitingWork(this.getListMissingCitingWork(),compare.getListMissingCitingWork());
+        compareMissingCross(this.getListMissingCross(),compare.getListMissingCross());
         compareMissingWork(this.getListMissingWork(),compare.getListMissingWork());
         comparePaper(this.getListPaper(),compare.getListPaper());
         comparePhDThesis(this.getListPhDThesis(),compare.getListPhDThesis());
@@ -2816,7 +3268,32 @@ public int compareTo(ApplicationDataset ds2){
         compareReference(this.getListReference(),compare.getListReference());
         compareSchool(this.getListSchool(),compare.getListSchool());
         compareSimilarity(this.getListSimilarity(),compare.getListSimilarity());
+        compareUncategorizedReference(this.getListUncategorizedReference(),compare.getListUncategorizedReference());
         System.out.println("Done Comparing ApplicationDataset");
+    }
+
+/**
+ * compare two lists of types Affiliation, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareAffiliation(List<Affiliation> aList,List<Affiliation> bList){
+        System.out.println("Comparing Affiliation");
+        for(Affiliation a:aList){
+            Affiliation b= Affiliation.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Affiliation A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Affiliation A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Affiliation B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Affiliation b: bList){
+            Affiliation a = Affiliation.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Affiliation B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
     }
 
 /**
@@ -3084,6 +3561,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types DoiReference, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareDoiReference(List<DoiReference> aList,List<DoiReference> bList){
+        System.out.println("Comparing DoiReference");
+        for(DoiReference a:aList){
+            DoiReference b= DoiReference.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"DoiReference A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"DoiReference A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"DoiReference B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(DoiReference b: bList){
+            DoiReference a = DoiReference.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"DoiReference B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types InBook, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -3223,6 +3724,30 @@ public int compareTo(ApplicationDataset ds2){
             MissingCitingWork a = MissingCitingWork.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCitingWork B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types MissingCross, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareMissingCross(List<MissingCross> aList,List<MissingCross> bList){
+        System.out.println("Comparing MissingCross");
+        for(MissingCross a:aList){
+            MissingCross b= MissingCross.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCross A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCross A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCross B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(MissingCross b: bList){
+            MissingCross a = MissingCross.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingCross B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -3396,11 +3921,36 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types UncategorizedReference, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareUncategorizedReference(List<UncategorizedReference> aList,List<UncategorizedReference> bList){
+        System.out.println("Comparing UncategorizedReference");
+        for(UncategorizedReference a:aList){
+            UncategorizedReference b= UncategorizedReference.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"UncategorizedReference A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"UncategorizedReference A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"UncategorizedReference B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(UncategorizedReference b: bList){
+            UncategorizedReference a = UncategorizedReference.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"UncategorizedReference B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * check all objects in dataset for internal consistency, based on multiplicity
  * and restrictions; create applicationWarning if inconsistent
 */
 
     public void checkAll(){
+        checkAffiliation(this.getListAffiliation());
         checkApplicationWarning(this.getListApplicationWarning());
         checkArticle(this.getListArticle());
         checkAuthor(this.getListAuthor());
@@ -3412,12 +3962,14 @@ public int compareTo(ApplicationDataset ds2){
         checkConcept(this.getListConcept());
         checkConceptWork(this.getListConceptWork());
         checkConferenceSeries(this.getListConferenceSeries());
+        checkDoiReference(this.getListDoiReference());
         checkInBook(this.getListInBook());
         checkInCollection(this.getListInCollection());
         checkJournal(this.getListJournal());
         checkJournalAlias(this.getListJournalAlias());
         checkMissingCitedWork(this.getListMissingCitedWork());
         checkMissingCitingWork(this.getListMissingCitingWork());
+        checkMissingCross(this.getListMissingCross());
         checkMissingWork(this.getListMissingWork());
         checkPaper(this.getListPaper());
         checkPhDThesis(this.getListPhDThesis());
@@ -3426,6 +3978,18 @@ public int compareTo(ApplicationDataset ds2){
         checkScenario(this.getListScenario());
         checkSchool(this.getListSchool());
         checkSimilarity(this.getListSimilarity());
+        checkUncategorizedReference(this.getListUncategorizedReference());
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<Affiliation> dataset list of all items of type Affiliation
+*/
+
+    public void checkAffiliation(List<Affiliation> list){
+        for(Affiliation a:list){
+            a.check();
+        }
     }
 
 /**
@@ -3551,6 +4115,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<DoiReference> dataset list of all items of type DoiReference
+*/
+
+    public void checkDoiReference(List<DoiReference> list){
+        for(DoiReference a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<InBook> dataset list of all items of type InBook
 */
 
@@ -3611,6 +4186,17 @@ public int compareTo(ApplicationDataset ds2){
 
     public void checkMissingCitingWork(List<MissingCitingWork> list){
         for(MissingCitingWork a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<MissingCross> dataset list of all items of type MissingCross
+*/
+
+    public void checkMissingCross(List<MissingCross> list){
+        for(MissingCross a:list){
             a.check();
         }
     }
@@ -3703,7 +4289,19 @@ public int compareTo(ApplicationDataset ds2){
         }
     }
 
+/**
+ * helper method for checkAll()
+ * @param list List<UncategorizedReference> dataset list of all items of type UncategorizedReference
+*/
+
+    public void checkUncategorizedReference(List<UncategorizedReference> list){
+        for(UncategorizedReference a:list){
+            a.check();
+        }
+    }
+
    public void generateDummies(){
+        Affiliation.dummy(this);
         ApplicationDifference.dummy(this);
         ApplicationWarning.dummy(this);
         Article.dummy(this);
@@ -3716,12 +4314,14 @@ public int compareTo(ApplicationDataset ds2){
         Concept.dummy(this);
         ConceptWork.dummy(this);
         ConferenceSeries.dummy(this);
+        DoiReference.dummy(this);
         InBook.dummy(this);
         InCollection.dummy(this);
         Journal.dummy(this);
         JournalAlias.dummy(this);
         MissingCitedWork.dummy(this);
         MissingCitingWork.dummy(this);
+        MissingCross.dummy(this);
         MissingWork.dummy(this);
         Paper.dummy(this);
         PhDThesis.dummy(this);
@@ -3730,6 +4330,7 @@ public int compareTo(ApplicationDataset ds2){
         Scenario.dummy(this);
         School.dummy(this);
         Similarity.dummy(this);
+        UncategorizedReference.dummy(this);
    }
 
 /**

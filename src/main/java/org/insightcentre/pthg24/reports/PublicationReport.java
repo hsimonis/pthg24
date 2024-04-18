@@ -8,6 +8,7 @@ import framework.reports.visualization.plot.distributionplot.DistributionPlot;
 import framework.reports.visualization.plot.distributionplot.DistributionPlotOrdering;
 import framework.reports.visualization.plot.lineplot.LinePlot;
 import framework.reports.visualization.plot.lineplot.LinePlotFunctions;
+import framework.reports.visualization.plot.scatterplot.ScatterPlot;
 import org.insightcentre.pthg24.datamodel.*;
 
 import java.util.Comparator;
@@ -26,16 +27,30 @@ public class PublicationReport extends AbstractReport{
 
     public void content(){
         tex.printf("%s\n\n",defineColors());
+
+        section("Conference Papers by Most Common Conference Series");
         bySeries(base.getListPaper().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
+
+        section("Journal Articles by Most Common Journals");
         byJournal(base.getListArticle().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
+
+        section("Works by Year");
         byYear(base.getListWork().stream().filter(x->!x.getBackground()).collect(Collectors.toList()),
                 base.getListWork().stream().filter(x->!x.getBackground()).filter(x->x instanceof Paper).collect(Collectors.toList()),
                 base.getListWork().stream().filter(x->!x.getBackground()).filter(x->x instanceof Article).collect(Collectors.toList()),
                 base.getListWork().stream().filter(x->!x.getBackground()).filter(x->x instanceof PhDThesis).collect(Collectors.toList()));
+
+        section("Number of Coauthors per Work");
         coAuthorDistributionPlot(base.getListWork().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
+
+        section("Number of Works per Author");
         workDistributionPlot(base.getListAuthor().stream().filter(x->x.getNrWorks() >0).collect(Collectors.toList()));
+
+        section("Citation Distribution");
         citationDistributionPlot(base.getListWork().stream().filter(x->!x.getBackground()).toList());
 
+        clearpage();
+        section("Similarity Measures");
 
         new HeatMap<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarity())).toList(),
                 new HeatMapFunctions<>(Similarity::getWork1,
@@ -62,12 +77,33 @@ public class PublicationReport extends AbstractReport{
                 width(25).height(15).
                 generate().latex(tex);
 
+        paragraph("The following distribution plot shows the similarity values between two works based on " +
+                "citations and references counts. If either work does not have citation and reference values, then " +
+                "the similarity is set to NaN. The total similarity count is the sum of the similarity for " +
+                "citations and for references. As value we compute the ratio of shared references (citations) to " +
+                "the sum of individual references (citations), multiplied by two. So both the citation and reference " +
+                "similarity range between zero and one, and the sum ranges between zero and two. High values are " +
+                "exceedingly rare, as they require both works to be citing the same papers, and being cited by the " +
+                "same papers.A larger values " +
+                "indicates that items are more similar according to this measure. In the plot we group values " +
+                "into 0.1 wide value bins, so an entry for 0.2 includes values from 0.15 to 0.25.");
+        paragraph("We observe that high values of this similarity are often found for two works by the same " +
+                "authors that are close in time, where we assumes that the bibliography is based on the same " +
+                "literature survey.");
+
         new DistributionPlot<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarity())).toList(),this::similar).
                 ordering(DistributionPlotOrdering.LABEL).
                 title("Distribution Plot of Similarity Values by References and Citations (High value is similar)").
                 xlabel("Similarity Value").ylabel("Count").
                 width(25).height(15).
                 generate().latex(tex);
+
+        paragraph("The similarity by concept uses the Euclidean distance between the feature vectors for two " +
+                "works. We translate the MatchLevel for each Concept into a linear scale, and then calculate the " +
+                "distances as the square root of the sum of squared differences for each feature. The distribution " +
+                "plot below rounds the distances to integer values. Similarity values of this type are only " +
+                "calculated when both works have a local copy, from which we extract the features. If either " +
+                "work does not have a local copy, the similarity is set to be NaN.");
         new DistributionPlot<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarityConcept())).toList(),this::similarConcept).
                 ordering(DistributionPlotOrdering.NR).
                 title("Distribution Plot of Similarity Values by Concept (Low value is similar)").
@@ -76,11 +112,108 @@ public class PublicationReport extends AbstractReport{
                 generate().latex(tex);
 
         clearpage();
+        section("Concept Distribution");
+        paragraph("For each concept type, we count how many features are extracted by the individual works that " +
+                "do have a local copy, e.g. for which we can extract features. We can compare the number of features " +
+                "extracted to the number of concepts of a given type, which is stated in the title of the diagram.");
+        paragraph("A high count indicates that a work covers many of the concepts of the given type, a low count " +
+                "might mean that our ontology does not have relevant concepts for that work.");
+        for(ConceptType type:ConceptType.values()){
+            int d = (int) base.getListConcept().stream().filter(x->x.getConceptType()==type).count();
+            new DistributionPlot<>(base.getListWork().stream().
+                    filter(x -> !x.getLocalCopy().equals("")).
+                    filter(x -> !x.getBackground()).
+                    toList(),x->featureCount(x,type)).
+                    ordering(DistributionPlotOrdering.NR).
+                    title("Feature Count for Type "+safe(type.toString()+" with a total of "+d+" features")).
+                    xlabel("Nr of Extracted Features").ylabel("Nr Works").
+                    width(25).height(15).
+                    generate().latex(tex);
+        }
+        clearpage();
+        section("Coauthor graph");
+        paragraph("The coauthor plot is created by graphviz, and is based on the coauthor relations extracted " +
+                "from the author fields of the works. Authors with few works are not shown, to avoid a cluttered " +
+                "view. Note that this analysis depends on the use of canonical forms of author names. If bib " +
+                "entries come from any different sources, we will need to check this manually. DBLP seems to be " +
+                "using ORCID values and typically identifies the authors of a work with a canonical " +
+                "representation of their name. Accents and umlauts are other sources of having multiple forms of the " +
+                "name of the same author. Note that the risk of two different authors using the same name should be " +
+                "low for very specific literature surveys, but cannot be checked with the data sources currently used.");
+        paragraph("The plots can be made with different layout tools in graphviz, it seems that fdp produces " +
+                "the most consistent visually attractive plots for this type of display. This probably needs more " +
+                "work on parameter settings to be fully automated.");
         tex.printf("\\begin{figure}[htbp]\n");
         tex.printf("\\caption{Coauthor Graph Drawn with fdp (Graphviz)}\n");
         tex.printf("\\centering\n");
         tex.printf("\\includegraphics[width=.6\\textwidth]{../graphviz/fdp.pdf}\n\n");
         tex.printf("\\end{figure}\n\n");
+
+        clearpage();
+        section("OpenCitations vs. Crossref Data");
+        new ScatterPlot<>(base.getListWork(), Work::getNrCitations, Work::getCrossrefCitations, Work::getNrReferences).
+                title("Comparing Citation Counts").
+                xlabel("OpenCitation Citations").ylabel("Crossref Citations (Colored by OpenCitation References)").
+                width(22).height(15).
+                generate().latex(tex);
+        new ScatterPlot<>(base.getListWork(), Work::getNrCitations, Work::getCrossrefCitations, Work::getNrReferences).
+                xrange(0.0,300.0).
+                yrange(0.0,300.0).
+                title("Comparing Citation Counts (Clipped to 300, Colored by OpenCitation References)").
+                xlabel("OpenCitation Citations").ylabel("Crossref Citations").
+                width(22).height(15).
+                generate().latex(tex);
+        new ScatterPlot<>(base.getListWork(), Work::getNrReferences, Work::getCrossrefReferences, Work::getNrCitations).
+                xrange(0.0,300.0).
+                yrange(0.0,300.0).
+                title("Comparing References Counts (Clipped to 300, Colored by OpenCitation Citations)").
+                xlabel("OpenCitation References").ylabel("Crossref References").
+                width(22).height(15).
+                generate().latex(tex);
+
+        new DistributionPlot<>(base.getListWork().stream().
+                filter(x->!x.getBackground()).
+                filter(x->!Double.isNaN(x.getPercentReferencesCovered())).
+                toList(),
+                this::referenceCoverage).
+                ordering(DistributionPlotOrdering.NR).
+                title("Percentage of OpenCitation References Covered by Survey (Excludes Background Works)").
+                xlabel("PercentageBand").ylabel("Nr Works").
+                width(25).height(15).
+                generate().latex(tex);
+        new DistributionPlot<>(base.getListWork().stream().
+                filter(x->!x.getBackground()).
+                filter(x->!Double.isNaN(x.getPercentCitationsCovered())).
+                toList(),
+                this::citationCoverage).
+                ordering(DistributionPlotOrdering.NR).
+                title("Percentage of OpenCitation Citations Covered by Survey (Excludes Background Works)").
+                xlabel("PercentageBand").ylabel("Nr Works").
+                width(25).height(15).
+                generate().latex(tex);
+
+
+        new DistributionPlot<>(base.getListMissingWork(), MissingWork::getNrLinks).
+                ordering(DistributionPlotOrdering.NR).
+                title("Missing Work Links with Survey").
+                xlabel("Links").ylabel("Nr Missing Works").
+                width(25).height(15).
+                generate().latex(tex);
+    }
+
+    private int referenceCoverage(Work w){
+        return ((int) Math.round(w.getPercentReferencesCovered()/5.0))*5;
+    }
+    private int citationCoverage(Work w){
+        return ((int) Math.round(w.getPercentCitationsCovered()/5.0))*5;
+    }
+
+    private int featureCount(Work w,ConceptType type){
+        return (int) base.getListConceptWork().stream().
+                filter(x->x.getWork()==w).
+                filter(x->x.getConcept().getConceptType()==type).
+                filter(x->x.getCount() > 0).
+                count();
     }
 
     private String similar(Similarity s){

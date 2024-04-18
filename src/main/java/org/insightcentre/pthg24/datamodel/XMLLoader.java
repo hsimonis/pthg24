@@ -84,6 +84,25 @@ public ConceptType getConceptType(String attributeName,
             return ConceptType.valueOf(e);
         }
     }
+    public Affiliation getAffiliation(String attributeName,
+                               Attributes attributes) {
+        return (Affiliation) find(getId(attributeName,attributes));
+    }
+
+    public List<Affiliation> getAffiliationCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<Affiliation> res = new ArrayList<Affiliation>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((Affiliation) find(id));
+            }
+        }
+        return res;
+    }
+
     public ApplicationDataset getApplicationDataset(String attributeName,
                                Attributes attributes) {
         return (ApplicationDataset) find(getId(attributeName,attributes));
@@ -350,6 +369,44 @@ public ConceptType getConceptType(String attributeName,
         return res;
     }
 
+    public CrossReference getCrossReference(String attributeName,
+                               Attributes attributes) {
+        return (CrossReference) find(getId(attributeName,attributes));
+    }
+
+    public List<CrossReference> getCrossReferenceCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<CrossReference> res = new ArrayList<CrossReference>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((CrossReference) find(id));
+            }
+        }
+        return res;
+    }
+
+    public DoiReference getDoiReference(String attributeName,
+                               Attributes attributes) {
+        return (DoiReference) find(getId(attributeName,attributes));
+    }
+
+    public List<DoiReference> getDoiReferenceCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<DoiReference> res = new ArrayList<DoiReference>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((DoiReference) find(id));
+            }
+        }
+        return res;
+    }
+
     public InBook getInBook(String attributeName,
                                Attributes attributes) {
         return (InBook) find(getId(attributeName,attributes));
@@ -459,6 +516,25 @@ public ConceptType getConceptType(String attributeName,
             if (words[i].length() > 0) {
                 int id = Integer.parseInt(words[i].substring(3));
                 res.add((MissingCitingWork) find(id));
+            }
+        }
+        return res;
+    }
+
+    public MissingCross getMissingCross(String attributeName,
+                               Attributes attributes) {
+        return (MissingCross) find(getId(attributeName,attributes));
+    }
+
+    public List<MissingCross> getMissingCrossCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<MissingCross> res = new ArrayList<MissingCross>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((MissingCross) find(id));
             }
         }
         return res;
@@ -616,6 +692,25 @@ public ConceptType getConceptType(String attributeName,
         return res;
     }
 
+    public UncategorizedReference getUncategorizedReference(String attributeName,
+                               Attributes attributes) {
+        return (UncategorizedReference) find(getId(attributeName,attributes));
+    }
+
+    public List<UncategorizedReference> getUncategorizedReferenceCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<UncategorizedReference> res = new ArrayList<UncategorizedReference>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((UncategorizedReference) find(id));
+            }
+        }
+        return res;
+    }
+
     public Work getWork(String attributeName,
                                Attributes attributes) {
         return (Work) find(getId(attributeName,attributes));
@@ -662,6 +757,15 @@ public ConceptType getConceptType(String attributeName,
                         getString("name", attributes, "dummy"),
                         getBoolean("valid",attributes,false)
                               );
+            } else if (qname.equals("affiliation")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new Affiliation(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getInteger("nrUsed",attributes,0),
+                        getString("shortName",attributes,"")
+                        ));
             } else if (qname.equals("applicationDifference")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -696,15 +800,21 @@ public ConceptType getConceptType(String attributeName,
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
+                        getInteger("crossrefCitations",attributes,0),
+                        getInteger("crossrefReferences",attributes,0),
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("nrCitations",attributes,0),
+                        getInteger("nrCitationsCovered",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
+                        getInteger("nrReferencesCovered",attributes,0),
                         getString("pages",attributes,""),
+                        getDouble("percentCitationsCovered",attributes,0.0),
+                        getDouble("percentReferencesCovered",attributes,0.0),
                         getString("relatedTo",attributes,""),
                         getString("solutionAvail",attributes,""),
                         getString("title",attributes,""),
@@ -718,12 +828,15 @@ public ConceptType getConceptType(String attributeName,
                 store(id, new Author(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getString("crossFamily",attributes,""),
+                        getString("crossGiven",attributes,""),
                         getString("familyName",attributes,""),
                         getString("key",attributes,""),
                         getInteger("nrBackgroundCitations",attributes,0),
                         getInteger("nrBackgroundWorks",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrWorks",attributes,0),
+                        getString("orcid",attributes,""),
                         getString("shortName",attributes,"")
                         ));
             } else if (qname.equals("authorship")) {
@@ -733,6 +846,9 @@ public ConceptType getConceptType(String attributeName,
                         id,
                         getString("name", attributes, "dummy"),
                         null,
+                        null,
+                        getInteger("seqNr",attributes,0),
+                        getString("sequence",attributes,""),
                         null
                         ));
             } else if (qname.equals("book")) {
@@ -748,15 +864,21 @@ public ConceptType getConceptType(String attributeName,
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
+                        getInteger("crossrefCitations",attributes,0),
+                        getInteger("crossrefReferences",attributes,0),
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("nrCitations",attributes,0),
+                        getInteger("nrCitationsCovered",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
+                        getInteger("nrReferencesCovered",attributes,0),
                         getString("pages",attributes,""),
+                        getDouble("percentCitationsCovered",attributes,0.0),
+                        getDouble("percentReferencesCovered",attributes,0.0),
                         getString("relatedTo",attributes,""),
                         getString("solutionAvail",attributes,""),
                         getString("title",attributes,""),
@@ -834,6 +956,23 @@ public ConceptType getConceptType(String attributeName,
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrPapers",attributes,0)
                         ));
+            } else if (qname.equals("doiReference")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new DoiReference(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getString("author",attributes,""),
+                        getString("key",attributes,""),
+                        null,
+                        null,
+                        null,
+                        getString("source",attributes,""),
+                        getString("title",attributes,""),
+                        null,
+                        getInteger("year",attributes,0),
+                        getString("doi",attributes,"")
+                        ));
             } else if (qname.equals("inBook")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -847,15 +986,21 @@ public ConceptType getConceptType(String attributeName,
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
+                        getInteger("crossrefCitations",attributes,0),
+                        getInteger("crossrefReferences",attributes,0),
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("nrCitations",attributes,0),
+                        getInteger("nrCitationsCovered",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
+                        getInteger("nrReferencesCovered",attributes,0),
                         getString("pages",attributes,""),
+                        getDouble("percentCitationsCovered",attributes,0.0),
+                        getDouble("percentReferencesCovered",attributes,0.0),
                         getString("relatedTo",attributes,""),
                         getString("solutionAvail",attributes,""),
                         getString("title",attributes,""),
@@ -876,15 +1021,21 @@ public ConceptType getConceptType(String attributeName,
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
+                        getInteger("crossrefCitations",attributes,0),
+                        getInteger("crossrefReferences",attributes,0),
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("nrCitations",attributes,0),
+                        getInteger("nrCitationsCovered",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
+                        getInteger("nrReferencesCovered",attributes,0),
                         getString("pages",attributes,""),
+                        getDouble("percentCitationsCovered",attributes,0.0),
+                        getDouble("percentReferencesCovered",attributes,0.0),
                         getString("relatedTo",attributes,""),
                         getString("solutionAvail",attributes,""),
                         getString("title",attributes,""),
@@ -931,16 +1082,40 @@ public ConceptType getConceptType(String attributeName,
                         getString("doi",attributes,""),
                         getInteger("nrCited",attributes,0)
                         ));
+            } else if (qname.equals("missingCross")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new MissingCross(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getString("author",attributes,""),
+                        getInteger("count",attributes,0),
+                        getInteger("crossrefCitations",attributes,0),
+                        getInteger("crossrefReferences",attributes,0),
+                        getString("doi",attributes,""),
+                        getString("source",attributes,""),
+                        getString("title",attributes,""),
+                        getString("type",attributes,""),
+                        getString("url",attributes,""),
+                        getInteger("year",attributes,0)
+                        ));
             } else if (qname.equals("missingWork")) {
                 assert (base != null);
                 int id = getId("id", attributes);
                 store(id, new MissingWork(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getInteger("crossrefCitations",attributes,0),
+                        getInteger("crossrefReferences",attributes,0),
                         getString("doi",attributes,""),
+                        getString("encoded",attributes,""),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCited",attributes,0),
-                        getInteger("nrLinks",attributes,0)
+                        getInteger("nrLinks",attributes,0),
+                        getString("title",attributes,""),
+                        getString("type",attributes,""),
+                        getString("url",attributes,""),
+                        getInteger("year",attributes,0)
                         ));
             } else if (qname.equals("paper")) {
                 assert (base != null);
@@ -955,15 +1130,21 @@ public ConceptType getConceptType(String attributeName,
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
+                        getInteger("crossrefCitations",attributes,0),
+                        getInteger("crossrefReferences",attributes,0),
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("nrCitations",attributes,0),
+                        getInteger("nrCitationsCovered",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
+                        getInteger("nrReferencesCovered",attributes,0),
                         getString("pages",attributes,""),
+                        getDouble("percentCitationsCovered",attributes,0.0),
+                        getDouble("percentReferencesCovered",attributes,0.0),
                         getString("relatedTo",attributes,""),
                         getString("solutionAvail",attributes,""),
                         getString("title",attributes,""),
@@ -984,15 +1165,21 @@ public ConceptType getConceptType(String attributeName,
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
+                        getInteger("crossrefCitations",attributes,0),
+                        getInteger("crossrefReferences",attributes,0),
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("nrCitations",attributes,0),
+                        getInteger("nrCitationsCovered",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
+                        getInteger("nrReferencesCovered",attributes,0),
                         getString("pages",attributes,""),
+                        getDouble("percentCitationsCovered",attributes,0.0),
+                        getDouble("percentReferencesCovered",attributes,0.0),
                         getString("relatedTo",attributes,""),
                         getString("solutionAvail",attributes,""),
                         getString("title",attributes,""),
@@ -1051,6 +1238,22 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         null
                         ));
+            } else if (qname.equals("uncategorizedReference")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new UncategorizedReference(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getString("author",attributes,""),
+                        getString("key",attributes,""),
+                        null,
+                        null,
+                        null,
+                        getString("source",attributes,""),
+                        getString("title",attributes,""),
+                        null,
+                        getInteger("year",attributes,0)
+                        ));
             } else {
                 System.out.println("Element Structure " + qname);
                 numNodes++;
@@ -1082,6 +1285,10 @@ public ConceptType getConceptType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 Scenario item = (Scenario) base;
+            } else if (qname.equals("affiliation")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                Affiliation item = (Affiliation) find(id);
             } else if (qname.equals("applicationDifference")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1106,6 +1313,7 @@ public ConceptType getConceptType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 Authorship item = (Authorship) find(id);
+                 item.setAffiliation(getAffiliationCollectionFromIds("affiliation",attributes));
                  item.setAuthor(getAuthor("author",attributes));
                  item.setWork(getWork("work",attributes));
             } else if (qname.equals("book")) {
@@ -1145,6 +1353,14 @@ public ConceptType getConceptType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 ConferenceSeries item = (ConferenceSeries) find(id);
+            } else if (qname.equals("doiReference")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                DoiReference item = (DoiReference) find(id);
+                 item.setMissingCross(getMissingCross("missingCross",attributes));
+                 item.setMissingWork(getMissingWork("missingWork",attributes));
+                 item.setReferredWork(getWork("referredWork",attributes));
+                 item.setWork(getWork("work",attributes));
             } else if (qname.equals("inBook")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1173,6 +1389,10 @@ public ConceptType getConceptType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 MissingCitingWork item = (MissingCitingWork) find(id);
+            } else if (qname.equals("missingCross")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                MissingCross item = (MissingCross) find(id);
             } else if (qname.equals("missingWork")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1210,6 +1430,14 @@ public ConceptType getConceptType(String attributeName,
                 Similarity item = (Similarity) find(id);
                  item.setWork1(getWork("work1",attributes));
                  item.setWork2(getWork("work2",attributes));
+            } else if (qname.equals("uncategorizedReference")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                UncategorizedReference item = (UncategorizedReference) find(id);
+                 item.setMissingCross(getMissingCross("missingCross",attributes));
+                 item.setMissingWork(getMissingWork("missingWork",attributes));
+                 item.setReferredWork(getWork("referredWork",attributes));
+                 item.setWork(getWork("work",attributes));
             } else {
                 System.out.println("Element Structure " + qname);
                 numNodes++;

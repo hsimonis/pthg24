@@ -1,4 +1,7 @@
  class Authorship {
+List<Affiliation> affiliation
 Author author
+Integer seqNr
+String sequence
 Work work
 }

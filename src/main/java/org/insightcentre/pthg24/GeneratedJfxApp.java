@@ -21,6 +21,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.insightcentre.pthg24.controller.RootController;
+import org.insightcentre.pthg24.datamodel.Affiliation;
 import org.insightcentre.pthg24.datamodel.ApplicationDifference;
 import org.insightcentre.pthg24.datamodel.ApplicationWarning;
 import org.insightcentre.pthg24.datamodel.Article;
@@ -33,12 +34,15 @@ import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
 import org.insightcentre.pthg24.datamodel.ConferenceSeries;
+import org.insightcentre.pthg24.datamodel.CrossReference;
+import org.insightcentre.pthg24.datamodel.DoiReference;
 import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
+import org.insightcentre.pthg24.datamodel.MissingCross;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.PhDThesis;
@@ -47,11 +51,12 @@ import org.insightcentre.pthg24.datamodel.Reference;
 import org.insightcentre.pthg24.datamodel.Scenario;
 import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.Similarity;
+import org.insightcentre.pthg24.datamodel.UncategorizedReference;
 import org.insightcentre.pthg24.datamodel.Work;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 13:06:16 on 2024-04-09 */
+ * Generated at 11:56:49 on 2024-04-18 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -89,6 +94,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<Authorship> authorshipData = FXCollections.observableArrayList();
 
+	private ObservableList<Affiliation> affiliationData = FXCollections.observableArrayList();
+
 	private ObservableList<Proceedings> proceedingsData = FXCollections.observableArrayList();
 
 	private ObservableList<ConferenceSeries> conferenceSeriesData = FXCollections.observableArrayList();
@@ -117,6 +124,14 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<Similarity> similarityData = FXCollections.observableArrayList();
 
+	private ObservableList<CrossReference> crossReferenceData = FXCollections.observableArrayList();
+
+	private ObservableList<UncategorizedReference> uncategorizedReferenceData = FXCollections.observableArrayList();
+
+	private ObservableList<DoiReference> doiReferenceData = FXCollections.observableArrayList();
+
+	private ObservableList<MissingCross> missingCrossData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
 		fs = minimalDataset();
@@ -131,6 +146,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("InBook", "InBook");
 		tableViews.put("Book", "Book");
 		tableViews.put("Authorship", "Authorship");
+		tableViews.put("Affiliation", "Affiliation");
 		tableViews.put("Proceedings", "Proceedings");
 		tableViews.put("ConferenceSeries", "ConferenceSeries");
 		tableViews.put("Journal", "Journal");
@@ -145,6 +161,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("MissingWork", "MissingWork");
 		tableViews.put("Coauthor", "Coauthor");
 		tableViews.put("Similarity", "Similarity");
+		tableViews.put("CrossReference", "CrossReference");
+		tableViews.put("UncategorizedReference", "UncategorizedReference");
+		tableViews.put("DoiReference", "DoiReference");
+		tableViews.put("MissingCross", "MissingCross");
 		tableViews.put("Scenario", "Scenario");
 		tableViews.put("Scenario Differences", "ApplicationDifference");
 		tableViews.put("Warnings", "ApplicationWarning");
@@ -243,6 +263,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		bookData.addAll(base.getListBook());
 		authorshipData.clear();
 		authorshipData.addAll(base.getListAuthorship());
+		affiliationData.clear();
+		affiliationData.addAll(base.getListAffiliation());
 		proceedingsData.clear();
 		proceedingsData.addAll(base.getListProceedings());
 		conferenceSeriesData.clear();
@@ -271,6 +293,14 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		coauthorData.addAll(base.getListCoauthor());
 		similarityData.clear();
 		similarityData.addAll(base.getListSimilarity());
+		crossReferenceData.clear();
+		crossReferenceData.addAll(base.getListCrossReference());
+		uncategorizedReferenceData.clear();
+		uncategorizedReferenceData.addAll(base.getListUncategorizedReference());
+		doiReferenceData.clear();
+		doiReferenceData.addAll(base.getListDoiReference());
+		missingCrossData.clear();
+		missingCrossData.addAll(base.getListMissingCross());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -328,6 +358,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		return authorshipData;
 	}
 
+	public ObservableList<Affiliation> getAffiliationData() {
+		return affiliationData;
+	}
+
 	public ObservableList<Proceedings> getProceedingsData() {
 		return proceedingsData;
 	}
@@ -382,5 +416,21 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<Similarity> getSimilarityData() {
 		return similarityData;
+	}
+
+	public ObservableList<CrossReference> getCrossReferenceData() {
+		return crossReferenceData;
+	}
+
+	public ObservableList<UncategorizedReference> getUncategorizedReferenceData() {
+		return uncategorizedReferenceData;
+	}
+
+	public ObservableList<DoiReference> getDoiReferenceData() {
+		return doiReferenceData;
+	}
+
+	public ObservableList<MissingCross> getMissingCrossData() {
+		return missingCrossData;
 	}
 }

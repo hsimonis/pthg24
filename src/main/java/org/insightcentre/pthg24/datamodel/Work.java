@@ -15,6 +15,7 @@ import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
+import org.insightcentre.pthg24.datamodel.Affiliation;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
@@ -29,6 +30,10 @@ import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Coauthor;
 import org.insightcentre.pthg24.datamodel.Similarity;
+import org.insightcentre.pthg24.datamodel.CrossReference;
+import org.insightcentre.pthg24.datamodel.UncategorizedReference;
+import org.insightcentre.pthg24.datamodel.DoiReference;
+import org.insightcentre.pthg24.datamodel.MissingCross;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -106,6 +111,20 @@ public abstract class Work extends ApplicationObject{
  *
 */
 
+    public Integer crossrefCitations;
+
+/**
+ *  
+ *
+*/
+
+    public Integer crossrefReferences;
+
+/**
+ *  
+ *
+*/
+
     public String dataAvail;
 
 /**
@@ -141,6 +160,13 @@ public abstract class Work extends ApplicationObject{
  *
 */
 
+    public Integer nrCitationsCovered;
+
+/**
+ *  
+ *
+*/
+
     public Integer nrLinks;
 
 /**
@@ -162,7 +188,28 @@ public abstract class Work extends ApplicationObject{
  *
 */
 
+    public Integer nrReferencesCovered;
+
+/**
+ *  
+ *
+*/
+
     public String pages;
+
+/**
+ *  
+ *
+*/
+
+    public Double percentCitationsCovered;
+
+/**
+ *  
+ *
+*/
+
+    public Double percentReferencesCovered;
 
 /**
  *  
@@ -225,15 +272,21 @@ public abstract class Work extends ApplicationObject{
         setCodeAvail("");
         setConstraints("");
         setCpSystem("");
+        setCrossrefCitations(0);
+        setCrossrefReferences(0);
         setDataAvail("");
         setDoi("");
         setKey("");
         setLocalCopy("");
         setNrCitations(0);
+        setNrCitationsCovered(0);
         setNrLinks(0);
         setNrPages(0);
         setNrReferences(0);
+        setNrReferencesCovered(0);
         setPages("");
+        setPercentCitationsCovered(0.0);
+        setPercentReferencesCovered(0.0);
         setRelatedTo("");
         setSolutionAvail("");
         setTitle("");
@@ -259,15 +312,21 @@ public abstract class Work extends ApplicationObject{
             String codeAvail,
             String constraints,
             String cpSystem,
+            Integer crossrefCitations,
+            Integer crossrefReferences,
             String dataAvail,
             String doi,
             String key,
             String localCopy,
             Integer nrCitations,
+            Integer nrCitationsCovered,
             Integer nrLinks,
             Integer nrPages,
             Integer nrReferences,
+            Integer nrReferencesCovered,
             String pages,
+            Double percentCitationsCovered,
+            Double percentReferencesCovered,
             String relatedTo,
             String solutionAvail,
             String title,
@@ -283,15 +342,21 @@ public abstract class Work extends ApplicationObject{
         setCodeAvail(codeAvail);
         setConstraints(constraints);
         setCpSystem(cpSystem);
+        setCrossrefCitations(crossrefCitations);
+        setCrossrefReferences(crossrefReferences);
         setDataAvail(dataAvail);
         setDoi(doi);
         setKey(key);
         setLocalCopy(localCopy);
         setNrCitations(nrCitations);
+        setNrCitationsCovered(nrCitationsCovered);
         setNrLinks(nrLinks);
         setNrPages(nrPages);
         setNrReferences(nrReferences);
+        setNrReferencesCovered(nrReferencesCovered);
         setPages(pages);
+        setPercentCitationsCovered(percentCitationsCovered);
+        setPercentReferencesCovered(percentReferencesCovered);
         setRelatedTo(relatedTo);
         setSolutionAvail(solutionAvail);
         setTitle(title);
@@ -311,15 +376,21 @@ public abstract class Work extends ApplicationObject{
             other.codeAvail,
             other.constraints,
             other.cpSystem,
+            other.crossrefCitations,
+            other.crossrefReferences,
             other.dataAvail,
             other.doi,
             other.key,
             other.localCopy,
             other.nrCitations,
+            other.nrCitationsCovered,
             other.nrLinks,
             other.nrPages,
             other.nrReferences,
+            other.nrReferencesCovered,
             other.pages,
+            other.percentCitationsCovered,
+            other.percentReferencesCovered,
             other.relatedTo,
             other.solutionAvail,
             other.title,
@@ -343,6 +414,8 @@ public abstract class Work extends ApplicationObject{
         getApplicationDataset().cascadeReferenceCitingWork(this);
         getApplicationDataset().cascadeSimilarityWork1(this);
         getApplicationDataset().cascadeSimilarityWork2(this);
+        getApplicationDataset().cascadeCrossReferenceWork(this);
+        getApplicationDataset().cascadeCrossReferenceReferredWork(this);
         return getApplicationDataset().removeWork(this) && getApplicationDataset().removeApplicationObject(this);
     }
 
@@ -425,6 +498,26 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  get attribute crossrefCitations
+ *
+ * @return Integer
+*/
+
+    public Integer getCrossrefCitations(){
+        return this.crossrefCitations;
+    }
+
+/**
+ *  get attribute crossrefReferences
+ *
+ * @return Integer
+*/
+
+    public Integer getCrossrefReferences(){
+        return this.crossrefReferences;
+    }
+
+/**
  *  get attribute dataAvail
  *
  * @return String
@@ -475,6 +568,16 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  get attribute nrCitationsCovered
+ *
+ * @return Integer
+*/
+
+    public Integer getNrCitationsCovered(){
+        return this.nrCitationsCovered;
+    }
+
+/**
  *  get attribute nrLinks
  *
  * @return Integer
@@ -505,6 +608,16 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  get attribute nrReferencesCovered
+ *
+ * @return Integer
+*/
+
+    public Integer getNrReferencesCovered(){
+        return this.nrReferencesCovered;
+    }
+
+/**
  *  get attribute pages
  *
  * @return String
@@ -512,6 +625,26 @@ public abstract class Work extends ApplicationObject{
 
     public String getPages(){
         return this.pages;
+    }
+
+/**
+ *  get attribute percentCitationsCovered
+ *
+ * @return Double
+*/
+
+    public Double getPercentCitationsCovered(){
+        return this.percentCitationsCovered;
+    }
+
+/**
+ *  get attribute percentReferencesCovered
+ *
+ * @return Double
+*/
+
+    public Double getPercentReferencesCovered(){
+        return this.percentReferencesCovered;
     }
 
 /**
@@ -649,6 +782,30 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  set attribute crossrefCitations, mark dataset as dirty, mark dataset as not valid
+@param crossrefCitations Integer
+ *
+*/
+
+    public void setCrossrefCitations(Integer crossrefCitations){
+        this.crossrefCitations = crossrefCitations;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute crossrefReferences, mark dataset as dirty, mark dataset as not valid
+@param crossrefReferences Integer
+ *
+*/
+
+    public void setCrossrefReferences(Integer crossrefReferences){
+        this.crossrefReferences = crossrefReferences;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute dataAvail, mark dataset as dirty, mark dataset as not valid
 @param dataAvail String
  *
@@ -709,6 +866,18 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  set attribute nrCitationsCovered, mark dataset as dirty, mark dataset as not valid
+@param nrCitationsCovered Integer
+ *
+*/
+
+    public void setNrCitationsCovered(Integer nrCitationsCovered){
+        this.nrCitationsCovered = nrCitationsCovered;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute nrLinks, mark dataset as dirty, mark dataset as not valid
 @param nrLinks Integer
  *
@@ -745,6 +914,18 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  set attribute nrReferencesCovered, mark dataset as dirty, mark dataset as not valid
+@param nrReferencesCovered Integer
+ *
+*/
+
+    public void setNrReferencesCovered(Integer nrReferencesCovered){
+        this.nrReferencesCovered = nrReferencesCovered;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute pages, mark dataset as dirty, mark dataset as not valid
 @param pages String
  *
@@ -752,6 +933,30 @@ public abstract class Work extends ApplicationObject{
 
     public void setPages(String pages){
         this.pages = pages;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute percentCitationsCovered, mark dataset as dirty, mark dataset as not valid
+@param percentCitationsCovered Double
+ *
+*/
+
+    public void setPercentCitationsCovered(Double percentCitationsCovered){
+        this.percentCitationsCovered = percentCitationsCovered;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute percentReferencesCovered, mark dataset as dirty, mark dataset as not valid
+@param percentReferencesCovered Double
+ *
+*/
+
+    public void setPercentReferencesCovered(Double percentReferencesCovered){
+        this.percentReferencesCovered = percentReferencesCovered;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -817,12 +1022,45 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  inc attribute crossrefCitations, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incCrossrefCitations(){
+        this.crossrefCitations++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute crossrefReferences, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incCrossrefReferences(){
+        this.crossrefReferences++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  inc attribute nrCitations, mark dataset as dirty, mark dataset as not valid
  *
 */
 
     public void incNrCitations(){
         this.nrCitations++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute nrCitationsCovered, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrCitationsCovered(){
+        this.nrCitationsCovered++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -861,6 +1099,17 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  inc attribute nrReferencesCovered, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrReferencesCovered(){
+        this.nrReferencesCovered++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  inc attribute year, mark dataset as dirty, mark dataset as not valid
  *
 */
@@ -888,7 +1137,7 @@ public abstract class Work extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrCitations()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getPages()+ " " +getRelatedTo()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRelatedTo()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear();
     }
 
 /**
@@ -919,15 +1168,21 @@ public abstract class Work extends ApplicationObject{
             " codeAvail=\""+toXMLCodeAvail()+"\""+
             " constraints=\""+toXMLConstraints()+"\""+
             " cpSystem=\""+toXMLCpSystem()+"\""+
+            " crossrefCitations=\""+toXMLCrossrefCitations()+"\""+
+            " crossrefReferences=\""+toXMLCrossrefReferences()+"\""+
             " dataAvail=\""+toXMLDataAvail()+"\""+
             " doi=\""+toXMLDoi()+"\""+
             " key=\""+toXMLKey()+"\""+
             " localCopy=\""+toXMLLocalCopy()+"\""+
             " nrCitations=\""+toXMLNrCitations()+"\""+
+            " nrCitationsCovered=\""+toXMLNrCitationsCovered()+"\""+
             " nrLinks=\""+toXMLNrLinks()+"\""+
             " nrPages=\""+toXMLNrPages()+"\""+
             " nrReferences=\""+toXMLNrReferences()+"\""+
+            " nrReferencesCovered=\""+toXMLNrReferencesCovered()+"\""+
             " pages=\""+toXMLPages()+"\""+
+            " percentCitationsCovered=\""+toXMLPercentCitationsCovered()+"\""+
+            " percentReferencesCovered=\""+toXMLPercentReferencesCovered()+"\""+
             " relatedTo=\""+toXMLRelatedTo()+"\""+
             " solutionAvail=\""+toXMLSolutionAvail()+"\""+
             " title=\""+toXMLTitle()+"\""+
@@ -1015,6 +1270,26 @@ public abstract class Work extends ApplicationObject{
  * @return String
 */
 
+    String toXMLCrossrefCitations(){
+        return this.getCrossrefCitations().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLCrossrefReferences(){
+        return this.getCrossrefReferences().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLDataAvail(){
         return this.safeXML(getDataAvail());
     }
@@ -1065,6 +1340,16 @@ public abstract class Work extends ApplicationObject{
  * @return String
 */
 
+    String toXMLNrCitationsCovered(){
+        return this.getNrCitationsCovered().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLNrLinks(){
         return this.getNrLinks().toString();
     }
@@ -1095,8 +1380,38 @@ public abstract class Work extends ApplicationObject{
  * @return String
 */
 
+    String toXMLNrReferencesCovered(){
+        return this.getNrReferencesCovered().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLPages(){
         return this.safeXML(getPages());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLPercentCitationsCovered(){
+        return this.getPercentCitationsCovered().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLPercentReferencesCovered(){
+        return this.getPercentReferencesCovered().toString();
     }
 
 /**
@@ -1263,6 +1578,12 @@ public abstract class Work extends ApplicationObject{
       if(!this.getCpSystem().equals(b.getCpSystem())){
          System.out.println("CpSystem");
         }
+      if(!this.getCrossrefCitations().equals(b.getCrossrefCitations())){
+         System.out.println("CrossrefCitations");
+        }
+      if(!this.getCrossrefReferences().equals(b.getCrossrefReferences())){
+         System.out.println("CrossrefReferences");
+        }
       if(!this.getDataAvail().equals(b.getDataAvail())){
          System.out.println("DataAvail");
         }
@@ -1281,6 +1602,9 @@ public abstract class Work extends ApplicationObject{
       if(!this.getNrCitations().equals(b.getNrCitations())){
          System.out.println("NrCitations");
         }
+      if(!this.getNrCitationsCovered().equals(b.getNrCitationsCovered())){
+         System.out.println("NrCitationsCovered");
+        }
       if(!this.getNrLinks().equals(b.getNrLinks())){
          System.out.println("NrLinks");
         }
@@ -1290,8 +1614,17 @@ public abstract class Work extends ApplicationObject{
       if(!this.getNrReferences().equals(b.getNrReferences())){
          System.out.println("NrReferences");
         }
+      if(!this.getNrReferencesCovered().equals(b.getNrReferencesCovered())){
+         System.out.println("NrReferencesCovered");
+        }
       if(!this.getPages().equals(b.getPages())){
          System.out.println("Pages");
+        }
+      if(!this.getPercentCitationsCovered().equals(b.getPercentCitationsCovered())){
+         System.out.println("PercentCitationsCovered");
+        }
+      if(!this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered())){
+         System.out.println("PercentReferencesCovered");
         }
       if(!this.getRelatedTo().equals(b.getRelatedTo())){
          System.out.println("RelatedTo");
@@ -1315,16 +1648,22 @@ public abstract class Work extends ApplicationObject{
           this.getCodeAvail().equals(b.getCodeAvail()) &&
           this.getConstraints().equals(b.getConstraints()) &&
           this.getCpSystem().equals(b.getCpSystem()) &&
+          this.getCrossrefCitations().equals(b.getCrossrefCitations()) &&
+          this.getCrossrefReferences().equals(b.getCrossrefReferences()) &&
           this.getDataAvail().equals(b.getDataAvail()) &&
           this.getDoi().equals(b.getDoi()) &&
           this.getKey().equals(b.getKey()) &&
           this.getLocalCopy().equals(b.getLocalCopy()) &&
           this.getName().equals(b.getName()) &&
           this.getNrCitations().equals(b.getNrCitations()) &&
+          this.getNrCitationsCovered().equals(b.getNrCitationsCovered()) &&
           this.getNrLinks().equals(b.getNrLinks()) &&
           this.getNrPages().equals(b.getNrPages()) &&
           this.getNrReferences().equals(b.getNrReferences()) &&
+          this.getNrReferencesCovered().equals(b.getNrReferencesCovered()) &&
           this.getPages().equals(b.getPages()) &&
+          this.getPercentCitationsCovered().equals(b.getPercentCitationsCovered()) &&
+          this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered()) &&
           this.getRelatedTo().equals(b.getRelatedTo()) &&
           this.getSolutionAvail().equals(b.getSolutionAvail()) &&
           this.getTitle().equals(b.getTitle()) &&

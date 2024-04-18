@@ -1,0 +1,12 @@
+ class MissingCross {
+String author
+Integer count
+Integer crossrefCitations
+Integer crossrefReferences
+String doi
+String source
+String title
+String type
+String url
+Integer year
+}

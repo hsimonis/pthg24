@@ -15,6 +15,7 @@ import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
+import org.insightcentre.pthg24.datamodel.Affiliation;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
@@ -29,6 +30,10 @@ import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Coauthor;
 import org.insightcentre.pthg24.datamodel.Similarity;
+import org.insightcentre.pthg24.datamodel.CrossReference;
+import org.insightcentre.pthg24.datamodel.UncategorizedReference;
+import org.insightcentre.pthg24.datamodel.DoiReference;
+import org.insightcentre.pthg24.datamodel.MissingCross;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -55,7 +60,28 @@ public  class Authorship extends ApplicationObject{
  *
 */
 
+    public List<Affiliation> affiliation;
+
+/**
+ *  
+ *
+*/
+
     public Author author;
+
+/**
+ *  
+ *
+*/
+
+    public Integer seqNr;
+
+/**
+ *  
+ *
+*/
+
+    public String sequence;
 
 /**
  *  
@@ -83,7 +109,10 @@ public  class Authorship extends ApplicationObject{
 
     public Authorship(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setAffiliation(new ArrayList<Affiliation>());
         setAuthor(null);
+        setSeqNr(0);
+        setSequence("");
         setWork(null);
         applicationDataset.addAuthorship(this);
     }
@@ -98,12 +127,18 @@ public  class Authorship extends ApplicationObject{
     public Authorship(ApplicationDataset applicationDataset,
             Integer id,
             String name,
+            List<Affiliation> affiliation,
             Author author,
+            Integer seqNr,
+            String sequence,
             Work work){
         super(applicationDataset,
             id,
             name);
+        setAffiliation(affiliation);
         setAuthor(author);
+        setSeqNr(seqNr);
+        setSequence(sequence);
         setWork(work);
         applicationDataset.addAuthorship(this);
     }
@@ -112,7 +147,10 @@ public  class Authorship extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
+            other.affiliation,
             other.author,
+            other.seqNr,
+            other.sequence,
             other.work);
     }
 
@@ -128,6 +166,16 @@ public  class Authorship extends ApplicationObject{
     }
 
 /**
+ *  get attribute affiliation
+ *
+ * @return List<Affiliation>
+*/
+
+    public List<Affiliation> getAffiliation(){
+        return this.affiliation;
+    }
+
+/**
  *  get attribute author
  *
  * @return Author
@@ -138,6 +186,26 @@ public  class Authorship extends ApplicationObject{
     }
 
 /**
+ *  get attribute seqNr
+ *
+ * @return Integer
+*/
+
+    public Integer getSeqNr(){
+        return this.seqNr;
+    }
+
+/**
+ *  get attribute sequence
+ *
+ * @return String
+*/
+
+    public String getSequence(){
+        return this.sequence;
+    }
+
+/**
  *  get attribute work
  *
  * @return Work
@@ -145,6 +213,18 @@ public  class Authorship extends ApplicationObject{
 
     public Work getWork(){
         return this.work;
+    }
+
+/**
+ *  set attribute affiliation, mark dataset as dirty, mark dataset as not valid
+@param affiliation List<Affiliation>
+ *
+*/
+
+    public void setAffiliation(List<Affiliation> affiliation){
+        this.affiliation = affiliation;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -160,6 +240,30 @@ public  class Authorship extends ApplicationObject{
     }
 
 /**
+ *  set attribute seqNr, mark dataset as dirty, mark dataset as not valid
+@param seqNr Integer
+ *
+*/
+
+    public void setSeqNr(Integer seqNr){
+        this.seqNr = seqNr;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute sequence, mark dataset as dirty, mark dataset as not valid
+@param sequence String
+ *
+*/
+
+    public void setSequence(String sequence){
+        this.sequence = sequence;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute work, mark dataset as dirty, mark dataset as not valid
 @param work Work
  *
@@ -167,6 +271,17 @@ public  class Authorship extends ApplicationObject{
 
     public void setWork(Work work){
         this.work = work;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute seqNr, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incSeqNr(){
+        this.seqNr++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -188,7 +303,7 @@ public  class Authorship extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor().toColumnString()+ " " +getWork().toColumnString();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAffiliation()+ " " +getAuthor().toColumnString()+ " " +getSeqNr()+ " " +getSequence()+ " " +getWork().toColumnString();
     }
 
 /**
@@ -212,7 +327,10 @@ public  class Authorship extends ApplicationObject{
          out.println("<authorship "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
+            " affiliation=\""+toXMLAffiliation()+"\""+
             " author=\""+toXMLAuthor()+"\""+
+            " seqNr=\""+toXMLSeqNr()+"\""+
+            " sequence=\""+toXMLSequence()+"\""+
             " work=\""+toXMLWork()+"\""+" />");
      }
 
@@ -222,8 +340,42 @@ public  class Authorship extends ApplicationObject{
  * @return String
 */
 
+    String toXMLAffiliation(){
+        String str="";
+        for(Affiliation x:getAffiliation()){
+            str=str+" "+"ID_"+x.getId();
+        }
+        return str;
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLAuthor(){
         return "ID_"+this.getAuthor().getId().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLSeqNr(){
+        return this.getSeqNr().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLSequence(){
+        return this.safeXML(getSequence());
     }
 
 /**
@@ -243,11 +395,11 @@ public  class Authorship extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Authorship</th>"+"<th>Name</th>"+"<th>Author</th>"+"<th>Work</th>"+"</tr>";
+        return "<tr><th>Authorship</th>"+"<th>Name</th>"+"<th>SeqNr</th>"+"<th>Sequence</th>"+"<th>Author</th>"+"<th>Work</th>"+"<th>Affiliation</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getAuthor().toColumnString()+"</td>"+ " " +"<td>"+getWork().toColumnString()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getSeqNr()+"</td>"+ " " +"<td>"+getSequence()+"</td>"+ " " +"<td>"+getAuthor().toColumnString()+"</td>"+ " " +"<td>"+getWork().toColumnString()+"</td>"+ " " +"<td>"+getAffiliation()+"</td>"+"</tr>";
     }
 
 /**
@@ -364,17 +516,28 @@ public  class Authorship extends ApplicationObject{
 */
 
     public Boolean applicationEqual(Authorship b){
+      if (true) {         System.out.println("Affiliation");
+        }
       if(!this.getAuthor().applicationSame(b.getAuthor())){
          System.out.println("Author");
         }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
+      if(!this.getSeqNr().equals(b.getSeqNr())){
+         System.out.println("SeqNr");
+        }
+      if(!this.getSequence().equals(b.getSequence())){
+         System.out.println("Sequence");
+        }
       if(!this.getWork().applicationSame(b.getWork())){
          System.out.println("Work");
         }
-        return  this.getAuthor().applicationSame(b.getAuthor()) &&
+        return  true &&
+          this.getAuthor().applicationSame(b.getAuthor()) &&
           this.getName().equals(b.getName()) &&
+          this.getSeqNr().equals(b.getSeqNr()) &&
+          this.getSequence().equals(b.getSequence()) &&
           this.getWork().applicationSame(b.getWork());
     }
 
@@ -386,6 +549,9 @@ public  class Authorship extends ApplicationObject{
     public void check(){
         if (getApplicationDataset() == null){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"applicationDataset","Authorship",(getApplicationDataset()==null?"null":getApplicationDataset().toString()),"",WarningType.NOTNULL);
+        }
+        if (getAffiliation() == null){
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"affiliation","Authorship",(getAffiliation()==null?"null":getAffiliation().toString()),"",WarningType.NOTNULL);
         }
         if (getAuthor() == null){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"author","Authorship",(getAuthor()==null?"null":getAuthor().toString()),"",WarningType.NOTNULL);
@@ -409,6 +575,9 @@ public  class Authorship extends ApplicationObject{
     }
 
    public List<ApplicationObjectInterface> getFeasibleValues(ApplicationDatasetInterface base,String attrName){
+      if (attrName.equals("affiliation")){
+         return (List) ((Scenario)base).getListAffiliation();
+      }
       if (attrName.equals("author")){
          return (List) ((Scenario)base).getListAuthor();
       }

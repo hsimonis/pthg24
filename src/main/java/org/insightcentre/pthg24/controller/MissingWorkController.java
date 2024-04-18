@@ -19,7 +19,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 
 /**
- * Generated at 13:06:16 on 2024-04-09 */
+ * Generated at 11:56:49 on 2024-04-18 */
 public class MissingWorkController extends Table3Controller {
 	@FXML
 	private TableView<MissingWork> table;
@@ -31,6 +31,9 @@ public class MissingWorkController extends Table3Controller {
 	private TableColumn<MissingWork, String> doi;
 
 	@FXML
+	private TableColumn<MissingWork, String> encoded;
+
+	@FXML
 	private TableColumn<MissingWork, Integer> nrCited;
 
 	@FXML
@@ -38,6 +41,24 @@ public class MissingWorkController extends Table3Controller {
 
 	@FXML
 	private TableColumn<MissingWork, Integer> nrLinks;
+
+	@FXML
+	private TableColumn<MissingWork, Integer> year;
+
+	@FXML
+	private TableColumn<MissingWork, String> title;
+
+	@FXML
+	private TableColumn<MissingWork, String> url;
+
+	@FXML
+	private TableColumn<MissingWork, String> type;
+
+	@FXML
+	private TableColumn<MissingWork, Integer> crossrefReferences;
+
+	@FXML
+	private TableColumn<MissingWork, Integer> crossrefCitations;
 
 	private GeneratedJfxApp mainApp;
 
@@ -64,6 +85,10 @@ public class MissingWorkController extends Table3Controller {
 		doi.setCellValueFactory(new PropertyValueFactory<>("doi"));
 		doi.setCellFactory(TextFieldTableCell.forTableColumn());
 		doi.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setDoi(event.getNewValue()); mainApp.reset();});
+		choices.add("encoded");
+		encoded.setCellValueFactory(new PropertyValueFactory<>("encoded"));
+		encoded.setCellFactory(TextFieldTableCell.forTableColumn());
+		encoded.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setEncoded(event.getNewValue()); mainApp.reset();});
 		choices.add("nrCited");
 		nrCited.setCellValueFactory(new PropertyValueFactory<>("nrCited"));
 		nrCited.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
@@ -76,6 +101,30 @@ public class MissingWorkController extends Table3Controller {
 		nrLinks.setCellValueFactory(new PropertyValueFactory<>("nrLinks"));
 		nrLinks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		nrLinks.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrLinks(event.getNewValue()); mainApp.reset();});
+		choices.add("year");
+		year.setCellValueFactory(new PropertyValueFactory<>("year"));
+		year.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		year.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setYear(event.getNewValue()); mainApp.reset();});
+		choices.add("title");
+		title.setCellValueFactory(new PropertyValueFactory<>("title"));
+		title.setCellFactory(TextFieldTableCell.forTableColumn());
+		title.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setTitle(event.getNewValue()); mainApp.reset();});
+		choices.add("url");
+		url.setCellValueFactory(new PropertyValueFactory<>("url"));
+		url.setCellFactory(TextFieldTableCell.forTableColumn());
+		url.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setUrl(event.getNewValue()); mainApp.reset();});
+		choices.add("type");
+		type.setCellValueFactory(new PropertyValueFactory<>("type"));
+		type.setCellFactory(TextFieldTableCell.forTableColumn());
+		type.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setType(event.getNewValue()); mainApp.reset();});
+		choices.add("crossrefReferences");
+		crossrefReferences.setCellValueFactory(new PropertyValueFactory<>("crossrefReferences"));
+		crossrefReferences.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		crossrefReferences.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCrossrefReferences(event.getNewValue()); mainApp.reset();});
+		choices.add("crossrefCitations");
+		crossrefCitations.setCellValueFactory(new PropertyValueFactory<>("crossrefCitations"));
+		crossrefCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		crossrefCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCrossrefCitations(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

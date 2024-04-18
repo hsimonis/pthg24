@@ -37,7 +37,7 @@ public class JfxApp extends GeneratedJfxApp {
                 IrishCalendar.buildCalendar();
                 base.setDirty(false);
 
-                String type = "mobilehealth"; // others "cars" "mobilehealth"
+                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -45,6 +45,7 @@ public class JfxApp extends GeneratedJfxApp {
                 String bibFile = "cars.bib"; // the name of hte bib file to read
                 String authors = "Helmut Simonis"; // authors for this particular type
                 int coauthorLimit = 2; // how many works an author needs to have to be included in coauthor graph
+                int linkCountLimit = 10; // how many links are required to lookup a missing work by its DOI
 
                 switch(type) {
                         case "cars":
@@ -53,6 +54,7 @@ public class JfxApp extends GeneratedJfxApp {
                                 bibFile = "cars.bib";
                                 authors = "Helmut Simonis";
                                 coauthorLimit = 2;
+                                linkCountLimit = 10;
                                 break;
                         case "mobilehealth":
                                 prefix = "mobilehealth/";
@@ -60,6 +62,7 @@ public class JfxApp extends GeneratedJfxApp {
                                 bibFile = "mobilehealth.bib";
                                 authors = "G. Tacadao and B. O'Sullivan and L. Quesada and H. Simonis";
                                 coauthorLimit = 2;
+                                linkCountLimit = 10;
                                 break;
                         case "scheduling":
                                 // settings for scheduling are a bit different
@@ -68,6 +71,7 @@ public class JfxApp extends GeneratedJfxApp {
                                 bibFile = "bib.bib";
                                 authors = "Helmut Simonis and Cemalettin Öztürk";
                                 coauthorLimit = 5;
+                                linkCountLimit = 5;
                                 break;
                         default:
                                 severe("Bad type " + type);
@@ -82,6 +86,8 @@ public class JfxApp extends GeneratedJfxApp {
                 String reportDir = prefix+"reports/"; // output dir where reports are generated
                 String worksDir = prefix+"works/"; // input dir containing local copies of works
                 String graphvizDir = prefix+"graphviz/"; // output dir for graphviz graphs
+                String crossrefDir = prefix+"crossref/"; // input/output dir for crossref records
+                String missingWorkDir = prefix+"missing/"; // input/output dir for missing work crossref records
 
 
                 new ImportConcepts(base,importDir,"concepts.json");
@@ -91,6 +97,8 @@ public class JfxApp extends GeneratedJfxApp {
                 new ImportExtra(base,importDir,"manual.csv");
                 new ImportOpenCitations(base,citationsDir);
                 new ImportOpenReferences(base,referencesDir);
+                new ImportCrossref(base,crossrefDir);
+
                 new FindMissingCitingWorks(base);
                 new FindMissingCitedWorks(base);
                 new FindMissingWorks(base);
@@ -136,6 +144,14 @@ public class JfxApp extends GeneratedJfxApp {
                 new CoauthorGraph(base,coauthorLimit,graphvizDir,reportDir,"coauthors.pdf");
                 new SimilarityMeasure(base);
                 new ListSimilarity(base,exportDir,"mostsimilar.tex");
+                new LookupMissingWork(base,missingWorkDir,linkCountLimit);
+                new ListMissingWork(base,exportDir,"missingwork.tex");
+                new ListWorks(base,
+                        base.getListWork().stream().
+                                filter(x->x.getDoi() == null || x.getDoi().equals("")).
+                                sorted(Comparator.comparing(Work::getKey)).
+                                toList(),
+                        exportDir,"missingdoi.tex");
 
                 new PublicationReport(base,reportDir).
                         produce("publications",

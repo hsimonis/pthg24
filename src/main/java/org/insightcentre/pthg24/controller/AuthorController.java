@@ -19,7 +19,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Author;
 
 /**
- * Generated at 13:06:16 on 2024-04-09 */
+ * Generated at 11:56:49 on 2024-04-18 */
 public class AuthorController extends Table3Controller {
 	@FXML
 	private TableView<Author> table;
@@ -32,6 +32,15 @@ public class AuthorController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Author, String> familyName;
+
+	@FXML
+	private TableColumn<Author, String> crossFamily;
+
+	@FXML
+	private TableColumn<Author, String> crossGiven;
+
+	@FXML
+	private TableColumn<Author, String> orcid;
 
 	@FXML
 	private TableColumn<Author, String> key;
@@ -77,6 +86,18 @@ public class AuthorController extends Table3Controller {
 		familyName.setCellValueFactory(new PropertyValueFactory<>("familyName"));
 		familyName.setCellFactory(TextFieldTableCell.forTableColumn());
 		familyName.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setFamilyName(event.getNewValue()); mainApp.reset();});
+		choices.add("crossFamily");
+		crossFamily.setCellValueFactory(new PropertyValueFactory<>("crossFamily"));
+		crossFamily.setCellFactory(TextFieldTableCell.forTableColumn());
+		crossFamily.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCrossFamily(event.getNewValue()); mainApp.reset();});
+		choices.add("crossGiven");
+		crossGiven.setCellValueFactory(new PropertyValueFactory<>("crossGiven"));
+		crossGiven.setCellFactory(TextFieldTableCell.forTableColumn());
+		crossGiven.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCrossGiven(event.getNewValue()); mainApp.reset();});
+		choices.add("orcid");
+		orcid.setCellValueFactory(new PropertyValueFactory<>("orcid"));
+		orcid.setCellFactory(TextFieldTableCell.forTableColumn());
+		orcid.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setOrcid(event.getNewValue()); mainApp.reset();});
 		choices.add("key");
 		key.setCellValueFactory(new PropertyValueFactory<>("key"));
 		key.setCellFactory(TextFieldTableCell.forTableColumn());

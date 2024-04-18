@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.*;
 
 import static org.insightcentre.pthg24.analysis.ListWorks.localCopyExists;
+import static org.insightcentre.pthg24.imports.ImportCrossref.properDOI;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
 import static org.jbibtex.BibTeXEntry.*;
 
@@ -98,7 +99,7 @@ public class ImportBib {
                     work.setYear(fieldInteger(entry,KEY_YEAR));
                     work.setPages(fieldString(entry,KEY_PAGES));
                     work.setNrPages(nrPages(work.getPages()));
-                    work.setDoi(fieldString(entry,KEY_DOI));
+                    work.setDoi(properDOI(fieldString(entry,KEY_DOI)));
                     work.setUrl(fieldString(entry,KEY_URL));
                     if (!localCopyExists(work)){
                         work.setLocalCopy("");
@@ -147,6 +148,7 @@ public class ImportBib {
     private List<Author> splitAuthors(String authors,Work work){
         List<Author> res = new ArrayList<>();
         String[] split = authors.split(" and ");
+        int i=0;
         for (String s : split) {
             s = normalize(s);
             Author author = findAuthor(s);
@@ -154,6 +156,8 @@ public class ImportBib {
             Authorship ship = new Authorship(base);
             ship.setAuthor(author);
             ship.setWork(work);
+            ship.setSeqNr(i++);
+            ship.setAffiliation(new ArrayList<>());
             res.add(author);
         }
         return res;
@@ -247,6 +251,8 @@ public class ImportBib {
         if (name == null){
             return null;
         }
+        // get rid of xml ampersand entity in journal names
+        name = name.replace("&amp;","\\&");
         if (aliasHash.get(name) != null){
             return aliasHash.get(name);
         }
@@ -297,7 +303,7 @@ public class ImportBib {
                 "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE","CCL'99",
                 "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL","ICORES","SOCS","SAT",
                 "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA",
-                "Canadian AI","CSCLP","LION","FGCS","EvoWorkshop","Conf AI","ICOA"
+                "Canadian AI","CSCLP","LION","FGCS","EvoWorkshop","Conf AI","ICOA","ASTAIR","LPNMR","ICMSAO"
         };
         for(String cand:series) {
             if (text.contains(cand)) {
@@ -333,6 +339,12 @@ public class ImportBib {
         }
         if (text.contains("Operations Research Proceedings")){
             return "Operations Research Proceedings";
+        }
+        if (text.contains("Chinese Control and Decision Conference")){
+            return "Chinese Control and Decision Conference";
+        }
+        if (text.contains("IEEE International Conference on Automation and Logistics")){
+            return "IEEE International Conference on Automation and Logistics";
         }
         if (text.toLowerCase().contains("international joint conference on artificial intelligence")){
             return "IJCAI";

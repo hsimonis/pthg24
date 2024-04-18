@@ -23,6 +23,7 @@ import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.stream.Collectors;
 
+import static org.insightcentre.pthg24.imports.ImportCrossref.properDOI;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
 
 public class ImportOpenReferences {
@@ -34,7 +35,7 @@ public class ImportOpenReferences {
         this.citationDir = citationDir;
         assert(citationDir.endsWith("/"));
         initWorkLookup();
-        for(Work w:base.getListWork().stream().sorted(Comparator.comparing(Work::getYear)).collect(Collectors.toUnmodifiableList())) {
+        for(Work w: base.getListWork().stream().sorted(Comparator.comparing(Work::getYear)).toList()) {
             info("References "+w.getName());
             citations(w);
         }
@@ -85,10 +86,11 @@ public class ImportOpenReferences {
 
     private void interpret(Work w,String body){
         JSONArray arr = new JSONArray(body);
+        int covered = 0;
         for(int i=0;i<arr.length();i++){
             JSONObject obj = arr.getJSONObject(i);
-            String citing = obj.getString("citing");
-            String cited = obj.getString("cited");
+            String citing = obj.getString("citing").toLowerCase();
+            String cited = obj.getString("cited").toLowerCase();
             String oci = obj.getString("oci");
             String creation = obj.getString("creation");
             String timespan = obj.getString("timespan");
@@ -99,6 +101,9 @@ public class ImportOpenReferences {
             r.setOci(oci);
             r.setCitingWork(w);
             r.setCitedWork(workLookup(cited));
+            if (r.getCitedWork() != null){
+                covered++;
+            }
             r.setCited(cited);
             r.setCiting(citing);
             r.setCreation(creation);
@@ -107,6 +112,8 @@ public class ImportOpenReferences {
             r.setJournalSC(journal_sc);
         }
         w.setNrReferences(arr.length());
+        w.setNrReferencesCovered(covered);
+        w.setPercentReferencesCovered(100.0*covered/arr.length());
     }
 
     private boolean exists(String fileName){
@@ -122,20 +129,15 @@ public class ImportOpenReferences {
 
     private void initWorkLookup(){
         for(Work w:base.getListWork()){
-            doiLookup.put(properDOI(w.getDoi()),w);
+            String doi = properDOI(w.getDoi());
+            if (doi != null) {
+                doiLookup.put(doi, w);
+            }
         }
     }
     private Work workLookup(String doi){
         return doiLookup.get(doi);
     }
 
-    private String properDOI(String text){
-        if (text.startsWith("10.")){
-            return text.replace("\\","").toLowerCase();
-        }
-        if (text.startsWith("https://doi.org/")){
-            return text.substring(16).replace("\\","").toLowerCase();
-        }
-        return "";
-    }
+
 }

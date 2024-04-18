@@ -3,10 +3,8 @@ package org.insightcentre.pthg24.analysis;
 import org.apache.commons.collections4.CollectionUtils;
 import org.insightcentre.pthg24.datamodel.*;
 
+import java.util.*;
 import java.util.Collection;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Map;
 
 import static java.util.stream.Collectors.groupingBy;
 import static org.insightcentre.pthg24.logging.LogShortcut.info;
@@ -16,8 +14,11 @@ public class SimilarityMeasure {
     Scenario base;
     public SimilarityMeasure(Scenario base){
         this.base = base;
+        info("Computing similarity");
         Hashtable<Work, Hashtable<Concept,ConceptWork>> masterHash = new Hashtable<>();
         Map<Work,List<ConceptWork>> map = base.getListConceptWork().stream().collect(groupingBy(ConceptWork::getWork));
+        Map<Work,List<Citation>> citationMap = base.getListCitation().stream().collect(groupingBy(Citation::getCitedWork));
+        Map<Work,List<Reference>> referenceMap = base.getListReference().stream().collect(groupingBy(Reference::getCitingWork));
         for(Work w:map.keySet()){
             List<ConceptWork> list = map.get(w);
             Hashtable<Concept,ConceptWork> workHash = new Hashtable<>();
@@ -29,54 +30,85 @@ public class SimilarityMeasure {
         for(Work work1:base.getListWork()){
             for(Work work2:base.getListWork()){
                 if (work1.getName().compareTo(work2.getName())<0){
-                    computeSimilarity(work1,work2,masterHash);
+                    computeSimilarity(work1,work2,masterHash,citationMap,referenceMap);
                 }
             }
         }
+        info("Similarity done");
     }
 
-    private void computeSimilarity(Work work1,Work work2,Hashtable<Work, Hashtable<Concept,ConceptWork>> masterHash){
-        List<String> ref1 = base.getListReference().stream().filter(x->x.getCitingWork()==work1).map(Reference::getCited).sorted().toList();
-        List<String> ref2 = base.getListReference().stream().filter(x->x.getCitingWork()==work2).map(Reference::getCited).sorted().toList();
-        Collection<String> commonRef = CollectionUtils.intersection(ref1,ref2);
+    private void computeSimilarity(Work work1,Work work2,Hashtable<Work,
+            Hashtable<Concept,ConceptWork>> masterHash,
+                                   Map<Work,List<Citation>> citationMap,
+                                   Map<Work,List<Reference>> referenceMap){
+        double vRef;
+        double vCite;
+        Collection<String> commonRef = new ArrayList<>();
+        Collection<String> commonCite = new ArrayList<>();
+        if (notInCatalog(work1) || notInCatalog(work2)){
+            vRef = Double.NaN;
+            vCite = Double.NaN;
+        } else {
+            List<String>ref1 = listOrEmptyReferences(referenceMap.get(work1)).stream().map(Reference::getCited).sorted().toList();
+            List<String>ref2 = listOrEmptyReferences(referenceMap.get(work2)).stream().map(Reference::getCited).sorted().toList();
+            commonRef = CollectionUtils.intersection(ref1, ref2);
 //        double vRef = 1.0*commonRef.size()/Math.min(ref1.size(),ref2.size());
-        double vRef = 2.0*commonRef.size()/(ref1.size()+ref2.size());
-        List<String> cite1 = base.getListCitation().stream().filter(x->x.getCitedWork()==work1).map(Citation::getCiting).sorted().toList();
-        List<String> cite2 = base.getListCitation().stream().filter(x->x.getCitedWork()==work2).map(Citation::getCiting).sorted().toList();
-        Collection<String> commonCite = CollectionUtils.intersection(cite1,cite2);
+            vRef = 2.0 * commonRef.size() / (ref1.size() + ref2.size());
+            List<String>cite1 = listOrEmptyCitations(citationMap.get(work1)).stream().map(Citation::getCiting).sorted().toList();
+            List<String>cite2 = listOrEmptyCitations(citationMap.get(work2)).stream().map(Citation::getCiting).sorted().toList();
+            commonCite = CollectionUtils.intersection(cite1, cite2);
 //        double vCite = 1.0*commonCite.size()/Math.min(cite1.size(),cite2.size());
-        double vCite = 2.0*commonCite.size()/(cite1.size()+cite2.size());
-        Double vConcept = conceptSimilarity(work1,work2,masterHash);
+            vCite = 2.0 * commonCite.size() / (cite1.size() + cite2.size());
+        }
+
+        Double vConcept = conceptSimilarity(work1, work2, masterHash);
 
 
         Similarity s = new Similarity(base);
         s.setWork1(work1);
         s.setWork2(work2);
-        s.setRef1(ref1.size());
-        s.setRef2(ref2.size());
+        s.setRef1(work1.getNrReferences());
+        s.setRef2(work2.getNrReferences());
         s.setNrSharedReferences(commonRef.size());
-        s.setCite1(cite1.size());
-        s.setCite2(cite2.size());
+        s.setCite1(work1.getNrCitations());
+        s.setCite2(work2.getNrCitations());
         s.setNrSharedCitations(commonCite.size());
         s.setSimilarityRef(vRef);
         s.setSimilarityCite(vCite);
         s.setSimilarityConcept(vConcept);
-        s.setSimilarity(vRef+vCite);
+        s.setSimilarity(vRef + vCite);
 
         Similarity ss = new Similarity(base);
         ss.setWork1(work2);
         ss.setWork2(work1);
-        ss.setRef1(ref2.size());
-        ss.setRef2(ref1.size());
+        ss.setRef1(work2.getNrReferences());
+        ss.setRef2(work1.getNrReferences());
         ss.setNrSharedReferences(commonRef.size());
-        ss.setCite1(cite2.size());
-        ss.setCite2(cite1.size());
+        ss.setCite1(work2.getNrCitations());
+        ss.setCite2(work1.getNrCitations());
         ss.setNrSharedCitations(commonCite.size());
         ss.setSimilarityRef(vRef);
         ss.setSimilarityCite(vCite);
         ss.setSimilarityConcept(vConcept);
-        ss.setSimilarity(vRef+vCite);
+        ss.setSimilarity(vRef + vCite);
+    }
 
+
+    private List<Citation> listOrEmptyCitations(List<Citation> list){
+        if (list == null){
+            return new ArrayList<>();
+        }
+        return list;
+    }
+    private List<Reference> listOrEmptyReferences(List<Reference> list){
+        if (list == null){
+            return new ArrayList<>();
+        }
+        return list;
+    }
+
+    private boolean notInCatalog(Work w){
+        return w.getNrCitations() == 0 && w.getNrReferences() == 0;
     }
 
     private Double conceptSimilarity(Work work1,Work work2,Hashtable<Work, Hashtable<Concept,ConceptWork>> masterHash){
@@ -105,7 +137,9 @@ public class SimilarityMeasure {
                 ConceptWork cw2 = hash2.get(c);
                 int occ1 = occurences(cw1, c, work1);
                 int occ2 = occurences(cw2, c, work2);
-                info(c+" "+occ1+" "+occ2);
+                if (occ1 != 0 || occ2 != 0) {
+                    info(c + " " + occ1 + " " + occ2);
+                }
 
             }
         }

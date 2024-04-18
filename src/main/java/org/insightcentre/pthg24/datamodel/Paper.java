@@ -15,6 +15,7 @@ import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Authorship;
+import org.insightcentre.pthg24.datamodel.Affiliation;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
@@ -29,6 +30,10 @@ import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Coauthor;
 import org.insightcentre.pthg24.datamodel.Similarity;
+import org.insightcentre.pthg24.datamodel.CrossReference;
+import org.insightcentre.pthg24.datamodel.UncategorizedReference;
+import org.insightcentre.pthg24.datamodel.DoiReference;
+import org.insightcentre.pthg24.datamodel.MissingCross;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -97,15 +102,21 @@ public  class Paper extends Work{
             String codeAvail,
             String constraints,
             String cpSystem,
+            Integer crossrefCitations,
+            Integer crossrefReferences,
             String dataAvail,
             String doi,
             String key,
             String localCopy,
             Integer nrCitations,
+            Integer nrCitationsCovered,
             Integer nrLinks,
             Integer nrPages,
             Integer nrReferences,
+            Integer nrReferencesCovered,
             String pages,
+            Double percentCitationsCovered,
+            Double percentReferencesCovered,
             String relatedTo,
             String solutionAvail,
             String title,
@@ -122,15 +133,21 @@ public  class Paper extends Work{
             codeAvail,
             constraints,
             cpSystem,
+            crossrefCitations,
+            crossrefReferences,
             dataAvail,
             doi,
             key,
             localCopy,
             nrCitations,
+            nrCitationsCovered,
             nrLinks,
             nrPages,
             nrReferences,
+            nrReferencesCovered,
             pages,
+            percentCitationsCovered,
+            percentReferencesCovered,
             relatedTo,
             solutionAvail,
             title,
@@ -151,15 +168,21 @@ public  class Paper extends Work{
             other.codeAvail,
             other.constraints,
             other.cpSystem,
+            other.crossrefCitations,
+            other.crossrefReferences,
             other.dataAvail,
             other.doi,
             other.key,
             other.localCopy,
             other.nrCitations,
+            other.nrCitationsCovered,
             other.nrLinks,
             other.nrPages,
             other.nrReferences,
+            other.nrReferencesCovered,
             other.pages,
+            other.percentCitationsCovered,
+            other.percentReferencesCovered,
             other.relatedTo,
             other.solutionAvail,
             other.title,
@@ -184,6 +207,8 @@ public  class Paper extends Work{
         getApplicationDataset().cascadeReferenceCitingWork(this);
         getApplicationDataset().cascadeSimilarityWork1(this);
         getApplicationDataset().cascadeSimilarityWork2(this);
+        getApplicationDataset().cascadeCrossReferenceWork(this);
+        getApplicationDataset().cascadeCrossReferenceReferredWork(this);
         return getApplicationDataset().removePaper(this) && getApplicationDataset().removeWork(this) && getApplicationDataset().removeApplicationObject(this);
     }
 
@@ -226,7 +251,7 @@ public  class Paper extends Work{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrCitations()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getPages()+ " " +getRelatedTo()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear()+ " " +getProceedings().toColumnString();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getDataAvail()+ " " +getDoi()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRelatedTo()+ " " +getSolutionAvail()+ " " +getTitle()+ " " +getUrl()+ " " +getYear()+ " " +getProceedings().toColumnString();
     }
 
 /**
@@ -257,15 +282,21 @@ public  class Paper extends Work{
             " codeAvail=\""+toXMLCodeAvail()+"\""+
             " constraints=\""+toXMLConstraints()+"\""+
             " cpSystem=\""+toXMLCpSystem()+"\""+
+            " crossrefCitations=\""+toXMLCrossrefCitations()+"\""+
+            " crossrefReferences=\""+toXMLCrossrefReferences()+"\""+
             " dataAvail=\""+toXMLDataAvail()+"\""+
             " doi=\""+toXMLDoi()+"\""+
             " key=\""+toXMLKey()+"\""+
             " localCopy=\""+toXMLLocalCopy()+"\""+
             " nrCitations=\""+toXMLNrCitations()+"\""+
+            " nrCitationsCovered=\""+toXMLNrCitationsCovered()+"\""+
             " nrLinks=\""+toXMLNrLinks()+"\""+
             " nrPages=\""+toXMLNrPages()+"\""+
             " nrReferences=\""+toXMLNrReferences()+"\""+
+            " nrReferencesCovered=\""+toXMLNrReferencesCovered()+"\""+
             " pages=\""+toXMLPages()+"\""+
+            " percentCitationsCovered=\""+toXMLPercentCitationsCovered()+"\""+
+            " percentReferencesCovered=\""+toXMLPercentReferencesCovered()+"\""+
             " relatedTo=\""+toXMLRelatedTo()+"\""+
             " solutionAvail=\""+toXMLSolutionAvail()+"\""+
             " title=\""+toXMLTitle()+"\""+
@@ -291,11 +322,11 @@ public  class Paper extends Work{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Paper</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>NrLinks</th>"+"<th>Background</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>RelatedTo</th>"+"<th>NrCitations</th>"+"<th>NrReferences</th>"+"<th>Proceedings</th>"+"</tr>";
+        return "<tr><th>Paper</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>NrLinks</th>"+"<th>Background</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>RelatedTo</th>"+"<th>NrCitations</th>"+"<th>NrReferences</th>"+"<th>CrossrefCitations</th>"+"<th>CrossrefReferences</th>"+"<th>NrCitationsCovered</th>"+"<th>NrReferencesCovered</th>"+"<th>PercentCitationsCovered</th>"+"<th>PercentReferencesCovered</th>"+"<th>Proceedings</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getBackground()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getRelatedTo()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrReferences()+"</td>"+ " " +"<td>"+getProceedings().toColumnString()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getBackground()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getRelatedTo()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getNrCitationsCovered()+"</td>"+ " " +"<td>"+getNrReferencesCovered()+"</td>"+ " " +"<td>"+getPercentCitationsCovered()+"</td>"+ " " +"<td>"+getPercentReferencesCovered()+"</td>"+ " " +"<td>"+getProceedings().toColumnString()+"</td>"+"</tr>";
     }
 
 /**
@@ -432,6 +463,12 @@ public  class Paper extends Work{
       if(!this.getCpSystem().equals(b.getCpSystem())){
          System.out.println("CpSystem");
         }
+      if(!this.getCrossrefCitations().equals(b.getCrossrefCitations())){
+         System.out.println("CrossrefCitations");
+        }
+      if(!this.getCrossrefReferences().equals(b.getCrossrefReferences())){
+         System.out.println("CrossrefReferences");
+        }
       if(!this.getDataAvail().equals(b.getDataAvail())){
          System.out.println("DataAvail");
         }
@@ -450,6 +487,9 @@ public  class Paper extends Work{
       if(!this.getNrCitations().equals(b.getNrCitations())){
          System.out.println("NrCitations");
         }
+      if(!this.getNrCitationsCovered().equals(b.getNrCitationsCovered())){
+         System.out.println("NrCitationsCovered");
+        }
       if(!this.getNrLinks().equals(b.getNrLinks())){
          System.out.println("NrLinks");
         }
@@ -459,8 +499,17 @@ public  class Paper extends Work{
       if(!this.getNrReferences().equals(b.getNrReferences())){
          System.out.println("NrReferences");
         }
+      if(!this.getNrReferencesCovered().equals(b.getNrReferencesCovered())){
+         System.out.println("NrReferencesCovered");
+        }
       if(!this.getPages().equals(b.getPages())){
          System.out.println("Pages");
+        }
+      if(!this.getPercentCitationsCovered().equals(b.getPercentCitationsCovered())){
+         System.out.println("PercentCitationsCovered");
+        }
+      if(!this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered())){
+         System.out.println("PercentReferencesCovered");
         }
       if(!this.getProceedings().applicationSame(b.getProceedings())){
          System.out.println("Proceedings");
@@ -487,16 +536,22 @@ public  class Paper extends Work{
           this.getCodeAvail().equals(b.getCodeAvail()) &&
           this.getConstraints().equals(b.getConstraints()) &&
           this.getCpSystem().equals(b.getCpSystem()) &&
+          this.getCrossrefCitations().equals(b.getCrossrefCitations()) &&
+          this.getCrossrefReferences().equals(b.getCrossrefReferences()) &&
           this.getDataAvail().equals(b.getDataAvail()) &&
           this.getDoi().equals(b.getDoi()) &&
           this.getKey().equals(b.getKey()) &&
           this.getLocalCopy().equals(b.getLocalCopy()) &&
           this.getName().equals(b.getName()) &&
           this.getNrCitations().equals(b.getNrCitations()) &&
+          this.getNrCitationsCovered().equals(b.getNrCitationsCovered()) &&
           this.getNrLinks().equals(b.getNrLinks()) &&
           this.getNrPages().equals(b.getNrPages()) &&
           this.getNrReferences().equals(b.getNrReferences()) &&
+          this.getNrReferencesCovered().equals(b.getNrReferencesCovered()) &&
           this.getPages().equals(b.getPages()) &&
+          this.getPercentCitationsCovered().equals(b.getPercentCitationsCovered()) &&
+          this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered()) &&
           this.getProceedings().applicationSame(b.getProceedings()) &&
           this.getRelatedTo().equals(b.getRelatedTo()) &&
           this.getSolutionAvail().equals(b.getSolutionAvail()) &&

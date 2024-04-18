@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<!--Generated at 13:06:16 on 2024-04-09-->
+<!--Generated at 11:56:49 on 2024-04-18-->
 
 
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.RootController">
@@ -75,6 +75,7 @@
                   <MenuItem id="inBookPage" onAction="#handle" text="InBook" />
                   <MenuItem id="bookPage" accelerator="Shortcut+B" onAction="#handle" text="Book" />
                   <MenuItem id="authorshipPage" onAction="#handle" text="Authorship" />
+                  <MenuItem id="affiliationPage" onAction="#handle" text="Affiliation" />
                   <MenuItem id="proceedingsPage" onAction="#handle" text="Proceedings" />
                   <MenuItem id="conferenceSeriesPage" onAction="#handle" text="ConferenceSeries" />
                   <MenuItem id="journalPage" accelerator="Shortcut+J" onAction="#handle" text="Journal" />
@@ -89,6 +90,10 @@
                   <MenuItem id="missingWorkPage" onAction="#handle" text="MissingWork" />
                   <MenuItem id="coauthorPage" onAction="#handle" text="Coauthor" />
                   <MenuItem id="similarityPage" onAction="#handle" text="Similarity" />
+                  <MenuItem id="crossReferencePage" onAction="#handle" text="CrossReference" />
+                  <MenuItem id="uncategorizedReferencePage" accelerator="Shortcut+U" onAction="#handle" text="UncategorizedReference" />
+                  <MenuItem id="doiReferencePage" onAction="#handle" text="DoiReference" />
+                  <MenuItem id="missingCrossPage" onAction="#handle" text="MissingCross" />
                   <MenuItem id="scenarioPage" onAction="#handle" text="Scenario" />
                   <MenuItem id="GenericPieChart" onAction="#handle" text="Generic Pie Chart" />
                   <MenuItem id="GenericBarChart" onAction="#handle" text="Generic Bar Chart" />

@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 13:06:16 on 2024-04-09 */
+ * Generated at 11:56:49 on 2024-04-18 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -52,6 +52,9 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("name");
 		filterNames.add("shortName");
 		filterNames.add("familyName");
+		filterNames.add("crossFamily");
+		filterNames.add("crossGiven");
+		filterNames.add("orcid");
 		filterNames.add("key");
 		attributeNames.add("nrWorks");
 		filterNames.add("nrWorks");
@@ -93,6 +96,18 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		filterNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		filterNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		filterNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		filterNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		filterNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		filterNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
+		filterNames.add("percentReferencesCovered");
 		choicesMap.put("Work", attributeNames);
 		filterMap.put("Work", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -125,6 +140,18 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		filterNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		filterNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		filterNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		filterNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		filterNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		filterNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
+		filterNames.add("percentReferencesCovered");
 		filterNames.add("proceedings");
 		choicesMap.put("Paper", attributeNames);
 		filterMap.put("Paper", filterNames);
@@ -158,6 +185,18 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		filterNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		filterNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		filterNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		filterNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		filterNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		filterNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
+		filterNames.add("percentReferencesCovered");
 		filterNames.add("journal");
 		choicesMap.put("Article", attributeNames);
 		filterMap.put("Article", filterNames);
@@ -191,6 +230,18 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		filterNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		filterNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		filterNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		filterNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		filterNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		filterNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
+		filterNames.add("percentReferencesCovered");
 		filterNames.add("school");
 		choicesMap.put("PhDThesis", attributeNames);
 		filterMap.put("PhDThesis", filterNames);
@@ -224,6 +275,18 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		filterNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		filterNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		filterNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		filterNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		filterNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		filterNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
+		filterNames.add("percentReferencesCovered");
 		filterNames.add("collection");
 		choicesMap.put("InCollection", attributeNames);
 		filterMap.put("InCollection", filterNames);
@@ -257,6 +320,18 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		filterNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		filterNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		filterNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		filterNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		filterNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		filterNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
+		filterNames.add("percentReferencesCovered");
 		filterNames.add("booktitle");
 		choicesMap.put("InBook", attributeNames);
 		filterMap.put("InBook", filterNames);
@@ -290,14 +365,44 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		filterNames.add("nrReferences");
+		attributeNames.add("crossrefCitations");
+		filterNames.add("crossrefCitations");
+		attributeNames.add("crossrefReferences");
+		filterNames.add("crossrefReferences");
+		attributeNames.add("nrCitationsCovered");
+		filterNames.add("nrCitationsCovered");
+		attributeNames.add("nrReferencesCovered");
+		filterNames.add("nrReferencesCovered");
+		attributeNames.add("percentCitationsCovered");
+		filterNames.add("percentCitationsCovered");
+		attributeNames.add("percentReferencesCovered");
+		filterNames.add("percentReferencesCovered");
 		choicesMap.put("Book", attributeNames);
 		filterMap.put("Book", filterNames);
 		attributeNames = FXCollections.observableArrayList();
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
 		filterNames.add("name");
+		attributeNames.add("seqNr");
+		filterNames.add("seqNr");
+		filterNames.add("sequence");
 		filterNames.add("author");
 		filterNames.add("work");
+		filterNames.add("affiliation");
+		choicesMap.put("Authorship", attributeNames);
+		filterMap.put("Authorship", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("shortName");
+		attributeNames.add("nrUsed");
+		filterNames.add("nrUsed");
+		choicesMap.put("Affiliation", attributeNames);
+		filterMap.put("Affiliation", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
 		filterNames.add("name");
 		filterNames.add("shortName");
 		filterNames.add("conferenceSeries");
@@ -386,12 +491,22 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add(filterNone);
 		filterNames.add("name");
 		filterNames.add("doi");
+		filterNames.add("encoded");
 		attributeNames.add("nrCited");
 		filterNames.add("nrCited");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
+		attributeNames.add("year");
+		filterNames.add("year");
+		filterNames.add("title");
+		filterNames.add("url");
+		filterNames.add("type");
+		attributeNames.add("crossrefReferences");
+		filterNames.add("crossrefReferences");
+		attributeNames.add("crossrefCitations");
+		filterNames.add("crossrefCitations");
 		choicesMap.put("MissingWork", attributeNames);
 		filterMap.put("MissingWork", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -438,6 +553,75 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("similarity");
 		choicesMap.put("Similarity", attributeNames);
 		filterMap.put("Similarity", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("key");
+		filterNames.add("work");
+		filterNames.add("referredWork");
+		filterNames.add("missingWork");
+		filterNames.add("missingCross");
+		attributeNames.add("year");
+		filterNames.add("year");
+		filterNames.add("author");
+		filterNames.add("source");
+		filterNames.add("title");
+		choicesMap.put("CrossReference", attributeNames);
+		filterMap.put("CrossReference", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("key");
+		filterNames.add("work");
+		filterNames.add("referredWork");
+		filterNames.add("missingWork");
+		filterNames.add("missingCross");
+		attributeNames.add("year");
+		filterNames.add("year");
+		filterNames.add("author");
+		filterNames.add("source");
+		filterNames.add("title");
+		choicesMap.put("UncategorizedReference", attributeNames);
+		filterMap.put("UncategorizedReference", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("key");
+		filterNames.add("work");
+		filterNames.add("referredWork");
+		filterNames.add("missingWork");
+		filterNames.add("missingCross");
+		attributeNames.add("year");
+		filterNames.add("year");
+		filterNames.add("author");
+		filterNames.add("source");
+		filterNames.add("title");
+		filterNames.add("doi");
+		choicesMap.put("DoiReference", attributeNames);
+		filterMap.put("DoiReference", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("doi");
+		attributeNames.add("count");
+		filterNames.add("count");
+		attributeNames.add("year");
+		filterNames.add("year");
+		filterNames.add("author");
+		filterNames.add("source");
+		filterNames.add("title");
+		filterNames.add("url");
+		filterNames.add("type");
+		attributeNames.add("crossrefReferences");
+		filterNames.add("crossrefReferences");
+		attributeNames.add("crossrefCitations");
+		filterNames.add("crossrefCitations");
+		choicesMap.put("MissingCross", attributeNames);
+		filterMap.put("MissingCross", filterNames);
 		attributeNames = FXCollections.observableArrayList();
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
@@ -503,6 +687,9 @@ public class ScatterChartController extends ChartXYFilterController {
 			else if (className.equals("Authorship")) {
 				objectList = mainApp.getAuthorshipData();
 			}
+			else if (className.equals("Affiliation")) {
+				objectList = mainApp.getAffiliationData();
+			}
 			else if (className.equals("Proceedings")) {
 				objectList = mainApp.getProceedingsData();
 			}
@@ -544,6 +731,18 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("Similarity")) {
 				objectList = mainApp.getSimilarityData();
+			}
+			else if (className.equals("CrossReference")) {
+				objectList = mainApp.getCrossReferenceData();
+			}
+			else if (className.equals("UncategorizedReference")) {
+				objectList = mainApp.getUncategorizedReferenceData();
+			}
+			else if (className.equals("DoiReference")) {
+				objectList = mainApp.getDoiReferenceData();
+			}
+			else if (className.equals("MissingCross")) {
+				objectList = mainApp.getMissingCrossData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();
