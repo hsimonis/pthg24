@@ -37,7 +37,7 @@ public class JfxApp extends GeneratedJfxApp {
                 IrishCalendar.buildCalendar();
                 base.setDirty(false);
 
-                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth"
+                String type = "mobilehealth"; // others "scheduling" "cars" "mobilehealth"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept

@@ -356,7 +356,7 @@ public class ImportBib {
             return "Australian Joint Conference on Artificial Intelligence";
         }
         if (text.contains("Railway Operations Modelling and Analysis")){
-            return "Railway Operations Modelling and Analysis";
+            return "ICROMA";
         }
         return "unknown";
     }
