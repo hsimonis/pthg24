@@ -56,7 +56,9 @@ public class ImportCrossref {
                 interpret(w,contents(saveFile));
             } else {
                 if (w.getDoi() != null && !w.getDoi().equals("")) {
-                    target = "https://api.crossref.org/works/" + URLEncoder.encode(properDOI(w.getDoi()), StandardCharsets.UTF_8.toString());
+                    w.setDoiStatus(true);
+                    target = "https://api.crossref.org/works/" +
+                            URLEncoder.encode(properDOI(w.getDoi()), StandardCharsets.UTF_8.toString());
                     URI targetURI = new URI(target);
                     HttpRequest httpRequest = HttpRequest.newBuilder()
                             .uri(targetURI)
@@ -72,6 +74,8 @@ public class ImportCrossref {
                     interpret(w, response.body());
                 } else {
                     warning("DOI not usable for work " + w.getName() + " doi " + w.getDoi());
+                    w.setCrossrefStatus(false);
+                    w.setDoiStatus(false);
                 }
             }
         } catch (IOException e) {
@@ -89,8 +93,10 @@ public class ImportCrossref {
     private void interpret(Work w,String body){
         if (body.startsWith("Resource not found.")){
             severe(w.getKey()+ " Resource not found");
+            w.setCrossrefStatus(false);
             return;
         }
+        w.setCrossrefStatus(true);
         // parse the JSON
         JSONObject obj = new JSONObject(body);
         String status = obj.getString("status");

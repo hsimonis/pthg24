@@ -1,0 +1,6 @@
+ class ReferenceFlow {
+SourceGroup from
+Double normalized
+SourceGroup to
+Integer value
+}

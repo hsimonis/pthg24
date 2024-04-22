@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 11:56:49 on 2024-04-18 */
+ * Generated at 16:41:52 on 2024-04-22 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -85,6 +85,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
 		filterNames.add("background");
+		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
@@ -100,6 +101,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
+		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		filterNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -108,6 +111,9 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		filterNames.add("doiStatus");
+		filterNames.add("crossrefStatus");
+		filterNames.add("scopusStatus");
 		choicesMap.put("Work", attributeNames);
 		filterMap.put("Work", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -129,6 +135,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
 		filterNames.add("background");
+		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
@@ -144,6 +151,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
+		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		filterNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -152,6 +161,9 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		filterNames.add("doiStatus");
+		filterNames.add("crossrefStatus");
+		filterNames.add("scopusStatus");
 		filterNames.add("proceedings");
 		choicesMap.put("Paper", attributeNames);
 		filterMap.put("Paper", filterNames);
@@ -174,6 +186,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
 		filterNames.add("background");
+		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
@@ -189,6 +202,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
+		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		filterNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -197,6 +212,9 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		filterNames.add("doiStatus");
+		filterNames.add("crossrefStatus");
+		filterNames.add("scopusStatus");
 		filterNames.add("journal");
 		choicesMap.put("Article", attributeNames);
 		filterMap.put("Article", filterNames);
@@ -219,6 +237,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
 		filterNames.add("background");
+		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
@@ -234,6 +253,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
+		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		filterNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -242,6 +263,9 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		filterNames.add("doiStatus");
+		filterNames.add("crossrefStatus");
+		filterNames.add("scopusStatus");
 		filterNames.add("school");
 		choicesMap.put("PhDThesis", attributeNames);
 		filterMap.put("PhDThesis", filterNames);
@@ -264,6 +288,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
 		filterNames.add("background");
+		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
@@ -279,6 +304,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
+		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		filterNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -287,6 +314,9 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		filterNames.add("doiStatus");
+		filterNames.add("crossrefStatus");
+		filterNames.add("scopusStatus");
 		filterNames.add("collection");
 		choicesMap.put("InCollection", attributeNames);
 		filterMap.put("InCollection", filterNames);
@@ -309,6 +339,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
 		filterNames.add("background");
+		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
@@ -324,6 +355,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
+		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		filterNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -332,6 +365,9 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		filterNames.add("doiStatus");
+		filterNames.add("crossrefStatus");
+		filterNames.add("scopusStatus");
 		filterNames.add("booktitle");
 		choicesMap.put("InBook", attributeNames);
 		filterMap.put("InBook", filterNames);
@@ -354,6 +390,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrLinks");
 		filterNames.add("nrLinks");
 		filterNames.add("background");
+		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
 		filterNames.add("solutionAvail");
@@ -369,6 +406,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
+		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		filterNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -377,6 +416,9 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		filterNames.add("doiStatus");
+		filterNames.add("crossrefStatus");
+		filterNames.add("scopusStatus");
 		choicesMap.put("Book", attributeNames);
 		filterMap.put("Book", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -625,6 +667,59 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames = FXCollections.observableArrayList();
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
+		filterNames.add("name");
+		attributeNames.add("nrWorks");
+		filterNames.add("nrWorks");
+		choicesMap.put("SourceGroup", attributeNames);
+		filterMap.put("SourceGroup", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("from");
+		filterNames.add("to");
+		attributeNames.add("value");
+		filterNames.add("value");
+		attributeNames.add("normalized");
+		filterNames.add("normalized");
+		choicesMap.put("ReferenceFlow", attributeNames);
+		filterMap.put("ReferenceFlow", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("inst");
+		filterNames.add("scopusCity");
+		attributeNames.add("workCount");
+		filterNames.add("workCount");
+		filterNames.add("scopusCity.scopusCountry");
+		choicesMap.put("ScopusAffiliation", attributeNames);
+		filterMap.put("ScopusAffiliation", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("work");
+		filterNames.add("scopusAffiliation");
+		filterNames.add("scopusAffiliation.scopusCity");
+		filterNames.add("scopusAffiliation.scopusCity.scopusCountry");
+		filterNames.add("name");
+		filterNames.add("scopusCountry");
+		attributeNames.add("workCount");
+		filterNames.add("workCount");
+		choicesMap.put("ScopusCity", attributeNames);
+		filterMap.put("ScopusCity", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		attributeNames.add("workCount");
+		filterNames.add("workCount");
+		choicesMap.put("ScopusCountry", attributeNames);
+		filterMap.put("ScopusCountry", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -743,6 +838,24 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("MissingCross")) {
 				objectList = mainApp.getMissingCrossData();
+			}
+			else if (className.equals("SourceGroup")) {
+				objectList = mainApp.getSourceGroupData();
+			}
+			else if (className.equals("ReferenceFlow")) {
+				objectList = mainApp.getReferenceFlowData();
+			}
+			else if (className.equals("ScopusAffiliation")) {
+				objectList = mainApp.getScopusAffiliationData();
+			}
+			else if (className.equals("WorkAffiliation")) {
+				objectList = mainApp.getWorkAffiliationData();
+			}
+			else if (className.equals("ScopusCity")) {
+				objectList = mainApp.getScopusCityData();
+			}
+			else if (className.equals("ScopusCountry")) {
+				objectList = mainApp.getScopusCountryData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

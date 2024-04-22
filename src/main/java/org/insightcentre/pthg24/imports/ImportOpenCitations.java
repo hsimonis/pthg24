@@ -23,19 +23,19 @@ import java.util.Hashtable;
 import java.util.stream.Collectors;
 
 import static org.insightcentre.pthg24.imports.ImportCrossref.properDOI;
+import static org.insightcentre.pthg24.imports.Keys.opencitationsKey;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
 
 public class ImportOpenCitations {
     Scenario base;
     String citationDir;
-    String token = "4957301e-f8f6-49b0-83d8-a77950ed4bf2";
     public ImportOpenCitations(Scenario base, String citationDir){
         this.base = base;
         this.citationDir = citationDir;
         assert(citationDir.endsWith("/"));
         info("Reading opencitations");
         initWorkLookup();
-        for(Work w:base.getListWork().stream().sorted(Comparator.comparing(Work::getYear)).collect(Collectors.toUnmodifiableList())) {
+        for(Work w: base.getListWork().stream().sorted(Comparator.comparing(Work::getYear)).toList()) {
             info("Citations "+w.getName());
             citations(w);
         }
@@ -56,11 +56,13 @@ public class ImportOpenCitations {
                 interpret(w,contents(saveFile));
             } else {
                 if (w.getDoi() != null && !w.getDoi().equals("")) {
-                    target = "https://opencitations.net/index/coci/api/v1/citations/" + URLEncoder.encode(properDOI(w.getDoi()), StandardCharsets.UTF_8.toString());
+                    target = "https://opencitations.net/index/coci/api/v1/citations/" +
+                            URLEncoder.encode(properDOI(w.getDoi()), StandardCharsets.UTF_8.toString());
                     URI targetURI = new URI(target);
                     HttpRequest httpRequest = HttpRequest.newBuilder()
                             .uri(targetURI)
-                            .header("authorization",token)
+                            // key taken from hidden file
+                            .header("authorization",opencitationsKey)
                             .GET()
                             .build();
                     HttpClient httpClient = HttpClient.newHttpClient();

@@ -29,10 +29,16 @@
 				<xs:element ref="phDThesis" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="proceedings" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="reference" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="referenceFlow" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="scenario" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="school" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="scopusAffiliation" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="scopusCity" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="scopusCountry" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="similarity" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="sourceGroup" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="uncategorizedReference" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="workAffiliation" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -80,8 +86,10 @@
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="crossrefStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
@@ -94,7 +102,10 @@
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
+			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
+			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
@@ -144,8 +155,10 @@
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="crossrefStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
@@ -158,7 +171,10 @@
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
+			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
+			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
@@ -266,8 +282,10 @@
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="crossrefStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
@@ -280,7 +298,10 @@
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
+			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
+			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
@@ -301,8 +322,10 @@
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="crossrefStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
@@ -315,7 +338,10 @@
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
+			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
+			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
@@ -410,8 +436,10 @@
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="crossrefStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
@@ -424,7 +452,10 @@
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
+			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
+			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
@@ -445,8 +476,10 @@
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="crossrefStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
@@ -459,7 +492,10 @@
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
+			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
+			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
@@ -491,6 +527,17 @@
 			<xs:attribute name="timespan" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="referenceFlow">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="from" use="required" type="xs:IDREF"/>
+			<xs:attribute name="normalized" use="required" type="xs:double"/>
+			<xs:attribute name="to" use="required" type="xs:IDREF"/>
+			<xs:attribute name="value" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="scenario">
 		<xs:complexType>
 			<xs:attribute name="dirty" use="required" type="xs:boolean"/>
@@ -504,6 +551,33 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="scopusAffiliation">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="inst" use="required" type="xs:string"/>
+			<xs:attribute name="scopusCity" use="required" type="xs:IDREF"/>
+			<xs:attribute name="workCount" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="scopusCity">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="scopusCountry" use="required" type="xs:IDREF"/>
+			<xs:attribute name="workCount" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="scopusCountry">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="workCount" use="required" type="xs:integer"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="similarity">
@@ -525,6 +599,14 @@
 			<xs:attribute name="work2" use="required" type="xs:IDREF"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="sourceGroup">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="nrWorks" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="uncategorizedReference">
 		<xs:complexType>
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
@@ -539,6 +621,15 @@
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="work" use="required" type="xs:IDREF"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="workAffiliation">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="scopusAffiliation" use="required" type="xs:IDREF"/>
+			<xs:attribute name="work" use="required" type="xs:IDREF"/>
 		</xs:complexType>
 	</xs:element>
 </xs:schema>

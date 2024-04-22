@@ -635,6 +635,25 @@ public ConceptType getConceptType(String attributeName,
         return res;
     }
 
+    public ReferenceFlow getReferenceFlow(String attributeName,
+                               Attributes attributes) {
+        return (ReferenceFlow) find(getId(attributeName,attributes));
+    }
+
+    public List<ReferenceFlow> getReferenceFlowCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<ReferenceFlow> res = new ArrayList<ReferenceFlow>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((ReferenceFlow) find(id));
+            }
+        }
+        return res;
+    }
+
     public Scenario getScenario(String attributeName,
                                Attributes attributes) {
         return (Scenario) find(getId(attributeName,attributes));
@@ -673,6 +692,63 @@ public ConceptType getConceptType(String attributeName,
         return res;
     }
 
+    public ScopusAffiliation getScopusAffiliation(String attributeName,
+                               Attributes attributes) {
+        return (ScopusAffiliation) find(getId(attributeName,attributes));
+    }
+
+    public List<ScopusAffiliation> getScopusAffiliationCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<ScopusAffiliation> res = new ArrayList<ScopusAffiliation>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((ScopusAffiliation) find(id));
+            }
+        }
+        return res;
+    }
+
+    public ScopusCity getScopusCity(String attributeName,
+                               Attributes attributes) {
+        return (ScopusCity) find(getId(attributeName,attributes));
+    }
+
+    public List<ScopusCity> getScopusCityCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<ScopusCity> res = new ArrayList<ScopusCity>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((ScopusCity) find(id));
+            }
+        }
+        return res;
+    }
+
+    public ScopusCountry getScopusCountry(String attributeName,
+                               Attributes attributes) {
+        return (ScopusCountry) find(getId(attributeName,attributes));
+    }
+
+    public List<ScopusCountry> getScopusCountryCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<ScopusCountry> res = new ArrayList<ScopusCountry>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((ScopusCountry) find(id));
+            }
+        }
+        return res;
+    }
+
     public Similarity getSimilarity(String attributeName,
                                Attributes attributes) {
         return (Similarity) find(getId(attributeName,attributes));
@@ -687,6 +763,25 @@ public ConceptType getConceptType(String attributeName,
             if (words[i].length() > 0) {
                 int id = Integer.parseInt(words[i].substring(3));
                 res.add((Similarity) find(id));
+            }
+        }
+        return res;
+    }
+
+    public SourceGroup getSourceGroup(String attributeName,
+                               Attributes attributes) {
+        return (SourceGroup) find(getId(attributeName,attributes));
+    }
+
+    public List<SourceGroup> getSourceGroupCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<SourceGroup> res = new ArrayList<SourceGroup>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((SourceGroup) find(id));
             }
         }
         return res;
@@ -725,6 +820,25 @@ public ConceptType getConceptType(String attributeName,
             if (words[i].length() > 0) {
                 int id = Integer.parseInt(words[i].substring(3));
                 res.add((Work) find(id));
+            }
+        }
+        return res;
+    }
+
+    public WorkAffiliation getWorkAffiliation(String attributeName,
+                               Attributes attributes) {
+        return (WorkAffiliation) find(getId(attributeName,attributes));
+    }
+
+    public List<WorkAffiliation> getWorkAffiliationCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<WorkAffiliation> res = new ArrayList<WorkAffiliation>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((WorkAffiliation) find(id));
             }
         }
         return res;
@@ -802,8 +916,10 @@ public ConceptType getConceptType(String attributeName,
                         getString("cpSystem",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
                         getInteger("crossrefReferences",attributes,0),
+                        getBoolean("crossrefStatus",attributes,false),
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
+                        getBoolean("doiStatus",attributes,false),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("nrCitations",attributes,0),
@@ -816,7 +932,10 @@ public ConceptType getConceptType(String attributeName,
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
                         getString("relatedTo",attributes,""),
+                        getInteger("scopusCitations",attributes,0),
+                        getBoolean("scopusStatus",attributes,false),
                         getString("solutionAvail",attributes,""),
+                        null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
                         getInteger("year",attributes,0),
@@ -866,8 +985,10 @@ public ConceptType getConceptType(String attributeName,
                         getString("cpSystem",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
                         getInteger("crossrefReferences",attributes,0),
+                        getBoolean("crossrefStatus",attributes,false),
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
+                        getBoolean("doiStatus",attributes,false),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("nrCitations",attributes,0),
@@ -880,7 +1001,10 @@ public ConceptType getConceptType(String attributeName,
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
                         getString("relatedTo",attributes,""),
+                        getInteger("scopusCitations",attributes,0),
+                        getBoolean("scopusStatus",attributes,false),
                         getString("solutionAvail",attributes,""),
+                        null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
                         getInteger("year",attributes,0)
@@ -988,8 +1112,10 @@ public ConceptType getConceptType(String attributeName,
                         getString("cpSystem",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
                         getInteger("crossrefReferences",attributes,0),
+                        getBoolean("crossrefStatus",attributes,false),
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
+                        getBoolean("doiStatus",attributes,false),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("nrCitations",attributes,0),
@@ -1002,7 +1128,10 @@ public ConceptType getConceptType(String attributeName,
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
                         getString("relatedTo",attributes,""),
+                        getInteger("scopusCitations",attributes,0),
+                        getBoolean("scopusStatus",attributes,false),
                         getString("solutionAvail",attributes,""),
+                        null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
                         getInteger("year",attributes,0),
@@ -1023,8 +1152,10 @@ public ConceptType getConceptType(String attributeName,
                         getString("cpSystem",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
                         getInteger("crossrefReferences",attributes,0),
+                        getBoolean("crossrefStatus",attributes,false),
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
+                        getBoolean("doiStatus",attributes,false),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("nrCitations",attributes,0),
@@ -1037,7 +1168,10 @@ public ConceptType getConceptType(String attributeName,
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
                         getString("relatedTo",attributes,""),
+                        getInteger("scopusCitations",attributes,0),
+                        getBoolean("scopusStatus",attributes,false),
                         getString("solutionAvail",attributes,""),
+                        null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
                         getInteger("year",attributes,0),
@@ -1132,8 +1266,10 @@ public ConceptType getConceptType(String attributeName,
                         getString("cpSystem",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
                         getInteger("crossrefReferences",attributes,0),
+                        getBoolean("crossrefStatus",attributes,false),
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
+                        getBoolean("doiStatus",attributes,false),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("nrCitations",attributes,0),
@@ -1146,7 +1282,10 @@ public ConceptType getConceptType(String attributeName,
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
                         getString("relatedTo",attributes,""),
+                        getInteger("scopusCitations",attributes,0),
+                        getBoolean("scopusStatus",attributes,false),
                         getString("solutionAvail",attributes,""),
+                        null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
                         getInteger("year",attributes,0),
@@ -1167,8 +1306,10 @@ public ConceptType getConceptType(String attributeName,
                         getString("cpSystem",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
                         getInteger("crossrefReferences",attributes,0),
+                        getBoolean("crossrefStatus",attributes,false),
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
+                        getBoolean("doiStatus",attributes,false),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("nrCitations",attributes,0),
@@ -1181,7 +1322,10 @@ public ConceptType getConceptType(String attributeName,
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
                         getString("relatedTo",attributes,""),
+                        getInteger("scopusCitations",attributes,0),
+                        getBoolean("scopusStatus",attributes,false),
                         getString("solutionAvail",attributes,""),
+                        null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
                         getInteger("year",attributes,0),
@@ -1212,12 +1356,50 @@ public ConceptType getConceptType(String attributeName,
                         getString("oci",attributes,""),
                         getString("timespan",attributes,"")
                         ));
+            } else if (qname.equals("referenceFlow")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new ReferenceFlow(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        null,
+                        getDouble("normalized",attributes,0.0),
+                        null,
+                        getInteger("value",attributes,0)
+                        ));
             } else if (qname.equals("school")) {
                 assert (base != null);
                 int id = getId("id", attributes);
                 store(id, new School(base,
                         id,
                         getString("name", attributes, "dummy")
+                        ));
+            } else if (qname.equals("scopusAffiliation")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new ScopusAffiliation(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getString("inst",attributes,""),
+                        null,
+                        getInteger("workCount",attributes,0)
+                        ));
+            } else if (qname.equals("scopusCity")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new ScopusCity(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        null,
+                        getInteger("workCount",attributes,0)
+                        ));
+            } else if (qname.equals("scopusCountry")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new ScopusCountry(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getInteger("workCount",attributes,0)
                         ));
             } else if (qname.equals("similarity")) {
                 assert (base != null);
@@ -1238,6 +1420,14 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         null
                         ));
+            } else if (qname.equals("sourceGroup")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new SourceGroup(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getInteger("nrWorks",attributes,0)
+                        ));
             } else if (qname.equals("uncategorizedReference")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1253,6 +1443,15 @@ public ConceptType getConceptType(String attributeName,
                         getString("title",attributes,""),
                         null,
                         getInteger("year",attributes,0)
+                        ));
+            } else if (qname.equals("workAffiliation")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new WorkAffiliation(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        null,
+                        null
                         ));
             } else {
                 System.out.println("Element Structure " + qname);
@@ -1304,6 +1503,7 @@ public ConceptType getConceptType(String attributeName,
                 int id = getId("id", attributes);
                 Article item = (Article) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setJournal(getJournal("journal",attributes));
             } else if (qname.equals("author")) {
                 assert (base != null);
@@ -1321,6 +1521,7 @@ public ConceptType getConceptType(String attributeName,
                 int id = getId("id", attributes);
                 Book item = (Book) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
             } else if (qname.equals("citation")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1366,11 +1567,13 @@ public ConceptType getConceptType(String attributeName,
                 int id = getId("id", attributes);
                 InBook item = (InBook) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
             } else if (qname.equals("inCollection")) {
                 assert (base != null);
                 int id = getId("id", attributes);
                 InCollection item = (InCollection) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setCollection(getCollection("collection",attributes));
             } else if (qname.equals("journal")) {
                 assert (base != null);
@@ -1402,12 +1605,14 @@ public ConceptType getConceptType(String attributeName,
                 int id = getId("id", attributes);
                 Paper item = (Paper) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setProceedings(getProceedings("proceedings",attributes));
             } else if (qname.equals("phDThesis")) {
                 assert (base != null);
                 int id = getId("id", attributes);
                 PhDThesis item = (PhDThesis) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setSchool(getSchool("school",attributes));
             } else if (qname.equals("proceedings")) {
                 assert (base != null);
@@ -1420,16 +1625,40 @@ public ConceptType getConceptType(String attributeName,
                 Reference item = (Reference) find(id);
                  item.setCitedWork(getWork("citedWork",attributes));
                  item.setCitingWork(getWork("citingWork",attributes));
+            } else if (qname.equals("referenceFlow")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                ReferenceFlow item = (ReferenceFlow) find(id);
+                 item.setFrom(getSourceGroup("from",attributes));
+                 item.setTo(getSourceGroup("to",attributes));
             } else if (qname.equals("school")) {
                 assert (base != null);
                 int id = getId("id", attributes);
                 School item = (School) find(id);
+            } else if (qname.equals("scopusAffiliation")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                ScopusAffiliation item = (ScopusAffiliation) find(id);
+                 item.setScopusCity(getScopusCity("scopusCity",attributes));
+            } else if (qname.equals("scopusCity")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                ScopusCity item = (ScopusCity) find(id);
+                 item.setScopusCountry(getScopusCountry("scopusCountry",attributes));
+            } else if (qname.equals("scopusCountry")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                ScopusCountry item = (ScopusCountry) find(id);
             } else if (qname.equals("similarity")) {
                 assert (base != null);
                 int id = getId("id", attributes);
                 Similarity item = (Similarity) find(id);
                  item.setWork1(getWork("work1",attributes));
                  item.setWork2(getWork("work2",attributes));
+            } else if (qname.equals("sourceGroup")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                SourceGroup item = (SourceGroup) find(id);
             } else if (qname.equals("uncategorizedReference")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1437,6 +1666,12 @@ public ConceptType getConceptType(String attributeName,
                  item.setMissingCross(getMissingCross("missingCross",attributes));
                  item.setMissingWork(getMissingWork("missingWork",attributes));
                  item.setReferredWork(getWork("referredWork",attributes));
+                 item.setWork(getWork("work",attributes));
+            } else if (qname.equals("workAffiliation")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                WorkAffiliation item = (WorkAffiliation) find(id);
+                 item.setScopusAffiliation(getScopusAffiliation("scopusAffiliation",attributes));
                  item.setWork(getWork("work",attributes));
             } else {
                 System.out.println("Element Structure " + qname);

@@ -1,0 +1,4 @@
+ class ScopusCity {
+ScopusCountry scopusCountry
+Integer workCount
+}

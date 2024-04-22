@@ -8,8 +8,10 @@ String constraints
 String cpSystem
 Integer crossrefCitations
 Integer crossrefReferences
+Boolean crossrefStatus
 String dataAvail
 String doi
+Boolean doiStatus
 String key
 String localCopy
 Integer nrCitations
@@ -22,7 +24,10 @@ String pages
 Double percentCitationsCovered
 Double percentReferencesCovered
 String relatedTo
+Integer scopusCitations
+Boolean scopusStatus
 String solutionAvail
+SourceGroup sourceGroup
 String title
 String url
 Integer year

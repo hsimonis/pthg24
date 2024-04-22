@@ -9,8 +9,10 @@ import framework.reports.visualization.plot.distributionplot.DistributionPlotOrd
 import framework.reports.visualization.plot.lineplot.LinePlot;
 import framework.reports.visualization.plot.lineplot.LinePlotFunctions;
 import framework.reports.visualization.plot.scatterplot.ScatterPlot;
+import framework.reports.visualization.tabular.table.TableDraw;
 import org.insightcentre.pthg24.datamodel.*;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +29,30 @@ public class PublicationReport extends AbstractReport{
 
     public void content(){
         tex.printf("%s\n\n",defineColors());
+
+        section("Data Quality");
+        dataQuality();
+
+        section("Works by Location");
+        byCountry();
+        byInst();
+
+        section("Collaborations");
+        Map<Work,List<WorkAffiliation>> map = base.getListWorkAffiliation().stream().
+                filter(x->!x.getWork().getBackground()).
+                collect(groupingBy(WorkAffiliation::getWork));
+        List<Work> affWorks = new ArrayList<>(map.keySet());
+//        List<Work> affWorks = base.getListWorkAffiliation().stream().
+//                filter(x->!x.getWork().getBackground()).
+//                map(WorkAffiliation::getWork).
+//                distinct().
+//                toList();
+        new DistributionPlot<>(affWorks,x->nrOfAffiliations(x,map)).
+                title("Works with given Number of Affiliations (Total "+affWorks.size()+" Works)").
+                xlabel("Nr Affiliations").ylabel("Nr Works").
+                width(25).height(15).
+                generate().latex(tex);
+
 
         section("Conference Papers by Most Common Conference Series");
         bySeries(base.getListPaper().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
@@ -199,8 +225,27 @@ public class PublicationReport extends AbstractReport{
                 xlabel("Links").ylabel("Nr Missing Works").
                 width(25).height(15).
                 generate().latex(tex);
+
+        clearpage();
+        section("Citations by Year and Source Group");
+
+        for(SourceGroup sg:base.getListSourceGroup().stream().filter(x->!x.getName().equals("Background")).toList()){
+            List<Work> works = base.getListWork().stream().filter(x->x.getSourceGroup()==sg).toList();
+            if (works.size() > 1) {
+                new ScatterPlot<>(works,
+                        Work::getYear, Work::getNrCitations, Work::getNrReferences).
+                        title("Nr Citations of Works per Year for Source Group " + safe(sg.getName()) + " colored by Nr References").
+                        xlabel("Year").ylabel("Citations").
+                        width(25).height(15).
+                        generate().latex(tex);
+            }
+        }
     }
 
+    private Integer nrOfAffiliations(Work w,Map<Work,List<WorkAffiliation>> map){
+        List<WorkAffiliation> affs= map.get(w);
+        return (affs==null?0:map.get(w).size());
+    }
     private int referenceCoverage(Work w){
         return ((int) Math.round(w.getPercentReferencesCovered()/5.0))*5;
     }
@@ -388,4 +433,89 @@ public class PublicationReport extends AbstractReport{
     }
 
 
+    private void dataQuality() {
+        int d = base.getListWork().size();
+        new DistributionPlot<>(base.getListWork().stream().filter(x -> !x.getBackground()).toList(), this::workStatus).
+                title("Data Quality (Total " + d + " Works)").
+                xlabel("Status").ylabel("Nr Works").
+                width(15).height(12).
+                generate().latex(tex);
+
+        List<Work> neither = base.getListWork().stream().
+                filter(x -> x.getDoiStatus() && !x.getCrossrefStatus() && !x.getScopusStatus()).
+                toList();
+
+        listWorks("Works Unknown to Crossref and Scopus", neither);
+
+        List<Work> noCrossref = base.getListWork().stream().
+                filter(x -> x.getDoiStatus() && !x.getCrossrefStatus() && x.getScopusStatus()).
+                toList();
+        listWorks("Works Unknown to Crossref", noCrossref);
+
+        List<Work> noScopus = base.getListWork().stream().
+                filter(x -> x.getDoiStatus() && x.getCrossrefStatus() && !x.getScopusStatus()).
+//                limit(20).
+                toList();
+        listWorks("Works Unknown to Scopus", noScopus);
+
+    }
+
+    private void listWorks(String caption,List<Work> list){
+        new TableDraw<>(caption,list).
+                addStringColumn("Key",Work::getKey).
+                addStringColumn("DOI",this::safeDoi).
+                addStringColumn("Source Group",x->nameOf(x.getSourceGroup())).
+                addIntegerColumn("Year",Work::getYear).
+                generate().
+                latex(tex);
+
+    }
+
+    private String safeDoi(Work w){
+        return w.getDoi().replace("_","\\_");
+    }
+    private String workStatus(Work w){
+        if (w.getSourceGroup().getName().equals("Thesis") && !w.getDoiStatus()) {
+            return "Thesis";
+        } else if (!w.getDoiStatus()){
+            assert(!w.getCrossrefStatus());
+            assert(!w.getScopusStatus());
+            return "No DOI";
+        } else if (!w.getCrossrefStatus() && !w.getScopusStatus()){
+            return "Unknown Scopus and Crossref";
+        } else if (w.getCrossrefStatus() && !w.getScopusStatus()){
+            return "Unknown Scopus";
+        } else if (!w.getCrossrefStatus() && w.getScopusStatus()){
+            return "Unknown Crossref";
+        } else {
+            return "OK";
+        }
+    }
+
+    private void byCountry(){
+        int d = (int) base.getListWorkAffiliation().stream().map(WorkAffiliation::getWork).distinct().count();
+        new BarPlot<>(base.getListScopusCountry().stream().
+                sorted(Comparator.comparing(ScopusCountry::getWorkCount).reversed()).
+                limit(30).
+                toList(), ApplicationObject::getName, ScopusCountry::getWorkCount).
+                width(25).height(15).
+                title("Countries with Largest Number of Works (Total "+d+" Works)").
+                xlabel("Country").ylabel("Nr Works").
+                generate().latex(tex);
+    }
+    private void byInst(){
+        int d = (int) base.getListWorkAffiliation().stream().map(WorkAffiliation::getWork).distinct().count();
+        new BarPlot<>(base.getListScopusAffiliation().stream().
+                sorted(Comparator.comparing(ScopusAffiliation::getWorkCount).reversed()).
+                limit(25).
+                toList(), this::instName, ScopusAffiliation::getWorkCount).
+                width(22).height(11).
+                title("Institutions with Largest Number of Works (Total "+d+" Works)").
+                xlabel("Institutions").ylabel("Nr Works").
+                generate().latex(tex);
+    }
+
+    private String instName(ScopusAffiliation x){
+        return safe(x.getInst().replaceAll("\\,",""));
+    }
 }

@@ -24,12 +24,12 @@ import java.util.Hashtable;
 import java.util.stream.Collectors;
 
 import static org.insightcentre.pthg24.imports.ImportCrossref.properDOI;
+import static org.insightcentre.pthg24.imports.Keys.opencitationsKey;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
 
 public class ImportOpenReferences {
     Scenario base;
     String citationDir;
-    String token = "4957301e-f8f6-49b0-83d8-a77950ed4bf2";
     public ImportOpenReferences(Scenario base, String citationDir){
         this.base = base;
         this.citationDir = citationDir;
@@ -60,7 +60,8 @@ public class ImportOpenReferences {
                     URI targetURI = new URI(target);
                     HttpRequest httpRequest = HttpRequest.newBuilder()
                             .uri(targetURI)
-                            .header("authorization",token)
+                            // taken from hidden file
+                            .header("authorization",opencitationsKey)
                             .GET()
                             .build();
                     HttpClient httpClient = HttpClient.newHttpClient();

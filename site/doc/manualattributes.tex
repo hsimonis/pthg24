@@ -335,6 +335,20 @@ $\square$\ & journalSC &  \\
 \end{table}
 
 \begin{table}
+\caption{ReferenceFlow  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & from &  \\
+$\square$\ & to &  \\
+$\square$\ & value &  \\
+$\square$\ & normalized &  \\
+\end{longtable}
+\label{attr:ReferenceFlow}
+\end{table}
+
+\clearpage
+\begin{table}
 \caption{Scenario  This class describes the dataset for the application. Typically there is a single instance of this class in the application at all times.}
 
 \begin{longtable}{llp{8cm}}
@@ -343,7 +357,6 @@ $\square$\ & journalSC &  \\
 \label{attr:Scenario}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{School  }
 
@@ -353,6 +366,40 @@ $\square$\ & journalSC &  \\
 \label{attr:School}
 \end{table}
 
+\begin{table}
+\caption{ScopusAffiliation  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & inst &  \\
+$\square$\ & scopusCity &  \\
+$\square$\ & workCount &  \\
+\end{longtable}
+\label{attr:ScopusAffiliation}
+\end{table}
+
+\begin{table}
+\caption{ScopusCity  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & scopusCountry &  \\
+$\square$\ & workCount &  \\
+\end{longtable}
+\label{attr:ScopusCity}
+\end{table}
+
+\begin{table}
+\caption{ScopusCountry  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & workCount &  \\
+\end{longtable}
+\label{attr:ScopusCountry}
+\end{table}
+
+\clearpage
 \begin{table}
 \caption{Similarity  }
 
@@ -372,6 +419,16 @@ $\square$\ & similarityConcept &  \\
 $\square$\ & similarity &  \\
 \end{longtable}
 \label{attr:Similarity}
+\end{table}
+
+\begin{table}
+\caption{SourceGroup  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & nrWorks &  \\
+\end{longtable}
+\label{attr:SourceGroup}
 \end{table}
 
 \begin{table}
@@ -400,6 +457,7 @@ $\square$\ & pages &  \\
 $\square$\ & nrPages &  \\
 $\square$\ & nrLinks &  \\
 $\square$\ & background &  \\
+$\square$\ & sourceGroup &  \\
 $\square$\ & dataAvail &  \\
 $\square$\ & codeAvail &  \\
 $\square$\ & solutionAvail &  \\
@@ -411,10 +469,27 @@ $\square$\ & nrCitations &  \\
 $\square$\ & nrReferences &  \\
 $\square$\ & crossrefCitations &  \\
 $\square$\ & crossrefReferences &  \\
+$\square$\ & scopusCitations &  \\
 $\square$\ & nrCitationsCovered &  \\
 $\square$\ & nrReferencesCovered &  \\
 $\square$\ & percentCitationsCovered &  \\
 $\square$\ & percentReferencesCovered &  \\
+$\square$\ & doiStatus &  \\
+$\square$\ & crossrefStatus &  \\
+$\square$\ & scopusStatus &  \\
 \end{longtable}
 \label{attr:Work}
 \end{table}
+
+\begin{table}
+\caption{WorkAffiliation  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & work &  \\
+$\square$\ & scopusAffiliation &  \\
+\end{longtable}
+\label{attr:WorkAffiliation}
+\end{table}
+
+\clearpage

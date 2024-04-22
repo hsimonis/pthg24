@@ -28,9 +28,10 @@ import javafx.util.Callback;
 import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.School;
+import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 11:56:49 on 2024-04-18 */
+ * Generated at 16:41:52 on 2024-04-22 */
 public class PhDThesisController extends Table3Controller {
 	@FXML
 	private TableView<PhDThesis> table;
@@ -75,6 +76,9 @@ public class PhDThesisController extends Table3Controller {
 	private TableColumn<PhDThesis, Boolean> background;
 
 	@FXML
+	private TableColumn<PhDThesis, SourceGroup> sourceGroup;
+
+	@FXML
 	private TableColumn<PhDThesis, String> dataAvail;
 
 	@FXML
@@ -108,6 +112,9 @@ public class PhDThesisController extends Table3Controller {
 	private TableColumn<PhDThesis, Integer> crossrefReferences;
 
 	@FXML
+	private TableColumn<PhDThesis, Integer> scopusCitations;
+
+	@FXML
 	private TableColumn<PhDThesis, Integer> nrCitationsCovered;
 
 	@FXML
@@ -120,6 +127,15 @@ public class PhDThesisController extends Table3Controller {
 	private TableColumn<PhDThesis, Double> percentReferencesCovered;
 
 	@FXML
+	private TableColumn<PhDThesis, Boolean> doiStatus;
+
+	@FXML
+	private TableColumn<PhDThesis, Boolean> crossrefStatus;
+
+	@FXML
+	private TableColumn<PhDThesis, Boolean> scopusStatus;
+
+	@FXML
 	private TableColumn<PhDThesis, School> school;
 
 	private GeneratedJfxApp mainApp;
@@ -128,6 +144,8 @@ public class PhDThesisController extends Table3Controller {
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
 		table.setItems(mainApp.getPhDThesisData());
+		sourceGroup.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getSourceGroupData()));
+		sourceGroup.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSourceGroup(event.getNewValue()); mainApp.reset();});
 		school.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getSchoolData()));
 		school.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSchool(event.getNewValue()); mainApp.reset();});
 	}
@@ -190,6 +208,8 @@ public class PhDThesisController extends Table3Controller {
 		choices.add("background");
 		background.setCellValueFactory(new BackgroundCallback());
 		background.setCellFactory(CheckBoxTableCell.forTableColumn(background));
+		choices.add("sourceGroup");
+		sourceGroup.setCellValueFactory(new PropertyValueFactory<>("sourceGroup"));
 		choices.add("dataAvail");
 		dataAvail.setCellValueFactory(new PropertyValueFactory<>("dataAvail"));
 		dataAvail.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -234,6 +254,10 @@ public class PhDThesisController extends Table3Controller {
 		crossrefReferences.setCellValueFactory(new PropertyValueFactory<>("crossrefReferences"));
 		crossrefReferences.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		crossrefReferences.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCrossrefReferences(event.getNewValue()); mainApp.reset();});
+		choices.add("scopusCitations");
+		scopusCitations.setCellValueFactory(new PropertyValueFactory<>("scopusCitations"));
+		scopusCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		scopusCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setScopusCitations(event.getNewValue()); mainApp.reset();});
 		choices.add("nrCitationsCovered");
 		nrCitationsCovered.setCellValueFactory(new PropertyValueFactory<>("nrCitationsCovered"));
 		nrCitationsCovered.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
@@ -250,6 +274,15 @@ public class PhDThesisController extends Table3Controller {
 		percentReferencesCovered.setCellValueFactory(new PropertyValueFactory<>("percentReferencesCovered"));
 		percentReferencesCovered.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
 		percentReferencesCovered.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPercentReferencesCovered(event.getNewValue()); mainApp.reset();});
+		choices.add("doiStatus");
+		doiStatus.setCellValueFactory(new DoiStatusCallback());
+		doiStatus.setCellFactory(CheckBoxTableCell.forTableColumn(doiStatus));
+		choices.add("crossrefStatus");
+		crossrefStatus.setCellValueFactory(new CrossrefStatusCallback());
+		crossrefStatus.setCellFactory(CheckBoxTableCell.forTableColumn(crossrefStatus));
+		choices.add("scopusStatus");
+		scopusStatus.setCellValueFactory(new ScopusStatusCallback());
+		scopusStatus.setCellFactory(CheckBoxTableCell.forTableColumn(scopusStatus));
 		choices.add("school");
 		school.setCellValueFactory(new PropertyValueFactory<>("school"));
 		initialize(choices);
@@ -317,6 +350,51 @@ public class PhDThesisController extends Table3Controller {
 				@SuppressWarnings("rawtypes")
 				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
 					cellData.getValue().setBackground(newValue);
+				}
+			});
+			return prop;
+		}
+	}
+
+	class DoiStatusCallback implements Callback<TableColumn.CellDataFeatures<PhDThesis, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<PhDThesis, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().doiStatusWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setDoiStatus(newValue);
+				}
+			});
+			return prop;
+		}
+	}
+
+	class CrossrefStatusCallback implements Callback<TableColumn.CellDataFeatures<PhDThesis, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<PhDThesis, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().crossrefStatusWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setCrossrefStatus(newValue);
+				}
+			});
+			return prop;
+		}
+	}
+
+	class ScopusStatusCallback implements Callback<TableColumn.CellDataFeatures<PhDThesis, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<PhDThesis, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().scopusStatusWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setScopusStatus(newValue);
 				}
 			});
 			return prop;

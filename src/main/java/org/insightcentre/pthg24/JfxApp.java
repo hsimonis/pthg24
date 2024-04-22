@@ -37,7 +37,7 @@ public class JfxApp extends GeneratedJfxApp {
                 IrishCalendar.buildCalendar();
                 base.setDirty(false);
 
-                String type = "mobilehealth"; // others "scheduling" "cars" "mobilehealth"
+                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -87,6 +87,7 @@ public class JfxApp extends GeneratedJfxApp {
                 String worksDir = prefix+"works/"; // input dir containing local copies of works
                 String graphvizDir = prefix+"graphviz/"; // output dir for graphviz graphs
                 String crossrefDir = prefix+"crossref/"; // input/output dir for crossref records
+                String scopusDir = prefix+"scopus/"; // input/output dir for scopus records
                 String missingWorkDir = prefix+"missing/"; // input/output dir for missing work crossref records
 
 
@@ -98,6 +99,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new ImportOpenCitations(base,citationsDir);
                 new ImportOpenReferences(base,referencesDir);
                 new ImportCrossref(base,crossrefDir);
+                new ImportScopus(base,scopusDir);
 
                 new FindMissingCitingWorks(base);
                 new FindMissingCitedWorks(base);
@@ -152,6 +154,10 @@ public class JfxApp extends GeneratedJfxApp {
                                 sorted(Comparator.comparing(Work::getKey)).
                                 toList(),
                         exportDir,"missingdoi.tex");
+
+                if(type.equals("scheduling")){
+                        new CreateSourceGroups(base);
+                }
 
                 new PublicationReport(base,reportDir).
                         produce("publications",

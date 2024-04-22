@@ -1,0 +1,5 @@
+ class ScopusAffiliation {
+String inst
+ScopusCity scopusCity
+Integer workCount
+}

@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 11:56:49 on 2024-04-18-->
+<!--Generated at 16:41:53 on 2024-04-22-->
 
 
 <Tab text="Work" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.WorkController">
@@ -31,6 +31,7 @@
                <TableColumn fx:id="nrPages" styleClass="right-aligned" text="NrPages" />
                <TableColumn fx:id="nrLinks" styleClass="right-aligned" text="NrLinks" />
                <TableColumn fx:id="background" styleClass="right-aligned" text="Background" />
+               <TableColumn fx:id="sourceGroup" styleClass="right-aligned" text="SourceGroup" />
                <TableColumn fx:id="dataAvail" styleClass="right-aligned" text="DataAvail" />
                <TableColumn fx:id="codeAvail" styleClass="right-aligned" text="CodeAvail" />
                <TableColumn fx:id="solutionAvail" styleClass="right-aligned" text="SolutionAvail" />
@@ -42,10 +43,14 @@
                <TableColumn fx:id="nrReferences" styleClass="right-aligned" text="NrReferences" />
                <TableColumn fx:id="crossrefCitations" styleClass="right-aligned" text="CrossrefCitations" />
                <TableColumn fx:id="crossrefReferences" styleClass="right-aligned" text="CrossrefReferences" />
+               <TableColumn fx:id="scopusCitations" styleClass="right-aligned" text="ScopusCitations" />
                <TableColumn fx:id="nrCitationsCovered" styleClass="right-aligned" text="NrCitationsCovered" />
                <TableColumn fx:id="nrReferencesCovered" styleClass="right-aligned" text="NrReferencesCovered" />
                <TableColumn fx:id="percentCitationsCovered" styleClass="right-aligned" text="PercentCitationsCovered" />
                <TableColumn fx:id="percentReferencesCovered" styleClass="right-aligned" text="PercentReferencesCovered" />
+               <TableColumn fx:id="doiStatus" styleClass="right-aligned" text="DoiStatus" />
+               <TableColumn fx:id="crossrefStatus" styleClass="right-aligned" text="CrossrefStatus" />
+               <TableColumn fx:id="scopusStatus" styleClass="right-aligned" text="ScopusStatus" />
             </columns>
          </TableView>
       </center>

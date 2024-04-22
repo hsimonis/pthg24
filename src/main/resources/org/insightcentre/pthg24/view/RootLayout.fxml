@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<!--Generated at 11:56:49 on 2024-04-18-->
+<!--Generated at 16:41:52 on 2024-04-22-->
 
 
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.RootController">
@@ -94,6 +94,12 @@
                   <MenuItem id="uncategorizedReferencePage" accelerator="Shortcut+U" onAction="#handle" text="UncategorizedReference" />
                   <MenuItem id="doiReferencePage" onAction="#handle" text="DoiReference" />
                   <MenuItem id="missingCrossPage" onAction="#handle" text="MissingCross" />
+                  <MenuItem id="sourceGroupPage" onAction="#handle" text="SourceGroup" />
+                  <MenuItem id="referenceFlowPage" onAction="#handle" text="ReferenceFlow" />
+                  <MenuItem id="scopusAffiliationPage" onAction="#handle" text="ScopusAffiliation" />
+                  <MenuItem id="workAffiliationPage" onAction="#handle" text="WorkAffiliation" />
+                  <MenuItem id="scopusCityPage" onAction="#handle" text="ScopusCity" />
+                  <MenuItem id="scopusCountryPage" onAction="#handle" text="ScopusCountry" />
                   <MenuItem id="scenarioPage" onAction="#handle" text="Scenario" />
                   <MenuItem id="GenericPieChart" onAction="#handle" text="Generic Pie Chart" />
                   <MenuItem id="GenericBarChart" onAction="#handle" text="Generic Bar Chart" />

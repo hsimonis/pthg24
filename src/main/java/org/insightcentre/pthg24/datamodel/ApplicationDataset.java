@@ -34,6 +34,12 @@ import org.insightcentre.pthg24.datamodel.CrossReference;
 import org.insightcentre.pthg24.datamodel.UncategorizedReference;
 import org.insightcentre.pthg24.datamodel.DoiReference;
 import org.insightcentre.pthg24.datamodel.MissingCross;
+import org.insightcentre.pthg24.datamodel.SourceGroup;
+import org.insightcentre.pthg24.datamodel.ReferenceFlow;
+import org.insightcentre.pthg24.datamodel.ScopusAffiliation;
+import org.insightcentre.pthg24.datamodel.WorkAffiliation;
+import org.insightcentre.pthg24.datamodel.ScopusCity;
+import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -326,6 +332,48 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<MissingCross> listMissingCross = new ArrayList<MissingCross>();
 
 /**
+ *  This lists holds all items of class SourceGroup and its subclasses
+ *
+*/
+
+    List<SourceGroup> listSourceGroup = new ArrayList<SourceGroup>();
+
+/**
+ *  This lists holds all items of class ReferenceFlow and its subclasses
+ *
+*/
+
+    List<ReferenceFlow> listReferenceFlow = new ArrayList<ReferenceFlow>();
+
+/**
+ *  This lists holds all items of class ScopusAffiliation and its subclasses
+ *
+*/
+
+    List<ScopusAffiliation> listScopusAffiliation = new ArrayList<ScopusAffiliation>();
+
+/**
+ *  This lists holds all items of class WorkAffiliation and its subclasses
+ *
+*/
+
+    List<WorkAffiliation> listWorkAffiliation = new ArrayList<WorkAffiliation>();
+
+/**
+ *  This lists holds all items of class ScopusCity and its subclasses
+ *
+*/
+
+    List<ScopusCity> listScopusCity = new ArrayList<ScopusCity>();
+
+/**
+ *  This lists holds all items of class ScopusCountry and its subclasses
+ *
+*/
+
+    List<ScopusCountry> listScopusCountry = new ArrayList<ScopusCountry>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -474,10 +522,16 @@ public int compareTo(ApplicationDataset ds2){
                              "PhDThesis",
                              "Proceedings",
                              "Reference",
+                             "ReferenceFlow",
                              "Scenario",
                              "School",
+                             "ScopusAffiliation",
+                             "ScopusCity",
+                             "ScopusCountry",
                              "Similarity",
-                             "UncategorizedReference");
+                             "SourceGroup",
+                             "UncategorizedReference",
+                             "WorkAffiliation");
     }
 
 /**
@@ -564,6 +618,12 @@ public int compareTo(ApplicationDataset ds2){
         resetListUncategorizedReference();
         resetListDoiReference();
         resetListMissingCross();
+        resetListSourceGroup();
+        resetListReferenceFlow();
+        resetListScopusAffiliation();
+        resetListWorkAffiliation();
+        resetListScopusCity();
+        resetListScopusCountry();
     }
 
 /**
@@ -1719,6 +1779,210 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class SourceGroup
+ *
+*/
+
+    public Iterator<SourceGroup> getIteratorSourceGroup(){
+        return listSourceGroup.iterator();
+    }
+
+/**
+ *  Getter for list of class SourceGroup
+ *
+*/
+
+    public List<SourceGroup> getListSourceGroup(){
+        return listSourceGroup;
+    }
+
+/**
+ *  reset the list of class SourceGroup; use with care, does not call cascades
+ *
+*/
+
+    public void resetListSourceGroup(){
+        listSourceGroup = new ArrayList<SourceGroup>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof SourceGroup)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class ReferenceFlow
+ *
+*/
+
+    public Iterator<ReferenceFlow> getIteratorReferenceFlow(){
+        return listReferenceFlow.iterator();
+    }
+
+/**
+ *  Getter for list of class ReferenceFlow
+ *
+*/
+
+    public List<ReferenceFlow> getListReferenceFlow(){
+        return listReferenceFlow;
+    }
+
+/**
+ *  reset the list of class ReferenceFlow; use with care, does not call cascades
+ *
+*/
+
+    public void resetListReferenceFlow(){
+        listReferenceFlow = new ArrayList<ReferenceFlow>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof ReferenceFlow)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class ScopusAffiliation
+ *
+*/
+
+    public Iterator<ScopusAffiliation> getIteratorScopusAffiliation(){
+        return listScopusAffiliation.iterator();
+    }
+
+/**
+ *  Getter for list of class ScopusAffiliation
+ *
+*/
+
+    public List<ScopusAffiliation> getListScopusAffiliation(){
+        return listScopusAffiliation;
+    }
+
+/**
+ *  reset the list of class ScopusAffiliation; use with care, does not call cascades
+ *
+*/
+
+    public void resetListScopusAffiliation(){
+        listScopusAffiliation = new ArrayList<ScopusAffiliation>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof ScopusAffiliation)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class WorkAffiliation
+ *
+*/
+
+    public Iterator<WorkAffiliation> getIteratorWorkAffiliation(){
+        return listWorkAffiliation.iterator();
+    }
+
+/**
+ *  Getter for list of class WorkAffiliation
+ *
+*/
+
+    public List<WorkAffiliation> getListWorkAffiliation(){
+        return listWorkAffiliation;
+    }
+
+/**
+ *  reset the list of class WorkAffiliation; use with care, does not call cascades
+ *
+*/
+
+    public void resetListWorkAffiliation(){
+        listWorkAffiliation = new ArrayList<WorkAffiliation>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof WorkAffiliation)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class ScopusCity
+ *
+*/
+
+    public Iterator<ScopusCity> getIteratorScopusCity(){
+        return listScopusCity.iterator();
+    }
+
+/**
+ *  Getter for list of class ScopusCity
+ *
+*/
+
+    public List<ScopusCity> getListScopusCity(){
+        return listScopusCity;
+    }
+
+/**
+ *  reset the list of class ScopusCity; use with care, does not call cascades
+ *
+*/
+
+    public void resetListScopusCity(){
+        listScopusCity = new ArrayList<ScopusCity>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof ScopusCity)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class ScopusCountry
+ *
+*/
+
+    public Iterator<ScopusCountry> getIteratorScopusCountry(){
+        return listScopusCountry.iterator();
+    }
+
+/**
+ *  Getter for list of class ScopusCountry
+ *
+*/
+
+    public List<ScopusCountry> getListScopusCountry(){
+        return listScopusCountry;
+    }
+
+/**
+ *  reset the list of class ScopusCountry; use with care, does not call cascades
+ *
+*/
+
+    public void resetListScopusCountry(){
+        listScopusCountry = new ArrayList<ScopusCountry>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof ScopusCountry)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -1826,6 +2090,24 @@ public int compareTo(ApplicationDataset ds2){
             if (a.getAuthors().isEmpty()) {
                toRemove.add(a);
             }
+         }
+        }
+        for(Work b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class SourceGroup; remove all dependent objects of class Work which refer to item through their attribute sourceGroup
+ *
+*/
+
+    public void cascadeWorkSourceGroup(SourceGroup item){
+        assert item != null;
+        List<Work> toRemove = new ArrayList<Work>();
+        for(Work a:getListWork()) {
+         if (a.getSourceGroup() == item) {
+            toRemove.add(a);
          }
         }
         for(Work b:toRemove) {
@@ -2243,6 +2525,114 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(CrossReference b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class SourceGroup; remove all dependent objects of class ReferenceFlow which refer to item through their attribute from
+ *
+*/
+
+    public void cascadeReferenceFlowFrom(SourceGroup item){
+        assert item != null;
+        List<ReferenceFlow> toRemove = new ArrayList<ReferenceFlow>();
+        for(ReferenceFlow a:getListReferenceFlow()) {
+         if (a.getFrom() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(ReferenceFlow b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class SourceGroup; remove all dependent objects of class ReferenceFlow which refer to item through their attribute to
+ *
+*/
+
+    public void cascadeReferenceFlowTo(SourceGroup item){
+        assert item != null;
+        List<ReferenceFlow> toRemove = new ArrayList<ReferenceFlow>();
+        for(ReferenceFlow a:getListReferenceFlow()) {
+         if (a.getTo() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(ReferenceFlow b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class ScopusCity; remove all dependent objects of class ScopusAffiliation which refer to item through their attribute scopusCity
+ *
+*/
+
+    public void cascadeScopusAffiliationScopusCity(ScopusCity item){
+        assert item != null;
+        List<ScopusAffiliation> toRemove = new ArrayList<ScopusAffiliation>();
+        for(ScopusAffiliation a:getListScopusAffiliation()) {
+         if (a.getScopusCity() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(ScopusAffiliation b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class ScopusCountry; remove all dependent objects of class ScopusCity which refer to item through their attribute scopusCountry
+ *
+*/
+
+    public void cascadeScopusCityScopusCountry(ScopusCountry item){
+        assert item != null;
+        List<ScopusCity> toRemove = new ArrayList<ScopusCity>();
+        for(ScopusCity a:getListScopusCity()) {
+         if (a.getScopusCountry() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(ScopusCity b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class WorkAffiliation which refer to item through their attribute work
+ *
+*/
+
+    public void cascadeWorkAffiliationWork(Work item){
+        assert item != null;
+        List<WorkAffiliation> toRemove = new ArrayList<WorkAffiliation>();
+        for(WorkAffiliation a:getListWorkAffiliation()) {
+         if (a.getWork() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(WorkAffiliation b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class ScopusAffiliation; remove all dependent objects of class WorkAffiliation which refer to item through their attribute scopusAffiliation
+ *
+*/
+
+    public void cascadeWorkAffiliationScopusAffiliation(ScopusAffiliation item){
+        assert item != null;
+        List<WorkAffiliation> toRemove = new ArrayList<WorkAffiliation>();
+        for(WorkAffiliation a:getListWorkAffiliation()) {
+         if (a.getScopusAffiliation() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(WorkAffiliation b:toRemove) {
             b.remove();
         }
     }
@@ -2928,6 +3318,126 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class SourceGroup
+ *
+*/
+
+    public void addSourceGroup(SourceGroup sourceGroup){
+        assert sourceGroup != null;
+        this.listSourceGroup.add(sourceGroup);
+    }
+
+/**
+ *  remove an item from the list for class SourceGroup
+ *
+*/
+
+    public Boolean removeSourceGroup(SourceGroup sourceGroup){
+        assert sourceGroup != null;
+        return this.listSourceGroup.remove(sourceGroup);
+    }
+
+/**
+ *  add an item to the list for class ReferenceFlow
+ *
+*/
+
+    public void addReferenceFlow(ReferenceFlow referenceFlow){
+        assert referenceFlow != null;
+        this.listReferenceFlow.add(referenceFlow);
+    }
+
+/**
+ *  remove an item from the list for class ReferenceFlow
+ *
+*/
+
+    public Boolean removeReferenceFlow(ReferenceFlow referenceFlow){
+        assert referenceFlow != null;
+        return this.listReferenceFlow.remove(referenceFlow);
+    }
+
+/**
+ *  add an item to the list for class ScopusAffiliation
+ *
+*/
+
+    public void addScopusAffiliation(ScopusAffiliation scopusAffiliation){
+        assert scopusAffiliation != null;
+        this.listScopusAffiliation.add(scopusAffiliation);
+    }
+
+/**
+ *  remove an item from the list for class ScopusAffiliation
+ *
+*/
+
+    public Boolean removeScopusAffiliation(ScopusAffiliation scopusAffiliation){
+        assert scopusAffiliation != null;
+        return this.listScopusAffiliation.remove(scopusAffiliation);
+    }
+
+/**
+ *  add an item to the list for class WorkAffiliation
+ *
+*/
+
+    public void addWorkAffiliation(WorkAffiliation workAffiliation){
+        assert workAffiliation != null;
+        this.listWorkAffiliation.add(workAffiliation);
+    }
+
+/**
+ *  remove an item from the list for class WorkAffiliation
+ *
+*/
+
+    public Boolean removeWorkAffiliation(WorkAffiliation workAffiliation){
+        assert workAffiliation != null;
+        return this.listWorkAffiliation.remove(workAffiliation);
+    }
+
+/**
+ *  add an item to the list for class ScopusCity
+ *
+*/
+
+    public void addScopusCity(ScopusCity scopusCity){
+        assert scopusCity != null;
+        this.listScopusCity.add(scopusCity);
+    }
+
+/**
+ *  remove an item from the list for class ScopusCity
+ *
+*/
+
+    public Boolean removeScopusCity(ScopusCity scopusCity){
+        assert scopusCity != null;
+        return this.listScopusCity.remove(scopusCity);
+    }
+
+/**
+ *  add an item to the list for class ScopusCountry
+ *
+*/
+
+    public void addScopusCountry(ScopusCountry scopusCountry){
+        assert scopusCountry != null;
+        this.listScopusCountry.add(scopusCountry);
+    }
+
+/**
+ *  remove an item from the list for class ScopusCountry
+ *
+*/
+
+    public Boolean removeScopusCountry(ScopusCountry scopusCountry){
+        assert scopusCountry != null;
+        return this.listScopusCountry.remove(scopusCountry);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -3011,16 +3521,34 @@ public int compareTo(ApplicationDataset ds2){
         for(Reference x:getListReference()){
             System.out.println(x);
         }
+        for(ReferenceFlow x:getListReferenceFlow()){
+            System.out.println(x);
+        }
         for(Scenario x:getListScenario()){
             System.out.println(x);
         }
         for(School x:getListSchool()){
             System.out.println(x);
         }
+        for(ScopusAffiliation x:getListScopusAffiliation()){
+            System.out.println(x);
+        }
+        for(ScopusCity x:getListScopusCity()){
+            System.out.println(x);
+        }
+        for(ScopusCountry x:getListScopusCountry()){
+            System.out.println(x);
+        }
         for(Similarity x:getListSimilarity()){
             System.out.println(x);
         }
+        for(SourceGroup x:getListSourceGroup()){
+            System.out.println(x);
+        }
         for(UncategorizedReference x:getListUncategorizedReference()){
+            System.out.println(x);
+        }
+        for(WorkAffiliation x:getListWorkAffiliation()){
             System.out.println(x);
         }
     }
@@ -3137,14 +3665,32 @@ public int compareTo(ApplicationDataset ds2){
         for(Reference x:getListReference()){
             if (x.getClass().equals(Reference.class)) x.toXML(out);
         }
+        for(ReferenceFlow x:getListReferenceFlow()){
+            if (x.getClass().equals(ReferenceFlow.class)) x.toXML(out);
+        }
         for(School x:getListSchool()){
             if (x.getClass().equals(School.class)) x.toXML(out);
+        }
+        for(ScopusAffiliation x:getListScopusAffiliation()){
+            if (x.getClass().equals(ScopusAffiliation.class)) x.toXML(out);
+        }
+        for(ScopusCity x:getListScopusCity()){
+            if (x.getClass().equals(ScopusCity.class)) x.toXML(out);
+        }
+        for(ScopusCountry x:getListScopusCountry()){
+            if (x.getClass().equals(ScopusCountry.class)) x.toXML(out);
         }
         for(Similarity x:getListSimilarity()){
             if (x.getClass().equals(Similarity.class)) x.toXML(out);
         }
+        for(SourceGroup x:getListSourceGroup()){
+            if (x.getClass().equals(SourceGroup.class)) x.toXML(out);
+        }
         for(UncategorizedReference x:getListUncategorizedReference()){
             if (x.getClass().equals(UncategorizedReference.class)) x.toXML(out);
+        }
+        for(WorkAffiliation x:getListWorkAffiliation()){
+            if (x.getClass().equals(WorkAffiliation.class)) x.toXML(out);
         }
         out.println("</body>");
         out.close();
@@ -3266,9 +3812,15 @@ public int compareTo(ApplicationDataset ds2){
         comparePhDThesis(this.getListPhDThesis(),compare.getListPhDThesis());
         compareProceedings(this.getListProceedings(),compare.getListProceedings());
         compareReference(this.getListReference(),compare.getListReference());
+        compareReferenceFlow(this.getListReferenceFlow(),compare.getListReferenceFlow());
         compareSchool(this.getListSchool(),compare.getListSchool());
+        compareScopusAffiliation(this.getListScopusAffiliation(),compare.getListScopusAffiliation());
+        compareScopusCity(this.getListScopusCity(),compare.getListScopusCity());
+        compareScopusCountry(this.getListScopusCountry(),compare.getListScopusCountry());
         compareSimilarity(this.getListSimilarity(),compare.getListSimilarity());
+        compareSourceGroup(this.getListSourceGroup(),compare.getListSourceGroup());
         compareUncategorizedReference(this.getListUncategorizedReference(),compare.getListUncategorizedReference());
+        compareWorkAffiliation(this.getListWorkAffiliation(),compare.getListWorkAffiliation());
         System.out.println("Done Comparing ApplicationDataset");
     }
 
@@ -3873,6 +4425,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types ReferenceFlow, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareReferenceFlow(List<ReferenceFlow> aList,List<ReferenceFlow> bList){
+        System.out.println("Comparing ReferenceFlow");
+        for(ReferenceFlow a:aList){
+            ReferenceFlow b= ReferenceFlow.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ReferenceFlow A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ReferenceFlow A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ReferenceFlow B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(ReferenceFlow b: bList){
+            ReferenceFlow a = ReferenceFlow.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ReferenceFlow B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types School, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -3892,6 +4468,78 @@ public int compareTo(ApplicationDataset ds2){
             School a = School.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"School B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types ScopusAffiliation, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareScopusAffiliation(List<ScopusAffiliation> aList,List<ScopusAffiliation> bList){
+        System.out.println("Comparing ScopusAffiliation");
+        for(ScopusAffiliation a:aList){
+            ScopusAffiliation b= ScopusAffiliation.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ScopusAffiliation A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ScopusAffiliation A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ScopusAffiliation B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(ScopusAffiliation b: bList){
+            ScopusAffiliation a = ScopusAffiliation.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ScopusAffiliation B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types ScopusCity, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareScopusCity(List<ScopusCity> aList,List<ScopusCity> bList){
+        System.out.println("Comparing ScopusCity");
+        for(ScopusCity a:aList){
+            ScopusCity b= ScopusCity.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ScopusCity A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ScopusCity A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ScopusCity B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(ScopusCity b: bList){
+            ScopusCity a = ScopusCity.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ScopusCity B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types ScopusCountry, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareScopusCountry(List<ScopusCountry> aList,List<ScopusCountry> bList){
+        System.out.println("Comparing ScopusCountry");
+        for(ScopusCountry a:aList){
+            ScopusCountry b= ScopusCountry.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ScopusCountry A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ScopusCountry A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ScopusCountry B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(ScopusCountry b: bList){
+            ScopusCountry a = ScopusCountry.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ScopusCountry B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -3921,6 +4569,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types SourceGroup, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareSourceGroup(List<SourceGroup> aList,List<SourceGroup> bList){
+        System.out.println("Comparing SourceGroup");
+        for(SourceGroup a:aList){
+            SourceGroup b= SourceGroup.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"SourceGroup A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"SourceGroup A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"SourceGroup B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(SourceGroup b: bList){
+            SourceGroup a = SourceGroup.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"SourceGroup B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types UncategorizedReference, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -3940,6 +4612,30 @@ public int compareTo(ApplicationDataset ds2){
             UncategorizedReference a = UncategorizedReference.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"UncategorizedReference B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types WorkAffiliation, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareWorkAffiliation(List<WorkAffiliation> aList,List<WorkAffiliation> bList){
+        System.out.println("Comparing WorkAffiliation");
+        for(WorkAffiliation a:aList){
+            WorkAffiliation b= WorkAffiliation.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"WorkAffiliation A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"WorkAffiliation A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"WorkAffiliation B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(WorkAffiliation b: bList){
+            WorkAffiliation a = WorkAffiliation.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"WorkAffiliation B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -3975,10 +4671,16 @@ public int compareTo(ApplicationDataset ds2){
         checkPhDThesis(this.getListPhDThesis());
         checkProceedings(this.getListProceedings());
         checkReference(this.getListReference());
+        checkReferenceFlow(this.getListReferenceFlow());
         checkScenario(this.getListScenario());
         checkSchool(this.getListSchool());
+        checkScopusAffiliation(this.getListScopusAffiliation());
+        checkScopusCity(this.getListScopusCity());
+        checkScopusCountry(this.getListScopusCountry());
         checkSimilarity(this.getListSimilarity());
+        checkSourceGroup(this.getListSourceGroup());
         checkUncategorizedReference(this.getListUncategorizedReference());
+        checkWorkAffiliation(this.getListWorkAffiliation());
     }
 
 /**
@@ -4258,6 +4960,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<ReferenceFlow> dataset list of all items of type ReferenceFlow
+*/
+
+    public void checkReferenceFlow(List<ReferenceFlow> list){
+        for(ReferenceFlow a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<Scenario> dataset list of all items of type Scenario
 */
 
@@ -4280,6 +4993,39 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<ScopusAffiliation> dataset list of all items of type ScopusAffiliation
+*/
+
+    public void checkScopusAffiliation(List<ScopusAffiliation> list){
+        for(ScopusAffiliation a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<ScopusCity> dataset list of all items of type ScopusCity
+*/
+
+    public void checkScopusCity(List<ScopusCity> list){
+        for(ScopusCity a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<ScopusCountry> dataset list of all items of type ScopusCountry
+*/
+
+    public void checkScopusCountry(List<ScopusCountry> list){
+        for(ScopusCountry a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<Similarity> dataset list of all items of type Similarity
 */
 
@@ -4291,11 +5037,33 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<SourceGroup> dataset list of all items of type SourceGroup
+*/
+
+    public void checkSourceGroup(List<SourceGroup> list){
+        for(SourceGroup a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<UncategorizedReference> dataset list of all items of type UncategorizedReference
 */
 
     public void checkUncategorizedReference(List<UncategorizedReference> list){
         for(UncategorizedReference a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<WorkAffiliation> dataset list of all items of type WorkAffiliation
+*/
+
+    public void checkWorkAffiliation(List<WorkAffiliation> list){
+        for(WorkAffiliation a:list){
             a.check();
         }
     }
@@ -4327,10 +5095,16 @@ public int compareTo(ApplicationDataset ds2){
         PhDThesis.dummy(this);
         Proceedings.dummy(this);
         Reference.dummy(this);
+        ReferenceFlow.dummy(this);
         Scenario.dummy(this);
         School.dummy(this);
+        ScopusAffiliation.dummy(this);
+        ScopusCity.dummy(this);
+        ScopusCountry.dummy(this);
         Similarity.dummy(this);
+        SourceGroup.dummy(this);
         UncategorizedReference.dummy(this);
+        WorkAffiliation.dummy(this);
    }
 
 /**

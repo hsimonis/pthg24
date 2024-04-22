@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 11:56:49 on 2024-04-18 */
+ * Generated at 16:41:52 on 2024-04-22 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -39,6 +39,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
@@ -52,6 +53,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
@@ -65,6 +67,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
@@ -78,6 +81,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
@@ -91,6 +95,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
@@ -104,6 +109,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
@@ -117,6 +123,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
@@ -190,6 +197,22 @@ public class BarChartController extends ChartController {
 		attributeNames.add("crossrefReferences");
 		attributeNames.add("crossrefCitations");
 		choicesMap.put("MissingCross", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nrWorks");
+		choicesMap.put("SourceGroup", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("value");
+		attributeNames.add("normalized");
+		choicesMap.put("ReferenceFlow", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("workCount");
+		choicesMap.put("ScopusAffiliation", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("workCount");
+		choicesMap.put("ScopusCity", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("workCount");
+		choicesMap.put("ScopusCountry", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
@@ -301,6 +324,24 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("MissingCross")) {
 				objectList = mainApp.getMissingCrossData();
+			}
+			else if (className.equals("SourceGroup")) {
+				objectList = mainApp.getSourceGroupData();
+			}
+			else if (className.equals("ReferenceFlow")) {
+				objectList = mainApp.getReferenceFlowData();
+			}
+			else if (className.equals("ScopusAffiliation")) {
+				objectList = mainApp.getScopusAffiliationData();
+			}
+			else if (className.equals("WorkAffiliation")) {
+				objectList = mainApp.getWorkAffiliationData();
+			}
+			else if (className.equals("ScopusCity")) {
+				objectList = mainApp.getScopusCityData();
+			}
+			else if (className.equals("ScopusCountry")) {
+				objectList = mainApp.getScopusCountryData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

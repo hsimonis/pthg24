@@ -48,15 +48,21 @@ import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 import org.insightcentre.pthg24.datamodel.Reference;
+import org.insightcentre.pthg24.datamodel.ReferenceFlow;
 import org.insightcentre.pthg24.datamodel.Scenario;
 import org.insightcentre.pthg24.datamodel.School;
+import org.insightcentre.pthg24.datamodel.ScopusAffiliation;
+import org.insightcentre.pthg24.datamodel.ScopusCity;
+import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Similarity;
+import org.insightcentre.pthg24.datamodel.SourceGroup;
 import org.insightcentre.pthg24.datamodel.UncategorizedReference;
 import org.insightcentre.pthg24.datamodel.Work;
+import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 11:56:49 on 2024-04-18 */
+ * Generated at 16:41:52 on 2024-04-22 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -132,6 +138,18 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<MissingCross> missingCrossData = FXCollections.observableArrayList();
 
+	private ObservableList<SourceGroup> sourceGroupData = FXCollections.observableArrayList();
+
+	private ObservableList<ReferenceFlow> referenceFlowData = FXCollections.observableArrayList();
+
+	private ObservableList<ScopusAffiliation> scopusAffiliationData = FXCollections.observableArrayList();
+
+	private ObservableList<WorkAffiliation> workAffiliationData = FXCollections.observableArrayList();
+
+	private ObservableList<ScopusCity> scopusCityData = FXCollections.observableArrayList();
+
+	private ObservableList<ScopusCountry> scopusCountryData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
 		fs = minimalDataset();
@@ -165,6 +183,12 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("UncategorizedReference", "UncategorizedReference");
 		tableViews.put("DoiReference", "DoiReference");
 		tableViews.put("MissingCross", "MissingCross");
+		tableViews.put("SourceGroup", "SourceGroup");
+		tableViews.put("ReferenceFlow", "ReferenceFlow");
+		tableViews.put("ScopusAffiliation", "ScopusAffiliation");
+		tableViews.put("WorkAffiliation", "WorkAffiliation");
+		tableViews.put("ScopusCity", "ScopusCity");
+		tableViews.put("ScopusCountry", "ScopusCountry");
 		tableViews.put("Scenario", "Scenario");
 		tableViews.put("Scenario Differences", "ApplicationDifference");
 		tableViews.put("Warnings", "ApplicationWarning");
@@ -301,6 +325,18 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		doiReferenceData.addAll(base.getListDoiReference());
 		missingCrossData.clear();
 		missingCrossData.addAll(base.getListMissingCross());
+		sourceGroupData.clear();
+		sourceGroupData.addAll(base.getListSourceGroup());
+		referenceFlowData.clear();
+		referenceFlowData.addAll(base.getListReferenceFlow());
+		scopusAffiliationData.clear();
+		scopusAffiliationData.addAll(base.getListScopusAffiliation());
+		workAffiliationData.clear();
+		workAffiliationData.addAll(base.getListWorkAffiliation());
+		scopusCityData.clear();
+		scopusCityData.addAll(base.getListScopusCity());
+		scopusCountryData.clear();
+		scopusCountryData.addAll(base.getListScopusCountry());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -432,5 +468,29 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<MissingCross> getMissingCrossData() {
 		return missingCrossData;
+	}
+
+	public ObservableList<SourceGroup> getSourceGroupData() {
+		return sourceGroupData;
+	}
+
+	public ObservableList<ReferenceFlow> getReferenceFlowData() {
+		return referenceFlowData;
+	}
+
+	public ObservableList<ScopusAffiliation> getScopusAffiliationData() {
+		return scopusAffiliationData;
+	}
+
+	public ObservableList<WorkAffiliation> getWorkAffiliationData() {
+		return workAffiliationData;
+	}
+
+	public ObservableList<ScopusCity> getScopusCityData() {
+		return scopusCityData;
+	}
+
+	public ObservableList<ScopusCountry> getScopusCountryData() {
+		return scopusCountryData;
 	}
 }

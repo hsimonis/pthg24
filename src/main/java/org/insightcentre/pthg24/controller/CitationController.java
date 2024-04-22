@@ -20,7 +20,7 @@ import org.insightcentre.pthg24.datamodel.Citation;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 11:56:49 on 2024-04-18 */
+ * Generated at 16:41:52 on 2024-04-22 */
 public class CitationController extends Table3Controller {
 	@FXML
 	private TableView<Citation> table;
