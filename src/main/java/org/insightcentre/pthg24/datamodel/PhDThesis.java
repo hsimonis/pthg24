@@ -40,6 +40,7 @@ import org.insightcentre.pthg24.datamodel.ScopusAffiliation;
 import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
+import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -116,8 +117,10 @@ public  class PhDThesis extends Work{
             Boolean doiStatus,
             String key,
             String localCopy,
+            Integer maxCitations,
             Integer nrCitations,
             Integer nrCitationsCovered,
+            Integer nrConcepts,
             Integer nrLinks,
             Integer nrPages,
             Integer nrReferences,
@@ -125,6 +128,7 @@ public  class PhDThesis extends Work{
             String pages,
             Double percentCitationsCovered,
             Double percentReferencesCovered,
+            Integer rangeCitations,
             String relatedTo,
             Integer scopusCitations,
             Boolean scopusStatus,
@@ -152,8 +156,10 @@ public  class PhDThesis extends Work{
             doiStatus,
             key,
             localCopy,
+            maxCitations,
             nrCitations,
             nrCitationsCovered,
+            nrConcepts,
             nrLinks,
             nrPages,
             nrReferences,
@@ -161,6 +167,7 @@ public  class PhDThesis extends Work{
             pages,
             percentCitationsCovered,
             percentReferencesCovered,
+            rangeCitations,
             relatedTo,
             scopusCitations,
             scopusStatus,
@@ -192,8 +199,10 @@ public  class PhDThesis extends Work{
             other.doiStatus,
             other.key,
             other.localCopy,
+            other.maxCitations,
             other.nrCitations,
             other.nrCitationsCovered,
+            other.nrConcepts,
             other.nrLinks,
             other.nrPages,
             other.nrReferences,
@@ -201,6 +210,7 @@ public  class PhDThesis extends Work{
             other.pages,
             other.percentCitationsCovered,
             other.percentReferencesCovered,
+            other.rangeCitations,
             other.relatedTo,
             other.scopusCitations,
             other.scopusStatus,
@@ -273,7 +283,7 @@ public  class PhDThesis extends Work{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRelatedTo()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getYear()+ " " +getSchool().toColumnString();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getKey()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getYear()+ " " +getSchool().toColumnString();
     }
 
 /**
@@ -312,8 +322,10 @@ public  class PhDThesis extends Work{
             " doiStatus=\""+toXMLDoiStatus()+"\""+
             " key=\""+toXMLKey()+"\""+
             " localCopy=\""+toXMLLocalCopy()+"\""+
+            " maxCitations=\""+toXMLMaxCitations()+"\""+
             " nrCitations=\""+toXMLNrCitations()+"\""+
             " nrCitationsCovered=\""+toXMLNrCitationsCovered()+"\""+
+            " nrConcepts=\""+toXMLNrConcepts()+"\""+
             " nrLinks=\""+toXMLNrLinks()+"\""+
             " nrPages=\""+toXMLNrPages()+"\""+
             " nrReferences=\""+toXMLNrReferences()+"\""+
@@ -321,6 +333,7 @@ public  class PhDThesis extends Work{
             " pages=\""+toXMLPages()+"\""+
             " percentCitationsCovered=\""+toXMLPercentCitationsCovered()+"\""+
             " percentReferencesCovered=\""+toXMLPercentReferencesCovered()+"\""+
+            " rangeCitations=\""+toXMLRangeCitations()+"\""+
             " relatedTo=\""+toXMLRelatedTo()+"\""+
             " scopusCitations=\""+toXMLScopusCitations()+"\""+
             " scopusStatus=\""+toXMLScopusStatus()+"\""+
@@ -349,11 +362,11 @@ public  class PhDThesis extends Work{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>PhDThesis</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>NrLinks</th>"+"<th>Background</th>"+"<th>SourceGroup</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>RelatedTo</th>"+"<th>NrCitations</th>"+"<th>NrReferences</th>"+"<th>CrossrefCitations</th>"+"<th>CrossrefReferences</th>"+"<th>ScopusCitations</th>"+"<th>NrCitationsCovered</th>"+"<th>NrReferencesCovered</th>"+"<th>PercentCitationsCovered</th>"+"<th>PercentReferencesCovered</th>"+"<th>DoiStatus</th>"+"<th>CrossrefStatus</th>"+"<th>ScopusStatus</th>"+"<th>School</th>"+"</tr>";
+        return "<tr><th>PhDThesis</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>NrLinks</th>"+"<th>Background</th>"+"<th>SourceGroup</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>RelatedTo</th>"+"<th>NrConcepts</th>"+"<th>NrCitations</th>"+"<th>NrReferences</th>"+"<th>CrossrefCitations</th>"+"<th>CrossrefReferences</th>"+"<th>ScopusCitations</th>"+"<th>NrCitationsCovered</th>"+"<th>NrReferencesCovered</th>"+"<th>PercentCitationsCovered</th>"+"<th>PercentReferencesCovered</th>"+"<th>MaxCitations</th>"+"<th>RangeCitations</th>"+"<th>DoiStatus</th>"+"<th>CrossrefStatus</th>"+"<th>ScopusStatus</th>"+"<th>School</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getBackground()+"</td>"+ " " +"<td>"+getSourceGroup().toColumnString()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getRelatedTo()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getScopusCitations()+"</td>"+ " " +"<td>"+getNrCitationsCovered()+"</td>"+ " " +"<td>"+getNrReferencesCovered()+"</td>"+ " " +"<td>"+getPercentCitationsCovered()+"</td>"+ " " +"<td>"+getPercentReferencesCovered()+"</td>"+ " " +"<td>"+getDoiStatus()+"</td>"+ " " +"<td>"+getCrossrefStatus()+"</td>"+ " " +"<td>"+getScopusStatus()+"</td>"+ " " +"<td>"+getSchool().toColumnString()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getBackground()+"</td>"+ " " +"<td>"+getSourceGroup().toColumnString()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getRelatedTo()+"</td>"+ " " +"<td>"+getNrConcepts()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getScopusCitations()+"</td>"+ " " +"<td>"+getNrCitationsCovered()+"</td>"+ " " +"<td>"+getNrReferencesCovered()+"</td>"+ " " +"<td>"+getPercentCitationsCovered()+"</td>"+ " " +"<td>"+getPercentReferencesCovered()+"</td>"+ " " +"<td>"+getMaxCitations()+"</td>"+ " " +"<td>"+getRangeCitations()+"</td>"+ " " +"<td>"+getDoiStatus()+"</td>"+ " " +"<td>"+getCrossrefStatus()+"</td>"+ " " +"<td>"+getScopusStatus()+"</td>"+ " " +"<td>"+getSchool().toColumnString()+"</td>"+"</tr>";
     }
 
 /**
@@ -514,6 +527,9 @@ public  class PhDThesis extends Work{
       if(!this.getLocalCopy().equals(b.getLocalCopy())){
          System.out.println("LocalCopy");
         }
+      if(!this.getMaxCitations().equals(b.getMaxCitations())){
+         System.out.println("MaxCitations");
+        }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
@@ -522,6 +538,9 @@ public  class PhDThesis extends Work{
         }
       if(!this.getNrCitationsCovered().equals(b.getNrCitationsCovered())){
          System.out.println("NrCitationsCovered");
+        }
+      if(!this.getNrConcepts().equals(b.getNrConcepts())){
+         System.out.println("NrConcepts");
         }
       if(!this.getNrLinks().equals(b.getNrLinks())){
          System.out.println("NrLinks");
@@ -543,6 +562,9 @@ public  class PhDThesis extends Work{
         }
       if(!this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered())){
          System.out.println("PercentReferencesCovered");
+        }
+      if(!this.getRangeCitations().equals(b.getRangeCitations())){
+         System.out.println("RangeCitations");
         }
       if(!this.getRelatedTo().equals(b.getRelatedTo())){
          System.out.println("RelatedTo");
@@ -586,9 +608,11 @@ public  class PhDThesis extends Work{
           this.getDoiStatus().equals(b.getDoiStatus()) &&
           this.getKey().equals(b.getKey()) &&
           this.getLocalCopy().equals(b.getLocalCopy()) &&
+          this.getMaxCitations().equals(b.getMaxCitations()) &&
           this.getName().equals(b.getName()) &&
           this.getNrCitations().equals(b.getNrCitations()) &&
           this.getNrCitationsCovered().equals(b.getNrCitationsCovered()) &&
+          this.getNrConcepts().equals(b.getNrConcepts()) &&
           this.getNrLinks().equals(b.getNrLinks()) &&
           this.getNrPages().equals(b.getNrPages()) &&
           this.getNrReferences().equals(b.getNrReferences()) &&
@@ -596,6 +620,7 @@ public  class PhDThesis extends Work{
           this.getPages().equals(b.getPages()) &&
           this.getPercentCitationsCovered().equals(b.getPercentCitationsCovered()) &&
           this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered()) &&
+          this.getRangeCitations().equals(b.getRangeCitations()) &&
           this.getRelatedTo().equals(b.getRelatedTo()) &&
           this.getSchool().applicationSame(b.getSchool()) &&
           this.getScopusCitations().equals(b.getScopusCitations()) &&

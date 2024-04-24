@@ -86,35 +86,39 @@ public class ImportOpenReferences {
     }
 
     private void interpret(Work w,String body){
-        JSONArray arr = new JSONArray(body);
-        int covered = 0;
-        for(int i=0;i<arr.length();i++){
-            JSONObject obj = arr.getJSONObject(i);
-            String citing = obj.getString("citing").toLowerCase();
-            String cited = obj.getString("cited").toLowerCase();
-            String oci = obj.getString("oci");
-            String creation = obj.getString("creation");
-            String timespan = obj.getString("timespan");
-            String author_sc = obj.getString("author_sc");
-            String journal_sc = obj.getString("journal_sc");
-            Reference r = new Reference(base);
-            r.setName(oci);
-            r.setOci(oci);
-            r.setCitingWork(w);
-            r.setCitedWork(workLookup(cited));
-            if (r.getCitedWork() != null){
-                covered++;
+        if (body.startsWith("HTTP status code")){
+            severe("Problem with Citation "+w.getKey());
+        } else {
+            JSONArray arr = new JSONArray(body);
+            int covered = 0;
+            for (int i = 0; i < arr.length(); i++) {
+                JSONObject obj = arr.getJSONObject(i);
+                String citing = obj.getString("citing").toLowerCase();
+                String cited = obj.getString("cited").toLowerCase();
+                String oci = obj.getString("oci");
+                String creation = obj.getString("creation");
+                String timespan = obj.getString("timespan");
+                String author_sc = obj.getString("author_sc");
+                String journal_sc = obj.getString("journal_sc");
+                Reference r = new Reference(base);
+                r.setName(oci);
+                r.setOci(oci);
+                r.setCitingWork(w);
+                r.setCitedWork(workLookup(cited));
+                if (r.getCitedWork() != null) {
+                    covered++;
+                }
+                r.setCited(cited);
+                r.setCiting(citing);
+                r.setCreation(creation);
+                r.setTimespan(timespan);
+                r.setAuthorSC(author_sc);
+                r.setJournalSC(journal_sc);
             }
-            r.setCited(cited);
-            r.setCiting(citing);
-            r.setCreation(creation);
-            r.setTimespan(timespan);
-            r.setAuthorSC(author_sc);
-            r.setJournalSC(journal_sc);
+            w.setNrReferences(arr.length());
+            w.setNrReferencesCovered(covered);
+            w.setPercentReferencesCovered(100.0 * covered / arr.length());
         }
-        w.setNrReferences(arr.length());
-        w.setNrReferencesCovered(covered);
-        w.setPercentReferencesCovered(100.0*covered/arr.length());
     }
 
     private boolean exists(String fileName){

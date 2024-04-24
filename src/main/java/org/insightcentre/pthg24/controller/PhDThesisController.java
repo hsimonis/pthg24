@@ -31,7 +31,7 @@ import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 16:41:52 on 2024-04-22 */
+ * Generated at 12:30:10 on 2024-04-24 */
 public class PhDThesisController extends Table3Controller {
 	@FXML
 	private TableView<PhDThesis> table;
@@ -100,6 +100,9 @@ public class PhDThesisController extends Table3Controller {
 	private TableColumn<PhDThesis, String> relatedTo;
 
 	@FXML
+	private TableColumn<PhDThesis, Integer> nrConcepts;
+
+	@FXML
 	private TableColumn<PhDThesis, Integer> nrCitations;
 
 	@FXML
@@ -125,6 +128,12 @@ public class PhDThesisController extends Table3Controller {
 
 	@FXML
 	private TableColumn<PhDThesis, Double> percentReferencesCovered;
+
+	@FXML
+	private TableColumn<PhDThesis, Integer> maxCitations;
+
+	@FXML
+	private TableColumn<PhDThesis, Integer> rangeCitations;
 
 	@FXML
 	private TableColumn<PhDThesis, Boolean> doiStatus;
@@ -238,6 +247,10 @@ public class PhDThesisController extends Table3Controller {
 		relatedTo.setCellValueFactory(new PropertyValueFactory<>("relatedTo"));
 		relatedTo.setCellFactory(TextFieldTableCell.forTableColumn());
 		relatedTo.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRelatedTo(event.getNewValue()); mainApp.reset();});
+		choices.add("nrConcepts");
+		nrConcepts.setCellValueFactory(new PropertyValueFactory<>("nrConcepts"));
+		nrConcepts.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrConcepts.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrConcepts(event.getNewValue()); mainApp.reset();});
 		choices.add("nrCitations");
 		nrCitations.setCellValueFactory(new PropertyValueFactory<>("nrCitations"));
 		nrCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
@@ -274,6 +287,14 @@ public class PhDThesisController extends Table3Controller {
 		percentReferencesCovered.setCellValueFactory(new PropertyValueFactory<>("percentReferencesCovered"));
 		percentReferencesCovered.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
 		percentReferencesCovered.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPercentReferencesCovered(event.getNewValue()); mainApp.reset();});
+		choices.add("maxCitations");
+		maxCitations.setCellValueFactory(new PropertyValueFactory<>("maxCitations"));
+		maxCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		maxCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setMaxCitations(event.getNewValue()); mainApp.reset();});
+		choices.add("rangeCitations");
+		rangeCitations.setCellValueFactory(new PropertyValueFactory<>("rangeCitations"));
+		rangeCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		rangeCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRangeCitations(event.getNewValue()); mainApp.reset();});
 		choices.add("doiStatus");
 		doiStatus.setCellValueFactory(new DoiStatusCallback());
 		doiStatus.setCellFactory(CheckBoxTableCell.forTableColumn(doiStatus));

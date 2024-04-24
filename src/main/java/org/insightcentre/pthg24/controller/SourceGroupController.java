@@ -19,7 +19,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 16:41:52 on 2024-04-22 */
+ * Generated at 12:30:10 on 2024-04-24 */
 public class SourceGroupController extends Table3Controller {
 	@FXML
 	private TableView<SourceGroup> table;
@@ -29,6 +29,12 @@ public class SourceGroupController extends Table3Controller {
 
 	@FXML
 	private TableColumn<SourceGroup, Integer> nrWorks;
+
+	@FXML
+	private TableColumn<SourceGroup, Integer> fromFlows;
+
+	@FXML
+	private TableColumn<SourceGroup, Integer> toFlows;
 
 	private GeneratedJfxApp mainApp;
 
@@ -55,6 +61,14 @@ public class SourceGroupController extends Table3Controller {
 		nrWorks.setCellValueFactory(new PropertyValueFactory<>("nrWorks"));
 		nrWorks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		nrWorks.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrWorks(event.getNewValue()); mainApp.reset();});
+		choices.add("fromFlows");
+		fromFlows.setCellValueFactory(new PropertyValueFactory<>("fromFlows"));
+		fromFlows.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		fromFlows.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setFromFlows(event.getNewValue()); mainApp.reset();});
+		choices.add("toFlows");
+		toFlows.setCellValueFactory(new PropertyValueFactory<>("toFlows"));
+		toFlows.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		toFlows.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setToFlows(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

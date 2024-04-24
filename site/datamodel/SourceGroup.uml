@@ -1,3 +1,5 @@
  class SourceGroup {
+Integer fromFlows
 Integer nrWorks
+Integer toFlows
 }

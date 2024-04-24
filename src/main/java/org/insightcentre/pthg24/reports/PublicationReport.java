@@ -9,6 +9,9 @@ import framework.reports.visualization.plot.distributionplot.DistributionPlotOrd
 import framework.reports.visualization.plot.lineplot.LinePlot;
 import framework.reports.visualization.plot.lineplot.LinePlotFunctions;
 import framework.reports.visualization.plot.scatterplot.ScatterPlot;
+import framework.reports.visualization.tabular.TableStyle;
+import framework.reports.visualization.tabular.matrix.MatrixDraw;
+import framework.reports.visualization.tabular.matrix.MatrixFunctions;
 import framework.reports.visualization.tabular.table.TableDraw;
 import org.insightcentre.pthg24.datamodel.*;
 
@@ -19,8 +22,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import static framework.reports.visualization.heatmap.ColorScheme.defineColors;
+import static framework.reports.visualization.plot.distributionplot.DistributionPlotOrdering.NR;
 import static java.util.stream.Collectors.groupingBy;
-import static org.insightcentre.pthg24.logging.LogShortcut.info;
 
 public class PublicationReport extends AbstractReport{
     public PublicationReport(Scenario base, String reportDir){
@@ -34,24 +37,12 @@ public class PublicationReport extends AbstractReport{
         dataQuality();
 
         section("Works by Location");
-        byCountry();
-        byInst();
+
+        location();
 
         section("Collaborations");
-        Map<Work,List<WorkAffiliation>> map = base.getListWorkAffiliation().stream().
-                filter(x->!x.getWork().getBackground()).
-                collect(groupingBy(WorkAffiliation::getWork));
-        List<Work> affWorks = new ArrayList<>(map.keySet());
-//        List<Work> affWorks = base.getListWorkAffiliation().stream().
-//                filter(x->!x.getWork().getBackground()).
-//                map(WorkAffiliation::getWork).
-//                distinct().
-//                toList();
-        new DistributionPlot<>(affWorks,x->nrOfAffiliations(x,map)).
-                title("Works with given Number of Affiliations (Total "+affWorks.size()+" Works)").
-                xlabel("Nr Affiliations").ylabel("Nr Works").
-                width(25).height(15).
-                generate().latex(tex);
+
+        collaborations();
 
 
         section("Conference Papers by Most Common Conference Series");
@@ -131,7 +122,7 @@ public class PublicationReport extends AbstractReport{
                 "calculated when both works have a local copy, from which we extract the features. If either " +
                 "work does not have a local copy, the similarity is set to be NaN.");
         new DistributionPlot<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarityConcept())).toList(),this::similarConcept).
-                ordering(DistributionPlotOrdering.NR).
+                ordering(NR).
                 title("Distribution Plot of Similarity Values by Concept (Low value is similar)").
                 xlabel("Similarity Value").ylabel("Count").
                 width(25).height(15).
@@ -150,7 +141,7 @@ public class PublicationReport extends AbstractReport{
                     filter(x -> !x.getLocalCopy().equals("")).
                     filter(x -> !x.getBackground()).
                     toList(),x->featureCount(x,type)).
-                    ordering(DistributionPlotOrdering.NR).
+                    ordering(NR).
                     title("Feature Count for Type "+safe(type.toString()+" with a total of "+d+" features")).
                     xlabel("Nr of Extracted Features").ylabel("Nr Works").
                     width(25).height(15).
@@ -176,10 +167,21 @@ public class PublicationReport extends AbstractReport{
         tex.printf("\\end{figure}\n\n");
 
         clearpage();
-        section("OpenCitations vs. Crossref Data");
+        section("OpenCitations vs. Crossref Data vs. Scopus Data");
+        subsection("Citation Comparison");
         new ScatterPlot<>(base.getListWork(), Work::getNrCitations, Work::getCrossrefCitations, Work::getNrReferences).
-                title("Comparing Citation Counts").
+                title("Comparing Citation Counts (Open Citations vs. Crossref)").
                 xlabel("OpenCitation Citations").ylabel("Crossref Citations (Colored by OpenCitation References)").
+                width(22).height(15).
+                generate().latex(tex);
+        new ScatterPlot<>(base.getListWork(), Work::getNrCitations, Work::getScopusCitations, Work::getNrReferences).
+                title("Comparing Citation Counts (Open Citations vs. Scopus)").
+                xlabel("OpenCitation Citations").ylabel("Scopus Citations (Colored by OpenCitation References)").
+                width(22).height(15).
+                generate().latex(tex);
+        new ScatterPlot<>(base.getListWork(), Work::getCrossrefCitations, Work::getScopusCitations, Work::getNrReferences).
+                title("Comparing Citation Counts (Crossref vs. Scopus)").
+                xlabel("Crossref Citations").ylabel("Scopus Citations (Colored by OpenCitation References)").
                 width(22).height(15).
                 generate().latex(tex);
         new ScatterPlot<>(base.getListWork(), Work::getNrCitations, Work::getCrossrefCitations, Work::getNrReferences).
@@ -189,6 +191,21 @@ public class PublicationReport extends AbstractReport{
                 xlabel("OpenCitation Citations").ylabel("Crossref Citations").
                 width(22).height(15).
                 generate().latex(tex);
+        new ScatterPlot<>(base.getListWork(), Work::getNrCitations, Work::getScopusCitations, Work::getNrReferences).
+                xrange(0.0,300.0).
+                yrange(0.0,300.0).
+                title("Comparing Citation Counts (Clipped to 300, Colored by OpenCitation References)").
+                xlabel("OpenCitation Citations").ylabel("Scopus Citations").
+                width(22).height(15).
+                generate().latex(tex);
+        new ScatterPlot<>(base.getListWork(), Work::getCrossrefCitations, Work::getScopusCitations, Work::getNrReferences).
+                xrange(0.0,300.0).
+                yrange(0.0,300.0).
+                title("Comparing Citation Counts (Clipped to 300, Colored by OpenCitation References)").
+                xlabel("Crossref Citations").ylabel("Scopus Citations").
+                width(22).height(15).
+                generate().latex(tex);
+        subsection("References Comparison");
         new ScatterPlot<>(base.getListWork(), Work::getNrReferences, Work::getCrossrefReferences, Work::getNrCitations).
                 xrange(0.0,300.0).
                 yrange(0.0,300.0).
@@ -197,12 +214,13 @@ public class PublicationReport extends AbstractReport{
                 width(22).height(15).
                 generate().latex(tex);
 
+        subsection("Percentage Cover");
         new DistributionPlot<>(base.getListWork().stream().
                 filter(x->!x.getBackground()).
                 filter(x->!Double.isNaN(x.getPercentReferencesCovered())).
                 toList(),
                 this::referenceCoverage).
-                ordering(DistributionPlotOrdering.NR).
+                ordering(NR).
                 title("Percentage of OpenCitation References Covered by Survey (Excludes Background Works)").
                 xlabel("PercentageBand").ylabel("Nr Works").
                 width(25).height(15).
@@ -212,7 +230,7 @@ public class PublicationReport extends AbstractReport{
                 filter(x->!Double.isNaN(x.getPercentCitationsCovered())).
                 toList(),
                 this::citationCoverage).
-                ordering(DistributionPlotOrdering.NR).
+                ordering(NR).
                 title("Percentage of OpenCitation Citations Covered by Survey (Excludes Background Works)").
                 xlabel("PercentageBand").ylabel("Nr Works").
                 width(25).height(15).
@@ -220,26 +238,13 @@ public class PublicationReport extends AbstractReport{
 
 
         new DistributionPlot<>(base.getListMissingWork(), MissingWork::getNrLinks).
-                ordering(DistributionPlotOrdering.NR).
+                ordering(NR).
                 title("Missing Work Links with Survey").
                 xlabel("Links").ylabel("Nr Missing Works").
                 width(25).height(15).
                 generate().latex(tex);
 
-        clearpage();
-        section("Citations by Year and Source Group");
-
-        for(SourceGroup sg:base.getListSourceGroup().stream().filter(x->!x.getName().equals("Background")).toList()){
-            List<Work> works = base.getListWork().stream().filter(x->x.getSourceGroup()==sg).toList();
-            if (works.size() > 1) {
-                new ScatterPlot<>(works,
-                        Work::getYear, Work::getNrCitations, Work::getNrReferences).
-                        title("Nr Citations of Works per Year for Source Group " + safe(sg.getName()) + " colored by Nr References").
-                        xlabel("Year").ylabel("Citations").
-                        width(25).height(15).
-                        generate().latex(tex);
-            }
-        }
+        sourceGroups();
     }
 
     private Integer nrOfAffiliations(Work w,Map<Work,List<WorkAffiliation>> map){
@@ -395,7 +400,7 @@ public class PublicationReport extends AbstractReport{
 
     private void coAuthorDistributionPlot(List<Work> works){
         new DistributionPlot<>(works,x->x.getAuthors().size()).
-                ordering(DistributionPlotOrdering.NR).
+                ordering(NR).
                 width(20).height(10).
                 title("Number of Co-Authors per Work").
                 xlabel("Nr Co-Authors").ylabel("Count").
@@ -403,7 +408,7 @@ public class PublicationReport extends AbstractReport{
     }
     private void workDistributionPlot(List<Author> authors){
         new DistributionPlot<>(authors, Author::getNrWorks).
-                ordering(DistributionPlotOrdering.NR).
+                ordering(NR).
                 width(20).height(10).
                 title("Number of Works per Co-Author").
                 xlabel("Nr Works").ylabel("Co-Author Count").
@@ -434,6 +439,23 @@ public class PublicationReport extends AbstractReport{
 
 
     private void dataQuality() {
+
+        paragraph("This section gives an overall overview of the works covered by the survey. We first look at " +
+                "all works, and consider which entries cannot be full analyzed. We consider the following status " +
+                "outcomes: no DOI, the bib entry does not give a DOI, this typically means that we cannot find the " +
+                "citation and reference counts for the work. A special case is the Thesis type, which do not have a " +
+                "DOI assigned by the university. Even entries with a DOI may not be covered, we distinguish entries " +
+                "that are covered by neither Crossref nor Scopus, or entries which are covered by one, but not " +
+                "the other. THE OK status indicates that we can find the entry in all our sources.");
+        paragraph("Note that OpenCitations does not distinguish between a DOI that is not covered, and a DOI for " +
+                "which there are no references or citations. In both cases, an empty list is returned by the query.");
+        paragraph("We may be able to repair some of the entries by finding a DOI for entries which miss them, " +
+                "or by correcting a mistake in a DOI, where neither Crossref nor Scopus recognizes the entry. Not " +
+                "that the system responses are cached, and missing entries are not repeatedly queried by the system. " +
+                "This means that additions or corrections in the databases that occur after we first queried them for " +
+                "a specific entry are not automatically taken into account. It may be good practice to re-run all " +
+                "queries from time to time to reflect updates in the databases.");
+
         int d = base.getListWork().size();
         new DistributionPlot<>(base.getListWork().stream().filter(x -> !x.getBackground()).toList(), this::workStatus).
                 title("Data Quality (Total " + d + " Works)").
@@ -443,21 +465,82 @@ public class PublicationReport extends AbstractReport{
 
         List<Work> neither = base.getListWork().stream().
                 filter(x -> x.getDoiStatus() && !x.getCrossrefStatus() && !x.getScopusStatus()).
+                sorted(Comparator.comparing(Work::getYear).reversed()).
                 toList();
 
         listWorks("Works Unknown to Crossref and Scopus", neither);
 
         List<Work> noCrossref = base.getListWork().stream().
                 filter(x -> x.getDoiStatus() && !x.getCrossrefStatus() && x.getScopusStatus()).
+                sorted(Comparator.comparing(Work::getYear).reversed()).
                 toList();
         listWorks("Works Unknown to Crossref", noCrossref);
 
         List<Work> noScopus = base.getListWork().stream().
                 filter(x -> x.getDoiStatus() && x.getCrossrefStatus() && !x.getScopusStatus()).
 //                limit(20).
+                sorted(Comparator.comparing(Work::getYear).reversed()).
                 toList();
         listWorks("Works Unknown to Scopus", noScopus);
 
+        subsection("Range of Citation Counts");
+
+        paragraph("We get citation counts for the works included in the survey from different sources. " +
+                "OpenCitations provides the set of papers citing a reference, but only if both have DOIs. " +
+                "Crossref gives a count of how many papers cite a reference, they include some papers without DOI. " +
+                "Scopus gives a citation count, but does not give access to the actual citations. In this table we " +
+                "show the works with the largest range of citation count, excluding all background works. A typical " +
+                "issue is that one source does not cover the work, and has a zero count. An alternative is where " +
+                "papers with many citations give a slightly different count depending on which links are included in " +
+                "their database.");
+        paragraph("The results seem to indicate the using multiple sources is required, to avoid leaving out " +
+                "works that are not covered by one specific source.");
+
+        List<Work> maxRangeList = base.getListWork().stream().
+                filter(x->!x.getBackground()).
+                sorted(Comparator.comparing(Work::getRangeCitations).reversed()).
+                limit(50).
+                toList();
+        listWorks("Works with largest Range of Citation Counts",maxRangeList);
+
+        subsection("Local Copies");
+
+        paragraph("The tool relies on local pdf copies of works to perform a detailed analysis of the content " +
+                "of the work. We have collected our own private copies of works for that purpose. The following plot " +
+                "shows how many entries do not have a local copy, or which do not extract any concepts from the local " +
+                "copy. A detailed list of all missing entries is given in " +
+                "the main report. Note that in some cases we use an open access version of the work, which might " +
+                "differ slightly from the published version. ");
+
+        new DistributionPlot<>(base.getListWork(),this::hasLocalCopy).
+                title("Work has Local Copy (Total "+base.getListWork().size()+" Works)").
+                xlabel("Status").ylabel("Nr Works").
+                width(8).height(12).generate().latex(tex);
+
+        subsection("Orphan Files");
+
+        paragraph("The following list shows entries for which we have a pdf file in the works directory, but " +
+                "the name of hte file does not match any key in the bibliography. These orphans should be resolved, " +
+                "either by correcting the name, or adding a bib entry for the work, or by removing the file, " +
+                "if it is not required.");
+        paragraph("If there are no files listed, then all pdf files in the works directory correspond to a " +
+                "bib entry, and no clean-up is required.");
+
+        new TableDraw<>("Orphan Files",base.getListOrphan()).
+                addStringColumn("Key", this::nameOf).
+                addStringColumn("File",x->safe(x.getFileName())).
+                generate().latex(tex);
+
+    }
+
+    private String hasLocalCopy(Work w){
+        if (w.getLocalCopy() != null && !w.getLocalCopy().equals("") && w.getNrConcepts() >0){
+            return "Yes";
+        }
+        if (w.getLocalCopy() != null && !w.getLocalCopy().equals("") && w.getNrConcepts() ==0){
+            return "No Concepts";
+        }
+        return "No";
     }
 
     private void listWorks(String caption,List<Work> list){
@@ -466,9 +549,20 @@ public class PublicationReport extends AbstractReport{
                 addStringColumn("DOI",this::safeDoi).
                 addStringColumn("Source Group",x->nameOf(x.getSourceGroup())).
                 addIntegerColumn("Year",Work::getYear).
+                addIntegerColumn(st("Nr","Citations"),Work::getNrCitations).
+                addIntegerColumn(st("Crossref","Citations"),Work::getCrossrefCitations).
+                addIntegerColumn(st("Scopus","Citations"),Work::getScopusCitations).
+                addIntegerColumn(st("Range","Citations"),Work::getRangeCitations).
+                addDoubleColumn(st("Range","Percentage"),this::rangePercentage,"%5.2f").
+                tableStyle(TableStyle.LONGTABLE).
                 generate().
                 latex(tex);
 
+    }
+
+
+    private double rangePercentage(Work w){
+        return 100.0*w.getRangeCitations()/w.getMaxCitations();
     }
 
     private String safeDoi(Work w){
@@ -476,7 +570,7 @@ public class PublicationReport extends AbstractReport{
     }
     private String workStatus(Work w){
         if (w.getSourceGroup().getName().equals("Thesis") && !w.getDoiStatus()) {
-            return "Thesis";
+            return "Thesis No DOI";
         } else if (!w.getDoiStatus()){
             assert(!w.getCrossrefStatus());
             assert(!w.getScopusStatus());
@@ -492,12 +586,38 @@ public class PublicationReport extends AbstractReport{
         }
     }
 
+    private void location() {
+        paragraph("This section analyzes papers by affiliation, which is given by the Scopus data only. Only works " +
+                "which are covered by Scopus are included. We first present the number of papers by country. A paper " +
+                "is counted in this analysis (once), if at least one of the affiliations is from the country. Multiple " +
+                "affiliations from the same country only count once. The 30 countries with the largest counts are shown.");
+        paragraph("Note that one work will be counted for multiple countries, if the affiliations are from " +
+                "different countries. So the sum of the bar heights typically exceeds the total number of works considered.");
+        byCountry();
+
+        paragraph("The next plot shows the number of papers associated to institutions, as stated in the Scopus " +
+                "affiliation. A work is counted, if at least one of the affiliations is from a given institution. " +
+                "Due to the format of the Scopus data, we cannot fractionally assign a paper based on the author " +
+                "affiliations, each paper is counted one for every institution for which an affiliation is given. If " +
+                "some author has multiple affiliations listed, we (mis)count the work for each of them.");
+        byInst();
+        paragraph("The following plots show for the top 30 countries when the works included were published, " +
+                "and how many citations (OpenCitation count) each paper had. The scatter plots are colored by the " +
+                "number of references (OpenCitation count), this help to identify surveys more easily. " +
+                "The plot gives an indication in which period the work " +
+                "from the country falls, and how influential the published works are. The x and y ranges of all " +
+                "plots are uniform to allow comparison between plots.");
+        paragraph("It would be nice to have tooltips on the plots, so identify specific works in the plots. " +
+                "This is currently not supported by the framework library used.");
+        byCountryYear();
+    }
+
     private void byCountry(){
         int d = (int) base.getListWorkAffiliation().stream().map(WorkAffiliation::getWork).distinct().count();
         new BarPlot<>(base.getListScopusCountry().stream().
-                sorted(Comparator.comparing(ScopusCountry::getWorkCount).reversed()).
+                sorted(Comparator.comparing(ScopusCountry::getNrWorks).reversed()).
                 limit(30).
-                toList(), ApplicationObject::getName, ScopusCountry::getWorkCount).
+                toList(), ApplicationObject::getName, ScopusCountry::getNrWorks).
                 width(25).height(15).
                 title("Countries with Largest Number of Works (Total "+d+" Works)").
                 xlabel("Country").ylabel("Nr Works").
@@ -515,7 +635,124 @@ public class PublicationReport extends AbstractReport{
                 generate().latex(tex);
     }
 
+    private void byCountryYear(){
+        List<Work> allWorks = base.getListWorkAffiliation().stream().
+                map(WorkAffiliation::getWork).
+                distinct().
+                filter(x->!x.getBackground()).
+                toList();
+        int firstYear = allWorks.stream().mapToInt(Work::getYear).min().orElse(0);
+        int lastYear = allWorks.stream().mapToInt(Work::getYear).max().orElse(0);
+        int maxCitations = allWorks.stream().mapToInt(Work::getNrCitations).max().orElse(0);
+
+        List<ScopusCountry> countries = base.getListScopusCountry().stream().
+                filter(x->x.getWorkCount() >= 20).
+                sorted(Comparator.comparing(ScopusCountry::getWorkCount).reversed()).
+                toList();
+        for(ScopusCountry sc:countries){
+            List<Work> works = base.getListWorkAffiliation().stream().
+                    filter(x->x.getScopusAffiliation().getScopusCity().getScopusCountry()==sc).
+                    map(WorkAffiliation::getWork).
+                    distinct().
+                    filter(x->!x.getBackground()).
+                    toList();
+            if (works.size() > 1) {
+                new ScatterPlot<>(works,
+                        Work::getYear, Work::getNrCitations, Work::getNrReferences).
+                        xrange(firstYear,lastYear).
+                        yrange(0,maxCitations).
+                        title("Nr Citations of Works per Year for Country " + safe(sc.getName()) + " colored by Nr References").
+                        xlabel("Year").ylabel("Citations").
+                        width(23).height(15).
+                        generate().latex(tex);
+            }
+        }
+        List<Work> works = base.getListWorkAffiliation().stream().
+                filter(x->!countries.contains(x.getScopusAffiliation().getScopusCity().getScopusCountry())).
+                map(WorkAffiliation::getWork).
+                distinct().
+                filter(x->!x.getBackground()).
+                toList();
+        if (works.size() > 1) {
+            new ScatterPlot<>(works,
+                    Work::getYear, Work::getNrCitations, Work::getNrReferences).
+                    xrange(firstYear,lastYear).
+                    yrange(0,maxCitations).
+                    title("Nr Citations of Works per Year for Other Countries colored by Nr References").
+                    xlabel("Year").ylabel("Citations").
+                    width(25).height(15).
+                    generate().latex(tex);
+        }
+
+
+    }
+
     private String instName(ScopusAffiliation x){
         return safe(x.getInst().replaceAll("\\,",""));
     }
+
+    private void collaborations(){
+        paragraph("This section shows data about collaborations between multiple affiliations for the same work. " +
+                "This is based on Scopus data, which associates the affiliation with the work, not with each author " +
+                "of the work. The analysis excludes background work.");
+        Map<Work,List<WorkAffiliation>> map = base.getListWorkAffiliation().stream().
+                filter(x->!x.getWork().getBackground()).
+                collect(groupingBy(WorkAffiliation::getWork));
+        List<Work> affWorks = new ArrayList<>(map.keySet());
+        new DistributionPlot<>(affWorks,x->nrOfAffiliations(x,map)).
+                ordering(NR).
+                title("Works with given Number of Affiliations (Total "+affWorks.size()+" Works)").
+                xlabel("Nr Affiliations").ylabel("Nr Works").
+                width(25).height(15).
+                generate().latex(tex);
+
+    }
+
+    private void sourceGroups() {
+
+        clearpage();
+        section("Citations by Year and Source Group");
+
+        int d = base.getListWork().size();
+
+        new DistributionPlot<>(base.getListWork(), Work::getSourceGroup).
+                title("Works by Source Group (Total " + d + " Works)").
+                xlabel("Source Group").ylabel("Nr Works").
+                width(25).height(15).
+                generate().latex(tex);
+
+        subsection("Source Group Citations by Year");
+
+        for (SourceGroup sg : base.getListSourceGroup()) {
+            List<Work> works = base.getListWork().stream().filter(x -> x.getSourceGroup() == sg).toList();
+            if (works.size() > 1) {
+                new ScatterPlot<>(works,
+                        Work::getYear, Work::getNrCitations, Work::getNrReferences).
+                        title("Nr Citations of Works per Year for Source Group " + safe(sg.getName()) + " colored by Nr References").
+                        xlabel("Year").ylabel("Citations").
+                        width(25).height(15).
+                        generate().latex(tex);
+            }
+        }
+
+        subsection("Reference Flows");
+
+        new MatrixDraw<>("Reference Flows","referenceflow",
+                base.getListSourceGroup().stream().filter(x->x.getFromFlows() >0).toList(),
+                base.getListSourceGroup().stream().filter(x->x.getToFlows()>0).toList(),
+                base.getListReferenceFlow().stream().filter(x->x.getValue() >0).toList(),
+                new MatrixFunctions<>(this::nameOf,this::nameOf,x->x.getValue().toString(), ReferenceFlow::getFrom, ReferenceFlow::getTo)).
+                setEmptyCellContent("").
+                textSize("\\scriptsize").
+                generate().latex(tex);
+        new MatrixDraw<>("Reference Flows Normalized","referenceflow",
+                base.getListSourceGroup().stream().filter(x->x.getFromFlows() >0).toList(),
+                base.getListSourceGroup().stream().filter(x->x.getToFlows()>0).toList(),
+                base.getListReferenceFlow().stream().filter(x->x.getNormalized() >0).toList(),
+                new MatrixFunctions<>(this::nameOf,this::nameOf,x->String.format("%5.2f",x.getNormalized()), ReferenceFlow::getFrom, ReferenceFlow::getTo)).
+                setEmptyCellContent("").
+                textSize("\\scriptsize").
+                generate().latex(tex);
+    }
+
 }

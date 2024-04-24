@@ -19,7 +19,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
 
 /**
- * Generated at 16:41:52 on 2024-04-22 */
+ * Generated at 12:30:10 on 2024-04-24 */
 public class ScopusCountryController extends Table3Controller {
 	@FXML
 	private TableView<ScopusCountry> table;
@@ -29,6 +29,9 @@ public class ScopusCountryController extends Table3Controller {
 
 	@FXML
 	private TableColumn<ScopusCountry, Integer> workCount;
+
+	@FXML
+	private TableColumn<ScopusCountry, Integer> nrWorks;
 
 	private GeneratedJfxApp mainApp;
 
@@ -55,6 +58,10 @@ public class ScopusCountryController extends Table3Controller {
 		workCount.setCellValueFactory(new PropertyValueFactory<>("workCount"));
 		workCount.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		workCount.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setWorkCount(event.getNewValue()); mainApp.reset();});
+		choices.add("nrWorks");
+		nrWorks.setCellValueFactory(new PropertyValueFactory<>("nrWorks"));
+		nrWorks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrWorks.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrWorks(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

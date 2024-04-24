@@ -17,6 +17,7 @@ import org.insightcentre.pthg24.reports.CoauthorGraph;
 import org.insightcentre.pthg24.reports.PublicationReport;
 
 import java.util.Comparator;
+import java.util.List;
 
 import static org.insightcentre.pthg24.datamodel.WorkType.*;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
@@ -100,6 +101,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new ImportOpenReferences(base,referencesDir);
                 new ImportCrossref(base,crossrefDir);
                 new ImportScopus(base,scopusDir);
+                new RangeMaxCitations(base);
 
                 new FindMissingCitingWorks(base);
                 new FindMissingCitedWorks(base);
@@ -129,12 +131,34 @@ public class JfxApp extends GeneratedJfxApp {
                         sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getKey)).
                         toList(),exportDir,"background.tex");
 
+
                 new ListAuthors(base,exportDir,"authors.tex");
                 new AnalysisByWork(base,ARTICLE,exportDir,"conceptsarticle.tex");
                 new AnalysisByWork(base,PAPER,exportDir,"conceptspaper.tex");
                 new AnalysisByWork(base,THESIS,exportDir,"conceptsthesis.tex");
                 new AnalysisByWork(base,INCOLLECTION,exportDir,"conceptsincollection.tex");
                 new AnalysisByConcept(base,exportDir,"concept");
+
+                List<Work> lowNrConcepts = base.getListWork().stream().
+                        filter(this::hasLocalCopy).
+                        filter(x->!x.getBackground()).
+                        filter(x->x.getNrPages() != null).
+                        filter(x->x.getNrPages() >2).
+                        filter(x->x.getNrConcepts() > 0).
+                        sorted(Comparator.comparing(Work::getNrConcepts)).
+                        limit(20).
+                        toList();
+                new ListWorks(base,lowNrConcepts,exportDir,"lownrworks.tex");
+                new AnalysisByWork(base,lowNrConcepts,exportDir,"lownrconcepts.tex");
+                List<Work> irrelevant = base.getListWork().stream().
+                        filter(x->!x.getBackground()).
+                        filter(this::hasLocalCopy).
+                        filter(x->x.getNrConcepts() > 0).
+                        filter(x->irrelevant(x,base)).
+                        sorted(Comparator.comparing(Work::getYear).reversed()).
+                        toList();
+                new ListWorks(base,irrelevant,exportDir,"irrelevantworks.tex");
+                new AnalysisByWork(base,irrelevant,exportDir,"irrelevantconcepts.tex");
 
                 new MissingLocalCopy(base,ARTICLE,exportDir,"missingarticle.tex");
                 new MissingLocalCopy(base,PAPER,exportDir,"missingpaper.tex");
@@ -155,9 +179,8 @@ public class JfxApp extends GeneratedJfxApp {
                                 toList(),
                         exportDir,"missingdoi.tex");
 
-                if(type.equals("scheduling")){
-                        new CreateSourceGroups(base);
-                }
+                new CreateSourceGroups(base,type);
+                new OrphanFiles(base,worksDir);
 
                 new PublicationReport(base,reportDir).
                         produce("publications",
@@ -170,6 +193,27 @@ public class JfxApp extends GeneratedJfxApp {
 // main entry point for interactive application
         public static void main(String[] args) {
                 launch(args);
+        }
+
+        private boolean irrelevant(Work w,Scenario base){
+                List<String> concepts = base.getListConceptWork().stream().
+                        filter(x->x.getWork()==w).
+                        filter(x->x.getCount() >0).
+                        map(x->x.getConcept().getName()).
+                        toList();
+                return !concepts.contains("scheduling") ||
+                        !concepts.contains("constraint programming") &&
+                                !concepts.contains("constraint satisfaction") &&
+                                !concepts.contains("constraint logic programming") &&
+                                !concepts.contains("constraint optimization") &&
+                                !concepts.contains("CP") &&
+                                !concepts.contains("CLP") &&
+                                !concepts.contains("CSP") &&
+                                !concepts.contains("COP");
+        }
+
+        private boolean hasLocalCopy(Work w){
+                return w.getLocalCopy() != null && !w.getLocalCopy().equals("");
         }
 
 }

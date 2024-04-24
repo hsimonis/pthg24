@@ -232,6 +232,14 @@
 {"type":"Concepts", "label": "net present value" ,"regExpr":"net present value"},
 {"type":"Concepts", "label": "breakdown" ,"regExpr":"breakdown"},
 {"type":"Concepts", "label": "explanation" ,"regExpr":"explanation"},
+{"type":"Concepts", "label": "constraint programming" ,"regExpr":"constraint programming"},
+{"type":"Concepts", "label": "constraint logic programming" ,"regExpr":"constraint logic programming"},
+{"type":"Concepts", "label": "constraint satisfaction" ,"regExpr":"constraint satisfaction"},
+{"type":"Concepts", "label": "constraint optimization" ,"regExpr":"constraint optimi[sz]ation"},
+{"type":"Concepts", "label": "CP" ,"regExpr":"CP","caseSensitive":true},
+{"type":"Concepts", "label": "CSP" ,"regExpr":"CSP","caseSensitive":true},
+{"type":"Concepts", "label": "CLP" ,"regExpr":"CLP","caseSensitive":true},
+{"type":"Concepts", "label": "COP" ,"regExpr":"COP","caseSensitive":true},
 
 
 {"type":"Constraints", "label": "AllDiff constraint","regExpr":"AllDiff constraint"},

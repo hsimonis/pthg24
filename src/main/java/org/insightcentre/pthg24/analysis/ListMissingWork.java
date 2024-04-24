@@ -40,7 +40,7 @@ public class ListMissingWork {
                 out.printf("\\href{http://dx.doi.org/%s}{%s} \\href{https://www.doi2bib.org/bib/%s}{(bib)} & %s & %s & %d & %d & %d & %d & %d ",
                         mw.getDoi(),safe(mw.getDoi()),mw.getDoi(),
                         safe(mw.getType()),
-                        safe(mw.getTitle()),
+                        alphaSafe(safe(mw.getTitle())),
                         mw.getNrLinks(),
                         mw.getNrCited(),
                         mw.getNrCitations(),
@@ -55,6 +55,10 @@ public class ListMissingWork {
         } catch(IOException e){
             severe("Cannot write file "+fullFile+", exception "+e.getMessage());
         }
+    }
+
+    private String alphaSafe(String s){
+        return s.replace("α","$\\alpha$");
     }
 
 

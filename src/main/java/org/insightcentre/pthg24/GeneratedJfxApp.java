@@ -44,6 +44,7 @@ import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.MissingCross;
 import org.insightcentre.pthg24.datamodel.MissingWork;
+import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.Proceedings;
@@ -62,7 +63,7 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 16:41:52 on 2024-04-22 */
+ * Generated at 12:30:10 on 2024-04-24 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -150,6 +151,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<ScopusCountry> scopusCountryData = FXCollections.observableArrayList();
 
+	private ObservableList<Orphan> orphanData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
 		fs = minimalDataset();
@@ -189,6 +192,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("WorkAffiliation", "WorkAffiliation");
 		tableViews.put("ScopusCity", "ScopusCity");
 		tableViews.put("ScopusCountry", "ScopusCountry");
+		tableViews.put("Orphan", "Orphan");
 		tableViews.put("Scenario", "Scenario");
 		tableViews.put("Scenario Differences", "ApplicationDifference");
 		tableViews.put("Warnings", "ApplicationWarning");
@@ -337,6 +341,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		scopusCityData.addAll(base.getListScopusCity());
 		scopusCountryData.clear();
 		scopusCountryData.addAll(base.getListScopusCountry());
+		orphanData.clear();
+		orphanData.addAll(base.getListOrphan());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -492,5 +498,9 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<ScopusCountry> getScopusCountryData() {
 		return scopusCountryData;
+	}
+
+	public ObservableList<Orphan> getOrphanData() {
+		return orphanData;
 	}
 }

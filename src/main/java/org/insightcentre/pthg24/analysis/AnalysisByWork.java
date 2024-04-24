@@ -17,7 +17,15 @@ import static org.insightcentre.pthg24.imports.Importer.safer;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class AnalysisByWork {
-    public AnalysisByWork(Scenario base, WorkType type,String exportDir, String fileName){
+    public AnalysisByWork(Scenario base, List<Work> works,String exportDir, String fileName){
+        analyze(base,null,works,exportDir,fileName);
+    }
+    public AnalysisByWork(Scenario base, WorkType type,String exportDir, String fileName) {
+        List<Work> works = sortedWorks(base, type);
+        analyze(base, type,works, exportDir, fileName);
+    }
+
+    private void analyze(Scenario base,WorkType type,List<Work> works,String exportDir, String fileName){
         assert(exportDir.endsWith("/"));
         String fullName = exportDir+fileName;
         try{
@@ -25,14 +33,14 @@ public class AnalysisByWork {
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}r" +
                     ">{\\raggedright\\arraybackslash}p{4cm}p{1.5cm}p{2cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{2cm}p{1.5cm}rr}\n");
-            out.printf("\\rowcolor{white}\\caption{Automatically Extracted %s Properties (Requires Local Copy)}\\\\ \\toprule\n",type);
+            out.printf("\\rowcolor{white}\\caption{Automatically Extracted %s Properties (Requires Local Copy)}\\\\ \\toprule\n",(type==null?"":type));
             out.printf("\\rowcolor{white}Work & Pages & Concepts & Classification & Constraints & \\shortstack{Prog\\\\Languages} & " +
                     "\\shortstack{CP\\\\Systems} & Areas & " +
                     "Industries & Benchmarks & Algorithm & a & c\\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
-            for(Work w:sortedWorks(base,type)){
+            for(Work w:works){
                 out.printf("\\rowlabel{%s}\\href{%s}{%s}~\\cite{%s}",
                         "b:"+w.getName(),
                         local(w.getLocalCopy()),safe(w.getName()),
@@ -47,7 +55,7 @@ public class AnalysisByWork {
                 out.printf(" & %s",concepts(base,w,Industries));
                 out.printf(" & %s",concepts(base,w,Benchmarks));
                 out.printf(" & %s",concepts(base,w,Algorithms));
-                out.printf(" & %s & %s",aLabelRef(w),cLabelRef(w));
+                out.printf(" & %s & %s",aLabelRef(w),cLabelRef(base,w));
                 out.printf("\\\\\n");
             }
             out.printf("\\end{longtable}\n");

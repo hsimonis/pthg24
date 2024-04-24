@@ -20,7 +20,7 @@ import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 
 /**
- * Generated at 16:41:52 on 2024-04-22 */
+ * Generated at 12:30:10 on 2024-04-24 */
 public class ProceedingsController extends Table3Controller {
 	@FXML
 	private TableView<Proceedings> table;

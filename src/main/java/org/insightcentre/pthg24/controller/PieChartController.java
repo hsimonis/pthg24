@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 16:41:52 on 2024-04-22 */
+ * Generated at 12:30:10 on 2024-04-24 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -88,6 +88,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
 		attributeNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
@@ -97,6 +98,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
 		attributeNames.add("doiStatus");
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
@@ -123,6 +126,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
 		attributeNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
@@ -132,6 +136,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
 		attributeNames.add("doiStatus");
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
@@ -159,6 +165,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
 		attributeNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
@@ -168,6 +175,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
 		attributeNames.add("doiStatus");
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
@@ -195,6 +204,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
 		attributeNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
@@ -204,6 +214,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
 		attributeNames.add("doiStatus");
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
@@ -231,6 +243,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
 		attributeNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
@@ -240,6 +253,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
 		attributeNames.add("doiStatus");
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
@@ -267,6 +282,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
 		attributeNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
@@ -276,6 +292,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
 		attributeNames.add("doiStatus");
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
@@ -303,6 +321,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("classification");
 		attributeNames.add("constraints");
 		attributeNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
@@ -312,6 +331,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrReferencesCovered");
 		attributeNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
 		attributeNames.add("doiStatus");
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
@@ -492,6 +513,8 @@ public class PieChartController extends ChartController {
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
 		attributeNames.add("nrWorks");
+		attributeNames.add("fromFlows");
+		attributeNames.add("toFlows");
 		choicesMap.put("SourceGroup", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -522,7 +545,12 @@ public class PieChartController extends ChartController {
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
 		attributeNames.add("workCount");
+		attributeNames.add("nrWorks");
 		choicesMap.put("ScopusCountry", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("fileName");
+		choicesMap.put("Orphan", attributeNames);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -651,6 +679,9 @@ public class PieChartController extends ChartController {
 			}
 			else if (className.equals("ScopusCountry")) {
 				objectList = mainApp.getScopusCountryData();
+			}
+			else if (className.equals("Orphan")) {
+				objectList = mainApp.getOrphanData();
 			}
 			if (objectList != null) {
 				Map<String, Integer> countMap = new HashMap<String, Integer>();

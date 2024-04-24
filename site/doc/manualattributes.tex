@@ -286,6 +286,16 @@ $\square$\ & crossrefCitations &  \\
 
 \clearpage
 \begin{table}
+\caption{Orphan  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & fileName &  \\
+\end{longtable}
+\label{attr:Orphan}
+\end{table}
+
+\begin{table}
 \caption{Paper  }
 
 \begin{longtable}{llp{8cm}}
@@ -334,6 +344,7 @@ $\square$\ & journalSC &  \\
 \label{attr:Reference}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{ReferenceFlow  }
 
@@ -347,7 +358,6 @@ $\square$\ & normalized &  \\
 \label{attr:ReferenceFlow}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Scenario  This class describes the dataset for the application. Typically there is a single instance of this class in the application at all times.}
 
@@ -389,17 +399,18 @@ $\square$\ & workCount &  \\
 \label{attr:ScopusCity}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{ScopusCountry  }
 
 \begin{longtable}{llp{8cm}}
 & Attribute & Description \\
 $\square$\ & workCount &  \\
+$\square$\ & nrWorks &  \\
 \end{longtable}
 \label{attr:ScopusCountry}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Similarity  }
 
@@ -427,6 +438,8 @@ $\square$\ & similarity &  \\
 \begin{longtable}{llp{8cm}}
 & Attribute & Description \\
 $\square$\ & nrWorks &  \\
+$\square$\ & fromFlows &  \\
+$\square$\ & toFlows &  \\
 \end{longtable}
 \label{attr:SourceGroup}
 \end{table}
@@ -465,6 +478,7 @@ $\square$\ & cpSystem &  \\
 $\square$\ & classification &  \\
 $\square$\ & constraints &  \\
 $\square$\ & relatedTo &  \\
+$\square$\ & nrConcepts &  \\
 $\square$\ & nrCitations &  \\
 $\square$\ & nrReferences &  \\
 $\square$\ & crossrefCitations &  \\
@@ -474,6 +488,8 @@ $\square$\ & nrCitationsCovered &  \\
 $\square$\ & nrReferencesCovered &  \\
 $\square$\ & percentCitationsCovered &  \\
 $\square$\ & percentReferencesCovered &  \\
+$\square$\ & maxCitations &  \\
+$\square$\ & rangeCitations &  \\
 $\square$\ & doiStatus &  \\
 $\square$\ & crossrefStatus &  \\
 $\square$\ & scopusStatus &  \\
@@ -481,6 +497,7 @@ $\square$\ & scopusStatus &  \\
 \label{attr:Work}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{WorkAffiliation  }
 
@@ -491,5 +508,3 @@ $\square$\ & scopusAffiliation &  \\
 \end{longtable}
 \label{attr:WorkAffiliation}
 \end{table}
-
-\clearpage

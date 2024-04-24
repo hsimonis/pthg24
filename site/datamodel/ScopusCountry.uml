@@ -1,3 +1,4 @@
  class ScopusCountry {
+Integer nrWorks
 Integer workCount
 }

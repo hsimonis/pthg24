@@ -23,7 +23,7 @@ import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 16:41:52 on 2024-04-22 */
+ * Generated at 12:30:10 on 2024-04-24 */
 public class DoiReferenceController extends Table3Controller {
 	@FXML
 	private TableView<DoiReference> table;

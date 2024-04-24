@@ -40,6 +40,7 @@ import org.insightcentre.pthg24.datamodel.ScopusAffiliation;
 import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
+import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;

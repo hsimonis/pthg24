@@ -25,6 +25,7 @@
 				<xs:element ref="missingCitingWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingCross" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingWork" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="orphan" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="paper" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="phDThesis" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="proceedings" minOccurs="0" maxOccurs="unbounded"/>
@@ -92,8 +93,10 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
+			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
@@ -101,6 +104,7 @@
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
+			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
@@ -161,8 +165,10 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
+			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
@@ -170,6 +176,7 @@
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
+			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
@@ -288,8 +295,10 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
+			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
@@ -297,6 +306,7 @@
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
+			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
@@ -328,8 +338,10 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
+			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
@@ -337,6 +349,7 @@
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
+			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
@@ -422,6 +435,14 @@
 			<xs:attribute name="year" use="required" type="xs:integer"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="orphan">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="fileName" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="paper">
 		<xs:complexType>
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
@@ -442,8 +463,10 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
+			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
@@ -451,6 +474,7 @@
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
+			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
@@ -482,8 +506,10 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
+			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
+			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
@@ -491,6 +517,7 @@
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
+			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
@@ -577,6 +604,7 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="nrWorks" use="required" type="xs:integer"/>
 			<xs:attribute name="workCount" use="required" type="xs:integer"/>
 		</xs:complexType>
 	</xs:element>
@@ -604,7 +632,9 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="fromFlows" use="required" type="xs:integer"/>
 			<xs:attribute name="nrWorks" use="required" type="xs:integer"/>
+			<xs:attribute name="toFlows" use="required" type="xs:integer"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="uncategorizedReference">

@@ -1,0 +1,29 @@
+[
+    {
+        "journal_sc": "no",
+        "oci": "061203310041-06503059654",
+        "author_sc": "no",
+        "citing": "10.1287/inte.2018.0959",
+        "timespan": "P4Y3M",
+        "cited": "10.1609/aaai.v28i2.19013",
+        "creation": "2018-11"
+    },
+    {
+        "journal_sc": "no",
+        "oci": "06390193528-06503059654",
+        "author_sc": "no",
+        "citing": "10.1007/978-981-99-4045-5_15",
+        "timespan": "P9Y1M4D",
+        "cited": "10.1609/aaai.v28i2.19013",
+        "creation": "2023-08-31"
+    },
+    {
+        "journal_sc": "no",
+        "oci": "0690420968-06503059654",
+        "author_sc": "no",
+        "citing": "10.1609/aimag.v38i1.2709",
+        "timespan": "P2Y8M4D",
+        "cited": "10.1609/aaai.v28i2.19013",
+        "creation": "2017-03-31"
+    }
+]

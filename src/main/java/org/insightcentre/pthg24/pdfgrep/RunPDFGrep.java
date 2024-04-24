@@ -146,10 +146,15 @@ public class RunPDFGrep {
     }
 
     private void updateNrOccurences(Scenario base){
-        Map<Concept, List<ConceptWork>> map = base.getListConceptWork().stream().collect(groupingBy(ConceptWork::getConcept));
+        Map<Concept, List<ConceptWork>> map = base.getListConceptWork().stream().filter(x->x.getCount() > 0).collect(groupingBy(ConceptWork::getConcept));
         for(Concept c:map.keySet()){
             int nrOccurs = map.get(c).stream().mapToInt(ConceptWork::getCount).sum();
             c.setNrOccurrences(nrOccurs);
+        }
+        Map<Work,List<ConceptWork>> mapWork = base.getListConceptWork().stream().filter(x->x.getCount() > 0).collect(groupingBy(ConceptWork::getWork));
+        for(Work w:mapWork.keySet()){
+            int cnt = mapWork.get(w).size();
+            w.setNrConcepts(cnt);
         }
     }
 }

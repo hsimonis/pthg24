@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 16:41:52 on 2024-04-22 */
+ * Generated at 12:30:10 on 2024-04-24 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -93,6 +93,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
+		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -111,6 +113,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		filterNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
+		filterNames.add("rangeCitations");
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
@@ -143,6 +149,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
+		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -161,6 +169,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		filterNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
+		filterNames.add("rangeCitations");
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
@@ -194,6 +206,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
+		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -212,6 +226,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		filterNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
+		filterNames.add("rangeCitations");
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
@@ -245,6 +263,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
+		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -263,6 +283,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		filterNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
+		filterNames.add("rangeCitations");
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
@@ -296,6 +320,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
+		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -314,6 +340,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		filterNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
+		filterNames.add("rangeCitations");
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
@@ -347,6 +377,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
+		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -365,6 +397,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		filterNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
+		filterNames.add("rangeCitations");
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
@@ -398,6 +434,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		attributeNames.add("nrConcepts");
+		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		filterNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -416,6 +454,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("percentCitationsCovered");
 		attributeNames.add("percentReferencesCovered");
 		filterNames.add("percentReferencesCovered");
+		attributeNames.add("maxCitations");
+		filterNames.add("maxCitations");
+		attributeNames.add("rangeCitations");
+		filterNames.add("rangeCitations");
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
@@ -670,6 +712,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("name");
 		attributeNames.add("nrWorks");
 		filterNames.add("nrWorks");
+		attributeNames.add("fromFlows");
+		filterNames.add("fromFlows");
+		attributeNames.add("toFlows");
+		filterNames.add("toFlows");
 		choicesMap.put("SourceGroup", attributeNames);
 		filterMap.put("SourceGroup", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -715,11 +761,15 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("name");
 		attributeNames.add("workCount");
 		filterNames.add("workCount");
+		attributeNames.add("nrWorks");
+		filterNames.add("nrWorks");
 		choicesMap.put("ScopusCountry", attributeNames);
 		filterMap.put("ScopusCountry", filterNames);
 		attributeNames = FXCollections.observableArrayList();
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("fileName");
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -856,6 +906,9 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("ScopusCountry")) {
 				objectList = mainApp.getScopusCountryData();
+			}
+			else if (className.equals("Orphan")) {
+				objectList = mainApp.getOrphanData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 16:41:53 on 2024-04-22-->
+<!--Generated at 12:30:10 on 2024-04-24-->
 
 
 <Tab text="Paper" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.PaperController">
@@ -39,6 +39,7 @@
                <TableColumn fx:id="classification" styleClass="right-aligned" text="Classification" />
                <TableColumn fx:id="constraints" styleClass="right-aligned" text="Constraints" />
                <TableColumn fx:id="relatedTo" styleClass="right-aligned" text="RelatedTo" />
+               <TableColumn fx:id="nrConcepts" styleClass="right-aligned" text="NrConcepts" />
                <TableColumn fx:id="nrCitations" styleClass="right-aligned" text="NrCitations" />
                <TableColumn fx:id="nrReferences" styleClass="right-aligned" text="NrReferences" />
                <TableColumn fx:id="crossrefCitations" styleClass="right-aligned" text="CrossrefCitations" />
@@ -48,6 +49,8 @@
                <TableColumn fx:id="nrReferencesCovered" styleClass="right-aligned" text="NrReferencesCovered" />
                <TableColumn fx:id="percentCitationsCovered" styleClass="right-aligned" text="PercentCitationsCovered" />
                <TableColumn fx:id="percentReferencesCovered" styleClass="right-aligned" text="PercentReferencesCovered" />
+               <TableColumn fx:id="maxCitations" styleClass="right-aligned" text="MaxCitations" />
+               <TableColumn fx:id="rangeCitations" styleClass="right-aligned" text="RangeCitations" />
                <TableColumn fx:id="doiStatus" styleClass="right-aligned" text="DoiStatus" />
                <TableColumn fx:id="crossrefStatus" styleClass="right-aligned" text="CrossrefStatus" />
                <TableColumn fx:id="scopusStatus" styleClass="right-aligned" text="ScopusStatus" />

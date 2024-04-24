@@ -47,6 +47,7 @@ public class ImportScopus {
             info("Scopus "+w.getName());
             scopus(w);
         }
+        updateCountryNrWorks();
     }
 
     // alternative API for testing
@@ -229,5 +230,16 @@ public class ImportScopus {
             return text.substring(16).replace("\\","").toLowerCase();
         }
         return null;
+    }
+
+    private void updateCountryNrWorks(){
+        for(ScopusCountry sc:base.getListScopusCountry()){
+            int nrWorks = (int) base.getListWorkAffiliation().stream().
+                    filter(x->x.getScopusAffiliation().getScopusCity().getScopusCountry()==sc).
+                    map(WorkAffiliation::getWork).
+                    distinct().
+                    count();
+            sc.setNrWorks(nrWorks);
+        }
     }
 }

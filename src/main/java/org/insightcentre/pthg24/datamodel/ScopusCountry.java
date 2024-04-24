@@ -40,6 +40,7 @@ import org.insightcentre.pthg24.datamodel.ScopusAffiliation;
 import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
+import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -66,6 +67,13 @@ public  class ScopusCountry extends ApplicationObject{
  *
 */
 
+    public Integer nrWorks;
+
+/**
+ *  
+ *
+*/
+
     public Integer workCount;
 
 /**
@@ -87,6 +95,7 @@ public  class ScopusCountry extends ApplicationObject{
 
     public ScopusCountry(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setNrWorks(0);
         setWorkCount(0);
         applicationDataset.addScopusCountry(this);
     }
@@ -101,10 +110,12 @@ public  class ScopusCountry extends ApplicationObject{
     public ScopusCountry(ApplicationDataset applicationDataset,
             Integer id,
             String name,
+            Integer nrWorks,
             Integer workCount){
         super(applicationDataset,
             id,
             name);
+        setNrWorks(nrWorks);
         setWorkCount(workCount);
         applicationDataset.addScopusCountry(this);
     }
@@ -113,6 +124,7 @@ public  class ScopusCountry extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
+            other.nrWorks,
             other.workCount);
     }
 
@@ -129,6 +141,16 @@ public  class ScopusCountry extends ApplicationObject{
     }
 
 /**
+ *  get attribute nrWorks
+ *
+ * @return Integer
+*/
+
+    public Integer getNrWorks(){
+        return this.nrWorks;
+    }
+
+/**
  *  get attribute workCount
  *
  * @return Integer
@@ -139,6 +161,18 @@ public  class ScopusCountry extends ApplicationObject{
     }
 
 /**
+ *  set attribute nrWorks, mark dataset as dirty, mark dataset as not valid
+@param nrWorks Integer
+ *
+*/
+
+    public void setNrWorks(Integer nrWorks){
+        this.nrWorks = nrWorks;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute workCount, mark dataset as dirty, mark dataset as not valid
 @param workCount Integer
  *
@@ -146,6 +180,17 @@ public  class ScopusCountry extends ApplicationObject{
 
     public void setWorkCount(Integer workCount){
         this.workCount = workCount;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute nrWorks, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrWorks(){
+        this.nrWorks++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -178,7 +223,7 @@ public  class ScopusCountry extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getWorkCount();
+        return ""+ " " +getId()+ " " +getName()+ " " +getNrWorks()+ " " +getWorkCount();
     }
 
 /**
@@ -202,8 +247,19 @@ public  class ScopusCountry extends ApplicationObject{
          out.println("<scopusCountry "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
+            " nrWorks=\""+toXMLNrWorks()+"\""+
             " workCount=\""+toXMLWorkCount()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLNrWorks(){
+        return this.getNrWorks().toString();
+    }
 
 /**
  * helper method for toXML(), prcess one attribute
@@ -222,11 +278,11 @@ public  class ScopusCountry extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>ScopusCountry</th>"+"<th>Name</th>"+"<th>WorkCount</th>"+"</tr>";
+        return "<tr><th>ScopusCountry</th>"+"<th>Name</th>"+"<th>WorkCount</th>"+"<th>NrWorks</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getWorkCount()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getWorkCount()+"</td>"+ " " +"<td>"+getNrWorks()+"</td>"+"</tr>";
     }
 
 /**
@@ -346,10 +402,14 @@ public  class ScopusCountry extends ApplicationObject{
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
+      if(!this.getNrWorks().equals(b.getNrWorks())){
+         System.out.println("NrWorks");
+        }
       if(!this.getWorkCount().equals(b.getWorkCount())){
          System.out.println("WorkCount");
         }
         return  this.getName().equals(b.getName()) &&
+          this.getNrWorks().equals(b.getNrWorks()) &&
           this.getWorkCount().equals(b.getWorkCount());
     }
 

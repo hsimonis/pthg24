@@ -40,6 +40,7 @@ import org.insightcentre.pthg24.datamodel.ScopusAffiliation;
 import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
+import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -177,6 +178,13 @@ public abstract class Work extends ApplicationObject{
  *
 */
 
+    public Integer maxCitations;
+
+/**
+ *  
+ *
+*/
+
     public Integer nrCitations;
 
 /**
@@ -185,6 +193,13 @@ public abstract class Work extends ApplicationObject{
 */
 
     public Integer nrCitationsCovered;
+
+/**
+ *  
+ *
+*/
+
+    public Integer nrConcepts;
 
 /**
  *  
@@ -234,6 +249,13 @@ public abstract class Work extends ApplicationObject{
 */
 
     public Double percentReferencesCovered;
+
+/**
+ *  
+ *
+*/
+
+    public Integer rangeCitations;
 
 /**
  *  
@@ -327,8 +349,10 @@ public abstract class Work extends ApplicationObject{
         setDoiStatus(true);
         setKey("");
         setLocalCopy("");
+        setMaxCitations(0);
         setNrCitations(0);
         setNrCitationsCovered(0);
+        setNrConcepts(0);
         setNrLinks(0);
         setNrPages(0);
         setNrReferences(0);
@@ -336,6 +360,7 @@ public abstract class Work extends ApplicationObject{
         setPages("");
         setPercentCitationsCovered(0.0);
         setPercentReferencesCovered(0.0);
+        setRangeCitations(0);
         setRelatedTo("");
         setScopusCitations(0);
         setScopusStatus(true);
@@ -372,8 +397,10 @@ public abstract class Work extends ApplicationObject{
             Boolean doiStatus,
             String key,
             String localCopy,
+            Integer maxCitations,
             Integer nrCitations,
             Integer nrCitationsCovered,
+            Integer nrConcepts,
             Integer nrLinks,
             Integer nrPages,
             Integer nrReferences,
@@ -381,6 +408,7 @@ public abstract class Work extends ApplicationObject{
             String pages,
             Double percentCitationsCovered,
             Double percentReferencesCovered,
+            Integer rangeCitations,
             String relatedTo,
             Integer scopusCitations,
             Boolean scopusStatus,
@@ -407,8 +435,10 @@ public abstract class Work extends ApplicationObject{
         setDoiStatus(doiStatus);
         setKey(key);
         setLocalCopy(localCopy);
+        setMaxCitations(maxCitations);
         setNrCitations(nrCitations);
         setNrCitationsCovered(nrCitationsCovered);
+        setNrConcepts(nrConcepts);
         setNrLinks(nrLinks);
         setNrPages(nrPages);
         setNrReferences(nrReferences);
@@ -416,6 +446,7 @@ public abstract class Work extends ApplicationObject{
         setPages(pages);
         setPercentCitationsCovered(percentCitationsCovered);
         setPercentReferencesCovered(percentReferencesCovered);
+        setRangeCitations(rangeCitations);
         setRelatedTo(relatedTo);
         setScopusCitations(scopusCitations);
         setScopusStatus(scopusStatus);
@@ -446,8 +477,10 @@ public abstract class Work extends ApplicationObject{
             other.doiStatus,
             other.key,
             other.localCopy,
+            other.maxCitations,
             other.nrCitations,
             other.nrCitationsCovered,
+            other.nrConcepts,
             other.nrLinks,
             other.nrPages,
             other.nrReferences,
@@ -455,6 +488,7 @@ public abstract class Work extends ApplicationObject{
             other.pages,
             other.percentCitationsCovered,
             other.percentReferencesCovered,
+            other.rangeCitations,
             other.relatedTo,
             other.scopusCitations,
             other.scopusStatus,
@@ -662,6 +696,16 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  get attribute maxCitations
+ *
+ * @return Integer
+*/
+
+    public Integer getMaxCitations(){
+        return this.maxCitations;
+    }
+
+/**
  *  get attribute nrCitations
  *
  * @return Integer
@@ -679,6 +723,16 @@ public abstract class Work extends ApplicationObject{
 
     public Integer getNrCitationsCovered(){
         return this.nrCitationsCovered;
+    }
+
+/**
+ *  get attribute nrConcepts
+ *
+ * @return Integer
+*/
+
+    public Integer getNrConcepts(){
+        return this.nrConcepts;
     }
 
 /**
@@ -749,6 +803,16 @@ public abstract class Work extends ApplicationObject{
 
     public Double getPercentReferencesCovered(){
         return this.percentReferencesCovered;
+    }
+
+/**
+ *  get attribute rangeCitations
+ *
+ * @return Integer
+*/
+
+    public Integer getRangeCitations(){
+        return this.rangeCitations;
     }
 
 /**
@@ -1020,6 +1084,18 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  set attribute maxCitations, mark dataset as dirty, mark dataset as not valid
+@param maxCitations Integer
+ *
+*/
+
+    public void setMaxCitations(Integer maxCitations){
+        this.maxCitations = maxCitations;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute nrCitations, mark dataset as dirty, mark dataset as not valid
 @param nrCitations Integer
  *
@@ -1039,6 +1115,18 @@ public abstract class Work extends ApplicationObject{
 
     public void setNrCitationsCovered(Integer nrCitationsCovered){
         this.nrCitationsCovered = nrCitationsCovered;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute nrConcepts, mark dataset as dirty, mark dataset as not valid
+@param nrConcepts Integer
+ *
+*/
+
+    public void setNrConcepts(Integer nrConcepts){
+        this.nrConcepts = nrConcepts;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -1123,6 +1211,18 @@ public abstract class Work extends ApplicationObject{
 
     public void setPercentReferencesCovered(Double percentReferencesCovered){
         this.percentReferencesCovered = percentReferencesCovered;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute rangeCitations, mark dataset as dirty, mark dataset as not valid
+@param rangeCitations Integer
+ *
+*/
+
+    public void setRangeCitations(Integer rangeCitations){
+        this.rangeCitations = rangeCitations;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -1246,6 +1346,17 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  inc attribute maxCitations, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incMaxCitations(){
+        this.maxCitations++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  inc attribute nrCitations, mark dataset as dirty, mark dataset as not valid
  *
 */
@@ -1263,6 +1374,17 @@ public abstract class Work extends ApplicationObject{
 
     public void incNrCitationsCovered(){
         this.nrCitationsCovered++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute nrConcepts, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrConcepts(){
+        this.nrConcepts++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -1312,6 +1434,17 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  inc attribute rangeCitations, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incRangeCitations(){
+        this.rangeCitations++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  inc attribute scopusCitations, mark dataset as dirty, mark dataset as not valid
  *
 */
@@ -1350,7 +1483,7 @@ public abstract class Work extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getKey()+ " " +getLocalCopy()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRelatedTo()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getKey()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getYear();
     }
 
 /**
@@ -1389,8 +1522,10 @@ public abstract class Work extends ApplicationObject{
             " doiStatus=\""+toXMLDoiStatus()+"\""+
             " key=\""+toXMLKey()+"\""+
             " localCopy=\""+toXMLLocalCopy()+"\""+
+            " maxCitations=\""+toXMLMaxCitations()+"\""+
             " nrCitations=\""+toXMLNrCitations()+"\""+
             " nrCitationsCovered=\""+toXMLNrCitationsCovered()+"\""+
+            " nrConcepts=\""+toXMLNrConcepts()+"\""+
             " nrLinks=\""+toXMLNrLinks()+"\""+
             " nrPages=\""+toXMLNrPages()+"\""+
             " nrReferences=\""+toXMLNrReferences()+"\""+
@@ -1398,6 +1533,7 @@ public abstract class Work extends ApplicationObject{
             " pages=\""+toXMLPages()+"\""+
             " percentCitationsCovered=\""+toXMLPercentCitationsCovered()+"\""+
             " percentReferencesCovered=\""+toXMLPercentReferencesCovered()+"\""+
+            " rangeCitations=\""+toXMLRangeCitations()+"\""+
             " relatedTo=\""+toXMLRelatedTo()+"\""+
             " scopusCitations=\""+toXMLScopusCitations()+"\""+
             " scopusStatus=\""+toXMLScopusStatus()+"\""+
@@ -1568,6 +1704,16 @@ public abstract class Work extends ApplicationObject{
  * @return String
 */
 
+    String toXMLMaxCitations(){
+        return this.getMaxCitations().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLNrCitations(){
         return this.getNrCitations().toString();
     }
@@ -1580,6 +1726,16 @@ public abstract class Work extends ApplicationObject{
 
     String toXMLNrCitationsCovered(){
         return this.getNrCitationsCovered().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLNrConcepts(){
+        return this.getNrConcepts().toString();
     }
 
 /**
@@ -1650,6 +1806,16 @@ public abstract class Work extends ApplicationObject{
 
     String toXMLPercentReferencesCovered(){
         return this.getPercentReferencesCovered().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLRangeCitations(){
+        return this.getRangeCitations().toString();
     }
 
 /**
@@ -1870,6 +2036,9 @@ public abstract class Work extends ApplicationObject{
       if(!this.getLocalCopy().equals(b.getLocalCopy())){
          System.out.println("LocalCopy");
         }
+      if(!this.getMaxCitations().equals(b.getMaxCitations())){
+         System.out.println("MaxCitations");
+        }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
@@ -1878,6 +2047,9 @@ public abstract class Work extends ApplicationObject{
         }
       if(!this.getNrCitationsCovered().equals(b.getNrCitationsCovered())){
          System.out.println("NrCitationsCovered");
+        }
+      if(!this.getNrConcepts().equals(b.getNrConcepts())){
+         System.out.println("NrConcepts");
         }
       if(!this.getNrLinks().equals(b.getNrLinks())){
          System.out.println("NrLinks");
@@ -1899,6 +2071,9 @@ public abstract class Work extends ApplicationObject{
         }
       if(!this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered())){
          System.out.println("PercentReferencesCovered");
+        }
+      if(!this.getRangeCitations().equals(b.getRangeCitations())){
+         System.out.println("RangeCitations");
         }
       if(!this.getRelatedTo().equals(b.getRelatedTo())){
          System.out.println("RelatedTo");
@@ -1939,9 +2114,11 @@ public abstract class Work extends ApplicationObject{
           this.getDoiStatus().equals(b.getDoiStatus()) &&
           this.getKey().equals(b.getKey()) &&
           this.getLocalCopy().equals(b.getLocalCopy()) &&
+          this.getMaxCitations().equals(b.getMaxCitations()) &&
           this.getName().equals(b.getName()) &&
           this.getNrCitations().equals(b.getNrCitations()) &&
           this.getNrCitationsCovered().equals(b.getNrCitationsCovered()) &&
+          this.getNrConcepts().equals(b.getNrConcepts()) &&
           this.getNrLinks().equals(b.getNrLinks()) &&
           this.getNrPages().equals(b.getNrPages()) &&
           this.getNrReferences().equals(b.getNrReferences()) &&
@@ -1949,6 +2126,7 @@ public abstract class Work extends ApplicationObject{
           this.getPages().equals(b.getPages()) &&
           this.getPercentCitationsCovered().equals(b.getPercentCitationsCovered()) &&
           this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered()) &&
+          this.getRangeCitations().equals(b.getRangeCitations()) &&
           this.getRelatedTo().equals(b.getRelatedTo()) &&
           this.getScopusCitations().equals(b.getScopusCitations()) &&
           this.getScopusStatus().equals(b.getScopusStatus()) &&

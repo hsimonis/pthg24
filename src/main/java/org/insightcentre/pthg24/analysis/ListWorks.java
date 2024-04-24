@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.ListWorksManual.manualInterest;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListWorks {
@@ -68,7 +69,7 @@ public class ListWorks {
                     a.getNrCitations(),
                     a.getNrReferences(),
                     bLabelRef(a),
-                    cLabelRef(a));
+                    cLabelRef(base,a));
             out.printf("\\\\\n");
         }
         out.printf("\\end{longtable}\n");
@@ -97,8 +98,8 @@ public class ListWorks {
             return "\\ref{b:"+w.getName()+"}";
         }
     }
-    public static String cLabelRef(Work w){
-        if (!w.getBackground() && (w instanceof Paper || w instanceof Article)) {
+    public static String cLabelRef(Scenario base,Work w){
+        if (manualInterest(base,w) && !w.getBackground() && (w instanceof Paper || w instanceof Article)) {
             return "\\ref{c:" + w.getName() + "}";
         } else {
             return "n/a";

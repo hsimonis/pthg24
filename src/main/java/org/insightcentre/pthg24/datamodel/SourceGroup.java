@@ -40,6 +40,7 @@ import org.insightcentre.pthg24.datamodel.ScopusAffiliation;
 import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
+import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -66,7 +67,21 @@ public  class SourceGroup extends ApplicationObject{
  *
 */
 
+    public Integer fromFlows;
+
+/**
+ *  
+ *
+*/
+
     public Integer nrWorks;
+
+/**
+ *  
+ *
+*/
+
+    public Integer toFlows;
 
 /**
  *  No-arg constructor for use in TableView
@@ -87,7 +102,9 @@ public  class SourceGroup extends ApplicationObject{
 
     public SourceGroup(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setFromFlows(0);
         setNrWorks(0);
+        setToFlows(0);
         applicationDataset.addSourceGroup(this);
     }
 
@@ -101,11 +118,15 @@ public  class SourceGroup extends ApplicationObject{
     public SourceGroup(ApplicationDataset applicationDataset,
             Integer id,
             String name,
-            Integer nrWorks){
+            Integer fromFlows,
+            Integer nrWorks,
+            Integer toFlows){
         super(applicationDataset,
             id,
             name);
+        setFromFlows(fromFlows);
         setNrWorks(nrWorks);
+        setToFlows(toFlows);
         applicationDataset.addSourceGroup(this);
     }
 
@@ -113,7 +134,9 @@ public  class SourceGroup extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
-            other.nrWorks);
+            other.fromFlows,
+            other.nrWorks,
+            other.toFlows);
     }
 
 /**
@@ -131,6 +154,16 @@ public  class SourceGroup extends ApplicationObject{
     }
 
 /**
+ *  get attribute fromFlows
+ *
+ * @return Integer
+*/
+
+    public Integer getFromFlows(){
+        return this.fromFlows;
+    }
+
+/**
  *  get attribute nrWorks
  *
  * @return Integer
@@ -138,6 +171,28 @@ public  class SourceGroup extends ApplicationObject{
 
     public Integer getNrWorks(){
         return this.nrWorks;
+    }
+
+/**
+ *  get attribute toFlows
+ *
+ * @return Integer
+*/
+
+    public Integer getToFlows(){
+        return this.toFlows;
+    }
+
+/**
+ *  set attribute fromFlows, mark dataset as dirty, mark dataset as not valid
+@param fromFlows Integer
+ *
+*/
+
+    public void setFromFlows(Integer fromFlows){
+        this.fromFlows = fromFlows;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -153,12 +208,46 @@ public  class SourceGroup extends ApplicationObject{
     }
 
 /**
+ *  set attribute toFlows, mark dataset as dirty, mark dataset as not valid
+@param toFlows Integer
+ *
+*/
+
+    public void setToFlows(Integer toFlows){
+        this.toFlows = toFlows;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute fromFlows, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incFromFlows(){
+        this.fromFlows++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  inc attribute nrWorks, mark dataset as dirty, mark dataset as not valid
  *
 */
 
     public void incNrWorks(){
         this.nrWorks++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute toFlows, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incToFlows(){
+        this.toFlows++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -180,7 +269,7 @@ public  class SourceGroup extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getNrWorks();
+        return ""+ " " +getId()+ " " +getName()+ " " +getFromFlows()+ " " +getNrWorks()+ " " +getToFlows();
     }
 
 /**
@@ -204,8 +293,20 @@ public  class SourceGroup extends ApplicationObject{
          out.println("<sourceGroup "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
-            " nrWorks=\""+toXMLNrWorks()+"\""+" />");
+            " fromFlows=\""+toXMLFromFlows()+"\""+
+            " nrWorks=\""+toXMLNrWorks()+"\""+
+            " toFlows=\""+toXMLToFlows()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLFromFlows(){
+        return this.getFromFlows().toString();
+    }
 
 /**
  * helper method for toXML(), prcess one attribute
@@ -218,17 +319,27 @@ public  class SourceGroup extends ApplicationObject{
     }
 
 /**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLToFlows(){
+        return this.getToFlows().toString();
+    }
+
+/**
  * show object as one row in an HTML table
  * 
  * @return String of form <tr>...</tr>
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>SourceGroup</th>"+"<th>Name</th>"+"<th>NrWorks</th>"+"</tr>";
+        return "<tr><th>SourceGroup</th>"+"<th>Name</th>"+"<th>NrWorks</th>"+"<th>FromFlows</th>"+"<th>ToFlows</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getNrWorks()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getNrWorks()+"</td>"+ " " +"<td>"+getFromFlows()+"</td>"+ " " +"<td>"+getToFlows()+"</td>"+"</tr>";
     }
 
 /**
@@ -345,14 +456,22 @@ public  class SourceGroup extends ApplicationObject{
 */
 
     public Boolean applicationEqual(SourceGroup b){
+      if(!this.getFromFlows().equals(b.getFromFlows())){
+         System.out.println("FromFlows");
+        }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
       if(!this.getNrWorks().equals(b.getNrWorks())){
          System.out.println("NrWorks");
         }
-        return  this.getName().equals(b.getName()) &&
-          this.getNrWorks().equals(b.getNrWorks());
+      if(!this.getToFlows().equals(b.getToFlows())){
+         System.out.println("ToFlows");
+        }
+        return  this.getFromFlows().equals(b.getFromFlows()) &&
+          this.getName().equals(b.getName()) &&
+          this.getNrWorks().equals(b.getNrWorks()) &&
+          this.getToFlows().equals(b.getToFlows());
     }
 
 /**

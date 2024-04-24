@@ -40,6 +40,7 @@ import org.insightcentre.pthg24.datamodel.ScopusAffiliation;
 import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
+import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -374,6 +375,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<ScopusCountry> listScopusCountry = new ArrayList<ScopusCountry>();
 
 /**
+ *  This lists holds all items of class Orphan and its subclasses
+ *
+*/
+
+    List<Orphan> listOrphan = new ArrayList<Orphan>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -518,6 +526,7 @@ public int compareTo(ApplicationDataset ds2){
                              "MissingCitingWork",
                              "MissingCross",
                              "MissingWork",
+                             "Orphan",
                              "Paper",
                              "PhDThesis",
                              "Proceedings",
@@ -624,6 +633,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListWorkAffiliation();
         resetListScopusCity();
         resetListScopusCountry();
+        resetListOrphan();
     }
 
 /**
@@ -1976,6 +1986,40 @@ public int compareTo(ApplicationDataset ds2){
         List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
         for(ApplicationObject a:listApplicationObject){
             if (!(a instanceof ScopusCountry)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class Orphan
+ *
+*/
+
+    public Iterator<Orphan> getIteratorOrphan(){
+        return listOrphan.iterator();
+    }
+
+/**
+ *  Getter for list of class Orphan
+ *
+*/
+
+    public List<Orphan> getListOrphan(){
+        return listOrphan;
+    }
+
+/**
+ *  reset the list of class Orphan; use with care, does not call cascades
+ *
+*/
+
+    public void resetListOrphan(){
+        listOrphan = new ArrayList<Orphan>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Orphan)){
                 newListApplicationObject.add(a);
             }
         }
@@ -3438,6 +3482,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class Orphan
+ *
+*/
+
+    public void addOrphan(Orphan orphan){
+        assert orphan != null;
+        this.listOrphan.add(orphan);
+    }
+
+/**
+ *  remove an item from the list for class Orphan
+ *
+*/
+
+    public Boolean removeOrphan(Orphan orphan){
+        assert orphan != null;
+        return this.listOrphan.remove(orphan);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -3507,6 +3571,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(MissingWork x:getListMissingWork()){
+            System.out.println(x);
+        }
+        for(Orphan x:getListOrphan()){
             System.out.println(x);
         }
         for(Paper x:getListPaper()){
@@ -3652,6 +3719,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(MissingWork x:getListMissingWork()){
             if (x.getClass().equals(MissingWork.class)) x.toXML(out);
+        }
+        for(Orphan x:getListOrphan()){
+            if (x.getClass().equals(Orphan.class)) x.toXML(out);
         }
         for(Paper x:getListPaper()){
             if (x.getClass().equals(Paper.class)) x.toXML(out);
@@ -3808,6 +3878,7 @@ public int compareTo(ApplicationDataset ds2){
         compareMissingCitingWork(this.getListMissingCitingWork(),compare.getListMissingCitingWork());
         compareMissingCross(this.getListMissingCross(),compare.getListMissingCross());
         compareMissingWork(this.getListMissingWork(),compare.getListMissingWork());
+        compareOrphan(this.getListOrphan(),compare.getListOrphan());
         comparePaper(this.getListPaper(),compare.getListPaper());
         comparePhDThesis(this.getListPhDThesis(),compare.getListPhDThesis());
         compareProceedings(this.getListProceedings(),compare.getListProceedings());
@@ -4329,6 +4400,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types Orphan, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareOrphan(List<Orphan> aList,List<Orphan> bList){
+        System.out.println("Comparing Orphan");
+        for(Orphan a:aList){
+            Orphan b= Orphan.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Orphan A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Orphan A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Orphan B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Orphan b: bList){
+            Orphan a = Orphan.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Orphan B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types Paper, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -4667,6 +4762,7 @@ public int compareTo(ApplicationDataset ds2){
         checkMissingCitingWork(this.getListMissingCitingWork());
         checkMissingCross(this.getListMissingCross());
         checkMissingWork(this.getListMissingWork());
+        checkOrphan(this.getListOrphan());
         checkPaper(this.getListPaper());
         checkPhDThesis(this.getListPhDThesis());
         checkProceedings(this.getListProceedings());
@@ -4916,6 +5012,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<Orphan> dataset list of all items of type Orphan
+*/
+
+    public void checkOrphan(List<Orphan> list){
+        for(Orphan a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<Paper> dataset list of all items of type Paper
 */
 
@@ -5091,6 +5198,7 @@ public int compareTo(ApplicationDataset ds2){
         MissingCitingWork.dummy(this);
         MissingCross.dummy(this);
         MissingWork.dummy(this);
+        Orphan.dummy(this);
         Paper.dummy(this);
         PhDThesis.dummy(this);
         Proceedings.dummy(this);

@@ -14,8 +14,10 @@ String doi
 Boolean doiStatus
 String key
 String localCopy
+Integer maxCitations
 Integer nrCitations
 Integer nrCitationsCovered
+Integer nrConcepts
 Integer nrLinks
 Integer nrPages
 Integer nrReferences
@@ -23,6 +25,7 @@ Integer nrReferencesCovered
 String pages
 Double percentCitationsCovered
 Double percentReferencesCovered
+Integer rangeCitations
 String relatedTo
 Integer scopusCitations
 Boolean scopusStatus

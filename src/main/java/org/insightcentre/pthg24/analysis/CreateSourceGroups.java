@@ -3,59 +3,102 @@ package org.insightcentre.pthg24.analysis;
 import org.insightcentre.pthg24.datamodel.*;
 
 import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
+
+import static java.util.stream.Collectors.groupingBy;
 
 public class CreateSourceGroups {
     Scenario base;
     Hashtable<String,SourceGroup> sourceHash = new Hashtable<>();
     Hashtable<String,ReferenceFlow> flowHash = new Hashtable<>();
-    public CreateSourceGroups(Scenario base){
-        this.base = base;
-        SourceGroup background = createSG("Background");
-        SourceGroup cp = createSG("CP");
-        SourceGroup cpaior = createSG("CPAIOR");
-        SourceGroup icaps = createSG("ICAPS");
-        SourceGroup aaai = createSG("AAAI");
-        SourceGroup ijcai = createSG("IJCAI");
-        SourceGroup ecai = createSG("ECAI");
-        SourceGroup otherConf = createSG("OtherConf");
-        SourceGroup constraints = createSG("Constraints");
-        SourceGroup ejor = createSG("EJOR");
-        SourceGroup informsJC = createSG("InformsJC");
-        SourceGroup aiJournal = createSG("AIJournal");
-        SourceGroup orJournal = createSG("ORJournal");
-        SourceGroup preprint = createSG("Preprint");
-        SourceGroup otherJournal = createSG("OtherJournal");
-        SourceGroup book = createSG("Book");
-        SourceGroup inbook = createSG("Inbook");
-        SourceGroup incollection = createSG("Incoll");
-        SourceGroup thesis = createSG("Thesis");
-        SourceGroup other = createSG("Other");
+    public CreateSourceGroups(Scenario base,String type){
 
-        for(Work w:base.getListWork()){
-            SourceGroup sg = classifyWork(w);
-            w.setSourceGroup(sg);
-            sg.incNrWorks();
+        this.base = base;
+        if (type.equals("scheduling")) {
+            SourceGroup background = createSG("Background");
+            SourceGroup cp = createSG("CP");
+            SourceGroup cpaior = createSG("CPAIOR");
+            SourceGroup icaps = createSG("ICAPS");
+            SourceGroup aaai = createSG("AAAI");
+            SourceGroup ijcai = createSG("IJCAI");
+            SourceGroup ecai = createSG("ECAI");
+            SourceGroup otherConf = createSG("OtherConf");
+            SourceGroup constraints = createSG("Constraints");
+            SourceGroup ejor = createSG("EJOR");
+            SourceGroup informsJC = createSG("InformsJC");
+            SourceGroup aiJournal = createSG("AIJournal");
+            SourceGroup orJournal = createSG("ORJournal");
+            SourceGroup preprint = createSG("Preprint");
+            SourceGroup otherJournal = createSG("OtherJournal");
+            SourceGroup book = createSG("Book");
+            SourceGroup inbook = createSG("Inbook");
+            SourceGroup incollection = createSG("Incoll");
+            SourceGroup thesis = createSG("Thesis");
+            SourceGroup other = createSG("Other");
+
+            for (Work w : base.getListWork()) {
+                SourceGroup sg = classifyWork(w);
+                w.setSourceGroup(sg);
+                sg.incNrWorks();
+            }
+        } else {
+            SourceGroup background = createSG("Background");
+            SourceGroup otherConf = createSG("OtherConf");
+            SourceGroup otherJournal = createSG("OtherJournal");
+            SourceGroup book = createSG("Book");
+            SourceGroup inbook = createSG("Inbook");
+            SourceGroup incollection = createSG("Incoll");
+            SourceGroup thesis = createSG("Thesis");
+            SourceGroup other = createSG("Other");
+            for(Work w:base.getListWork()){
+                if (w.getBackground()){
+                    w.setSourceGroup(background);
+                } else if (w instanceof Book){
+                    w.setSourceGroup(book);
+                } else if (w instanceof Paper){
+                    w.setSourceGroup(otherConf);
+                } else if (w instanceof Article){
+                    w.setSourceGroup(otherJournal);
+                } else if (w instanceof PhDThesis){
+                    w.setSourceGroup(thesis);
+                } else if (w instanceof InCollection){
+                    w.setSourceGroup(incollection);
+                } else if (w instanceof InBook){
+                    w.setSourceGroup(inbook);
+                } else {
+                    w.setSourceGroup(other);
+                }
+            }
+
         }
-        for(SourceGroup from:base.getListSourceGroup()){
-            for(SourceGroup to:base.getListSourceGroup()){
-                String key = key(from,to);
+        analyzeFlows();
+        updateSourceGroupCounts();
+
+    }
+
+    private void analyzeFlows(){
+        for (SourceGroup from : base.getListSourceGroup()) {
+            for (SourceGroup to : base.getListSourceGroup()) {
+                String key = key(from, to);
                 ReferenceFlow rf = new ReferenceFlow(base);
                 rf.setName(key);
                 rf.setFrom(from);
                 rf.setTo(to);
-                flowHash.put(key,rf);
+                flowHash.put(key, rf);
             }
         }
-        for(Reference ref:base.getListReference().stream().
-                filter(x->x.getCitingWork()!= null && x.getCitedWork()!= null).
-                toList()){
-            ReferenceFlow rf = flowHash.get(key(ref.getCitingWork().getSourceGroup(),ref.getCitedWork().getSourceGroup()));
+        for (Reference ref : base.getListReference().stream().
+                filter(x -> x.getCitingWork() != null && x.getCitedWork() != null).
+                toList()) {
+            ReferenceFlow rf = flowHash.get(key(ref.getCitingWork().getSourceGroup(), ref.getCitedWork().getSourceGroup()));
             rf.incValue();
         }
-        for(ReferenceFlow rf:base.getListReferenceFlow()){
-            double normalized = 1.0*rf.getValue()/(rf.getFrom().getNrWorks()*rf.getTo().getNrWorks());
+        for (ReferenceFlow rf : base.getListReferenceFlow()) {
+            double normalized = 100.0 * rf.getValue() / (rf.getFrom().getNrWorks() * rf.getTo().getNrWorks());
             rf.setNormalized(normalized);
         }
+
     }
 
     private String key(SourceGroup from,SourceGroup to){
@@ -217,5 +260,16 @@ public class CreateSourceGroups {
 
     private SourceGroup findSourceGroup(String name){
         return sourceHash.get(name);
+    }
+
+    private void updateSourceGroupCounts(){
+        Map<SourceGroup, List<ReferenceFlow>> mapFrom = base.getListReferenceFlow().stream().collect(groupingBy(ReferenceFlow::getFrom));
+        for(SourceGroup from:mapFrom.keySet()){
+            from.setFromFlows(mapFrom.get(from).stream().mapToInt(ReferenceFlow::getValue).sum());
+        }
+        Map<SourceGroup, List<ReferenceFlow>> mapTo = base.getListReferenceFlow().stream().collect(groupingBy(ReferenceFlow::getTo));
+        for(SourceGroup to:mapTo.keySet()){
+            to.setToFlows(mapTo.get(to).stream().mapToInt(ReferenceFlow::getValue).sum());
+        }
     }
 }

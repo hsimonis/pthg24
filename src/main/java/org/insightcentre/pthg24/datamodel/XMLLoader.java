@@ -559,6 +559,25 @@ public ConceptType getConceptType(String attributeName,
         return res;
     }
 
+    public Orphan getOrphan(String attributeName,
+                               Attributes attributes) {
+        return (Orphan) find(getId(attributeName,attributes));
+    }
+
+    public List<Orphan> getOrphanCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<Orphan> res = new ArrayList<Orphan>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((Orphan) find(id));
+            }
+        }
+        return res;
+    }
+
     public Paper getPaper(String attributeName,
                                Attributes attributes) {
         return (Paper) find(getId(attributeName,attributes));
@@ -922,8 +941,10 @@ public ConceptType getConceptType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
+                        getInteger("maxCitations",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCitationsCovered",attributes,0),
+                        getInteger("nrConcepts",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
@@ -931,6 +952,7 @@ public ConceptType getConceptType(String attributeName,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
+                        getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
@@ -991,8 +1013,10 @@ public ConceptType getConceptType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
+                        getInteger("maxCitations",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCitationsCovered",attributes,0),
+                        getInteger("nrConcepts",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
@@ -1000,6 +1024,7 @@ public ConceptType getConceptType(String attributeName,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
+                        getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
@@ -1118,8 +1143,10 @@ public ConceptType getConceptType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
+                        getInteger("maxCitations",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCitationsCovered",attributes,0),
+                        getInteger("nrConcepts",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
@@ -1127,6 +1154,7 @@ public ConceptType getConceptType(String attributeName,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
+                        getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
@@ -1158,8 +1186,10 @@ public ConceptType getConceptType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
+                        getInteger("maxCitations",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCitationsCovered",attributes,0),
+                        getInteger("nrConcepts",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
@@ -1167,6 +1197,7 @@ public ConceptType getConceptType(String attributeName,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
+                        getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
@@ -1251,6 +1282,14 @@ public ConceptType getConceptType(String attributeName,
                         getString("url",attributes,""),
                         getInteger("year",attributes,0)
                         ));
+            } else if (qname.equals("orphan")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new Orphan(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getString("fileName",attributes,"")
+                        ));
             } else if (qname.equals("paper")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1272,8 +1311,10 @@ public ConceptType getConceptType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
+                        getInteger("maxCitations",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCitationsCovered",attributes,0),
+                        getInteger("nrConcepts",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
@@ -1281,6 +1322,7 @@ public ConceptType getConceptType(String attributeName,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
+                        getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
@@ -1312,8 +1354,10 @@ public ConceptType getConceptType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
+                        getInteger("maxCitations",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCitationsCovered",attributes,0),
+                        getInteger("nrConcepts",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
@@ -1321,6 +1365,7 @@ public ConceptType getConceptType(String attributeName,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
+                        getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
@@ -1399,6 +1444,7 @@ public ConceptType getConceptType(String attributeName,
                 store(id, new ScopusCountry(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getInteger("nrWorks",attributes,0),
                         getInteger("workCount",attributes,0)
                         ));
             } else if (qname.equals("similarity")) {
@@ -1426,7 +1472,9 @@ public ConceptType getConceptType(String attributeName,
                 store(id, new SourceGroup(base,
                         id,
                         getString("name", attributes, "dummy"),
-                        getInteger("nrWorks",attributes,0)
+                        getInteger("fromFlows",attributes,0),
+                        getInteger("nrWorks",attributes,0),
+                        getInteger("toFlows",attributes,0)
                         ));
             } else if (qname.equals("uncategorizedReference")) {
                 assert (base != null);
@@ -1600,6 +1648,10 @@ public ConceptType getConceptType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 MissingWork item = (MissingWork) find(id);
+            } else if (qname.equals("orphan")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                Orphan item = (Orphan) find(id);
             } else if (qname.equals("paper")) {
                 assert (base != null);
                 int id = getId("id", attributes);
