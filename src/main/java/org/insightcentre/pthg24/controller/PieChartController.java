@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 12:30:10 on 2024-04-24 */
+ * Generated at 20:45:32 on 2024-04-25 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -459,6 +459,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("similarityCite");
 		attributeNames.add("similarityConcept");
 		attributeNames.add("similarity");
+		attributeNames.add("dotProduct");
+		attributeNames.add("cosine");
 		choicesMap.put("Similarity", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -512,6 +514,7 @@ public class PieChartController extends ChartController {
 		choicesMap.put("MissingCross", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("description");
 		attributeNames.add("nrWorks");
 		attributeNames.add("fromFlows");
 		attributeNames.add("toFlows");
@@ -528,6 +531,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("inst");
 		attributeNames.add("scopusCity");
 		attributeNames.add("workCount");
+		attributeNames.add("collabCount");
+		attributeNames.add("domesticCollabCount");
+		attributeNames.add("internationalCollabCount");
+		attributeNames.add("collabFraction");
+		attributeNames.add("domesticCollabFraction");
+		attributeNames.add("internationalCollabFraction");
+		attributeNames.add("collabPercentage");
+		attributeNames.add("internationalPercentage");
 		attributeNames.add("scopusCity.scopusCountry");
 		choicesMap.put("ScopusAffiliation", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -551,6 +562,20 @@ public class PieChartController extends ChartController {
 		attributeNames.add("name");
 		attributeNames.add("fileName");
 		choicesMap.put("Orphan", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("affiliation1");
+		attributeNames.add("affiliation2");
+		attributeNames.add("work");
+		attributeNames.add("fraction");
+		choicesMap.put("CollabWork", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("affiliation1");
+		attributeNames.add("affiliation2");
+		attributeNames.add("count");
+		attributeNames.add("fraction");
+		choicesMap.put("CollabCount", attributeNames);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -682,6 +707,12 @@ public class PieChartController extends ChartController {
 			}
 			else if (className.equals("Orphan")) {
 				objectList = mainApp.getOrphanData();
+			}
+			else if (className.equals("CollabWork")) {
+				objectList = mainApp.getCollabWorkData();
+			}
+			else if (className.equals("CollabCount")) {
+				objectList = mainApp.getCollabCountData();
 			}
 			if (objectList != null) {
 				Map<String, Integer> countMap = new HashMap<String, Integer>();

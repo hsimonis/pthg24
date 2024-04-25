@@ -12,6 +12,8 @@
 				<xs:element ref="book" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="citation" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="coauthor" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="collabCount" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="collabWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="collection" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="concept" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="conceptWork" minOccurs="0" maxOccurs="unbounded"/>
@@ -214,6 +216,28 @@
 			<xs:attribute name="latestYear" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCites" use="required" type="xs:integer"/>
 			<xs:attribute name="nrWorks" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="collabCount">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="affiliation1" use="required" type="xs:IDREF"/>
+			<xs:attribute name="affiliation2" use="required" type="xs:IDREF"/>
+			<xs:attribute name="count" use="required" type="xs:integer"/>
+			<xs:attribute name="fraction" use="required" type="xs:double"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="collabWork">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="affiliation1" use="required" type="xs:IDREF"/>
+			<xs:attribute name="affiliation2" use="required" type="xs:IDREF"/>
+			<xs:attribute name="fraction" use="required" type="xs:double"/>
+			<xs:attribute name="work" use="required" type="xs:IDREF"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="collection">
@@ -585,7 +609,15 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="collabCount" use="required" type="xs:integer"/>
+			<xs:attribute name="collabFraction" use="required" type="xs:double"/>
+			<xs:attribute name="collabPercentage" use="required" type="xs:double"/>
+			<xs:attribute name="domesticCollabCount" use="required" type="xs:integer"/>
+			<xs:attribute name="domesticCollabFraction" use="required" type="xs:double"/>
 			<xs:attribute name="inst" use="required" type="xs:string"/>
+			<xs:attribute name="internationalCollabCount" use="required" type="xs:integer"/>
+			<xs:attribute name="internationalCollabFraction" use="required" type="xs:double"/>
+			<xs:attribute name="internationalPercentage" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCity" use="required" type="xs:IDREF"/>
 			<xs:attribute name="workCount" use="required" type="xs:integer"/>
 		</xs:complexType>
@@ -615,6 +647,8 @@
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="cite1" use="required" type="xs:integer"/>
 			<xs:attribute name="cite2" use="required" type="xs:integer"/>
+			<xs:attribute name="cosine" use="required" type="xs:double"/>
+			<xs:attribute name="dotProduct" use="required" type="xs:double"/>
 			<xs:attribute name="nrSharedCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrSharedReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="ref1" use="required" type="xs:integer"/>
@@ -632,6 +666,7 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="description" use="required" type="xs:string"/>
 			<xs:attribute name="fromFlows" use="required" type="xs:integer"/>
 			<xs:attribute name="nrWorks" use="required" type="xs:integer"/>
 			<xs:attribute name="toFlows" use="required" type="xs:integer"/>

@@ -31,6 +31,8 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include Book.uml
 !include Citation.uml
 !include Coauthor.uml
+!include CollabCount.uml
+!include CollabWork.uml
 !include Collection.uml
 !include Concept.uml
 !include ConceptWork.uml
@@ -110,6 +112,11 @@ ScopusCity  *-- ScopusAffiliation
 ScopusCountry  *-- ScopusCity 
 Work  *-- WorkAffiliation 
 ScopusAffiliation  *-- WorkAffiliation 
+ScopusAffiliation  *-- CollabWork : affiliation1
+ScopusAffiliation  *-- CollabWork : affiliation2
+Work  *-- CollabWork 
+ScopusAffiliation  *-- CollabCount : affiliation1
+ScopusAffiliation  *-- CollabCount : affiliation2
 header
 Datamodel of Application pthg24
 endheader

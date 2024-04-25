@@ -18,14 +18,14 @@ import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class AnalysisByWork {
     public AnalysisByWork(Scenario base, List<Work> works,String exportDir, String fileName){
-        analyze(base,null,works,exportDir,fileName);
+        analyze(base,null,works,exportDir,fileName,false);
     }
     public AnalysisByWork(Scenario base, WorkType type,String exportDir, String fileName) {
         List<Work> works = sortedWorks(base, type);
-        analyze(base, type,works, exportDir, fileName);
+        analyze(base, type,works, exportDir, fileName,true);
     }
 
-    private void analyze(Scenario base,WorkType type,List<Work> works,String exportDir, String fileName){
+    private void analyze(Scenario base,WorkType type,List<Work> works,String exportDir, String fileName,boolean rowLabels){
         assert(exportDir.endsWith("/"));
         String fullName = exportDir+fileName;
         try{
@@ -41,8 +41,8 @@ public class AnalysisByWork {
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
             for(Work w:works){
-                out.printf("\\rowlabel{%s}\\href{%s}{%s}~\\cite{%s}",
-                        "b:"+w.getName(),
+                out.printf("%s\\href{%s}{%s}~\\cite{%s}",
+                        rowLabel("b:"+w.getName(),rowLabels),
                         local(w.getLocalCopy()),safe(w.getName()),
                         w.getName());
                 out.printf(" & %d",w.getNrPages());
@@ -65,6 +65,13 @@ public class AnalysisByWork {
             severe("Cannot write file "+fullName);
             assert(false);
         }
+    }
+
+    private String rowLabel(String label,boolean rowLabels){
+        if (rowLabels){
+            return String.format("\\rowlabel{%s}",label);
+        }
+        return "";
     }
 
 

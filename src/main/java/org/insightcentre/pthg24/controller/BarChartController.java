@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 12:30:10 on 2024-04-24 */
+ * Generated at 20:45:32 on 2024-04-25 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -202,6 +202,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("similarityCite");
 		attributeNames.add("similarityConcept");
 		attributeNames.add("similarity");
+		attributeNames.add("dotProduct");
+		attributeNames.add("cosine");
 		choicesMap.put("Similarity", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("year");
@@ -229,6 +231,14 @@ public class BarChartController extends ChartController {
 		choicesMap.put("ReferenceFlow", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("workCount");
+		attributeNames.add("collabCount");
+		attributeNames.add("domesticCollabCount");
+		attributeNames.add("internationalCollabCount");
+		attributeNames.add("collabFraction");
+		attributeNames.add("domesticCollabFraction");
+		attributeNames.add("internationalCollabFraction");
+		attributeNames.add("collabPercentage");
+		attributeNames.add("internationalPercentage");
 		choicesMap.put("ScopusAffiliation", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("workCount");
@@ -237,6 +247,13 @@ public class BarChartController extends ChartController {
 		attributeNames.add("workCount");
 		attributeNames.add("nrWorks");
 		choicesMap.put("ScopusCountry", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("fraction");
+		choicesMap.put("CollabWork", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("count");
+		attributeNames.add("fraction");
+		choicesMap.put("CollabCount", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
@@ -369,6 +386,12 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("Orphan")) {
 				objectList = mainApp.getOrphanData();
+			}
+			else if (className.equals("CollabWork")) {
+				objectList = mainApp.getCollabWorkData();
+			}
+			else if (className.equals("CollabCount")) {
+				objectList = mainApp.getCollabCountData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

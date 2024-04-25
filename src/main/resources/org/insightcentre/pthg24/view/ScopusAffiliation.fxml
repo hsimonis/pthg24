@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 12:30:11 on 2024-04-24-->
+<!--Generated at 20:45:32 on 2024-04-25-->
 
 
 <Tab text="ScopusAffiliation" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.ScopusAffiliationController">
@@ -22,6 +22,14 @@
                <TableColumn fx:id="inst" styleClass="right-aligned" text="Inst" />
                <TableColumn fx:id="scopusCity" styleClass="right-aligned" text="ScopusCity" />
                <TableColumn fx:id="workCount" styleClass="right-aligned" text="WorkCount" />
+               <TableColumn fx:id="collabCount" styleClass="right-aligned" text="CollabCount" />
+               <TableColumn fx:id="domesticCollabCount" styleClass="right-aligned" text="DomesticCollabCount" />
+               <TableColumn fx:id="internationalCollabCount" styleClass="right-aligned" text="InternationalCollabCount" />
+               <TableColumn fx:id="collabFraction" styleClass="right-aligned" text="CollabFraction" />
+               <TableColumn fx:id="domesticCollabFraction" styleClass="right-aligned" text="DomesticCollabFraction" />
+               <TableColumn fx:id="internationalCollabFraction" styleClass="right-aligned" text="InternationalCollabFraction" />
+               <TableColumn fx:id="collabPercentage" styleClass="right-aligned" text="CollabPercentage" />
+               <TableColumn fx:id="internationalPercentage" styleClass="right-aligned" text="InternationalPercentage" />
                <TableColumn fx:id="scopusCountry" styleClass="right-aligned,disabled-column" text="ScopusCountry" />
             </columns>
          </TableView>

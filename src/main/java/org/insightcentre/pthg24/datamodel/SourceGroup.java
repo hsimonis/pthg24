@@ -41,6 +41,8 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Orphan;
+import org.insightcentre.pthg24.datamodel.CollabWork;
+import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -62,6 +64,13 @@ import framework.AppearInCollection;
 */
 
 public  class SourceGroup extends ApplicationObject{
+/**
+ *  
+ *
+*/
+
+    public String description;
+
 /**
  *  
  *
@@ -102,6 +111,7 @@ public  class SourceGroup extends ApplicationObject{
 
     public SourceGroup(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setDescription("");
         setFromFlows(0);
         setNrWorks(0);
         setToFlows(0);
@@ -118,12 +128,14 @@ public  class SourceGroup extends ApplicationObject{
     public SourceGroup(ApplicationDataset applicationDataset,
             Integer id,
             String name,
+            String description,
             Integer fromFlows,
             Integer nrWorks,
             Integer toFlows){
         super(applicationDataset,
             id,
             name);
+        setDescription(description);
         setFromFlows(fromFlows);
         setNrWorks(nrWorks);
         setToFlows(toFlows);
@@ -134,6 +146,7 @@ public  class SourceGroup extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
+            other.description,
             other.fromFlows,
             other.nrWorks,
             other.toFlows);
@@ -151,6 +164,16 @@ public  class SourceGroup extends ApplicationObject{
         getApplicationDataset().cascadeReferenceFlowFrom(this);
         getApplicationDataset().cascadeReferenceFlowTo(this);
         return getApplicationDataset().removeSourceGroup(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  get attribute description
+ *
+ * @return String
+*/
+
+    public String getDescription(){
+        return this.description;
     }
 
 /**
@@ -181,6 +204,18 @@ public  class SourceGroup extends ApplicationObject{
 
     public Integer getToFlows(){
         return this.toFlows;
+    }
+
+/**
+ *  set attribute description, mark dataset as dirty, mark dataset as not valid
+@param description String
+ *
+*/
+
+    public void setDescription(String description){
+        this.description = description;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -269,7 +304,7 @@ public  class SourceGroup extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getFromFlows()+ " " +getNrWorks()+ " " +getToFlows();
+        return ""+ " " +getId()+ " " +getName()+ " " +getDescription()+ " " +getFromFlows()+ " " +getNrWorks()+ " " +getToFlows();
     }
 
 /**
@@ -293,10 +328,21 @@ public  class SourceGroup extends ApplicationObject{
          out.println("<sourceGroup "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
+            " description=\""+toXMLDescription()+"\""+
             " fromFlows=\""+toXMLFromFlows()+"\""+
             " nrWorks=\""+toXMLNrWorks()+"\""+
             " toFlows=\""+toXMLToFlows()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLDescription(){
+        return this.safeXML(getDescription());
+    }
 
 /**
  * helper method for toXML(), prcess one attribute
@@ -335,11 +381,11 @@ public  class SourceGroup extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>SourceGroup</th>"+"<th>Name</th>"+"<th>NrWorks</th>"+"<th>FromFlows</th>"+"<th>ToFlows</th>"+"</tr>";
+        return "<tr><th>SourceGroup</th>"+"<th>Name</th>"+"<th>Description</th>"+"<th>NrWorks</th>"+"<th>FromFlows</th>"+"<th>ToFlows</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getNrWorks()+"</td>"+ " " +"<td>"+getFromFlows()+"</td>"+ " " +"<td>"+getToFlows()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDescription()+"</td>"+ " " +"<td>"+getNrWorks()+"</td>"+ " " +"<td>"+getFromFlows()+"</td>"+ " " +"<td>"+getToFlows()+"</td>"+"</tr>";
     }
 
 /**
@@ -456,6 +502,9 @@ public  class SourceGroup extends ApplicationObject{
 */
 
     public Boolean applicationEqual(SourceGroup b){
+      if(!this.getDescription().equals(b.getDescription())){
+         System.out.println("Description");
+        }
       if(!this.getFromFlows().equals(b.getFromFlows())){
          System.out.println("FromFlows");
         }
@@ -468,7 +517,8 @@ public  class SourceGroup extends ApplicationObject{
       if(!this.getToFlows().equals(b.getToFlows())){
          System.out.println("ToFlows");
         }
-        return  this.getFromFlows().equals(b.getFromFlows()) &&
+        return  this.getDescription().equals(b.getDescription()) &&
+          this.getFromFlows().equals(b.getFromFlows()) &&
           this.getName().equals(b.getName()) &&
           this.getNrWorks().equals(b.getNrWorks()) &&
           this.getToFlows().equals(b.getToFlows());

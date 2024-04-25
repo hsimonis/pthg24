@@ -16,26 +16,26 @@ public class CreateSourceGroups {
 
         this.base = base;
         if (type.equals("scheduling")) {
-            SourceGroup background = createSG("Background");
-            SourceGroup cp = createSG("CP");
-            SourceGroup cpaior = createSG("CPAIOR");
-            SourceGroup icaps = createSG("ICAPS");
-            SourceGroup aaai = createSG("AAAI");
-            SourceGroup ijcai = createSG("IJCAI");
-            SourceGroup ecai = createSG("ECAI");
-            SourceGroup otherConf = createSG("OtherConf");
-            SourceGroup constraints = createSG("Constraints");
-            SourceGroup ejor = createSG("EJOR");
-            SourceGroup informsJC = createSG("InformsJC");
-            SourceGroup aiJournal = createSG("AIJournal");
-            SourceGroup orJournal = createSG("ORJournal");
-            SourceGroup preprint = createSG("Preprint");
-            SourceGroup otherJournal = createSG("OtherJournal");
-            SourceGroup book = createSG("Book");
-            SourceGroup inbook = createSG("Inbook");
-            SourceGroup incollection = createSG("Incoll");
-            SourceGroup thesis = createSG("Thesis");
-            SourceGroup other = createSG("Other");
+            SourceGroup background = createSG("Background","Background material");
+            SourceGroup cp = createSG("CP","The CP conference (from 1995)");
+            SourceGroup cpaior = createSG("CPAIOR","The CPAIOR conference (starting 2004)");
+            SourceGroup icaps = createSG("ICAPS","The ICAPS conference");
+            SourceGroup aaai = createSG("AAAI","AAAI conference");
+            SourceGroup ijcai = createSG("IJCAI","IJCAI Conference");
+            SourceGroup ecai = createSG("ECAI","ECAI Conference");
+            SourceGroup otherConf = createSG("OtherConf","Any other conference");
+            SourceGroup constraints = createSG("Constraints","The Constraint Journal");
+            SourceGroup ejor = createSG("EJOR","The European Journal on Operations Research");
+            SourceGroup informsJC = createSG("InformsJC","The Informs Journal on Computing");
+            SourceGroup aiJournal = createSG("AIJournal","Other AI Journals");
+            SourceGroup orJournal = createSG("ORJournal","Other OR Journals");
+            SourceGroup preprint = createSG("Preprint","A non reviewed preprint");
+            SourceGroup otherJournal = createSG("OtherJournal","Any other Journal");
+            SourceGroup book = createSG("Book","A book");
+            SourceGroup inbook = createSG("Inbook","Chapter in a Book");
+            SourceGroup incollection = createSG("Incoll","Chapter in a Collection");
+            SourceGroup thesis = createSG("Thesis","A thesis");
+            SourceGroup other = createSG("Other","Any other published work");
 
             for (Work w : base.getListWork()) {
                 SourceGroup sg = classifyWork(w);
@@ -43,14 +43,14 @@ public class CreateSourceGroups {
                 sg.incNrWorks();
             }
         } else {
-            SourceGroup background = createSG("Background");
-            SourceGroup otherConf = createSG("OtherConf");
-            SourceGroup otherJournal = createSG("OtherJournal");
-            SourceGroup book = createSG("Book");
-            SourceGroup inbook = createSG("Inbook");
-            SourceGroup incollection = createSG("Incoll");
-            SourceGroup thesis = createSG("Thesis");
-            SourceGroup other = createSG("Other");
+            SourceGroup background = createSG("Background","Background Material");
+            SourceGroup otherConf = createSG("OtherConf","Any Conference");
+            SourceGroup otherJournal = createSG("OtherJournal","Any Journal");
+            SourceGroup book = createSG("Book","A book");
+            SourceGroup inbook = createSG("Inbook","Chapter in a book");
+            SourceGroup incollection = createSG("Incoll","Chapter in a collection");
+            SourceGroup thesis = createSG("Thesis","A thesis");
+            SourceGroup other = createSG("Other","Any other published work");
             for(Work w:base.getListWork()){
                 if (w.getBackground()){
                     w.setSourceGroup(background);
@@ -251,9 +251,10 @@ public class CreateSourceGroups {
          return findSourceGroup("Other");
     }
 
-    private SourceGroup createSG(String name){
+    private SourceGroup createSG(String name,String description){
         SourceGroup res = new SourceGroup(base);
         res.setName(name);
+        res.setDescription(description);
         sourceHash.put(name,res);
         return res;
     }

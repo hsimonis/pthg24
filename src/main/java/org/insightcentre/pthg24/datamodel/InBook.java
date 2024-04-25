@@ -41,6 +41,8 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Orphan;
+import org.insightcentre.pthg24.datamodel.CollabWork;
+import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -241,6 +243,7 @@ public  class InBook extends Work{
         getApplicationDataset().cascadeCrossReferenceWork(this);
         getApplicationDataset().cascadeCrossReferenceReferredWork(this);
         getApplicationDataset().cascadeWorkAffiliationWork(this);
+        getApplicationDataset().cascadeCollabWorkWork(this);
         return getApplicationDataset().removeInBook(this) && getApplicationDataset().removeWork(this) && getApplicationDataset().removeApplicationObject(this);
     }
 

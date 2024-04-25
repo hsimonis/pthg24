@@ -2,6 +2,7 @@ package org.insightcentre.pthg24.controller;
 
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
+import java.lang.Double;
 import java.lang.Exception;
 import java.lang.Integer;
 import java.lang.NullPointerException;
@@ -25,7 +26,7 @@ import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
 
 /**
- * Generated at 12:30:10 on 2024-04-24 */
+ * Generated at 20:45:32 on 2024-04-25 */
 public class ScopusAffiliationController extends Table3Controller {
 	@FXML
 	private TableView<ScopusAffiliation> table;
@@ -41,6 +42,30 @@ public class ScopusAffiliationController extends Table3Controller {
 
 	@FXML
 	private TableColumn<ScopusAffiliation, Integer> workCount;
+
+	@FXML
+	private TableColumn<ScopusAffiliation, Integer> collabCount;
+
+	@FXML
+	private TableColumn<ScopusAffiliation, Integer> domesticCollabCount;
+
+	@FXML
+	private TableColumn<ScopusAffiliation, Integer> internationalCollabCount;
+
+	@FXML
+	private TableColumn<ScopusAffiliation, Double> collabFraction;
+
+	@FXML
+	private TableColumn<ScopusAffiliation, Double> domesticCollabFraction;
+
+	@FXML
+	private TableColumn<ScopusAffiliation, Double> internationalCollabFraction;
+
+	@FXML
+	private TableColumn<ScopusAffiliation, Double> collabPercentage;
+
+	@FXML
+	private TableColumn<ScopusAffiliation, Double> internationalPercentage;
 
 	@FXML
 	private TableColumn<ScopusAffiliation, ScopusCountry> scopusCountry;
@@ -79,6 +104,38 @@ public class ScopusAffiliationController extends Table3Controller {
 		workCount.setCellValueFactory(new PropertyValueFactory<>("workCount"));
 		workCount.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		workCount.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setWorkCount(event.getNewValue()); mainApp.reset();});
+		choices.add("collabCount");
+		collabCount.setCellValueFactory(new PropertyValueFactory<>("collabCount"));
+		collabCount.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		collabCount.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCollabCount(event.getNewValue()); mainApp.reset();});
+		choices.add("domesticCollabCount");
+		domesticCollabCount.setCellValueFactory(new PropertyValueFactory<>("domesticCollabCount"));
+		domesticCollabCount.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		domesticCollabCount.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setDomesticCollabCount(event.getNewValue()); mainApp.reset();});
+		choices.add("internationalCollabCount");
+		internationalCollabCount.setCellValueFactory(new PropertyValueFactory<>("internationalCollabCount"));
+		internationalCollabCount.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		internationalCollabCount.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setInternationalCollabCount(event.getNewValue()); mainApp.reset();});
+		choices.add("collabFraction");
+		collabFraction.setCellValueFactory(new PropertyValueFactory<>("collabFraction"));
+		collabFraction.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		collabFraction.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCollabFraction(event.getNewValue()); mainApp.reset();});
+		choices.add("domesticCollabFraction");
+		domesticCollabFraction.setCellValueFactory(new PropertyValueFactory<>("domesticCollabFraction"));
+		domesticCollabFraction.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		domesticCollabFraction.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setDomesticCollabFraction(event.getNewValue()); mainApp.reset();});
+		choices.add("internationalCollabFraction");
+		internationalCollabFraction.setCellValueFactory(new PropertyValueFactory<>("internationalCollabFraction"));
+		internationalCollabFraction.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		internationalCollabFraction.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setInternationalCollabFraction(event.getNewValue()); mainApp.reset();});
+		choices.add("collabPercentage");
+		collabPercentage.setCellValueFactory(new PropertyValueFactory<>("collabPercentage"));
+		collabPercentage.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		collabPercentage.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCollabPercentage(event.getNewValue()); mainApp.reset();});
+		choices.add("internationalPercentage");
+		internationalPercentage.setCellValueFactory(new PropertyValueFactory<>("internationalPercentage"));
+		internationalPercentage.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		internationalPercentage.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setInternationalPercentage(event.getNewValue()); mainApp.reset();});
 		choices.add("scopusCity.scopusCountry");
 		try {
 			scopusCountry.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getScopusCity().getScopusCountry()));

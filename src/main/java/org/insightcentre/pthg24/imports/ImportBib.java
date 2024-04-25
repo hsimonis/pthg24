@@ -303,7 +303,7 @@ public class ImportBib {
                 "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE","CCL'99",
                 "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL","ICORES","SOCS","SAT",
                 "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA",
-                "Canadian AI","CSCLP","LION","FGCS","EvoWorkshop","Conf AI","ICOA","ASTAIR","LPNMR","ICMSAO"
+                "Canadian AI","CSCLP","LION","FGCS","EvoWorkshop","Conf AI","ICOA","ASTAIR","LPNMR","ICMSAO","IESM"
         };
         for(String cand:series) {
             if (text.contains(cand)) {
@@ -357,6 +357,9 @@ public class ImportBib {
         }
         if (text.contains("Railway Operations Modelling and Analysis")){
             return "ICROMA";
+        }
+        if(text.contains("Multidisciplinary Scheduling")){
+            return "MISTA";
         }
         return "unknown";
     }

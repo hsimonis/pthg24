@@ -249,7 +249,39 @@ This section lists those concepts for which no matches were found. The most like
 \clearpage
 \section{Most Similar Works}
 
+The following table shows the most similar works for each work. The first line shows the five works most similar by references and citations, the second line shows the similarity by Euclidean distance of the feature vectors. The next two entries are based on the dot product similarity, resp. the cosine similarity. Note that the first two entries will have low values for similar items, as they are based on distance. The last two entries use high values for similar items, as they use a similarity value, not a distance.
+
+Fewer than five entries are shown if no similar entries are found. Colour coding is based on percentiles (80, 90, 95, 98, 99, 99.5 percentiles for similarity, 20, 10, 5, 2, 1, 0.5 percentiles for distance) of all similarity values found.
+
 \input{../exports/mostsimilar}
+
+\clearpage
+\subsection{Most Similar Works Based on Euclidean Distance}
+
+The following tables show pairs of work for which the similarity by concept value is smallest. This allows to check if the measure is really finding similar papers.
+
+One of the challenge of this similarity measure is that works with few extracted features are considered to be quite similar. This should not be the case.
+
+\input{../exports/similarworks}
+
+\input{../exports/similarconcepts}
+
+\clearpage
+\subsection{Most Similar Works Based on Dot Product Similarity}
+
+As before, but now based on the dot product similarity measure.
+
+\input{../exports/dotworks}
+
+\input{../exports/dotconcepts}
+
+\clearpage
+\subsection{Most Similar Works Based on Cosine Similarity}
+As before, but now based on the cosine similarity measure. A high value means that works are similar.
+
+\input{../exports/cosineworks}
+
+\input{../exports/cosineconcepts}
 
 \clearpage
 \section{Missing Works}

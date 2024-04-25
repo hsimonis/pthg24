@@ -22,7 +22,7 @@ import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 12:30:10 on 2024-04-24 */
+ * Generated at 20:45:32 on 2024-04-25 */
 public class SimilarityController extends Table3Controller {
 	@FXML
 	private TableView<Similarity> table;
@@ -65,6 +65,12 @@ public class SimilarityController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Similarity, Double> similarity;
+
+	@FXML
+	private TableColumn<Similarity, Double> dotProduct;
+
+	@FXML
+	private TableColumn<Similarity, Double> cosine;
 
 	private GeneratedJfxApp mainApp;
 
@@ -135,6 +141,14 @@ public class SimilarityController extends Table3Controller {
 		similarity.setCellValueFactory(new PropertyValueFactory<>("similarity"));
 		similarity.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
 		similarity.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSimilarity(event.getNewValue()); mainApp.reset();});
+		choices.add("dotProduct");
+		dotProduct.setCellValueFactory(new PropertyValueFactory<>("dotProduct"));
+		dotProduct.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		dotProduct.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setDotProduct(event.getNewValue()); mainApp.reset();});
+		choices.add("cosine");
+		cosine.setCellValueFactory(new PropertyValueFactory<>("cosine"));
+		cosine.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		cosine.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCosine(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

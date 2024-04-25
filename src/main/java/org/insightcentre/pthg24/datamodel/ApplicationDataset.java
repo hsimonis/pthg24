@@ -41,6 +41,8 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Orphan;
+import org.insightcentre.pthg24.datamodel.CollabWork;
+import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -382,6 +384,20 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<Orphan> listOrphan = new ArrayList<Orphan>();
 
 /**
+ *  This lists holds all items of class CollabWork and its subclasses
+ *
+*/
+
+    List<CollabWork> listCollabWork = new ArrayList<CollabWork>();
+
+/**
+ *  This lists holds all items of class CollabCount and its subclasses
+ *
+*/
+
+    List<CollabCount> listCollabCount = new ArrayList<CollabCount>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -513,6 +529,8 @@ public int compareTo(ApplicationDataset ds2){
                              "Book",
                              "Citation",
                              "Coauthor",
+                             "CollabCount",
+                             "CollabWork",
                              "Collection",
                              "Concept",
                              "ConceptWork",
@@ -634,6 +652,8 @@ public int compareTo(ApplicationDataset ds2){
         resetListScopusCity();
         resetListScopusCountry();
         resetListOrphan();
+        resetListCollabWork();
+        resetListCollabCount();
     }
 
 /**
@@ -2027,6 +2047,74 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class CollabWork
+ *
+*/
+
+    public Iterator<CollabWork> getIteratorCollabWork(){
+        return listCollabWork.iterator();
+    }
+
+/**
+ *  Getter for list of class CollabWork
+ *
+*/
+
+    public List<CollabWork> getListCollabWork(){
+        return listCollabWork;
+    }
+
+/**
+ *  reset the list of class CollabWork; use with care, does not call cascades
+ *
+*/
+
+    public void resetListCollabWork(){
+        listCollabWork = new ArrayList<CollabWork>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof CollabWork)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class CollabCount
+ *
+*/
+
+    public Iterator<CollabCount> getIteratorCollabCount(){
+        return listCollabCount.iterator();
+    }
+
+/**
+ *  Getter for list of class CollabCount
+ *
+*/
+
+    public List<CollabCount> getListCollabCount(){
+        return listCollabCount;
+    }
+
+/**
+ *  reset the list of class CollabCount; use with care, does not call cascades
+ *
+*/
+
+    public void resetListCollabCount(){
+        listCollabCount = new ArrayList<CollabCount>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof CollabCount)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -2677,6 +2765,96 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(WorkAffiliation b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class ScopusAffiliation; remove all dependent objects of class CollabWork which refer to item through their attribute affiliation1
+ *
+*/
+
+    public void cascadeCollabWorkAffiliation1(ScopusAffiliation item){
+        assert item != null;
+        List<CollabWork> toRemove = new ArrayList<CollabWork>();
+        for(CollabWork a:getListCollabWork()) {
+         if (a.getAffiliation1() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(CollabWork b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class ScopusAffiliation; remove all dependent objects of class CollabWork which refer to item through their attribute affiliation2
+ *
+*/
+
+    public void cascadeCollabWorkAffiliation2(ScopusAffiliation item){
+        assert item != null;
+        List<CollabWork> toRemove = new ArrayList<CollabWork>();
+        for(CollabWork a:getListCollabWork()) {
+         if (a.getAffiliation2() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(CollabWork b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class CollabWork which refer to item through their attribute work
+ *
+*/
+
+    public void cascadeCollabWorkWork(Work item){
+        assert item != null;
+        List<CollabWork> toRemove = new ArrayList<CollabWork>();
+        for(CollabWork a:getListCollabWork()) {
+         if (a.getWork() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(CollabWork b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class ScopusAffiliation; remove all dependent objects of class CollabCount which refer to item through their attribute affiliation1
+ *
+*/
+
+    public void cascadeCollabCountAffiliation1(ScopusAffiliation item){
+        assert item != null;
+        List<CollabCount> toRemove = new ArrayList<CollabCount>();
+        for(CollabCount a:getListCollabCount()) {
+         if (a.getAffiliation1() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(CollabCount b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class ScopusAffiliation; remove all dependent objects of class CollabCount which refer to item through their attribute affiliation2
+ *
+*/
+
+    public void cascadeCollabCountAffiliation2(ScopusAffiliation item){
+        assert item != null;
+        List<CollabCount> toRemove = new ArrayList<CollabCount>();
+        for(CollabCount a:getListCollabCount()) {
+         if (a.getAffiliation2() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(CollabCount b:toRemove) {
             b.remove();
         }
     }
@@ -3502,6 +3680,46 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class CollabWork
+ *
+*/
+
+    public void addCollabWork(CollabWork collabWork){
+        assert collabWork != null;
+        this.listCollabWork.add(collabWork);
+    }
+
+/**
+ *  remove an item from the list for class CollabWork
+ *
+*/
+
+    public Boolean removeCollabWork(CollabWork collabWork){
+        assert collabWork != null;
+        return this.listCollabWork.remove(collabWork);
+    }
+
+/**
+ *  add an item to the list for class CollabCount
+ *
+*/
+
+    public void addCollabCount(CollabCount collabCount){
+        assert collabCount != null;
+        this.listCollabCount.add(collabCount);
+    }
+
+/**
+ *  remove an item from the list for class CollabCount
+ *
+*/
+
+    public Boolean removeCollabCount(CollabCount collabCount){
+        assert collabCount != null;
+        return this.listCollabCount.remove(collabCount);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -3532,6 +3750,12 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(Coauthor x:getListCoauthor()){
+            System.out.println(x);
+        }
+        for(CollabCount x:getListCollabCount()){
+            System.out.println(x);
+        }
+        for(CollabWork x:getListCollabWork()){
             System.out.println(x);
         }
         for(Collection x:getListCollection()){
@@ -3680,6 +3904,12 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(Coauthor x:getListCoauthor()){
             if (x.getClass().equals(Coauthor.class)) x.toXML(out);
+        }
+        for(CollabCount x:getListCollabCount()){
+            if (x.getClass().equals(CollabCount.class)) x.toXML(out);
+        }
+        for(CollabWork x:getListCollabWork()){
+            if (x.getClass().equals(CollabWork.class)) x.toXML(out);
         }
         for(Collection x:getListCollection()){
             if (x.getClass().equals(Collection.class)) x.toXML(out);
@@ -3865,6 +4095,8 @@ public int compareTo(ApplicationDataset ds2){
         compareBook(this.getListBook(),compare.getListBook());
         compareCitation(this.getListCitation(),compare.getListCitation());
         compareCoauthor(this.getListCoauthor(),compare.getListCoauthor());
+        compareCollabCount(this.getListCollabCount(),compare.getListCollabCount());
+        compareCollabWork(this.getListCollabWork(),compare.getListCollabWork());
         compareCollection(this.getListCollection(),compare.getListCollection());
         compareConcept(this.getListConcept(),compare.getListConcept());
         compareConceptWork(this.getListConceptWork(),compare.getListConceptWork());
@@ -4083,6 +4315,54 @@ public int compareTo(ApplicationDataset ds2){
             Coauthor a = Coauthor.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Coauthor B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types CollabCount, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareCollabCount(List<CollabCount> aList,List<CollabCount> bList){
+        System.out.println("Comparing CollabCount");
+        for(CollabCount a:aList){
+            CollabCount b= CollabCount.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"CollabCount A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"CollabCount A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"CollabCount B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(CollabCount b: bList){
+            CollabCount a = CollabCount.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"CollabCount B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types CollabWork, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareCollabWork(List<CollabWork> aList,List<CollabWork> bList){
+        System.out.println("Comparing CollabWork");
+        for(CollabWork a:aList){
+            CollabWork b= CollabWork.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"CollabWork A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"CollabWork A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"CollabWork B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(CollabWork b: bList){
+            CollabWork a = CollabWork.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"CollabWork B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -4749,6 +5029,8 @@ public int compareTo(ApplicationDataset ds2){
         checkBook(this.getListBook());
         checkCitation(this.getListCitation());
         checkCoauthor(this.getListCoauthor());
+        checkCollabCount(this.getListCollabCount());
+        checkCollabWork(this.getListCollabWork());
         checkCollection(this.getListCollection());
         checkConcept(this.getListConcept());
         checkConceptWork(this.getListConceptWork());
@@ -4863,6 +5145,28 @@ public int compareTo(ApplicationDataset ds2){
 
     public void checkCoauthor(List<Coauthor> list){
         for(Coauthor a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<CollabCount> dataset list of all items of type CollabCount
+*/
+
+    public void checkCollabCount(List<CollabCount> list){
+        for(CollabCount a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<CollabWork> dataset list of all items of type CollabWork
+*/
+
+    public void checkCollabWork(List<CollabWork> list){
+        for(CollabWork a:list){
             a.check();
         }
     }
@@ -5185,6 +5489,8 @@ public int compareTo(ApplicationDataset ds2){
         Book.dummy(this);
         Citation.dummy(this);
         Coauthor.dummy(this);
+        CollabCount.dummy(this);
+        CollabWork.dummy(this);
         Collection.dummy(this);
         Concept.dummy(this);
         ConceptWork.dummy(this);

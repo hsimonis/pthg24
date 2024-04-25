@@ -187,6 +187,24 @@ O.~M. Alade and A.~O. Amusat.
 \newblock URL: \url{http://arxiv.org/abs/1902.01193}, \href
   {http://arxiv.org/abs/1902.01193} {\path{arXiv:1902.01193}}.
 
+\bibitem{Alaka21}
+Hacı~Mehmet Alakaş.
+\newblock General resource-constrained assembly line balancing problem:
+  conjunction normal form based constraint programming models.
+\newblock {\em Soft Computing}, 25(8):6101–6111, February 2021.
+\newblock URL: \url{http://dx.doi.org/10.1007/s00500-021-05602-x}, \href
+  {https://doi.org/10.1007/s00500-021-05602-x}
+  {\path{doi:10.1007/s00500-021-05602-x}}.
+
+\bibitem{AlakaP23}
+Hacı~Mehmet Alakaş and Mehmet Pınarbaşı.
+\newblock Balancing of cost-oriented u-type general resource-constrained
+  assembly line: new constraint programming models.
+\newblock {\em Soft Computing}, 27(24):18667–18680, August 2023.
+\newblock URL: \url{http://dx.doi.org/10.1007/s00500-023-09105-9}, \href
+  {https://doi.org/10.1007/s00500-023-09105-9}
+  {\path{doi:10.1007/s00500-023-09105-9}}.
+
 \bibitem{AlesioBNG15}
 Stefano~Di Alesio, Lionel~C. Briand, Shiva Nejati, and Arnaud Gotlieb.
 \newblock Combining genetic algorithms and constraint programming to support
@@ -1908,6 +1926,16 @@ Andy Hon~Wai Chun and Ted Yiu~Tat Suen.
 \newblock URL: \url{https://doi.org/10.1609/aaai.v28i2.19013}, \href
   {https://doi.org/10.1609/AAAI.V28I2.19013}
   {\path{doi:10.1609/AAAI.V28I2.19013}}.
+
+\bibitem{CilKLO22}
+Zeynel~Abidin Cil, Damla Kizilay, Zixiang Li, and Hande \"{O}ztop.
+\newblock Two-sided disassembly line balancing problem with sequence-dependent
+  setup time: A constraint programming model and artificial bee colony
+  algorithm.
+\newblock {\em Expert Systems with Applications}, 203:117529, October 2022.
+\newblock URL: \url{http://dx.doi.org/10.1016/j.eswa.2022.117529}, \href
+  {https://doi.org/10.1016/j.eswa.2022.117529}
+  {\path{doi:10.1016/j.eswa.2022.117529}}.
 
 \bibitem{CireCH13}
 Andr{\'{e}}~A. Cir{\'{e}}, Elvin Coban, and John~N. Hooker.
@@ -4398,6 +4426,15 @@ Alan Kinsella, Alan~F. Smeaton, Barry Hurley, Barry O'Sullivan, and Helmut
   {https://doi.org/10.1609/AAAI.V30I2.19079}
   {\path{doi:10.1609/AAAI.V30I2.19079}}.
 
+\bibitem{KizilayC20}
+Damla Kizilay and Zeynel~Abidin Cil.
+\newblock Constraint programming approach for multi-objective two-sided
+  assembly line balancing problem with multi-operator stations.
+\newblock {\em Engineering Optimization}, 53(8):1315–1330, July 2020.
+\newblock URL: \url{http://dx.doi.org/10.1080/0305215x.2020.1786081}, \href
+  {https://doi.org/10.1080/0305215x.2020.1786081}
+  {\path{doi:10.1080/0305215x.2020.1786081}}.
+
 \bibitem{KlankeBYE21}
 Christian Klanke, Dominik~R. Bleidorn, Vassilios Yfantis, and Sebastian Engell.
 \newblock Combining constraint programming and temporal decomposition
@@ -5348,6 +5385,16 @@ Arnaud Malapert, Hadrien Cambazard, Christelle Gu{\'{e}}ret, Narendra Jussien,
   {https://doi.org/10.1609/icaps.v23i1.13575}
   {\path{doi:10.1609/icaps.v23i1.13575}}.
 
+\bibitem{MalapertGR12}
+Arnaud Malapert, Christelle Guéret, and Louis-Martin Rousseau.
+\newblock A constraint programming approach for a batch processing problem with
+  non-identical job sizes.
+\newblock {\em European Journal of Operational Research}, 221(3):533–545,
+  September 2012.
+\newblock URL: \url{http://dx.doi.org/10.1016/j.ejor.2012.04.008}, \href
+  {https://doi.org/10.1016/j.ejor.2012.04.008}
+  {\path{doi:10.1016/j.ejor.2012.04.008}}.
+
 \bibitem{MalapertN19}
 Arnaud Malapert and Margaux Nattaf.
 \newblock A new cp-approach for a parallel machine scheduling problem with time
@@ -5544,6 +5591,22 @@ Alexandre Mercier{-}Aubin, Jonathan Gaudreault, and Claude{-}Guy Quimper.
   Science}, pages 334--346. Springer, 2020.
 \newblock \href {https://doi.org/10.1007/978-3-030-58942-4_22}
   {\path{doi:10.1007/978-3-030-58942-4_22}}.
+
+\bibitem{MeskensDHG11}
+Nadine Meskens, David Duvivier, Arnauld Hanset, and Daisy Gossart.
+\newblock Multi-objective constraint programming for scheduling operating
+  theatres.
+\newblock In L~Benyoucef, D~Trentesaux, A~Artiba, and N~Rezg, editors, {\em
+  PROCEEDINGS OF INTERNATIONAL CONFERENCE ON INDUSTRIAL ENGINEERING AND SYSTEMS
+  MANAGEMENT (IESM'2011): INNOVATIVE APPROACHES AND TECHNOLOGIES FOR NETWORKED
+  MANUFACTURING ENTERPRISES MANAGEMENT}, pages 1486--1495. Int Inst Innovat,
+  Ind Engn \& Entrepreneurship; ENIM; INRIA; Igipm; Conseil Gen Moselle; Metz
+  Metropole; Univ Valenciennes Hainaut Cambresis; Lab Automatique Mecanique \&
+  Informatique Ind \& Humaines; Thermique Ecoulement Mecanique Materiaux Mise
+  Forme Prod; Gdr Macs; IBM; Innovat Prod Machines \& Syst, 2011.
+\newblock 4th International Conference on Industrial Engineering and Systems
+  Management (IESM) - Innovative Approaches and Technologies for Networked
+  Manufacturing Enterprises Management, Metz, FRANCE, MAY 25-27, 2011.
 
 \bibitem{Milano11}
 Michela Milano.
@@ -6051,6 +6114,16 @@ Angelo Oddi, Nicola Policella, Amedeo Cesta, and Gabriella Cortellessa.
 \newblock \href {https://doi.org/10.1007/978-3-540-45193-8_39}
   {\path{doi:10.1007/978-3-540-45193-8_39}}.
 
+\bibitem{OddiPCC05}
+Angelo Oddi, Nicola Policella, Amedeo Cesta, and Gabriella Cortellessa.
+\newblock Constraint-based random search for solving spacecraft downlink
+  scheduling problems.
+\newblock In {\em Multidisciplinary Scheduling: Theory and Applications}, page
+  133–160. Springer-Verlag, 2005.
+\newblock URL: \url{http://dx.doi.org/10.1007/0-387-27744-7_7}, \href
+  {https://doi.org/10.1007/0-387-27744-7_7}
+  {\path{doi:10.1007/0-387-27744-7_7}}.
+
 \bibitem{OddiRC10}
 Angelo Oddi, Riccardo Rasconi, and Amedeo Cesta.
 \newblock Project scheduling as a disjunctive temporal problem.
@@ -6260,6 +6333,14 @@ Joseph~C. Pemberton and Flavius~Galiber III.
   Science}, pages 101--114. {DIMACS/AMS}, 1998.
 \newblock URL: \url{https://doi.org/10.1090/dimacs/057/06}, \href
   {https://doi.org/10.1090/DIMACS/057/06} {\path{doi:10.1090/DIMACS/057/06}}.
+
+\bibitem{PengLC14}
+Yunfang Peng, Dandan Lu, and Yarong Chen.
+\newblock A constraint programming method for advanced planning and scheduling
+  system with multilevel structured products.
+\newblock {\em Discrete Dynamics in Nature and Society}, 2014:1–7, 2014.
+\newblock URL: \url{http://dx.doi.org/10.1155/2014/917685}, \href
+  {https://doi.org/10.1155/2014/917685} {\path{doi:10.1155/2014/917685}}.
 
 \bibitem{PenzDN23}
 Louise Penz, St{\'{e}}phane Dauz{\`{e}}re{-}P{\'{e}}r{\`{e}}s, and Margaux
@@ -6502,6 +6583,15 @@ Jean{-}Francois Puget.
   {\em Lecture Notes in Computer Science}, pages 647--650. Springer, 1995.
 \newblock \href {https://doi.org/10.1007/3-540-60299-2_43}
   {\path{doi:10.1007/3-540-60299-2_43}}.
+
+\bibitem{PinarbasiA20}
+Mehmet Pınarbaşı and Hacı~Mehmet Alakaş.
+\newblock Balancing stochastic type-ii assembly lines: chance-constrained mixed
+  integer and constraint programming models.
+\newblock {\em Engineering Optimization}, 52(12):2146–2163, February 2020.
+\newblock URL: \url{http://dx.doi.org/10.1080/0305215x.2020.1716746}, \href
+  {https://doi.org/10.1080/0305215x.2020.1716746}
+  {\path{doi:10.1080/0305215x.2020.1716746}}.
 
 \bibitem{QinWSLS21}
 Ming Qin, Runsen Wang, Zhongshun Shi, Lingxuan Liu, and Leyuan Shi.
@@ -7505,6 +7595,16 @@ Seyda Topaloglu and Irem Ozkarahan.
   {https://doi.org/10.1016/J.COR.2010.04.018}
   {\path{doi:10.1016/J.COR.2010.04.018}}.
 
+\bibitem{TopalogluSS12}
+Seyda Topaloglu, Latif Salum, and Aliye~Ayca Supciller.
+\newblock Rule-based modeling and constraint programming based solution of the
+  assembly line balancing problem.
+\newblock {\em Expert Systems with Applications}, 39(3):3484–3493, February
+  2012.
+\newblock URL: \url{http://dx.doi.org/10.1016/j.eswa.2011.09.038}, \href
+  {https://doi.org/10.1016/j.eswa.2011.09.038}
+  {\path{doi:10.1016/j.eswa.2011.09.038}}.
+
 \bibitem{TorresL00}
 Philippe Torres and Pierre Lopez.
 \newblock On not-first/not-last conditions in disjunctive scheduling.
@@ -8292,6 +8392,15 @@ Luis~J. Zeballos, Pedro~M. Castro, and Carlos~A. Méndez.
 \newblock URL: \url{http://dx.doi.org/10.1021/ie1016199}, \href
   {https://doi.org/10.1021/ie1016199} {\path{doi:10.1021/ie1016199}}.
 
+\bibitem{ZeballosM09}
+Luis~J. Zeballos and Carlos~A. Méndez.
+\newblock An integrated cp-based approach for scheduling of processing and
+  transport units in pipeless plants.
+\newblock {\em Industrial \& Engineering Chemistry Research},
+  49(4):1799–1811, December 2009.
+\newblock URL: \url{http://dx.doi.org/10.1021/ie901176n}, \href
+  {https://doi.org/10.1021/ie901176n} {\path{doi:10.1021/ie901176n}}.
+
 \bibitem{ZeballosNH11}
 Luis~J. Zeballos, Juan~M. Novas, and Gabriela~P. Henning.
 \newblock A cp formulation for scheduling multiproduct multistage batch plants.
@@ -8350,6 +8459,16 @@ Xujun Zhang, Zhimin Lv, and Xiaoqing Song.
   2012}, pages 412--415. {IEEE} Computer Society, 2012.
 \newblock \href {https://doi.org/10.1109/CIT.2012.96}
   {\path{doi:10.1109/CIT.2012.96}}.
+
+\bibitem{ZhaoL14}
+Zhaoxia Zhao and Xueping Li.
+\newblock Scheduling elective surgeries with sequence-dependent setup times to
+  multiple operating rooms using constraint programming.
+\newblock {\em Operations Research for Health Care}, 3(3):160–167, September
+  2014.
+\newblock URL: \url{http://dx.doi.org/10.1016/j.orhc.2014.05.003}, \href
+  {https://doi.org/10.1016/j.orhc.2014.05.003}
+  {\path{doi:10.1016/j.orhc.2014.05.003}}.
 
 \bibitem{Zhou96}
 Jianyang Zhou.

@@ -41,6 +41,8 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Orphan;
+import org.insightcentre.pthg24.datamodel.CollabWork;
+import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -67,7 +69,63 @@ public  class ScopusAffiliation extends ApplicationObject{
  *
 */
 
+    public Integer collabCount;
+
+/**
+ *  
+ *
+*/
+
+    public Double collabFraction;
+
+/**
+ *  
+ *
+*/
+
+    public Double collabPercentage;
+
+/**
+ *  
+ *
+*/
+
+    public Integer domesticCollabCount;
+
+/**
+ *  
+ *
+*/
+
+    public Double domesticCollabFraction;
+
+/**
+ *  
+ *
+*/
+
     public String inst;
+
+/**
+ *  
+ *
+*/
+
+    public Integer internationalCollabCount;
+
+/**
+ *  
+ *
+*/
+
+    public Double internationalCollabFraction;
+
+/**
+ *  
+ *
+*/
+
+    public Double internationalPercentage;
 
 /**
  *  
@@ -102,7 +160,15 @@ public  class ScopusAffiliation extends ApplicationObject{
 
     public ScopusAffiliation(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setCollabCount(0);
+        setCollabFraction(0.0);
+        setCollabPercentage(0.0);
+        setDomesticCollabCount(0);
+        setDomesticCollabFraction(0.0);
         setInst("");
+        setInternationalCollabCount(0);
+        setInternationalCollabFraction(0.0);
+        setInternationalPercentage(0.0);
         setScopusCity(null);
         setWorkCount(0);
         applicationDataset.addScopusAffiliation(this);
@@ -118,13 +184,29 @@ public  class ScopusAffiliation extends ApplicationObject{
     public ScopusAffiliation(ApplicationDataset applicationDataset,
             Integer id,
             String name,
+            Integer collabCount,
+            Double collabFraction,
+            Double collabPercentage,
+            Integer domesticCollabCount,
+            Double domesticCollabFraction,
             String inst,
+            Integer internationalCollabCount,
+            Double internationalCollabFraction,
+            Double internationalPercentage,
             ScopusCity scopusCity,
             Integer workCount){
         super(applicationDataset,
             id,
             name);
+        setCollabCount(collabCount);
+        setCollabFraction(collabFraction);
+        setCollabPercentage(collabPercentage);
+        setDomesticCollabCount(domesticCollabCount);
+        setDomesticCollabFraction(domesticCollabFraction);
         setInst(inst);
+        setInternationalCollabCount(internationalCollabCount);
+        setInternationalCollabFraction(internationalCollabFraction);
+        setInternationalPercentage(internationalPercentage);
         setScopusCity(scopusCity);
         setWorkCount(workCount);
         applicationDataset.addScopusAffiliation(this);
@@ -134,7 +216,15 @@ public  class ScopusAffiliation extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
+            other.collabCount,
+            other.collabFraction,
+            other.collabPercentage,
+            other.domesticCollabCount,
+            other.domesticCollabFraction,
             other.inst,
+            other.internationalCollabCount,
+            other.internationalCollabFraction,
+            other.internationalPercentage,
             other.scopusCity,
             other.workCount);
     }
@@ -148,7 +238,61 @@ public  class ScopusAffiliation extends ApplicationObject{
 
     public Boolean remove(){
         getApplicationDataset().cascadeWorkAffiliationScopusAffiliation(this);
+        getApplicationDataset().cascadeCollabWorkAffiliation1(this);
+        getApplicationDataset().cascadeCollabWorkAffiliation2(this);
+        getApplicationDataset().cascadeCollabCountAffiliation1(this);
+        getApplicationDataset().cascadeCollabCountAffiliation2(this);
         return getApplicationDataset().removeScopusAffiliation(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  get attribute collabCount
+ *
+ * @return Integer
+*/
+
+    public Integer getCollabCount(){
+        return this.collabCount;
+    }
+
+/**
+ *  get attribute collabFraction
+ *
+ * @return Double
+*/
+
+    public Double getCollabFraction(){
+        return this.collabFraction;
+    }
+
+/**
+ *  get attribute collabPercentage
+ *
+ * @return Double
+*/
+
+    public Double getCollabPercentage(){
+        return this.collabPercentage;
+    }
+
+/**
+ *  get attribute domesticCollabCount
+ *
+ * @return Integer
+*/
+
+    public Integer getDomesticCollabCount(){
+        return this.domesticCollabCount;
+    }
+
+/**
+ *  get attribute domesticCollabFraction
+ *
+ * @return Double
+*/
+
+    public Double getDomesticCollabFraction(){
+        return this.domesticCollabFraction;
     }
 
 /**
@@ -159,6 +303,36 @@ public  class ScopusAffiliation extends ApplicationObject{
 
     public String getInst(){
         return this.inst;
+    }
+
+/**
+ *  get attribute internationalCollabCount
+ *
+ * @return Integer
+*/
+
+    public Integer getInternationalCollabCount(){
+        return this.internationalCollabCount;
+    }
+
+/**
+ *  get attribute internationalCollabFraction
+ *
+ * @return Double
+*/
+
+    public Double getInternationalCollabFraction(){
+        return this.internationalCollabFraction;
+    }
+
+/**
+ *  get attribute internationalPercentage
+ *
+ * @return Double
+*/
+
+    public Double getInternationalPercentage(){
+        return this.internationalPercentage;
     }
 
 /**
@@ -182,6 +356,66 @@ public  class ScopusAffiliation extends ApplicationObject{
     }
 
 /**
+ *  set attribute collabCount, mark dataset as dirty, mark dataset as not valid
+@param collabCount Integer
+ *
+*/
+
+    public void setCollabCount(Integer collabCount){
+        this.collabCount = collabCount;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute collabFraction, mark dataset as dirty, mark dataset as not valid
+@param collabFraction Double
+ *
+*/
+
+    public void setCollabFraction(Double collabFraction){
+        this.collabFraction = collabFraction;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute collabPercentage, mark dataset as dirty, mark dataset as not valid
+@param collabPercentage Double
+ *
+*/
+
+    public void setCollabPercentage(Double collabPercentage){
+        this.collabPercentage = collabPercentage;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute domesticCollabCount, mark dataset as dirty, mark dataset as not valid
+@param domesticCollabCount Integer
+ *
+*/
+
+    public void setDomesticCollabCount(Integer domesticCollabCount){
+        this.domesticCollabCount = domesticCollabCount;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute domesticCollabFraction, mark dataset as dirty, mark dataset as not valid
+@param domesticCollabFraction Double
+ *
+*/
+
+    public void setDomesticCollabFraction(Double domesticCollabFraction){
+        this.domesticCollabFraction = domesticCollabFraction;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute inst, mark dataset as dirty, mark dataset as not valid
 @param inst String
  *
@@ -189,6 +423,42 @@ public  class ScopusAffiliation extends ApplicationObject{
 
     public void setInst(String inst){
         this.inst = inst;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute internationalCollabCount, mark dataset as dirty, mark dataset as not valid
+@param internationalCollabCount Integer
+ *
+*/
+
+    public void setInternationalCollabCount(Integer internationalCollabCount){
+        this.internationalCollabCount = internationalCollabCount;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute internationalCollabFraction, mark dataset as dirty, mark dataset as not valid
+@param internationalCollabFraction Double
+ *
+*/
+
+    public void setInternationalCollabFraction(Double internationalCollabFraction){
+        this.internationalCollabFraction = internationalCollabFraction;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute internationalPercentage, mark dataset as dirty, mark dataset as not valid
+@param internationalPercentage Double
+ *
+*/
+
+    public void setInternationalPercentage(Double internationalPercentage){
+        this.internationalPercentage = internationalPercentage;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -213,6 +483,39 @@ public  class ScopusAffiliation extends ApplicationObject{
 
     public void setWorkCount(Integer workCount){
         this.workCount = workCount;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute collabCount, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incCollabCount(){
+        this.collabCount++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute domesticCollabCount, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incDomesticCollabCount(){
+        this.domesticCollabCount++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute internationalCollabCount, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incInternationalCollabCount(){
+        this.internationalCollabCount++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -245,7 +548,7 @@ public  class ScopusAffiliation extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getInst()+ " " +getScopusCity().toColumnString()+ " " +getWorkCount();
+        return ""+ " " +getId()+ " " +getName()+ " " +getCollabCount()+ " " +getCollabFraction()+ " " +getCollabPercentage()+ " " +getDomesticCollabCount()+ " " +getDomesticCollabFraction()+ " " +getInst()+ " " +getInternationalCollabCount()+ " " +getInternationalCollabFraction()+ " " +getInternationalPercentage()+ " " +getScopusCity().toColumnString()+ " " +getWorkCount();
     }
 
 /**
@@ -269,7 +572,15 @@ public  class ScopusAffiliation extends ApplicationObject{
          out.println("<scopusAffiliation "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
+            " collabCount=\""+toXMLCollabCount()+"\""+
+            " collabFraction=\""+toXMLCollabFraction()+"\""+
+            " collabPercentage=\""+toXMLCollabPercentage()+"\""+
+            " domesticCollabCount=\""+toXMLDomesticCollabCount()+"\""+
+            " domesticCollabFraction=\""+toXMLDomesticCollabFraction()+"\""+
             " inst=\""+toXMLInst()+"\""+
+            " internationalCollabCount=\""+toXMLInternationalCollabCount()+"\""+
+            " internationalCollabFraction=\""+toXMLInternationalCollabFraction()+"\""+
+            " internationalPercentage=\""+toXMLInternationalPercentage()+"\""+
             " scopusCity=\""+toXMLScopusCity()+"\""+
             " workCount=\""+toXMLWorkCount()+"\""+" />");
      }
@@ -280,8 +591,88 @@ public  class ScopusAffiliation extends ApplicationObject{
  * @return String
 */
 
+    String toXMLCollabCount(){
+        return this.getCollabCount().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLCollabFraction(){
+        return this.getCollabFraction().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLCollabPercentage(){
+        return this.getCollabPercentage().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLDomesticCollabCount(){
+        return this.getDomesticCollabCount().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLDomesticCollabFraction(){
+        return this.getDomesticCollabFraction().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLInst(){
         return this.safeXML(getInst());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLInternationalCollabCount(){
+        return this.getInternationalCollabCount().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLInternationalCollabFraction(){
+        return this.getInternationalCollabFraction().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLInternationalPercentage(){
+        return this.getInternationalPercentage().toString();
     }
 
 /**
@@ -311,11 +702,11 @@ public  class ScopusAffiliation extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>ScopusAffiliation</th>"+"<th>Name</th>"+"<th>Inst</th>"+"<th>ScopusCity</th>"+"<th>WorkCount</th>"+"</tr>";
+        return "<tr><th>ScopusAffiliation</th>"+"<th>Name</th>"+"<th>Inst</th>"+"<th>ScopusCity</th>"+"<th>WorkCount</th>"+"<th>CollabCount</th>"+"<th>DomesticCollabCount</th>"+"<th>InternationalCollabCount</th>"+"<th>CollabFraction</th>"+"<th>DomesticCollabFraction</th>"+"<th>InternationalCollabFraction</th>"+"<th>CollabPercentage</th>"+"<th>InternationalPercentage</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getInst()+"</td>"+ " " +"<td>"+getScopusCity().toColumnString()+"</td>"+ " " +"<td>"+getWorkCount()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getInst()+"</td>"+ " " +"<td>"+getScopusCity().toColumnString()+"</td>"+ " " +"<td>"+getWorkCount()+"</td>"+ " " +"<td>"+getCollabCount()+"</td>"+ " " +"<td>"+getDomesticCollabCount()+"</td>"+ " " +"<td>"+getInternationalCollabCount()+"</td>"+ " " +"<td>"+getCollabFraction()+"</td>"+ " " +"<td>"+getDomesticCollabFraction()+"</td>"+ " " +"<td>"+getInternationalCollabFraction()+"</td>"+ " " +"<td>"+getCollabPercentage()+"</td>"+ " " +"<td>"+getInternationalPercentage()+"</td>"+"</tr>";
     }
 
 /**
@@ -432,8 +823,32 @@ public  class ScopusAffiliation extends ApplicationObject{
 */
 
     public Boolean applicationEqual(ScopusAffiliation b){
+      if(!this.getCollabCount().equals(b.getCollabCount())){
+         System.out.println("CollabCount");
+        }
+      if(!this.getCollabFraction().equals(b.getCollabFraction())){
+         System.out.println("CollabFraction");
+        }
+      if(!this.getCollabPercentage().equals(b.getCollabPercentage())){
+         System.out.println("CollabPercentage");
+        }
+      if(!this.getDomesticCollabCount().equals(b.getDomesticCollabCount())){
+         System.out.println("DomesticCollabCount");
+        }
+      if(!this.getDomesticCollabFraction().equals(b.getDomesticCollabFraction())){
+         System.out.println("DomesticCollabFraction");
+        }
       if(!this.getInst().equals(b.getInst())){
          System.out.println("Inst");
+        }
+      if(!this.getInternationalCollabCount().equals(b.getInternationalCollabCount())){
+         System.out.println("InternationalCollabCount");
+        }
+      if(!this.getInternationalCollabFraction().equals(b.getInternationalCollabFraction())){
+         System.out.println("InternationalCollabFraction");
+        }
+      if(!this.getInternationalPercentage().equals(b.getInternationalPercentage())){
+         System.out.println("InternationalPercentage");
         }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
@@ -444,7 +859,15 @@ public  class ScopusAffiliation extends ApplicationObject{
       if(!this.getWorkCount().equals(b.getWorkCount())){
          System.out.println("WorkCount");
         }
-        return  this.getInst().equals(b.getInst()) &&
+        return  this.getCollabCount().equals(b.getCollabCount()) &&
+          this.getCollabFraction().equals(b.getCollabFraction()) &&
+          this.getCollabPercentage().equals(b.getCollabPercentage()) &&
+          this.getDomesticCollabCount().equals(b.getDomesticCollabCount()) &&
+          this.getDomesticCollabFraction().equals(b.getDomesticCollabFraction()) &&
+          this.getInst().equals(b.getInst()) &&
+          this.getInternationalCollabCount().equals(b.getInternationalCollabCount()) &&
+          this.getInternationalCollabFraction().equals(b.getInternationalCollabFraction()) &&
+          this.getInternationalPercentage().equals(b.getInternationalPercentage()) &&
           this.getName().equals(b.getName()) &&
           this.getScopusCity().applicationSame(b.getScopusCity()) &&
           this.getWorkCount().equals(b.getWorkCount());

@@ -30,6 +30,8 @@ import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Citation;
 import org.insightcentre.pthg24.datamodel.Coauthor;
+import org.insightcentre.pthg24.datamodel.CollabCount;
+import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
@@ -63,7 +65,7 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 12:30:10 on 2024-04-24 */
+ * Generated at 20:45:31 on 2024-04-25 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -153,6 +155,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<Orphan> orphanData = FXCollections.observableArrayList();
 
+	private ObservableList<CollabWork> collabWorkData = FXCollections.observableArrayList();
+
+	private ObservableList<CollabCount> collabCountData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
 		fs = minimalDataset();
@@ -193,6 +199,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("ScopusCity", "ScopusCity");
 		tableViews.put("ScopusCountry", "ScopusCountry");
 		tableViews.put("Orphan", "Orphan");
+		tableViews.put("CollabWork", "CollabWork");
+		tableViews.put("CollabCount", "CollabCount");
 		tableViews.put("Scenario", "Scenario");
 		tableViews.put("Scenario Differences", "ApplicationDifference");
 		tableViews.put("Warnings", "ApplicationWarning");
@@ -343,6 +351,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		scopusCountryData.addAll(base.getListScopusCountry());
 		orphanData.clear();
 		orphanData.addAll(base.getListOrphan());
+		collabWorkData.clear();
+		collabWorkData.addAll(base.getListCollabWork());
+		collabCountData.clear();
+		collabCountData.addAll(base.getListCollabCount());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -502,5 +514,13 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<Orphan> getOrphanData() {
 		return orphanData;
+	}
+
+	public ObservableList<CollabWork> getCollabWorkData() {
+		return collabWorkData;
+	}
+
+	public ObservableList<CollabCount> getCollabCountData() {
+		return collabCountData;
 	}
 }

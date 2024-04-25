@@ -6,12 +6,15 @@ import org.insightcentre.pthg24.datamodel.*;
 import java.util.*;
 import java.util.Collection;
 
+import static java.lang.Math.sqrt;
 import static java.util.stream.Collectors.groupingBy;
 import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class SimilarityMeasure {
     Scenario base;
+    int sNr = 0;
+    double maxConceptDistance = 0.0;
     public SimilarityMeasure(Scenario base){
         this.base = base;
         info("Computing similarity");
@@ -34,6 +37,7 @@ public class SimilarityMeasure {
                 }
             }
         }
+        scaleConceptDistance(maxConceptDistance);
         info("Similarity done");
     }
 
@@ -53,18 +57,20 @@ public class SimilarityMeasure {
             List<String>ref2 = listOrEmptyReferences(referenceMap.get(work2)).stream().map(Reference::getCited).sorted().toList();
             commonRef = CollectionUtils.intersection(ref1, ref2);
 //        double vRef = 1.0*commonRef.size()/Math.min(ref1.size(),ref2.size());
-            vRef = 2.0 * commonRef.size() / (ref1.size() + ref2.size());
+            vRef = (ref1.size() + ref2.size()-2.0 * commonRef.size()) / (ref1.size() + ref2.size());
             List<String>cite1 = listOrEmptyCitations(citationMap.get(work1)).stream().map(Citation::getCiting).sorted().toList();
             List<String>cite2 = listOrEmptyCitations(citationMap.get(work2)).stream().map(Citation::getCiting).sorted().toList();
             commonCite = CollectionUtils.intersection(cite1, cite2);
 //        double vCite = 1.0*commonCite.size()/Math.min(cite1.size(),cite2.size());
-            vCite = 2.0 * commonCite.size() / (cite1.size() + cite2.size());
+            vCite = (cite1.size() + cite2.size()-2.0 * commonCite.size()) / (cite1.size() + cite2.size());
         }
 
         Double vConcept = conceptSimilarity(work1, work2, masterHash);
-
+        double dotProduct = dotProduct(work1,work2,masterHash);
+        double cosine = cosine(work1,work2,masterHash);
 
         Similarity s = new Similarity(base);
+        s.setName("S"+sNr++);
         s.setWork1(work1);
         s.setWork2(work2);
         s.setRef1(work1.getNrReferences());
@@ -76,21 +82,28 @@ public class SimilarityMeasure {
         s.setSimilarityRef(vRef);
         s.setSimilarityCite(vCite);
         s.setSimilarityConcept(vConcept);
-        s.setSimilarity(vRef + vCite);
+        s.setSimilarity((vRef + vCite)/2.0);
+        s.setDotProduct(dotProduct);
+        s.setCosine(cosine);
 
-        Similarity ss = new Similarity(base);
-        ss.setWork1(work2);
-        ss.setWork2(work1);
-        ss.setRef1(work2.getNrReferences());
-        ss.setRef2(work1.getNrReferences());
-        ss.setNrSharedReferences(commonRef.size());
-        ss.setCite1(work2.getNrCitations());
-        ss.setCite2(work1.getNrCitations());
-        ss.setNrSharedCitations(commonCite.size());
-        ss.setSimilarityRef(vRef);
-        ss.setSimilarityCite(vCite);
-        ss.setSimilarityConcept(vConcept);
-        ss.setSimilarity(vRef + vCite);
+        if (!Double.isNaN(vConcept) && !Double.isInfinite(vConcept) && vConcept > maxConceptDistance){
+            maxConceptDistance = vConcept;
+        }
+
+//        Similarity ss = new Similarity(base);
+//        s.setName("S"+sNr++);
+//        ss.setWork1(work2);
+//        ss.setWork2(work1);
+//        ss.setRef1(work2.getNrReferences());
+//        ss.setRef2(work1.getNrReferences());
+//        ss.setNrSharedReferences(commonRef.size());
+//        ss.setCite1(work2.getNrCitations());
+//        ss.setCite2(work1.getNrCitations());
+//        ss.setNrSharedCitations(commonCite.size());
+//        ss.setSimilarityRef(vRef);
+//        ss.setSimilarityCite(vCite);
+//        ss.setSimilarityConcept(vConcept);
+//        ss.setSimilarity((vRef + vCite)/2.0);
     }
 
 
@@ -112,10 +125,14 @@ public class SimilarityMeasure {
     }
 
     private Double conceptSimilarity(Work work1,Work work2,Hashtable<Work, Hashtable<Concept,ConceptWork>> masterHash){
+        if (work1.getNrConcepts()==0 || work2.getNrConcepts()==0){
+            return Double.POSITIVE_INFINITY;
+        }
         Hashtable<Concept,ConceptWork> hash1 = masterHash.get(work1);
         Hashtable<Concept,ConceptWork> hash2 = masterHash.get(work2);
         if (hash1 == null){
 //            info("Problem "+work1);
+            //??? not reached as all ConceptWork considered, even those with None level
             return Double.NaN;
         }
         if (hash2 == null){
@@ -130,20 +147,7 @@ public class SimilarityMeasure {
             int occ2 = occurences(cw2,c,work2);
             dist += (occ1-occ2)*(occ1-occ2);
         }
-        if (dist == 0.0) {
-            info("-------------------------");
-            for (Concept c : base.getListConcept()) {
-                ConceptWork cw1 = hash1.get(c);
-                ConceptWork cw2 = hash2.get(c);
-                int occ1 = occurences(cw1, c, work1);
-                int occ2 = occurences(cw2, c, work2);
-                if (occ1 != 0 || occ2 != 0) {
-                    info(c + " " + occ1 + " " + occ2);
-                }
-
-            }
-        }
-        return Math.sqrt(dist);
+         return sqrt(dist);
     }
 
     private int occurences(ConceptWork cw,Concept c,Work w){
@@ -169,4 +173,63 @@ public class SimilarityMeasure {
                 return 0;
         }
     }
+
+    private void scaleConceptDistance(double maxConceptDistance){
+        for(Similarity s:base.getListSimilarity().stream().
+                filter(x->!Double.isNaN(x.getSimilarityConcept()) && !Double.isInfinite(x.getSimilarityConcept())).
+                toList()){
+            s.setSimilarityConcept(s.getSimilarityConcept()/maxConceptDistance);
+        }
+    }
+
+    private Double dotProduct(Work work1,Work work2,Hashtable<Work, Hashtable<Concept,ConceptWork>> masterHash){
+        if (work1.getNrConcepts()==0 || work2.getNrConcepts()==0){
+            return Double.POSITIVE_INFINITY;
+        }
+        Hashtable<Concept,ConceptWork> hash1 = masterHash.get(work1);
+        Hashtable<Concept,ConceptWork> hash2 = masterHash.get(work2);
+        if (hash1 == null){
+            return Double.NaN;
+        }
+        if (hash2 == null){
+            return Double.NaN;
+        }
+        double dot = 0.0;
+        for(Concept c:base.getListConcept()){
+            ConceptWork cw1 = hash1.get(c);
+            ConceptWork cw2 = hash2.get(c);
+            int occ1 = occurences(cw1,c,work1);
+            int occ2 = occurences(cw2,c,work2);
+            dot += occ1*occ2;
+        }
+        return dot;
+    }
+    private Double cosine(Work work1,Work work2,Hashtable<Work, Hashtable<Concept,ConceptWork>> masterHash){
+        if (work1.getNrConcepts()==0 || work2.getNrConcepts()==0){
+            return Double.POSITIVE_INFINITY;
+        }
+        Hashtable<Concept,ConceptWork> hash1 = masterHash.get(work1);
+        Hashtable<Concept,ConceptWork> hash2 = masterHash.get(work2);
+        if (hash1 == null){
+            return Double.NaN;
+        }
+        if (hash2 == null){
+            return Double.NaN;
+        }
+        double dot = 0.0;
+        double length1 = 0.0;
+        double length2 = 0.0;
+        for(Concept c:base.getListConcept()){
+            ConceptWork cw1 = hash1.get(c);
+            ConceptWork cw2 = hash2.get(c);
+            int occ1 = occurences(cw1,c,work1);
+            int occ2 = occurences(cw2,c,work2);
+            dot += occ1*occ2;
+            length1 += occ1*occ1;
+            length2 += occ2*occ2;
+        }
+        return dot/(sqrt(length1)*sqrt(length2));
+    }
+
+
 }

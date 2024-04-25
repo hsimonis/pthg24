@@ -41,6 +41,8 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Orphan;
+import org.insightcentre.pthg24.datamodel.CollabWork;
+import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -75,6 +77,20 @@ public  class Similarity extends ApplicationObject{
 */
 
     public Integer cite2;
+
+/**
+ *  
+ *
+*/
+
+    public Double cosine;
+
+/**
+ *  
+ *
+*/
+
+    public Double dotProduct;
 
 /**
  *  
@@ -167,6 +183,8 @@ public  class Similarity extends ApplicationObject{
         super(applicationDataset);
         setCite1(0);
         setCite2(0);
+        setCosine(0.0);
+        setDotProduct(0.0);
         setNrSharedCitations(0);
         setNrSharedReferences(0);
         setRef1(0);
@@ -192,6 +210,8 @@ public  class Similarity extends ApplicationObject{
             String name,
             Integer cite1,
             Integer cite2,
+            Double cosine,
+            Double dotProduct,
             Integer nrSharedCitations,
             Integer nrSharedReferences,
             Integer ref1,
@@ -207,6 +227,8 @@ public  class Similarity extends ApplicationObject{
             name);
         setCite1(cite1);
         setCite2(cite2);
+        setCosine(cosine);
+        setDotProduct(dotProduct);
         setNrSharedCitations(nrSharedCitations);
         setNrSharedReferences(nrSharedReferences);
         setRef1(ref1);
@@ -226,6 +248,8 @@ public  class Similarity extends ApplicationObject{
             other.name,
             other.cite1,
             other.cite2,
+            other.cosine,
+            other.dotProduct,
             other.nrSharedCitations,
             other.nrSharedReferences,
             other.ref1,
@@ -267,6 +291,26 @@ public  class Similarity extends ApplicationObject{
 
     public Integer getCite2(){
         return this.cite2;
+    }
+
+/**
+ *  get attribute cosine
+ *
+ * @return Double
+*/
+
+    public Double getCosine(){
+        return this.cosine;
+    }
+
+/**
+ *  get attribute dotProduct
+ *
+ * @return Double
+*/
+
+    public Double getDotProduct(){
+        return this.dotProduct;
     }
 
 /**
@@ -389,6 +433,30 @@ public  class Similarity extends ApplicationObject{
 
     public void setCite2(Integer cite2){
         this.cite2 = cite2;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute cosine, mark dataset as dirty, mark dataset as not valid
+@param cosine Double
+ *
+*/
+
+    public void setCosine(Double cosine){
+        this.cosine = cosine;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute dotProduct, mark dataset as dirty, mark dataset as not valid
+@param dotProduct Double
+ *
+*/
+
+    public void setDotProduct(Double dotProduct){
+        this.dotProduct = dotProduct;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -596,7 +664,7 @@ public  class Similarity extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getCite1()+ " " +getCite2()+ " " +getNrSharedCitations()+ " " +getNrSharedReferences()+ " " +getRef1()+ " " +getRef2()+ " " +getSimilarity()+ " " +getSimilarityCite()+ " " +getSimilarityConcept()+ " " +getSimilarityRef()+ " " +getWork1().toColumnString()+ " " +getWork2().toColumnString();
+        return ""+ " " +getId()+ " " +getName()+ " " +getCite1()+ " " +getCite2()+ " " +getCosine()+ " " +getDotProduct()+ " " +getNrSharedCitations()+ " " +getNrSharedReferences()+ " " +getRef1()+ " " +getRef2()+ " " +getSimilarity()+ " " +getSimilarityCite()+ " " +getSimilarityConcept()+ " " +getSimilarityRef()+ " " +getWork1().toColumnString()+ " " +getWork2().toColumnString();
     }
 
 /**
@@ -622,6 +690,8 @@ public  class Similarity extends ApplicationObject{
             " name=\""+toXMLName()+"\""+
             " cite1=\""+toXMLCite1()+"\""+
             " cite2=\""+toXMLCite2()+"\""+
+            " cosine=\""+toXMLCosine()+"\""+
+            " dotProduct=\""+toXMLDotProduct()+"\""+
             " nrSharedCitations=\""+toXMLNrSharedCitations()+"\""+
             " nrSharedReferences=\""+toXMLNrSharedReferences()+"\""+
             " ref1=\""+toXMLRef1()+"\""+
@@ -652,6 +722,26 @@ public  class Similarity extends ApplicationObject{
 
     String toXMLCite2(){
         return this.getCite2().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLCosine(){
+        return this.getCosine().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLDotProduct(){
+        return this.getDotProduct().toString();
     }
 
 /**
@@ -761,11 +851,11 @@ public  class Similarity extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Similarity</th>"+"<th>Name</th>"+"<th>Work1</th>"+"<th>Work2</th>"+"<th>Ref1</th>"+"<th>Ref2</th>"+"<th>NrSharedReferences</th>"+"<th>Cite1</th>"+"<th>Cite2</th>"+"<th>NrSharedCitations</th>"+"<th>SimilarityRef</th>"+"<th>SimilarityCite</th>"+"<th>SimilarityConcept</th>"+"<th>Similarity</th>"+"</tr>";
+        return "<tr><th>Similarity</th>"+"<th>Name</th>"+"<th>Work1</th>"+"<th>Work2</th>"+"<th>Ref1</th>"+"<th>Ref2</th>"+"<th>NrSharedReferences</th>"+"<th>Cite1</th>"+"<th>Cite2</th>"+"<th>NrSharedCitations</th>"+"<th>SimilarityRef</th>"+"<th>SimilarityCite</th>"+"<th>SimilarityConcept</th>"+"<th>Similarity</th>"+"<th>DotProduct</th>"+"<th>Cosine</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getWork1().toColumnString()+"</td>"+ " " +"<td>"+getWork2().toColumnString()+"</td>"+ " " +"<td>"+getRef1()+"</td>"+ " " +"<td>"+getRef2()+"</td>"+ " " +"<td>"+getNrSharedReferences()+"</td>"+ " " +"<td>"+getCite1()+"</td>"+ " " +"<td>"+getCite2()+"</td>"+ " " +"<td>"+getNrSharedCitations()+"</td>"+ " " +"<td>"+getSimilarityRef()+"</td>"+ " " +"<td>"+getSimilarityCite()+"</td>"+ " " +"<td>"+getSimilarityConcept()+"</td>"+ " " +"<td>"+getSimilarity()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getWork1().toColumnString()+"</td>"+ " " +"<td>"+getWork2().toColumnString()+"</td>"+ " " +"<td>"+getRef1()+"</td>"+ " " +"<td>"+getRef2()+"</td>"+ " " +"<td>"+getNrSharedReferences()+"</td>"+ " " +"<td>"+getCite1()+"</td>"+ " " +"<td>"+getCite2()+"</td>"+ " " +"<td>"+getNrSharedCitations()+"</td>"+ " " +"<td>"+getSimilarityRef()+"</td>"+ " " +"<td>"+getSimilarityCite()+"</td>"+ " " +"<td>"+getSimilarityConcept()+"</td>"+ " " +"<td>"+getSimilarity()+"</td>"+ " " +"<td>"+getDotProduct()+"</td>"+ " " +"<td>"+getCosine()+"</td>"+"</tr>";
     }
 
 /**
@@ -888,6 +978,12 @@ public  class Similarity extends ApplicationObject{
       if(!this.getCite2().equals(b.getCite2())){
          System.out.println("Cite2");
         }
+      if(!this.getCosine().equals(b.getCosine())){
+         System.out.println("Cosine");
+        }
+      if(!this.getDotProduct().equals(b.getDotProduct())){
+         System.out.println("DotProduct");
+        }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
@@ -923,6 +1019,8 @@ public  class Similarity extends ApplicationObject{
         }
         return  this.getCite1().equals(b.getCite1()) &&
           this.getCite2().equals(b.getCite2()) &&
+          this.getCosine().equals(b.getCosine()) &&
+          this.getDotProduct().equals(b.getDotProduct()) &&
           this.getName().equals(b.getName()) &&
           this.getNrSharedCitations().equals(b.getNrSharedCitations()) &&
           this.getNrSharedReferences().equals(b.getNrSharedReferences()) &&

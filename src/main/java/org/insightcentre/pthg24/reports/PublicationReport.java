@@ -36,21 +36,26 @@ public class PublicationReport extends AbstractReport{
         section("Data Quality");
         dataQuality();
 
+        clearpage();
         section("Works by Location");
 
         location();
 
+        clearpage();
         section("Collaborations");
 
         collaborations();
 
 
+        clearpage();
         section("Conference Papers by Most Common Conference Series");
         bySeries(base.getListPaper().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
 
+        clearpage();
         section("Journal Articles by Most Common Journals");
         byJournal(base.getListArticle().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
 
+        clearpage();
         section("Works by Year");
         byYear(base.getListWork().stream().filter(x->!x.getBackground()).collect(Collectors.toList()),
                 base.getListWork().stream().filter(x->!x.getBackground()).filter(x->x instanceof Paper).collect(Collectors.toList()),
@@ -69,67 +74,12 @@ public class PublicationReport extends AbstractReport{
         clearpage();
         section("Similarity Measures");
 
-        new HeatMap<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarity())).toList(),
-                new HeatMapFunctions<>(Similarity::getWork1,
-                        Similarity::getWork2,
-                        this::nameOf,
-                        this::nameOf,
-                        x->(int)Math.round(x.getSimilarity()*1000)),
-                42,22).
-                coloring(HeatMapColoring.PERCENTOFMAXIMUM).
-                colorSaturation(40).
-                caption("Similarity Measure (*1000) based on References and Citations (high = similar)").
-                width(25).height(15).
-                generate().latex(tex);
-        new HeatMap<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarityConcept())).toList(),
-                new HeatMapFunctions<>(Similarity::getWork1,
-                        Similarity::getWork2,
-                        this::nameOf,
-                        this::nameOf,
-                        x->(int)Math.round(x.getSimilarityConcept())),
-                55,35).
-                coloring(HeatMapColoring.PERCENTOFMAXIMUM).
-                colorSaturation(40).
-                caption("Similarity Measure based on Extracted Concepts (low = similar)").
-                width(25).height(15).
-                generate().latex(tex);
+        similarity();
 
-        paragraph("The following distribution plot shows the similarity values between two works based on " +
-                "citations and references counts. If either work does not have citation and reference values, then " +
-                "the similarity is set to NaN. The total similarity count is the sum of the similarity for " +
-                "citations and for references. As value we compute the ratio of shared references (citations) to " +
-                "the sum of individual references (citations), multiplied by two. So both the citation and reference " +
-                "similarity range between zero and one, and the sum ranges between zero and two. High values are " +
-                "exceedingly rare, as they require both works to be citing the same papers, and being cited by the " +
-                "same papers.A larger values " +
-                "indicates that items are more similar according to this measure. In the plot we group values " +
-                "into 0.1 wide value bins, so an entry for 0.2 includes values from 0.15 to 0.25.");
-        paragraph("We observe that high values of this similarity are often found for two works by the same " +
-                "authors that are close in time, where we assumes that the bibliography is based on the same " +
-                "literature survey.");
-
-        new DistributionPlot<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarity())).toList(),this::similar).
-                ordering(DistributionPlotOrdering.LABEL).
-                title("Distribution Plot of Similarity Values by References and Citations (High value is similar)").
-                xlabel("Similarity Value").ylabel("Count").
-                width(25).height(15).
-                generate().latex(tex);
-
-        paragraph("The similarity by concept uses the Euclidean distance between the feature vectors for two " +
-                "works. We translate the MatchLevel for each Concept into a linear scale, and then calculate the " +
-                "distances as the square root of the sum of squared differences for each feature. The distribution " +
-                "plot below rounds the distances to integer values. Similarity values of this type are only " +
-                "calculated when both works have a local copy, from which we extract the features. If either " +
-                "work does not have a local copy, the similarity is set to be NaN.");
-        new DistributionPlot<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarityConcept())).toList(),this::similarConcept).
-                ordering(NR).
-                title("Distribution Plot of Similarity Values by Concept (Low value is similar)").
-                xlabel("Similarity Value").ylabel("Count").
-                width(25).height(15).
-                generate().latex(tex);
 
         clearpage();
         section("Concept Distribution");
+
         paragraph("For each concept type, we count how many features are extracted by the individual works that " +
                 "do have a local copy, e.g. for which we can extract features. We can compare the number of features " +
                 "extracted to the number of concepts of a given type, which is stated in the title of the diagram.");
@@ -147,6 +97,7 @@ public class PublicationReport extends AbstractReport{
                     width(25).height(15).
                     generate().latex(tex);
         }
+
         clearpage();
         section("Coauthor graph");
         paragraph("The coauthor plot is created by graphviz, and is based on the coauthor relations extracted " +
@@ -168,6 +119,7 @@ public class PublicationReport extends AbstractReport{
 
         clearpage();
         section("OpenCitations vs. Crossref Data vs. Scopus Data");
+
         subsection("Citation Comparison");
         new ScatterPlot<>(base.getListWork(), Work::getNrCitations, Work::getCrossrefCitations, Work::getNrReferences).
                 title("Comparing Citation Counts (Open Citations vs. Crossref)").
@@ -266,14 +218,6 @@ public class PublicationReport extends AbstractReport{
                 count();
     }
 
-    private String similar(Similarity s){
-        return String.format("%.2f",Math.round(s.getSimilarity()*10.0)/10.0);
-//        return (int) Math.round(s.getSimilarity()*10.0);
-    }
-    private int similarConcept(Similarity s){
-//        return String.format("%.2f",Math.round(s.getSimilarity()*10.0)/10.0);
-        return (int) Math.round(s.getSimilarityConcept());
-    }
 
     private void bySeries(List<Paper> work){
         Map<ConferenceSeries,List<Paper>> map = work.stream().
@@ -706,12 +650,53 @@ public class PublicationReport extends AbstractReport{
                 width(25).height(15).
                 generate().latex(tex);
 
+        int instNr = 45;
+        new TableDraw<>("Collaboration Data (Top "+instNr+" Inst by Decreasing Collab Fraction)",base.getListScopusAffiliation().stream().
+                sorted(Comparator.comparing(ScopusAffiliation::getCollabFraction).reversed()).
+                limit(instNr).
+                toList()).
+                addStringColumn("Inst",this::nameOf).
+                addIntegerColumn(st("Nr","Works"),ScopusAffiliation::getWorkCount).
+                addIntegerColumn(st("Collab","Count"),ScopusAffiliation::getCollabCount).
+                addIntegerColumn(st("Domestic","Collab"),ScopusAffiliation::getDomesticCollabCount).
+                addIntegerColumn(st("International","Collab"),ScopusAffiliation::getInternationalCollabCount).
+                addDoubleColumn(st("Collab","Fraction"),ScopusAffiliation::getCollabFraction,"%5.2f").
+                addDoubleColumn(st("Domestic","Fraction"),ScopusAffiliation::getDomesticCollabFraction,"%5.2f").
+                addDoubleColumn(st("International","Fraction"),ScopusAffiliation::getInternationalCollabFraction,"%5.2f").
+                addDoubleColumn(st("Collab","Percentage"),ScopusAffiliation::getCollabPercentage,"%5.2f").
+                addDoubleColumn(st("International","Percentage"),ScopusAffiliation::getInternationalPercentage,"%5.2f").
+                textSize("\\scriptsize").
+                generate().latex(tex);
+
+        paragraph("The following heatmap is not complete. It needs a symmetric option to count a collaboration for both A-B and B-A.");
+        new HeatMap<>(base.getListCollabWork(),
+                new HeatMapFunctions<>(x->x.getAffiliation1().getScopusCity().getScopusCountry(),
+                        x->x.getAffiliation2().getScopusCity().getScopusCountry(),
+                        this::nameOf,
+                        this::nameOf),45,50).
+                coloring(HeatMapColoring.PERCENTOFMAXIMUM).
+                colorSaturation(22).
+                caption("Heat Map based on Collaboration between Institutions (Integer Count)").
+                generate().latex(tex);
+
     }
 
     private void sourceGroups() {
 
         clearpage();
         section("Citations by Year and Source Group");
+
+        paragraph("We have defined a number of source groups to group publications of a given type together, " +
+                "without using the full conference series and journal distinctions for grouping. The following table " +
+                "lists all defined source groups for this survey. Adding groups requires updates to the source code.");
+
+        new TableDraw<>("Source Groups",base.getListSourceGroup()).
+                addStringColumn("Name",this::nameOf).
+                addStringColumn("Description",x->safe(x.getDescription())).
+                generate().latex(tex);
+
+        paragraph("The first plot in this section shows how many works in each source group have been published. " +
+                "This considers the complete time period of the survey.");
 
         int d = base.getListWork().size();
 
@@ -722,6 +707,12 @@ public class PublicationReport extends AbstractReport{
                 generate().latex(tex);
 
         subsection("Source Group Citations by Year");
+
+
+        paragraph("We plot for each source group the number of citations obtained by papers published in a " +
+                "given year. This plot gives both an indication in which period the source group was active, and " +
+                "how significant the works in the source are. It is of course natural that more recent papers have " +
+                "fewer citations than papers published many tears ago.");
 
         for (SourceGroup sg : base.getListSourceGroup()) {
             List<Work> works = base.getListWork().stream().filter(x -> x.getSourceGroup() == sg).toList();
@@ -737,6 +728,10 @@ public class PublicationReport extends AbstractReport{
 
         subsection("Reference Flows");
 
+        paragraph("The following table looks at references between source groups that are contained in the " +
+                "survey, i.e. where bot the citing and the cited work is included in the survey. We show how many " +
+                "papers referred to in the group on the left belong to the group in the column.");
+
         new MatrixDraw<>("Reference Flows","referenceflow",
                 base.getListSourceGroup().stream().filter(x->x.getFromFlows() >0).toList(),
                 base.getListSourceGroup().stream().filter(x->x.getToFlows()>0).toList(),
@@ -745,7 +740,16 @@ public class PublicationReport extends AbstractReport{
                 setEmptyCellContent("").
                 textSize("\\scriptsize").
                 generate().latex(tex);
-        new MatrixDraw<>("Reference Flows Normalized","referenceflow",
+
+        paragraph("The entries in the previous table are not directly comparable, without knowing how many " +
+                "works are in group. The next table presents a normalized view, where we divide the flow count by the " +
+                "product of the group sizes. This produces a likelihood of a paper in the source group citing a paper " +
+                "in the target group, given as a percentage from 0 to 100. We can see that the likelihood does not " +
+                "depend on the prestige of the target, e.g. papers at AAAI are cited much less than papers in CP.");
+        paragraph("Note that the numbers are derived from the flows contained in the survey, which are based on " +
+                "the OpenCitation reference links. If such links are missing, or we are missing works in some group, " +
+                "then the results will be affected.");
+        new MatrixDraw<>("Reference Flows Normalized","referenceflownormalized",
                 base.getListSourceGroup().stream().filter(x->x.getFromFlows() >0).toList(),
                 base.getListSourceGroup().stream().filter(x->x.getToFlows()>0).toList(),
                 base.getListReferenceFlow().stream().filter(x->x.getNormalized() >0).toList(),
@@ -753,6 +757,227 @@ public class PublicationReport extends AbstractReport{
                 setEmptyCellContent("").
                 textSize("\\scriptsize").
                 generate().latex(tex);
+
+        clearpage();
+        section("Contribution of Source Group to Total Works per Year");
+
+        paragraph("The following plots show the percentage of works published in a year belonging to a specific " +
+                "source group. This plot helps to understand how important that group is to the field over time");
+
+        List<Integer> years = years(base.getListWork().stream().filter(x->!x.getBackground()).mapToInt(Work::getYear).min().orElse(0),
+                base.getListWork().stream().filter(x->!x.getBackground()).mapToInt(Work::getYear).max().orElse(0));
+        for (SourceGroup sg : base.getListSourceGroup()) {
+            List<Work> works = base.getListWork().stream().filter(x->!x.getBackground()).filter(x -> x.getSourceGroup() == sg).toList();
+            if (works.size() > 1) {
+                new ScatterPlot<>(years,
+                        x->x, x->contribution(x,sg),x->perGroup(x,sg)).
+                        title("Percentage Contribution of Source Group " + safe(sg.getName()) + " to all published Work in Year (Colored by number in group)").
+                        xlabel("Year").ylabel("Percentage").
+                        width(25).height(15).
+                        generate().latex(tex);
+            }
+        }
+
     }
+
+    private List<Integer> years(int from,int to){
+        List<Integer> res = new ArrayList<>();
+        for(int i = from; i<=to; i++){
+            res.add(i);
+        }
+        return res;
+    }
+
+    private double contribution(int year,SourceGroup sg){
+        int total = (int) base.getListWork().stream().
+                filter(x->!x.getBackground()).
+                filter(x->x.getYear()==year).
+                count();
+        int perGroup = (int) base.getListWork().stream().
+                filter(x->!x.getBackground()).
+                filter(x->x.getYear()==year).
+                filter(x->x.getSourceGroup()==sg).
+                count();
+        return 100.0*perGroup/total;
+    }
+    private int perGroup(int year,SourceGroup sg){
+        return (int) base.getListWork().stream().
+                filter(x->!x.getBackground()).
+                filter(x->x.getYear()==year).
+                filter(x->x.getSourceGroup()==sg).
+                count();
+
+    }
+
+    private void similarity(){
+        //        new HeatMap<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarity())).toList(),
+//                new HeatMapFunctions<>(Similarity::getWork1,
+//                        Similarity::getWork2,
+//                        this::nameOf,
+//                        this::nameOf,
+//                        x->(int)Math.round(x.getSimilarity()*1000)),
+//                42,22).
+//                coloring(HeatMapColoring.PERCENTOFMAXIMUM).
+//                colorSaturation(40).
+//                caption("Similarity Measure (*1000) based on References and Citations (low = similar)").
+//                width(25).height(15).
+//                generate().latex(tex);
+//        new HeatMap<>(base.getListSimilarity().stream().filter(x->!Double.isNaN(x.getSimilarityConcept())).toList(),
+//                new HeatMapFunctions<>(Similarity::getWork1,
+//                        Similarity::getWork2,
+//                        this::nameOf,
+//                        this::nameOf,
+//                        x->(int)Math.round(x.getSimilarityConcept())),
+//                55,35).
+//                coloring(HeatMapColoring.PERCENTOFMAXIMUM).
+//                colorSaturation(40).
+//                caption("Similarity Measure based on Extracted Concepts (low = similar)").
+//                width(25).height(15).
+//                generate().latex(tex);
+
+        new HeatMap<>(base.getListSimilarity().stream().
+                filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                filter(x->!Double.isNaN(x.getDotProduct())).
+                filter(x->!Double.isInfinite(x.getDotProduct())).
+                toList(),
+                new HeatMapFunctions<>(Similarity::getWork1,
+                        Similarity::getWork2,
+                        this::nameOf,
+                        this::nameOf,
+                        x->(int)Math.round(x.getDotProduct())),
+                42,22).
+                coloring(HeatMapColoring.PERCENTOFMAXIMUM).
+                colorSaturation(22).
+                caption("Heat Map based on rounded DotProduct Similarity of Concepts (high = similar)").
+                width(25).height(15).
+                generate().latex(tex);
+
+        new HeatMap<>(base.getListSimilarity().stream().
+                filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                filter(x->!Double.isNaN(x.getCosine())).
+                filter(x->!Double.isInfinite(x.getCosine())).
+                toList(),
+                new HeatMapFunctions<>(Similarity::getWork1,
+                        Similarity::getWork2,
+                        this::nameOf,
+                        this::nameOf,
+                        x->(int)Math.round(100.0*x.getCosine())),
+                42,22).
+                coloring(HeatMapColoring.PERCENTOFMAXIMUM).
+                colorSaturation(40).
+                caption("Heat Map based on 100*Cosine Similarity of Concepts (high = similar)").
+                width(25).height(15).
+                generate().latex(tex);
+
+        paragraph("The following distribution plot shows the similarity values between two works based on " +
+                "citations and references counts. If either work does not have citation and reference values, then " +
+                "the similarity is set to NaN. The total similarity count is the average of the similarity for " +
+                "citations and for references. As value we compute the ratio of non-shared references (citations) to " +
+                "the sum of individual references (citations). So both the citation and reference " +
+                "similarity range between zero and one, and the average ranges between zero and one. Low values are " +
+                "very rare, as they require both works to be citing the same papers, and being cited by the " +
+                "same papers. A larger value " +
+                "indicates that items are less similar according to this measure. In the plot we group values " +
+                "into 0.1 wide value bins, so an entry for 0.2 includes values from 0.15 to 0.25.");
+        paragraph("We observe that low values of this similarity are often found for two works by the same " +
+                "authors that are close in time, where we assumes that the bibliographies in both papers is based on the same " +
+                "literature survey. If neither paper is widely cited, the similarity value is low.");
+        paragraph("The vast majority of paper pairs has a distance close to one, as their references and citations do not overlap much.");
+
+        new DistributionPlot<>(base.getListSimilarity().stream().
+                filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                filter(x->!Double.isNaN(x.getSimilarityRef())).
+                filter(x->!Double.isInfinite(x.getSimilarityRef())).
+                toList(),this::similarRef).
+                ordering(DistributionPlotOrdering.LABEL).
+                title("Distribution Plot of Distance Values by References (Low value is similar)").
+                xlabel("Distance").ylabel("Count").
+                width(25).height(15).
+                generate().latex(tex);
+        new DistributionPlot<>(base.getListSimilarity().stream().
+                filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                filter(x->!Double.isNaN(x.getSimilarityCite())).
+                filter(x->!Double.isInfinite(x.getSimilarityCite())).
+                toList(),this::similarCite).
+                ordering(DistributionPlotOrdering.LABEL).
+                title("Distribution Plot of Distance Values by Citations (Low value is similar)").
+                xlabel("Distance").ylabel("Count").
+                width(25).height(15).
+                generate().latex(tex);
+        new DistributionPlot<>(base.getListSimilarity().stream().
+                filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                filter(x->!Double.isNaN(x.getSimilarity())).
+                filter(x->!Double.isInfinite(x.getSimilarity())).
+                toList(),this::similar).
+                ordering(DistributionPlotOrdering.LABEL).
+                title("Distribution Plot of Distance Values by References and Citations (Low value is similar)").
+                xlabel("Distance").ylabel("Count").
+                width(25).height(15).
+                generate().latex(tex);
+
+        paragraph("The similarity by concept uses the Euclidean distance between the feature vectors for two " +
+                "works. We translate the MatchLevel for each Concept into a linear scale, and then calculate the " +
+                "distances as the square root of the sum of squared differences for each feature. The distribution " +
+                "plot below rounds the distances to integer values. Similarity values of this type are only " +
+                "calculated when both works have a local copy, from which we extract the features. If either " +
+                "work does not have a local copy, the similarity is set to be NaN.");
+        new DistributionPlot<>(base.getListSimilarity().stream().
+                filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                filter(x->!Double.isNaN(x.getSimilarityConcept())).
+                filter(x->!Double.isInfinite(x.getSimilarityConcept())).
+                toList(),this::similarConcept).
+                ordering(DistributionPlotOrdering.LABEL).
+                title("Distribution Plot of Euclidean Distance Values by Concept (Low value is similar)").
+                xlabel("Distance").ylabel("Count").
+                width(25).height(15).
+                generate().latex(tex);
+
+        new DistributionPlot<>(base.getListSimilarity().stream().
+                filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                filter(x->!Double.isNaN(x.getCosine())).
+                filter(x->!Double.isInfinite(x.getCosine())).
+                toList(),this::similarCosine).
+                ordering(DistributionPlotOrdering.LABEL).
+                title("Distribution Plot of Cosine Similarity Values by Concept (High value is similar)").
+                xlabel("Cosine Similarity Value").ylabel("Count").
+                width(25).height(15).
+                generate().latex(tex);
+
+        new DistributionPlot<>(base.getListSimilarity().stream().
+                filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                filter(x->!Double.isNaN(x.getDotProduct())).
+                filter(x->!Double.isInfinite(x.getDotProduct())).
+                toList(),this::similarDotProduct).
+                ordering(DistributionPlotOrdering.NR).
+                title("Distribution Plot of Dot Product Similarity Values by Concept (High value is similar)").
+                xlabel("DotProduct Similarity Value").ylabel("Count").
+                width(25).height(15).
+                generate().latex(tex);
+
+    }
+
+    private String similar(Similarity s){
+        return similarAsString(s.getSimilarity());
+    }
+    private String similarRef(Similarity s){
+        return similarAsString(s.getSimilarityRef());
+    }
+    private String similarCite(Similarity s){
+        return similarAsString(s.getSimilarityCite());
+    }
+    private String similarConcept(Similarity s){
+        return similarAsString(s.getSimilarityConcept());
+    }
+    private String similarCosine(Similarity s){
+        return similarAsString(s.getCosine());
+    }
+    private int similarDotProduct(Similarity s){
+        return (int) Math.round(s.getDotProduct()/10.0)*10;
+    }
+
+    private String similarAsString(double s){
+        return String.format("%.2f",Math.round(s*20.0)/20.0);
+    }
+
 
 }

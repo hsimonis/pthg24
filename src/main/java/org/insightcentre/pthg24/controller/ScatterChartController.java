@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 12:30:10 on 2024-04-24 */
+ * Generated at 20:45:32 on 2024-04-25 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -635,6 +635,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("similarityConcept");
 		attributeNames.add("similarity");
 		filterNames.add("similarity");
+		attributeNames.add("dotProduct");
+		filterNames.add("dotProduct");
+		attributeNames.add("cosine");
+		filterNames.add("cosine");
 		choicesMap.put("Similarity", attributeNames);
 		filterMap.put("Similarity", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -710,6 +714,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
 		filterNames.add("name");
+		filterNames.add("description");
 		attributeNames.add("nrWorks");
 		filterNames.add("nrWorks");
 		attributeNames.add("fromFlows");
@@ -738,6 +743,22 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("scopusCity");
 		attributeNames.add("workCount");
 		filterNames.add("workCount");
+		attributeNames.add("collabCount");
+		filterNames.add("collabCount");
+		attributeNames.add("domesticCollabCount");
+		filterNames.add("domesticCollabCount");
+		attributeNames.add("internationalCollabCount");
+		filterNames.add("internationalCollabCount");
+		attributeNames.add("collabFraction");
+		filterNames.add("collabFraction");
+		attributeNames.add("domesticCollabFraction");
+		filterNames.add("domesticCollabFraction");
+		attributeNames.add("internationalCollabFraction");
+		filterNames.add("internationalCollabFraction");
+		attributeNames.add("collabPercentage");
+		filterNames.add("collabPercentage");
+		attributeNames.add("internationalPercentage");
+		filterNames.add("internationalPercentage");
 		filterNames.add("scopusCity.scopusCountry");
 		choicesMap.put("ScopusAffiliation", attributeNames);
 		filterMap.put("ScopusAffiliation", filterNames);
@@ -770,6 +791,29 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add(filterNone);
 		filterNames.add("name");
 		filterNames.add("fileName");
+		filterNames.add("name");
+		filterNames.add("affiliation1");
+		filterNames.add("affiliation2");
+		filterNames.add("work");
+		attributeNames.add("fraction");
+		filterNames.add("fraction");
+		choicesMap.put("CollabWork", attributeNames);
+		filterMap.put("CollabWork", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("affiliation1");
+		filterNames.add("affiliation2");
+		attributeNames.add("count");
+		filterNames.add("count");
+		attributeNames.add("fraction");
+		filterNames.add("fraction");
+		choicesMap.put("CollabCount", attributeNames);
+		filterMap.put("CollabCount", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -909,6 +953,12 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("Orphan")) {
 				objectList = mainApp.getOrphanData();
+			}
+			else if (className.equals("CollabWork")) {
+				objectList = mainApp.getCollabWorkData();
+			}
+			else if (className.equals("CollabCount")) {
+				objectList = mainApp.getCollabCountData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

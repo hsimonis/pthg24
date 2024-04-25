@@ -1,6 +1,8 @@
  class Similarity {
 Integer cite1
 Integer cite2
+Double cosine
+Double dotProduct
 Integer nrSharedCitations
 Integer nrSharedReferences
 Integer ref1

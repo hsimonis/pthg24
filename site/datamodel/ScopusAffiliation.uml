@@ -1,5 +1,13 @@
  class ScopusAffiliation {
+Integer collabCount
+Double collabFraction
+Double collabPercentage
+Integer domesticCollabCount
+Double domesticCollabFraction
 String inst
+Integer internationalCollabCount
+Double internationalCollabFraction
+Double internationalPercentage
 ScopusCity scopusCity
 Integer workCount
 }

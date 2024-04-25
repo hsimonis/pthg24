@@ -16,6 +16,7 @@ import org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL;
 import org.insightcentre.pthg24.reports.CoauthorGraph;
 import org.insightcentre.pthg24.reports.PublicationReport;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -179,8 +180,20 @@ public class JfxApp extends GeneratedJfxApp {
                                 toList(),
                         exportDir,"missingdoi.tex");
 
+                List<Work> similar = similarWorks(base,20);
+                new ListWorks(base,similar,exportDir,"similarworks.tex");
+                new AnalysisByWork(base,similar,exportDir,"similarconcepts.tex");
+                List<Work> dot = dotWorks(base,20);
+                new ListWorks(base,dot,exportDir,"dotworks.tex");
+                new AnalysisByWork(base,dot,exportDir,"dotconcepts.tex");
+                List<Work> cosine = cosineWorks(base,20);
+                new ListWorks(base,cosine,exportDir,"cosineworks.tex");
+                new AnalysisByWork(base,cosine,exportDir,"cosineconcepts.tex");
+
+
                 new CreateSourceGroups(base,type);
                 new OrphanFiles(base,worksDir);
+                new CreateCollabWorks(base);
 
                 new PublicationReport(base,reportDir).
                         produce("publications",
@@ -214,6 +227,54 @@ public class JfxApp extends GeneratedJfxApp {
 
         private boolean hasLocalCopy(Work w){
                 return w.getLocalCopy() != null && !w.getLocalCopy().equals("");
+        }
+
+        private List<Work> similarWorks(Scenario base,int limit){
+                List<Work> res = new ArrayList<>();
+                for(Similarity s:base.getListSimilarity().stream().
+                        filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                        filter(x->!Double.isNaN(x.getSimilarityConcept())).
+                        filter(x->!Double.isInfinite(x.getSimilarityConcept())).
+                        sorted(Comparator.comparing(Similarity::getSimilarityConcept)).
+                        limit(limit).
+                        toList()){
+                        res.add(s.getWork1());
+                        res.add(s.getWork2());
+                }
+                return res;
+
+        }
+        private List<Work> dotWorks(Scenario base,int limit){
+                List<Work> res = new ArrayList<>();
+                for(Similarity s:base.getListSimilarity().stream().
+                        filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                        filter(x->!Double.isNaN(x.getDotProduct())).
+                        filter(x->!Double.isInfinite(x.getDotProduct())).
+                        filter(x->x.getDotProduct() > 0).
+                        sorted(Comparator.comparing(Similarity::getDotProduct).reversed()).
+                        limit(limit).
+                        toList()){
+                        res.add(s.getWork1());
+                        res.add(s.getWork2());
+                }
+                return res;
+
+        }
+        private List<Work> cosineWorks(Scenario base,int limit){
+                List<Work> res = new ArrayList<>();
+                for(Similarity s:base.getListSimilarity().stream().
+                        filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                        filter(x->!Double.isNaN(x.getCosine())).
+                        filter(x->!Double.isInfinite(x.getCosine())).
+                        filter(x->x.getCosine() > 0).
+                        sorted(Comparator.comparing(Similarity::getCosine).reversed()).
+                        limit(limit).
+                        toList()){
+                        res.add(s.getWork1());
+                        res.add(s.getWork2());
+                }
+                return res;
+
         }
 
 }

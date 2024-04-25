@@ -1,0 +1,6 @@
+ class CollabWork {
+ScopusAffiliation affiliation1
+ScopusAffiliation affiliation2
+Double fraction
+Work work
+}

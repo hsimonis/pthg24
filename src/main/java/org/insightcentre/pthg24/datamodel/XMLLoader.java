@@ -293,6 +293,44 @@ public ConceptType getConceptType(String attributeName,
         return res;
     }
 
+    public CollabCount getCollabCount(String attributeName,
+                               Attributes attributes) {
+        return (CollabCount) find(getId(attributeName,attributes));
+    }
+
+    public List<CollabCount> getCollabCountCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<CollabCount> res = new ArrayList<CollabCount>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((CollabCount) find(id));
+            }
+        }
+        return res;
+    }
+
+    public CollabWork getCollabWork(String attributeName,
+                               Attributes attributes) {
+        return (CollabWork) find(getId(attributeName,attributes));
+    }
+
+    public List<CollabWork> getCollabWorkCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<CollabWork> res = new ArrayList<CollabWork>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((CollabWork) find(id));
+            }
+        }
+        return res;
+    }
+
     public Collection getCollection(String attributeName,
                                Attributes attributes) {
         return (Collection) find(getId(attributeName,attributes));
@@ -1063,6 +1101,28 @@ public ConceptType getConceptType(String attributeName,
                         getInteger("nrCites",attributes,0),
                         getInteger("nrWorks",attributes,0)
                         ));
+            } else if (qname.equals("collabCount")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new CollabCount(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        null,
+                        null,
+                        getInteger("count",attributes,0),
+                        getDouble("fraction",attributes,0.0)
+                        ));
+            } else if (qname.equals("collabWork")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new CollabWork(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        null,
+                        null,
+                        getDouble("fraction",attributes,0.0),
+                        null
+                        ));
             } else if (qname.equals("collection")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1425,7 +1485,15 @@ public ConceptType getConceptType(String attributeName,
                 store(id, new ScopusAffiliation(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getInteger("collabCount",attributes,0),
+                        getDouble("collabFraction",attributes,0.0),
+                        getDouble("collabPercentage",attributes,0.0),
+                        getInteger("domesticCollabCount",attributes,0),
+                        getDouble("domesticCollabFraction",attributes,0.0),
                         getString("inst",attributes,""),
+                        getInteger("internationalCollabCount",attributes,0),
+                        getDouble("internationalCollabFraction",attributes,0.0),
+                        getDouble("internationalPercentage",attributes,0.0),
                         null,
                         getInteger("workCount",attributes,0)
                         ));
@@ -1455,6 +1523,8 @@ public ConceptType getConceptType(String attributeName,
                         getString("name", attributes, "dummy"),
                         getInteger("cite1",attributes,0),
                         getInteger("cite2",attributes,0),
+                        getDouble("cosine",attributes,0.0),
+                        getDouble("dotProduct",attributes,0.0),
                         getInteger("nrSharedCitations",attributes,0),
                         getInteger("nrSharedReferences",attributes,0),
                         getInteger("ref1",attributes,0),
@@ -1472,6 +1542,7 @@ public ConceptType getConceptType(String attributeName,
                 store(id, new SourceGroup(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getString("description",attributes,""),
                         getInteger("fromFlows",attributes,0),
                         getInteger("nrWorks",attributes,0),
                         getInteger("toFlows",attributes,0)
@@ -1582,6 +1653,19 @@ public ConceptType getConceptType(String attributeName,
                 Coauthor item = (Coauthor) find(id);
                  item.setAuthor1(getAuthor("author1",attributes));
                  item.setAuthor2(getAuthor("author2",attributes));
+            } else if (qname.equals("collabCount")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                CollabCount item = (CollabCount) find(id);
+                 item.setAffiliation1(getScopusAffiliation("affiliation1",attributes));
+                 item.setAffiliation2(getScopusAffiliation("affiliation2",attributes));
+            } else if (qname.equals("collabWork")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                CollabWork item = (CollabWork) find(id);
+                 item.setAffiliation1(getScopusAffiliation("affiliation1",attributes));
+                 item.setAffiliation2(getScopusAffiliation("affiliation2",attributes));
+                 item.setWork(getWork("work",attributes));
             } else if (qname.equals("collection")) {
                 assert (base != null);
                 int id = getId("id", attributes);

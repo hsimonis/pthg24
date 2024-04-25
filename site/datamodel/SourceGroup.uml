@@ -1,4 +1,5 @@
  class SourceGroup {
+String description
 Integer fromFlows
 Integer nrWorks
 Integer toFlows

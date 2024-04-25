@@ -19,13 +19,16 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 12:30:10 on 2024-04-24 */
+ * Generated at 20:45:32 on 2024-04-25 */
 public class SourceGroupController extends Table3Controller {
 	@FXML
 	private TableView<SourceGroup> table;
 
 	@FXML
 	private TableColumn<SourceGroup, String> name;
+
+	@FXML
+	private TableColumn<SourceGroup, String> description;
 
 	@FXML
 	private TableColumn<SourceGroup, Integer> nrWorks;
@@ -57,6 +60,10 @@ public class SourceGroupController extends Table3Controller {
 		name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		name.setCellFactory(TextFieldTableCell.forTableColumn());
 		name.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setName(event.getNewValue()); mainApp.reset();});
+		choices.add("description");
+		description.setCellValueFactory(new PropertyValueFactory<>("description"));
+		description.setCellFactory(TextFieldTableCell.forTableColumn());
+		description.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setDescription(event.getNewValue()); mainApp.reset();});
 		choices.add("nrWorks");
 		nrWorks.setCellValueFactory(new PropertyValueFactory<>("nrWorks"));
 		nrWorks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));

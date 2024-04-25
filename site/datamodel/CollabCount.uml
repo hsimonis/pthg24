@@ -1,0 +1,6 @@
+ class CollabCount {
+ScopusAffiliation affiliation1
+ScopusAffiliation affiliation2
+Integer count
+Double fraction
+}
