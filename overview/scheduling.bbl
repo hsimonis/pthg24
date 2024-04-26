@@ -2490,6 +2490,13 @@ Nikolaos Efthymiou and Neil Yorke{-}Smith.
 \newblock URL: \url{http://dx.doi.org/10.1287/ijoc.2022.1184}, \href
   {https://doi.org/10.1287/ijoc.2022.1184} {\path{doi:10.1287/ijoc.2022.1184}}.
 
+\bibitem{ElfJR03}
+M~Elf, M~Jünger, and G~Rinaldi.
+\newblock Minimizing breaks by maximizing cuts.
+\newblock {\em OPERATIONS RESEARCH LETTERS}, 31(5):343--349, SEP 2003.
+\newblock \href {https://doi.org/10.1016/S0167-6377(03)00025-7}
+  {\path{doi:10.1016/S0167-6377(03)00025-7}}.
+
 \bibitem{ElhouraniDM07}
 Theodore Elhourani, Nathan Denny, and Michael~M. Marefat.
 \newblock A distributed constraint optimization solution to the {P2P} video
@@ -4369,6 +4376,13 @@ Jan Kelbel and Zdenek Hanz{\'{a}}lek.
   {https://doi.org/10.1007/S10845-009-0318-2}
   {\path{doi:10.1007/S10845-009-0318-2}}.
 
+\bibitem{KendallKRU10}
+Graham Kendall, Sigrid Knust, Celso~C. Ribeiro, and Sebastian Urrutia.
+\newblock Scheduling in sports: An annotated bibliography.
+\newblock {\em COMPUTERS \& OPERATIONS RESEARCH}, 37(1):1--19, JAN 2010.
+\newblock \href {https://doi.org/10.1016/j.cor.2009.05.013}
+  {\path{doi:10.1016/j.cor.2009.05.013}}.
+
 \bibitem{KeriK07}
 Andr{\'{a}}s K{\'{e}}ri and Tam{\'{a}}s Kis.
 \newblock Computing tight time windows for {RCPSPWET} with the primal-dual
@@ -5025,6 +5039,33 @@ Nir Lipovetzky, Christina~N. Burt, Adrian~R. Pearce, and Peter~J. Stuckey.
   \url{http://www.aaai.org/ocs/index.php/ICAPS/ICAPS14/paper/view/7942}, \href
   {https://doi.org/10.1609/icaps.v24i1.13666}
   {\path{doi:10.1609/icaps.v24i1.13666}}.
+
+\bibitem{LiuLH18}
+Ke~Liu, Sven Loeffler, and Petra Hofstedt.
+\newblock Solving the traveling tournament problem with predefined venues by
+  parallel constraint programming.
+\newblock In A~Groza and R~Prasath, editors, {\em MINING INTELLIGENCE AND
+  KNOWLEDGE EXPLORATION, MIKE 2018}, volume 11308 of {\em Lecture Notes in
+  Artificial Intelligence}, pages 64--79, GEWERBESTRASSE 11, CHAM, CH-6330,
+  SWITZERLAND, 2018. SPRINGER INTERNATIONAL PUBLISHING AG.
+\newblock 6th International Conference on Mining Intelligence and Knowledge
+  Exploration (MIKE), Tech Univ Cluj Napoca, Cluj Napoca, ROMANIA, DEC 20-22,
+  2018.
+\newblock \href {https://doi.org/10.1007/978-3-030-05918-7\_7}
+  {\path{doi:10.1007/978-3-030-05918-7\_7}}.
+
+\bibitem{LiuLH19a}
+Ke~Liu, Sven Loeffler, and Petra Hofstedt.
+\newblock Solving the social golfers problems by constraint programming in
+  sequential and parallel.
+\newblock In AP~Rocha, L~Steels, and J~VanDenHerik, editors, {\em PROCEEDINGS
+  OF THE 11TH INTERNATIONAL CONFERENCE ON AGENTS AND ARTIFICIAL INTELLIGENCE
+  (ICAART), VOL 2}, pages 29--39, AV D MANUELL, 27A 2 ESQ, SETUBAL, 2910-595,
+  PORTUGAL, 2019. SCITEPRESS.
+\newblock 11th International Conference on Agents and Artificial Intelligence
+  (ICAART), Prague, CZECH REPUBLIC, FEB 19-21, 2019.
+\newblock \href {https://doi.org/10.5220/0007252300290039}
+  {\path{doi:10.5220/0007252300290039}}.
 
 \bibitem{LiuLH19}
 Ke~Liu, Sven L{\"{o}}ffler, and Petra Hofstedt.
@@ -5905,6 +5946,15 @@ Bahman Naderi, Rub\'{e}n Ruiz, and Vahid Roshanaei.
   {\path{arXiv:https://doi.org/10.1287/ijoc.2023.1287}}, \href
   {https://doi.org/10.1287/ijoc.2023.1287} {\path{doi:10.1287/ijoc.2023.1287}}.
 
+\bibitem{NaqviAIAAA22}
+Syed~Rameez Naqvi, Adnan Ahmad, S.~M.~Riazul Islam, Tallha Akram,
+  M.~Abdullah-Al-Wadud, and Atif Alamri.
+\newblock Towards prevention of sportsmen burnout: Formal analysis of
+  sub-optimal tournament scheduling.
+\newblock {\em CMC-COMPUTERS MATERIALS \& CONTINUA}, 70(1):1509--1526, 2022.
+\newblock \href {https://doi.org/10.32604/cmc.2022.019653}
+  {\path{doi:10.32604/cmc.2022.019653}}.
+
 \bibitem{Nattaf16}
 Margaux Nattaf.
 \newblock {\em {Ordonnancement sous contraintes d'{\'e}nergie}}.
@@ -6372,6 +6422,21 @@ Guillaume Perez, Ga{\"{e}}l Glorian, Wijnand Suijlen, and Arnaud Lallouet.
   {https://doi.org/10.48550/ARXIV.2312.13682}
   {\path{doi:10.48550/ARXIV.2312.13682}}.
 
+\bibitem{Perron05}
+L~Perron.
+\newblock Alternate modeling in sport scheduling.
+\newblock In P~VanBeek, editor, {\em PRINCIPLES AND PRACTICE OF CONSTRAINT
+  PROGRAMMING - CP 2005, PROCEEDINGS}, volume 3709 of {\em Lecture Notes in
+  Computer Science}, pages 797--801, HEIDELBERGER PLATZ 3, D-14197 BERLIN,
+  GERMANY, 2005. Assoc Constraint Programming; Catalan Minist Univ, Res \&
+  Informat Soc; CoLogNET; Cork Constraint Computat Ctr; ILOG Inc; Cornell Univ,
+  Intelligent Informat Syst Inst; MusicStrands Inc; Spanish Assoc Artificial
+  Intelligence; Spanish Minist Educ \& Sci; Spanish Council Sci Res; Springer
+  Publishing, Constrainsts Journal; Swedish Inst Comp Sci; Tech Univ Catalonia;
+  Univ Lleida, SPRINGER-VERLAG BERLIN.
+\newblock 11th International Conference on Principles and Practice of
+  Constraint Programming (CP 2005), Sitges, SPAIN, OCT 01-05, 2005.
+
 \bibitem{PerronSF04}
 Laurent Perron, Paul Shaw, and Vincent Furnon.
 \newblock Propagation guided large neighborhood search.
@@ -6659,6 +6724,35 @@ Ragheb Rahmaniani, Teodor~Gabriel Crainic, Michel Gendreau, and Walter Rei.
   {https://doi.org/10.1016/j.ejor.2016.12.005}
   {\path{doi:10.1016/j.ejor.2016.12.005}}.
 
+\bibitem{RasmussenT06}
+Rasmus~V. Rasmussen and Michael~A. Trick.
+\newblock The timetable constrained distance minimization problem.
+\newblock In JC~Beck and BM~Smith, editors, {\em INTEGRATION OF AI AND OR
+  TECHNIQUES IN CONSTRAINT PROGRAMMING FOR COMBINATORIAL OPTIMIZATION
+  PROBLEMS}, volume 3990 of {\em Lecture Notes in Computer Science}, pages
+  167--181, HEIDELBERGER PLATZ 3, D-14197 BERLIN, GERMANY, 2006. Assoc
+  Constraint Programming; Bouygues; Carmen Syst; Cork Constraint Computat Ctr;
+  ILOG, SA; Intelligent Informat Syst Inst; Sci Fdn Ireland; Univ Coll Cork,
+  SPRINGER-VERLAG BERLIN.
+\newblock 3rd International Conference on Integration of AI and OR Techniques
+  in Constraint Programming for Combinatorial Optimization Problems, Cork,
+  IRELAND, MAY 31-JUN 02, 2006.
+
+\bibitem{RasmussenT07}
+Rasmus~V. Rasmussen and Michael~A. Trick.
+\newblock A benders approach for the constrained minimum break problem.
+\newblock {\em EUROPEAN JOURNAL OF OPERATIONAL RESEARCH}, 177(1):198--213, FEB
+  16 2007.
+\newblock \href {https://doi.org/10.1016/j.ejor.2005.10.063}
+  {\path{doi:10.1016/j.ejor.2005.10.063}}.
+
+\bibitem{RasmussenT09}
+Rasmus~V. Rasmussen and Michael~A. Trick.
+\newblock The timetable constrained distance minimization problem.
+\newblock {\em ANNALS OF OPERATIONS RESEARCH}, 171(1):45--59, OCT 2009.
+\newblock \href {https://doi.org/10.1007/s10479-008-0384-4}
+  {\path{doi:10.1007/s10479-008-0384-4}}.
+
 \bibitem{ReddyFIBKAJ11}
 Sudhakar~Y. Reddy, Jeremy Frank, Michael Iatauro, Matthew~E. Boyce, Elif
   K{\"{u}}rkl{\"{u}}, Mitchell Ai{-}Chang, and Ari~K. J{\'{o}}nsson.
@@ -6711,6 +6805,14 @@ Vahid Riahi, M.~A.~Hakim Newton, Kaile Su, and Abdul Sattar.
   \url{https://aaai.org/ocs/index.php/ICAPS/ICAPS18/paper/view/17755}, \href
   {https://doi.org/10.1609/icaps.v28i1.13895}
   {\path{doi:10.1609/icaps.v28i1.13895}}.
+
+\bibitem{Ribeiro12}
+Celso~C. Ribeiro.
+\newblock Sports scheduling: Problems and applications.
+\newblock {\em INTERNATIONAL TRANSACTIONS IN OPERATIONAL RESEARCH},
+  19(1-2):201--226, JAN-MAR 2012.
+\newblock \href {https://doi.org/10.1111/j.1475-3995.2011.00819.x}
+  {\path{doi:10.1111/j.1475-3995.2011.00819.x}}.
 
 \bibitem{RiiseML16}
 Atle Riise, Carlo Mannino, and Leonardo Lamorgese.
@@ -7301,6 +7403,14 @@ Thomas~R. Stidsen, L.~V. Kragelund, and O.~Mateescu.
   Artificial Intelligence, Budapest, Hungary, August 11-16, 1996, Proceedings},
   pages 639--646. John Wiley and Sons, Chichester, 1996.
 
+\bibitem{SuCC13}
+Ling-Huey Su, Yufang Chiu, and T.~C.~E. Cheng.
+\newblock Sports tournament scheduling to determine the required number of
+  venues subject to the minimum timeslots under given formats.
+\newblock {\em COMPUTERS \& INDUSTRIAL ENGINEERING}, 65(2):226--232, JUN 2013.
+\newblock \href {https://doi.org/10.1016/j.cie.2013.02.021}
+  {\path{doi:10.1016/j.cie.2013.02.021}}.
+
 \bibitem{SubulanC22}
 Kemal Subulan and Gizem {\c{C}}akir.
 \newblock Constraint programming-based transformation approach for a mixed
@@ -7722,6 +7832,27 @@ Tony~T. Tran, Zhihui Wang, Minh Do, Eleanor~Gilbert Rieffel, Jeremy Frank,
 \newblock URL:
   \url{http://www.aaai.org/ocs/index.php/WS/AAAIW16/paper/view/12664}.
 
+\bibitem{Trick03}
+MA~Trick.
+\newblock Integer and constraint programming approaches for round-robin
+  tournament scheduling.
+\newblock In E~Burke and P~DeCausmaecker, editors, {\em PRACTICE AND THEORY OF
+  AUTOMATED TIMETABLING IV}, volume 2740 of {\em LECTURE NOTES IN COMPUTER
+  SCIENCE}, pages 63--77, HEIDELBERGER PLATZ 3, D-14197 BERLIN, GERMANY, 2003.
+  SPRINGER-VERLAG BERLIN.
+\newblock 4th International Conference on Practice and Theory of Automated
+  Timetabling, GHENT, BELGIUM, AUG 21-23, 2002.
+
+\bibitem{Trick11}
+Michael~A. Trick.
+\newblock Sports scheduling.
+\newblock In M~Milano and P~VanHentenryck, editors, {\em HYBRID OPTIMIZATION:
+  THE TEN YEARS OF CPAIOR}, volume~45 of {\em Springer Series in Optimization
+  and Its Applications}, pages 489--508. SPRINGER, 233 SPRING STREET, NEW YORK,
+  NY 10013, UNITED STATES, 2011.
+\newblock \href {https://doi.org/10.1007/978-1-4419-1644-0\_15}
+  {\path{doi:10.1007/978-1-4419-1644-0\_15}}.
+
 \bibitem{TrojetHL11}
 Mariem Trojet, Fehmi H'Mida, and Pierre Lopez.
 \newblock Project scheduling under resource constraints: Application of the
@@ -7796,6 +7927,14 @@ Carmelo~Del Valle, Antonio~A. M{\'{a}}rquez, Rafael~M. Gasca, and Miguel Toro.
   Science}, pages 1329--1336. Springer, 2003.
 \newblock \href {https://doi.org/10.1007/978-3-540-45226-3_180}
   {\path{doi:10.1007/978-3-540-45226-3_180}}.
+
+\bibitem{BulckG22}
+David Van~Bulck and Dries Goossens.
+\newblock Optimizing rest times and differences in games played: an iterative
+  two-phase approach.
+\newblock {\em JOURNAL OF SCHEDULING}, 25(3, SI):261--271, JUN 2022.
+\newblock \href {https://doi.org/10.1007/s10951-021-00717-3}
+  {\path{doi:10.1007/s10951-021-00717-3}}.
 
 \bibitem{AkkerDH07}
 J.~M. van~den Akker, Guido Diepen, and J.~A. Hoogeveen.
@@ -8409,6 +8548,14 @@ Luis~J. Zeballos, Juan~M. Novas, and Gabriela~P. Henning.
 \newblock URL: \url{http://dx.doi.org/10.1016/j.compchemeng.2011.01.043}, \href
   {https://doi.org/10.1016/j.compchemeng.2011.01.043}
   {\path{doi:10.1016/j.compchemeng.2011.01.043}}.
+
+\bibitem{ZengM12}
+Lishun Zeng and Shinji Mizuno.
+\newblock On the separation in 2-period double round robin tournaments with
+  minimum breaks.
+\newblock {\em COMPUTERS \& OPERATIONS RESEARCH}, 39(7):1692--1700, JUL 2012.
+\newblock \href {https://doi.org/10.1016/j.cor.2011.10.004}
+  {\path{doi:10.1016/j.cor.2011.10.004}}.
 
 \bibitem{ZhangJZL22}
 Haotian Zhang, Yingjun Ji, Ziyan Zhao, and Shixin Liu.

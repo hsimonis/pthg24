@@ -51,15 +51,15 @@ Note that OpenCitations does not distinguish between a DOI that is not covered, 
 We may be able to repair some of the entries by finding a DOI for entries which miss them, or by correcting a mistake in a DOI, where neither Crossref nor Scopus recognizes the entry. Not that the system responses are cached, and missing entries are not repeatedly queried by the system. This means that additions or corrections in the databases that occur after we first queried them for a specific entry are not automatically taken into account. It may be good practice to re-run all queries from time to time to reflect updates in the databases.
 
 \begin{tikzpicture}
-\begin{axis}[title=Data Quality (Total 873 Works),xlabel=Status,ylabel=Nr Works,width=15cm,height=12cm,ybar,symbolic x coords={OK,No DOI,Unknown Scopus,Thesis No DOI,Unknown Crossref,Unknown Scopus and Crossref},
+\begin{axis}[title=Data Quality (Total 888 Works),xlabel=Status,ylabel=Nr Works,width=15cm,height=12cm,ybar,symbolic x coords={OK,No DOI,Unknown Scopus,Thesis No DOI,Unknown Crossref,Unknown Scopus and Crossref},
     xtick=data,
     nodes near coords, 
     nodes near coords align={rotate=30,anchor=west},
     x tick label style={rotate=30,anchor=east},
 ]
 \addplot+[] coordinates {
-(OK,626.000000)
-(No DOI,87.000000)
+(OK,638.000000)
+(No DOI,90.000000)
 (Unknown Scopus,61.000000)
 (Thesis No DOI,28.000000)
 (Unknown Crossref,18.000000)
@@ -240,6 +240,7 @@ BeckR03&10.1023/a:1021849405707&ORJournal&2003&29&0&45&45&100.00\\
 AchterbergBKW08&10.1007/978-3-540-68155-7\_4&CPAIOR&2008&80&80&125&45&36.00\\ 
 JainG01&10.1287/ijoc.13.4.258.9733&InformsJC&2001&279&284&321&42&13.08\\ 
 Laborie09&10.1007/978-3-642-01929-6\_12&CPAIOR&2009&53&52&91&39&42.86\\ 
+KendallKRU10&10.1016/j.cor.2009.05.013&OtherJournal&2010&181&186&220&39&17.73\\ 
 BlazewiczEP19&10.1007/978-3-319-99849-7&Incoll&2019&38&38&0&38&100.00\\ 
 HarjunkoskiMBC14&10.1016/j.compchemeng.2013.12.001&OtherJournal&2014&381&393&418&37& 8.85\\ 
 SadehF96&10.1016/0004-3702(95)00098-4&AIJournal&1996&95&97&131&36&27.48\\ 
@@ -265,7 +266,6 @@ Beck07&10.1613/jair.2169&AIJournal&2007&34&34&57&23&40.35\\
 HarjunkoskiG02&10.1016/s0098-1354(02)00100-x&OtherJournal&2002&169&173&192&23&11.98\\ 
 KuB16&10.1016/j.cor.2016.04.006&ORJournal&2016&119&132&141&22&15.60\\ 
 BartakSR08&10.1007/s10845-008-0203-4&OtherJournal&2008&54&57&76&22&28.95\\ 
-BourdaisGP03&10.1007/978-3-540-45193-8\_11&CP&2003&29&30&51&22&43.14\\ 
 \end{longtable}
 
 \subsection{Local Copies}
@@ -273,7 +273,7 @@ BourdaisGP03&10.1007/978-3-540-45193-8\_11&CP&2003&29&30&51&22&43.14\\
 The tool relies on local pdf copies of works to perform a detailed analysis of the content of the work. We have collected our own private copies of works for that purpose. The following plot shows how many entries do not have a local copy, or which do not extract any concepts from the local copy. A detailed list of all missing entries is given in the main report. Note that in some cases we use an open access version of the work, which might differ slightly from the published version. 
 
 \begin{tikzpicture}
-\begin{axis}[title=Work has Local Copy (Total 873 Works),xlabel=Status,ylabel=Nr Works,width=8cm,height=12cm,ybar,symbolic x coords={Yes,No,No Concepts},
+\begin{axis}[title=Work has Local Copy (Total 888 Works),xlabel=Status,ylabel=Nr Works,width=8cm,height=12cm,ybar,symbolic x coords={Yes,No,No Concepts},
     xtick=data,
     nodes near coords, 
     nodes near coords align={rotate=30,anchor=west},
@@ -281,7 +281,7 @@ The tool relies on local pdf copies of works to perform a detailed analysis of t
 ]
 \addplot+[] coordinates {
 (Yes,771.000000)
-(No,96.000000)
+(No,111.000000)
 (No Concepts,6.000000)
 };
 \end{axis}
@@ -302,6 +302,7 @@ Key &File \\ \midrule
 \end{tabular}
 \end{table}
 
+\clearpage
 \section{Works by Location}
 
 This section analyzes papers by affiliation, which is given by the Scopus data only. Only works which are covered by Scopus are included. We first present the number of papers by country. A paper is counted in this analysis (once), if at least one of the affiliations is from the country. Multiple affiliations from the same country only count once. The 30 countries with the largest counts are shown.
@@ -309,40 +310,40 @@ This section analyzes papers by affiliation, which is given by the Scopus data o
 Note that one work will be counted for multiple countries, if the affiliations are from different countries. So the sum of the bar heights typically exceeds the total number of works considered.
 
 \begin{tikzpicture}
-\begin{axis}[title=Countries with Largest Number of Works (Total 675 Works),xlabel=Country,ylabel=Nr Works,
+\begin{axis}[title=Countries with Largest Number of Works (Total 687 Works),xlabel=Country,ylabel=Nr Works,
 width=25cm,height=15cm,ybar,
-symbolic x coords={France,United States,Canada,Germany,Australia,Italy,China,Turkey,Sweden,Ireland,Czech Republic,Belgium,United Kingdom,Austria,Spain,Brazil,Argentina,Netherlands,Iran,Hungary,Norway,Switzerland,Cameroon,Poland,Chile,Denmark,Singapore,South Korea,Hong Kong,Tunisia},
+symbolic x coords={United States,France,Canada,Germany,Australia,Italy,China,Turkey,Sweden,Ireland,Czech Republic,Belgium,United Kingdom,Austria,Spain,Brazil,Argentina,Netherlands,Iran,Hungary,Norway,Switzerland,Denmark,Cameroon,Poland,South Korea,Chile,Hong Kong,Singapore,Tunisia},
     xtick=data,nodes near coords, nodes near coords align={rotate=30),anchor=west},x tick label style={rotate=30),anchor=east}]
 \addplot+[] coordinates {
+(United States,138.000000)
 (France,137.000000)
-(United States,135.000000)
 (Canada,84.000000)
-(Germany,61.000000)
+(Germany,65.000000)
 (Australia,55.000000)
-(Italy,49.000000)
+(Italy,50.000000)
 (China,32.000000)
 (Turkey,28.000000)
 (Sweden,28.000000)
 (Ireland,27.000000)
 (Czech Republic,26.000000)
-(Belgium,24.000000)
-(United Kingdom,21.000000)
+(Belgium,25.000000)
+(United Kingdom,22.000000)
 (Austria,20.000000)
 (Spain,19.000000)
-(Brazil,15.000000)
+(Brazil,17.000000)
 (Argentina,13.000000)
 (Netherlands,12.000000)
 (Iran,12.000000)
 (Hungary,10.000000)
 (Norway,9.000000)
 (Switzerland,9.000000)
+(Denmark,8.000000)
 (Cameroon,7.000000)
 (Poland,7.000000)
+(South Korea,6.000000)
 (Chile,6.000000)
-(Denmark,6.000000)
+(Hong Kong,6.000000)
 (Singapore,5.000000)
-(South Korea,5.000000)
-(Hong Kong,5.000000)
 (Tunisia,5.000000)
 };
 \end{axis}
@@ -351,9 +352,9 @@ symbolic x coords={France,United States,Canada,Germany,Australia,Italy,China,Tur
 The next plot shows the number of papers associated to institutions, as stated in the Scopus affiliation. A work is counted, if at least one of the affiliations is from a given institution. Due to the format of the Scopus data, we cannot fractionally assign a paper based on the author affiliations, each paper is counted one for every institution for which an affiliation is given. If some author has multiple affiliations listed, we (mis)count the work for each of them.
 
 \begin{tikzpicture}
-\begin{axis}[title=Institutions with Largest Number of Works (Total 675 Works),xlabel=Institutions,ylabel=Nr Works,
+\begin{axis}[title=Institutions with Largest Number of Works (Total 687 Works),xlabel=Institutions,ylabel=Nr Works,
 width=22cm,height=11cm,ybar,
-symbolic x coords={University of Toronto,Alma Mater Studiorum Università di Bologna,Université de Toulouse,University of Melbourne,University College Cork,International Business Machines,Monash University,Université Catholique de Louvain,Tepper School of Business,Charles University,Commonwealth Scientific and Industrial Research Organisation,IMT Atlantique,Carnegie Mellon University,Polytechnique Montréal,Laboratoire d'Analyse et d'Architecture des Systemes,Universidad Nacional del Litoral,Zuse Institute Berlin,RISE Swedish Institute of Computer Science,Technische Universität Wien,Université Laval,Dokuz Eylül Üniversitesi,Fraunhofer-Institut fur Rechnerarchitektur und Softwaretechnik FIRST,Compagnie IBM France,Magyar Tudomanyos Akademia,Universidade de São Paulo},
+symbolic x coords={University of Toronto,Alma Mater Studiorum Università di Bologna,Université de Toulouse,University of Melbourne,University College Cork,International Business Machines,Tepper School of Business,Monash University,Université Catholique de Louvain,Charles University,Commonwealth Scientific and Industrial Research Organisation,IMT Atlantique,Carnegie Mellon University,Polytechnique Montréal,Laboratoire d'Analyse et d'Architecture des Systemes,Universidad Nacional del Litoral,Zuse Institute Berlin,RISE Swedish Institute of Computer Science,Technische Universität Wien,Université Laval,Dokuz Eylül Üniversitesi,Fraunhofer-Institut fur Rechnerarchitektur und Softwaretechnik FIRST,Compagnie IBM France,Magyar Tudomanyos Akademia,Universidade de São Paulo},
     xtick=data,nodes near coords, nodes near coords align={rotate=30),anchor=west},x tick label style={rotate=30),anchor=east}]
 \addplot+[] coordinates {
 (University of Toronto,42.000000)
@@ -362,9 +363,9 @@ symbolic x coords={University of Toronto,Alma Mater Studiorum Università di Bol
 (University of Melbourne,25.000000)
 (University College Cork,22.000000)
 (International Business Machines,21.000000)
+(Tepper School of Business,20.000000)
 (Monash University,20.000000)
 (Université Catholique de Louvain,19.000000)
-(Tepper School of Business,17.000000)
 (Charles University,17.000000)
 (Commonwealth Scientific and Industrial Research Organisation,17.000000)
 (IMT Atlantique,17.000000)
@@ -594,8 +595,10 @@ It would be nice to have tooltips on the plots, so identify specific works in th
     (2004.000000,12.000000) [14.000000]
     (2000.000000,7.000000) [14.000000]
     (2019.000000,7.000000) [15.000000]
+    (2009.000000,8.000000) [15.000000]
     (2004.000000,15.000000) [15.000000]
     (2020.000000,0.000000) [16.000000]
+    (2007.000000,60.000000) [16.000000]
     (2002.000000,88.000000) [16.000000]
     (2014.000000,2.000000) [17.000000]
     (2008.000000,14.000000) [17.000000]
@@ -641,6 +644,7 @@ It would be nice to have tooltips on the plots, so identify specific works in th
     (2019.000000,40.000000) [40.000000]
     (2019.000000,11.000000) [42.000000]
     (2023.000000,0.000000) [43.000000]
+    (2011.000000,2.000000) [43.000000]
     (2006.000000,11.000000) [44.000000]
     (2021.000000,6.000000) [46.000000]
     (2012.000000,8.000000) [48.000000]
@@ -748,6 +752,8 @@ It would be nice to have tooltips on the plots, so identify specific works in th
 \begin{axis}[title={Nr Citations of Works per Year for Country Germany colored by Nr References},xlabel=Year,ylabel=Citations,xmin=1987.0,xmax=2024.0,ymin=0.0,ymax=490.0,,width=23cm,height=15cm,colorbar]
 \addplot+[only marks,,scatter,point meta=explicit] coordinates {
     (2022.000000,0.000000) [0.000000]
+    (2019.000000,3.000000) [0.000000]
+    (2010.000000,181.000000) [0.000000]
     (2002.000000,42.000000) [0.000000]
     (2000.000000,23.000000) [0.000000]
     (1996.000000,22.000000) [0.000000]
@@ -758,8 +764,10 @@ It would be nice to have tooltips on the plots, so identify specific works in th
     (2019.000000,2.000000) [6.000000]
     (2005.000000,6.000000) [6.000000]
     (2005.000000,5.000000) [6.000000]
+    (2018.000000,2.000000) [7.000000]
     (2006.000000,12.000000) [7.000000]
     (2003.000000,11.000000) [7.000000]
+    (2003.000000,41.000000) [7.000000]
     (1995.000000,7.000000) [7.000000]
     (2005.000000,4.000000) [8.000000]
     (2000.000000,66.000000) [8.000000]
@@ -872,6 +880,7 @@ It would be nice to have tooltips on the plots, so identify specific works in th
     (2017.000000,1.000000) [5.000000]
     (1997.000000,28.000000) [5.000000]
     (2003.000000,8.000000) [6.000000]
+    (2003.000000,41.000000) [7.000000]
     (1997.000000,11.000000) [7.000000]
     (2015.000000,0.000000) [8.000000]
     (1997.000000,10.000000) [9.000000]
@@ -957,6 +966,7 @@ It would be nice to have tooltips on the plots, so identify specific works in th
 \begin{tikzpicture}
 \begin{axis}[title={Nr Citations of Works per Year for Country United Kingdom colored by Nr References},xlabel=Year,ylabel=Citations,xmin=1987.0,xmax=2024.0,ymin=0.0,ymax=490.0,,width=23cm,height=15cm,colorbar]
 \addplot+[only marks,,scatter,point meta=explicit] coordinates {
+    (2010.000000,181.000000) [0.000000]
     (2000.000000,73.000000) [0.000000]
     (2000.000000,5.000000) [0.000000]
     (1999.000000,53.000000) [0.000000]
@@ -1160,6 +1170,7 @@ It would be nice to have tooltips on the plots, so identify specific works in th
     (2015.000000,20.000000) [15.000000]
     (2020.000000,0.000000) [16.000000]
     (2019.000000,0.000000) [17.000000]
+    (2022.000000,2.000000) [19.000000]
     (2013.000000,20.000000) [19.000000]
     (2020.000000,2.000000) [21.000000]
     (2017.000000,2.000000) [28.000000]
@@ -1196,9 +1207,32 @@ It would be nice to have tooltips on the plots, so identify specific works in th
 \end{tikzpicture}
 
 \begin{tikzpicture}
-\begin{axis}[title={Nr Citations of Works per Year for Other Countries colored by Nr References},xlabel=Year,ylabel=Citations,xmin=1987.0,xmax=2024.0,ymin=0.0,ymax=490.0,,width=25cm,height=15cm,colorbar]
+\begin{axis}[title={Nr Citations of Works per Year for Country Brazil colored by Nr References},xlabel=Year,ylabel=Citations,xmin=1987.0,xmax=2024.0,ymin=0.0,ymax=490.0,,width=23cm,height=15cm,colorbar]
 \addplot+[only marks,,scatter,point meta=explicit] coordinates {
     (2024.000000,0.000000) [0.000000]
+    (2010.000000,181.000000) [0.000000]
+    (2000.000000,5.000000) [0.000000]
+    (2012.000000,0.000000) [8.000000]
+    (2008.000000,11.000000) [10.000000]
+    (1997.000000,56.000000) [12.000000]
+    (2008.000000,22.000000) [14.000000]
+    (2008.000000,5.000000) [14.000000]
+    (2020.000000,30.000000) [18.000000]
+    (2010.000000,31.000000) [18.000000]
+    (2017.000000,1.000000) [43.000000]
+    (2023.000000,0.000000) [46.000000]
+    (2023.000000,1.000000) [47.000000]
+    (2021.000000,5.000000) [50.000000]
+    (2020.000000,25.000000) [55.000000]
+    (2022.000000,10.000000) [56.000000]
+    (2012.000000,47.000000) [59.000000]
+};
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[title={Nr Citations of Works per Year for Other Countries colored by Nr References},xlabel=Year,ylabel=Citations,xmin=1987.0,xmax=2024.0,ymin=0.0,ymax=490.0,,width=25cm,height=15cm,colorbar]
+\addplot+[only marks,,scatter,point meta=explicit] coordinates {
     (2024.000000,0.000000) [0.000000]
     (2023.000000,0.000000) [0.000000]
     (2023.000000,0.000000) [0.000000]
@@ -1215,7 +1249,6 @@ It would be nice to have tooltips on the plots, so identify specific works in th
     (2005.000000,0.000000) [0.000000]
     (2004.000000,19.000000) [0.000000]
     (2001.000000,5.000000) [0.000000]
-    (2000.000000,5.000000) [0.000000]
     (2007.000000,1.000000) [2.000000]
     (2019.000000,1.000000) [3.000000]
     (2010.000000,1.000000) [3.000000]
@@ -1230,14 +1263,12 @@ It would be nice to have tooltips on the plots, so identify specific works in th
     (2006.000000,2.000000) [7.000000]
     (2005.000000,2.000000) [7.000000]
     (2002.000000,8.000000) [7.000000]
-    (2012.000000,0.000000) [8.000000]
     (2011.000000,3.000000) [8.000000]
     (2007.000000,2.000000) [8.000000]
     (2018.000000,1.000000) [9.000000]
     (2011.000000,7.000000) [9.000000]
     (2018.000000,9.000000) [10.000000]
     (2014.000000,6.000000) [10.000000]
-    (2008.000000,11.000000) [10.000000]
     (2019.000000,0.000000) [11.000000]
     (2016.000000,0.000000) [11.000000]
     (2013.000000,2.000000) [11.000000]
@@ -1246,7 +1277,6 @@ It would be nice to have tooltips on the plots, so identify specific works in th
     (2018.000000,1.000000) [12.000000]
     (2007.000000,2.000000) [12.000000]
     (2004.000000,3.000000) [12.000000]
-    (1997.000000,56.000000) [12.000000]
     (2023.000000,0.000000) [13.000000]
     (2018.000000,41.000000) [13.000000]
     (2007.000000,1.000000) [13.000000]
@@ -1254,32 +1284,34 @@ It would be nice to have tooltips on the plots, so identify specific works in th
     (2018.000000,2.000000) [14.000000]
     (2016.000000,28.000000) [14.000000]
     (2009.000000,7.000000) [14.000000]
-    (2008.000000,22.000000) [14.000000]
-    (2008.000000,5.000000) [14.000000]
     (2008.000000,5.000000) [14.000000]
     (2023.000000,1.000000) [15.000000]
     (2019.000000,7.000000) [15.000000]
     (2017.000000,0.000000) [15.000000]
+    (2013.000000,2.000000) [15.000000]
     (2012.000000,17.000000) [15.000000]
     (2011.000000,3.000000) [15.000000]
     (2009.000000,127.000000) [15.000000]
+    (2009.000000,8.000000) [15.000000]
     (2023.000000,0.000000) [16.000000]
     (2020.000000,0.000000) [16.000000]
     (2019.000000,1.000000) [16.000000]
     (2016.000000,2.000000) [16.000000]
     (2012.000000,4.000000) [16.000000]
     (2010.000000,41.000000) [16.000000]
+    (2007.000000,60.000000) [16.000000]
     (2019.000000,0.000000) [17.000000]
     (2011.000000,11.000000) [17.000000]
     (2020.000000,5.000000) [18.000000]
     (2020.000000,30.000000) [18.000000]
-    (2010.000000,31.000000) [18.000000]
+    (2012.000000,3.000000) [18.000000]
     (2014.000000,3.000000) [19.000000]
     (2013.000000,20.000000) [19.000000]
     (2010.000000,48.000000) [19.000000]
     (2001.000000,2.000000) [19.000000]
     (2022.000000,0.000000) [20.000000]
     (2019.000000,14.000000) [21.000000]
+    (2022.000000,0.000000) [22.000000]
     (2018.000000,11.000000) [22.000000]
     (2016.000000,17.000000) [22.000000]
     (2023.000000,0.000000) [23.000000]
@@ -1316,22 +1348,16 @@ It would be nice to have tooltips on the plots, so identify specific works in th
     (2016.000000,17.000000) [40.000000]
     (2017.000000,4.000000) [42.000000]
     (2018.000000,31.000000) [43.000000]
-    (2017.000000,1.000000) [43.000000]
     (2023.000000,2.000000) [44.000000]
     (2021.000000,4.000000) [44.000000]
     (2020.000000,24.000000) [45.000000]
-    (2023.000000,0.000000) [46.000000]
     (2021.000000,6.000000) [46.000000]
-    (2023.000000,1.000000) [47.000000]
     (2022.000000,5.000000) [47.000000]
     (1999.000000,92.000000) [48.000000]
-    (2021.000000,5.000000) [50.000000]
     (2015.000000,13.000000) [51.000000]
     (2022.000000,0.000000) [52.000000]
     (2021.000000,2.000000) [52.000000]
     (2022.000000,0.000000) [53.000000]
-    (2020.000000,25.000000) [55.000000]
-    (2022.000000,10.000000) [56.000000]
     (2021.000000,18.000000) [57.000000]
     (2023.000000,7.000000) [60.000000]
     (2010.000000,0.000000) [67.000000]
@@ -1343,22 +1369,23 @@ It would be nice to have tooltips on the plots, so identify specific works in th
 \end{axis}
 \end{tikzpicture}
 
+\clearpage
 \section{Collaborations}
 
 This section shows data about collaborations between multiple affiliations for the same work. This is based on Scopus data, which associates the affiliation with the work, not with each author of the work. The analysis excludes background work.
 
 \begin{tikzpicture}
-\begin{axis}[title=Works with given Number of Affiliations (Total 642 Works),xlabel=Nr Affiliations,ylabel=Nr Works,width=25cm,height=15cm,ybar,symbolic x coords={1,2,3,4,5,6,8,10},
+\begin{axis}[title=Works with given Number of Affiliations (Total 654 Works),xlabel=Nr Affiliations,ylabel=Nr Works,width=25cm,height=15cm,ybar,symbolic x coords={1,2,3,4,5,6,8,10},
     xtick=data,
     nodes near coords, 
     nodes near coords align={rotate=30,anchor=west},
     x tick label style={rotate=30,anchor=east},
 ]
 \addplot+[] coordinates {
-(1,280.000000)
-(2,238.000000)
-(3,98.000000)
-(4,18.000000)
+(1,285.000000)
+(2,242.000000)
+(3,100.000000)
+(4,19.000000)
 (5,4.000000)
 (6,2.000000)
 (8,1.000000)
@@ -1377,14 +1404,15 @@ University of Toronto, Toronto, Canada&42&40&18&22&26.00& 8.50&17.50&61.90&41.67
 Université de Toulouse, Toulouse, France&28&37&19&18&21.00&14.83& 6.17&75.00&22.02\\ 
 University of Melbourne, Melbourne, Australia&25&32&23&9&20.00&15.00& 5.00&80.00&20.00\\ 
 Monash University, Clayton, Australia&20&27&18&9&18.00&12.50& 5.50&90.00&27.50\\ 
-Commonwealth Scientific and Industrial Research Organisation, Canberra, Australia&17&29&23&6&17.00&14.00& 3.00&100.00&17.65\\ 
 University College Cork, Cork, Ireland&22&31&6&25&17.00& 1.76&15.24&77.27&69.26\\ 
+Commonwealth Scientific and Industrial Research Organisation, Canberra, Australia&17&29&23&6&17.00&14.00& 3.00&100.00&17.65\\ 
 Alma Mater Studiorum Università di Bologna, Bologna, Italy&35&22&6&16&15.00& 3.83&11.17&42.86&31.90\\ 
 Laboratoire d'Analyse et d'Architecture des Systemes, Toulouse, France&14&19&14&5&13.00&10.00& 3.00&92.86&21.43\\ 
 IMT Atlantique, Nantes, France&17&15&5&10&13.00& 4.00& 9.00&76.47&52.94\\ 
 International Business Machines, Armonk, United States&21&16&0&16&12.00& 0.00&12.00&57.14&57.14\\ 
 Université Catholique de Louvain, Louvain-la-Neuve, Belgium&19&12&2&10& 9.00& 1.33& 7.67&47.37&40.35\\ 
 Polytechnique Montréal, Montreal, Canada&14&10&6&4& 8.00& 5.50& 2.50&57.14&17.86\\ 
+Tepper School of Business, Pittsburgh, United States&20&17&6&11& 8.00& 2.33& 5.67&40.00&28.33\\ 
 RISE, Swedish Institute of Computer Science, Kista, Sweden&10&10&1&9& 8.00& 1.00& 7.00&80.00&70.00\\ 
 Technische Universität Wien, Vienna, Austria&9&8&6&2& 7.00& 6.00& 1.00&77.78&11.11\\ 
 Dokuz Eylül Üniversitesi, Izmir, Turkey&9&8&6&2& 7.00& 5.00& 2.00&77.78&22.22\\ 
@@ -1392,24 +1420,22 @@ Rotman School of Management, Toronto, Canada&7&16&13&3& 7.00& 5.50& 1.50&100.00&
 Charles University, Prague, Czech Republic&17&10&4&6& 7.00& 3.50& 3.50&41.18&20.59\\ 
 Zuse Institute Berlin, Berlin, Germany&10&9&6&3& 7.00& 4.50& 2.50&70.00&25.00\\ 
 Universidade de São Paulo, Sao Paulo, Brazil&7&8&4&4& 6.00& 3.50& 2.50&85.71&35.71\\ 
-Tepper School of Business, Pittsburgh, United States&17&15&6&9& 6.00& 2.33& 3.67&35.29&21.57\\ 
 The Royal Institute of Technology (KTH), Stockholm, Sweden&6&9&7&2& 6.00& 5.00& 1.00&100.00&16.67\\ 
+Universidad Nacional del Litoral, Santa Fe, Argentina&12&14&4&10& 6.00& 4.00& 2.00&50.00&16.67\\ 
 Université d'Avignon et des Pays du Vaucluse, Avignon, France&7&7&5&2& 6.00& 4.00& 2.00&85.71&28.57\\ 
 Université de Maroua, Maroua, Cameroon&6&10&6&4& 6.00& 3.67& 2.33&100.00&38.89\\ 
-Universidad Nacional del Litoral, Santa Fe, Argentina&12&14&4&10& 6.00& 4.00& 2.00&50.00&16.67\\ 
 Technische Universität Berlin, Berlin, Germany&6&13&5&8& 5.00& 3.50& 1.50&83.33&25.00\\ 
 Université Grenoble Alpes, Saint Martin d'Heres, France&5&8&7&1& 5.00& 4.67& 0.33&100.00& 6.67\\ 
+University of Connecticut, Storrs, United States&5&8&5&3& 5.00& 3.83& 1.17&100.00&23.33\\ 
 Czech Institute of Informatics, Robotics and Cybernetics, Prague, Czech Republic&5&7&3&4& 5.00& 2.50& 2.50&100.00&50.00\\ 
 University of Tehran, Tehran, Iran&7&7&1&6& 5.00& 1.00& 4.00&71.43&57.14\\ 
 University of Windsor, Windsor, Canada&5&10&9&1& 5.00& 4.50& 0.50&100.00&10.00\\ 
 Compagnie IBM France, Bois-Colombes, France&8&7&3&4& 5.00& 2.00& 3.00&62.50&37.50\\ 
 Magyar Tudomanyos Akademia, Budapest, Hungary&8&6&0&6& 5.00& 0.00& 5.00&62.50&62.50\\ 
 Bouygues, Paris, France&7&5&3&2& 5.00& 3.00& 2.00&71.43&28.57\\ 
-University of Connecticut, Storrs, United States&5&8&5&3& 5.00& 3.83& 1.17&100.00&23.33\\ 
-Université Laval, Quebec, Canada&9&9&2&7& 4.00& 1.00& 3.00&44.44&33.33\\ 
 UNSW Sydney, Sydney, Australia&5&9&3&6& 4.00& 2.00& 2.00&80.00&40.00\\ 
-Brown University, Providence, United States&6&10&4&6& 4.00& 2.53& 1.47&66.67&24.44\\ 
 Universidade Federal do Ceará, Fortaleza, Brazil&4&5&4&1& 4.00& 3.50& 0.50&100.00&12.50\\ 
+Université Laval, Quebec, Canada&9&9&2&7& 4.00& 1.00& 3.00&44.44&33.33\\ 
 Universidad Andrés Bello, Santiago, Chile&4&11&6&5& 4.00& 2.40& 1.60&100.00&40.00\\ 
 Alpen-Adria-Universität Klagenfurt, Klagenfurt, Austria&6&5&5&0& 4.00& 4.00& 0.00&66.67& 0.00\\ 
 Universitat Politècnica de València, Valencia, Spain&7&7&0&7& 4.00& 0.00& 4.00&57.14&57.14\\ 
@@ -1418,6 +1444,7 @@ Huazhong University of Science and Technology, Wuhan, China&4&10&8&2& 4.00& 3.17
 Sorbonne Université, Paris, France&5&6&5&1& 4.00& 3.00& 1.00&80.00&20.00\\ 
 ABB Corporate Research, Vasteras, Vasteras, Sweden&4&7&5&2& 4.00& 3.00& 1.00&100.00&25.00\\ 
 Universite Catholique de L'Ouest, Angers, France&5&8&8&0& 4.00& 4.00& 0.00&80.00& 0.00\\ 
+University of Luxembourg, Esch-sur-Alzette, Luxembourg&4&7&0&7& 4.00& 0.00& 4.00&100.00&100.00\\ 
 \bottomrule
 \end{tabular}
 }
@@ -1431,68 +1458,69 @@ The following heatmap is not complete. It needs a symmetric option to count a co
 {\scriptsize
 {\setlength{\tabcolsep}{2pt}
 \begin{tabular}{lr|*{50}{@{ }r@{ }}|r}\toprule
-From/To& \rotatebox{90}{Total}& \rotatebox{90}{France}& \rotatebox{90}{United States}& \rotatebox{90}{Canada}& \rotatebox{90}{Australia}& \rotatebox{90}{China}& \rotatebox{90}{Germany}& \rotatebox{90}{Ireland}& \rotatebox{90}{Sweden}& \rotatebox{90}{Italy}& \rotatebox{90}{Belgium}& \rotatebox{90}{Netherlands}& \rotatebox{90}{Turkey}& \rotatebox{90}{Chile}& \rotatebox{90}{Austria}& \rotatebox{90}{Argentina}& \rotatebox{90}{Spain}& \rotatebox{90}{Norway}& \rotatebox{90}{Brazil}& \rotatebox{90}{Cameroon}& \rotatebox{90}{Colombia}& \rotatebox{90}{Czech Republic}& \rotatebox{90}{United Kingdom}& \rotatebox{90}{Iran}& \rotatebox{90}{Russian Federation}& \rotatebox{90}{Tunisia}& \rotatebox{90}{Luxembourg}& \rotatebox{90}{Singapore}& \rotatebox{90}{Denmark}& \rotatebox{90}{South Korea}& \rotatebox{90}{Switzerland}& \rotatebox{90}{Egypt}& \rotatebox{90}{Macao}& \rotatebox{90}{Japan}& \rotatebox{90}{Hong Kong}& \rotatebox{90}{Algeria}& \rotatebox{90}{Serbia}& \rotatebox{90}{Hungary}& \rotatebox{90}{Portugal}& \rotatebox{90}{Poland}& \rotatebox{90}{Finland}& \rotatebox{90}{Mexico}& \rotatebox{90}{Taiwan}& \rotatebox{90}{Iraq}& \rotatebox{90}{Iceland}& \rotatebox{90}{Greece}& \rotatebox{90}{Romania}& \rotatebox{90}{Pakistan}& \rotatebox{90}{Other}\\ 
-Total & & 106& 90& 79& 60& 53& 50& 37& 32& 28& 22& 20& 17& 17& 14& 14& 11& 10& 10& 9& 9& 9& 8& 8& 7& 7& 6& 4& 4& 4& 4& 3& 3& 3& 3& 3& 3& 2& 2& 2& 2& 2& 1& 1& 1& 1& 1& 1& \\ 
+From/To& \rotatebox{90}{Total}& \rotatebox{90}{France}& \rotatebox{90}{United States}& \rotatebox{90}{Canada}& \rotatebox{90}{Australia}& \rotatebox{90}{Germany}& \rotatebox{90}{China}& \rotatebox{90}{Ireland}& \rotatebox{90}{Sweden}& \rotatebox{90}{Italy}& \rotatebox{90}{Belgium}& \rotatebox{90}{Netherlands}& \rotatebox{90}{Turkey}& \rotatebox{90}{Chile}& \rotatebox{90}{Argentina}& \rotatebox{90}{Austria}& \rotatebox{90}{Brazil}& \rotatebox{90}{United Kingdom}& \rotatebox{90}{Spain}& \rotatebox{90}{Norway}& \rotatebox{90}{Cameroon}& \rotatebox{90}{Czech Republic}& \rotatebox{90}{Colombia}& \rotatebox{90}{Iran}& \rotatebox{90}{Russian Federation}& \rotatebox{90}{Tunisia}& \rotatebox{90}{Luxembourg}& \rotatebox{90}{South Korea}& \rotatebox{90}{Switzerland}& \rotatebox{90}{Hong Kong}& \rotatebox{90}{Singapore}& \rotatebox{90}{Denmark}& \rotatebox{90}{Macao}& \rotatebox{90}{Algeria}& \rotatebox{90}{Japan}& \rotatebox{90}{Serbia}& \rotatebox{90}{Egypt}& \rotatebox{90}{Hungary}& \rotatebox{90}{Finland}& \rotatebox{90}{Portugal}& \rotatebox{90}{Mexico}& \rotatebox{90}{Poland}& \rotatebox{90}{Iraq}& \rotatebox{90}{Romania}& \rotatebox{90}{Saudi Arabia}& \rotatebox{90}{Pakistan}& \rotatebox{90}{Greece}& \rotatebox{90}{Taiwan}& \rotatebox{90}{Iceland}& \rotatebox{90}{Other}\\ 
+Total & & 106& 92& 79& 60& 54& 53& 37& 32& 28& 22& 20& 17& 17& 14& 14& 13& 11& 11& 10& 9& 9& 9& 8& 7& 7& 6& 6& 4& 4& 4& 4& 3& 3& 3& 3& 3& 2& 2& 2& 2& 2& 1& 1& 1& 1& 1& 1& 1& \\ 
 \midrule
-United States & 129&\cellcolor{percentColor0!22}6&\cellcolor{percentColor50!22}42&\cellcolor{percentColor10!22}11&\cellcolor{percentColor0!22}3&\cellcolor{percentColor0!22}5&\cellcolor{percentColor0!22}4&\cellcolor{percentColor10!22}14&\cellcolor{percentColor0!22}3&\cellcolor{percentColor0!22}4&\cellcolor{percentColor10!22}9&\cellcolor{percentColor10!22}8&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}3&0&\cellcolor{percentColor0!22}3&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&\cellcolor{percentColor0!22}2&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&\cellcolor{percentColor0!22}1&0&0&0& 0\\ 
-France & 120&\cellcolor{percentColor90!22}71&\cellcolor{percentColor0!22}7&\cellcolor{percentColor0!22}5&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}4&\cellcolor{percentColor10!22}8&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&\cellcolor{percentColor0!22}3&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}3&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0& 0\\ 
-Canada & 64&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&\cellcolor{percentColor70!22}51&0&0&\cellcolor{percentColor0!22}4&\cellcolor{percentColor0!22}1&0&0&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}1&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Australia & 60&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor50!22}41&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}3&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}4&0&\cellcolor{percentColor0!22}1&0&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Germany & 55&\cellcolor{percentColor0!22}2&\cellcolor{percentColor10!22}9&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}5&0&\cellcolor{percentColor30!22}23&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}3&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0& 0\\ 
-China & 43&0&\cellcolor{percentColor0!22}3&0&0&\cellcolor{percentColor40!22}35&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}3&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Ireland & 31&\cellcolor{percentColor10!22}8&\cellcolor{percentColor0!22}4&\cellcolor{percentColor0!22}3&0&0&\cellcolor{percentColor0!22}2&\cellcolor{percentColor10!22}10&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Italy & 30&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor0!22}3&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}2&\cellcolor{percentColor10!22}10&\cellcolor{percentColor0!22}2&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}3&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Turkey & 21&0&\cellcolor{percentColor0!22}4&0&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}2&0&0&0&0&\cellcolor{percentColor10!22}12&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Spain & 18&0&0&\cellcolor{percentColor0!22}1&0&0&\cellcolor{percentColor0!22}2&0&0&\cellcolor{percentColor0!22}2&0&0&0&\cellcolor{percentColor0!22}5&0&0&\cellcolor{percentColor0!22}4&0&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Chile & 17&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor10!22}8&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}7&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Czech Republic & 15&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&\cellcolor{percentColor0!22}3&0&0&0&0&\cellcolor{percentColor0!22}6&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Austria & 14&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor10!22}13&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Sweden & 14&0&0&0&0&0&0&0&\cellcolor{percentColor10!22}9&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Norway & 13&\cellcolor{percentColor0!22}5&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}4&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Cameroon & 13&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&\cellcolor{percentColor0!22}4&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}7&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Netherlands & 12&0&\cellcolor{percentColor0!22}4&0&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor0!22}1&0&0&0&0&\cellcolor{percentColor0!22}3&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Belgium & 12&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}5&\cellcolor{percentColor0!22}3&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Russian Federation & 9&\cellcolor{percentColor0!22}3&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}6&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Portugal & 8&0&\cellcolor{percentColor0!22}3&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Hungary & 7&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}3&0&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0& 0\\ 
-United Kingdom & 7&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Brazil & 6&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}4&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Singapore & 6&0&0&0&0&\cellcolor{percentColor0!22}4&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Argentina & 6&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}5&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Switzerland & 6&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}4&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Taiwan & 4&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0& 0\\ 
-Denmark & 4&0&0&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Iran & 4&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0& 0\\ 
-South Korea & 4&0&\cellcolor{percentColor0!22}3&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Egypt & 3&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}3&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Japan & 3&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Poland & 3&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0& 0\\ 
-Tunisia & 3&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Pakistan & 3&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1& 0\\ 
-United Arab Emirates & 2&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Romania & 2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Finland & 2&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0& 0\\ 
-Luxembourg & 1&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Benin & 1&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Malaysia & 1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0& 0\\ 
-Hong Kong & 1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Algeria & 1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Thailand & 1&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
-Greece & 1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0& 0\\ 
+United States & 129&\cellcolor{percentColor0!22}6&\cellcolor{percentColor50!22}42&\cellcolor{percentColor10!22}11&\cellcolor{percentColor0!22}3&\cellcolor{percentColor0!22}4&\cellcolor{percentColor0!22}5&\cellcolor{percentColor10!22}14&\cellcolor{percentColor0!22}3&\cellcolor{percentColor0!22}4&\cellcolor{percentColor10!22}9&\cellcolor{percentColor10!22}8&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}3&\cellcolor{percentColor0!22}3&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1& 0\\ 
+France & 120&\cellcolor{percentColor90!22}71&\cellcolor{percentColor0!22}7&\cellcolor{percentColor0!22}5&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}4&\cellcolor{percentColor10!22}8&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}3&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}3&\cellcolor{percentColor0!22}1&0&0&0&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}2&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0& 0\\ 
+Canada & 64&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&\cellcolor{percentColor70!22}51&0&\cellcolor{percentColor0!22}4&0&\cellcolor{percentColor0!22}1&0&0&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Australia & 60&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor50!22}41&\cellcolor{percentColor0!22}3&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}4&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}2&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Germany & 60&\cellcolor{percentColor0!22}2&\cellcolor{percentColor10!22}9&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}5&\cellcolor{percentColor30!22}25&0&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}3&0&0&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0& 0\\ 
+China & 43&0&\cellcolor{percentColor0!22}3&0&0&0&\cellcolor{percentColor40!22}35&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&\cellcolor{percentColor0!22}3&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Italy & 32&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor0!22}3&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}2&\cellcolor{percentColor10!22}10&\cellcolor{percentColor0!22}2&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}3&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Ireland & 31&\cellcolor{percentColor10!22}8&\cellcolor{percentColor0!22}4&\cellcolor{percentColor0!22}3&0&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor10!22}10&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Turkey & 21&0&\cellcolor{percentColor0!22}4&0&0&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}2&0&0&0&0&\cellcolor{percentColor10!22}12&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Spain & 18&0&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}2&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&\cellcolor{percentColor0!22}5&0&0&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor0!22}4&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Chile & 17&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor10!22}8&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}7&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Czech Republic & 15&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}3&0&0&\cellcolor{percentColor0!22}6&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Sweden & 14&0&0&0&0&0&0&0&\cellcolor{percentColor10!22}9&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Austria & 14&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor10!22}13&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Norway & 13&\cellcolor{percentColor0!22}5&0&0&\cellcolor{percentColor0!22}1&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}4&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Cameroon & 13&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&\cellcolor{percentColor0!22}4&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}7&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Belgium & 12&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}5&\cellcolor{percentColor0!22}3&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Netherlands & 12&0&\cellcolor{percentColor0!22}4&0&\cellcolor{percentColor0!22}2&\cellcolor{percentColor0!22}1&0&0&0&0&0&\cellcolor{percentColor0!22}3&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Russian Federation & 9&\cellcolor{percentColor0!22}3&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}6&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Brazil & 9&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}5&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Portugal & 8&0&\cellcolor{percentColor0!22}3&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Hungary & 7&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}3&0&\cellcolor{percentColor0!22}1&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+United Kingdom & 7&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Switzerland & 6&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&\cellcolor{percentColor0!22}4&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Argentina & 6&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}5&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Singapore & 6&0&0&0&0&0&\cellcolor{percentColor0!22}4&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Denmark & 6&0&\cellcolor{percentColor0!22}2&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Pakistan & 5&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0& 0\\ 
+Taiwan & 5&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0& 0\\ 
+Iran & 4&0&\cellcolor{percentColor0!22}1&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0& 0\\ 
+South Korea & 4&0&\cellcolor{percentColor0!22}3&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Japan & 3&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Tunisia & 3&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Egypt & 3&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}3&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Poland & 3&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0& 0\\ 
+Romania & 2&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}2&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Finland & 2&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0& 0\\ 
+United Arab Emirates & 2&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Algeria & 1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Thailand & 1&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Luxembourg & 1&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Malaysia & 1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0& 0\\ 
+Israel & 1&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Saudi Arabia & 1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
+Hong Kong & 1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&\cellcolor{percentColor0!22}1&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0&0& 0\\ 
 \midrule
-Other & & 0& 1& 0& 1& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 1& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0\\ 
+Other & & 0& 1& 0& 0& 0& 0& 0& 0& 0& 1& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 1& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 1& 0& 0\\ 
 \bottomrule
 \end{tabular}
 }
 }
 \end{table}
 
+\clearpage
 \section{Conference Papers by Most Common Conference Series}
 
 \begin{tikzpicture}
 \begin{axis}[title=Conference Paper Count by Conference Series (Count > 1),xlabel=Conference Series,ylabel=Paper Count,
 width=20cm,height=10cm,ybar,
-symbolic x coords={CP,CPAIOR,AAAI,ICAPS,ECAI,IJCAI,ICAART,ICRA,INAP,CSCLP,ICTAI,ICNSC,GOR,PACT,ICORES,ICROMA},
+symbolic x coords={CP,CPAIOR,AAAI,ICAPS,ECAI,IJCAI,ICAART,ICRA,INAP,CSCLP,unknown,ICTAI,ICNSC,GOR,PACT,ICORES,ICROMA},
     xtick=data,nodes near coords, nodes near coords align={rotate=30),anchor=west},x tick label style={rotate=30),anchor=east}]
 \addplot+[] coordinates {
 (CP,131.000000)
@@ -1501,10 +1529,11 @@ symbolic x coords={CP,CPAIOR,AAAI,ICAPS,ECAI,IJCAI,ICAART,ICRA,INAP,CSCLP,ICTAI,
 (ICAPS,18.000000)
 (ECAI,18.000000)
 (IJCAI,6.000000)
-(ICAART,4.000000)
+(ICAART,5.000000)
 (ICRA,4.000000)
 (INAP,4.000000)
 (CSCLP,4.000000)
+(unknown,4.000000)
 (ICTAI,3.000000)
 (ICNSC,2.000000)
 (GOR,2.000000)
@@ -1518,7 +1547,7 @@ symbolic x coords={CP,CPAIOR,AAAI,ICAPS,ECAI,IJCAI,ICAART,ICRA,INAP,CSCLP,ICTAI,
 \begin{tikzpicture}
 \begin{axis}[title=Citation Count by Conference Series (Paper Count > 1),xlabel=Conference Series,ylabel=Citation Count,
 width=20cm,height=10cm,ybar,
-symbolic x coords={CP,CPAIOR,ICRA,ICAPS,AAAI,INAP,CSCLP,GOR,ICTAI,IJCAI,ECAI,ICAART,ICNSC,PACT,ICORES,ICROMA},
+symbolic x coords={CP,CPAIOR,ICRA,ICAPS,AAAI,INAP,CSCLP,GOR,ICAART,unknown,ICTAI,IJCAI,ECAI,ICNSC,PACT,ICORES,ICROMA},
     xtick=data,nodes near coords, nodes near coords align={rotate=30),anchor=west},x tick label style={rotate=30),anchor=east}]
 \addplot+[] coordinates {
 (CP,1146.000000)
@@ -1529,10 +1558,11 @@ symbolic x coords={CP,CPAIOR,ICRA,ICAPS,AAAI,INAP,CSCLP,GOR,ICTAI,IJCAI,ECAI,ICA
 (INAP,15.000000)
 (CSCLP,13.000000)
 (GOR,5.000000)
+(ICAART,3.000000)
+(unknown,2.000000)
 (ICTAI,1.000000)
 (IJCAI,1.000000)
 (ECAI,0.000000)
-(ICAART,0.000000)
 (ICNSC,0.000000)
 (PACT,0.000000)
 (ICORES,0.000000)
@@ -1544,7 +1574,7 @@ symbolic x coords={CP,CPAIOR,ICRA,ICAPS,AAAI,INAP,CSCLP,GOR,ICTAI,IJCAI,ECAI,ICA
 \begin{tikzpicture}
 \begin{axis}[title=Average Citation Count per Paper by Conference Series (Paper Count > 1),xlabel=Conference Series,ylabel=Average Citation Count,
 width=20cm,height=10cm,ybar,
-symbolic x coords={ICRA,CP,CPAIOR,INAP,CSCLP,GOR,ICAPS,ICTAI,AAAI,IJCAI,ECAI,ICAART,ICNSC,PACT,ICORES,ICROMA},
+symbolic x coords={ICRA,CP,CPAIOR,INAP,CSCLP,GOR,ICAPS,ICAART,unknown,ICTAI,AAAI,IJCAI,ECAI,ICNSC,PACT,ICORES,ICROMA},
     xtick=data,nodes near coords, nodes near coords align={rotate=30),anchor=west},x tick label style={rotate=30),anchor=east}]
 \addplot+[] coordinates {
 (ICRA,10.750000)
@@ -1554,11 +1584,12 @@ symbolic x coords={ICRA,CP,CPAIOR,INAP,CSCLP,GOR,ICAPS,ICTAI,AAAI,IJCAI,ECAI,ICA
 (CSCLP,3.250000)
 (GOR,2.500000)
 (ICAPS,1.722222)
+(ICAART,0.600000)
+(unknown,0.500000)
 (ICTAI,0.333333)
 (AAAI,0.294118)
 (IJCAI,0.166667)
 (ECAI,0.000000)
-(ICAART,0.000000)
 (ICNSC,0.000000)
 (PACT,0.000000)
 (ICORES,0.000000)
@@ -1567,12 +1598,13 @@ symbolic x coords={ICRA,CP,CPAIOR,INAP,CSCLP,GOR,ICAPS,ICTAI,AAAI,IJCAI,ECAI,ICA
 \end{axis}
 \end{tikzpicture}
 
+\clearpage
 \section{Journal Articles by Most Common Journals}
 
 \begin{tikzpicture}
 \begin{axis}[title=Article Count by Journal (Count > 1),xlabel=Journal,ylabel=Article Count,
 width=22cm,height=10cm,ybar,
-symbolic x coords={Constraints An Int. J.,European Journal of Operational Research,INFORMS Journal on Computing,Annals of Operations Research,Computers \  Operations Research,Computers \  Industrial Engineering,Journal of Scheduling,CoRR,Computers \  Chemical Engineering,Artificial Intelligence,International Journal of Production Research,J. Artif. Intell. Res.,Engineering Optimization,Journal of Intelligent Manufacturing,Omega,{IEEE} Access,Eng. Appl. Artif. Intell.,{OR} Spectrum,Discret. Appl. Math.,SSRN Electronic Journal,Transportation Research Part E: Logistics and Transportation Review,Journal of the Operational Research Society,Sustain. Comput. Informatics Syst.,Soft Comput.,Oper. Res. Forum,Int. J. Artif. Intell. Tools,Eur. J. Control,Mathematical and Computer Modelling,Operations Research Perspectives,International Journal of Management Science and Engineering Management,Mathematics,Automation in Construction,IEEE Transactions on Semiconductor Manufacturing,J. Heuristics,The Knowledge Engineering Review,International Journal of Production Economics,Transportation Science,IEEE Robotics and Automation Letters,IEEE Transactions on Automation Science and Engineering,Industrial \  Engineering Chemistry Research,ACM Transactions on Design Automation of Electronic Systems,Expert Systems with Applications,Soft Computing},
+symbolic x coords={Constraints An Int. J.,European Journal of Operational Research,INFORMS Journal on Computing,Annals of Operations Research,Computers \  Operations Research,Computers \  Industrial Engineering,Journal of Scheduling,CoRR,Computers \  Chemical Engineering,Artificial Intelligence,International Journal of Production Research,J. Artif. Intell. Res.,Engineering Optimization,Journal of Intelligent Manufacturing,Omega,{IEEE} Access,Eng. Appl. Artif. Intell.,{OR} Spectrum,Discret. Appl. Math.,SSRN Electronic Journal,Transportation Research Part E: Logistics and Transportation Review,Journal of the Operational Research Society,Sustain. Comput. Informatics Syst.,Soft Comput.,Oper. Res. Forum,Int. J. Artif. Intell. Tools,Eur. J. Control,Mathematical and Computer Modelling,Operations Research Perspectives,International Journal of Management Science and Engineering Management,Mathematics,Automation in Construction,IEEE Transactions on Semiconductor Manufacturing,J. Heuristics,The Knowledge Engineering Review,International Journal of Production Economics,Transportation Science,IEEE Robotics and Automation Letters,IEEE Transactions on Automation Science and Engineering,Industrial \  Engineering Chemistry Research,ACM Transactions on Design Automation of Electronic Systems,Expert Systems with Applications,Soft Computing,COMPUTERS \  OPERATIONS RESEARCH},
     xtick=data,nodes near coords, nodes near coords align={rotate=30),anchor=west},x tick label style={rotate=30),anchor=east}]
 \addplot+[] coordinates {
 (Constraints An Int. J.,46.000000)
@@ -1618,6 +1650,7 @@ symbolic x coords={Constraints An Int. J.,European Journal of Operational Resear
 (ACM Transactions on Design Automation of Electronic Systems,2.000000)
 (Expert Systems with Applications,2.000000)
 (Soft Computing,2.000000)
+(COMPUTERS \  OPERATIONS RESEARCH,2.000000)
 };
 \end{axis}
 \end{tikzpicture}
@@ -1625,7 +1658,7 @@ symbolic x coords={Constraints An Int. J.,European Journal of Operational Resear
 \begin{tikzpicture}
 \begin{axis}[title=Citation Count by Journal (Article Count > 1),xlabel=Journal,ylabel=Citation Count,
 width=22cm,height=10cm,ybar,
-symbolic x coords={European Journal of Operational Research,Artificial Intelligence,Constraints An Int. J.,INFORMS Journal on Computing,Computers \  Chemical Engineering,Computers \  Operations Research,Annals of Operations Research,Mathematical and Computer Modelling,Computers \  Industrial Engineering,Journal of Scheduling,ACM Transactions on Design Automation of Electronic Systems,J. Artif. Intell. Res.,Transportation Research Part E: Logistics and Transportation Review,Journal of Intelligent Manufacturing,International Journal of Production Economics,International Journal of Production Research,Omega,{OR} Spectrum,Automation in Construction,Engineering Optimization,J. Heuristics,Eng. Appl. Artif. Intell.,Transportation Science,IEEE Transactions on Automation Science and Engineering,The Knowledge Engineering Review,IEEE Transactions on Semiconductor Manufacturing,IEEE Robotics and Automation Letters,Expert Systems with Applications,Industrial \  Engineering Chemistry Research,Journal of the Operational Research Society,Mathematics,Sustain. Comput. Informatics Syst.,Discret. Appl. Math.,Int. J. Artif. Intell. Tools,Operations Research Perspectives,International Journal of Management Science and Engineering Management,Eur. J. Control,Soft Computing,Soft Comput.,Oper. Res. Forum,{IEEE} Access,CoRR,SSRN Electronic Journal},
+symbolic x coords={European Journal of Operational Research,Artificial Intelligence,Constraints An Int. J.,INFORMS Journal on Computing,Computers \  Chemical Engineering,Computers \  Operations Research,Annals of Operations Research,Mathematical and Computer Modelling,Computers \  Industrial Engineering,Journal of Scheduling,COMPUTERS \  OPERATIONS RESEARCH,ACM Transactions on Design Automation of Electronic Systems,J. Artif. Intell. Res.,Transportation Research Part E: Logistics and Transportation Review,Journal of Intelligent Manufacturing,International Journal of Production Economics,International Journal of Production Research,Omega,{OR} Spectrum,Automation in Construction,Engineering Optimization,J. Heuristics,Eng. Appl. Artif. Intell.,Transportation Science,IEEE Transactions on Automation Science and Engineering,The Knowledge Engineering Review,IEEE Transactions on Semiconductor Manufacturing,IEEE Robotics and Automation Letters,Expert Systems with Applications,Industrial \  Engineering Chemistry Research,Journal of the Operational Research Society,Mathematics,Sustain. Comput. Informatics Syst.,Discret. Appl. Math.,Int. J. Artif. Intell. Tools,Operations Research Perspectives,International Journal of Management Science and Engineering Management,Eur. J. Control,Soft Computing,Soft Comput.,Oper. Res. Forum,{IEEE} Access,CoRR,SSRN Electronic Journal},
     xtick=data,nodes near coords, nodes near coords align={rotate=30),anchor=west},x tick label style={rotate=30),anchor=east}]
 \addplot+[] coordinates {
 (European Journal of Operational Research,1609.000000)
@@ -1638,6 +1671,7 @@ symbolic x coords={European Journal of Operational Research,Artificial Intellige
 (Mathematical and Computer Modelling,354.000000)
 (Computers \  Industrial Engineering,323.000000)
 (Journal of Scheduling,308.000000)
+(COMPUTERS \  OPERATIONS RESEARCH,184.000000)
 (ACM Transactions on Design Automation of Electronic Systems,109.000000)
 (J. Artif. Intell. Res.,107.000000)
 (Transportation Research Part E: Logistics and Transportation Review,105.000000)
@@ -1678,11 +1712,12 @@ symbolic x coords={European Journal of Operational Research,Artificial Intellige
 \begin{tikzpicture}
 \begin{axis}[title=Average Citation Count per Article by Journal (Article Count > 1),xlabel=Journal,ylabel=Average Citation Count,
 width=22cm,height=10cm,ybar,
-symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,Computers \  Chemical Engineering,European Journal of Operational Research,ACM Transactions on Design Automation of Electronic Systems,International Journal of Production Economics,INFORMS Journal on Computing,Automation in Construction,Transportation Research Part E: Logistics and Transportation Review,J. Heuristics,Computers \  Operations Research,Transportation Science,IEEE Transactions on Automation Science and Engineering,Journal of Intelligent Manufacturing,{OR} Spectrum,Constraints An Int. J.,Annals of Operations Research,The Knowledge Engineering Review,Journal of Scheduling,Computers \  Industrial Engineering,IEEE Transactions on Semiconductor Manufacturing,Eng. Appl. Artif. Intell.,IEEE Robotics and Automation Letters,Omega,Expert Systems with Applications,J. Artif. Intell. Res.,Engineering Optimization,Industrial \  Engineering Chemistry Research,Journal of the Operational Research Society,Mathematics,International Journal of Production Research,Sustain. Comput. Informatics Syst.,Int. J. Artif. Intell. Tools,Operations Research Perspectives,Discret. Appl. Math.,International Journal of Management Science and Engineering Management,Eur. J. Control,Soft Computing,Soft Comput.,Oper. Res. Forum,{IEEE} Access,CoRR,SSRN Electronic Journal},
+symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,COMPUTERS \  OPERATIONS RESEARCH,Computers \  Chemical Engineering,European Journal of Operational Research,ACM Transactions on Design Automation of Electronic Systems,International Journal of Production Economics,INFORMS Journal on Computing,Automation in Construction,Transportation Research Part E: Logistics and Transportation Review,J. Heuristics,Computers \  Operations Research,Transportation Science,IEEE Transactions on Automation Science and Engineering,Journal of Intelligent Manufacturing,{OR} Spectrum,Constraints An Int. J.,Annals of Operations Research,The Knowledge Engineering Review,Journal of Scheduling,Computers \  Industrial Engineering,IEEE Transactions on Semiconductor Manufacturing,Eng. Appl. Artif. Intell.,IEEE Robotics and Automation Letters,Omega,Expert Systems with Applications,J. Artif. Intell. Res.,Engineering Optimization,Industrial \  Engineering Chemistry Research,Journal of the Operational Research Society,Mathematics,International Journal of Production Research,Sustain. Comput. Informatics Syst.,Int. J. Artif. Intell. Tools,Operations Research Perspectives,Discret. Appl. Math.,International Journal of Management Science and Engineering Management,Eur. J. Control,Soft Computing,Soft Comput.,Oper. Res. Forum,{IEEE} Access,CoRR,SSRN Electronic Journal},
     xtick=data,nodes near coords, nodes near coords align={rotate=30),anchor=west},x tick label style={rotate=30),anchor=east}]
 \addplot+[] coordinates {
 (Mathematical and Computer Modelling,177.000000)
 (Artificial Intelligence,108.545455)
+(COMPUTERS \  OPERATIONS RESEARCH,92.000000)
 (Computers \  Chemical Engineering,78.583333)
 (European Journal of Operational Research,61.884615)
 (ACM Transactions on Design Automation of Electronic Systems,54.500000)
@@ -1728,6 +1763,7 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
 \end{axis}
 \end{tikzpicture}
 
+\clearpage
 \section{Works by Year}
 
 \begin{tikzpicture}
@@ -1748,26 +1784,26 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2000.00,24.0000)
     (2001.00,10.0000)
     (2002.00,22.0000)
-    (2003.00,18.0000)
+    (2003.00,20.0000)
     (2004.00,24.0000)
-    (2005.00,32.0000)
-    (2006.00,18.0000)
-    (2007.00,21.0000)
+    (2005.00,33.0000)
+    (2006.00,19.0000)
+    (2007.00,22.0000)
     (2008.00,29.0000)
-    (2009.00,26.0000)
-    (2010.00,27.0000)
-    (2011.00,41.0000)
-    (2012.00,28.0000)
-    (2013.00,26.0000)
+    (2009.00,27.0000)
+    (2010.00,28.0000)
+    (2011.00,42.0000)
+    (2012.00,30.0000)
+    (2013.00,27.0000)
     (2014.00,33.0000)
     (2015.00,36.0000)
     (2016.00,42.0000)
     (2017.00,24.0000)
-    (2018.00,37.0000)
-    (2019.00,41.0000)
+    (2018.00,38.0000)
+    (2019.00,42.0000)
     (2020.00,41.0000)
     (2021.00,38.0000)
-    (2022.00,44.0000)
+    (2022.00,46.0000)
     (2023.00,47.0000)
     (2024.00,7.00000)
 };
@@ -1788,10 +1824,10 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2000.00,7.00000)
     (2001.00,5.00000)
     (2002.00,13.0000)
-    (2003.00,9.00000)
+    (2003.00,10.0000)
     (2004.00,17.0000)
-    (2005.00,26.0000)
-    (2006.00,8.00000)
+    (2005.00,27.0000)
+    (2006.00,9.00000)
     (2007.00,13.0000)
     (2008.00,15.0000)
     (2009.00,14.0000)
@@ -1803,8 +1839,8 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2015.00,20.0000)
     (2016.00,21.0000)
     (2017.00,13.0000)
-    (2018.00,18.0000)
-    (2019.00,16.0000)
+    (2018.00,19.0000)
+    (2019.00,17.0000)
     (2020.00,13.0000)
     (2021.00,13.0000)
     (2022.00,17.0000)
@@ -1828,17 +1864,17 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2000.00,16.0000)
     (2001.00,4.00000)
     (2002.00,7.00000)
-    (2003.00,6.00000)
+    (2003.00,7.00000)
     (2004.00,3.00000)
     (2005.00,5.00000)
     (2006.00,7.00000)
-    (2007.00,8.00000)
+    (2007.00,9.00000)
     (2008.00,9.00000)
-    (2009.00,11.0000)
-    (2010.00,13.0000)
+    (2009.00,12.0000)
+    (2010.00,14.0000)
     (2011.00,19.0000)
-    (2012.00,13.0000)
-    (2013.00,10.0000)
+    (2012.00,15.0000)
+    (2013.00,11.0000)
     (2014.00,12.0000)
     (2015.00,13.0000)
     (2016.00,16.0000)
@@ -1847,7 +1883,7 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2019.00,21.0000)
     (2020.00,27.0000)
     (2021.00,20.0000)
-    (2022.00,27.0000)
+    (2022.00,29.0000)
     (2023.00,32.0000)
     (2024.00,4.00000)
 };
@@ -1913,26 +1949,26 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2000.00,762.000)
     (2001.00,735.000)
     (2002.00,529.000)
-    (2003.00,680.000)
+    (2003.00,721.000)
     (2004.00,358.000)
     (2005.00,318.000)
     (2006.00,293.000)
-    (2007.00,566.000)
+    (2007.00,626.000)
     (2008.00,579.000)
-    (2009.00,546.000)
-    (2010.00,363.000)
-    (2011.00,598.000)
-    (2012.00,366.000)
-    (2013.00,370.000)
+    (2009.00,554.000)
+    (2010.00,544.000)
+    (2011.00,600.000)
+    (2012.00,416.000)
+    (2013.00,372.000)
     (2014.00,648.000)
     (2015.00,331.000)
     (2016.00,550.000)
     (2017.00,244.000)
-    (2018.00,806.000)
-    (2019.00,371.000)
+    (2018.00,808.000)
+    (2019.00,374.000)
     (2020.00,486.000)
     (2021.00,152.000)
-    (2022.00,141.000)
+    (2022.00,143.000)
     (2023.00,22.0000)
     (2024.00,0.00000)
 };
@@ -1968,8 +2004,8 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2015.00,127.000)
     (2016.00,65.0000)
     (2017.00,27.0000)
-    (2018.00,81.0000)
-    (2019.00,44.0000)
+    (2018.00,83.0000)
+    (2019.00,47.0000)
     (2020.00,20.0000)
     (2021.00,10.0000)
     (2022.00,3.00000)
@@ -1993,17 +2029,17 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2000.00,541.000)
     (2001.00,298.000)
     (2002.00,429.000)
-    (2003.00,599.000)
+    (2003.00,640.000)
     (2004.00,142.000)
     (2005.00,180.000)
     (2006.00,218.000)
-    (2007.00,529.000)
+    (2007.00,589.000)
     (2008.00,363.000)
-    (2009.00,357.000)
-    (2010.00,256.000)
+    (2009.00,365.000)
+    (2010.00,437.000)
     (2011.00,432.000)
-    (2012.00,269.000)
-    (2013.00,259.000)
+    (2012.00,319.000)
+    (2013.00,261.000)
     (2014.00,555.000)
     (2015.00,201.000)
     (2016.00,485.000)
@@ -2012,7 +2048,7 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2019.00,281.000)
     (2020.00,466.000)
     (2021.00,142.000)
-    (2022.00,138.000)
+    (2022.00,140.000)
     (2023.00,21.0000)
     (2024.00,0.00000)
 };
@@ -2038,26 +2074,26 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2000.00,31.7500)
     (2001.00,73.5000)
     (2002.00,24.0455)
-    (2003.00,37.7778)
+    (2003.00,36.0500)
     (2004.00,14.9167)
-    (2005.00,9.93750)
-    (2006.00,16.2778)
-    (2007.00,26.9524)
+    (2005.00,9.63636)
+    (2006.00,15.4211)
+    (2007.00,28.4545)
     (2008.00,19.9655)
-    (2009.00,21.0000)
-    (2010.00,13.4444)
-    (2011.00,14.5854)
-    (2012.00,13.0714)
-    (2013.00,14.2308)
+    (2009.00,20.5185)
+    (2010.00,19.4286)
+    (2011.00,14.2857)
+    (2012.00,13.8667)
+    (2013.00,13.7778)
     (2014.00,19.6364)
     (2015.00,9.19444)
     (2016.00,13.0952)
     (2017.00,10.1667)
-    (2018.00,21.7838)
-    (2019.00,9.04878)
+    (2018.00,21.2632)
+    (2019.00,8.90476)
     (2020.00,11.8537)
     (2021.00,4.00000)
-    (2022.00,3.20455)
+    (2022.00,3.10870)
     (2023.00,0.468085)
     (2024.00,0.00000)
 };
@@ -2078,10 +2114,10 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2000.00,5.14286)
     (2001.00,28.2000)
     (2002.00,7.69231)
-    (2003.00,9.00000)
+    (2003.00,8.10000)
     (2004.00,11.9412)
-    (2005.00,5.11538)
-    (2006.00,3.87500)
+    (2005.00,4.92593)
+    (2006.00,3.44444)
     (2007.00,2.84615)
     (2008.00,10.1333)
     (2009.00,12.5000)
@@ -2093,8 +2129,8 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2015.00,6.35000)
     (2016.00,3.09524)
     (2017.00,2.07692)
-    (2018.00,4.50000)
-    (2019.00,2.75000)
+    (2018.00,4.36842)
+    (2019.00,2.76471)
     (2020.00,1.53846)
     (2021.00,0.769231)
     (2022.00,0.176471)
@@ -2118,17 +2154,17 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2000.00,33.8125)
     (2001.00,74.5000)
     (2002.00,61.2857)
-    (2003.00,99.8333)
+    (2003.00,91.4286)
     (2004.00,47.3333)
     (2005.00,36.0000)
     (2006.00,31.1429)
-    (2007.00,66.1250)
+    (2007.00,65.4444)
     (2008.00,40.3333)
-    (2009.00,32.4545)
-    (2010.00,19.6923)
+    (2009.00,30.4167)
+    (2010.00,31.2143)
     (2011.00,22.7368)
-    (2012.00,20.6923)
-    (2013.00,25.9000)
+    (2012.00,21.2667)
+    (2013.00,23.7273)
     (2014.00,46.2500)
     (2015.00,15.4615)
     (2016.00,30.3125)
@@ -2137,7 +2173,7 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (2019.00,13.3810)
     (2020.00,17.2593)
     (2021.00,7.10000)
-    (2022.00,5.11111)
+    (2022.00,4.82759)
     (2023.00,0.656250)
     (2024.00,0.00000)
 };
@@ -2155,12 +2191,12 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     x tick label style={rotate=30,anchor=east},
 ]
 \addplot+[] coordinates {
-(1,123.000000)
-(2,233.000000)
-(3,225.000000)
-(4,157.000000)
+(1,127.000000)
+(2,238.000000)
+(3,229.000000)
+(4,158.000000)
 (5,60.000000)
-(6,19.000000)
+(6,20.000000)
 (7,5.000000)
 (8,5.000000)
 (10,2.000000)
@@ -2179,10 +2215,10 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     x tick label style={rotate=30,anchor=east},
 ]
 \addplot+[] coordinates {
-(1,898.000000)
-(2,186.000000)
-(3,80.000000)
-(4,39.000000)
+(1,915.000000)
+(2,189.000000)
+(3,83.000000)
+(4,40.000000)
 (5,12.000000)
 (6,12.000000)
 (7,5.000000)
@@ -2210,13 +2246,13 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
 \begin{axis}[title=Nr Citation Distribution Plot ,xlabel=Nr Citations,ylabel=Nr Works,,width=25cm,height=15cm]
 \addplot+[] coordinates {
     (1.00000,64.0000)
-    (2.00000,50.0000)
-    (3.00000,44.0000)
+    (2.00000,54.0000)
+    (3.00000,46.0000)
     (4.00000,24.0000)
     (5.00000,36.0000)
     (6.00000,23.0000)
     (7.00000,22.0000)
-    (8.00000,15.0000)
+    (8.00000,16.0000)
     (9.00000,14.0000)
     (10.0000,12.0000)
     (11.0000,14.0000)
@@ -2248,13 +2284,13 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (38.0000,3.00000)
     (39.0000,2.00000)
     (40.0000,2.00000)
-    (41.0000,2.00000)
+    (41.0000,3.00000)
     (42.0000,3.00000)
     (43.0000,6.00000)
     (44.0000,3.00000)
     (45.0000,1.00000)
     (46.0000,2.00000)
-    (47.0000,1.00000)
+    (47.0000,2.00000)
     (48.0000,4.00000)
     (49.0000,2.00000)
     (50.0000,1.00000)
@@ -2265,6 +2301,7 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (57.0000,2.00000)
     (58.0000,1.00000)
     (59.0000,1.00000)
+    (60.0000,1.00000)
     (61.0000,1.00000)
     (63.0000,1.00000)
     (64.0000,1.00000)
@@ -2300,7 +2337,7 @@ symbolic x coords={Mathematical and Computer Modelling,Artificial Intelligence,C
     (164.000,1.00000)
     (167.000,1.00000)
     (169.000,1.00000)
-    (181.000,1.00000)
+    (181.000,2.00000)
     (185.000,1.00000)
     (187.000,1.00000)
 };
@@ -2452,17 +2489,17 @@ The vast majority of paper pairs has a distance close to one, as their reference
 (0.35,14.000000)
 (0.40,19.000000)
 (0.45,33.000000)
-(0.50,40.000000)
-(0.55,61.000000)
-(0.60,85.000000)
-(0.65,126.000000)
-(0.70,239.000000)
+(0.50,43.000000)
+(0.55,62.000000)
+(0.60,86.000000)
+(0.65,129.000000)
+(0.70,242.000000)
 (0.75,432.000000)
-(0.80,923.000000)
-(0.85,1954.000000)
-(0.90,5909.000000)
-(0.95,15611.000000)
-(1.00,184205.000000)
+(0.80,928.000000)
+(0.85,1970.000000)
+(0.90,5945.000000)
+(0.95,15795.000000)
+(1.00,191706.000000)
 };
 \end{axis}
 \end{tikzpicture}
@@ -2483,15 +2520,15 @@ The vast majority of paper pairs has a distance close to one, as their reference
 (0.45,4.000000)
 (0.50,17.000000)
 (0.55,15.000000)
-(0.60,45.000000)
+(0.60,46.000000)
 (0.65,61.000000)
-(0.70,97.000000)
+(0.70,98.000000)
 (0.75,117.000000)
-(0.80,262.000000)
-(0.85,474.000000)
-(0.90,1213.000000)
-(0.95,3953.000000)
-(1.00,203163.000000)
+(0.80,263.000000)
+(0.85,477.000000)
+(0.90,1218.000000)
+(0.95,4007.000000)
+(1.00,210910.000000)
 };
 \end{axis}
 \end{tikzpicture}
@@ -2512,13 +2549,13 @@ The vast majority of paper pairs has a distance close to one, as their reference
 (0.55,20.000000)
 (0.60,40.000000)
 (0.65,65.000000)
-(0.70,101.000000)
-(0.75,156.000000)
-(0.80,292.000000)
-(0.85,671.000000)
-(0.90,2476.000000)
-(0.95,14735.000000)
-(1.00,188969.000000)
+(0.70,102.000000)
+(0.75,158.000000)
+(0.80,299.000000)
+(0.85,675.000000)
+(0.90,2499.000000)
+(0.95,14843.000000)
+(1.00,196511.000000)
 };
 \end{axis}
 \end{tikzpicture}
@@ -3152,6 +3189,11 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (0.000000,0.000000) [0.000000]
     (3.000000,3.000000) [0.000000]
     (0.000000,0.000000) [0.000000]
+    (181.000000,186.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (3.000000,3.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
     (1.000000,1.000000) [1.000000]
     (6.000000,5.000000) [1.000000]
     (2.000000,0.000000) [1.000000]
@@ -3204,7 +3246,6 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (4.000000,4.000000) [5.000000]
     (1.000000,2.000000) [5.000000]
     (22.000000,22.000000) [5.000000]
-    (1.000000,1.000000) [5.000000]
     (2.000000,2.000000) [5.000000]
     (0.000000,0.000000) [5.000000]
     (0.000000,0.000000) [5.000000]
@@ -3214,6 +3255,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (11.000000,11.000000) [5.000000]
     (5.000000,4.000000) [5.000000]
     (29.000000,30.000000) [5.000000]
+    (1.000000,1.000000) [5.000000]
     (0.000000,0.000000) [6.000000]
     (0.000000,0.000000) [6.000000]
     (2.000000,2.000000) [6.000000]
@@ -3254,6 +3296,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (1659.000000,1736.000000) [7.000000]
     (27.000000,27.000000) [7.000000]
     (12.000000,12.000000) [7.000000]
+    (2.000000,2.000000) [7.000000]
+    (41.000000,41.000000) [7.000000]
     (0.000000,0.000000) [8.000000]
     (0.000000,0.000000) [8.000000]
     (3.000000,3.000000) [8.000000]
@@ -3440,6 +3484,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (28.000000,28.000000) [15.000000]
     (2.000000,2.000000) [15.000000]
     (48.000000,47.000000) [15.000000]
+    (2.000000,2.000000) [15.000000]
+    (8.000000,9.000000) [15.000000]
     (0.000000,0.000000) [16.000000]
     (4.000000,4.000000) [16.000000]
     (7.000000,7.000000) [16.000000]
@@ -3457,6 +3503,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (88.000000,88.000000) [16.000000]
     (76.000000,82.000000) [16.000000]
     (41.000000,42.000000) [16.000000]
+    (60.000000,62.000000) [16.000000]
     (10.000000,11.000000) [17.000000]
     (4.000000,4.000000) [17.000000]
     (14.000000,14.000000) [17.000000]
@@ -3485,6 +3532,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (5.000000,5.000000) [18.000000]
     (26.000000,28.000000) [18.000000]
     (4.000000,4.000000) [18.000000]
+    (3.000000,3.000000) [18.000000]
     (0.000000,0.000000) [19.000000]
     (7.000000,6.000000) [19.000000]
     (3.000000,2.000000) [19.000000]
@@ -3500,6 +3548,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (5.000000,5.000000) [19.000000]
     (11.000000,13.000000) [19.000000]
     (20.000000,21.000000) [19.000000]
+    (2.000000,3.000000) [19.000000]
     (2.000000,2.000000) [20.000000]
     (15.000000,18.000000) [20.000000]
     (1.000000,3.000000) [20.000000]
@@ -3541,6 +3590,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (17.000000,18.000000) [22.000000]
     (0.000000,1.000000) [22.000000]
     (1.000000,1.000000) [22.000000]
+    (0.000000,0.000000) [22.000000]
     (0.000000,0.000000) [23.000000]
     (57.000000,61.000000) [23.000000]
     (3.000000,3.000000) [23.000000]
@@ -3696,6 +3746,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (1.000000,1.000000) [43.000000]
     (0.000000,1.000000) [43.000000]
     (24.000000,29.000000) [43.000000]
+    (2.000000,2.000000) [43.000000]
     (31.000000,31.000000) [44.000000]
     (11.000000,11.000000) [44.000000]
     (4.000000,6.000000) [44.000000]
@@ -3744,6 +3795,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (20.000000,36.000000) [58.000000]
     (17.000000,19.000000) [59.000000]
     (17.000000,18.000000) [59.000000]
+    (47.000000,52.000000) [59.000000]
     (7.000000,14.000000) [60.000000]
     (22.000000,23.000000) [61.000000]
     (100.000000,133.000000) [62.000000]
@@ -4032,6 +4084,11 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (0.000000,0.000000) [0.000000]
     (3.000000,0.000000) [0.000000]
     (0.000000,0.000000) [0.000000]
+    (181.000000,220.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (3.000000,4.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
     (1.000000,1.000000) [1.000000]
     (6.000000,1.000000) [1.000000]
     (2.000000,1.000000) [1.000000]
@@ -4084,7 +4141,6 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (4.000000,10.000000) [5.000000]
     (1.000000,2.000000) [5.000000]
     (22.000000,32.000000) [5.000000]
-    (1.000000,1.000000) [5.000000]
     (2.000000,5.000000) [5.000000]
     (0.000000,0.000000) [5.000000]
     (0.000000,0.000000) [5.000000]
@@ -4094,6 +4150,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (11.000000,6.000000) [5.000000]
     (5.000000,5.000000) [5.000000]
     (29.000000,51.000000) [5.000000]
+    (1.000000,1.000000) [5.000000]
     (0.000000,0.000000) [6.000000]
     (0.000000,0.000000) [6.000000]
     (2.000000,2.000000) [6.000000]
@@ -4134,6 +4191,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (1659.000000,1765.000000) [7.000000]
     (27.000000,30.000000) [7.000000]
     (12.000000,10.000000) [7.000000]
+    (2.000000,1.000000) [7.000000]
+    (41.000000,45.000000) [7.000000]
     (0.000000,0.000000) [8.000000]
     (0.000000,0.000000) [8.000000]
     (3.000000,4.000000) [8.000000]
@@ -4320,6 +4379,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (28.000000,36.000000) [15.000000]
     (2.000000,9.000000) [15.000000]
     (48.000000,46.000000) [15.000000]
+    (2.000000,4.000000) [15.000000]
+    (8.000000,9.000000) [15.000000]
     (0.000000,0.000000) [16.000000]
     (4.000000,5.000000) [16.000000]
     (7.000000,9.000000) [16.000000]
@@ -4337,6 +4398,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (88.000000,108.000000) [16.000000]
     (76.000000,83.000000) [16.000000]
     (41.000000,51.000000) [16.000000]
+    (60.000000,71.000000) [16.000000]
     (10.000000,19.000000) [17.000000]
     (4.000000,4.000000) [17.000000]
     (14.000000,22.000000) [17.000000]
@@ -4365,6 +4427,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (5.000000,0.000000) [18.000000]
     (26.000000,32.000000) [18.000000]
     (4.000000,5.000000) [18.000000]
+    (3.000000,4.000000) [18.000000]
     (0.000000,0.000000) [19.000000]
     (7.000000,12.000000) [19.000000]
     (3.000000,3.000000) [19.000000]
@@ -4380,6 +4443,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (5.000000,6.000000) [19.000000]
     (11.000000,14.000000) [19.000000]
     (20.000000,31.000000) [19.000000]
+    (2.000000,3.000000) [19.000000]
     (2.000000,7.000000) [20.000000]
     (15.000000,21.000000) [20.000000]
     (1.000000,6.000000) [20.000000]
@@ -4421,6 +4485,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (17.000000,21.000000) [22.000000]
     (0.000000,3.000000) [22.000000]
     (1.000000,1.000000) [22.000000]
+    (0.000000,0.000000) [22.000000]
     (0.000000,1.000000) [23.000000]
     (57.000000,65.000000) [23.000000]
     (3.000000,3.000000) [23.000000]
@@ -4576,6 +4641,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (1.000000,3.000000) [43.000000]
     (0.000000,1.000000) [43.000000]
     (24.000000,29.000000) [43.000000]
+    (2.000000,5.000000) [43.000000]
     (31.000000,34.000000) [44.000000]
     (11.000000,13.000000) [44.000000]
     (4.000000,6.000000) [44.000000]
@@ -4624,6 +4690,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (20.000000,40.000000) [58.000000]
     (17.000000,20.000000) [59.000000]
     (17.000000,20.000000) [59.000000]
+    (47.000000,54.000000) [59.000000]
     (7.000000,16.000000) [60.000000]
     (22.000000,23.000000) [61.000000]
     (100.000000,152.000000) [62.000000]
@@ -4912,6 +4979,11 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (0.000000,0.000000) [0.000000]
     (3.000000,0.000000) [0.000000]
     (0.000000,0.000000) [0.000000]
+    (186.000000,220.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (3.000000,4.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
     (1.000000,1.000000) [1.000000]
     (5.000000,1.000000) [1.000000]
     (0.000000,1.000000) [1.000000]
@@ -4964,7 +5036,6 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (4.000000,10.000000) [5.000000]
     (2.000000,2.000000) [5.000000]
     (22.000000,32.000000) [5.000000]
-    (1.000000,1.000000) [5.000000]
     (2.000000,5.000000) [5.000000]
     (0.000000,0.000000) [5.000000]
     (0.000000,0.000000) [5.000000]
@@ -4974,6 +5045,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (11.000000,6.000000) [5.000000]
     (4.000000,5.000000) [5.000000]
     (30.000000,51.000000) [5.000000]
+    (1.000000,1.000000) [5.000000]
     (0.000000,0.000000) [6.000000]
     (0.000000,0.000000) [6.000000]
     (2.000000,2.000000) [6.000000]
@@ -5014,6 +5086,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (1736.000000,1765.000000) [7.000000]
     (27.000000,30.000000) [7.000000]
     (12.000000,10.000000) [7.000000]
+    (2.000000,1.000000) [7.000000]
+    (41.000000,45.000000) [7.000000]
     (0.000000,0.000000) [8.000000]
     (0.000000,0.000000) [8.000000]
     (3.000000,4.000000) [8.000000]
@@ -5200,6 +5274,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (28.000000,36.000000) [15.000000]
     (2.000000,9.000000) [15.000000]
     (47.000000,46.000000) [15.000000]
+    (2.000000,4.000000) [15.000000]
+    (9.000000,9.000000) [15.000000]
     (0.000000,0.000000) [16.000000]
     (4.000000,5.000000) [16.000000]
     (7.000000,9.000000) [16.000000]
@@ -5217,6 +5293,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (88.000000,108.000000) [16.000000]
     (82.000000,83.000000) [16.000000]
     (42.000000,51.000000) [16.000000]
+    (62.000000,71.000000) [16.000000]
     (11.000000,19.000000) [17.000000]
     (4.000000,4.000000) [17.000000]
     (14.000000,22.000000) [17.000000]
@@ -5245,6 +5322,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (5.000000,0.000000) [18.000000]
     (28.000000,32.000000) [18.000000]
     (4.000000,5.000000) [18.000000]
+    (3.000000,4.000000) [18.000000]
     (0.000000,0.000000) [19.000000]
     (6.000000,12.000000) [19.000000]
     (2.000000,3.000000) [19.000000]
@@ -5260,6 +5338,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (5.000000,6.000000) [19.000000]
     (13.000000,14.000000) [19.000000]
     (21.000000,31.000000) [19.000000]
+    (3.000000,3.000000) [19.000000]
     (2.000000,7.000000) [20.000000]
     (18.000000,21.000000) [20.000000]
     (3.000000,6.000000) [20.000000]
@@ -5301,6 +5380,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (18.000000,21.000000) [22.000000]
     (1.000000,3.000000) [22.000000]
     (1.000000,1.000000) [22.000000]
+    (0.000000,0.000000) [22.000000]
     (0.000000,1.000000) [23.000000]
     (61.000000,65.000000) [23.000000]
     (3.000000,3.000000) [23.000000]
@@ -5456,6 +5536,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (1.000000,3.000000) [43.000000]
     (1.000000,1.000000) [43.000000]
     (29.000000,29.000000) [43.000000]
+    (2.000000,5.000000) [43.000000]
     (31.000000,34.000000) [44.000000]
     (11.000000,13.000000) [44.000000]
     (6.000000,6.000000) [44.000000]
@@ -5504,6 +5585,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (36.000000,40.000000) [58.000000]
     (19.000000,20.000000) [59.000000]
     (18.000000,20.000000) [59.000000]
+    (52.000000,54.000000) [59.000000]
     (14.000000,16.000000) [60.000000]
     (23.000000,23.000000) [61.000000]
     (133.000000,152.000000) [62.000000]
@@ -5792,6 +5874,11 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (0.000000,0.000000) [0.000000]
     (3.000000,3.000000) [0.000000]
     (0.000000,0.000000) [0.000000]
+    (181.000000,186.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (3.000000,3.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
     (1.000000,1.000000) [1.000000]
     (6.000000,5.000000) [1.000000]
     (2.000000,0.000000) [1.000000]
@@ -5844,7 +5931,6 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (4.000000,4.000000) [5.000000]
     (1.000000,2.000000) [5.000000]
     (22.000000,22.000000) [5.000000]
-    (1.000000,1.000000) [5.000000]
     (2.000000,2.000000) [5.000000]
     (0.000000,0.000000) [5.000000]
     (0.000000,0.000000) [5.000000]
@@ -5854,6 +5940,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (11.000000,11.000000) [5.000000]
     (5.000000,4.000000) [5.000000]
     (29.000000,30.000000) [5.000000]
+    (1.000000,1.000000) [5.000000]
     (0.000000,0.000000) [6.000000]
     (0.000000,0.000000) [6.000000]
     (2.000000,2.000000) [6.000000]
@@ -5894,6 +5981,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (1659.000000,1736.000000) [7.000000]
     (27.000000,27.000000) [7.000000]
     (12.000000,12.000000) [7.000000]
+    (2.000000,2.000000) [7.000000]
+    (41.000000,41.000000) [7.000000]
     (0.000000,0.000000) [8.000000]
     (0.000000,0.000000) [8.000000]
     (3.000000,3.000000) [8.000000]
@@ -6080,6 +6169,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (28.000000,28.000000) [15.000000]
     (2.000000,2.000000) [15.000000]
     (48.000000,47.000000) [15.000000]
+    (2.000000,2.000000) [15.000000]
+    (8.000000,9.000000) [15.000000]
     (0.000000,0.000000) [16.000000]
     (4.000000,4.000000) [16.000000]
     (7.000000,7.000000) [16.000000]
@@ -6097,6 +6188,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (88.000000,88.000000) [16.000000]
     (76.000000,82.000000) [16.000000]
     (41.000000,42.000000) [16.000000]
+    (60.000000,62.000000) [16.000000]
     (10.000000,11.000000) [17.000000]
     (4.000000,4.000000) [17.000000]
     (14.000000,14.000000) [17.000000]
@@ -6125,6 +6217,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (5.000000,5.000000) [18.000000]
     (26.000000,28.000000) [18.000000]
     (4.000000,4.000000) [18.000000]
+    (3.000000,3.000000) [18.000000]
     (0.000000,0.000000) [19.000000]
     (7.000000,6.000000) [19.000000]
     (3.000000,2.000000) [19.000000]
@@ -6140,6 +6233,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (5.000000,5.000000) [19.000000]
     (11.000000,13.000000) [19.000000]
     (20.000000,21.000000) [19.000000]
+    (2.000000,3.000000) [19.000000]
     (2.000000,2.000000) [20.000000]
     (15.000000,18.000000) [20.000000]
     (1.000000,3.000000) [20.000000]
@@ -6181,6 +6275,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (17.000000,18.000000) [22.000000]
     (0.000000,1.000000) [22.000000]
     (1.000000,1.000000) [22.000000]
+    (0.000000,0.000000) [22.000000]
     (0.000000,0.000000) [23.000000]
     (57.000000,61.000000) [23.000000]
     (3.000000,3.000000) [23.000000]
@@ -6336,6 +6431,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (1.000000,1.000000) [43.000000]
     (0.000000,1.000000) [43.000000]
     (24.000000,29.000000) [43.000000]
+    (2.000000,2.000000) [43.000000]
     (31.000000,31.000000) [44.000000]
     (11.000000,11.000000) [44.000000]
     (4.000000,6.000000) [44.000000]
@@ -6384,6 +6480,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (20.000000,36.000000) [58.000000]
     (17.000000,19.000000) [59.000000]
     (17.000000,18.000000) [59.000000]
+    (47.000000,52.000000) [59.000000]
     (7.000000,14.000000) [60.000000]
     (22.000000,23.000000) [61.000000]
     (100.000000,133.000000) [62.000000]
@@ -6672,6 +6769,11 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (0.000000,0.000000) [0.000000]
     (3.000000,0.000000) [0.000000]
     (0.000000,0.000000) [0.000000]
+    (181.000000,220.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (3.000000,4.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
     (1.000000,1.000000) [1.000000]
     (6.000000,1.000000) [1.000000]
     (2.000000,1.000000) [1.000000]
@@ -6724,7 +6826,6 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (4.000000,10.000000) [5.000000]
     (1.000000,2.000000) [5.000000]
     (22.000000,32.000000) [5.000000]
-    (1.000000,1.000000) [5.000000]
     (2.000000,5.000000) [5.000000]
     (0.000000,0.000000) [5.000000]
     (0.000000,0.000000) [5.000000]
@@ -6734,6 +6835,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (11.000000,6.000000) [5.000000]
     (5.000000,5.000000) [5.000000]
     (29.000000,51.000000) [5.000000]
+    (1.000000,1.000000) [5.000000]
     (0.000000,0.000000) [6.000000]
     (0.000000,0.000000) [6.000000]
     (2.000000,2.000000) [6.000000]
@@ -6774,6 +6876,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (1659.000000,1765.000000) [7.000000]
     (27.000000,30.000000) [7.000000]
     (12.000000,10.000000) [7.000000]
+    (2.000000,1.000000) [7.000000]
+    (41.000000,45.000000) [7.000000]
     (0.000000,0.000000) [8.000000]
     (0.000000,0.000000) [8.000000]
     (3.000000,4.000000) [8.000000]
@@ -6960,6 +7064,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (28.000000,36.000000) [15.000000]
     (2.000000,9.000000) [15.000000]
     (48.000000,46.000000) [15.000000]
+    (2.000000,4.000000) [15.000000]
+    (8.000000,9.000000) [15.000000]
     (0.000000,0.000000) [16.000000]
     (4.000000,5.000000) [16.000000]
     (7.000000,9.000000) [16.000000]
@@ -6977,6 +7083,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (88.000000,108.000000) [16.000000]
     (76.000000,83.000000) [16.000000]
     (41.000000,51.000000) [16.000000]
+    (60.000000,71.000000) [16.000000]
     (10.000000,19.000000) [17.000000]
     (4.000000,4.000000) [17.000000]
     (14.000000,22.000000) [17.000000]
@@ -7005,6 +7112,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (5.000000,0.000000) [18.000000]
     (26.000000,32.000000) [18.000000]
     (4.000000,5.000000) [18.000000]
+    (3.000000,4.000000) [18.000000]
     (0.000000,0.000000) [19.000000]
     (7.000000,12.000000) [19.000000]
     (3.000000,3.000000) [19.000000]
@@ -7020,6 +7128,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (5.000000,6.000000) [19.000000]
     (11.000000,14.000000) [19.000000]
     (20.000000,31.000000) [19.000000]
+    (2.000000,3.000000) [19.000000]
     (2.000000,7.000000) [20.000000]
     (15.000000,21.000000) [20.000000]
     (1.000000,6.000000) [20.000000]
@@ -7061,6 +7170,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (17.000000,21.000000) [22.000000]
     (0.000000,3.000000) [22.000000]
     (1.000000,1.000000) [22.000000]
+    (0.000000,0.000000) [22.000000]
     (0.000000,1.000000) [23.000000]
     (57.000000,65.000000) [23.000000]
     (3.000000,3.000000) [23.000000]
@@ -7216,6 +7326,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (1.000000,3.000000) [43.000000]
     (0.000000,1.000000) [43.000000]
     (24.000000,29.000000) [43.000000]
+    (2.000000,5.000000) [43.000000]
     (31.000000,34.000000) [44.000000]
     (11.000000,13.000000) [44.000000]
     (4.000000,6.000000) [44.000000]
@@ -7264,6 +7375,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (20.000000,40.000000) [58.000000]
     (17.000000,20.000000) [59.000000]
     (17.000000,20.000000) [59.000000]
+    (47.000000,54.000000) [59.000000]
     (7.000000,16.000000) [60.000000]
     (22.000000,23.000000) [61.000000]
     (100.000000,152.000000) [62.000000]
@@ -7552,6 +7664,11 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (0.000000,0.000000) [0.000000]
     (3.000000,0.000000) [0.000000]
     (0.000000,0.000000) [0.000000]
+    (186.000000,220.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (3.000000,4.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
     (1.000000,1.000000) [1.000000]
     (5.000000,1.000000) [1.000000]
     (0.000000,1.000000) [1.000000]
@@ -7604,7 +7721,6 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (4.000000,10.000000) [5.000000]
     (2.000000,2.000000) [5.000000]
     (22.000000,32.000000) [5.000000]
-    (1.000000,1.000000) [5.000000]
     (2.000000,5.000000) [5.000000]
     (0.000000,0.000000) [5.000000]
     (0.000000,0.000000) [5.000000]
@@ -7614,6 +7730,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (11.000000,6.000000) [5.000000]
     (4.000000,5.000000) [5.000000]
     (30.000000,51.000000) [5.000000]
+    (1.000000,1.000000) [5.000000]
     (0.000000,0.000000) [6.000000]
     (0.000000,0.000000) [6.000000]
     (2.000000,2.000000) [6.000000]
@@ -7654,6 +7771,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (1736.000000,1765.000000) [7.000000]
     (27.000000,30.000000) [7.000000]
     (12.000000,10.000000) [7.000000]
+    (2.000000,1.000000) [7.000000]
+    (41.000000,45.000000) [7.000000]
     (0.000000,0.000000) [8.000000]
     (0.000000,0.000000) [8.000000]
     (3.000000,4.000000) [8.000000]
@@ -7840,6 +7959,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (28.000000,36.000000) [15.000000]
     (2.000000,9.000000) [15.000000]
     (47.000000,46.000000) [15.000000]
+    (2.000000,4.000000) [15.000000]
+    (9.000000,9.000000) [15.000000]
     (0.000000,0.000000) [16.000000]
     (4.000000,5.000000) [16.000000]
     (7.000000,9.000000) [16.000000]
@@ -7857,6 +7978,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (88.000000,108.000000) [16.000000]
     (82.000000,83.000000) [16.000000]
     (42.000000,51.000000) [16.000000]
+    (62.000000,71.000000) [16.000000]
     (11.000000,19.000000) [17.000000]
     (4.000000,4.000000) [17.000000]
     (14.000000,22.000000) [17.000000]
@@ -7885,6 +8007,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (5.000000,0.000000) [18.000000]
     (28.000000,32.000000) [18.000000]
     (4.000000,5.000000) [18.000000]
+    (3.000000,4.000000) [18.000000]
     (0.000000,0.000000) [19.000000]
     (6.000000,12.000000) [19.000000]
     (2.000000,3.000000) [19.000000]
@@ -7900,6 +8023,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (5.000000,6.000000) [19.000000]
     (13.000000,14.000000) [19.000000]
     (21.000000,31.000000) [19.000000]
+    (3.000000,3.000000) [19.000000]
     (2.000000,7.000000) [20.000000]
     (18.000000,21.000000) [20.000000]
     (3.000000,6.000000) [20.000000]
@@ -7941,6 +8065,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (18.000000,21.000000) [22.000000]
     (1.000000,3.000000) [22.000000]
     (1.000000,1.000000) [22.000000]
+    (0.000000,0.000000) [22.000000]
     (0.000000,1.000000) [23.000000]
     (61.000000,65.000000) [23.000000]
     (3.000000,3.000000) [23.000000]
@@ -8096,6 +8221,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (1.000000,3.000000) [43.000000]
     (1.000000,1.000000) [43.000000]
     (29.000000,29.000000) [43.000000]
+    (2.000000,5.000000) [43.000000]
     (31.000000,34.000000) [44.000000]
     (11.000000,13.000000) [44.000000]
     (6.000000,6.000000) [44.000000]
@@ -8144,6 +8270,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (36.000000,40.000000) [58.000000]
     (19.000000,20.000000) [59.000000]
     (18.000000,20.000000) [59.000000]
+    (52.000000,54.000000) [59.000000]
     (14.000000,16.000000) [60.000000]
     (23.000000,23.000000) [61.000000]
     (133.000000,152.000000) [62.000000]
@@ -8429,6 +8556,10 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (0.000000,0.000000) [0.000000]
     (0.000000,0.000000) [0.000000]
     (35.000000,42.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (22.000000,26.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
+    (0.000000,0.000000) [0.000000]
     (0.000000,0.000000) [1.000000]
     (22.000000,27.000000) [1.000000]
     (24.000000,29.000000) [1.000000]
@@ -8465,7 +8596,6 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (16.000000,20.000000) [1.000000]
     (0.000000,0.000000) [1.000000]
     (0.000000,0.000000) [1.000000]
-    (5.000000,11.000000) [1.000000]
     (3.000000,6.000000) [1.000000]
     (9.000000,16.000000) [1.000000]
     (28.000000,46.000000) [1.000000]
@@ -8493,6 +8623,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (11.000000,0.000000) [1.000000]
     (0.000000,0.000000) [1.000000]
     (0.000000,0.000000) [1.000000]
+    (5.000000,11.000000) [1.000000]
     (25.000000,31.000000) [2.000000]
     (13.000000,17.000000) [2.000000]
     (11.000000,19.000000) [2.000000]
@@ -8543,6 +8674,10 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (11.000000,13.000000) [2.000000]
     (12.000000,14.000000) [2.000000]
     (0.000000,0.000000) [2.000000]
+    (43.000000,59.000000) [2.000000]
+    (7.000000,12.000000) [2.000000]
+    (15.000000,16.000000) [2.000000]
+    (19.000000,22.000000) [2.000000]
     (13.000000,14.000000) [3.000000]
     (28.000000,31.000000) [3.000000]
     (26.000000,32.000000) [3.000000]
@@ -8587,6 +8722,8 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (0.000000,0.000000) [3.000000]
     (0.000000,0.000000) [3.000000]
     (12.000000,19.000000) [3.000000]
+    (0.000000,0.000000) [3.000000]
+    (18.000000,25.000000) [3.000000]
     (5.000000,8.000000) [4.000000]
     (0.000000,0.000000) [4.000000]
     (16.000000,27.000000) [4.000000]
@@ -8708,6 +8845,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (48.000000,59.000000) [8.000000]
     (0.000000,130.000000) [8.000000]
     (31.000000,34.000000) [8.000000]
+    (15.000000,25.000000) [8.000000]
     (14.000000,16.000000) [9.000000]
     (13.000000,28.000000) [9.000000]
     (10.000000,14.000000) [9.000000]
@@ -8933,6 +9071,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (23.000000,34.000000) [40.000000]
     (13.000000,25.000000) [41.000000]
     (16.000000,23.000000) [41.000000]
+    (7.000000,10.000000) [41.000000]
     (0.000000,0.000000) [42.000000]
     (0.000000,0.000000) [42.000000]
     (5.000000,16.000000) [42.000000]
@@ -8949,6 +9088,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (0.000000,0.000000) [46.000000]
     (24.000000,32.000000) [46.000000]
     (33.000000,62.000000) [47.000000]
+    (59.000000,92.000000) [47.000000]
     (4.000000,8.000000) [48.000000]
     (19.000000,29.000000) [48.000000]
     (10.000000,44.000000) [48.000000]
@@ -8972,6 +9112,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (35.000000,48.000000) [57.000000]
     (20.000000,49.000000) [58.000000]
     (73.000000,77.000000) [59.000000]
+    (16.000000,27.000000) [60.000000]
     (46.000000,53.000000) [61.000000]
     (0.000000,0.000000) [63.000000]
     (14.000000,26.000000) [64.000000]
@@ -9016,6 +9157,7 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     (8.000000,21.000000) [167.000000]
     (11.000000,25.000000) [169.000000]
     (19.000000,20.000000) [181.000000]
+    (0.000000,0.000000) [181.000000]
     (0.000000,0.000000) [185.000000]
     (11.000000,36.000000) [187.000000]
     (30.000000,48.000000) [219.000000]
@@ -9068,11 +9210,11 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     x tick label style={rotate=30,anchor=east},
 ]
 \addplot+[] coordinates {
-(0,177.000000)
-(5,31.000000)
-(10,35.000000)
-(15,67.000000)
-(20,51.000000)
+(0,181.000000)
+(5,33.000000)
+(10,36.000000)
+(15,71.000000)
+(20,53.000000)
 (25,45.000000)
 (30,43.000000)
 (35,33.000000)
@@ -9101,11 +9243,11 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     x tick label style={rotate=30,anchor=east},
 ]
 \addplot+[] coordinates {
-(0,273.000000)
-(5,33.000000)
-(10,39.000000)
-(15,47.000000)
-(20,46.000000)
+(0,283.000000)
+(5,34.000000)
+(10,40.000000)
+(15,48.000000)
+(20,47.000000)
 (25,36.000000)
 (30,21.000000)
 (35,31.000000)
@@ -9133,15 +9275,15 @@ The plots can be made with different layout tools in graphviz, it seems that fdp
     x tick label style={rotate=30,anchor=east},
 ]
 \addplot+[] coordinates {
-(1,10750.000000)
-(2,1963.000000)
-(3,671.000000)
-(4,346.000000)
-(5,161.000000)
-(6,109.000000)
+(1,10931.000000)
+(2,2033.000000)
+(3,701.000000)
+(4,357.000000)
+(5,167.000000)
+(6,113.000000)
 (7,52.000000)
 (8,35.000000)
-(9,32.000000)
+(9,33.000000)
 (10,18.000000)
 (11,7.000000)
 (12,5.000000)
@@ -9190,30 +9332,30 @@ Other&Any other published work\\
 The first plot in this section shows how many works in each source group have been published. This considers the complete time period of the survey.
 
 \begin{tikzpicture}
-\begin{axis}[title=Works by Source Group (Total 873 Works),xlabel=Source Group,ylabel=Nr Works,width=25cm,height=15cm,ybar,symbolic x coords={OtherJournal,CP,CPAIOR,OtherConf,AAAI,ORJournal,Constraints,Background,Thesis,AIJournal,EJOR,InformsJC,ICAPS,ECAI,Preprint,Inbook,Incoll,IJCAI,Book},
+\begin{axis}[title=Works by Source Group (Total 888 Works),xlabel=Source Group,ylabel=Nr Works,width=25cm,height=15cm,ybar,symbolic x coords={OtherJournal,CP,CPAIOR,OtherConf,AAAI,ORJournal,Constraints,Background,AIJournal,Thesis,EJOR,InformsJC,ICAPS,ECAI,Preprint,Inbook,Incoll,IJCAI,Book},
     xtick=data,
     nodes near coords, 
     nodes near coords align={rotate=30,anchor=west},
     x tick label style={rotate=30,anchor=east},
 ]
 \addplot+[] coordinates {
-(OtherJournal,176.000000)
+(OtherJournal,185.000000)
 (CP,131.000000)
 (CPAIOR,97.000000)
-(OtherConf,90.000000)
+(OtherConf,95.000000)
 (AAAI,51.000000)
 (ORJournal,47.000000)
 (Constraints,46.000000)
 (Background,42.000000)
-(Thesis,28.000000)
 (AIJournal,28.000000)
+(Thesis,28.000000)
 (EJOR,26.000000)
 (InformsJC,25.000000)
 (ICAPS,18.000000)
 (ECAI,18.000000)
 (Preprint,16.000000)
 (Inbook,16.000000)
-(Incoll,9.000000)
+(Incoll,10.000000)
 (IJCAI,6.000000)
 (Book,3.000000)
 };
@@ -9667,6 +9809,10 @@ We plot for each source group the number of citations obtained by papers publish
     (2009.000000,0.000000) [0.000000]
     (1991.000000,0.000000) [0.000000]
     (2011.000000,0.000000) [0.000000]
+    (2005.000000,0.000000) [0.000000]
+    (2003.000000,0.000000) [0.000000]
+    (2019.000000,3.000000) [0.000000]
+    (2006.000000,0.000000) [0.000000]
     (2014.000000,3.000000) [2.000000]
     (2019.000000,1.000000) [3.000000]
     (2012.000000,1.000000) [3.000000]
@@ -9674,16 +9820,17 @@ We plot for each source group the number of citations obtained by papers publish
     (2007.000000,2.000000) [3.000000]
     (2005.000000,2.000000) [3.000000]
     (2005.000000,6.000000) [4.000000]
-    (2019.000000,1.000000) [5.000000]
     (2006.000000,2.000000) [5.000000]
     (2002.000000,0.000000) [5.000000]
     (2016.000000,0.000000) [5.000000]
+    (2019.000000,1.000000) [5.000000]
     (2019.000000,0.000000) [6.000000]
     (2019.000000,2.000000) [6.000000]
     (1992.000000,13.000000) [6.000000]
     (2005.000000,6.000000) [6.000000]
     (2005.000000,2.000000) [7.000000]
     (2003.000000,7.000000) [7.000000]
+    (2018.000000,2.000000) [7.000000]
     (2010.000000,4.000000) [8.000000]
     (2017.000000,1.000000) [8.000000]
     (2005.000000,4.000000) [8.000000]
@@ -9988,6 +10135,7 @@ We plot for each source group the number of citations obtained by papers publish
     (1998.000000,9.000000) [0.000000]
     (2024.000000,0.000000) [0.000000]
     (2004.000000,19.000000) [0.000000]
+    (2010.000000,181.000000) [0.000000]
     (2010.000000,15.000000) [1.000000]
     (2000.000000,44.000000) [3.000000]
     (2000.000000,7.000000) [4.000000]
@@ -9996,6 +10144,7 @@ We plot for each source group the number of citations obtained by papers publish
     (2012.000000,5.000000) [5.000000]
     (2007.000000,117.000000) [6.000000]
     (2014.000000,6.000000) [7.000000]
+    (2003.000000,41.000000) [7.000000]
     (1994.000000,167.000000) [8.000000]
     (2016.000000,9.000000) [8.000000]
     (2011.000000,3.000000) [8.000000]
@@ -10022,17 +10171,22 @@ We plot for each source group the number of citations obtained by papers publish
     (2003.000000,105.000000) [15.000000]
     (2010.000000,2.000000) [15.000000]
     (2005.000000,48.000000) [15.000000]
+    (2013.000000,2.000000) [15.000000]
+    (2009.000000,8.000000) [15.000000]
     (2013.000000,76.000000) [16.000000]
     (2010.000000,41.000000) [16.000000]
+    (2007.000000,60.000000) [16.000000]
     (2011.000000,11.000000) [17.000000]
     (2015.000000,27.000000) [17.000000]
     (2023.000000,2.000000) [18.000000]
     (2019.000000,17.000000) [18.000000]
     (2003.000000,19.000000) [18.000000]
     (2014.000000,19.000000) [18.000000]
+    (2012.000000,3.000000) [18.000000]
     (2010.000000,48.000000) [19.000000]
     (2009.000000,16.000000) [19.000000]
     (2014.000000,11.000000) [19.000000]
+    (2022.000000,2.000000) [19.000000]
     (2019.000000,3.000000) [20.000000]
     (2009.000000,58.000000) [20.000000]
     (2015.000000,24.000000) [20.000000]
@@ -10047,6 +10201,7 @@ We plot for each source group the number of citations obtained by papers publish
     (2018.000000,11.000000) [22.000000]
     (2016.000000,17.000000) [22.000000]
     (2011.000000,0.000000) [22.000000]
+    (2022.000000,0.000000) [22.000000]
     (2020.000000,8.000000) [23.000000]
     (2006.000000,12.000000) [23.000000]
     (2013.000000,43.000000) [23.000000]
@@ -10131,6 +10286,7 @@ We plot for each source group the number of citations obtained by papers publish
     (2022.000000,0.000000) [57.000000]
     (2022.000000,20.000000) [58.000000]
     (2015.000000,17.000000) [59.000000]
+    (2012.000000,47.000000) [59.000000]
     (2023.000000,7.000000) [60.000000]
     (2021.000000,22.000000) [61.000000]
     (2020.000000,100.000000) [62.000000]
@@ -10191,6 +10347,7 @@ We plot for each source group the number of citations obtained by papers publish
     (2008.000000,1.000000) [22.000000]
     (2006.000000,30.000000) [25.000000]
     (2008.000000,0.000000) [28.000000]
+    (2011.000000,2.000000) [43.000000]
 };
 \end{axis}
 \end{tikzpicture}
@@ -10244,16 +10401,16 @@ Background& 68& 15& 3& & & & 12& 7& 20& 2& 10& 22& 6& 3& \\
 CP& 127& 125& 70& 2& 1& 9& 41& 6& 26& 22& 13& 72& 27& 1& 4\\ 
 CPAIOR& 96& 110& 65& 1& 1& 14& 47& 12& 25& 10& 20& 65& 27& 2& 2\\ 
 ICAPS& 4& 3& & & & & & & & & & & & & \\ 
-OtherConf& 41& 36& 18& & & 3& 18& 6& 11& 8& 7& 46& 10& 3& \\ 
-Constraints& 61& 58& 42& 1& & 5& 23& 4& 14& 10& 13& 54& 18& 2& 1\\ 
-EJOR& 55& 3& 1& & & & 10& 17& 18& 4& 14& 34& & & 1\\ 
+OtherConf& 41& 36& 18& & & 3& 18& 6& 11& 8& 7& 47& 10& 3& \\ 
+Constraints& 61& 58& 42& 1& & 5& 23& 4& 14& 10& 13& 55& 18& 2& 1\\ 
+EJOR& 55& 3& 1& & & & 10& 17& 18& 4& 14& 35& & & 1\\ 
 InformsJC& 63& 21& 11& & & & 19& 17& 26& 7& 15& 34& 15& & 1\\ 
 AIJournal& 32& 9& 4& 1& & 7& 3& 8& 5& 16& 3& 32& 1& 1& \\ 
-ORJournal& 73& 36& 17& & & & 29& 17& 32& 15& 15& 72& 8& 1& 1\\ 
+ORJournal& 73& 36& 17& & & & 29& 17& 32& 15& 15& 73& 8& 1& 1\\ 
 Preprint& 4& & & & & & 3& 11& 4& & 4& 8& 1& & \\ 
-OtherJournal& 177& 67& 43& & & 8& 86& 63& 73& 46& 78& 303& 25& 2& 4\\ 
-Inbook& 68& 16& 10& & & 1& 14& 7& 20& 3& 16& 38& 9& 4& \\ 
-Incoll& 12& 2& & & & & 2& 3& 1& 5& 1& 2& 2& & \\ 
+OtherJournal& 178& 67& 43& & & 8& 86& 63& 74& 46& 78& 318& 25& 2& 4\\ 
+Inbook& 68& 16& 10& & & 1& 14& 7& 20& 3& 16& 39& 9& 4& \\ 
+Incoll& 12& 2& & & & & 3& 3& 1& 5& 1& 6& 2& & \\ 
 \bottomrule
 \end{tabular}
 }
@@ -10269,20 +10426,20 @@ Note that the numbers are derived from the flows contained in the survey, which 
 {\scriptsize
 \begin{tabular}{l*{15}{r}} \toprule
 & Background& CP& CPAIOR& ICAPS& AAAI& OtherConf& Constraints& EJOR& InformsJC& AIJournal& ORJournal& OtherJournal& Book& Inbook& Incoll\\ \midrule 
-Background&  3.85&  0.27&  0.07& & & &  0.62&  0.64&  1.90&  0.17&  0.51&  0.30&  4.76&  0.45& \\ 
-CP&  2.31&  0.73&  0.55&  0.08&  0.01&  0.08&  0.68&  0.18&  0.79&  0.60&  0.21&  0.31&  6.87&  0.05&  0.34\\ 
-CPAIOR&  2.36&  0.87&  0.69&  0.06&  0.02&  0.16&  1.05&  0.48&  1.03&  0.37&  0.44&  0.38&  9.28&  0.13&  0.23\\ 
+Background&  3.85&  0.27&  0.07& & & &  0.62&  0.64&  1.90&  0.17&  0.51&  0.28&  4.76&  0.45& \\ 
+CP&  2.31&  0.73&  0.55&  0.08&  0.01&  0.07&  0.68&  0.18&  0.79&  0.60&  0.21&  0.30&  6.87&  0.05&  0.31\\ 
+CPAIOR&  2.36&  0.87&  0.69&  0.06&  0.02&  0.15&  1.05&  0.48&  1.03&  0.37&  0.44&  0.36&  9.28&  0.13&  0.21\\ 
 ICAPS&  0.53&  0.13& & & & & & & & & & & & & \\ 
-OtherConf&  1.08&  0.31&  0.21& & &  0.04&  0.43&  0.26&  0.49&  0.32&  0.17&  0.29&  3.70&  0.21& \\ 
-Constraints&  3.16&  0.96&  0.94&  0.12& &  0.12&  1.09&  0.33&  1.22&  0.78&  0.60&  0.67& 13.04&  0.27&  0.24\\ 
-EJOR&  5.04&  0.09&  0.04& & & &  0.84&  2.51&  2.77&  0.55&  1.15&  0.74& & &  0.43\\ 
-InformsJC&  6.00&  0.64&  0.45& & & &  1.65&  2.62&  4.16&  1.00&  1.28&  0.77& 20.00& &  0.44\\ 
-AIJournal&  2.72&  0.25&  0.15&  0.20& &  0.28&  0.23&  1.10&  0.71&  2.04&  0.23&  0.65&  1.19&  0.22& \\ 
-ORJournal&  3.70&  0.58&  0.37& & & &  1.34&  1.39&  2.72&  1.14&  0.68&  0.87&  5.67&  0.13&  0.24\\ 
-Preprint&  0.60& & & & & &  0.41&  2.64&  1.00& &  0.53&  0.28&  2.08& & \\ 
-OtherJournal&  2.39&  0.29&  0.25& & &  0.05&  1.06&  1.38&  1.66&  0.93&  0.94&  0.98&  4.73&  0.07&  0.25\\ 
-Inbook& 10.12&  0.76&  0.64& & &  0.07&  1.90&  1.68&  5.00&  0.67&  2.13&  1.35& 18.75&  1.56& \\ 
-Incoll&  3.17&  0.17& & & & &  0.48&  1.28&  0.44&  1.98&  0.24&  0.13&  7.41& & \\ 
+OtherConf&  1.03&  0.29&  0.20& & &  0.03&  0.41&  0.24&  0.46&  0.30&  0.16&  0.27&  3.51&  0.20& \\ 
+Constraints&  3.16&  0.96&  0.94&  0.12& &  0.11&  1.09&  0.33&  1.22&  0.78&  0.60&  0.65& 13.04&  0.27&  0.22\\ 
+EJOR&  5.04&  0.09&  0.04& & & &  0.84&  2.51&  2.77&  0.55&  1.15&  0.73& & &  0.38\\ 
+InformsJC&  6.00&  0.64&  0.45& & & &  1.65&  2.62&  4.16&  1.00&  1.28&  0.74& 20.00& &  0.40\\ 
+AIJournal&  2.72&  0.25&  0.15&  0.20& &  0.26&  0.23&  1.10&  0.71&  2.04&  0.23&  0.62&  1.19&  0.22& \\ 
+ORJournal&  3.70&  0.58&  0.37& & & &  1.34&  1.39&  2.72&  1.14&  0.68&  0.84&  5.67&  0.13&  0.21\\ 
+Preprint&  0.60& & & & & &  0.41&  2.64&  1.00& &  0.53&  0.27&  2.08& & \\ 
+OtherJournal&  2.29&  0.28&  0.24& & &  0.05&  1.01&  1.31&  1.60&  0.89&  0.90&  0.93&  4.50&  0.07&  0.22\\ 
+Inbook& 10.12&  0.76&  0.64& & &  0.07&  1.90&  1.68&  5.00&  0.67&  2.13&  1.32& 18.75&  1.56& \\ 
+Incoll&  2.86&  0.15& & & & &  0.65&  1.15&  0.40&  1.79&  0.21&  0.32&  6.67& & \\ 
 \bottomrule
 \end{tabular}
 }
@@ -10311,34 +10468,34 @@ The following plots show the percentage of works published in a year belonging t
     (1994.000000,0.000000) [0.000000]
     (1999.000000,0.000000) [0.000000]
     (2024.000000,0.000000) [0.000000]
-    (2006.000000,5.555556) [1.000000]
+    (2006.000000,5.263158) [1.000000]
     (1996.000000,15.384615) [2.000000]
     (2000.000000,8.333333) [2.000000]
     (2008.000000,6.896552) [2.000000]
     (1997.000000,16.666667) [3.000000]
     (1998.000000,23.076923) [3.000000]
-    (2007.000000,14.285714) [3.000000]
-    (2010.000000,11.111111) [3.000000]
-    (2013.000000,11.538462) [3.000000]
-    (2018.000000,8.108108) [3.000000]
+    (2007.000000,13.636364) [3.000000]
+    (2010.000000,10.714286) [3.000000]
+    (2013.000000,11.111111) [3.000000]
+    (2018.000000,7.894737) [3.000000]
     (2020.000000,7.317073) [3.000000]
-    (2022.000000,6.818182) [3.000000]
-    (2019.000000,9.756098) [4.000000]
+    (2022.000000,6.521739) [3.000000]
+    (2019.000000,9.523810) [4.000000]
     (2021.000000,10.526316) [4.000000]
     (2023.000000,8.510638) [4.000000]
     (1995.000000,62.500000) [5.000000]
     (2001.000000,50.000000) [5.000000]
-    (2009.000000,19.230769) [5.000000]
-    (2011.000000,12.195122) [5.000000]
-    (2003.000000,33.333333) [6.000000]
+    (2009.000000,18.518519) [5.000000]
+    (2011.000000,11.904762) [5.000000]
+    (2003.000000,30.000000) [6.000000]
     (2004.000000,25.000000) [6.000000]
-    (2012.000000,21.428571) [6.000000]
+    (2012.000000,20.000000) [6.000000]
     (2014.000000,21.212121) [7.000000]
     (2017.000000,29.166667) [7.000000]
     (2002.000000,36.363636) [8.000000]
     (2016.000000,19.047619) [8.000000]
     (2015.000000,25.000000) [9.000000]
-    (2005.000000,34.375000) [11.000000]
+    (2005.000000,33.333333) [11.000000]
 };
 \end{axis}
 \end{tikzpicture}
@@ -10369,24 +10526,24 @@ The following plots show the percentage of works published in a year belonging t
     (2002.000000,0.000000) [0.000000]
     (2003.000000,0.000000) [0.000000]
     (2024.000000,0.000000) [0.000000]
-    (2006.000000,11.111111) [2.000000]
-    (2009.000000,11.538462) [3.000000]
+    (2006.000000,10.526316) [2.000000]
+    (2009.000000,11.111111) [3.000000]
     (2016.000000,7.142857) [3.000000]
     (2017.000000,12.500000) [3.000000]
-    (2005.000000,12.500000) [4.000000]
-    (2010.000000,14.814815) [4.000000]
-    (2019.000000,9.756098) [4.000000]
-    (2022.000000,9.090909) [4.000000]
+    (2005.000000,12.121212) [4.000000]
+    (2010.000000,14.285714) [4.000000]
+    (2019.000000,9.523810) [4.000000]
+    (2022.000000,8.695652) [4.000000]
     (2004.000000,20.833333) [5.000000]
-    (2011.000000,12.195122) [5.000000]
-    (2012.000000,17.857143) [5.000000]
+    (2011.000000,11.904762) [5.000000]
+    (2012.000000,16.666667) [5.000000]
     (2014.000000,15.151515) [5.000000]
     (2020.000000,12.195122) [5.000000]
     (2021.000000,13.157895) [5.000000]
     (2023.000000,10.638298) [5.000000]
-    (2007.000000,28.571429) [6.000000]
-    (2013.000000,23.076923) [6.000000]
-    (2018.000000,18.918919) [7.000000]
+    (2007.000000,27.272727) [6.000000]
+    (2013.000000,22.222222) [6.000000]
+    (2018.000000,18.421053) [7.000000]
     (2008.000000,27.586207) [8.000000]
     (2015.000000,22.222222) [8.000000]
 };
@@ -10425,20 +10582,20 @@ The following plots show the percentage of works published in a year belonging t
     (2017.000000,0.000000) [0.000000]
     (2021.000000,0.000000) [0.000000]
     (2024.000000,0.000000) [0.000000]
-    (2005.000000,3.125000) [1.000000]
-    (2006.000000,5.555556) [1.000000]
+    (2005.000000,3.030303) [1.000000]
+    (2006.000000,5.263158) [1.000000]
     (2008.000000,3.448276) [1.000000]
-    (2009.000000,3.846154) [1.000000]
-    (2011.000000,2.439024) [1.000000]
+    (2009.000000,3.703704) [1.000000]
+    (2011.000000,2.380952) [1.000000]
     (2014.000000,3.030303) [1.000000]
     (2016.000000,2.380952) [1.000000]
-    (2018.000000,2.702703) [1.000000]
-    (2019.000000,2.439024) [1.000000]
+    (2018.000000,2.631579) [1.000000]
+    (2019.000000,2.380952) [1.000000]
     (2020.000000,2.439024) [1.000000]
-    (2022.000000,2.272727) [1.000000]
+    (2022.000000,2.173913) [1.000000]
     (2023.000000,2.127660) [1.000000]
-    (2003.000000,11.111111) [2.000000]
-    (2013.000000,15.384615) [4.000000]
+    (2003.000000,10.000000) [2.000000]
+    (2013.000000,14.814815) [4.000000]
 };
 \end{axis}
 \end{tikzpicture}
@@ -10470,15 +10627,15 @@ The following plots show the percentage of works published in a year belonging t
     (1991.000000,33.333333) [1.000000]
     (1993.000000,50.000000) [1.000000]
     (1996.000000,7.692308) [1.000000]
-    (2006.000000,5.555556) [1.000000]
+    (2006.000000,5.263158) [1.000000]
     (2015.000000,2.777778) [1.000000]
-    (2018.000000,2.702703) [1.000000]
+    (2018.000000,2.631579) [1.000000]
     (2020.000000,2.439024) [1.000000]
-    (2022.000000,2.272727) [1.000000]
+    (2022.000000,2.173913) [1.000000]
     (1990.000000,50.000000) [2.000000]
     (2000.000000,8.333333) [2.000000]
     (2002.000000,9.090909) [2.000000]
-    (2007.000000,9.523810) [2.000000]
+    (2007.000000,9.090909) [2.000000]
     (2008.000000,6.896552) [2.000000]
     (2014.000000,6.060606) [2.000000]
     (2016.000000,4.761905) [2.000000]
@@ -10486,7 +10643,7 @@ The following plots show the percentage of works published in a year belonging t
     (2024.000000,28.571429) [2.000000]
     (1994.000000,27.272727) [3.000000]
     (2004.000000,12.500000) [3.000000]
-    (2005.000000,9.375000) [3.000000]
+    (2005.000000,9.090909) [3.000000]
     (1999.000000,31.250000) [5.000000]
     (1997.000000,44.444444) [8.000000]
 };
@@ -10534,10 +10691,10 @@ The following plots show the percentage of works published in a year belonging t
     (2021.000000,0.000000) [0.000000]
     (2023.000000,0.000000) [0.000000]
     (2024.000000,0.000000) [0.000000]
-    (2005.000000,3.125000) [1.000000]
-    (2013.000000,3.846154) [1.000000]
+    (2005.000000,3.030303) [1.000000]
+    (2013.000000,3.703704) [1.000000]
     (2017.000000,4.166667) [1.000000]
-    (2022.000000,2.272727) [1.000000]
+    (2022.000000,2.173913) [1.000000]
     (2016.000000,4.761905) [2.000000]
 };
 \end{axis}
@@ -10581,8 +10738,8 @@ The following plots show the percentage of works published in a year belonging t
     (1998.000000,7.692308) [1.000000]
     (2004.000000,4.166667) [1.000000]
     (2008.000000,3.448276) [1.000000]
-    (2010.000000,3.703704) [1.000000]
-    (2012.000000,3.571429) [1.000000]
+    (2010.000000,3.571429) [1.000000]
+    (2012.000000,3.333333) [1.000000]
     (2016.000000,2.380952) [1.000000]
     (2020.000000,2.439024) [1.000000]
     (2023.000000,2.127660) [1.000000]
@@ -10611,17 +10768,17 @@ The following plots show the percentage of works published in a year belonging t
     (1995.000000,12.500000) [1.000000]
     (1996.000000,7.692308) [1.000000]
     (2000.000000,4.166667) [1.000000]
-    (2003.000000,5.555556) [1.000000]
     (2008.000000,3.448276) [1.000000]
-    (2013.000000,3.846154) [1.000000]
+    (2013.000000,3.703704) [1.000000]
     (2024.000000,14.285714) [1.000000]
     (1991.000000,66.666667) [2.000000]
     (1994.000000,18.181818) [2.000000]
     (1997.000000,11.111111) [2.000000]
     (1998.000000,15.384615) [2.000000]
+    (2003.000000,10.000000) [2.000000]
     (2004.000000,8.333333) [2.000000]
-    (2007.000000,9.523810) [2.000000]
-    (2012.000000,7.142857) [2.000000]
+    (2007.000000,9.090909) [2.000000]
+    (2012.000000,6.666667) [2.000000]
     (2014.000000,6.060606) [2.000000]
     (2015.000000,5.555556) [2.000000]
     (2017.000000,8.333333) [2.000000]
@@ -10629,16 +10786,16 @@ The following plots show the percentage of works published in a year belonging t
     (2021.000000,5.263158) [2.000000]
     (1999.000000,18.750000) [3.000000]
     (2002.000000,13.636364) [3.000000]
-    (2006.000000,16.666667) [3.000000]
-    (2010.000000,11.111111) [3.000000]
+    (2010.000000,10.714286) [3.000000]
+    (2006.000000,21.052632) [4.000000]
     (2016.000000,9.523810) [4.000000]
     (2023.000000,8.510638) [4.000000]
-    (2009.000000,19.230769) [5.000000]
-    (2005.000000,18.750000) [6.000000]
-    (2018.000000,16.216216) [6.000000]
-    (2011.000000,17.073171) [7.000000]
-    (2019.000000,17.073171) [7.000000]
-    (2022.000000,15.909091) [7.000000]
+    (2009.000000,18.518519) [5.000000]
+    (2005.000000,21.212121) [7.000000]
+    (2011.000000,16.666667) [7.000000]
+    (2018.000000,18.421053) [7.000000]
+    (2022.000000,15.217391) [7.000000]
+    (2019.000000,19.047619) [8.000000]
 };
 \end{axis}
 \end{tikzpicture}
@@ -10668,26 +10825,26 @@ The following plots show the percentage of works published in a year belonging t
     (2016.000000,0.000000) [0.000000]
     (2024.000000,0.000000) [0.000000]
     (1999.000000,6.250000) [1.000000]
-    (2006.000000,5.555556) [1.000000]
-    (2007.000000,4.761905) [1.000000]
-    (2009.000000,3.846154) [1.000000]
-    (2010.000000,3.703704) [1.000000]
+    (2006.000000,5.263158) [1.000000]
+    (2007.000000,4.545455) [1.000000]
+    (2009.000000,3.703704) [1.000000]
+    (2010.000000,3.571429) [1.000000]
     (2014.000000,3.030303) [1.000000]
-    (2019.000000,2.439024) [1.000000]
+    (2019.000000,2.380952) [1.000000]
     (2021.000000,2.631579) [1.000000]
-    (2022.000000,2.272727) [1.000000]
+    (2022.000000,2.173913) [1.000000]
     (1996.000000,15.384615) [2.000000]
     (1997.000000,11.111111) [2.000000]
     (1998.000000,15.384615) [2.000000]
-    (2005.000000,6.250000) [2.000000]
-    (2013.000000,7.692308) [2.000000]
+    (2005.000000,6.060606) [2.000000]
+    (2013.000000,7.407407) [2.000000]
     (2020.000000,4.878049) [2.000000]
     (2023.000000,4.255319) [2.000000]
-    (2012.000000,10.714286) [3.000000]
+    (2012.000000,10.000000) [3.000000]
     (2017.000000,12.500000) [3.000000]
-    (2018.000000,8.108108) [3.000000]
+    (2018.000000,7.894737) [3.000000]
     (2000.000000,16.666667) [4.000000]
-    (2011.000000,12.195122) [5.000000]
+    (2011.000000,11.904762) [5.000000]
     (2015.000000,13.888889) [5.000000]
 };
 \end{axis}
@@ -10724,8 +10881,8 @@ The following plots show the percentage of works published in a year belonging t
     (2013.000000,0.000000) [0.000000]
     (2014.000000,0.000000) [0.000000]
     (2004.000000,4.166667) [1.000000]
-    (2006.000000,5.555556) [1.000000]
-    (2012.000000,3.571429) [1.000000]
+    (2006.000000,5.263158) [1.000000]
+    (2012.000000,3.333333) [1.000000]
     (2016.000000,2.380952) [1.000000]
     (2017.000000,4.166667) [1.000000]
     (2021.000000,2.631579) [1.000000]
@@ -10734,9 +10891,9 @@ The following plots show the percentage of works published in a year belonging t
     (1996.000000,15.384615) [2.000000]
     (1999.000000,12.500000) [2.000000]
     (2015.000000,5.555556) [2.000000]
-    (2018.000000,5.405405) [2.000000]
-    (2019.000000,4.878049) [2.000000]
-    (2022.000000,4.545455) [2.000000]
+    (2018.000000,5.263158) [2.000000]
+    (2019.000000,4.761905) [2.000000]
+    (2022.000000,4.347826) [2.000000]
     (2000.000000,12.500000) [3.000000]
     (2020.000000,7.317073) [3.000000]
 };
@@ -10775,20 +10932,20 @@ The following plots show the percentage of works published in a year belonging t
     (1996.000000,7.692308) [1.000000]
     (2000.000000,4.166667) [1.000000]
     (2001.000000,10.000000) [1.000000]
-    (2005.000000,3.125000) [1.000000]
-    (2006.000000,5.555556) [1.000000]
+    (2005.000000,3.030303) [1.000000]
+    (2006.000000,5.263158) [1.000000]
     (2008.000000,3.448276) [1.000000]
-    (2009.000000,3.846154) [1.000000]
+    (2009.000000,3.703704) [1.000000]
     (2014.000000,3.030303) [1.000000]
     (2015.000000,2.777778) [1.000000]
     (2017.000000,4.166667) [1.000000]
     (1998.000000,15.384615) [2.000000]
     (2002.000000,9.090909) [2.000000]
-    (2011.000000,4.878049) [2.000000]
-    (2012.000000,7.142857) [2.000000]
+    (2011.000000,4.761905) [2.000000]
+    (2012.000000,6.666667) [2.000000]
     (2016.000000,4.761905) [2.000000]
     (2023.000000,4.255319) [2.000000]
-    (2022.000000,6.818182) [3.000000]
+    (2022.000000,6.521739) [3.000000]
 };
 \end{axis}
 \end{tikzpicture}
@@ -10826,15 +10983,15 @@ The following plots show the percentage of works published in a year belonging t
     (1997.000000,5.555556) [1.000000]
     (1998.000000,7.692308) [1.000000]
     (2002.000000,4.545455) [1.000000]
-    (2003.000000,5.555556) [1.000000]
-    (2005.000000,3.125000) [1.000000]
-    (2012.000000,3.571429) [1.000000]
-    (2013.000000,3.846154) [1.000000]
+    (2003.000000,5.000000) [1.000000]
+    (2005.000000,3.030303) [1.000000]
+    (2012.000000,3.333333) [1.000000]
+    (2013.000000,3.703704) [1.000000]
     (2016.000000,2.380952) [1.000000]
     (2017.000000,4.166667) [1.000000]
-    (2018.000000,2.702703) [1.000000]
-    (2007.000000,9.523810) [2.000000]
-    (2010.000000,7.407407) [2.000000]
+    (2018.000000,2.631579) [1.000000]
+    (2007.000000,9.090909) [2.000000]
+    (2010.000000,7.142857) [2.000000]
     (2014.000000,6.060606) [2.000000]
     (2000.000000,12.500000) [3.000000]
     (2008.000000,10.344828) [3.000000]
@@ -10872,22 +11029,22 @@ The following plots show the percentage of works published in a year belonging t
     (2018.000000,0.000000) [0.000000]
     (2024.000000,0.000000) [0.000000]
     (2002.000000,4.545455) [1.000000]
-    (2003.000000,5.555556) [1.000000]
-    (2010.000000,3.703704) [1.000000]
+    (2003.000000,5.000000) [1.000000]
+    (2010.000000,3.571429) [1.000000]
     (2016.000000,2.380952) [1.000000]
     (2017.000000,4.166667) [1.000000]
     (1999.000000,12.500000) [2.000000]
     (2001.000000,20.000000) [2.000000]
-    (2006.000000,11.111111) [2.000000]
+    (2006.000000,10.526316) [2.000000]
     (2008.000000,6.896552) [2.000000]
-    (2009.000000,7.692308) [2.000000]
-    (2012.000000,7.142857) [2.000000]
-    (2019.000000,7.317073) [3.000000]
+    (2009.000000,7.407407) [2.000000]
+    (2012.000000,6.666667) [2.000000]
+    (2019.000000,7.142857) [3.000000]
     (2020.000000,7.317073) [3.000000]
     (2021.000000,7.894737) [3.000000]
-    (2007.000000,19.047619) [4.000000]
-    (2011.000000,12.195122) [5.000000]
-    (2022.000000,13.636364) [6.000000]
+    (2007.000000,18.181818) [4.000000]
+    (2011.000000,11.904762) [5.000000]
+    (2022.000000,13.043478) [6.000000]
     (2023.000000,12.765957) [6.000000]
 };
 \end{axis}
@@ -10931,13 +11088,13 @@ The following plots show the percentage of works published in a year belonging t
     (2017.000000,0.000000) [0.000000]
     (2018.000000,0.000000) [0.000000]
     (2020.000000,0.000000) [0.000000]
-    (2009.000000,3.846154) [1.000000]
-    (2010.000000,3.703704) [1.000000]
+    (2009.000000,3.703704) [1.000000]
+    (2010.000000,3.571429) [1.000000]
     (2015.000000,2.777778) [1.000000]
     (2021.000000,2.631579) [1.000000]
     (2024.000000,14.285714) [1.000000]
-    (2022.000000,6.818182) [3.000000]
-    (2019.000000,9.756098) [4.000000]
+    (2022.000000,6.521739) [3.000000]
+    (2019.000000,9.523810) [4.000000]
     (2023.000000,8.510638) [4.000000]
 };
 \end{axis}
@@ -10962,31 +11119,31 @@ The following plots show the percentage of works published in a year belonging t
     (1995.000000,12.500000) [1.000000]
     (1999.000000,6.250000) [1.000000]
     (2001.000000,10.000000) [1.000000]
-    (2005.000000,3.125000) [1.000000]
-    (2007.000000,4.761905) [1.000000]
+    (2005.000000,3.030303) [1.000000]
     (1994.000000,18.181818) [2.000000]
     (1997.000000,11.111111) [2.000000]
     (1998.000000,15.384615) [2.000000]
     (2004.000000,8.333333) [2.000000]
-    (2006.000000,11.111111) [2.000000]
+    (2006.000000,10.526316) [2.000000]
+    (2007.000000,9.090909) [2.000000]
     (2024.000000,28.571429) [2.000000]
     (2002.000000,13.636364) [3.000000]
     (2008.000000,10.344828) [3.000000]
-    (2003.000000,22.222222) [4.000000]
-    (2012.000000,14.285714) [4.000000]
     (2015.000000,11.111111) [4.000000]
     (2017.000000,16.666667) [4.000000]
     (2000.000000,20.833333) [5.000000]
-    (2009.000000,23.076923) [6.000000]
-    (2011.000000,17.073171) [7.000000]
-    (2013.000000,26.923077) [7.000000]
-    (2010.000000,29.629630) [8.000000]
+    (2003.000000,25.000000) [5.000000]
+    (2012.000000,20.000000) [6.000000]
+    (2009.000000,25.925926) [7.000000]
+    (2011.000000,16.666667) [7.000000]
+    (2013.000000,29.629630) [8.000000]
     (2014.000000,24.242424) [8.000000]
+    (2010.000000,32.142857) [9.000000]
     (2016.000000,26.190476) [11.000000]
-    (2019.000000,26.829268) [11.000000]
-    (2018.000000,32.432432) [12.000000]
-    (2022.000000,27.272727) [12.000000]
+    (2019.000000,26.190476) [11.000000]
+    (2018.000000,31.578947) [12.000000]
     (2021.000000,36.842105) [14.000000]
+    (2022.000000,30.434783) [14.000000]
     (2020.000000,39.024390) [16.000000]
     (2023.000000,36.170213) [17.000000]
 };
@@ -11079,14 +11236,14 @@ The following plots show the percentage of works published in a year belonging t
     (2023.000000,0.000000) [0.000000]
     (2024.000000,0.000000) [0.000000]
     (1999.000000,6.250000) [1.000000]
-    (2003.000000,5.555556) [1.000000]
-    (2005.000000,3.125000) [1.000000]
+    (2003.000000,5.000000) [1.000000]
+    (2005.000000,3.030303) [1.000000]
     (2008.000000,3.448276) [1.000000]
-    (2009.000000,3.846154) [1.000000]
-    (2011.000000,2.439024) [1.000000]
+    (2009.000000,3.703704) [1.000000]
+    (2011.000000,2.380952) [1.000000]
     (2015.000000,2.777778) [1.000000]
-    (2006.000000,11.111111) [2.000000]
-    (2010.000000,7.407407) [2.000000]
+    (2006.000000,10.526316) [2.000000]
+    (2010.000000,7.142857) [2.000000]
     (2014.000000,6.060606) [2.000000]
     (2004.000000,12.500000) [3.000000]
 };
@@ -11121,7 +11278,6 @@ The following plots show the percentage of works published in a year belonging t
     (2007.000000,0.000000) [0.000000]
     (2009.000000,0.000000) [0.000000]
     (2010.000000,0.000000) [0.000000]
-    (2011.000000,0.000000) [0.000000]
     (2012.000000,0.000000) [0.000000]
     (2013.000000,0.000000) [0.000000]
     (2015.000000,0.000000) [0.000000]
@@ -11134,11 +11290,12 @@ The following plots show the percentage of works published in a year belonging t
     (2024.000000,0.000000) [0.000000]
     (1995.000000,12.500000) [1.000000]
     (2004.000000,4.166667) [1.000000]
-    (2006.000000,5.555556) [1.000000]
+    (2006.000000,5.263158) [1.000000]
+    (2011.000000,2.380952) [1.000000]
     (2014.000000,3.030303) [1.000000]
     (2016.000000,2.380952) [1.000000]
     (2008.000000,6.896552) [2.000000]
-    (2019.000000,4.878049) [2.000000]
+    (2019.000000,4.761905) [2.000000]
 };
 \end{axis}
 \end{tikzpicture}
@@ -11176,17 +11333,17 @@ The following plots show the percentage of works published in a year belonging t
     (2024.000000,0.000000) [0.000000]
     (1999.000000,6.250000) [1.000000]
     (2008.000000,3.448276) [1.000000]
-    (2010.000000,3.703704) [1.000000]
-    (2012.000000,3.571429) [1.000000]
-    (2013.000000,3.846154) [1.000000]
+    (2010.000000,3.571429) [1.000000]
+    (2012.000000,3.333333) [1.000000]
+    (2013.000000,3.703704) [1.000000]
     (2014.000000,3.030303) [1.000000]
-    (2018.000000,2.702703) [1.000000]
+    (2018.000000,2.631579) [1.000000]
     (2020.000000,2.439024) [1.000000]
     (2002.000000,9.090909) [2.000000]
-    (2003.000000,11.111111) [2.000000]
+    (2003.000000,10.000000) [2.000000]
     (2015.000000,5.555556) [2.000000]
-    (2019.000000,4.878049) [2.000000]
-    (2011.000000,7.317073) [3.000000]
+    (2019.000000,4.761905) [2.000000]
+    (2011.000000,7.142857) [3.000000]
     (2016.000000,9.523810) [4.000000]
     (2021.000000,13.157895) [5.000000]
 };
