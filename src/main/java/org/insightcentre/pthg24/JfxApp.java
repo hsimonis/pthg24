@@ -8,6 +8,7 @@ import framework.ApplicationDatasetInterface;
 import framework.ApplicationObjectInterface;
 import framework.types.IrishCalendar;
 import org.insightcentre.pthg24.analysis.*;
+import org.insightcentre.pthg24.clustering.DumpFeatures;
 import org.insightcentre.pthg24.datamodel.*;
 import org.insightcentre.pthg24.imports.*;
 import org.insightcentre.pthg24.pdfgrep.RunPDFGrep;
@@ -91,6 +92,7 @@ public class JfxApp extends GeneratedJfxApp {
                 String crossrefDir = prefix+"crossref/"; // input/output dir for crossref records
                 String scopusDir = prefix+"scopus/"; // input/output dir for scopus records
                 String missingWorkDir = prefix+"missing/"; // input/output dir for missing work crossref records
+                String dumpDir = prefix+"dump/"; // output directory for feature tables
 
 
                 new ImportConcepts(base,importDir,"concepts.json");
@@ -98,6 +100,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new ImportBib(base,bibDir,bibFile,worksDir);
                 new ImportBackground(base,importDir,"background.json");
                 new ImportExtra(base,importDir,"manual.csv");
+                new ImportBlocked(base,importDir,"blocked.json");
                 new ImportOpenCitations(base,citationsDir);
                 new ImportOpenReferences(base,referencesDir);
                 new ImportCrossref(base,crossrefDir);
@@ -124,13 +127,13 @@ public class JfxApp extends GeneratedJfxApp {
                 new ListWorks(base,INBOOK,exportDir,"inbook.tex");
                 new ListWorks(base,base.getListWork().stream().
                         filter(x->!x.getBackground()).
-                        sorted(Comparator.comparing(Work::getNrCitations).reversed()).
+                        sorted(Comparator.comparing(Work::getMaxCitations).reversed()).
                         limit(30).
-                        toList(),exportDir,"mostcited.tex");
+                        toList(),exportDir,"mostcited.tex","Most Cited Works");
                 new ListWorks(base,base.getListWork().stream().
                         filter(Work::getBackground).
                         sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getKey)).
-                        toList(),exportDir,"background.tex");
+                        toList(),exportDir,"background.tex","Background Works");
 
 
                 new ListAuthors(base,exportDir,"authors.tex");
@@ -149,8 +152,8 @@ public class JfxApp extends GeneratedJfxApp {
                         sorted(Comparator.comparing(Work::getNrConcepts)).
                         limit(20).
                         toList();
-                new ListWorks(base,lowNrConcepts,exportDir,"lownrworks.tex");
-                new AnalysisByWork(base,lowNrConcepts,exportDir,"lownrconcepts.tex");
+                new ListWorks(base,lowNrConcepts,exportDir,"lownrworks.tex","Works with Low Feature Count");
+                new AnalysisByWork(base,lowNrConcepts,exportDir,"lownrconcepts.tex","Features of Works with Low Feature Count");
                 List<Work> irrelevant = base.getListWork().stream().
                         filter(x->!x.getBackground()).
                         filter(this::hasLocalCopy).
@@ -158,8 +161,8 @@ public class JfxApp extends GeneratedJfxApp {
                         filter(x->irrelevant(x,base)).
                         sorted(Comparator.comparing(Work::getYear).reversed()).
                         toList();
-                new ListWorks(base,irrelevant,exportDir,"irrelevantworks.tex");
-                new AnalysisByWork(base,irrelevant,exportDir,"irrelevantconcepts.tex");
+                new ListWorks(base,irrelevant,exportDir,"irrelevantworks.tex","Works that might be Irrelevant");
+                new AnalysisByWork(base,irrelevant,exportDir,"irrelevantconcepts.tex","Features of Works that might be Irrelevant");
 
                 new MissingLocalCopy(base,ARTICLE,exportDir,"missingarticle.tex");
                 new MissingLocalCopy(base,PAPER,exportDir,"missingpaper.tex");
@@ -178,17 +181,19 @@ public class JfxApp extends GeneratedJfxApp {
                                 filter(x->x.getDoi() == null || x.getDoi().equals("")).
                                 sorted(Comparator.comparing(Work::getKey)).
                                 toList(),
-                        exportDir,"missingdoi.tex");
+                        exportDir,"missingdoi.tex","Works with Missing DOI");
 
                 List<Work> similar = similarWorks(base,20);
-                new ListWorks(base,similar,exportDir,"similarworks.tex");
-                new AnalysisByWork(base,similar,exportDir,"similarconcepts.tex");
+                new ListWorks(base,similar,exportDir,"similarworks.tex","Works Close by Euclidean Distance");
+                new AnalysisByWork(base,similar,exportDir,"similarconcepts.tex","Features of Work Close by Euclidean Distance");
                 List<Work> dot = dotWorks(base,20);
-                new ListWorks(base,dot,exportDir,"dotworks.tex");
-                new AnalysisByWork(base,dot,exportDir,"dotconcepts.tex");
+                new ListWorks(base,dot,exportDir,"dotworks.tex","Works Similar by Dot Product");
+                new AnalysisByWork(base,dot,exportDir,"dotconcepts.tex","Features of Works Similar by Dot Product");
                 List<Work> cosine = cosineWorks(base,20);
-                new ListWorks(base,cosine,exportDir,"cosineworks.tex");
-                new AnalysisByWork(base,cosine,exportDir,"cosineconcepts.tex");
+                new ListWorks(base,cosine,exportDir,"cosineworks.tex","Works Similar by Cosine Similarity");
+                new AnalysisByWork(base,cosine,exportDir,"cosineconcepts.tex","Features of Works Similar by Cosine Similarity");
+                new ListAcronyms(base,exportDir,"acronyms.tex");
+
 
 
                 new CreateSourceGroups(base,type);
@@ -199,6 +204,14 @@ public class JfxApp extends GeneratedJfxApp {
                         produce("publications",
                                 "Publication Report",
                                 authors);
+
+                //??? these require attributes set by Publication Report
+                new ListPapersByConferenceSeries(base,exportDir,"byseries.tex");
+                new ListArticlesByJournal(base,exportDir,"byjournal.tex");
+
+                new CitationGraph(base);
+                new DumpFeatures(base,dumpDir,"allconcepts.csv");
+
 
                 return base;
         }

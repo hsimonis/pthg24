@@ -6,6 +6,7 @@ import org.insightcentre.pthg24.datamodel.ApplicationDifference;
 import org.insightcentre.pthg24.datamodel.ApplicationWarning;
 import org.insightcentre.pthg24.datamodel.Scenario;
 import org.insightcentre.pthg24.datamodel.Concept;
+import org.insightcentre.pthg24.datamodel.Acronym;
 import org.insightcentre.pthg24.datamodel.Author;
 import org.insightcentre.pthg24.datamodel.Work;
 import org.insightcentre.pthg24.datamodel.Paper;
@@ -48,6 +49,7 @@ import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
 import org.insightcentre.pthg24.datamodel.WorkType;
 import org.insightcentre.pthg24.datamodel.ConceptType;
+import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 import java.util.*;
 import java.io.*;
@@ -137,6 +139,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
 */
 
     List<Concept> listConcept = new ArrayList<Concept>();
+
+/**
+ *  This lists holds all items of class Acronym and its subclasses
+ *
+*/
+
+    List<Acronym> listAcronym = new ArrayList<Acronym>();
 
 /**
  *  This lists holds all items of class Author and its subclasses
@@ -520,7 +529,8 @@ public int compareTo(ApplicationDataset ds2){
     }
 
     public List<String> getListOfClassNames(){
-        return Arrays.asList("Affiliation",
+        return Arrays.asList("Acronym",
+                             "Affiliation",
                              "ApplicationDifference",
                              "ApplicationWarning",
                              "Article",
@@ -617,6 +627,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListApplicationWarning();
         resetListApplicationDifference();
         resetListConcept();
+        resetListAcronym();
         resetListAuthor();
         resetListWork();
         resetListPaper();
@@ -786,6 +797,48 @@ public int compareTo(ApplicationDataset ds2){
         List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
         for(ApplicationObject a:listApplicationObject){
             if (!(a instanceof Concept)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+        resetListAcronym();
+    }
+
+/**
+ *  Iterator for list of class Acronym
+ *
+*/
+
+    public Iterator<Acronym> getIteratorAcronym(){
+        return listAcronym.iterator();
+    }
+
+/**
+ *  Getter for list of class Acronym
+ *
+*/
+
+    public List<Acronym> getListAcronym(){
+        return listAcronym;
+    }
+
+/**
+ *  reset the list of class Acronym; use with care, does not call cascades
+ *
+*/
+
+    public void resetListAcronym(){
+        listAcronym = new ArrayList<Acronym>();
+        List<Concept> newListConcept = new ArrayList<Concept>();
+        for(Concept a:listConcept){
+            if (!(a instanceof Acronym)){
+                newListConcept.add(a);
+            }
+        }
+       listConcept = newListConcept;
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Acronym)){
                 newListApplicationObject.add(a);
             }
         }
@@ -2980,6 +3033,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class Acronym
+ *
+*/
+
+    public void addAcronym(Acronym acronym){
+        assert acronym != null;
+        this.listAcronym.add(acronym);
+    }
+
+/**
+ *  remove an item from the list for class Acronym
+ *
+*/
+
+    public Boolean removeAcronym(Acronym acronym){
+        assert acronym != null;
+        return this.listAcronym.remove(acronym);
+    }
+
+/**
  *  add an item to the list for class Author
  *
 */
@@ -3725,6 +3798,9 @@ public int compareTo(ApplicationDataset ds2){
 */
 
     public void dump(){
+        for(Acronym x:getListAcronym()){
+            System.out.println(x);
+        }
         for(Affiliation x:getListAffiliation()){
             System.out.println(x);
         }
@@ -3877,6 +3953,9 @@ public int compareTo(ApplicationDataset ds2){
         out.println("<body xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"test.xsd\">");
         for(Scenario x:getListScenario()){
             if (x.getClass().equals(Scenario.class)) x.toXML(out);
+        }
+        for(Acronym x:getListAcronym()){
+            if (x.getClass().equals(Acronym.class)) x.toXML(out);
         }
         for(Affiliation x:getListAffiliation()){
             if (x.getClass().equals(Affiliation.class)) x.toXML(out);
@@ -4087,6 +4166,7 @@ public int compareTo(ApplicationDataset ds2){
     public void compare(ApplicationDatasetInterface c){
         ApplicationDataset compare = (ApplicationDataset) c;
         System.out.println("Comparing ApplicationDataset");
+        compareAcronym(this.getListAcronym(),compare.getListAcronym());
         compareAffiliation(this.getListAffiliation(),compare.getListAffiliation());
         compareApplicationWarning(this.getListApplicationWarning(),compare.getListApplicationWarning());
         compareArticle(this.getListArticle(),compare.getListArticle());
@@ -4125,6 +4205,30 @@ public int compareTo(ApplicationDataset ds2){
         compareUncategorizedReference(this.getListUncategorizedReference(),compare.getListUncategorizedReference());
         compareWorkAffiliation(this.getListWorkAffiliation(),compare.getListWorkAffiliation());
         System.out.println("Done Comparing ApplicationDataset");
+    }
+
+/**
+ * compare two lists of types Acronym, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareAcronym(List<Acronym> aList,List<Acronym> bList){
+        System.out.println("Comparing Acronym");
+        for(Acronym a:aList){
+            Acronym b= Acronym.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Acronym A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Acronym A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Acronym B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Acronym b: bList){
+            Acronym a = Acronym.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Acronym B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
     }
 
 /**
@@ -5021,6 +5125,7 @@ public int compareTo(ApplicationDataset ds2){
 */
 
     public void checkAll(){
+        checkAcronym(this.getListAcronym());
         checkAffiliation(this.getListAffiliation());
         checkApplicationWarning(this.getListApplicationWarning());
         checkArticle(this.getListArticle());
@@ -5059,6 +5164,17 @@ public int compareTo(ApplicationDataset ds2){
         checkSourceGroup(this.getListSourceGroup());
         checkUncategorizedReference(this.getListUncategorizedReference());
         checkWorkAffiliation(this.getListWorkAffiliation());
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<Acronym> dataset list of all items of type Acronym
+*/
+
+    public void checkAcronym(List<Acronym> list){
+        for(Acronym a:list){
+            a.check();
+        }
     }
 
 /**
@@ -5480,6 +5596,7 @@ public int compareTo(ApplicationDataset ds2){
     }
 
    public void generateDummies(){
+        Acronym.dummy(this);
         Affiliation.dummy(this);
         ApplicationDifference.dummy(this);
         ApplicationWarning.dummy(this);

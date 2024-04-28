@@ -1,4 +1,5 @@
  class MissingWork {
+String author
 Integer crossrefCitations
 Integer crossrefReferences
 String doi

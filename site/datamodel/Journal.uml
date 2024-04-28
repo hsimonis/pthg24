@@ -1,4 +1,6 @@
  class Journal {
+Boolean isBlocked
+String issn
 Integer nrArticles
 Integer nrBackgroundArticles
 Integer nrBackgroundCitations

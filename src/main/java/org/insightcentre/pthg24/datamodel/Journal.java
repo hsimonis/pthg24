@@ -6,6 +6,7 @@ import org.insightcentre.pthg24.datamodel.ApplicationDifference;
 import org.insightcentre.pthg24.datamodel.ApplicationWarning;
 import org.insightcentre.pthg24.datamodel.Scenario;
 import org.insightcentre.pthg24.datamodel.Concept;
+import org.insightcentre.pthg24.datamodel.Acronym;
 import org.insightcentre.pthg24.datamodel.Author;
 import org.insightcentre.pthg24.datamodel.Work;
 import org.insightcentre.pthg24.datamodel.Paper;
@@ -48,6 +49,7 @@ import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
 import org.insightcentre.pthg24.datamodel.WorkType;
 import org.insightcentre.pthg24.datamodel.ConceptType;
+import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 import java.util.*;
 import java.io.*;
@@ -64,6 +66,22 @@ import framework.AppearInCollection;
 */
 
 public  class Journal extends ApplicationObject{
+/**
+ *  
+ *
+*/
+
+    public Boolean isBlocked;
+
+    private transient BooleanProperty isBlockedWrapper;
+
+/**
+ *  
+ *
+*/
+
+    public String issn;
+
 /**
  *  
  *
@@ -118,6 +136,8 @@ public  class Journal extends ApplicationObject{
 
     public Journal(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setIsBlocked(false);
+        setIssn("");
         setNrArticles(0);
         setNrBackgroundArticles(0);
         setNrBackgroundCitations(0);
@@ -136,6 +156,8 @@ public  class Journal extends ApplicationObject{
     public Journal(ApplicationDataset applicationDataset,
             Integer id,
             String name,
+            Boolean isBlocked,
+            String issn,
             Integer nrArticles,
             Integer nrBackgroundArticles,
             Integer nrBackgroundCitations,
@@ -144,6 +166,8 @@ public  class Journal extends ApplicationObject{
         super(applicationDataset,
             id,
             name);
+        setIsBlocked(isBlocked);
+        setIssn(issn);
         setNrArticles(nrArticles);
         setNrBackgroundArticles(nrBackgroundArticles);
         setNrBackgroundCitations(nrBackgroundCitations);
@@ -156,6 +180,8 @@ public  class Journal extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
+            other.isBlocked,
+            other.issn,
             other.nrArticles,
             other.nrBackgroundArticles,
             other.nrBackgroundCitations,
@@ -174,6 +200,34 @@ public  class Journal extends ApplicationObject{
         getApplicationDataset().cascadeJournalAliasJournal(this);
         getApplicationDataset().cascadeArticleJournal(this);
         return getApplicationDataset().removeJournal(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  get attribute isBlocked
+ *
+ * @return Boolean
+*/
+
+    public Boolean getIsBlocked(){
+        return this.isBlocked;
+    }
+
+    public BooleanProperty isBlockedWrapperProperty() {
+        if (isBlockedWrapper == null) {
+            isBlockedWrapper = new SimpleBooleanProperty();
+        }
+        isBlockedWrapper.set(isBlocked);
+        return isBlockedWrapper;
+    }
+
+/**
+ *  get attribute issn
+ *
+ * @return String
+*/
+
+    public String getIssn(){
+        return this.issn;
     }
 
 /**
@@ -224,6 +278,30 @@ public  class Journal extends ApplicationObject{
 
     public String getShortName(){
         return this.shortName;
+    }
+
+/**
+ *  set attribute isBlocked, mark dataset as dirty, mark dataset as not valid
+@param isBlocked Boolean
+ *
+*/
+
+    public void setIsBlocked(Boolean isBlocked){
+        this.isBlocked = isBlocked;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute issn, mark dataset as dirty, mark dataset as not valid
+@param issn String
+ *
+*/
+
+    public void setIssn(String issn){
+        this.issn = issn;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -347,7 +425,7 @@ public  class Journal extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getNrArticles()+ " " +getNrBackgroundArticles()+ " " +getNrBackgroundCitations()+ " " +getNrCitations()+ " " +getShortName();
+        return ""+ " " +getId()+ " " +getName()+ " " +getIsBlocked()+ " " +getIssn()+ " " +getNrArticles()+ " " +getNrBackgroundArticles()+ " " +getNrBackgroundCitations()+ " " +getNrCitations()+ " " +getShortName();
     }
 
 /**
@@ -371,12 +449,34 @@ public  class Journal extends ApplicationObject{
          out.println("<journal "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
+            " isBlocked=\""+toXMLIsBlocked()+"\""+
+            " issn=\""+toXMLIssn()+"\""+
             " nrArticles=\""+toXMLNrArticles()+"\""+
             " nrBackgroundArticles=\""+toXMLNrBackgroundArticles()+"\""+
             " nrBackgroundCitations=\""+toXMLNrBackgroundCitations()+"\""+
             " nrCitations=\""+toXMLNrCitations()+"\""+
             " shortName=\""+toXMLShortName()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLIsBlocked(){
+        return this.getIsBlocked().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLIssn(){
+        return this.safeXML(getIssn());
+    }
 
 /**
  * helper method for toXML(), prcess one attribute
@@ -435,11 +535,11 @@ public  class Journal extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Journal</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>NrArticles</th>"+"<th>NrBackgroundArticles</th>"+"<th>NrCitations</th>"+"<th>NrBackgroundCitations</th>"+"</tr>";
+        return "<tr><th>Journal</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>Issn</th>"+"<th>NrArticles</th>"+"<th>NrBackgroundArticles</th>"+"<th>NrCitations</th>"+"<th>NrBackgroundCitations</th>"+"<th>IsBlocked</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getNrArticles()+"</td>"+ " " +"<td>"+getNrBackgroundArticles()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrBackgroundCitations()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getIssn()+"</td>"+ " " +"<td>"+getNrArticles()+"</td>"+ " " +"<td>"+getNrBackgroundArticles()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrBackgroundCitations()+"</td>"+ " " +"<td>"+getIsBlocked()+"</td>"+"</tr>";
     }
 
 /**
@@ -556,6 +656,12 @@ public  class Journal extends ApplicationObject{
 */
 
     public Boolean applicationEqual(Journal b){
+      if(!this.getIsBlocked().equals(b.getIsBlocked())){
+         System.out.println("IsBlocked");
+        }
+      if(!this.getIssn().equals(b.getIssn())){
+         System.out.println("Issn");
+        }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
@@ -574,7 +680,9 @@ public  class Journal extends ApplicationObject{
       if(!this.getShortName().equals(b.getShortName())){
          System.out.println("ShortName");
         }
-        return  this.getName().equals(b.getName()) &&
+        return  this.getIsBlocked().equals(b.getIsBlocked()) &&
+          this.getIssn().equals(b.getIssn()) &&
+          this.getName().equals(b.getName()) &&
           this.getNrArticles().equals(b.getNrArticles()) &&
           this.getNrBackgroundArticles().equals(b.getNrBackgroundArticles()) &&
           this.getNrBackgroundCitations().equals(b.getNrBackgroundCitations()) &&

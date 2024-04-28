@@ -21,6 +21,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.insightcentre.pthg24.controller.RootController;
+import org.insightcentre.pthg24.datamodel.Acronym;
 import org.insightcentre.pthg24.datamodel.Affiliation;
 import org.insightcentre.pthg24.datamodel.ApplicationDifference;
 import org.insightcentre.pthg24.datamodel.ApplicationWarning;
@@ -65,7 +66,7 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 20:45:31 on 2024-04-25 */
+ * Generated at 20:13:22 on 2024-04-28 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -84,6 +85,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	private ObservableList<ApplicationWarning> applicationWarningData = FXCollections.observableArrayList();
 
 	private ObservableList<Concept> conceptData = FXCollections.observableArrayList();
+
+	private ObservableList<Acronym> acronymData = FXCollections.observableArrayList();
 
 	private ObservableList<Author> authorData = FXCollections.observableArrayList();
 
@@ -164,6 +167,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		fs = minimalDataset();
 		reset();
 		tableViews.put("Concept", "Concept");
+		tableViews.put("Acronym", "Acronym");
 		tableViews.put("Author", "Author");
 		tableViews.put("Work", "Work");
 		tableViews.put("Paper", "Paper");
@@ -281,6 +285,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		applicationWarningData.addAll(base.getListApplicationWarning());
 		conceptData.clear();
 		conceptData.addAll(base.getListConcept());
+		acronymData.clear();
+		acronymData.addAll(base.getListAcronym());
 		authorData.clear();
 		authorData.addAll(base.getListAuthor());
 		workData.clear();
@@ -374,6 +380,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<Concept> getConceptData() {
 		return conceptData;
+	}
+
+	public ObservableList<Acronym> getAcronymData() {
+		return acronymData;
 	}
 
 	public ObservableList<Author> getAuthorData() {

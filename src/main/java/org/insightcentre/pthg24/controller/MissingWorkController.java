@@ -19,7 +19,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 
 /**
- * Generated at 20:45:32 on 2024-04-25 */
+ * Generated at 20:13:22 on 2024-04-28 */
 public class MissingWorkController extends Table3Controller {
 	@FXML
 	private TableView<MissingWork> table;
@@ -44,6 +44,9 @@ public class MissingWorkController extends Table3Controller {
 
 	@FXML
 	private TableColumn<MissingWork, Integer> year;
+
+	@FXML
+	private TableColumn<MissingWork, String> author;
 
 	@FXML
 	private TableColumn<MissingWork, String> title;
@@ -105,6 +108,10 @@ public class MissingWorkController extends Table3Controller {
 		year.setCellValueFactory(new PropertyValueFactory<>("year"));
 		year.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		year.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setYear(event.getNewValue()); mainApp.reset();});
+		choices.add("author");
+		author.setCellValueFactory(new PropertyValueFactory<>("author"));
+		author.setCellFactory(TextFieldTableCell.forTableColumn());
+		author.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAuthor(event.getNewValue()); mainApp.reset();});
 		choices.add("title");
 		title.setCellValueFactory(new PropertyValueFactory<>("title"));
 		title.setCellFactory(TextFieldTableCell.forTableColumn());

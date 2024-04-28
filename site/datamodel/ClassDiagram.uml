@@ -20,6 +20,7 @@ List<String> getListOfClassNames()
 interface ApplicationObjectComperator{
 int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 }
+!include Acronym.uml
 !include Affiliation.uml
 !include ApplicationDataset.uml
 !include ApplicationDifference.uml
@@ -68,10 +69,12 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include MatchLevel.uml
 !include WorkType.uml
 !include ConceptType.uml
+!include OpenAccessType.uml
 ApplicationObjectInterface <|-- ApplicationObject
 ApplicationDatasetInterface <|-- ApplicationDataset
 ApplicationObjectInterface <|-- ApplicationDatasetInterface
 ApplicationDataset <|-- Scenario
+Concept <|-- Acronym
 Work <|-- Paper
 Work <|-- Article
 Work <|-- PhDThesis

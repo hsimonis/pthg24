@@ -26,14 +26,20 @@ public class AnalysisByConcept {
                 out.printf("\\clearpage\n");
                 out.printf("\\subsection{Concept Type %s}\n",safe(type.toString()));
                 out.printf("\\label{sec:%s}\n",safe(type.toString()));
+                out.printf("\\label{%s}\n",safe(type.toString()));
                 out.printf("{\\scriptsize\n");
+                List<Concept> list = sortedConcepts(base, type);
+                int nrConcepts = (int) base.getListConcept().stream().filter(x->x.getConceptType()==type).count();
+                int usedConcepts = list.size();
                 out.printf("\\begin{longtable}{lp{3cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{8cm}}\n");
-                out.printf("\\rowcolor{white}\\caption{Works for Concepts of Type %s}\\\\ \\toprule\n",safe(type.toString()));
+                out.printf("\\rowcolor{white}\\caption{Works for Concepts of Type %s (Total %d Concepts, %d Used)}\\\\ \\toprule\n",safe(type.toString()),nrConcepts,usedConcepts);
                 out.printf("\\rowcolor{white}Type & Keyword & High & Medium & Low\\\\ \\midrule");
                 out.printf("\\endhead\n");
                 out.printf("\\bottomrule\n");
                 out.printf("\\endfoot\n");
-                for (Concept c : sortedConcepts(base, type)) {
+                for (Concept c : list) {
+                    out.printf("\\index{%s}",safer(safe(c.getName())));
+                    out.printf("\\index{%s!%s}",safe(type.toString()), safer(safe(c.getName())));
                     out.printf("%s & %s", safe(type.toString()), safer(safe(c.getName())));
                     out.printf(" & %s", concepts(base, c, Strong));
                     out.printf(" & %s", concepts(base, c, Medium));

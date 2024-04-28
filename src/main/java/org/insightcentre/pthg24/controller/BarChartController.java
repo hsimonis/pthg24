@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 20:45:32 on 2024-04-25 */
+ * Generated at 20:13:23 on 2024-04-28 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -26,12 +26,19 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrOccurrences");
 		choicesMap.put("Concept", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("revision");
+		attributeNames.add("nrOccurrences");
+		choicesMap.put("Acronym", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nrWorks");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrBackgroundWorks");
 		attributeNames.add("nrBackgroundCitations");
 		choicesMap.put("Author", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nr");
+		attributeNames.add("nrEdges");
+		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
@@ -40,6 +47,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		attributeNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -49,6 +58,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("rangeCitations");
 		choicesMap.put("Work", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nr");
+		attributeNames.add("nrEdges");
+		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
@@ -57,6 +69,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		attributeNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -66,6 +80,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("rangeCitations");
 		choicesMap.put("Paper", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nr");
+		attributeNames.add("nrEdges");
+		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
@@ -74,6 +91,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		attributeNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -83,6 +102,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("rangeCitations");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nr");
+		attributeNames.add("nrEdges");
+		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
@@ -91,6 +113,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		attributeNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -100,6 +124,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("rangeCitations");
 		choicesMap.put("PhDThesis", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nr");
+		attributeNames.add("nrEdges");
+		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
@@ -108,6 +135,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		attributeNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -117,6 +146,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("rangeCitations");
 		choicesMap.put("InCollection", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nr");
+		attributeNames.add("nrEdges");
+		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
@@ -125,6 +157,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		attributeNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -134,6 +168,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("rangeCitations");
 		choicesMap.put("InBook", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nr");
+		attributeNames.add("nrEdges");
+		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
 		attributeNames.add("nrLinks");
@@ -142,6 +179,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrReferences");
 		attributeNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		attributeNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
 		attributeNames.add("nrReferencesCovered");
@@ -281,6 +320,9 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("Concept")) {
 				objectList = mainApp.getConceptData();
+			}
+			else if (className.equals("Acronym")) {
+				objectList = mainApp.getAcronymData();
 			}
 			else if (className.equals("Author")) {
 				objectList = mainApp.getAuthorData();

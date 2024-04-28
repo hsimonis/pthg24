@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 20:45:32 on 2024-04-25-->
+<!--Generated at 20:13:23 on 2024-04-28-->
 
 
 <Tab text="Article" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.ArticleController">
@@ -19,12 +19,16 @@
          <TableView fx:id="table" editable="true">
             <columns>
                <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
+               <TableColumn fx:id="nr" styleClass="right-aligned" text="Nr" />
+               <TableColumn fx:id="nrEdges" styleClass="right-aligned" text="NrEdges" />
+               <TableColumn fx:id="cluster" styleClass="right-aligned" text="Cluster" />
                <TableColumn fx:id="key" styleClass="right-aligned" text="Key" />
                <TableColumn fx:id="author" styleClass="right-aligned" text="Author" />
                <TableColumn fx:id="authors" styleClass="right-aligned" text="Authors" />
                <TableColumn fx:id="title" styleClass="right-aligned" text="Title" />
                <TableColumn fx:id="url" styleClass="right-aligned" text="Url" />
                <TableColumn fx:id="doi" styleClass="right-aligned" text="Doi" />
+               <TableColumn fx:id="issn" styleClass="right-aligned" text="Issn" />
                <TableColumn fx:id="localCopy" styleClass="right-aligned" text="LocalCopy" />
                <TableColumn fx:id="year" styleClass="right-aligned" text="Year" />
                <TableColumn fx:id="pages" styleClass="right-aligned" text="Pages" />
@@ -39,11 +43,15 @@
                <TableColumn fx:id="classification" styleClass="right-aligned" text="Classification" />
                <TableColumn fx:id="constraints" styleClass="right-aligned" text="Constraints" />
                <TableColumn fx:id="relatedTo" styleClass="right-aligned" text="RelatedTo" />
+               <TableColumn fx:id="openAccess" styleClass="right-aligned" text="OpenAccess" />
+               <TableColumn fx:id="openAccessType" styleClass="right-aligned" text="OpenAccessType" />
                <TableColumn fx:id="nrConcepts" styleClass="right-aligned" text="NrConcepts" />
                <TableColumn fx:id="nrCitations" styleClass="right-aligned" text="NrCitations" />
                <TableColumn fx:id="nrReferences" styleClass="right-aligned" text="NrReferences" />
                <TableColumn fx:id="crossrefCitations" styleClass="right-aligned" text="CrossrefCitations" />
                <TableColumn fx:id="crossrefReferences" styleClass="right-aligned" text="CrossrefReferences" />
+               <TableColumn fx:id="wosCitations" styleClass="right-aligned" text="WosCitations" />
+               <TableColumn fx:id="wosReferences" styleClass="right-aligned" text="WosReferences" />
                <TableColumn fx:id="scopusCitations" styleClass="right-aligned" text="ScopusCitations" />
                <TableColumn fx:id="nrCitationsCovered" styleClass="right-aligned" text="NrCitationsCovered" />
                <TableColumn fx:id="nrReferencesCovered" styleClass="right-aligned" text="NrReferencesCovered" />
@@ -54,6 +62,7 @@
                <TableColumn fx:id="doiStatus" styleClass="right-aligned" text="DoiStatus" />
                <TableColumn fx:id="crossrefStatus" styleClass="right-aligned" text="CrossrefStatus" />
                <TableColumn fx:id="scopusStatus" styleClass="right-aligned" text="ScopusStatus" />
+               <TableColumn fx:id="wosStatus" styleClass="right-aligned" text="WosStatus" />
                <TableColumn fx:id="journal" styleClass="right-aligned" text="Journal" />
             </columns>
          </TableView>

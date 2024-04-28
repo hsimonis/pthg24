@@ -1,15 +1,18 @@
 [
-{"journal":"Constraints An Int. J.","alias":"Constraints"},
-{"journal":"European Journal of Operational Research","alias":"Eur. J. Oper. Res."},
-{"journal":"INFORMS Journal on Computing","alias":"{INFORMS} J. Comput."},
-{"journal":"Annals of Operations Research","alias":"Ann. Oper. Res."},
-{"journal":"Computers \\& Industrial Engineering","alias":"Comput. Ind. Eng."},
-{"journal":"Artificial Intelligence","alias":"Artif. Intell."},
-{"journal":"Computers \\& Chemical Engineering","alias":"Comput. Chem. Eng."},
-{"journal":"Computers \\& Industrial Engineering","alias":"Comput. Ind. Eng."},
-{"journal":"Computers \\& Operations Research","alias":"Comput. Oper. Res."},
-{"journal":"International Journal of Production Research","alias":"Int. J. Prod. Res."},
-{"journal":"Journal of Scheduling","alias":"J. Sched."},
-{"journal":"Journal of Intelligent Manufacturing","alias":"J. Intell. Manuf."},
-{"journal":"Journal of the Operational Research Society","alias":"J. Oper. Res. Soc."}
+{"journal":"Constraints An Int. J.","alias":"Constraints","issn":"1383-7133"},
+{"journal":"European Journal of Operational Research","alias":"Eur. J. Oper. Res.","issn":"0377-2217"},
+{"journal":"INFORMS Journal on Computing","alias":"{INFORMS} J. Comput.","issn":"1091-9856"},
+{"journal":"Annals of Operations Research","alias":"Ann. Oper. Res.","issn":"0254-5330"},
+{"journal":"Artificial Intelligence","alias":"Artif. Intell.","issn":"0004-3702"},
+{"journal":"Computers \\& Chemical Engineering","alias":"Comput. Chem. Eng.","issn":"0098-1354"},
+{"journal":"Computers \\& Industrial Engineering","alias":"Comput. Ind. Eng.","issn":"0360-8352"},
+{"journal":"Computers \\& Operations Research","alias":"Comput. Oper. Res.","issn":"0305-0548"},
+{"journal":"International Journal of Production Research","alias":"Int. J. Prod. Res.","issn":"0020-7543"},
+{"journal":"Journal of Scheduling","alias":"J. Sched.","issn":"1094-6136"},
+{"journal":"Journal of Intelligent Manufacturing","alias":"J. Intell. Manuf.","issn":"0956-5515"},
+{"journal":"Journal of the Operational Research Society","alias":"J. Oper. Res. Soc.","issn":"0160-5682"},
+{"journal":"Discrete Applied Mathematics","alias":"Discret. Appl. Math.","issn":"0166-218X"},
+{"journal":"Expert Systems with Applications","alias":"Expert Syst. Appl.","issn":"0957-4174"},
+{"journal":"Soft Computing","alias":"Soft Comput.","issn":"1433-7479"}
+
 ]

@@ -158,13 +158,50 @@ public class ImportScopus {
                         wa.setScopusAffiliation(affil);
                     }
                 }
+                NodeList authors = doc.getElementsByTagName("author");
+                for(int i=0;i<authors.getLength();i++){
+                    Node author = authors.item(i);
+                    NodeList fields = author.getChildNodes();
+                    String surname;
+                    String givenName;
+                    for(int j=0;j<fields.getLength();j++){
+                        Node field = fields.item(j);
+                        switch(field.getNodeName()){
+                            case "ce:surname":
+                                surname = field.getTextContent();
+                                break;
+                            case "ce:given-name":
+                                givenName = field.getTextContent();
+                                break;
+                            default:
+                                info("other name field "+field.getNodeName());
+                        }
+                    }
 
+                }
+                NodeList openaccess = doc.getElementsByTagName("openaccess");
+                for(int i=0;i<openaccess.getLength();i++) {
+                    Node oa = openaccess.item(i);
+                    w.setOpenAccess(oa.getTextContent());
+                    w.setOpenAccessType(toOpenAccessType(oa.getTextContent()));
+                }
 
             }
         } catch(Exception e){
             severe("Cannot parse XML for "+w.getKey()+" "+e.getMessage());
         }
 
+     }
+
+     private OpenAccessType toOpenAccessType(String t){
+        switch(t){
+            case "0": return OpenAccessType.Closed;
+            case "1": return OpenAccessType.Gold;
+            case "2": return OpenAccessType.Green;
+            default:
+                info("Unknown Access Type "+t);
+                return OpenAccessType.Unknown;
+        }
      }
 
      private ScopusAffiliation lookupAffiliation(String inst,String city,String country){

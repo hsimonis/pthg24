@@ -3,6 +3,7 @@
 	<xs:element name="body">
 		<xs:complexType>
 			<xs:sequence>
+				<xs:element ref="acronym" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="affiliation" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="applicationDifference" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="applicationWarning" minOccurs="0" maxOccurs="unbounded"/>
@@ -45,6 +46,20 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="acronym">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="caseSensitive" use="required" type="xs:boolean"/>
+			<xs:attribute name="conceptType" use="required" type="xs:string"/>
+			<xs:attribute name="label" use="required" type="xs:string"/>
+			<xs:attribute name="nrOccurrences" use="required" type="xs:integer"/>
+			<xs:attribute name="regExpr" use="required" type="xs:string"/>
+			<xs:attribute name="revision" use="required" type="xs:integer"/>
+			<xs:attribute name="description" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="affiliation">
 		<xs:complexType>
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
@@ -84,6 +99,7 @@
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
+			<xs:attribute name="cluster" use="required" type="xs:integer"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
@@ -93,16 +109,21 @@
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="nr" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
 			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
+			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferencesCovered" use="required" type="xs:integer"/>
+			<xs:attribute name="openAccess" use="required" type="xs:string"/>
+			<xs:attribute name="openAccessType" use="required" type="xs:string"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
@@ -114,6 +135,9 @@
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="wosStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
 			<xs:attribute name="journal" use="required" type="xs:IDREF"/>
 		</xs:complexType>
@@ -156,6 +180,7 @@
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
+			<xs:attribute name="cluster" use="required" type="xs:integer"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
@@ -165,16 +190,21 @@
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="nr" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
 			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
+			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferencesCovered" use="required" type="xs:integer"/>
+			<xs:attribute name="openAccess" use="required" type="xs:string"/>
+			<xs:attribute name="openAccessType" use="required" type="xs:string"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
@@ -186,6 +216,9 @@
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="wosStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
 		</xs:complexType>
 	</xs:element>
@@ -308,6 +341,7 @@
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
+			<xs:attribute name="cluster" use="required" type="xs:integer"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
@@ -317,16 +351,21 @@
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="nr" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
 			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
+			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferencesCovered" use="required" type="xs:integer"/>
+			<xs:attribute name="openAccess" use="required" type="xs:string"/>
+			<xs:attribute name="openAccessType" use="required" type="xs:string"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
@@ -338,6 +377,9 @@
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="wosStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
 			<xs:attribute name="booktitle" use="required" type="xs:string"/>
 		</xs:complexType>
@@ -351,6 +393,7 @@
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
+			<xs:attribute name="cluster" use="required" type="xs:integer"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
@@ -360,16 +403,21 @@
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="nr" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
 			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
+			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferencesCovered" use="required" type="xs:integer"/>
+			<xs:attribute name="openAccess" use="required" type="xs:string"/>
+			<xs:attribute name="openAccessType" use="required" type="xs:string"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
@@ -381,6 +429,9 @@
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="wosStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
 			<xs:attribute name="collection" use="required" type="xs:IDREF"/>
 		</xs:complexType>
@@ -390,6 +441,8 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="isBlocked" use="required" type="xs:boolean"/>
+			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="nrArticles" use="required" type="xs:integer"/>
 			<xs:attribute name="nrBackgroundArticles" use="required" type="xs:integer"/>
 			<xs:attribute name="nrBackgroundCitations" use="required" type="xs:integer"/>
@@ -446,6 +499,7 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
@@ -476,6 +530,7 @@
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
+			<xs:attribute name="cluster" use="required" type="xs:integer"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
@@ -485,16 +540,21 @@
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="nr" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
 			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
+			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferencesCovered" use="required" type="xs:integer"/>
+			<xs:attribute name="openAccess" use="required" type="xs:string"/>
+			<xs:attribute name="openAccessType" use="required" type="xs:string"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
@@ -506,6 +566,9 @@
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="wosStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
 			<xs:attribute name="proceedings" use="required" type="xs:IDREF"/>
 		</xs:complexType>
@@ -519,6 +582,7 @@
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
+			<xs:attribute name="cluster" use="required" type="xs:integer"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
@@ -528,16 +592,21 @@
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="nr" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
 			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
+			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferencesCovered" use="required" type="xs:integer"/>
+			<xs:attribute name="openAccess" use="required" type="xs:string"/>
+			<xs:attribute name="openAccessType" use="required" type="xs:string"/>
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
@@ -549,6 +618,9 @@
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
+			<xs:attribute name="wosStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
 			<xs:attribute name="school" use="required" type="xs:IDREF"/>
 		</xs:complexType>

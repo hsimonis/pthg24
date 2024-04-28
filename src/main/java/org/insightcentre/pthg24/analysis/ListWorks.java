@@ -18,8 +18,8 @@ import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListWorks {
 
-    public ListWorks(PrintWriter out, Scenario base,List<Work> works,boolean showLabel){
-        showTable(out,base,works,showLabel);
+    public ListWorks(PrintWriter out, Scenario base,List<Work> works,boolean showLabel,String caption){
+        showTable(out,base,works,showLabel,caption);
     }
     public ListWorks(Scenario base, WorkType type, String exportDir, String fileName){
         assert(exportDir.endsWith("/"));
@@ -27,47 +27,51 @@ public class ListWorks {
         try{
             PrintWriter out = new PrintWriter(fullName);
             List<Work> works = sortedWorks(base,type);
-            showTable(out,base,works,true);
-            out.close();
-        } catch(IOException e){
-            severe("Cannot write file: "+fullName+", exception "+e.getMessage());
-        }
-    }
-    public ListWorks(Scenario base, List<Work> works, String exportDir, String fileName){
-        assert(exportDir.endsWith("/"));
-        String fullName= exportDir+fileName;
-        try{
-            PrintWriter out = new PrintWriter(fullName);
-            showTable(out,base,works,false);
+            showTable(out,base,works,true,typeCaption(type));
             out.close();
         } catch(IOException e){
             severe("Cannot write file: "+fullName+", exception "+e.getMessage());
         }
     }
 
-    private void showTable(PrintWriter out,Scenario base,List<Work> works,boolean showLabel){
+    private String typeCaption(WorkType type){
+        return type.toString();
+    }
+    public ListWorks(Scenario base, List<Work> works, String exportDir, String fileName,String caption){
+        assert(exportDir.endsWith("/"));
+        String fullName= exportDir+fileName;
+        try{
+            PrintWriter out = new PrintWriter(fullName);
+            showTable(out,base,works,false,caption);
+            out.close();
+        } catch(IOException e){
+            severe("Cannot write file: "+fullName+", exception "+e.getMessage());
+        }
+    }
+
+    private void showTable(PrintWriter out,Scenario base,List<Work> works,boolean showLabel,String caption){
         out.printf("{\\scriptsize\n");
-        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{6.5cm}rrrp{2.5cm}rrrrr}\n");
-        out.printf("\\rowcolor{white}\\caption{Works from bibtex (Total %d)}\\\\ \\toprule\n",works.size());
-        out.printf("\\rowcolor{white}\\shortstack{Key\\\\Source} & Authors & Title & LC & Cite & Year & " +
-                "\\shortstack{Conference\\\\/Journal\\\\/School} & Pages & \\shortstack{Nr\\\\Cites} & " +
-                "\\shortstack{Nr\\\\Refs} & b & c \\\\ \\midrule");
+        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}>{\\raggedright\\arraybackslash}p{4.5cm}>{\\raggedright\\arraybackslash}p{6.0cm}rrrp{2.5cm}rp{1cm}p{1cm}rr}\n");
+        out.printf("\\rowcolor{white}\\caption{%s (Total %d)}\\\\ \\toprule\n",safe(caption),works.size());
+        out.printf("\\rowcolor{white}\\shortstack{Key\\\\Source} & Authors & Title (Colored by Open Access)& LC & Cite & Year & " +
+                "\\shortstack{Conference\\\\/Journal\\\\/School} & Pages & \\shortstack{Cites\\\\OC XR\\\\SC} & " +
+                "\\shortstack{Refs\\\\OC\\\\XR} & b & c \\\\ \\midrule");
         out.printf("\\endhead\n");
         out.printf("\\bottomrule\n");
         out.printf("\\endfoot\n");
         for(Work a:works){
-            out.printf("%s%s \\href{%s}{%s} & %s & %s & %s & \\cite{%s} & %d & %s & %d & %d & %d & %s & %s",
-                    rowLabel("a:"+a.getName(),showLabel),
+            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %d & %s & %s & %s & %s",
+                    rowLabel(a,"a:"+a.getName(),showLabel),
                     a.getKey(),a.getUrl(),a.getKey(),
                     authors(a),
-                    safe(a.getTitle()),
+                    openAccessHighlight(a),safe(a.getTitle()),
                     (localCopyExists1(a)?"\\href{"+local(a.getLocalCopy())+"}{Yes}":"No"),
                     a.getName(),
                     a.getYear(),
                     confOrJournal(a),
                     a.getNrPages(),
-                    a.getNrCitations(),
-                    a.getNrReferences(),
+                    citations(a),
+                    references(a),
                     bLabelRef(a),
                     cLabelRef(base,a));
             out.printf("\\\\\n");
@@ -77,9 +81,33 @@ public class ListWorks {
 
     }
 
-    private String rowLabel(String label,boolean showLabel){
+    public static String openAccessHighlight(Work w){
+        if (w.getOpenAccessType()==OpenAccessType.Gold){
+            return "\\cellcolor{gold!20}";
+        }
+        if (w.getOpenAccessType()==OpenAccessType.Green){
+            return "\\cellcolor{green!10}";
+        }
+        //??? should the closed version be highlighted
+//        if (w.getOpenAccessType()==OpenAccessType.Closed){
+//            return "\\cellcolor{black!20}";
+//        }
+        return "";
+    }
+
+    private String citations(Work a){
+        return String.format("%d %d %d",a.getNrCitations(),a.getCrossrefCitations(),a.getScopusCitations());
+//        return String.format("\\shortstack[r]{%d\\\\%d\\\\%d}",a.getNrCitations(),a.getCrossrefCitations(),a.getScopusCitations());
+    }
+
+    private String references(Work a){
+        return String.format("%d %d",a.getNrReferences(),a.getCrossrefReferences());
+//        return String.format("\\shortstack[r]{%d\\\\%d}",a.getNrReferences(),a.getCrossrefReferences());
+    }
+
+    private String rowLabel(Work w,String label,boolean showLabel){
         if (showLabel){
-            return "\\rowlabel{"+label+"}";
+            return String.format("\\index{%s}\\rowlabel{%s}",w.getKey(),label);
         }
         return "";
     }
@@ -110,7 +138,8 @@ public class ListWorks {
         if (w instanceof Paper){
             return shortProc(((Paper)w).getProceedings());
         } else if (w instanceof Article){
-            return nameOf(((Article)w).getJournal());
+            Journal j = ((Article)w).getJournal();
+            return (j.getIsBlocked()?"\\cellcolor{red!20}":"")+nameOf(j);
         } else if (w instanceof InCollection){
             return nameOf(((InCollection)w).getCollection());
         } else if (w instanceof InBook){

@@ -26,18 +26,28 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.Callback;
 import org.insightcentre.pthg24.GeneratedJfxApp;
+import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 20:45:32 on 2024-04-25 */
+ * Generated at 20:13:22 on 2024-04-28 */
 public class PaperController extends Table3Controller {
 	@FXML
 	private TableView<Paper> table;
 
 	@FXML
 	private TableColumn<Paper, String> name;
+
+	@FXML
+	private TableColumn<Paper, Integer> nr;
+
+	@FXML
+	private TableColumn<Paper, Integer> nrEdges;
+
+	@FXML
+	private TableColumn<Paper, Integer> cluster;
 
 	@FXML
 	private TableColumn<Paper, String> key;
@@ -56,6 +66,9 @@ public class PaperController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Paper, String> doi;
+
+	@FXML
+	private TableColumn<Paper, String> issn;
 
 	@FXML
 	private TableColumn<Paper, String> localCopy;
@@ -100,6 +113,12 @@ public class PaperController extends Table3Controller {
 	private TableColumn<Paper, String> relatedTo;
 
 	@FXML
+	private TableColumn<Paper, String> openAccess;
+
+	@FXML
+	private TableColumn<Paper, OpenAccessType> openAccessType;
+
+	@FXML
 	private TableColumn<Paper, Integer> nrConcepts;
 
 	@FXML
@@ -113,6 +132,12 @@ public class PaperController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Paper, Integer> crossrefReferences;
+
+	@FXML
+	private TableColumn<Paper, Integer> wosCitations;
+
+	@FXML
+	private TableColumn<Paper, Integer> wosReferences;
 
 	@FXML
 	private TableColumn<Paper, Integer> scopusCitations;
@@ -145,6 +170,9 @@ public class PaperController extends Table3Controller {
 	private TableColumn<Paper, Boolean> scopusStatus;
 
 	@FXML
+	private TableColumn<Paper, Boolean> wosStatus;
+
+	@FXML
 	private TableColumn<Paper, Proceedings> proceedings;
 
 	private GeneratedJfxApp mainApp;
@@ -155,6 +183,9 @@ public class PaperController extends Table3Controller {
 		table.setItems(mainApp.getPaperData());
 		sourceGroup.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getSourceGroupData()));
 		sourceGroup.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSourceGroup(event.getNewValue()); mainApp.reset();});
+		ObservableList<OpenAccessType> openAccessTypeValues = FXCollections.observableArrayList(OpenAccessType.values());
+		openAccessType.setCellFactory(ComboBoxTableCell.forTableColumn(openAccessTypeValues));
+		openAccessType.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setOpenAccessType(event.getNewValue()); mainApp.reset();});
 		proceedings.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getProceedingsData()));
 		proceedings.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setProceedings(event.getNewValue()); mainApp.reset();});
 	}
@@ -172,6 +203,18 @@ public class PaperController extends Table3Controller {
 		name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		name.setCellFactory(TextFieldTableCell.forTableColumn());
 		name.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setName(event.getNewValue()); mainApp.reset();});
+		choices.add("nr");
+		nr.setCellValueFactory(new PropertyValueFactory<>("nr"));
+		nr.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nr.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNr(event.getNewValue()); mainApp.reset();});
+		choices.add("nrEdges");
+		nrEdges.setCellValueFactory(new PropertyValueFactory<>("nrEdges"));
+		nrEdges.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrEdges.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrEdges(event.getNewValue()); mainApp.reset();});
+		choices.add("cluster");
+		cluster.setCellValueFactory(new PropertyValueFactory<>("cluster"));
+		cluster.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		cluster.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCluster(event.getNewValue()); mainApp.reset();});
 		choices.add("key");
 		key.setCellValueFactory(new PropertyValueFactory<>("key"));
 		key.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -194,6 +237,10 @@ public class PaperController extends Table3Controller {
 		doi.setCellValueFactory(new PropertyValueFactory<>("doi"));
 		doi.setCellFactory(TextFieldTableCell.forTableColumn());
 		doi.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setDoi(event.getNewValue()); mainApp.reset();});
+		choices.add("issn");
+		issn.setCellValueFactory(new PropertyValueFactory<>("issn"));
+		issn.setCellFactory(TextFieldTableCell.forTableColumn());
+		issn.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setIssn(event.getNewValue()); mainApp.reset();});
 		choices.add("localCopy");
 		localCopy.setCellValueFactory(new PropertyValueFactory<>("localCopy"));
 		localCopy.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -247,6 +294,12 @@ public class PaperController extends Table3Controller {
 		relatedTo.setCellValueFactory(new PropertyValueFactory<>("relatedTo"));
 		relatedTo.setCellFactory(TextFieldTableCell.forTableColumn());
 		relatedTo.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRelatedTo(event.getNewValue()); mainApp.reset();});
+		choices.add("openAccess");
+		openAccess.setCellValueFactory(new PropertyValueFactory<>("openAccess"));
+		openAccess.setCellFactory(TextFieldTableCell.forTableColumn());
+		openAccess.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setOpenAccess(event.getNewValue()); mainApp.reset();});
+		choices.add("openAccessType");
+		openAccessType.setCellValueFactory(new PropertyValueFactory<>("openAccessType"));
 		choices.add("nrConcepts");
 		nrConcepts.setCellValueFactory(new PropertyValueFactory<>("nrConcepts"));
 		nrConcepts.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
@@ -267,6 +320,14 @@ public class PaperController extends Table3Controller {
 		crossrefReferences.setCellValueFactory(new PropertyValueFactory<>("crossrefReferences"));
 		crossrefReferences.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		crossrefReferences.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCrossrefReferences(event.getNewValue()); mainApp.reset();});
+		choices.add("wosCitations");
+		wosCitations.setCellValueFactory(new PropertyValueFactory<>("wosCitations"));
+		wosCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		wosCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setWosCitations(event.getNewValue()); mainApp.reset();});
+		choices.add("wosReferences");
+		wosReferences.setCellValueFactory(new PropertyValueFactory<>("wosReferences"));
+		wosReferences.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		wosReferences.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setWosReferences(event.getNewValue()); mainApp.reset();});
 		choices.add("scopusCitations");
 		scopusCitations.setCellValueFactory(new PropertyValueFactory<>("scopusCitations"));
 		scopusCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
@@ -304,6 +365,9 @@ public class PaperController extends Table3Controller {
 		choices.add("scopusStatus");
 		scopusStatus.setCellValueFactory(new ScopusStatusCallback());
 		scopusStatus.setCellFactory(CheckBoxTableCell.forTableColumn(scopusStatus));
+		choices.add("wosStatus");
+		wosStatus.setCellValueFactory(new WosStatusCallback());
+		wosStatus.setCellFactory(CheckBoxTableCell.forTableColumn(wosStatus));
 		choices.add("proceedings");
 		proceedings.setCellValueFactory(new PropertyValueFactory<>("proceedings"));
 		initialize(choices);
@@ -416,6 +480,21 @@ public class PaperController extends Table3Controller {
 				@SuppressWarnings("rawtypes")
 				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
 					cellData.getValue().setScopusStatus(newValue);
+				}
+			});
+			return prop;
+		}
+	}
+
+	class WosStatusCallback implements Callback<TableColumn.CellDataFeatures<Paper, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Paper, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().wosStatusWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setWosStatus(newValue);
 				}
 			});
 			return prop;

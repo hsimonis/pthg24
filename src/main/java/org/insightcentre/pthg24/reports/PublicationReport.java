@@ -33,6 +33,12 @@ public class PublicationReport extends AbstractReport{
     public void content(){
         tex.printf("%s\n\n",defineColors());
 
+        section("Introduction");
+
+        paragraph("This report is a companion document to the main report generated for the extracted " +
+                "information used in the survey of CP and Scheduling. This document is concerned with some of the " +
+                "summary statistics, and with data quality issues that nre highlighted for correction by the authors.");
+
         section("Data Quality");
         dataQuality();
 
@@ -49,11 +55,11 @@ public class PublicationReport extends AbstractReport{
 
         clearpage();
         section("Conference Papers by Most Common Conference Series");
-        bySeries(base.getListPaper().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
+        bySeries(base.getListPaper(),1);
 
         clearpage();
         section("Journal Articles by Most Common Journals");
-        byJournal(base.getListArticle().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
+        byJournal(base.getListArticle(),2);
 
         clearpage();
         section("Works by Year");
@@ -219,61 +225,66 @@ public class PublicationReport extends AbstractReport{
     }
 
 
-    private void bySeries(List<Paper> work){
+    private void bySeries(List<Paper> work,int limit){
         Map<ConferenceSeries,List<Paper>> map = work.stream().
                 collect(groupingBy(x->x.getProceedings().getConferenceSeries()));
         for(ConferenceSeries series:map.keySet()){
-            series.setNrPapers(map.get(series).size());
-            series.setNrCitations(map.get(series).stream().mapToInt(Work::getNrCitations).sum());
+            //??? should we be doing this here, move to earlier stage of processing
+            series.setNrPapers((int) map.get(series).stream().filter(x->!x.getBackground()).count());
+            series.setNrCitations((int) map.get(series).stream().filter(x->!x.getBackground()).mapToInt(Work::getNrCitations).sum());
+            series.setNrBackgroundPapers((int) map.get(series).stream().filter(Work::getBackground).count());
+            series.setNrBackgroundCitations(map.get(series).stream().filter(Work::getBackground).mapToInt(Work::getNrCitations).sum());
         }
-        new BarPlot<>(base.getListConferenceSeries().stream().filter(x -> x.getNrPapers() > 1).toList(),
+        new BarPlot<>(base.getListConferenceSeries().stream().filter(x -> x.getNrPapers() > limit).toList(),
                 this::nameOf,
                 ConferenceSeries::getNrPapers).
                 width(20).height(10).
-                title("Conference Paper Count by Conference Series (Count > 1)").
+                title("Conference Paper Count by Conference Series (Count > "+limit+")").
                 xlabel("Conference Series").ylabel("Paper Count").
                 generate().latex(tex);
-        new BarPlot<>(base.getListConferenceSeries().stream().filter(x -> x.getNrPapers() > 1).toList(),
+        new BarPlot<>(base.getListConferenceSeries().stream().filter(x -> x.getNrPapers() > limit).toList(),
                 this::nameOf,
                 ConferenceSeries::getNrCitations).
                 width(20).height(10).
-                title("Citation Count by Conference Series (Paper Count > 1)").
+                title("Citation Count by Conference Series (Paper Count > "+limit+")").
                 xlabel("Conference Series").ylabel("Citation Count").
                 generate().latex(tex);
-        new BarPlot<>(base.getListConferenceSeries().stream().filter(x -> x.getNrPapers() > 1).toList(),
+        new BarPlot<>(base.getListConferenceSeries().stream().filter(x -> x.getNrPapers() > limit).toList(),
                 this::nameOf,
                 x->1.0*x.getNrCitations()/x.getNrPapers()).
                 width(20).height(10).
-                title("Average Citation Count per Paper by Conference Series (Paper Count > 1)").
+                title("Average Citation Count per Paper by Conference Series (Paper Count > "+limit+")").
                 xlabel("Conference Series").ylabel("Average Citation Count").
                 generate().latex(tex);
 
     }
-    private void byJournal(List<Article> work){
+    private void byJournal(List<Article> work,int limit){
         Map<Journal,List<Article>> map = work.stream().collect(groupingBy(Article::getJournal));
         for(Journal j:map.keySet()){
-            j.setNrArticles(map.get(j).size());
-            j.setNrCitations(map.get(j).stream().mapToInt(Work::getNrCitations).sum());
+            j.setNrArticles((int) map.get(j).stream().filter(x->!x.getBackground()).count());
+            j.setNrCitations(map.get(j).stream().filter(x->!x.getBackground()).mapToInt(Work::getNrCitations).sum());
+            j.setNrBackgroundArticles((int) map.get(j).stream().filter(Work::getBackground).count());
+            j.setNrBackgroundCitations(map.get(j).stream().filter(Work::getBackground).mapToInt(Work::getNrCitations).sum());
         }
-        new BarPlot<>(base.getListJournal().stream().filter(x -> x.getNrArticles() > 1).toList(),
+        new BarPlot<>(base.getListJournal().stream().filter(x -> x.getNrArticles() > limit).toList(),
                 this::nameOf,
                 Journal::getNrArticles).
                 width(22).height(10).
-                title("Article Count by Journal (Count > 1)").
+                title("Article Count by Journal (Count > "+limit+")").
                 xlabel("Journal").ylabel("Article Count").
                 generate().latex(tex);
-        new BarPlot<>(base.getListJournal().stream().filter(x -> x.getNrArticles() > 1).toList(),
+        new BarPlot<>(base.getListJournal().stream().filter(x -> x.getNrArticles() > limit).toList(),
                 this::nameOf,
                 Journal::getNrCitations).
                 width(22).height(10).
-                title("Citation Count by Journal (Article Count > 1)").
+                title("Citation Count by Journal (Article Count > "+limit+")").
                 xlabel("Journal").ylabel("Citation Count").
                 generate().latex(tex);
-        new BarPlot<>(base.getListJournal().stream().filter(x -> x.getNrArticles() > 1).toList(),
+        new BarPlot<>(base.getListJournal().stream().filter(x -> x.getNrArticles() > limit).toList(),
                 this::nameOf,
                 x->1.0*x.getNrCitations()/x.getNrArticles()).
                 width(22).height(10).
-                title("Average Citation Count per Article by Journal (Article Count > 1)").
+                title("Average Citation Count per Article by Journal (Article Count > "+limit+")").
                 xlabel("Journal").ylabel("Average Citation Count").
                 generate().latex(tex);
 
@@ -387,14 +398,14 @@ public class PublicationReport extends AbstractReport{
         paragraph("This section gives an overall overview of the works covered by the survey. We first look at " +
                 "all works, and consider which entries cannot be full analyzed. We consider the following status " +
                 "outcomes: no DOI, the bib entry does not give a DOI, this typically means that we cannot find the " +
-                "citation and reference counts for the work. A special case is the Thesis type, which do not have a " +
+                "citation and reference counts for the work. A special case is the Thesis type, which typically do not have a " +
                 "DOI assigned by the university. Even entries with a DOI may not be covered, we distinguish entries " +
                 "that are covered by neither Crossref nor Scopus, or entries which are covered by one, but not " +
-                "the other. THE OK status indicates that we can find the entry in all our sources.");
+                "the other. The OK status indicates that we can find the entry in all our sources.");
         paragraph("Note that OpenCitations does not distinguish between a DOI that is not covered, and a DOI for " +
                 "which there are no references or citations. In both cases, an empty list is returned by the query.");
         paragraph("We may be able to repair some of the entries by finding a DOI for entries which miss them, " +
-                "or by correcting a mistake in a DOI, where neither Crossref nor Scopus recognizes the entry. Not " +
+                "or by correcting a mistake in a DOI, where neither Crossref nor Scopus recognizes the entry. Note " +
                 "that the system responses are cached, and missing entries are not repeatedly queried by the system. " +
                 "This means that additions or corrections in the databases that occur after we first queried them for " +
                 "a specific entry are not automatically taken into account. It may be good practice to re-run all " +
@@ -438,7 +449,8 @@ public class PublicationReport extends AbstractReport{
                 "papers with many citations give a slightly different count depending on which links are included in " +
                 "their database.");
         paragraph("The results seem to indicate the using multiple sources is required, to avoid leaving out " +
-                "works that are not covered by one specific source.");
+                "works that are not covered by one specific source. Note that the WoS numbers are only present for a " +
+                "few works, we show them, but do not include them in computing range.");
 
         List<Work> maxRangeList = base.getListWork().stream().
                 filter(x->!x.getBackground()).
@@ -446,6 +458,16 @@ public class PublicationReport extends AbstractReport{
                 limit(50).
                 toList();
         listWorks("Works with largest Range of Citation Counts",maxRangeList);
+
+        paragraph("We only have Web of Science data in a few bibtex entries, we here try to evaluate their citation numbers on those bib entries which are from WoS.");
+        List<Work> wosList = base.getListWork().stream().
+                filter(x->!x.getBackground()).
+                filter(Work::getWosStatus).
+                sorted(Comparator.comparing(Work::getMaxCitations).reversed()).
+                limit(50).
+                toList();
+        listWorks("Works with WoS Citation Counts",wosList);
+
 
         subsection("Local Copies");
 
@@ -496,9 +518,11 @@ public class PublicationReport extends AbstractReport{
                 addIntegerColumn(st("Nr","Citations"),Work::getNrCitations).
                 addIntegerColumn(st("Crossref","Citations"),Work::getCrossrefCitations).
                 addIntegerColumn(st("Scopus","Citations"),Work::getScopusCitations).
+                addIntegerColumn(st("WoS","Citations"),Work::getWosCitations).
                 addIntegerColumn(st("Range","Citations"),Work::getRangeCitations).
                 addDoubleColumn(st("Range","Percentage"),this::rangePercentage,"%5.2f").
                 tableStyle(TableStyle.LONGTABLE).
+                textSize("\\scriptsize").
                 generate().
                 latex(tex);
 
@@ -510,6 +534,9 @@ public class PublicationReport extends AbstractReport{
     }
 
     private String safeDoi(Work w){
+        if (w.getDoi() == null) {
+            return "n/a";
+        }
         return w.getDoi().replace("_","\\_");
     }
     private String workStatus(Work w){

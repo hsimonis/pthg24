@@ -26,7 +26,9 @@ public class ListAuthors {
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
             for(Author a:sortedAuthors(base)){
-                out.printf("\\rowlabel{auth:%s}%s & ",a.getKey(),safe(a.getName()));
+                out.printf("%s\\rowlabel{auth:%s}%s & ",
+                        index(a),
+                        a.getKey(),safe(a.getName()));
                 out.printf("%d &",a.getNrWorks());
                 out.printf("%d &",a.getNrCitations());
                 out.printf(sortedAuthorship(base,a).stream().
@@ -78,5 +80,12 @@ public class ListAuthors {
         } else {
             return safe(a.getName());
         }
+    }
+
+    public static String index(Author a){
+        if (a.getCrossFamily() != null && !a.getCrossFamily().equals("")){
+            return String.format("\\index{%s, %s}",a.getCrossFamily(),a.getCrossGiven());
+        }
+        return "";
     }
 }

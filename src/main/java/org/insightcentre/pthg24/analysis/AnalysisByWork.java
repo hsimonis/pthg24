@@ -17,15 +17,15 @@ import static org.insightcentre.pthg24.imports.Importer.safer;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class AnalysisByWork {
-    public AnalysisByWork(Scenario base, List<Work> works,String exportDir, String fileName){
-        analyze(base,null,works,exportDir,fileName,false);
+    public AnalysisByWork(Scenario base, List<Work> works,String exportDir, String fileName,String caption){
+        analyze(base,null,works,exportDir,fileName,false,caption);
     }
     public AnalysisByWork(Scenario base, WorkType type,String exportDir, String fileName) {
         List<Work> works = sortedWorks(base, type);
-        analyze(base, type,works, exportDir, fileName,true);
+        analyze(base, type,works, exportDir, fileName,true,"Automatically Extracted "+type+" Features (Requires Local Copy)");
     }
 
-    private void analyze(Scenario base,WorkType type,List<Work> works,String exportDir, String fileName,boolean rowLabels){
+    private void analyze(Scenario base,WorkType type,List<Work> works,String exportDir, String fileName,boolean rowLabels,String caption){
         assert(exportDir.endsWith("/"));
         String fullName = exportDir+fileName;
         try{
@@ -33,7 +33,7 @@ public class AnalysisByWork {
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}r" +
                     ">{\\raggedright\\arraybackslash}p{4cm}p{1.5cm}p{2cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{2cm}p{1.5cm}rr}\n");
-            out.printf("\\rowcolor{white}\\caption{Automatically Extracted %s Properties (Requires Local Copy)}\\\\ \\toprule\n",(type==null?"":type));
+            out.printf("\\rowcolor{white}\\caption{%s}\\\\ \\toprule\n",caption);
             out.printf("\\rowcolor{white}Work & Pages & Concepts & Classification & Constraints & \\shortstack{Prog\\\\Languages} & " +
                     "\\shortstack{CP\\\\Systems} & Areas & " +
                     "Industries & Benchmarks & Algorithm & a & c\\\\ \\midrule");
@@ -42,7 +42,7 @@ public class AnalysisByWork {
             out.printf("\\endfoot\n");
             for(Work w:works){
                 out.printf("%s\\href{%s}{%s}~\\cite{%s}",
-                        rowLabel("b:"+w.getName(),rowLabels),
+                        rowLabel(w,"b:"+w.getName(),rowLabels),
                         local(w.getLocalCopy()),safe(w.getName()),
                         w.getName());
                 out.printf(" & %d",w.getNrPages());
@@ -67,9 +67,9 @@ public class AnalysisByWork {
         }
     }
 
-    private String rowLabel(String label,boolean rowLabels){
+    private String rowLabel(Work w,String label,boolean rowLabels){
         if (rowLabels){
-            return String.format("\\rowlabel{%s}",label);
+            return String.format("\\index{%s}\\rowlabel{%s}",w.getKey(),label);
         }
         return "";
     }

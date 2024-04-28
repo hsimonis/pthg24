@@ -23,7 +23,7 @@ import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 20:45:32 on 2024-04-25 */
+ * Generated at 20:13:22 on 2024-04-28 */
 public class CrossReferenceController extends Table3Controller {
 	@FXML
 	private TableView<CrossReference> table;

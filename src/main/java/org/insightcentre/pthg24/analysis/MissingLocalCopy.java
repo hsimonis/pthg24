@@ -1,8 +1,6 @@
 package org.insightcentre.pthg24.analysis;
 
-import org.insightcentre.pthg24.datamodel.Scenario;
-import org.insightcentre.pthg24.datamodel.Work;
-import org.insightcentre.pthg24.datamodel.WorkType;
+import org.insightcentre.pthg24.datamodel.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,6 +11,7 @@ import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.ListWorks.authors;
+import static org.insightcentre.pthg24.analysis.ListWorks.openAccessHighlight;
 import static org.insightcentre.pthg24.analysis.WorkWithoutConcepts.source;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
@@ -31,13 +30,13 @@ public class MissingLocalCopy {
             out.printf("\\endfoot\n");
             List<Work> missing  = missing(base,type);
             for(Work w:missing){
-                out.printf("%s & \\href{%s}{%s} & %s & %s & %d & %s & \\cite{%s}\\\\",
+                out.printf("%s & \\href{%s}{%s} & %s & %s%s & %d & %s & \\cite{%s}\\\\\n",
                         safe(w.getName()),
                         w.getUrl(), safe(w.getName()),
                         authors(w),
-                        safe(w.getTitle()),
+                        openAccessHighlight(w),safe(w.getTitle()),
                         w.getYear(),
-                        safe(source(w)),
+                        confOrJournal(w),
                         w.getName());
             }
             out.printf("\\end{longtable}\n");
@@ -66,4 +65,40 @@ public class MissingLocalCopy {
                 return new ArrayList<>();
         }
     }
+
+    private String confOrJournal(Work w){
+        if (w instanceof Paper){
+            return shortProc(((Paper)w).getProceedings());
+        } else if (w instanceof Article){
+            Journal j = ((Article)w).getJournal();
+            return (j.getIsBlocked()?"\\cellcolor{red!20}":"")+nameOf(j);
+        } else if (w instanceof InCollection){
+            return nameOf(((InCollection)w).getCollection());
+        } else if (w instanceof InBook){
+            return safe(((InBook)w).getBooktitle());
+        } else if (w instanceof Book){
+            return "Book";
+        } else if (w instanceof PhDThesis){
+            return nameOf(((PhDThesis)w).getSchool());
+        } else {
+            return "n/a";
+        }
+    }
+
+    private String shortProc(Proceedings p){
+        if (p==null){
+            return "-";
+        } else {
+            return safe(p.getShortName());
+        }
+    }
+
+    private String nameOf(ApplicationObject a){
+        if (a==null){
+            return "";
+        } else {
+            return safe(a.getName());
+        }
+    }
+
 }

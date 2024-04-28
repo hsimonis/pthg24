@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 20:45:32 on 2024-04-25 */
+ * Generated at 20:13:23 on 2024-04-28 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -50,6 +50,21 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
 		filterNames.add("name");
+		filterNames.add("conceptType");
+		filterNames.add("label");
+		filterNames.add("regExpr");
+		filterNames.add("caseSensitive");
+		attributeNames.add("revision");
+		filterNames.add("revision");
+		attributeNames.add("nrOccurrences");
+		filterNames.add("nrOccurrences");
+		filterNames.add("description");
+		choicesMap.put("Acronym", attributeNames);
+		filterMap.put("Acronym", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
 		filterNames.add("shortName");
 		filterNames.add("familyName");
 		filterNames.add("crossFamily");
@@ -70,12 +85,19 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
 		filterNames.add("name");
+		attributeNames.add("nr");
+		filterNames.add("nr");
+		attributeNames.add("nrEdges");
+		filterNames.add("nrEdges");
+		attributeNames.add("cluster");
+		filterNames.add("cluster");
 		filterNames.add("key");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
 		filterNames.add("url");
 		filterNames.add("doi");
+		filterNames.add("issn");
 		filterNames.add("localCopy");
 		attributeNames.add("year");
 		filterNames.add("year");
@@ -93,6 +115,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		filterNames.add("openAccess");
+		filterNames.add("openAccessType");
 		attributeNames.add("nrConcepts");
 		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
@@ -103,6 +127,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		filterNames.add("wosCitations");
+		attributeNames.add("wosReferences");
+		filterNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
@@ -120,18 +148,26 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
+		filterNames.add("wosStatus");
 		choicesMap.put("Work", attributeNames);
 		filterMap.put("Work", filterNames);
 		attributeNames = FXCollections.observableArrayList();
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
 		filterNames.add("name");
+		attributeNames.add("nr");
+		filterNames.add("nr");
+		attributeNames.add("nrEdges");
+		filterNames.add("nrEdges");
+		attributeNames.add("cluster");
+		filterNames.add("cluster");
 		filterNames.add("key");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
 		filterNames.add("url");
 		filterNames.add("doi");
+		filterNames.add("issn");
 		filterNames.add("localCopy");
 		attributeNames.add("year");
 		filterNames.add("year");
@@ -149,6 +185,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		filterNames.add("openAccess");
+		filterNames.add("openAccessType");
 		attributeNames.add("nrConcepts");
 		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
@@ -159,6 +197,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		filterNames.add("wosCitations");
+		attributeNames.add("wosReferences");
+		filterNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
@@ -176,6 +218,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
+		filterNames.add("wosStatus");
 		filterNames.add("proceedings");
 		choicesMap.put("Paper", attributeNames);
 		filterMap.put("Paper", filterNames);
@@ -183,12 +226,19 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
 		filterNames.add("name");
+		attributeNames.add("nr");
+		filterNames.add("nr");
+		attributeNames.add("nrEdges");
+		filterNames.add("nrEdges");
+		attributeNames.add("cluster");
+		filterNames.add("cluster");
 		filterNames.add("key");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
 		filterNames.add("url");
 		filterNames.add("doi");
+		filterNames.add("issn");
 		filterNames.add("localCopy");
 		attributeNames.add("year");
 		filterNames.add("year");
@@ -206,6 +256,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		filterNames.add("openAccess");
+		filterNames.add("openAccessType");
 		attributeNames.add("nrConcepts");
 		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
@@ -216,6 +268,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		filterNames.add("wosCitations");
+		attributeNames.add("wosReferences");
+		filterNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
@@ -233,6 +289,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
+		filterNames.add("wosStatus");
 		filterNames.add("journal");
 		choicesMap.put("Article", attributeNames);
 		filterMap.put("Article", filterNames);
@@ -240,12 +297,19 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
 		filterNames.add("name");
+		attributeNames.add("nr");
+		filterNames.add("nr");
+		attributeNames.add("nrEdges");
+		filterNames.add("nrEdges");
+		attributeNames.add("cluster");
+		filterNames.add("cluster");
 		filterNames.add("key");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
 		filterNames.add("url");
 		filterNames.add("doi");
+		filterNames.add("issn");
 		filterNames.add("localCopy");
 		attributeNames.add("year");
 		filterNames.add("year");
@@ -263,6 +327,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		filterNames.add("openAccess");
+		filterNames.add("openAccessType");
 		attributeNames.add("nrConcepts");
 		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
@@ -273,6 +339,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		filterNames.add("wosCitations");
+		attributeNames.add("wosReferences");
+		filterNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
@@ -290,6 +360,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
+		filterNames.add("wosStatus");
 		filterNames.add("school");
 		choicesMap.put("PhDThesis", attributeNames);
 		filterMap.put("PhDThesis", filterNames);
@@ -297,12 +368,19 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
 		filterNames.add("name");
+		attributeNames.add("nr");
+		filterNames.add("nr");
+		attributeNames.add("nrEdges");
+		filterNames.add("nrEdges");
+		attributeNames.add("cluster");
+		filterNames.add("cluster");
 		filterNames.add("key");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
 		filterNames.add("url");
 		filterNames.add("doi");
+		filterNames.add("issn");
 		filterNames.add("localCopy");
 		attributeNames.add("year");
 		filterNames.add("year");
@@ -320,6 +398,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		filterNames.add("openAccess");
+		filterNames.add("openAccessType");
 		attributeNames.add("nrConcepts");
 		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
@@ -330,6 +410,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		filterNames.add("wosCitations");
+		attributeNames.add("wosReferences");
+		filterNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
@@ -347,6 +431,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
+		filterNames.add("wosStatus");
 		filterNames.add("collection");
 		choicesMap.put("InCollection", attributeNames);
 		filterMap.put("InCollection", filterNames);
@@ -354,12 +439,19 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
 		filterNames.add("name");
+		attributeNames.add("nr");
+		filterNames.add("nr");
+		attributeNames.add("nrEdges");
+		filterNames.add("nrEdges");
+		attributeNames.add("cluster");
+		filterNames.add("cluster");
 		filterNames.add("key");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
 		filterNames.add("url");
 		filterNames.add("doi");
+		filterNames.add("issn");
 		filterNames.add("localCopy");
 		attributeNames.add("year");
 		filterNames.add("year");
@@ -377,6 +469,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		filterNames.add("openAccess");
+		filterNames.add("openAccessType");
 		attributeNames.add("nrConcepts");
 		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
@@ -387,6 +481,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		filterNames.add("wosCitations");
+		attributeNames.add("wosReferences");
+		filterNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
@@ -404,6 +502,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
+		filterNames.add("wosStatus");
 		filterNames.add("booktitle");
 		choicesMap.put("InBook", attributeNames);
 		filterMap.put("InBook", filterNames);
@@ -411,12 +510,19 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
 		filterNames.add("name");
+		attributeNames.add("nr");
+		filterNames.add("nr");
+		attributeNames.add("nrEdges");
+		filterNames.add("nrEdges");
+		attributeNames.add("cluster");
+		filterNames.add("cluster");
 		filterNames.add("key");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
 		filterNames.add("url");
 		filterNames.add("doi");
+		filterNames.add("issn");
 		filterNames.add("localCopy");
 		attributeNames.add("year");
 		filterNames.add("year");
@@ -434,6 +540,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("classification");
 		filterNames.add("constraints");
 		filterNames.add("relatedTo");
+		filterNames.add("openAccess");
+		filterNames.add("openAccessType");
 		attributeNames.add("nrConcepts");
 		filterNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
@@ -444,6 +552,10 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("crossrefCitations");
 		attributeNames.add("crossrefReferences");
 		filterNames.add("crossrefReferences");
+		attributeNames.add("wosCitations");
+		filterNames.add("wosCitations");
+		attributeNames.add("wosReferences");
+		filterNames.add("wosReferences");
 		attributeNames.add("scopusCitations");
 		filterNames.add("scopusCitations");
 		attributeNames.add("nrCitationsCovered");
@@ -461,6 +573,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("doiStatus");
 		filterNames.add("crossrefStatus");
 		filterNames.add("scopusStatus");
+		filterNames.add("wosStatus");
 		choicesMap.put("Book", attributeNames);
 		filterMap.put("Book", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -506,6 +619,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add(filterNone);
 		filterNames.add("name");
 		filterNames.add("shortName");
+		filterNames.add("issn");
 		attributeNames.add("nrArticles");
 		filterNames.add("nrArticles");
 		attributeNames.add("nrBackgroundArticles");
@@ -514,6 +628,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrCitations");
 		attributeNames.add("nrBackgroundCitations");
 		filterNames.add("nrBackgroundCitations");
+		filterNames.add("isBlocked");
 		choicesMap.put("Journal", attributeNames);
 		filterMap.put("Journal", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -584,6 +699,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("nrLinks");
 		attributeNames.add("year");
 		filterNames.add("year");
+		filterNames.add("author");
 		filterNames.add("title");
 		filterNames.add("url");
 		filterNames.add("type");
@@ -848,6 +964,9 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("Concept")) {
 				objectList = mainApp.getConceptData();
+			}
+			else if (className.equals("Acronym")) {
+				objectList = mainApp.getAcronymData();
 			}
 			else if (className.equals("Author")) {
 				objectList = mainApp.getAuthorData();

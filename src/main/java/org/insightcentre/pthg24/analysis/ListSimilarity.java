@@ -77,7 +77,7 @@ public class ListSimilarity {
                         sorted(Comparator.comparing(Similarity::getSimilarity)).
                         limit(5).
                         toList();
-                out.printf("%s R\\&C",keyLink(w));
+                out.printf("\\index{%s}%s R\\&C",w.getKey(),keyLink(w));
                 for(Similarity s:mostSimilar){
                     out.printf("& %s%s (%.2f)",colorSimilarity(s.getSimilarity()),keyLink(selectOther(s,w)),s.getSimilarity());
                 }

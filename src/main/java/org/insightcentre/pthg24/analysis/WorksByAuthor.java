@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.AnalysisByConcept.citation;
+import static org.insightcentre.pthg24.analysis.ListAuthors.index;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class WorksByAuthor {
@@ -30,7 +31,8 @@ public class WorksByAuthor {
                 out.printf("\\clearpage\n");
                 out.printf("\\subsection{%d Works by %s}\n",works.size(),a.getName());
                 out.printf("\\label{sec:%s}\n",a.getKey());
-                new ListWorks(out,base,works,false);
+                out.printf("%s\n",index(a));
+                new ListWorks(out,base,works,false,"Works by "+a.getName());
             }
             out.close();
         } catch(IOException e){

@@ -3,6 +3,7 @@ String author
 List<Author> authors
 Boolean background
 String classification
+Integer cluster
 String codeAvail
 String constraints
 String cpSystem
@@ -12,16 +13,21 @@ Boolean crossrefStatus
 String dataAvail
 String doi
 Boolean doiStatus
+String issn
 String key
 String localCopy
 Integer maxCitations
+Integer nr
 Integer nrCitations
 Integer nrCitationsCovered
 Integer nrConcepts
+Integer nrEdges
 Integer nrLinks
 Integer nrPages
 Integer nrReferences
 Integer nrReferencesCovered
+String openAccess
+OpenAccessType openAccessType
 String pages
 Double percentCitationsCovered
 Double percentReferencesCovered
@@ -33,5 +39,8 @@ String solutionAvail
 SourceGroup sourceGroup
 String title
 String url
+Integer wosCitations
+Integer wosReferences
+Boolean wosStatus
 Integer year
 }

@@ -26,7 +26,7 @@ import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
 
 /**
- * Generated at 20:45:32 on 2024-04-25 */
+ * Generated at 20:13:22 on 2024-04-28 */
 public class ScopusAffiliationController extends Table3Controller {
 	@FXML
 	private TableView<ScopusAffiliation> table;

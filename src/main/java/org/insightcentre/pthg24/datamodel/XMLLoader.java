@@ -84,6 +84,35 @@ public ConceptType getConceptType(String attributeName,
             return ConceptType.valueOf(e);
         }
     }
+public OpenAccessType getOpenAccessType(String attributeName,
+                               Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        if (e == null) {
+            System.out.println("OpenAccessType"+": "+attributeName);
+            return null;
+        } else {
+            return OpenAccessType.valueOf(e);
+        }
+    }
+    public Acronym getAcronym(String attributeName,
+                               Attributes attributes) {
+        return (Acronym) find(getId(attributeName,attributes));
+    }
+
+    public List<Acronym> getAcronymCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<Acronym> res = new ArrayList<Acronym>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((Acronym) find(id));
+            }
+        }
+        return res;
+    }
+
     public Affiliation getAffiliation(String attributeName,
                                Attributes attributes) {
         return (Affiliation) find(getId(attributeName,attributes));
@@ -928,6 +957,20 @@ public ConceptType getConceptType(String attributeName,
                         getString("name", attributes, "dummy"),
                         getBoolean("valid",attributes,false)
                               );
+            } else if (qname.equals("acronym")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new Acronym(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getBoolean("caseSensitive",attributes,false),
+                        null,
+                        getString("label",attributes,""),
+                        getInteger("nrOccurrences",attributes,0),
+                        getString("regExpr",attributes,""),
+                        getInteger("revision",attributes,0),
+                        getString("description",attributes,"")
+                        ));
             } else if (qname.equals("affiliation")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -968,6 +1011,7 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
+                        getInteger("cluster",attributes,0),
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
@@ -977,16 +1021,21 @@ public ConceptType getConceptType(String attributeName,
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
                         getBoolean("doiStatus",attributes,false),
+                        getString("issn",attributes,""),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
+                        getInteger("nr",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCitationsCovered",attributes,0),
                         getInteger("nrConcepts",attributes,0),
+                        getInteger("nrEdges",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
                         getInteger("nrReferencesCovered",attributes,0),
+                        getString("openAccess",attributes,""),
+                        null,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
@@ -998,6 +1047,9 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
+                        getInteger("wosCitations",attributes,0),
+                        getInteger("wosReferences",attributes,0),
+                        getBoolean("wosStatus",attributes,false),
                         getInteger("year",attributes,0),
                         null
                         ));
@@ -1040,6 +1092,7 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
+                        getInteger("cluster",attributes,0),
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
@@ -1049,16 +1102,21 @@ public ConceptType getConceptType(String attributeName,
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
                         getBoolean("doiStatus",attributes,false),
+                        getString("issn",attributes,""),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
+                        getInteger("nr",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCitationsCovered",attributes,0),
                         getInteger("nrConcepts",attributes,0),
+                        getInteger("nrEdges",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
                         getInteger("nrReferencesCovered",attributes,0),
+                        getString("openAccess",attributes,""),
+                        null,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
@@ -1070,6 +1128,9 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
+                        getInteger("wosCitations",attributes,0),
+                        getInteger("wosReferences",attributes,0),
+                        getBoolean("wosStatus",attributes,false),
                         getInteger("year",attributes,0)
                         ));
             } else if (qname.equals("citation")) {
@@ -1192,6 +1253,7 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
+                        getInteger("cluster",attributes,0),
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
@@ -1201,16 +1263,21 @@ public ConceptType getConceptType(String attributeName,
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
                         getBoolean("doiStatus",attributes,false),
+                        getString("issn",attributes,""),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
+                        getInteger("nr",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCitationsCovered",attributes,0),
                         getInteger("nrConcepts",attributes,0),
+                        getInteger("nrEdges",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
                         getInteger("nrReferencesCovered",attributes,0),
+                        getString("openAccess",attributes,""),
+                        null,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
@@ -1222,6 +1289,9 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
+                        getInteger("wosCitations",attributes,0),
+                        getInteger("wosReferences",attributes,0),
+                        getBoolean("wosStatus",attributes,false),
                         getInteger("year",attributes,0),
                         getString("booktitle",attributes,"")
                         ));
@@ -1235,6 +1305,7 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
+                        getInteger("cluster",attributes,0),
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
@@ -1244,16 +1315,21 @@ public ConceptType getConceptType(String attributeName,
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
                         getBoolean("doiStatus",attributes,false),
+                        getString("issn",attributes,""),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
+                        getInteger("nr",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCitationsCovered",attributes,0),
                         getInteger("nrConcepts",attributes,0),
+                        getInteger("nrEdges",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
                         getInteger("nrReferencesCovered",attributes,0),
+                        getString("openAccess",attributes,""),
+                        null,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
@@ -1265,6 +1341,9 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
+                        getInteger("wosCitations",attributes,0),
+                        getInteger("wosReferences",attributes,0),
+                        getBoolean("wosStatus",attributes,false),
                         getInteger("year",attributes,0),
                         null
                         ));
@@ -1274,6 +1353,8 @@ public ConceptType getConceptType(String attributeName,
                 store(id, new Journal(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getBoolean("isBlocked",attributes,false),
+                        getString("issn",attributes,""),
                         getInteger("nrArticles",attributes,0),
                         getInteger("nrBackgroundArticles",attributes,0),
                         getInteger("nrBackgroundCitations",attributes,0),
@@ -1330,6 +1411,7 @@ public ConceptType getConceptType(String attributeName,
                 store(id, new MissingWork(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getString("author",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
                         getInteger("crossrefReferences",attributes,0),
                         getString("doi",attributes,""),
@@ -1360,6 +1442,7 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
+                        getInteger("cluster",attributes,0),
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
@@ -1369,16 +1452,21 @@ public ConceptType getConceptType(String attributeName,
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
                         getBoolean("doiStatus",attributes,false),
+                        getString("issn",attributes,""),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
+                        getInteger("nr",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCitationsCovered",attributes,0),
                         getInteger("nrConcepts",attributes,0),
+                        getInteger("nrEdges",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
                         getInteger("nrReferencesCovered",attributes,0),
+                        getString("openAccess",attributes,""),
+                        null,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
@@ -1390,6 +1478,9 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
+                        getInteger("wosCitations",attributes,0),
+                        getInteger("wosReferences",attributes,0),
+                        getBoolean("wosStatus",attributes,false),
                         getInteger("year",attributes,0),
                         null
                         ));
@@ -1403,6 +1494,7 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
+                        getInteger("cluster",attributes,0),
                         getString("codeAvail",attributes,""),
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
@@ -1412,16 +1504,21 @@ public ConceptType getConceptType(String attributeName,
                         getString("dataAvail",attributes,""),
                         getString("doi",attributes,""),
                         getBoolean("doiStatus",attributes,false),
+                        getString("issn",attributes,""),
                         getString("key",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
+                        getInteger("nr",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCitationsCovered",attributes,0),
                         getInteger("nrConcepts",attributes,0),
+                        getInteger("nrEdges",attributes,0),
                         getInteger("nrLinks",attributes,0),
                         getInteger("nrPages",attributes,0),
                         getInteger("nrReferences",attributes,0),
                         getInteger("nrReferencesCovered",attributes,0),
+                        getString("openAccess",attributes,""),
+                        null,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
@@ -1433,6 +1530,9 @@ public ConceptType getConceptType(String attributeName,
                         null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
+                        getInteger("wosCitations",attributes,0),
+                        getInteger("wosReferences",attributes,0),
+                        getBoolean("wosStatus",attributes,false),
                         getInteger("year",attributes,0),
                         null
                         ));
@@ -1603,6 +1703,11 @@ public ConceptType getConceptType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 Scenario item = (Scenario) base;
+            } else if (qname.equals("acronym")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                Acronym item = (Acronym) find(id);
+                 item.setConceptType(getConceptType("conceptType",attributes));
             } else if (qname.equals("affiliation")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1622,6 +1727,7 @@ public ConceptType getConceptType(String attributeName,
                 int id = getId("id", attributes);
                 Article item = (Article) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setJournal(getJournal("journal",attributes));
             } else if (qname.equals("author")) {
@@ -1640,6 +1746,7 @@ public ConceptType getConceptType(String attributeName,
                 int id = getId("id", attributes);
                 Book item = (Book) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
             } else if (qname.equals("citation")) {
                 assert (base != null);
@@ -1699,12 +1806,14 @@ public ConceptType getConceptType(String attributeName,
                 int id = getId("id", attributes);
                 InBook item = (InBook) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
             } else if (qname.equals("inCollection")) {
                 assert (base != null);
                 int id = getId("id", attributes);
                 InCollection item = (InCollection) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setCollection(getCollection("collection",attributes));
             } else if (qname.equals("journal")) {
@@ -1741,6 +1850,7 @@ public ConceptType getConceptType(String attributeName,
                 int id = getId("id", attributes);
                 Paper item = (Paper) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setProceedings(getProceedings("proceedings",attributes));
             } else if (qname.equals("phDThesis")) {
@@ -1748,6 +1858,7 @@ public ConceptType getConceptType(String attributeName,
                 int id = getId("id", attributes);
                 PhDThesis item = (PhDThesis) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setSchool(getSchool("school",attributes));
             } else if (qname.equals("proceedings")) {

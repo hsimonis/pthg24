@@ -37,8 +37,8 @@ public class ListWorksManual {
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
             for(Work a:manualInterest(sortedWorks(base,type))){
-                out.printf("\\rowlabel{%s}%s \\href{%s}{%s}~\\cite{%s} & \\href{%s}{%s} & %s & %d & %s & %s & %s & %s & %s & %s",
-                        "c:"+a.getName(),
+                out.printf("\\index{%s}\\rowlabel{%s}%s \\href{%s}{%s}~\\cite{%s} & \\href{%s}{%s} & %s & %d & %s & %s & %s & %s & %s & %s",
+                        a.getKey(),"c:"+a.getName(),
                         a.getName(),
                         a.getUrl(),safe(a.getName()),
                         a.getName(),

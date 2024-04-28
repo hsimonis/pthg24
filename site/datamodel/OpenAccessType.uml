@@ -1,0 +1,6 @@
+enum OpenAccessType
+OpenAccessType: Unknown
+OpenAccessType: Closed
+OpenAccessType: Green
+OpenAccessType: Gold
+

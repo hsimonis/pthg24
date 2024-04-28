@@ -23,10 +23,12 @@ public class ImportAlias {
                 JSONObject c = arr.getJSONObject(i);
                 String journal = c.getString("journal");
                 String alias = c.getString("alias");
+                String issn = c.getString("issn");
 
                 JournalAlias ja = new JournalAlias(base);
                 ja.setJournal(findJournal(base,journal));
                 ja.setAlias(alias);
+                ja.getJournal().setIssn(issn);
             }
 
         } catch(IOException e){

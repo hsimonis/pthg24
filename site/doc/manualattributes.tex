@@ -1,6 +1,17 @@
 \chapter{Attributes}
 These are the attributes of each class. Here you will find the class name and a table of the attributes.     
 \begin{table}
+\caption{Acronym  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & description &  \\
+\end{longtable}
+\label{attr:Acronym}
+\end{table}
+
+\clearpage
+\begin{table}
 \caption{Affiliation  }
 
 \begin{longtable}{llp{8cm}}
@@ -11,7 +22,6 @@ $\square$\ & nrUsed &  \\
 \label{attr:Affiliation}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Article  }
 
@@ -64,6 +74,7 @@ $\square$\ & affiliation &  \\
 \label{attr:Book}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Citation  }
 
@@ -82,7 +93,6 @@ $\square$\ & journalSC &  \\
 \label{attr:Citation}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Coauthor  }
 
@@ -133,6 +143,7 @@ $\square$\ & fraction &  \\
 \label{attr:Collection}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Concept  }
 
@@ -148,7 +159,6 @@ $\square$\ & nrOccurrences &  \\
 \label{attr:Concept}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{ConceptWork  }
 
@@ -203,6 +213,7 @@ $\square$\ & doi &  \\
 \label{attr:DoiReference}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{InBook  }
 
@@ -213,7 +224,6 @@ $\square$\ & booktitle &  \\
 \label{attr:InBook}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{InCollection  }
 
@@ -230,10 +240,12 @@ $\square$\ & collection &  \\
 \begin{longtable}{llp{8cm}}
 & Attribute & Description \\
 $\square$\ & shortName &  \\
+$\square$\ & issn &  \\
 $\square$\ & nrArticles &  \\
 $\square$\ & nrBackgroundArticles &  \\
 $\square$\ & nrCitations &  \\
 $\square$\ & nrBackgroundCitations &  \\
+$\square$\ & isBlocked &  \\
 \end{longtable}
 \label{attr:Journal}
 \end{table}
@@ -260,6 +272,7 @@ $\square$\ & nrCitations &  \\
 \label{attr:MissingCitedWork}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{MissingCitingWork  }
 
@@ -271,7 +284,6 @@ $\square$\ & nrCited &  \\
 \label{attr:MissingCitingWork}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{MissingCross  }
 
@@ -302,6 +314,7 @@ $\square$\ & nrCited &  \\
 $\square$\ & nrCitations &  \\
 $\square$\ & nrLinks &  \\
 $\square$\ & year &  \\
+$\square$\ & author &  \\
 $\square$\ & title &  \\
 $\square$\ & url &  \\
 $\square$\ & type &  \\
@@ -331,6 +344,7 @@ $\square$\ & proceedings &  \\
 \label{attr:Paper}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{PhDThesis  }
 
@@ -341,7 +355,6 @@ $\square$\ & school &  \\
 \label{attr:PhDThesis}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Proceedings  }
 
@@ -393,6 +406,7 @@ $\square$\ & normalized &  \\
 \label{attr:Scenario}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{School  }
 
@@ -402,7 +416,6 @@ $\square$\ & normalized &  \\
 \label{attr:School}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{ScopusAffiliation  }
 
@@ -468,6 +481,7 @@ $\square$\ & cosine &  \\
 \label{attr:Similarity}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{SourceGroup  }
 
@@ -481,7 +495,6 @@ $\square$\ & toFlows &  \\
 \label{attr:SourceGroup}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{UncategorizedReference  }
 
@@ -496,12 +509,16 @@ $\square$\ & toFlows &  \\
 
 \begin{longtable}{llp{8cm}}
 & Attribute & Description \\
+$\square$\ & nr &  \\
+$\square$\ & nrEdges &  \\
+$\square$\ & cluster &  \\
 $\square$\ & key &  \\
 $\square$\ & author &  \\
 $\square$\ & authors &  \\
 $\square$\ & title &  \\
 $\square$\ & url &  \\
 $\square$\ & doi &  \\
+$\square$\ & issn &  \\
 $\square$\ & localCopy &  \\
 $\square$\ & year &  \\
 $\square$\ & pages &  \\
@@ -516,11 +533,15 @@ $\square$\ & cpSystem &  \\
 $\square$\ & classification &  \\
 $\square$\ & constraints &  \\
 $\square$\ & relatedTo &  \\
+$\square$\ & openAccess &  \\
+$\square$\ & openAccessType &  \\
 $\square$\ & nrConcepts &  \\
 $\square$\ & nrCitations &  \\
 $\square$\ & nrReferences &  \\
 $\square$\ & crossrefCitations &  \\
 $\square$\ & crossrefReferences &  \\
+$\square$\ & wosCitations &  \\
+$\square$\ & wosReferences &  \\
 $\square$\ & scopusCitations &  \\
 $\square$\ & nrCitationsCovered &  \\
 $\square$\ & nrReferencesCovered &  \\
@@ -531,6 +552,7 @@ $\square$\ & rangeCitations &  \\
 $\square$\ & doiStatus &  \\
 $\square$\ & crossrefStatus &  \\
 $\square$\ & scopusStatus &  \\
+$\square$\ & wosStatus &  \\
 \end{longtable}
 \label{attr:Work}
 \end{table}

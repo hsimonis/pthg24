@@ -1,5 +1,6 @@
 package org.insightcentre.pthg24.imports;
 
+import org.insightcentre.pthg24.datamodel.Acronym;
 import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptType;
 import org.insightcentre.pthg24.datamodel.Scenario;
@@ -36,7 +37,14 @@ public class ImportConcepts {
                 if (c.has("revision")){
                     revision = c.getInt("revision");
                 }
-                Concept con = new Concept(base);
+                Concept con;
+                if (c.has("description")){
+                    String description = c.getString("description");
+                    con = new Acronym(base);
+                    ((Acronym)con).setDescription(description);
+                } else {
+                    con = new Concept(base);
+                }
                 con.setName(label);
                 con.setLabel(label);
                 con.setRegExpr(regExpr);
