@@ -40,7 +40,7 @@ public class JfxApp extends GeneratedJfxApp {
                 IrishCalendar.buildCalendar();
                 base.setDirty(false);
 
-                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth"
+                String type = "terrorism"; // others "scheduling" "cars" "mobilehealth","terrorism"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -66,6 +66,14 @@ public class JfxApp extends GeneratedJfxApp {
                                 authors = "G. Tacadao and B. O'Sullivan and L. Quesada and H. Simonis";
                                 coauthorLimit = 2;
                                 linkCountLimit = 10;
+                                break;
+                        case "terrorism":
+                                prefix = "terrorism/";
+                                bibDir = prefix + "imports/";
+                                bibFile = "terrorism1.bib";
+                                authors = "B. O'Sullivan and H. Simonis";
+                                coauthorLimit = 2;
+                                linkCountLimit = 1;
                                 break;
                         case "scheduling":
                                 // settings for scheduling are a bit different
@@ -166,8 +174,10 @@ public class JfxApp extends GeneratedJfxApp {
 
                 new MissingLocalCopy(base,ARTICLE,exportDir,"missingarticle.tex");
                 new MissingLocalCopy(base,PAPER,exportDir,"missingpaper.tex");
+                new MissingLocalCopy(base,INBOOK,exportDir,"missinginbook.tex");
                 new WorkWithoutConcepts(base,ARTICLE,exportDir,"conceptlessarticle.tex");
                 new WorkWithoutConcepts(base,PAPER,exportDir,"conceptlesspaper.tex");
+                new WorkWithoutConcepts(base,INBOOK,exportDir,"conceptlessinbook.tex");
                 new UnmatchedConcepts(base,exportDir,"unmatchedconcept.tex");
                 new KeyOverview(base,exportDir,"keylist.tex");
                 new WorksByAuthor(base,exportDir,"worksbyauthor.tex");

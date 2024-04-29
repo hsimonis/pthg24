@@ -452,7 +452,7 @@ public class ImportBib {
                 "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL","ICORES","SOCS","SAT",
                 "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA",
                 "Canadian AI","CSCLP","LION","FGCS","EvoWorkshop","Conf AI","ICOA","ASTAIR","LPNMR","ICMSAO","IESM",
-                "MIKE"
+                "MIKE","IDAACS"
         };
         for(String cand:series) {
             if (text.contains(cand)) {
@@ -525,6 +525,15 @@ public class ImportBib {
         if (text.toLowerCase().contains("European Symposium on Computer-Aided Process Engineering".toLowerCase())){
             return "ESCAPE";
         }
+        if (text.toLowerCase().contains("European Intelligence and Security Informatics Conference".toLowerCase())){
+            return "EISIC";
+        }
+        if (text.toLowerCase().contains("International Conference on Big Data".toLowerCase())){
+            return "Big Data";
+        }
+//        if (text.toLowerCase().contains("".toLowerCase())){
+//            return "";
+//        }
         return "unknown";
     }
 

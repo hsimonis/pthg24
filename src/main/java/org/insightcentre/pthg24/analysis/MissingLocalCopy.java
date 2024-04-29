@@ -59,6 +59,11 @@ public class MissingLocalCopy {
                         filter(x->x.getLocalCopy().equals("")).
                         sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
                         collect(Collectors.toUnmodifiableList());
+            case INBOOK:
+                return base.getListInBook().stream().
+                        filter(x->x.getLocalCopy().equals("")).
+                        sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
+                        collect(Collectors.toUnmodifiableList());
             default:
                 severe("Bad type "+type);
                 assert(false);

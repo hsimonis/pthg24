@@ -70,6 +70,12 @@ public class WorkWithoutConcepts {
                         filter(x->!hasConcept(base,x)).
                         sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
                         collect(Collectors.toUnmodifiableList());
+            case INBOOK:
+                return base.getListInBook().stream().
+                        filter(x->!x.getLocalCopy().equals("")).
+                        filter(x->!hasConcept(base,x)).
+                        sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
+                        collect(Collectors.toUnmodifiableList());
             default:
                 severe("Bad type "+type);
                 assert(false);

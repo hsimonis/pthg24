@@ -77,12 +77,29 @@ public class LookupMissingWork {
         String messageType = message.getString("type");
         JSONArray title = message.getJSONArray("title");
         String title1 = title.getString(0);
+        JSONArray author = message.getJSONArray("author");
+        String authors = extractAuthors(author);
 
         mw.setTitle(title1);
         mw.setType(messageType);
         mw.setCrossrefReferences(referenceCount);
         mw.setCrossrefCitations(referencedByCount);
+        mw.setAuthor(authors);
 
 
+    }
+
+    private String extractAuthors(JSONArray arr){
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<arr.length();i++){
+            if (i > 0){
+                sb.append(", ");
+            }
+            JSONObject author = arr.getJSONObject(i);
+            String given = author.getString("given");
+            String family = author.getString("family");
+            sb.append(given);sb.append(" ");sb.append(family);
+        }
+        return sb.toString();
     }
 }

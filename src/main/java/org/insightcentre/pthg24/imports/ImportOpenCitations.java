@@ -123,6 +123,7 @@ public class ImportOpenCitations {
     }
 
     private boolean exists(String fileName){
+        info("fileName "+fileName);
         Path path = Paths.get(fileName);
         return Files.exists(path);
     }

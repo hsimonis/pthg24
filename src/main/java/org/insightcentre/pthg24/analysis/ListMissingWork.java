@@ -28,19 +28,19 @@ public class ListMissingWork {
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{p{5cm}lp{11cm}rrrrr}\n");
             out.printf("\\caption{Missing Work}\\\\ \\toprule\n");
-            out.printf("DOI & Type & Title & \\shortstack{Nr\\\\Links} & \\shortstack{Nr\\\\References} & " +
-                    "\\shortstack{Nr\\\\Citations} & \\shortstack{Crossref\\\\References} & \\shortstack{Crossref\\\\Citations}\\\\ \\midrule");
+            out.printf("DOI & Type & Authors/Title & \\shortstack{Nr\\\\Links} & \\shortstack{Citing\\\\Survey} & " +
+                    "\\shortstack{Cited by\\\\Survey} & \\shortstack{XRef\\\\Refs} & \\shortstack{XRef\\\\Cite}\\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
             for(MissingWork mw:base.getListMissingWork().stream().
                     filter(x->!x.getTitle().equals("")).
-                    sorted(Comparator.comparing(MissingWork::getNrLinks).reversed()).
+                    sorted(Comparator.comparing(MissingWork::getNrLinks).thenComparing(MissingWork::getCrossrefCitations).reversed()).
                     toList()) {
                 out.printf("\\href{http://dx.doi.org/%s}{%s} \\href{https://www.doi2bib.org/bib/%s}{(bib)} & %s & %s & %d & %d & %d & %d & %d ",
                         mw.getDoi(),safe(mw.getDoi()),mw.getDoi(),
                         safe(mw.getType()),
-                        alphaSafe(safe(mw.getTitle())),
+                        authorsTitle(alphaSafe(mw.getAuthor()),alphaSafe(safe(mw.getTitle()))),
                         mw.getNrLinks(),
                         mw.getNrCited(),
                         mw.getNrCitations(),
@@ -57,8 +57,13 @@ public class ListMissingWork {
         }
     }
 
+    private String authorsTitle(String author,String title){
+        return author+". "+title;
+    }
+
     private String alphaSafe(String s){
-        return s.replace("α","$\\alpha$");
+        //??? temporary hack, get rid of unicode characters alltogether, replace with ?
+        return s.replaceAll("[^\\x00-\\x7F]","?").replace("α","$\\alpha$");
     }
 
 
