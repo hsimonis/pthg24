@@ -20,7 +20,7 @@ import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListMissingWork {
 
-    public ListMissingWork(Scenario base, String exportDir, String fileName){
+    public ListMissingWork(Scenario base, String exportDir, String fileName,String[] wordList){
         assert(exportDir.endsWith("/"));
         String fullFile = exportDir+fileName;
         try{
@@ -40,7 +40,7 @@ public class ListMissingWork {
                 out.printf("\\href{http://dx.doi.org/%s}{%s} \\href{https://www.doi2bib.org/bib/%s}{(bib)} & %s & %s & %d & %d & %d & %d & %d ",
                         mw.getDoi(),safe(mw.getDoi()),mw.getDoi(),
                         safe(mw.getType()),
-                        authorsTitle(alphaSafe(mw.getAuthor()),alphaSafe(safe(mw.getTitle()))),
+                        authorsTitle(alphaSafe(mw.getAuthor()),highlightWords(alphaSafe(safe(mw.getTitle())),wordList)),
                         mw.getNrLinks(),
                         mw.getNrCited(),
                         mw.getNrCitations(),
@@ -63,7 +63,16 @@ public class ListMissingWork {
 
     private String alphaSafe(String s){
         //??? temporary hack, get rid of unicode characters alltogether, replace with ?
-        return s.replaceAll("[^\\x00-\\x7F]","?").replace("α","$\\alpha$");
+        return s.replaceAll("&","").replaceAll("[^\\x00-\\x7F]","?").replace("α","$\\alpha$");
+    }
+
+    private String highlightWords(String text,String[] words){
+        String res = text;
+        for(String word:words){
+            res = res.replaceAll(word,String.format("\\\\textcolor{red}{%s}",word));
+        }
+        info("replaced "+res);
+        return res;
     }
 
 

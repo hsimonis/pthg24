@@ -40,7 +40,7 @@ public class JfxApp extends GeneratedJfxApp {
                 IrishCalendar.buildCalendar();
                 base.setDirty(false);
 
-                String type = "terrorism"; // others "scheduling" "cars" "mobilehealth","terrorism"
+                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth","terrorism"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -49,6 +49,7 @@ public class JfxApp extends GeneratedJfxApp {
                 String authors = "Helmut Simonis"; // authors for this particular type
                 int coauthorLimit = 2; // how many works an author needs to have to be included in coauthor graph
                 int linkCountLimit = 10; // how many links are required to lookup a missing work by its DOI
+                String[] wordList = new String[]{};
 
                 switch(type) {
                         case "cars":
@@ -74,6 +75,9 @@ public class JfxApp extends GeneratedJfxApp {
                                 authors = "B. O'Sullivan and H. Simonis";
                                 coauthorLimit = 2;
                                 linkCountLimit = 1;
+                                wordList = new String[]{"Terror","terror","Insurgency","insurgency","Opponent",
+                                        "AI","Artificial Intelligence","Forecasting","Learn","Computational",
+                                        "Predictive","Markov Model"};
                                 break;
                         case "scheduling":
                                 // settings for scheduling are a bit different
@@ -83,6 +87,9 @@ public class JfxApp extends GeneratedJfxApp {
                                 authors = "Helmut Simonis and Cemalettin Öztürk";
                                 coauthorLimit = 5;
                                 linkCountLimit = 5;
+                                wordList = new String[]{"Scheduling","scheduling",
+                                        "CP","CLP","CSP","COP","Constraint Programming",
+                                        "Constraint Logic Programming","Constraint Satisfaction"};
                                 break;
                         default:
                                 severe("Bad type " + type);
@@ -185,7 +192,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new SimilarityMeasure(base);
                 new ListSimilarity(base,exportDir,"mostsimilar.tex");
                 new LookupMissingWork(base,missingWorkDir,linkCountLimit);
-                new ListMissingWork(base,exportDir,"missingwork.tex");
+                new ListMissingWork(base,exportDir,"missingwork.tex",wordList);
                 new ListWorks(base,
                         base.getListWork().stream().
                                 filter(x->x.getDoi() == null || x.getDoi().equals("")).
