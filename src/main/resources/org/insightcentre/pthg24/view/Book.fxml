@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 20:13:23 on 2024-04-28-->
+<!--Generated at 18:49:36 on 2024-05-01-->
 
 
 <Tab text="Book" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.BookController">
@@ -63,6 +63,8 @@
                <TableColumn fx:id="crossrefStatus" styleClass="right-aligned" text="CrossrefStatus" />
                <TableColumn fx:id="scopusStatus" styleClass="right-aligned" text="ScopusStatus" />
                <TableColumn fx:id="wosStatus" styleClass="right-aligned" text="WosStatus" />
+               <TableColumn fx:id="relevance" styleClass="right-aligned" text="Relevance" />
+               <TableColumn fx:id="abstractText" styleClass="right-aligned" text="AbstractText" />
             </columns>
          </TableView>
       </center>

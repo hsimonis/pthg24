@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 20:13:23 on 2024-04-28 */
+ * Generated at 18:49:36 on 2024-05-01 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -56,6 +56,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
+		attributeNames.add("relevance");
 		choicesMap.put("Work", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -78,6 +79,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
+		attributeNames.add("relevance");
 		choicesMap.put("Paper", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -100,6 +102,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
+		attributeNames.add("relevance");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -122,6 +125,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
+		attributeNames.add("relevance");
 		choicesMap.put("PhDThesis", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -144,6 +148,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
+		attributeNames.add("relevance");
 		choicesMap.put("InCollection", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -166,6 +171,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
+		attributeNames.add("relevance");
 		choicesMap.put("InBook", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -188,6 +194,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
+		attributeNames.add("relevance");
 		choicesMap.put("Book", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("seqNr");
@@ -223,6 +230,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("crossrefReferences");
 		attributeNames.add("crossrefCitations");
+		attributeNames.add("knownAuthors");
+		attributeNames.add("conceptWeight");
+		attributeNames.add("relevance");
 		choicesMap.put("MissingWork", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nrWorks");
@@ -317,6 +327,9 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("ApplicationWarning")) {
 				objectList = mainApp.getApplicationWarningData();
+			}
+			else if (className.equals("ConceptType")) {
+				objectList = mainApp.getConceptTypeData();
 			}
 			else if (className.equals("Concept")) {
 				objectList = mainApp.getConceptData();
@@ -434,6 +447,9 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("CollabCount")) {
 				objectList = mainApp.getCollabCountData();
+			}
+			else if (className.equals("Translator")) {
+				objectList = mainApp.getTranslatorData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

@@ -17,6 +17,7 @@
 				<xs:element ref="collabWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="collection" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="concept" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="conceptType" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="conceptWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="conferenceSeries" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="doiReference" minOccurs="0" maxOccurs="unbounded"/>
@@ -41,6 +42,7 @@
 				<xs:element ref="scopusCountry" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="similarity" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="sourceGroup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="translator" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="uncategorizedReference" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="workAffiliation" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
@@ -52,7 +54,7 @@
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="caseSensitive" use="required" type="xs:boolean"/>
-			<xs:attribute name="conceptType" use="required" type="xs:string"/>
+			<xs:attribute name="conceptType" use="required" type="xs:IDREF"/>
 			<xs:attribute name="label" use="required" type="xs:string"/>
 			<xs:attribute name="nrOccurrences" use="required" type="xs:integer"/>
 			<xs:attribute name="regExpr" use="required" type="xs:string"/>
@@ -95,6 +97,7 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="abstractText" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
@@ -129,6 +132,7 @@
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
+			<xs:attribute name="relevance" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -176,6 +180,7 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="abstractText" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
@@ -210,6 +215,7 @@
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
+			<xs:attribute name="relevance" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -286,11 +292,18 @@
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="caseSensitive" use="required" type="xs:boolean"/>
-			<xs:attribute name="conceptType" use="required" type="xs:string"/>
+			<xs:attribute name="conceptType" use="required" type="xs:IDREF"/>
 			<xs:attribute name="label" use="required" type="xs:string"/>
 			<xs:attribute name="nrOccurrences" use="required" type="xs:integer"/>
 			<xs:attribute name="regExpr" use="required" type="xs:string"/>
 			<xs:attribute name="revision" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="conceptType">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="conceptWork">
@@ -337,6 +350,7 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="abstractText" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
@@ -371,6 +385,7 @@
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
+			<xs:attribute name="relevance" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -389,6 +404,7 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="abstractText" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
@@ -423,6 +439,7 @@
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
+			<xs:attribute name="relevance" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -499,14 +516,20 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="abstractText" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
+			<xs:attribute name="conceptWeight" use="required" type="xs:double"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="encoded" use="required" type="xs:string"/>
+			<xs:attribute name="keywords" use="required" type="xs:string"/>
+			<xs:attribute name="knownAuthors" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCited" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
+			<xs:attribute name="relevance" use="required" type="xs:double"/>
+			<xs:attribute name="source" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="type" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
@@ -526,6 +549,7 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="abstractText" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
@@ -560,6 +584,7 @@
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
+			<xs:attribute name="relevance" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -578,6 +603,7 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="abstractText" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
@@ -612,6 +638,7 @@
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
+			<xs:attribute name="relevance" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -742,6 +769,15 @@
 			<xs:attribute name="fromFlows" use="required" type="xs:integer"/>
 			<xs:attribute name="nrWorks" use="required" type="xs:integer"/>
 			<xs:attribute name="toFlows" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="translator">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="latex" use="required" type="xs:string"/>
+			<xs:attribute name="unicode" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="uncategorizedReference">

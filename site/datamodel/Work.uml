@@ -1,4 +1,5 @@
 abstract class Work {
+String abstractText
 String author
 List<Author> authors
 Boolean background
@@ -33,6 +34,7 @@ Double percentCitationsCovered
 Double percentReferencesCovered
 Integer rangeCitations
 String relatedTo
+Double relevance
 Integer scopusCitations
 Boolean scopusStatus
 String solutionAvail

@@ -160,6 +160,15 @@ $\square$\ & nrOccurrences &  \\
 \end{table}
 
 \begin{table}
+\caption{ConceptType  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+\end{longtable}
+\label{attr:ConceptType}
+\end{table}
+
+\begin{table}
 \caption{ConceptWork  }
 
 \begin{longtable}{llp{8cm}}
@@ -203,6 +212,7 @@ $\square$\ & title &  \\
 \label{attr:CrossReference}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{DoiReference  }
 
@@ -213,7 +223,6 @@ $\square$\ & doi &  \\
 \label{attr:DoiReference}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{InBook  }
 
@@ -261,6 +270,7 @@ $\square$\ & alias &  \\
 \label{attr:JournalAlias}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{MissingCitedWork  }
 
@@ -272,7 +282,6 @@ $\square$\ & nrCitations &  \\
 \label{attr:MissingCitedWork}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{MissingCitingWork  }
 
@@ -316,10 +325,16 @@ $\square$\ & nrLinks &  \\
 $\square$\ & year &  \\
 $\square$\ & author &  \\
 $\square$\ & title &  \\
+$\square$\ & source &  \\
+$\square$\ & abstractText &  \\
+$\square$\ & keywords &  \\
 $\square$\ & url &  \\
 $\square$\ & type &  \\
 $\square$\ & crossrefReferences &  \\
 $\square$\ & crossrefCitations &  \\
+$\square$\ & knownAuthors &  \\
+$\square$\ & conceptWeight &  \\
+$\square$\ & relevance &  \\
 \end{longtable}
 \label{attr:MissingWork}
 \end{table}
@@ -334,6 +349,7 @@ $\square$\ & fileName &  \\
 \label{attr:Orphan}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Paper  }
 
@@ -344,7 +360,6 @@ $\square$\ & proceedings &  \\
 \label{attr:Paper}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{PhDThesis  }
 
@@ -397,6 +412,7 @@ $\square$\ & normalized &  \\
 \label{attr:ReferenceFlow}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Scenario  This class describes the dataset for the application. Typically there is a single instance of this class in the application at all times.}
 
@@ -406,7 +422,6 @@ $\square$\ & normalized &  \\
 \label{attr:Scenario}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{School  }
 
@@ -458,6 +473,7 @@ $\square$\ & nrWorks &  \\
 \label{attr:ScopusCountry}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Similarity  }
 
@@ -481,7 +497,6 @@ $\square$\ & cosine &  \\
 \label{attr:Similarity}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{SourceGroup  }
 
@@ -493,6 +508,17 @@ $\square$\ & fromFlows &  \\
 $\square$\ & toFlows &  \\
 \end{longtable}
 \label{attr:SourceGroup}
+\end{table}
+
+\begin{table}
+\caption{Translator  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & unicode &  \\
+$\square$\ & latex &  \\
+\end{longtable}
+\label{attr:Translator}
 \end{table}
 
 \begin{table}
@@ -553,10 +579,13 @@ $\square$\ & doiStatus &  \\
 $\square$\ & crossrefStatus &  \\
 $\square$\ & scopusStatus &  \\
 $\square$\ & wosStatus &  \\
+$\square$\ & relevance &  \\
+$\square$\ & abstractText &  \\
 \end{longtable}
 \label{attr:Work}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{WorkAffiliation  }
 

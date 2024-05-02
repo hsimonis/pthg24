@@ -91,7 +91,7 @@ public class PublicationReport extends AbstractReport{
                 "extracted to the number of concepts of a given type, which is stated in the title of the diagram.");
         paragraph("A high count indicates that a work covers many of the concepts of the given type, a low count " +
                 "might mean that our ontology does not have relevant concepts for that work.");
-        for(ConceptType type:ConceptType.values()){
+        for(ConceptType type:base.getListConceptType()){
             int d = (int) base.getListConcept().stream().filter(x->x.getConceptType()==type).count();
             new DistributionPlot<>(base.getListWork().stream().
                     filter(x -> !x.getLocalCopy().equals("")).

@@ -36,6 +36,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include CollabWork.uml
 !include Collection.uml
 !include Concept.uml
+!include ConceptType.uml
 !include ConceptWork.uml
 !include ConferenceSeries.uml
 !include CrossReference.uml
@@ -61,6 +62,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include ScopusCountry.uml
 !include Similarity.uml
 !include SourceGroup.uml
+!include Translator.uml
 !include UncategorizedReference.uml
 !include Work.uml
 !include WorkAffiliation.uml
@@ -68,7 +70,6 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include WarningType.uml
 !include MatchLevel.uml
 !include WorkType.uml
-!include ConceptType.uml
 !include OpenAccessType.uml
 ApplicationObjectInterface <|-- ApplicationObject
 ApplicationDatasetInterface <|-- ApplicationDataset
@@ -84,6 +85,7 @@ Work <|-- Book
 CrossReference <|-- UncategorizedReference
 CrossReference <|-- DoiReference
 ApplicationDataset  *-- ApplicationObject 
+ConceptType  *-- Concept 
 Author "1..*" *-- Work : authors
 SourceGroup  *-- Work 
 ConferenceSeries  *-- Proceedings 

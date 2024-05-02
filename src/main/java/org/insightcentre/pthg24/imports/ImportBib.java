@@ -35,6 +35,7 @@ public class ImportBib {
             Key journalISO = new Key("Journal-ISO");
             Key orcidNumbers = new Key("ORCID-Numbers");
             Key uniqueId = new Key("Unique-ID");
+            Key abstractKey = new Key("abstract");
 
             BibTeXDatabase database = bibtexParser.parse(reader);
             reader.close();
@@ -124,6 +125,9 @@ public class ImportBib {
                     }
                     if (!fieldString(entry,uniqueId).equals("")){
                         work.setWosStatus(true);
+                    }
+                    if (!fieldString(entry,abstractKey).equals("")){
+                        work.setAbstractText(fieldString(entry,abstractKey));
                     }
                     Work previous = keyHash.get(work.getKey());
                     if (previous != null){

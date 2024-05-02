@@ -25,7 +25,7 @@ public class RunPDFGrep {
         String savedFile = importDir+"savedConceptWork.json";
         String tmpFile = importDir+"tmpConceptWork.json";
         ConceptWorkHash cwh = new ConceptWorkHash(base,savedFile);
-        for(ConceptType ct:ConceptType.values()) {
+        for(ConceptType ct:base.getListConceptType()) {
             for (Concept c : base.getListConcept().stream().
                     filter(x -> x.getConceptType() == ct).
                     sorted(Comparator.comparing(Concept::getLabel)).

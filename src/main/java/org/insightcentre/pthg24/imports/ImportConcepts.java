@@ -16,19 +16,23 @@ import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ImportConcepts {
+    Scenario base;
     public ImportConcepts(Scenario base, String importDir, String fileName){
+        this.base = base;
         assert(importDir.endsWith("/"));
         String fullName = importDir+fileName;
         try{
             String text = new String(Files.readAllBytes(Paths.get(fullName)));
 //            info("text "+text);
-            JSONObject ref = new JSONObject(text);
-            JSONArray arr = ref.getJSONArray("arr");
+            JSONArray arr = new JSONArray(text);
             for(int i=0;i<arr.length();i++){
                 JSONObject c = arr.getJSONObject(i);
                 String type = c.getString("type");
                 String label = c.getString("label");
-                String regExpr = c.getString("regExpr");
+                String regExpr = label;
+                if (c.has("regExpr")) {
+                    regExpr = c.getString("regExpr");
+                }
                 boolean caseSensitive = false;
                 if (c.has("caseSensitive")){
                     caseSensitive = c.getBoolean("caseSensitive");
@@ -60,18 +64,9 @@ public class ImportConcepts {
     }
 
     private ConceptType stringToConceptType(String text){
-        switch(text){
-            case "Concepts":return Concepts;
-            case "Classification":return Classification;
-            case "Constraints":return Constraints;
-            case "ApplicationAreas":return ApplicationAreas;
-            case "Industries":return Industries;
-            case "ProgLanguages":return ProgLanguages;
-            case "CPSystems":return CPSystems;
-            case "Benchmarks":return Benchmarks;
-            case "Algorithms":return Algorithms;
-           default: return null;
-        }
+        ConceptType res = ConceptType.findByName(base,text);
+        assert(res != null);
+        return res;
     }
 
 }

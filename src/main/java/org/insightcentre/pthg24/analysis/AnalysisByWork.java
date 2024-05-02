@@ -31,12 +31,9 @@ public class AnalysisByWork {
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}r" +
-                    ">{\\raggedright\\arraybackslash}p{4cm}p{1.5cm}p{2cm}p{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{2cm}p{1.5cm}rr}\n");
+            out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}r%srr}\n",conceptTypeWidths(base));
             out.printf("\\rowcolor{white}\\caption{%s}\\\\ \\toprule\n",caption);
-            out.printf("\\rowcolor{white}Work & Pages & Concepts & Classification & Constraints & \\shortstack{Prog\\\\Languages} & " +
-                    "\\shortstack{CP\\\\Systems} & Areas & " +
-                    "Industries & Benchmarks & Algorithm & a & c\\\\ \\midrule");
+            out.printf("\\rowcolor{white}Work & Pages %s & a & c\\\\ \\midrule",conceptTypeLabels(base));
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
@@ -46,15 +43,9 @@ public class AnalysisByWork {
                         local(w.getLocalCopy()),safe(w.getName()),
                         w.getName());
                 out.printf(" & %d",w.getNrPages());
-                out.printf(" & %s",concepts(base,w,Concepts));
-                out.printf(" & %s",concepts(base,w,Classification));
-                out.printf(" & %s",concepts(base,w, Constraints));
-                out.printf(" & %s",concepts(base,w,ProgLanguages));
-                out.printf(" & %s",concepts(base,w,CPSystems));
-                out.printf(" & %s",concepts(base,w,ApplicationAreas));
-                out.printf(" & %s",concepts(base,w,Industries));
-                out.printf(" & %s",concepts(base,w,Benchmarks));
-                out.printf(" & %s",concepts(base,w,Algorithms));
+                for(ConceptType ct:conceptTypes(base)) {
+                    out.printf(" & %s", concepts(base, w, ct));
+                }
                 out.printf(" & %s & %s",aLabelRef(w),cLabelRef(base,w));
                 out.printf("\\\\\n");
             }
@@ -65,6 +56,25 @@ public class AnalysisByWork {
             severe("Cannot write file "+fullName);
             assert(false);
         }
+    }
+
+    private List<ConceptType> conceptTypes(Scenario base){
+        return base.getListConceptType().stream().sorted(Comparator.comparing(ConceptType::getName)).toList();
+    }
+
+    private String conceptTypeLabels(Scenario base){
+        StringBuilder sb = new StringBuilder();
+        for(ConceptType ct:conceptTypes(base)){
+            sb.append("& ");sb.append(ct.getName());
+        }
+        return sb.toString();
+    }
+    private String conceptTypeWidths(Scenario base){
+        StringBuilder sb = new StringBuilder();
+        for(ConceptType ct:conceptTypes(base)){
+            sb.append(">{\\raggedright\\arraybackslash}p{1.5cm}");
+        }
+        return sb.toString();
     }
 
     private String rowLabel(Work w,String label,boolean rowLabels){

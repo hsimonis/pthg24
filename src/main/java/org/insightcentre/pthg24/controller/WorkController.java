@@ -31,7 +31,7 @@ import org.insightcentre.pthg24.datamodel.SourceGroup;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 20:13:22 on 2024-04-28 */
+ * Generated at 18:49:36 on 2024-05-01 */
 public class WorkController extends Table3Controller {
 	@FXML
 	private TableView<Work> table;
@@ -170,6 +170,12 @@ public class WorkController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Work, Boolean> wosStatus;
+
+	@FXML
+	private TableColumn<Work, Double> relevance;
+
+	@FXML
+	private TableColumn<Work, String> abstractText;
 
 	private GeneratedJfxApp mainApp;
 
@@ -362,6 +368,14 @@ public class WorkController extends Table3Controller {
 		choices.add("wosStatus");
 		wosStatus.setCellValueFactory(new WosStatusCallback());
 		wosStatus.setCellFactory(CheckBoxTableCell.forTableColumn(wosStatus));
+		choices.add("relevance");
+		relevance.setCellValueFactory(new PropertyValueFactory<>("relevance"));
+		relevance.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		relevance.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRelevance(event.getNewValue()); mainApp.reset();});
+		choices.add("abstractText");
+		abstractText.setCellValueFactory(new PropertyValueFactory<>("abstractText"));
+		abstractText.setCellFactory(TextFieldTableCell.forTableColumn());
+		abstractText.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAbstractText(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

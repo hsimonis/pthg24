@@ -5,6 +5,7 @@ import org.insightcentre.pthg24.datamodel.ApplicationObject;
 import org.insightcentre.pthg24.datamodel.ApplicationDifference;
 import org.insightcentre.pthg24.datamodel.ApplicationWarning;
 import org.insightcentre.pthg24.datamodel.Scenario;
+import org.insightcentre.pthg24.datamodel.ConceptType;
 import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.Acronym;
 import org.insightcentre.pthg24.datamodel.Author;
@@ -44,11 +45,11 @@ import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
+import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
 import org.insightcentre.pthg24.datamodel.WorkType;
-import org.insightcentre.pthg24.datamodel.ConceptType;
 import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 import java.util.*;
@@ -132,6 +133,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
 */
 
     List<Scenario> listScenario = new ArrayList<Scenario>();
+
+/**
+ *  This lists holds all items of class ConceptType and its subclasses
+ *
+*/
+
+    List<ConceptType> listConceptType = new ArrayList<ConceptType>();
 
 /**
  *  This lists holds all items of class Concept and its subclasses
@@ -407,6 +415,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<CollabCount> listCollabCount = new ArrayList<CollabCount>();
 
 /**
+ *  This lists holds all items of class Translator and its subclasses
+ *
+*/
+
+    List<Translator> listTranslator = new ArrayList<Translator>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -543,6 +558,7 @@ public int compareTo(ApplicationDataset ds2){
                              "CollabWork",
                              "Collection",
                              "Concept",
+                             "ConceptType",
                              "ConceptWork",
                              "ConferenceSeries",
                              "DoiReference",
@@ -567,6 +583,7 @@ public int compareTo(ApplicationDataset ds2){
                              "ScopusCountry",
                              "Similarity",
                              "SourceGroup",
+                             "Translator",
                              "UncategorizedReference",
                              "WorkAffiliation");
     }
@@ -626,6 +643,7 @@ public int compareTo(ApplicationDataset ds2){
         listApplicationObject = new ArrayList<ApplicationObject>();
         resetListApplicationWarning();
         resetListApplicationDifference();
+        resetListConceptType();
         resetListConcept();
         resetListAcronym();
         resetListAuthor();
@@ -665,6 +683,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListOrphan();
         resetListCollabWork();
         resetListCollabCount();
+        resetListTranslator();
     }
 
 /**
@@ -767,6 +786,40 @@ public int compareTo(ApplicationDataset ds2){
             }
         }
        listApplicationDataset = newListApplicationDataset;
+    }
+
+/**
+ *  Iterator for list of class ConceptType
+ *
+*/
+
+    public Iterator<ConceptType> getIteratorConceptType(){
+        return listConceptType.iterator();
+    }
+
+/**
+ *  Getter for list of class ConceptType
+ *
+*/
+
+    public List<ConceptType> getListConceptType(){
+        return listConceptType;
+    }
+
+/**
+ *  reset the list of class ConceptType; use with care, does not call cascades
+ *
+*/
+
+    public void resetListConceptType(){
+        listConceptType = new ArrayList<ConceptType>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof ConceptType)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
     }
 
 /**
@@ -2168,6 +2221,40 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class Translator
+ *
+*/
+
+    public Iterator<Translator> getIteratorTranslator(){
+        return listTranslator.iterator();
+    }
+
+/**
+ *  Getter for list of class Translator
+ *
+*/
+
+    public List<Translator> getListTranslator(){
+        return listTranslator;
+    }
+
+/**
+ *  reset the list of class Translator; use with care, does not call cascades
+ *
+*/
+
+    public void resetListTranslator(){
+        listTranslator = new ArrayList<Translator>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Translator)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -2257,6 +2344,24 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(ApplicationObject b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class ConceptType; remove all dependent objects of class Concept which refer to item through their attribute conceptType
+ *
+*/
+
+    public void cascadeConceptConceptType(ConceptType item){
+        assert item != null;
+        List<Concept> toRemove = new ArrayList<Concept>();
+        for(Concept a:getListConcept()) {
+         if (a.getConceptType() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Concept b:toRemove) {
             b.remove();
         }
     }
@@ -3010,6 +3115,26 @@ public int compareTo(ApplicationDataset ds2){
     public Boolean removeScenario(Scenario scenario){
         assert scenario != null;
         return this.listScenario.remove(scenario);
+    }
+
+/**
+ *  add an item to the list for class ConceptType
+ *
+*/
+
+    public void addConceptType(ConceptType conceptType){
+        assert conceptType != null;
+        this.listConceptType.add(conceptType);
+    }
+
+/**
+ *  remove an item from the list for class ConceptType
+ *
+*/
+
+    public Boolean removeConceptType(ConceptType conceptType){
+        assert conceptType != null;
+        return this.listConceptType.remove(conceptType);
     }
 
 /**
@@ -3793,6 +3918,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class Translator
+ *
+*/
+
+    public void addTranslator(Translator translator){
+        assert translator != null;
+        this.listTranslator.add(translator);
+    }
+
+/**
+ *  remove an item from the list for class Translator
+ *
+*/
+
+    public Boolean removeTranslator(Translator translator){
+        assert translator != null;
+        return this.listTranslator.remove(translator);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -3838,6 +3983,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(Concept x:getListConcept()){
+            System.out.println(x);
+        }
+        for(ConceptType x:getListConceptType()){
             System.out.println(x);
         }
         for(ConceptWork x:getListConceptWork()){
@@ -3910,6 +4058,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(SourceGroup x:getListSourceGroup()){
+            System.out.println(x);
+        }
+        for(Translator x:getListTranslator()){
             System.out.println(x);
         }
         for(UncategorizedReference x:getListUncategorizedReference()){
@@ -3996,6 +4147,9 @@ public int compareTo(ApplicationDataset ds2){
         for(Concept x:getListConcept()){
             if (x.getClass().equals(Concept.class)) x.toXML(out);
         }
+        for(ConceptType x:getListConceptType()){
+            if (x.getClass().equals(ConceptType.class)) x.toXML(out);
+        }
         for(ConceptWork x:getListConceptWork()){
             if (x.getClass().equals(ConceptWork.class)) x.toXML(out);
         }
@@ -4064,6 +4218,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(SourceGroup x:getListSourceGroup()){
             if (x.getClass().equals(SourceGroup.class)) x.toXML(out);
+        }
+        for(Translator x:getListTranslator()){
+            if (x.getClass().equals(Translator.class)) x.toXML(out);
         }
         for(UncategorizedReference x:getListUncategorizedReference()){
             if (x.getClass().equals(UncategorizedReference.class)) x.toXML(out);
@@ -4179,6 +4336,7 @@ public int compareTo(ApplicationDataset ds2){
         compareCollabWork(this.getListCollabWork(),compare.getListCollabWork());
         compareCollection(this.getListCollection(),compare.getListCollection());
         compareConcept(this.getListConcept(),compare.getListConcept());
+        compareConceptType(this.getListConceptType(),compare.getListConceptType());
         compareConceptWork(this.getListConceptWork(),compare.getListConceptWork());
         compareConferenceSeries(this.getListConferenceSeries(),compare.getListConferenceSeries());
         compareDoiReference(this.getListDoiReference(),compare.getListDoiReference());
@@ -4202,6 +4360,7 @@ public int compareTo(ApplicationDataset ds2){
         compareScopusCountry(this.getListScopusCountry(),compare.getListScopusCountry());
         compareSimilarity(this.getListSimilarity(),compare.getListSimilarity());
         compareSourceGroup(this.getListSourceGroup(),compare.getListSourceGroup());
+        compareTranslator(this.getListTranslator(),compare.getListTranslator());
         compareUncategorizedReference(this.getListUncategorizedReference(),compare.getListUncategorizedReference());
         compareWorkAffiliation(this.getListWorkAffiliation(),compare.getListWorkAffiliation());
         System.out.println("Done Comparing ApplicationDataset");
@@ -4515,6 +4674,30 @@ public int compareTo(ApplicationDataset ds2){
             Concept a = Concept.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Concept B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types ConceptType, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareConceptType(List<ConceptType> aList,List<ConceptType> bList){
+        System.out.println("Comparing ConceptType");
+        for(ConceptType a:aList){
+            ConceptType b= ConceptType.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConceptType A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConceptType A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConceptType B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(ConceptType b: bList){
+            ConceptType a = ConceptType.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConceptType B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -5072,6 +5255,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types Translator, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareTranslator(List<Translator> aList,List<Translator> bList){
+        System.out.println("Comparing Translator");
+        for(Translator a:aList){
+            Translator b= Translator.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Translator A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Translator A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Translator B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Translator b: bList){
+            Translator a = Translator.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Translator B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types UncategorizedReference, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -5138,6 +5345,7 @@ public int compareTo(ApplicationDataset ds2){
         checkCollabWork(this.getListCollabWork());
         checkCollection(this.getListCollection());
         checkConcept(this.getListConcept());
+        checkConceptType(this.getListConceptType());
         checkConceptWork(this.getListConceptWork());
         checkConferenceSeries(this.getListConferenceSeries());
         checkDoiReference(this.getListDoiReference());
@@ -5162,6 +5370,7 @@ public int compareTo(ApplicationDataset ds2){
         checkScopusCountry(this.getListScopusCountry());
         checkSimilarity(this.getListSimilarity());
         checkSourceGroup(this.getListSourceGroup());
+        checkTranslator(this.getListTranslator());
         checkUncategorizedReference(this.getListUncategorizedReference());
         checkWorkAffiliation(this.getListWorkAffiliation());
     }
@@ -5305,6 +5514,17 @@ public int compareTo(ApplicationDataset ds2){
 
     public void checkConcept(List<Concept> list){
         for(Concept a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<ConceptType> dataset list of all items of type ConceptType
+*/
+
+    public void checkConceptType(List<ConceptType> list){
+        for(ConceptType a:list){
             a.check();
         }
     }
@@ -5575,6 +5795,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<Translator> dataset list of all items of type Translator
+*/
+
+    public void checkTranslator(List<Translator> list){
+        for(Translator a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<UncategorizedReference> dataset list of all items of type UncategorizedReference
 */
 
@@ -5610,6 +5841,7 @@ public int compareTo(ApplicationDataset ds2){
         CollabWork.dummy(this);
         Collection.dummy(this);
         Concept.dummy(this);
+        ConceptType.dummy(this);
         ConceptWork.dummy(this);
         ConferenceSeries.dummy(this);
         DoiReference.dummy(this);
@@ -5634,6 +5866,7 @@ public int compareTo(ApplicationDataset ds2){
         ScopusCountry.dummy(this);
         Similarity.dummy(this);
         SourceGroup.dummy(this);
+        Translator.dummy(this);
         UncategorizedReference.dummy(this);
         WorkAffiliation.dummy(this);
    }

@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.AnalysisByWork.concepts;
 import static org.insightcentre.pthg24.analysis.ListWorks.*;
-import static org.insightcentre.pthg24.datamodel.ConceptType.Benchmarks;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListWorksManual {
@@ -24,6 +23,7 @@ public class ListWorksManual {
         this.base = base;
         assert(exportDir.endsWith("/"));
         String fullName= exportDir+fileName;
+        ConceptType benchmark = ConceptType.findByName(base,"Benchmark");
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
@@ -44,7 +44,7 @@ public class ListWorksManual {
                         a.getName(),
                         local(a.getLocalCopy()), safe(a.getTitle()),
 //                        a.getCpSystem(),
-                        concepts(base,a,Benchmarks),
+                        concepts(base,a,benchmark),
                         a.getNrLinks(),
                         a.getDataAvail(),
                         a.getSolutionAvail(),

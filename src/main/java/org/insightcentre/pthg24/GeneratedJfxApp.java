@@ -35,6 +35,7 @@ import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.Concept;
+import org.insightcentre.pthg24.datamodel.ConceptType;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
 import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.CrossReference;
@@ -60,13 +61,14 @@ import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
+import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.UncategorizedReference;
 import org.insightcentre.pthg24.datamodel.Work;
 import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 20:13:22 on 2024-04-28 */
+ * Generated at 18:49:36 on 2024-05-01 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -83,6 +85,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	private ObservableList<ApplicationDifference> applicationDifferenceData = FXCollections.observableArrayList();
 
 	private ObservableList<ApplicationWarning> applicationWarningData = FXCollections.observableArrayList();
+
+	private ObservableList<ConceptType> conceptTypeData = FXCollections.observableArrayList();
 
 	private ObservableList<Concept> conceptData = FXCollections.observableArrayList();
 
@@ -162,10 +166,13 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<CollabCount> collabCountData = FXCollections.observableArrayList();
 
+	private ObservableList<Translator> translatorData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
 		fs = minimalDataset();
 		reset();
+		tableViews.put("ConceptType", "ConceptType");
 		tableViews.put("Concept", "Concept");
 		tableViews.put("Acronym", "Acronym");
 		tableViews.put("Author", "Author");
@@ -205,6 +212,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("Orphan", "Orphan");
 		tableViews.put("CollabWork", "CollabWork");
 		tableViews.put("CollabCount", "CollabCount");
+		tableViews.put("Translator", "Translator");
 		tableViews.put("Scenario", "Scenario");
 		tableViews.put("Scenario Differences", "ApplicationDifference");
 		tableViews.put("Warnings", "ApplicationWarning");
@@ -283,6 +291,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		applicationDifferenceData.addAll(base.getListApplicationDifference());
 		applicationWarningData.clear();
 		applicationWarningData.addAll(base.getListApplicationWarning());
+		conceptTypeData.clear();
+		conceptTypeData.addAll(base.getListConceptType());
 		conceptData.clear();
 		conceptData.addAll(base.getListConcept());
 		acronymData.clear();
@@ -361,6 +371,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		collabWorkData.addAll(base.getListCollabWork());
 		collabCountData.clear();
 		collabCountData.addAll(base.getListCollabCount());
+		translatorData.clear();
+		translatorData.addAll(base.getListTranslator());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -376,6 +388,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<ApplicationWarning> getApplicationWarningData() {
 		return applicationWarningData;
+	}
+
+	public ObservableList<ConceptType> getConceptTypeData() {
+		return conceptTypeData;
 	}
 
 	public ObservableList<Concept> getConceptData() {
@@ -532,5 +548,9 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<CollabCount> getCollabCountData() {
 		return collabCountData;
+	}
+
+	public ObservableList<Translator> getTranslatorData() {
+		return translatorData;
 	}
 }

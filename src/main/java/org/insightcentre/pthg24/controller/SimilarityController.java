@@ -22,7 +22,7 @@ import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 20:13:22 on 2024-04-28 */
+ * Generated at 18:49:36 on 2024-05-01 */
 public class SimilarityController extends Table3Controller {
 	@FXML
 	private TableView<Similarity> table;

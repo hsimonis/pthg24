@@ -32,7 +32,7 @@ import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 20:13:22 on 2024-04-28 */
+ * Generated at 18:49:36 on 2024-05-01 */
 public class PhDThesisController extends Table3Controller {
 	@FXML
 	private TableView<PhDThesis> table;
@@ -171,6 +171,12 @@ public class PhDThesisController extends Table3Controller {
 
 	@FXML
 	private TableColumn<PhDThesis, Boolean> wosStatus;
+
+	@FXML
+	private TableColumn<PhDThesis, Double> relevance;
+
+	@FXML
+	private TableColumn<PhDThesis, String> abstractText;
 
 	@FXML
 	private TableColumn<PhDThesis, School> school;
@@ -368,6 +374,14 @@ public class PhDThesisController extends Table3Controller {
 		choices.add("wosStatus");
 		wosStatus.setCellValueFactory(new WosStatusCallback());
 		wosStatus.setCellFactory(CheckBoxTableCell.forTableColumn(wosStatus));
+		choices.add("relevance");
+		relevance.setCellValueFactory(new PropertyValueFactory<>("relevance"));
+		relevance.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		relevance.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRelevance(event.getNewValue()); mainApp.reset();});
+		choices.add("abstractText");
+		abstractText.setCellValueFactory(new PropertyValueFactory<>("abstractText"));
+		abstractText.setCellFactory(TextFieldTableCell.forTableColumn());
+		abstractText.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAbstractText(event.getNewValue()); mainApp.reset();});
 		choices.add("school");
 		school.setCellValueFactory(new PropertyValueFactory<>("school"));
 		initialize(choices);

@@ -74,16 +74,6 @@ public WorkType getWorkType(String attributeName,
             return WorkType.valueOf(e);
         }
     }
-public ConceptType getConceptType(String attributeName,
-                               Attributes attributes) {
-        String e = attributes.getValue(attributeName);
-        if (e == null) {
-            System.out.println("ConceptType"+": "+attributeName);
-            return null;
-        } else {
-            return ConceptType.valueOf(e);
-        }
-    }
 public OpenAccessType getOpenAccessType(String attributeName,
                                Attributes attributes) {
         String e = attributes.getValue(attributeName);
@@ -393,6 +383,25 @@ public OpenAccessType getOpenAccessType(String attributeName,
             if (words[i].length() > 0) {
                 int id = Integer.parseInt(words[i].substring(3));
                 res.add((Concept) find(id));
+            }
+        }
+        return res;
+    }
+
+    public ConceptType getConceptType(String attributeName,
+                               Attributes attributes) {
+        return (ConceptType) find(getId(attributeName,attributes));
+    }
+
+    public List<ConceptType> getConceptTypeCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<ConceptType> res = new ArrayList<ConceptType>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((ConceptType) find(id));
             }
         }
         return res;
@@ -873,6 +882,25 @@ public OpenAccessType getOpenAccessType(String attributeName,
         return res;
     }
 
+    public Translator getTranslator(String attributeName,
+                               Attributes attributes) {
+        return (Translator) find(getId(attributeName,attributes));
+    }
+
+    public List<Translator> getTranslatorCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<Translator> res = new ArrayList<Translator>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((Translator) find(id));
+            }
+        }
+        return res;
+    }
+
     public UncategorizedReference getUncategorizedReference(String attributeName,
                                Attributes attributes) {
         return (UncategorizedReference) find(getId(attributeName,attributes));
@@ -1007,6 +1035,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 store(id, new Article(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getString("abstractText",attributes,""),
                         getString("author",attributes,""),
                         null,
                         getBoolean("background",attributes,false),
@@ -1041,6 +1070,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getDouble("percentReferencesCovered",attributes,0.0),
                         getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
+                        getDouble("relevance",attributes,0.0),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
                         getString("solutionAvail",attributes,""),
@@ -1088,6 +1118,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 store(id, new Book(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getString("abstractText",attributes,""),
                         getString("author",attributes,""),
                         null,
                         getBoolean("background",attributes,false),
@@ -1122,6 +1153,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getDouble("percentReferencesCovered",attributes,0.0),
                         getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
+                        getDouble("relevance",attributes,0.0),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
                         getString("solutionAvail",attributes,""),
@@ -1204,6 +1236,13 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("regExpr",attributes,""),
                         getInteger("revision",attributes,0)
                         ));
+            } else if (qname.equals("conceptType")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new ConceptType(base,
+                        id,
+                        getString("name", attributes, "dummy")
+                        ));
             } else if (qname.equals("conceptWork")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1249,6 +1288,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 store(id, new InBook(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getString("abstractText",attributes,""),
                         getString("author",attributes,""),
                         null,
                         getBoolean("background",attributes,false),
@@ -1283,6 +1323,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getDouble("percentReferencesCovered",attributes,0.0),
                         getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
+                        getDouble("relevance",attributes,0.0),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
                         getString("solutionAvail",attributes,""),
@@ -1301,6 +1342,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 store(id, new InCollection(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getString("abstractText",attributes,""),
                         getString("author",attributes,""),
                         null,
                         getBoolean("background",attributes,false),
@@ -1335,6 +1377,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getDouble("percentReferencesCovered",attributes,0.0),
                         getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
+                        getDouble("relevance",attributes,0.0),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
                         getString("solutionAvail",attributes,""),
@@ -1411,14 +1454,20 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 store(id, new MissingWork(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getString("abstractText",attributes,""),
                         getString("author",attributes,""),
+                        getDouble("conceptWeight",attributes,0.0),
                         getInteger("crossrefCitations",attributes,0),
                         getInteger("crossrefReferences",attributes,0),
                         getString("doi",attributes,""),
                         getString("encoded",attributes,""),
+                        getString("keywords",attributes,""),
+                        getInteger("knownAuthors",attributes,0),
                         getInteger("nrCitations",attributes,0),
                         getInteger("nrCited",attributes,0),
                         getInteger("nrLinks",attributes,0),
+                        getDouble("relevance",attributes,0.0),
+                        getString("source",attributes,""),
                         getString("title",attributes,""),
                         getString("type",attributes,""),
                         getString("url",attributes,""),
@@ -1438,6 +1487,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 store(id, new Paper(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getString("abstractText",attributes,""),
                         getString("author",attributes,""),
                         null,
                         getBoolean("background",attributes,false),
@@ -1472,6 +1522,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getDouble("percentReferencesCovered",attributes,0.0),
                         getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
+                        getDouble("relevance",attributes,0.0),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
                         getString("solutionAvail",attributes,""),
@@ -1490,6 +1541,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 store(id, new PhDThesis(base,
                         id,
                         getString("name", attributes, "dummy"),
+                        getString("abstractText",attributes,""),
                         getString("author",attributes,""),
                         null,
                         getBoolean("background",attributes,false),
@@ -1524,6 +1576,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getDouble("percentReferencesCovered",attributes,0.0),
                         getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
+                        getDouble("relevance",attributes,0.0),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
                         getString("solutionAvail",attributes,""),
@@ -1646,6 +1699,15 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getInteger("fromFlows",attributes,0),
                         getInteger("nrWorks",attributes,0),
                         getInteger("toFlows",attributes,0)
+                        ));
+            } else if (qname.equals("translator")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new Translator(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getString("latex",attributes,""),
+                        getString("unicode",attributes,"")
                         ));
             } else if (qname.equals("uncategorizedReference")) {
                 assert (base != null);
@@ -1782,6 +1844,10 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 int id = getId("id", attributes);
                 Concept item = (Concept) find(id);
                  item.setConceptType(getConceptType("conceptType",attributes));
+            } else if (qname.equals("conceptType")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                ConceptType item = (ConceptType) find(id);
             } else if (qname.equals("conceptWork")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1906,6 +1972,10 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 SourceGroup item = (SourceGroup) find(id);
+            } else if (qname.equals("translator")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                Translator item = (Translator) find(id);
             } else if (qname.equals("uncategorizedReference")) {
                 assert (base != null);
                 int id = getId("id", attributes);

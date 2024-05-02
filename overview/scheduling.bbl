@@ -6438,6 +6438,14 @@ W.~P.~M. Nuijten and Emile H.~L. Aarts.
   Conference on Artificial Intelligence, Amsterdam, The Netherlands, August
   8-12, 1994}, pages 635--639. John Wiley and Sons, Chichester, 1994.
 
+\bibitem{Nuijten94}
+Wim Nuijten.
+\newblock {\em Time and Resource Constrained Scheduling: a Constraint
+  Satisfaction Approach}.
+\newblock PhD thesis, Eindhoven University of Technology, 1994.
+\newblock URL:
+  \url{https://pure.tue.nl/ws/portalfiles/portal/2374269/431902.pdf}.
+
 \bibitem{NuijtenA94}
 Wim Nuijten and Emile H.~L. Aarts.
 \newblock Constraint satisfaction for multiple capacitated job shop scheduling.
@@ -7490,6 +7498,14 @@ Alexander Schnell and Richard~F. Hartl.
 \newblock URL: \url{http://dx.doi.org/10.1016/j.orp.2017.01.002}, \href
   {https://doi.org/10.1016/j.orp.2017.01.002}
   {\path{doi:10.1016/j.orp.2017.01.002}}.
+
+\bibitem{Schreuder92}
+Jan A.~M. Schreuder.
+\newblock Combinatorial aspects of construction of competition dutch
+  professional football leagues.
+\newblock {\em Discret. Appl. Math.}, 35(3):301--312, 1992.
+\newblock \href {https://doi.org/10.1016/0166-218X(92)90252-6}
+  {\path{doi:10.1016/0166-218X(92)90252-6}}.
 
 \bibitem{Schutt11}
 Andreas Schutt.
@@ -8863,6 +8879,16 @@ Kenneth~D. Young, Thibaut Feydy, and Andreas Schutt.
   {\em Lecture Notes in Computer Science}, pages 308--317. Springer, 2017.
 \newblock \href {https://doi.org/10.1007/978-3-319-66158-2_20}
   {\path{doi:10.1007/978-3-319-66158-2_20}}.
+
+\bibitem{YunG02}
+Young-Su Yun and Mitsuo Gen.
+\newblock Advanced scheduling problem using constraint programming techniques
+  in scm environment.
+\newblock {\em Computers \& Industrial Engineering}, 43(1–2):213–229, July
+  2002.
+\newblock URL: \url{http://dx.doi.org/10.1016/s0360-8352(02)00065-7}, \href
+  {https://doi.org/10.1016/s0360-8352(02)00065-7}
+  {\path{doi:10.1016/s0360-8352(02)00065-7}}.
 
 \bibitem{YunesAH10}
 Tallys Yunes, Ionuţ~D. Aron, and John~N. Hooker.

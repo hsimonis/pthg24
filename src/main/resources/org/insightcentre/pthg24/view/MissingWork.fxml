@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 20:13:23 on 2024-04-28-->
+<!--Generated at 18:49:36 on 2024-05-01-->
 
 
 <Tab text="MissingWork" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.MissingWorkController">
@@ -27,10 +27,16 @@
                <TableColumn fx:id="year" styleClass="right-aligned" text="Year" />
                <TableColumn fx:id="author" styleClass="right-aligned" text="Author" />
                <TableColumn fx:id="title" styleClass="right-aligned" text="Title" />
+               <TableColumn fx:id="source" styleClass="right-aligned" text="Source" />
+               <TableColumn fx:id="abstractText" styleClass="right-aligned" text="AbstractText" />
+               <TableColumn fx:id="keywords" styleClass="right-aligned" text="Keywords" />
                <TableColumn fx:id="url" styleClass="right-aligned" text="Url" />
                <TableColumn fx:id="type" styleClass="right-aligned" text="Type" />
                <TableColumn fx:id="crossrefReferences" styleClass="right-aligned" text="CrossrefReferences" />
                <TableColumn fx:id="crossrefCitations" styleClass="right-aligned" text="CrossrefCitations" />
+               <TableColumn fx:id="knownAuthors" styleClass="right-aligned" text="KnownAuthors" />
+               <TableColumn fx:id="conceptWeight" styleClass="right-aligned" text="ConceptWeight" />
+               <TableColumn fx:id="relevance" styleClass="right-aligned" text="Relevance" />
             </columns>
          </TableView>
       </center>

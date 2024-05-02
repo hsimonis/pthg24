@@ -1,5 +1,23 @@
-{
-"arr":[
+[
+{"type":"Scheduling", "label": "scheduling" ,"regExpr":"scheduling"},
+{"type":"Scheduling", "label": "order" ,"regExpr":"order"},
+{"type":"Scheduling", "label": "job" ,"regExpr":"job"},
+{"type":"Scheduling", "label": "task" ,"regExpr":"task"},
+{"type":"Scheduling", "label": "activity" ,"regExpr":"activity"},
+{"type":"Scheduling", "label": "resource" ,"regExpr":"resource"},
+{"type":"Scheduling", "label": "machine" ,"regExpr":"machine"},
+
+{"type":"CP", "label": "constraint programming" ,"regExpr":"constraint programming"},
+{"type":"CP", "label": "constraint logic programming" ,"regExpr":"constraint logic programming"},
+{"type":"CP", "label": "constraint satisfaction" ,"regExpr":"constraint satisfaction"},
+{"type":"CP", "label": "constraint optimization" ,"regExpr":"constraint optimi[sz]ation"},
+{"type":"CP", "label": "propagation" ,"regExpr":"propagation"},
+{"type":"CP", "label": "CP" ,"regExpr":"CP","caseSensitive":true,"description":"Constraint Programming"},
+{"type":"CP", "label": "CSP" ,"regExpr":"CSP","caseSensitive":true,"description":"Constraint Satisfaction Problem"},
+{"type":"CP", "label": "CLP" ,"regExpr":"CLP","caseSensitive":true,"description":"Constraint Logic Programming"},
+{"type":"CP", "label": "COP" ,"regExpr":"COP","caseSensitive":true,"description":"Constraint Optimization Problem"},
+
+
 {"type":"Algorithms","label":"bi-partite matching","regExpr":"bi.?partite matching"}, 
 {"type":"Algorithms","label":"max-flow" ,"regExpr":"max.?flow"}, 
 {"type":"Algorithms","label":"edge-finder" ,"regExpr":"edge.?finder"}, 
@@ -123,7 +141,6 @@
 {"type":"Benchmarks", "label": "Roadef" ,"regExpr":"roadef"},
 
 
-
 {"type":"Classification", "label": "2BPHFSP" ,"regExpr":"2BPHFSP","caseSensitive":true,"revision":1,"description":"Two-Stage Bin Packing and Hybrid Flow Shop Scheduling Problem"},
 {"type":"Classification", "label": "BPCTOP" ,"regExpr":"BPCTOP","caseSensitive":true,"revision":1,"description":"Bulk Port Cargo Throughput Optimisation Problem"},
 {"type":"Classification", "label": "Bulk Port Cargo Throughput Optimisation Problem" ,"regExpr":"Bulk Port Cargo Throughput Optimisation Problem"},
@@ -173,13 +190,6 @@
 {"type":"Classification", "label": "Temporal Constraint Satisfaction Problem" ,"regExpr":"Temporal Constraint Satisfaction Problem"},
 {"type":"Classification", "label": "Partial Order Schedule" ,"regExpr":"Partial Order Schedule"},
 
-{"type":"Concepts", "label": "scheduling" ,"regExpr":"scheduling"},
-{"type":"Concepts", "label": "order" ,"regExpr":"order"},
-{"type":"Concepts", "label": "job" ,"regExpr":"job"},
-{"type":"Concepts", "label": "task" ,"regExpr":"task"},
-{"type":"Concepts", "label": "activity" ,"regExpr":"activity"},
-{"type":"Concepts", "label": "resource" ,"regExpr":"resource"},
-{"type":"Concepts", "label": "machine" ,"regExpr":"machine"},
 {"type":"Concepts", "label": "precedence" ,"regExpr":"precedence"},
 {"type":"Concepts", "label": "preempt" ,"regExpr":"preempt"},
 {"type":"Concepts", "label": "no preempt" ,"regExpr":"no preempt"},
@@ -240,14 +250,10 @@
 {"type":"Concepts", "label": "net present value" ,"regExpr":"net present value"},
 {"type":"Concepts", "label": "breakdown" ,"regExpr":"breakdown"},
 {"type":"Concepts", "label": "explanation" ,"regExpr":"explanation"},
-{"type":"Concepts", "label": "constraint programming" ,"regExpr":"constraint programming"},
-{"type":"Concepts", "label": "constraint logic programming" ,"regExpr":"constraint logic programming"},
-{"type":"Concepts", "label": "constraint satisfaction" ,"regExpr":"constraint satisfaction"},
-{"type":"Concepts", "label": "constraint optimization" ,"regExpr":"constraint optimi[sz]ation"},
-{"type":"Concepts", "label": "CP" ,"regExpr":"CP","caseSensitive":true,"description":"Constraint Programming"},
-{"type":"Concepts", "label": "CSP" ,"regExpr":"CSP","caseSensitive":true,"description":"Constraint Satisfaction Problem"},
-{"type":"Concepts", "label": "CLP" ,"regExpr":"CLP","caseSensitive":true,"description":"Constraint Logic Programming"},
-{"type":"Concepts", "label": "COP" ,"regExpr":"COP","caseSensitive":true,"description":"Constraint Optimization Problem"},
+{"type":"Concepts", "label": "explainable" ,"regExpr":"explainable"},
+{"type":"Concepts", "label": "Over-constrained" ,"regExpr":"over.?constrained"},
+{"type":"Concepts", "label": "Infeasible" ,"regExpr":"infeasible"},
+{"type":"Concepts", "label": "Unsatisfiable" ,"regExpr":"unsatisfiable"},
 
 
 {"type":"Constraints", "label": "AllDiff constraint","regExpr":"AllDiff constraint"},
@@ -414,14 +420,5 @@
 {"type":"Industries", "label": "transportation industry","regExpr":"transportation industry"},
 {"type":"Industries", "label": "wind industry","regExpr":"wind industry"},
 
-{"type":"ProgLanguages", "label": "Java" ,"regExpr":"java "},
-{"type":"ProgLanguages", "label": "Julia" ,"regExpr":"julia "},
-{"type":"ProgLanguages", "label": "Python" ,"regExpr":"python"},
-{"type":"ProgLanguages", "label": "C++" ,"regExpr":" C\\+\\+ "},
-{"type":"ProgLanguages", "label": "C#" ,"regExpr":"c#"},
-{"type":"ProgLanguages", "label": "Prolog" ,"regExpr":"prolog"},
-{"type":"ProgLanguages", "label": "Lisp" ,"regExpr":"lisp"},
-
-
 ]
-}
+

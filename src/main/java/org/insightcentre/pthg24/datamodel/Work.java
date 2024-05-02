@@ -5,6 +5,7 @@ import org.insightcentre.pthg24.datamodel.ApplicationObject;
 import org.insightcentre.pthg24.datamodel.ApplicationDifference;
 import org.insightcentre.pthg24.datamodel.ApplicationWarning;
 import org.insightcentre.pthg24.datamodel.Scenario;
+import org.insightcentre.pthg24.datamodel.ConceptType;
 import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.Acronym;
 import org.insightcentre.pthg24.datamodel.Author;
@@ -44,11 +45,11 @@ import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
+import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
 import org.insightcentre.pthg24.datamodel.WorkType;
-import org.insightcentre.pthg24.datamodel.ConceptType;
 import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 import java.util.*;
@@ -66,6 +67,13 @@ import framework.AppearInCollection;
 */
 
 public abstract class Work extends ApplicationObject{
+/**
+ *  
+ *
+*/
+
+    public String abstractText;
+
 /**
  *  
  *
@@ -315,6 +323,13 @@ public abstract class Work extends ApplicationObject{
  *
 */
 
+    public Double relevance;
+
+/**
+ *  
+ *
+*/
+
     public Integer scopusCitations;
 
 /**
@@ -403,6 +418,7 @@ public abstract class Work extends ApplicationObject{
 
     public Work(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setAbstractText("");
         setAuthor("");
         setAuthors(new ArrayList<Author>());
         setBackground(false);
@@ -437,6 +453,7 @@ public abstract class Work extends ApplicationObject{
         setPercentReferencesCovered(0.0);
         setRangeCitations(0);
         setRelatedTo("");
+        setRelevance(0.0);
         setScopusCitations(0);
         setScopusStatus(true);
         setSolutionAvail("");
@@ -460,6 +477,7 @@ public abstract class Work extends ApplicationObject{
     public Work(ApplicationDataset applicationDataset,
             Integer id,
             String name,
+            String abstractText,
             String author,
             List<Author> authors,
             Boolean background,
@@ -494,6 +512,7 @@ public abstract class Work extends ApplicationObject{
             Double percentReferencesCovered,
             Integer rangeCitations,
             String relatedTo,
+            Double relevance,
             Integer scopusCitations,
             Boolean scopusStatus,
             String solutionAvail,
@@ -507,6 +526,7 @@ public abstract class Work extends ApplicationObject{
         super(applicationDataset,
             id,
             name);
+        setAbstractText(abstractText);
         setAuthor(author);
         setAuthors(authors);
         setBackground(background);
@@ -541,6 +561,7 @@ public abstract class Work extends ApplicationObject{
         setPercentReferencesCovered(percentReferencesCovered);
         setRangeCitations(rangeCitations);
         setRelatedTo(relatedTo);
+        setRelevance(relevance);
         setScopusCitations(scopusCitations);
         setScopusStatus(scopusStatus);
         setSolutionAvail(solutionAvail);
@@ -558,6 +579,7 @@ public abstract class Work extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
+            other.abstractText,
             other.author,
             other.authors,
             other.background,
@@ -592,6 +614,7 @@ public abstract class Work extends ApplicationObject{
             other.percentReferencesCovered,
             other.rangeCitations,
             other.relatedTo,
+            other.relevance,
             other.scopusCitations,
             other.scopusStatus,
             other.solutionAvail,
@@ -625,6 +648,16 @@ public abstract class Work extends ApplicationObject{
         getApplicationDataset().cascadeWorkAffiliationWork(this);
         getApplicationDataset().cascadeCollabWorkWork(this);
         return getApplicationDataset().removeWork(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  get attribute abstractText
+ *
+ * @return String
+*/
+
+    public String getAbstractText(){
+        return this.abstractText;
     }
 
 /**
@@ -992,6 +1025,16 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  get attribute relevance
+ *
+ * @return Double
+*/
+
+    public Double getRelevance(){
+        return this.relevance;
+    }
+
+/**
  *  get attribute scopusCitations
  *
  * @return Integer
@@ -1105,6 +1148,18 @@ public abstract class Work extends ApplicationObject{
 
     public Integer getYear(){
         return this.year;
+    }
+
+/**
+ *  set attribute abstractText, mark dataset as dirty, mark dataset as not valid
+@param abstractText String
+ *
+*/
+
+    public void setAbstractText(String abstractText){
+        this.abstractText = abstractText;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -1516,6 +1571,18 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  set attribute relevance, mark dataset as dirty, mark dataset as not valid
+@param relevance Double
+ *
+*/
+
+    public void setRelevance(Double relevance){
+        this.relevance = relevance;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute scopusCitations, mark dataset as dirty, mark dataset as not valid
 @param scopusCitations Integer
  *
@@ -1850,7 +1917,7 @@ public abstract class Work extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getRelevance()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
     }
 
 /**
@@ -1874,6 +1941,7 @@ public abstract class Work extends ApplicationObject{
          out.println("<work "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
+            " abstractText=\""+toXMLAbstractText()+"\""+
             " author=\""+toXMLAuthor()+"\""+
             " authors=\""+toXMLAuthors()+"\""+
             " background=\""+toXMLBackground()+"\""+
@@ -1908,6 +1976,7 @@ public abstract class Work extends ApplicationObject{
             " percentReferencesCovered=\""+toXMLPercentReferencesCovered()+"\""+
             " rangeCitations=\""+toXMLRangeCitations()+"\""+
             " relatedTo=\""+toXMLRelatedTo()+"\""+
+            " relevance=\""+toXMLRelevance()+"\""+
             " scopusCitations=\""+toXMLScopusCitations()+"\""+
             " scopusStatus=\""+toXMLScopusStatus()+"\""+
             " solutionAvail=\""+toXMLSolutionAvail()+"\""+
@@ -1919,6 +1988,16 @@ public abstract class Work extends ApplicationObject{
             " wosStatus=\""+toXMLWosStatus()+"\""+
             " year=\""+toXMLYear()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLAbstractText(){
+        return this.safeXML(getAbstractText());
+    }
 
 /**
  * helper method for toXML(), prcess one attribute
@@ -2270,6 +2349,16 @@ public abstract class Work extends ApplicationObject{
  * @return String
 */
 
+    String toXMLRelevance(){
+        return this.getRelevance().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLScopusCitations(){
         return this.getScopusCitations().toString();
     }
@@ -2458,6 +2547,9 @@ public abstract class Work extends ApplicationObject{
 */
 
     public Boolean applicationEqual(Work b){
+      if(!this.getAbstractText().equals(b.getAbstractText())){
+         System.out.println("AbstractText");
+        }
       if(!this.getAuthor().equals(b.getAuthor())){
          System.out.println("Author");
         }
@@ -2562,6 +2654,9 @@ public abstract class Work extends ApplicationObject{
       if(!this.getRelatedTo().equals(b.getRelatedTo())){
          System.out.println("RelatedTo");
         }
+      if(!this.getRelevance().equals(b.getRelevance())){
+         System.out.println("Relevance");
+        }
       if(!this.getScopusCitations().equals(b.getScopusCitations())){
          System.out.println("ScopusCitations");
         }
@@ -2592,7 +2687,8 @@ public abstract class Work extends ApplicationObject{
       if(!this.getYear().equals(b.getYear())){
          System.out.println("Year");
         }
-        return  this.getAuthor().equals(b.getAuthor()) &&
+        return  this.getAbstractText().equals(b.getAbstractText()) &&
+          this.getAuthor().equals(b.getAuthor()) &&
           true &&
           this.getBackground().equals(b.getBackground()) &&
           this.getClassification().equals(b.getClassification()) &&
@@ -2627,6 +2723,7 @@ public abstract class Work extends ApplicationObject{
           this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered()) &&
           this.getRangeCitations().equals(b.getRangeCitations()) &&
           this.getRelatedTo().equals(b.getRelatedTo()) &&
+          this.getRelevance().equals(b.getRelevance()) &&
           this.getScopusCitations().equals(b.getScopusCitations()) &&
           this.getScopusStatus().equals(b.getScopusStatus()) &&
           this.getSolutionAvail().equals(b.getSolutionAvail()) &&

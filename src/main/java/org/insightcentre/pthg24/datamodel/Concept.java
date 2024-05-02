@@ -5,6 +5,7 @@ import org.insightcentre.pthg24.datamodel.ApplicationObject;
 import org.insightcentre.pthg24.datamodel.ApplicationDifference;
 import org.insightcentre.pthg24.datamodel.ApplicationWarning;
 import org.insightcentre.pthg24.datamodel.Scenario;
+import org.insightcentre.pthg24.datamodel.ConceptType;
 import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.Acronym;
 import org.insightcentre.pthg24.datamodel.Author;
@@ -44,11 +45,11 @@ import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
+import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
 import org.insightcentre.pthg24.datamodel.WorkType;
-import org.insightcentre.pthg24.datamodel.ConceptType;
 import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 import java.util.*;
@@ -369,7 +370,7 @@ public  class Concept extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getCaseSensitive()+ " " +getConceptType()+ " " +getLabel()+ " " +getNrOccurrences()+ " " +getRegExpr()+ " " +getRevision();
+        return ""+ " " +getId()+ " " +getName()+ " " +getCaseSensitive()+ " " +getConceptType().toColumnString()+ " " +getLabel()+ " " +getNrOccurrences()+ " " +getRegExpr()+ " " +getRevision();
     }
 
 /**
@@ -418,7 +419,7 @@ public  class Concept extends ApplicationObject{
 */
 
     String toXMLConceptType(){
-        return this.getConceptType().toString();
+        return "ID_"+this.getConceptType().getId().toString();
     }
 
 /**
@@ -472,7 +473,7 @@ public  class Concept extends ApplicationObject{
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getConceptType()+"</td>"+ " " +"<td>"+getLabel()+"</td>"+ " " +"<td>"+getRegExpr()+"</td>"+ " " +"<td>"+getCaseSensitive()+"</td>"+ " " +"<td>"+getRevision()+"</td>"+ " " +"<td>"+getNrOccurrences()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getConceptType().toColumnString()+"</td>"+ " " +"<td>"+getLabel()+"</td>"+ " " +"<td>"+getRegExpr()+"</td>"+ " " +"<td>"+getCaseSensitive()+"</td>"+ " " +"<td>"+getRevision()+"</td>"+ " " +"<td>"+getNrOccurrences()+"</td>"+"</tr>";
     }
 
 /**
@@ -592,7 +593,7 @@ public  class Concept extends ApplicationObject{
       if(!this.getCaseSensitive().equals(b.getCaseSensitive())){
          System.out.println("CaseSensitive");
         }
-      if(!this.getConceptType().equals(b.getConceptType())){
+      if(!this.getConceptType().applicationSame(b.getConceptType())){
          System.out.println("ConceptType");
         }
       if(!this.getLabel().equals(b.getLabel())){
@@ -611,7 +612,7 @@ public  class Concept extends ApplicationObject{
          System.out.println("Revision");
         }
         return  this.getCaseSensitive().equals(b.getCaseSensitive()) &&
-          this.getConceptType().equals(b.getConceptType()) &&
+          this.getConceptType().applicationSame(b.getConceptType()) &&
           this.getLabel().equals(b.getLabel()) &&
           this.getName().equals(b.getName()) &&
           this.getNrOccurrences().equals(b.getNrOccurrences()) &&
@@ -627,6 +628,9 @@ public  class Concept extends ApplicationObject{
     public void check(){
         if (getApplicationDataset() == null){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"applicationDataset","Concept",(getApplicationDataset()==null?"null":getApplicationDataset().toString()),"",WarningType.NOTNULL);
+        }
+        if (getConceptType() == null){
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"conceptType","Concept",(getConceptType()==null?"null":getConceptType().toString()),"",WarningType.NOTNULL);
         }
     }
 
@@ -644,6 +648,9 @@ public  class Concept extends ApplicationObject{
     }
 
    public List<ApplicationObjectInterface> getFeasibleValues(ApplicationDatasetInterface base,String attrName){
+      if (attrName.equals("conceptType")){
+         return (List) ((Scenario)base).getListConceptType();
+      }
       return null;
    }
 

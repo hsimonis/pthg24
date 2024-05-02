@@ -39,6 +39,7 @@ public class JfxApp extends GeneratedJfxApp {
                 Scenario base = new Scenario();
                 IrishCalendar.buildCalendar();
                 base.setDirty(false);
+                new CreateTranslators(base);
 
                 String type = "scheduling"; // others "scheduling" "cars" "mobilehealth","terrorism"
 
@@ -49,7 +50,14 @@ public class JfxApp extends GeneratedJfxApp {
                 String authors = "Helmut Simonis"; // authors for this particular type
                 int coauthorLimit = 2; // how many works an author needs to have to be included in coauthor graph
                 int linkCountLimit = 10; // how many links are required to lookup a missing work by its DOI
+                double citingSurveyWeight = 1.0;
+                double citedBySurveyWeight=1.0;
+                double citationCountWeight = 1e-6;
+                double keywordWeight = 1.0;
+                double authorWeight = 0.1;
+                double ageWeight = 0.1;
                 String[] wordList = new String[]{};
+                String[] conceptTypes = new String[]{};
 
                 switch(type) {
                         case "cars":
@@ -71,13 +79,16 @@ public class JfxApp extends GeneratedJfxApp {
                         case "terrorism":
                                 prefix = "terrorism/";
                                 bibDir = prefix + "imports/";
-                                bibFile = "terrorism1.bib";
+                                bibFile = "terrorism.bib";
                                 authors = "B. O'Sullivan and H. Simonis";
                                 coauthorLimit = 2;
                                 linkCountLimit = 1;
+                                citingSurveyWeight = 100;
+                                keywordWeight = 1;
                                 wordList = new String[]{"Terror","terror","Insurgency","insurgency","Opponent",
                                         "AI","Artificial Intelligence","Forecasting","Learn","Computational",
                                         "Predictive","Markov Model"};
+                                conceptTypes=new String[]{"AIMethod","Terrorism","Group","Region","Objective","System"};
                                 break;
                         case "scheduling":
                                 // settings for scheduling are a bit different
@@ -90,7 +101,8 @@ public class JfxApp extends GeneratedJfxApp {
                                 wordList = new String[]{"Scheduling","scheduling",
                                         "CP","CLP","CSP","COP","Constraint Programming",
                                         "Constraint Logic Programming","Constraint Satisfaction"};
-                                break;
+                                conceptTypes = new String[]{"Scheduling","CP","Concepts","Classification","Constraints","ApplicationAreas","Industries","CPSystems","Benchmarks","Algorithms"};
+                        break;
                         default:
                                 severe("Bad type " + type);
                                 assert (false);
@@ -108,6 +120,7 @@ public class JfxApp extends GeneratedJfxApp {
                 String scopusDir = prefix+"scopus/"; // input/output dir for scopus records
                 String missingWorkDir = prefix+"missing/"; // input/output dir for missing work crossref records
                 String dumpDir = prefix+"dump/"; // output directory for feature tables
+                createConceptTypes(base,conceptTypes);
 
 
                 new ImportConcepts(base,importDir,"concepts.json");
@@ -156,7 +169,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new AnalysisByWork(base,PAPER,exportDir,"conceptspaper.tex");
                 new AnalysisByWork(base,THESIS,exportDir,"conceptsthesis.tex");
                 new AnalysisByWork(base,INCOLLECTION,exportDir,"conceptsincollection.tex");
-                new AnalysisByConcept(base,exportDir,"concept");
+                new AnalysisByConcept(base,exportDir,"concepts.tex");
 
                 List<Work> lowNrConcepts = base.getListWork().stream().
                         filter(this::hasLocalCopy).
@@ -192,7 +205,10 @@ public class JfxApp extends GeneratedJfxApp {
                 new SimilarityMeasure(base);
                 new ListSimilarity(base,exportDir,"mostsimilar.tex");
                 new LookupMissingWork(base,missingWorkDir,linkCountLimit);
+
+                new ComputeRelevance(base,type,citingSurveyWeight,citedBySurveyWeight, citationCountWeight,keywordWeight,authorWeight,ageWeight);
                 new ListMissingWork(base,exportDir,"missingwork.tex",wordList);
+
                 new ListWorks(base,
                         base.getListWork().stream().
                                 filter(x->x.getDoi() == null || x.getDoi().equals("")).
@@ -305,6 +321,13 @@ public class JfxApp extends GeneratedJfxApp {
                 }
                 return res;
 
+        }
+
+        private void createConceptTypes(Scenario base,String[] conceptTypes){
+                for(String type:conceptTypes){
+                        ConceptType ct = new ConceptType(base);
+                        ct.setName(type);
+                }
         }
 
 }

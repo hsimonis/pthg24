@@ -2,6 +2,7 @@ package org.insightcentre.pthg24.controller;
 
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
+import java.lang.Double;
 import java.lang.Exception;
 import java.lang.Integer;
 import java.lang.Object;
@@ -19,7 +20,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 
 /**
- * Generated at 20:13:22 on 2024-04-28 */
+ * Generated at 18:49:36 on 2024-05-01 */
 public class MissingWorkController extends Table3Controller {
 	@FXML
 	private TableView<MissingWork> table;
@@ -52,6 +53,15 @@ public class MissingWorkController extends Table3Controller {
 	private TableColumn<MissingWork, String> title;
 
 	@FXML
+	private TableColumn<MissingWork, String> source;
+
+	@FXML
+	private TableColumn<MissingWork, String> abstractText;
+
+	@FXML
+	private TableColumn<MissingWork, String> keywords;
+
+	@FXML
 	private TableColumn<MissingWork, String> url;
 
 	@FXML
@@ -62,6 +72,15 @@ public class MissingWorkController extends Table3Controller {
 
 	@FXML
 	private TableColumn<MissingWork, Integer> crossrefCitations;
+
+	@FXML
+	private TableColumn<MissingWork, Integer> knownAuthors;
+
+	@FXML
+	private TableColumn<MissingWork, Double> conceptWeight;
+
+	@FXML
+	private TableColumn<MissingWork, Double> relevance;
 
 	private GeneratedJfxApp mainApp;
 
@@ -116,6 +135,18 @@ public class MissingWorkController extends Table3Controller {
 		title.setCellValueFactory(new PropertyValueFactory<>("title"));
 		title.setCellFactory(TextFieldTableCell.forTableColumn());
 		title.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setTitle(event.getNewValue()); mainApp.reset();});
+		choices.add("source");
+		source.setCellValueFactory(new PropertyValueFactory<>("source"));
+		source.setCellFactory(TextFieldTableCell.forTableColumn());
+		source.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSource(event.getNewValue()); mainApp.reset();});
+		choices.add("abstractText");
+		abstractText.setCellValueFactory(new PropertyValueFactory<>("abstractText"));
+		abstractText.setCellFactory(TextFieldTableCell.forTableColumn());
+		abstractText.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAbstractText(event.getNewValue()); mainApp.reset();});
+		choices.add("keywords");
+		keywords.setCellValueFactory(new PropertyValueFactory<>("keywords"));
+		keywords.setCellFactory(TextFieldTableCell.forTableColumn());
+		keywords.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setKeywords(event.getNewValue()); mainApp.reset();});
 		choices.add("url");
 		url.setCellValueFactory(new PropertyValueFactory<>("url"));
 		url.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -132,6 +163,18 @@ public class MissingWorkController extends Table3Controller {
 		crossrefCitations.setCellValueFactory(new PropertyValueFactory<>("crossrefCitations"));
 		crossrefCitations.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		crossrefCitations.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCrossrefCitations(event.getNewValue()); mainApp.reset();});
+		choices.add("knownAuthors");
+		knownAuthors.setCellValueFactory(new PropertyValueFactory<>("knownAuthors"));
+		knownAuthors.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		knownAuthors.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setKnownAuthors(event.getNewValue()); mainApp.reset();});
+		choices.add("conceptWeight");
+		conceptWeight.setCellValueFactory(new PropertyValueFactory<>("conceptWeight"));
+		conceptWeight.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		conceptWeight.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setConceptWeight(event.getNewValue()); mainApp.reset();});
+		choices.add("relevance");
+		relevance.setCellValueFactory(new PropertyValueFactory<>("relevance"));
+		relevance.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		relevance.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRelevance(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

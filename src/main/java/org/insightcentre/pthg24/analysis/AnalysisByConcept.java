@@ -16,13 +16,12 @@ import static org.insightcentre.pthg24.imports.Importer.safer;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class AnalysisByConcept {
-    public AnalysisByConcept(Scenario base, String exportDir, String root){
+    public AnalysisByConcept(Scenario base, String exportDir, String fileName){
         assert(exportDir.endsWith("/"));
-        String fullName="";
+        String fullName=exportDir+fileName;
         try {
-            for(ConceptType type:ConceptType.values()){
-                fullName = exportDir+root+type.toString()+".tex";
-                PrintWriter out = new PrintWriter(fullName);
+            PrintWriter out = new PrintWriter(fullName);
+            for(ConceptType type:base.getListConceptType().stream().sorted(Comparator.comparing(ConceptType::getName)).toList()){
                 out.printf("\\clearpage\n");
                 out.printf("\\subsection{Concept Type %s}\n",safe(type.toString()));
                 out.printf("\\label{sec:%s}\n",safe(type.toString()));
@@ -48,10 +47,10 @@ public class AnalysisByConcept {
                 }
                 out.printf("\\end{longtable}\n");
                 out.printf("}\n\n");
-                out.close();
             }
+            out.close();
         } catch(IOException e){
-            severe("Cannot write file "+fullName);
+            severe("Cannot write file "+fullName+", exception "+e.getMessage());
             assert(false);
         }
     }
