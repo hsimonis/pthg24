@@ -33,6 +33,9 @@ public class ComputeRelevance {
 
         for(MissingWork mw:base.getListMissingWork()){
             mw.setRelevance(relevance(type,mw));
+            if (mw.getRelevance() >= 1000.0){
+                mw.setIsSelected(true);
+            }
         }
         for(Work w:base.getListWork()){
             w.setRelevance(relevance(type,w));

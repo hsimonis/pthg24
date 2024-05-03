@@ -523,6 +523,7 @@
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="encoded" use="required" type="xs:string"/>
+			<xs:attribute name="isSelected" use="required" type="xs:boolean"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="knownAuthors" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>

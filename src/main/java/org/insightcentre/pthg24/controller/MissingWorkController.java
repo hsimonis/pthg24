@@ -2,25 +2,32 @@ package org.insightcentre.pthg24.controller;
 
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
+import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Exception;
 import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.lang.SuppressWarnings;
 import java.lang.reflect.Field;
+import javafx.beans.property.Property;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.Callback;
 import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 
 /**
- * Generated at 18:49:36 on 2024-05-01 */
+ * Generated at 16:50:29 on 2024-05-02 */
 public class MissingWorkController extends Table3Controller {
 	@FXML
 	private TableView<MissingWork> table;
@@ -81,6 +88,9 @@ public class MissingWorkController extends Table3Controller {
 
 	@FXML
 	private TableColumn<MissingWork, Double> relevance;
+
+	@FXML
+	private TableColumn<MissingWork, Boolean> isSelected;
 
 	private GeneratedJfxApp mainApp;
 
@@ -175,6 +185,9 @@ public class MissingWorkController extends Table3Controller {
 		relevance.setCellValueFactory(new PropertyValueFactory<>("relevance"));
 		relevance.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
 		relevance.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRelevance(event.getNewValue()); mainApp.reset();});
+		choices.add("isSelected");
+		isSelected.setCellValueFactory(new IsSelectedCallback());
+		isSelected.setCellFactory(CheckBoxTableCell.forTableColumn(isSelected));
 		initialize(choices);
 	}
 
@@ -228,6 +241,21 @@ public class MissingWorkController extends Table3Controller {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	class IsSelectedCallback implements Callback<TableColumn.CellDataFeatures<MissingWork, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<MissingWork, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().isSelectedWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setIsSelected(newValue);
+				}
+			});
+			return prop;
 		}
 	}
 }

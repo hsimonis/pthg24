@@ -23,7 +23,7 @@ import org.insightcentre.pthg24.datamodel.MatchLevel;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 18:49:36 on 2024-05-01 */
+ * Generated at 16:50:29 on 2024-05-02 */
 public class ConceptWorkController extends Table3Controller {
 	@FXML
 	private TableView<ConceptWork> table;

@@ -22,7 +22,7 @@ import org.insightcentre.pthg24.datamodel.ReferenceFlow;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 18:49:36 on 2024-05-01 */
+ * Generated at 16:50:29 on 2024-05-02 */
 public class ReferenceFlowController extends Table3Controller {
 	@FXML
 	private TableView<ReferenceFlow> table;

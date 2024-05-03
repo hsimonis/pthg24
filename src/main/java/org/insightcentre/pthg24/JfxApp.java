@@ -41,7 +41,7 @@ public class JfxApp extends GeneratedJfxApp {
                 base.setDirty(false);
                 new CreateTranslators(base);
 
-                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth","terrorism"
+                String type = "terrorism"; // others "scheduling" "cars" "mobilehealth","terrorism"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -85,6 +85,7 @@ public class JfxApp extends GeneratedJfxApp {
                                 linkCountLimit = 1;
                                 citingSurveyWeight = 100;
                                 keywordWeight = 1;
+                                ageWeight=0.0;
                                 wordList = new String[]{"Terror","terror","Insurgency","insurgency","Opponent",
                                         "AI","Artificial Intelligence","Forecasting","Learn","Computational",
                                         "Predictive","Markov Model"};
@@ -244,6 +245,7 @@ public class JfxApp extends GeneratedJfxApp {
 
                 new CitationGraph(base);
                 new DumpFeatures(base,dumpDir,"allconcepts.csv");
+                new ExtractSelectedBib(base,dumpDir,"suggested.bib");
 
 
                 return base;

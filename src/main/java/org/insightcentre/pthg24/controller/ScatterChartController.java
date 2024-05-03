@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 18:49:36 on 2024-05-01 */
+ * Generated at 16:50:29 on 2024-05-02 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -738,6 +738,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("conceptWeight");
 		attributeNames.add("relevance");
 		filterNames.add("relevance");
+		filterNames.add("isSelected");
 		choicesMap.put("MissingWork", attributeNames);
 		filterMap.put("MissingWork", filterNames);
 		attributeNames = FXCollections.observableArrayList();

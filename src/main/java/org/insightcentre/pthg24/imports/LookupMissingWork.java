@@ -15,6 +15,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
+import java.util.Comparator;
 
 import static org.insightcentre.pthg24.imports.ImportCrossref.*;
 import static org.insightcentre.pthg24.imports.Keys.scopusKey;
@@ -23,11 +24,15 @@ import static org.insightcentre.pthg24.logging.LogShortcut.*;
 public class LookupMissingWork {
     Scenario base;
     String missingWorkDir;
+    int nrGets = 0;
 
     public LookupMissingWork(Scenario base, String missingWorkDir, int linkCountLimit) {
         this.base = base;
         this.missingWorkDir = missingWorkDir;
-        for (MissingWork mw : base.getListMissingWork().stream().filter(x -> x.getNrLinks() >= linkCountLimit).toList()) {
+        for (MissingWork mw : base.getListMissingWork().stream().
+                filter(x -> x.getNrLinks() >= linkCountLimit).
+                sorted(Comparator.comparing(MissingWork::getNrLinks).reversed()).
+                toList()) {
             lookup(mw);
             lookupScopus(mw);
         }
@@ -41,7 +46,7 @@ public class LookupMissingWork {
                 info("Reading file "+saveFile);
                 interpret(mw,contents(saveFile));
             } else {
-                if (mw.getDoi() != null && !mw.getDoi().equals("")) {
+                if (mw.getDoi() != null && !mw.getDoi().equals("") && nrGets++ < 200) {
                     target = "https://api.crossref.org/works/" + URLEncoder.encode(properDOI(mw.getDoi()), StandardCharsets.UTF_8.toString());
                     URI targetURI = new URI(target);
                     HttpRequest httpRequest = HttpRequest.newBuilder()
@@ -74,7 +79,7 @@ public class LookupMissingWork {
                 info("Reading file "+saveFile);
                 interpretScopus(mw,contents(saveFile));
             } else {
-                if (mw.getDoi() != null && !mw.getDoi().equals("")) {
+                if (mw.getDoi() != null && !mw.getDoi().equals("") && nrGets<200) {
                     target = "https://api.elsevier.com/content/abstract/doi/" +
                             URLEncoder.encode(properDOI(mw.getDoi()), StandardCharsets.UTF_8.toString())+
                             // get key from hidden file

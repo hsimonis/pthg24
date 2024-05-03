@@ -6,6 +6,7 @@ Integer crossrefCitations
 Integer crossrefReferences
 String doi
 String encoded
+Boolean isSelected
 String keywords
 Integer knownAuthors
 Integer nrCitations
