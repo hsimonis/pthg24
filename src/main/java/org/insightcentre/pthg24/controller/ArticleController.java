@@ -32,7 +32,7 @@ import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 16:50:29 on 2024-05-02 */
+ * Generated at 12:23:41 on 2024-05-04 */
 public class ArticleController extends Table3Controller {
 	@FXML
 	private TableView<Article> table;

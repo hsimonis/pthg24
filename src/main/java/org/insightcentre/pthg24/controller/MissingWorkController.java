@@ -27,7 +27,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 
 /**
- * Generated at 16:50:29 on 2024-05-02 */
+ * Generated at 12:23:41 on 2024-05-04 */
 public class MissingWorkController extends Table3Controller {
 	@FXML
 	private TableView<MissingWork> table;
@@ -57,7 +57,25 @@ public class MissingWorkController extends Table3Controller {
 	private TableColumn<MissingWork, String> author;
 
 	@FXML
+	private TableColumn<MissingWork, String> editor;
+
+	@FXML
 	private TableColumn<MissingWork, String> title;
+
+	@FXML
+	private TableColumn<MissingWork, String> publisher;
+
+	@FXML
+	private TableColumn<MissingWork, String> volume;
+
+	@FXML
+	private TableColumn<MissingWork, String> issue;
+
+	@FXML
+	private TableColumn<MissingWork, String> page;
+
+	@FXML
+	private TableColumn<MissingWork, String> chapter;
 
 	@FXML
 	private TableColumn<MissingWork, String> source;
@@ -141,10 +159,34 @@ public class MissingWorkController extends Table3Controller {
 		author.setCellValueFactory(new PropertyValueFactory<>("author"));
 		author.setCellFactory(TextFieldTableCell.forTableColumn());
 		author.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAuthor(event.getNewValue()); mainApp.reset();});
+		choices.add("editor");
+		editor.setCellValueFactory(new PropertyValueFactory<>("editor"));
+		editor.setCellFactory(TextFieldTableCell.forTableColumn());
+		editor.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setEditor(event.getNewValue()); mainApp.reset();});
 		choices.add("title");
 		title.setCellValueFactory(new PropertyValueFactory<>("title"));
 		title.setCellFactory(TextFieldTableCell.forTableColumn());
 		title.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setTitle(event.getNewValue()); mainApp.reset();});
+		choices.add("publisher");
+		publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+		publisher.setCellFactory(TextFieldTableCell.forTableColumn());
+		publisher.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPublisher(event.getNewValue()); mainApp.reset();});
+		choices.add("volume");
+		volume.setCellValueFactory(new PropertyValueFactory<>("volume"));
+		volume.setCellFactory(TextFieldTableCell.forTableColumn());
+		volume.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setVolume(event.getNewValue()); mainApp.reset();});
+		choices.add("issue");
+		issue.setCellValueFactory(new PropertyValueFactory<>("issue"));
+		issue.setCellFactory(TextFieldTableCell.forTableColumn());
+		issue.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setIssue(event.getNewValue()); mainApp.reset();});
+		choices.add("page");
+		page.setCellValueFactory(new PropertyValueFactory<>("page"));
+		page.setCellFactory(TextFieldTableCell.forTableColumn());
+		page.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPage(event.getNewValue()); mainApp.reset();});
+		choices.add("chapter");
+		chapter.setCellValueFactory(new PropertyValueFactory<>("chapter"));
+		chapter.setCellFactory(TextFieldTableCell.forTableColumn());
+		chapter.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setChapter(event.getNewValue()); mainApp.reset();});
 		choices.add("source");
 		source.setCellValueFactory(new PropertyValueFactory<>("source"));
 		source.setCellFactory(TextFieldTableCell.forTableColumn());

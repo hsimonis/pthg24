@@ -27,11 +27,15 @@ import static org.insightcentre.pthg24.logging.LogShortcut.*;
 public class ImportCrossref {
     Scenario base;
     String crossrefDir;
+    String missingDir;
     Hashtable<String,Affiliation> affHash = new Hashtable<>();
-    public ImportCrossref(Scenario base, String crossrefDir){
+
+    public ImportCrossref(Scenario base, String crossrefDir,String missingDir){
         this.base = base;
         this.crossrefDir = crossrefDir;
+        this.missingDir = missingDir;
         assert(crossrefDir.endsWith("/"));
+        assert(missingDir.endsWith("/"));
         initWorkLookup();
 
         for(Work w: base.getListWork().stream().sorted(Comparator.comparing(Work::getYear).reversed()).toList()) {
@@ -51,9 +55,14 @@ public class ImportCrossref {
         String target = "";
         String saveFile = crossrefDir+w.getKey()+".json";
         try {
-            if (exists(saveFile)){
-                info("Reading file "+saveFile);
-                interpret(w,contents(saveFile));
+            String encodedDoi = URLEncoder.encode(properDOI(w.getDoi()), StandardCharsets.UTF_8.toString());
+            String missingWorkFile = missingDir+encodedDoi+".json";
+            if (exists(saveFile)) {
+                info("Reading file " + saveFile);
+                interpret(w, contents(saveFile));
+            } else if (exists(missingWorkFile)){
+                    info("Reading file "+saveFile);
+                    interpret(w,contents(saveFile));
             } else {
                 if (w.getDoi() != null && !w.getDoi().equals("")) {
                     w.setDoiStatus(true);
@@ -119,8 +128,10 @@ public class ImportCrossref {
                 filter(x->x.getWork()==w).
                 sorted(Comparator.comparing(Authorship::getSeqNr)).
                 toList();
-        JSONArray authors = message.getJSONArray("author");
-        String authorInfo = extractAuthors(authors,ships);
+        if (message.has("author")) {
+            JSONArray authors = message.getJSONArray("author");
+            String authorInfo = extractAuthors(authors, ships);
+        }
 //        info("content "+status+" "+type+" "+refCount+" "+referenceCount+" "+referencedByCount+" "+messageType+" "+title.length()+" "+title1+" "+authors.length()+" "+authorInfo);
         w.setCrossrefReferences(referenceCount);
         w.setCrossrefCitations(referencedByCount);

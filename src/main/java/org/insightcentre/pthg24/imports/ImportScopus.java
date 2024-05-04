@@ -36,12 +36,15 @@ import static org.insightcentre.pthg24.logging.LogShortcut.*;
 public class ImportScopus {
     Scenario base;
     String scopusDir;
+    String missingDir;
 
     Hashtable<String,Affiliation> affHash = new Hashtable<>();
-    public ImportScopus(Scenario base, String scopusDir){
+    public ImportScopus(Scenario base, String scopusDir,String missingDir){
         this.base = base;
         this.scopusDir = scopusDir;
+        this.missingDir = missingDir;
         assert(scopusDir.endsWith("/"));
+        assert(missingDir.endsWith("/"));
 
         for(Work w: base.getListWork().stream().sorted(Comparator.comparing(Work::getYear).reversed()).toList()) {
             info("Scopus "+w.getName());
@@ -61,7 +64,12 @@ public class ImportScopus {
         String target = "";
         String saveFile = scopusDir+w.getKey()+".xml";
         try {
+            String encodedDoi = URLEncoder.encode(properDOI(w.getDoi()), StandardCharsets.UTF_8.toString());
+            String missingWorkFile = missingDir+encodedDoi+".xml";
             if (exists(saveFile)){
+//                info("Reading file "+saveFile);
+                interpret(w,contents(saveFile));
+            } else if (exists(missingWorkFile)){
                 info("Reading file "+saveFile);
                 interpret(w,contents(saveFile));
             } else {
@@ -108,7 +116,7 @@ public class ImportScopus {
             doc.getDocumentElement().normalize();
 //            info("Node "+doc.getNodeName());
             Node child = doc.getFirstChild();
-            info("child "+child.getNodeName());
+//            info("child "+child.getNodeName());
             if (child.getNodeName().equals("service-error")){
                 w.setScopusStatus(false);
             } else if (child.getNodeName().equals("abstracts-retrieval-response")){
@@ -117,7 +125,7 @@ public class ImportScopus {
                 for(int i=0;i<list.getLength();i++){
                     Node node = list.item(i);
                     if (node.getNodeType()==Node.ELEMENT_NODE && node.getNodeName().equals("coredata")){
-                        info("node "+node.getNodeName()+node.getTextContent());
+//                        info("node "+node.getNodeName()+node.getTextContent());
                     }
                 }
                 NodeList citedBy = doc.getElementsByTagName("citedby-count");
@@ -148,7 +156,7 @@ public class ImportScopus {
                                 country = field.getTextContent();
                                 break;
                             default:
-                                severe("Bad field "+field.getNodeName());
+//                                severe("Bad field "+field.getNodeName());
                         }
                     }
                     if (!country.equals("")) {
@@ -174,7 +182,7 @@ public class ImportScopus {
                                 givenName = field.getTextContent();
                                 break;
                             default:
-                                info("other name field "+field.getNodeName());
+//                                info("other name field "+field.getNodeName());
                         }
                     }
 
@@ -199,7 +207,7 @@ public class ImportScopus {
             case "1": return OpenAccessType.Gold;
             case "2": return OpenAccessType.Green;
             default:
-                info("Unknown Access Type "+t);
+                severe("Unknown Access Type "+t);
                 return OpenAccessType.Unknown;
         }
      }

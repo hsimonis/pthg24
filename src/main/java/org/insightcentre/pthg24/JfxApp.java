@@ -132,8 +132,8 @@ public class JfxApp extends GeneratedJfxApp {
                 new ImportBlocked(base,importDir,"blocked.json");
                 new ImportOpenCitations(base,citationsDir);
                 new ImportOpenReferences(base,referencesDir);
-                new ImportCrossref(base,crossrefDir);
-                new ImportScopus(base,scopusDir);
+                new ImportCrossref(base,crossrefDir,missingWorkDir);
+                new ImportScopus(base,scopusDir,missingWorkDir);
                 new RangeMaxCitations(base);
 
                 new FindMissingCitingWorks(base);

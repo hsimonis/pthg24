@@ -24,18 +24,20 @@ public class ListMissingWork {
         String fullFile = exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullFile);
+            List<MissingWork> all = base.getListMissingWork().stream().
+                    filter(x->!x.getTitle().equals("")).
+                    sorted(Comparator.comparing(MissingWork::getRelevance).reversed()).
+                    toList();
+            int nrRelevant = (int) all.stream().filter(x->x.getRelevance() >= 1000).count();
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{p{5cm}lp{11cm}rrrrrr}\n");
-            out.printf("\\caption{Missing Work}\\\\ \\toprule\n");
+            out.printf("\\caption{Missing Work (Total %s Works, %d considered Relevant)}\\\\ \\toprule\n",all.size(),nrRelevant);
             out.printf("DOI & Type & Authors/Title & \\shortstack{Nr\\\\Links} & \\shortstack{Citing\\\\Survey} & " +
                     "\\shortstack{Cited by\\\\Survey} & \\shortstack{XRef\\\\Refs} & \\shortstack{XRef\\\\Cite} & Relevance\\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
-            for(MissingWork mw:base.getListMissingWork().stream().
-                    filter(x->!x.getTitle().equals("")).
-                    sorted(Comparator.comparing(MissingWork::getRelevance).reversed()).
-                    toList()) {
+            for(MissingWork mw:all) {
                 out.printf("\\href{http://dx.doi.org/%s}{%s} \\href{https://www.doi2bib.org/bib/%s}{(bib)} & %s & %s & %d & %d & %d & %d & %d & %5.2f",
                         mw.getDoi(),safe(mw.getDoi()),mw.getDoi(),
                         safe(mw.getType()),

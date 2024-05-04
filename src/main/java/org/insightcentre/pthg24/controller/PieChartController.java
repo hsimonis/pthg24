@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 16:50:29 on 2024-05-02 */
+ * Generated at 12:23:41 on 2024-05-04 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -523,7 +523,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrLinks");
 		attributeNames.add("year");
 		attributeNames.add("author");
+		attributeNames.add("editor");
 		attributeNames.add("title");
+		attributeNames.add("publisher");
+		attributeNames.add("volume");
+		attributeNames.add("issue");
+		attributeNames.add("page");
+		attributeNames.add("chapter");
 		attributeNames.add("source");
 		attributeNames.add("abstractText");
 		attributeNames.add("keywords");

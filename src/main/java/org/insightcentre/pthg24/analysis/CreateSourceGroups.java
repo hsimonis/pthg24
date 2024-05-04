@@ -29,6 +29,9 @@ public class CreateSourceGroups {
             SourceGroup informsJC = createSG("InformsJC","The Informs Journal on Computing");
             SourceGroup aiJournal = createSG("AIJournal","Other AI Journals");
             SourceGroup orJournal = createSG("ORJournal","Other OR Journals");
+            SourceGroup joPR = createSG("JoPR","Journal of Peace Research");
+            SourceGroup joCR = createSG("JoCR","Journal of Conflict Resolution");
+            SourceGroup cmps = createSG("CMPS","Conflict Management and Piece Science");
             SourceGroup preprint = createSG("Preprint","A non reviewed preprint");
             SourceGroup otherJournal = createSG("OtherJournal","Any other Journal");
             SourceGroup book = createSG("Book","A book");
@@ -226,6 +229,15 @@ public class CreateSourceGroups {
         }
         if (w instanceof Article && ((Article)w).getJournal().getName().equals("Mathematics of Operations Research")){
             return findSourceGroup("ORJournal");
+        }
+        if (w instanceof Article && ((Article)w).getJournal().getName().equals("Journal of Peace Research")){
+            return findSourceGroup("JoPR");
+        }
+        if (w instanceof Article && ((Article)w).getJournal().getName().equals("Journal of Conflict Resolution")){
+            return findSourceGroup("JoCR");
+        }
+        if (w instanceof Article && ((Article)w).getJournal().getName().equals("Conflict Management and Peace Science")){
+            return findSourceGroup("CMPS");
         }
         if (w instanceof Article && ((Article)w).getJournal().getName().equals("CoRR")){
             return findSourceGroup("Preprint");

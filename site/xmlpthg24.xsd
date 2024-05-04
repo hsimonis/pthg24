@@ -518,22 +518,28 @@
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="abstractText" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
+			<xs:attribute name="chapter" use="required" type="xs:string"/>
 			<xs:attribute name="conceptWeight" use="required" type="xs:double"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="editor" use="required" type="xs:string"/>
 			<xs:attribute name="encoded" use="required" type="xs:string"/>
 			<xs:attribute name="isSelected" use="required" type="xs:boolean"/>
+			<xs:attribute name="issue" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="knownAuthors" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCited" use="required" type="xs:integer"/>
 			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
+			<xs:attribute name="page" use="required" type="xs:string"/>
+			<xs:attribute name="publisher" use="required" type="xs:string"/>
 			<xs:attribute name="relevance" use="required" type="xs:double"/>
 			<xs:attribute name="source" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="type" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="volume" use="required" type="xs:string"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
 		</xs:complexType>
 	</xs:element>

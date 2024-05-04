@@ -86,6 +86,13 @@ public  class MissingWork extends ApplicationObject{
  *
 */
 
+    public String chapter;
+
+/**
+ *  
+ *
+*/
+
     public Double conceptWeight;
 
 /**
@@ -114,6 +121,13 @@ public  class MissingWork extends ApplicationObject{
  *
 */
 
+    public String editor;
+
+/**
+ *  
+ *
+*/
+
     public String encoded;
 
 /**
@@ -124,6 +138,13 @@ public  class MissingWork extends ApplicationObject{
     public Boolean isSelected;
 
     private transient BooleanProperty isSelectedWrapper;
+
+/**
+ *  
+ *
+*/
+
+    public String issue;
 
 /**
  *  
@@ -165,6 +186,20 @@ public  class MissingWork extends ApplicationObject{
  *
 */
 
+    public String page;
+
+/**
+ *  
+ *
+*/
+
+    public String publisher;
+
+/**
+ *  
+ *
+*/
+
     public Double relevance;
 
 /**
@@ -200,6 +235,13 @@ public  class MissingWork extends ApplicationObject{
  *
 */
 
+    public String volume;
+
+/**
+ *  
+ *
+*/
+
     public Integer year;
 
 /**
@@ -223,22 +265,28 @@ public  class MissingWork extends ApplicationObject{
         super(applicationDataset);
         setAbstractText("");
         setAuthor("");
+        setChapter("");
         setConceptWeight(0.0);
         setCrossrefCitations(0);
         setCrossrefReferences(0);
         setDoi("");
+        setEditor("");
         setEncoded("");
         setIsSelected(false);
+        setIssue("");
         setKeywords("");
         setKnownAuthors(0);
         setNrCitations(0);
         setNrCited(0);
         setNrLinks(0);
+        setPage("");
+        setPublisher("");
         setRelevance(0.0);
         setSource("");
         setTitle("");
         setType("");
         setUrl("");
+        setVolume("");
         setYear(0);
         applicationDataset.addMissingWork(this);
     }
@@ -255,44 +303,56 @@ public  class MissingWork extends ApplicationObject{
             String name,
             String abstractText,
             String author,
+            String chapter,
             Double conceptWeight,
             Integer crossrefCitations,
             Integer crossrefReferences,
             String doi,
+            String editor,
             String encoded,
             Boolean isSelected,
+            String issue,
             String keywords,
             Integer knownAuthors,
             Integer nrCitations,
             Integer nrCited,
             Integer nrLinks,
+            String page,
+            String publisher,
             Double relevance,
             String source,
             String title,
             String type,
             String url,
+            String volume,
             Integer year){
         super(applicationDataset,
             id,
             name);
         setAbstractText(abstractText);
         setAuthor(author);
+        setChapter(chapter);
         setConceptWeight(conceptWeight);
         setCrossrefCitations(crossrefCitations);
         setCrossrefReferences(crossrefReferences);
         setDoi(doi);
+        setEditor(editor);
         setEncoded(encoded);
         setIsSelected(isSelected);
+        setIssue(issue);
         setKeywords(keywords);
         setKnownAuthors(knownAuthors);
         setNrCitations(nrCitations);
         setNrCited(nrCited);
         setNrLinks(nrLinks);
+        setPage(page);
+        setPublisher(publisher);
         setRelevance(relevance);
         setSource(source);
         setTitle(title);
         setType(type);
         setUrl(url);
+        setVolume(volume);
         setYear(year);
         applicationDataset.addMissingWork(this);
     }
@@ -303,22 +363,28 @@ public  class MissingWork extends ApplicationObject{
             other.name,
             other.abstractText,
             other.author,
+            other.chapter,
             other.conceptWeight,
             other.crossrefCitations,
             other.crossrefReferences,
             other.doi,
+            other.editor,
             other.encoded,
             other.isSelected,
+            other.issue,
             other.keywords,
             other.knownAuthors,
             other.nrCitations,
             other.nrCited,
             other.nrLinks,
+            other.page,
+            other.publisher,
             other.relevance,
             other.source,
             other.title,
             other.type,
             other.url,
+            other.volume,
             other.year);
     }
 
@@ -352,6 +418,16 @@ public  class MissingWork extends ApplicationObject{
 
     public String getAuthor(){
         return this.author;
+    }
+
+/**
+ *  get attribute chapter
+ *
+ * @return String
+*/
+
+    public String getChapter(){
+        return this.chapter;
     }
 
 /**
@@ -395,6 +471,16 @@ public  class MissingWork extends ApplicationObject{
     }
 
 /**
+ *  get attribute editor
+ *
+ * @return String
+*/
+
+    public String getEditor(){
+        return this.editor;
+    }
+
+/**
  *  get attribute encoded
  *
  * @return String
@@ -420,6 +506,16 @@ public  class MissingWork extends ApplicationObject{
         }
         isSelectedWrapper.set(isSelected);
         return isSelectedWrapper;
+    }
+
+/**
+ *  get attribute issue
+ *
+ * @return String
+*/
+
+    public String getIssue(){
+        return this.issue;
     }
 
 /**
@@ -473,6 +569,26 @@ public  class MissingWork extends ApplicationObject{
     }
 
 /**
+ *  get attribute page
+ *
+ * @return String
+*/
+
+    public String getPage(){
+        return this.page;
+    }
+
+/**
+ *  get attribute publisher
+ *
+ * @return String
+*/
+
+    public String getPublisher(){
+        return this.publisher;
+    }
+
+/**
  *  get attribute relevance
  *
  * @return Double
@@ -523,6 +639,16 @@ public  class MissingWork extends ApplicationObject{
     }
 
 /**
+ *  get attribute volume
+ *
+ * @return String
+*/
+
+    public String getVolume(){
+        return this.volume;
+    }
+
+/**
  *  get attribute year
  *
  * @return Integer
@@ -552,6 +678,18 @@ public  class MissingWork extends ApplicationObject{
 
     public void setAuthor(String author){
         this.author = author;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute chapter, mark dataset as dirty, mark dataset as not valid
+@param chapter String
+ *
+*/
+
+    public void setChapter(String chapter){
+        this.chapter = chapter;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -605,6 +743,18 @@ public  class MissingWork extends ApplicationObject{
     }
 
 /**
+ *  set attribute editor, mark dataset as dirty, mark dataset as not valid
+@param editor String
+ *
+*/
+
+    public void setEditor(String editor){
+        this.editor = editor;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute encoded, mark dataset as dirty, mark dataset as not valid
 @param encoded String
  *
@@ -624,6 +774,18 @@ public  class MissingWork extends ApplicationObject{
 
     public void setIsSelected(Boolean isSelected){
         this.isSelected = isSelected;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute issue, mark dataset as dirty, mark dataset as not valid
+@param issue String
+ *
+*/
+
+    public void setIssue(String issue){
+        this.issue = issue;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -689,6 +851,30 @@ public  class MissingWork extends ApplicationObject{
     }
 
 /**
+ *  set attribute page, mark dataset as dirty, mark dataset as not valid
+@param page String
+ *
+*/
+
+    public void setPage(String page){
+        this.page = page;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute publisher, mark dataset as dirty, mark dataset as not valid
+@param publisher String
+ *
+*/
+
+    public void setPublisher(String publisher){
+        this.publisher = publisher;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute relevance, mark dataset as dirty, mark dataset as not valid
 @param relevance Double
  *
@@ -744,6 +930,18 @@ public  class MissingWork extends ApplicationObject{
 
     public void setUrl(String url){
         this.url = url;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute volume, mark dataset as dirty, mark dataset as not valid
+@param volume String
+ *
+*/
+
+    public void setVolume(String volume){
+        this.volume = volume;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -854,7 +1052,7 @@ public  class MissingWork extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getConceptWeight()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getDoi()+ " " +getEncoded()+ " " +getIsSelected()+ " " +getKeywords()+ " " +getKnownAuthors()+ " " +getNrCitations()+ " " +getNrCited()+ " " +getNrLinks()+ " " +getRelevance()+ " " +getSource()+ " " +getTitle()+ " " +getType()+ " " +getUrl()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getChapter()+ " " +getConceptWeight()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getDoi()+ " " +getEditor()+ " " +getEncoded()+ " " +getIsSelected()+ " " +getIssue()+ " " +getKeywords()+ " " +getKnownAuthors()+ " " +getNrCitations()+ " " +getNrCited()+ " " +getNrLinks()+ " " +getPage()+ " " +getPublisher()+ " " +getRelevance()+ " " +getSource()+ " " +getTitle()+ " " +getType()+ " " +getUrl()+ " " +getVolume()+ " " +getYear();
     }
 
 /**
@@ -880,22 +1078,28 @@ public  class MissingWork extends ApplicationObject{
             " name=\""+toXMLName()+"\""+
             " abstractText=\""+toXMLAbstractText()+"\""+
             " author=\""+toXMLAuthor()+"\""+
+            " chapter=\""+toXMLChapter()+"\""+
             " conceptWeight=\""+toXMLConceptWeight()+"\""+
             " crossrefCitations=\""+toXMLCrossrefCitations()+"\""+
             " crossrefReferences=\""+toXMLCrossrefReferences()+"\""+
             " doi=\""+toXMLDoi()+"\""+
+            " editor=\""+toXMLEditor()+"\""+
             " encoded=\""+toXMLEncoded()+"\""+
             " isSelected=\""+toXMLIsSelected()+"\""+
+            " issue=\""+toXMLIssue()+"\""+
             " keywords=\""+toXMLKeywords()+"\""+
             " knownAuthors=\""+toXMLKnownAuthors()+"\""+
             " nrCitations=\""+toXMLNrCitations()+"\""+
             " nrCited=\""+toXMLNrCited()+"\""+
             " nrLinks=\""+toXMLNrLinks()+"\""+
+            " page=\""+toXMLPage()+"\""+
+            " publisher=\""+toXMLPublisher()+"\""+
             " relevance=\""+toXMLRelevance()+"\""+
             " source=\""+toXMLSource()+"\""+
             " title=\""+toXMLTitle()+"\""+
             " type=\""+toXMLType()+"\""+
             " url=\""+toXMLUrl()+"\""+
+            " volume=\""+toXMLVolume()+"\""+
             " year=\""+toXMLYear()+"\""+" />");
      }
 
@@ -917,6 +1121,16 @@ public  class MissingWork extends ApplicationObject{
 
     String toXMLAuthor(){
         return this.safeXML(getAuthor());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLChapter(){
+        return this.safeXML(getChapter());
     }
 
 /**
@@ -965,6 +1179,16 @@ public  class MissingWork extends ApplicationObject{
  * @return String
 */
 
+    String toXMLEditor(){
+        return this.safeXML(getEditor());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLEncoded(){
         return this.safeXML(getEncoded());
     }
@@ -977,6 +1201,16 @@ public  class MissingWork extends ApplicationObject{
 
     String toXMLIsSelected(){
         return this.getIsSelected().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLIssue(){
+        return this.safeXML(getIssue());
     }
 
 /**
@@ -1035,6 +1269,26 @@ public  class MissingWork extends ApplicationObject{
  * @return String
 */
 
+    String toXMLPage(){
+        return this.safeXML(getPage());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLPublisher(){
+        return this.safeXML(getPublisher());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLRelevance(){
         return this.getRelevance().toString();
     }
@@ -1085,6 +1339,16 @@ public  class MissingWork extends ApplicationObject{
  * @return String
 */
 
+    String toXMLVolume(){
+        return this.safeXML(getVolume());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLYear(){
         return this.getYear().toString();
     }
@@ -1096,11 +1360,11 @@ public  class MissingWork extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>MissingWork</th>"+"<th>Name</th>"+"<th>Doi</th>"+"<th>Encoded</th>"+"<th>NrCited</th>"+"<th>NrCitations</th>"+"<th>NrLinks</th>"+"<th>Year</th>"+"<th>Author</th>"+"<th>Title</th>"+"<th>Source</th>"+"<th>AbstractText</th>"+"<th>Keywords</th>"+"<th>Url</th>"+"<th>Type</th>"+"<th>CrossrefReferences</th>"+"<th>CrossrefCitations</th>"+"<th>KnownAuthors</th>"+"<th>ConceptWeight</th>"+"<th>Relevance</th>"+"<th>IsSelected</th>"+"</tr>";
+        return "<tr><th>MissingWork</th>"+"<th>Name</th>"+"<th>Doi</th>"+"<th>Encoded</th>"+"<th>NrCited</th>"+"<th>NrCitations</th>"+"<th>NrLinks</th>"+"<th>Year</th>"+"<th>Author</th>"+"<th>Editor</th>"+"<th>Title</th>"+"<th>Publisher</th>"+"<th>Volume</th>"+"<th>Issue</th>"+"<th>Page</th>"+"<th>Chapter</th>"+"<th>Source</th>"+"<th>AbstractText</th>"+"<th>Keywords</th>"+"<th>Url</th>"+"<th>Type</th>"+"<th>CrossrefReferences</th>"+"<th>CrossrefCitations</th>"+"<th>KnownAuthors</th>"+"<th>ConceptWeight</th>"+"<th>Relevance</th>"+"<th>IsSelected</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getEncoded()+"</td>"+ " " +"<td>"+getNrCited()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getSource()+"</td>"+ " " +"<td>"+getAbstractText()+"</td>"+ " " +"<td>"+getKeywords()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getType()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getKnownAuthors()+"</td>"+ " " +"<td>"+getConceptWeight()+"</td>"+ " " +"<td>"+getRelevance()+"</td>"+ " " +"<td>"+getIsSelected()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getEncoded()+"</td>"+ " " +"<td>"+getNrCited()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getEditor()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getPublisher()+"</td>"+ " " +"<td>"+getVolume()+"</td>"+ " " +"<td>"+getIssue()+"</td>"+ " " +"<td>"+getPage()+"</td>"+ " " +"<td>"+getChapter()+"</td>"+ " " +"<td>"+getSource()+"</td>"+ " " +"<td>"+getAbstractText()+"</td>"+ " " +"<td>"+getKeywords()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getType()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getKnownAuthors()+"</td>"+ " " +"<td>"+getConceptWeight()+"</td>"+ " " +"<td>"+getRelevance()+"</td>"+ " " +"<td>"+getIsSelected()+"</td>"+"</tr>";
     }
 
 /**
@@ -1223,6 +1487,9 @@ public  class MissingWork extends ApplicationObject{
       if(!this.getAuthor().equals(b.getAuthor())){
          System.out.println("Author");
         }
+      if(!this.getChapter().equals(b.getChapter())){
+         System.out.println("Chapter");
+        }
       if(!this.getConceptWeight().equals(b.getConceptWeight())){
          System.out.println("ConceptWeight");
         }
@@ -1235,11 +1502,17 @@ public  class MissingWork extends ApplicationObject{
       if(!this.getDoi().equals(b.getDoi())){
          System.out.println("Doi");
         }
+      if(!this.getEditor().equals(b.getEditor())){
+         System.out.println("Editor");
+        }
       if(!this.getEncoded().equals(b.getEncoded())){
          System.out.println("Encoded");
         }
       if(!this.getIsSelected().equals(b.getIsSelected())){
          System.out.println("IsSelected");
+        }
+      if(!this.getIssue().equals(b.getIssue())){
+         System.out.println("Issue");
         }
       if(!this.getKeywords().equals(b.getKeywords())){
          System.out.println("Keywords");
@@ -1259,6 +1532,12 @@ public  class MissingWork extends ApplicationObject{
       if(!this.getNrLinks().equals(b.getNrLinks())){
          System.out.println("NrLinks");
         }
+      if(!this.getPage().equals(b.getPage())){
+         System.out.println("Page");
+        }
+      if(!this.getPublisher().equals(b.getPublisher())){
+         System.out.println("Publisher");
+        }
       if(!this.getRelevance().equals(b.getRelevance())){
          System.out.println("Relevance");
         }
@@ -1274,28 +1553,37 @@ public  class MissingWork extends ApplicationObject{
       if(!this.getUrl().equals(b.getUrl())){
          System.out.println("Url");
         }
+      if(!this.getVolume().equals(b.getVolume())){
+         System.out.println("Volume");
+        }
       if(!this.getYear().equals(b.getYear())){
          System.out.println("Year");
         }
         return  this.getAbstractText().equals(b.getAbstractText()) &&
           this.getAuthor().equals(b.getAuthor()) &&
+          this.getChapter().equals(b.getChapter()) &&
           this.getConceptWeight().equals(b.getConceptWeight()) &&
           this.getCrossrefCitations().equals(b.getCrossrefCitations()) &&
           this.getCrossrefReferences().equals(b.getCrossrefReferences()) &&
           this.getDoi().equals(b.getDoi()) &&
+          this.getEditor().equals(b.getEditor()) &&
           this.getEncoded().equals(b.getEncoded()) &&
           this.getIsSelected().equals(b.getIsSelected()) &&
+          this.getIssue().equals(b.getIssue()) &&
           this.getKeywords().equals(b.getKeywords()) &&
           this.getKnownAuthors().equals(b.getKnownAuthors()) &&
           this.getName().equals(b.getName()) &&
           this.getNrCitations().equals(b.getNrCitations()) &&
           this.getNrCited().equals(b.getNrCited()) &&
           this.getNrLinks().equals(b.getNrLinks()) &&
+          this.getPage().equals(b.getPage()) &&
+          this.getPublisher().equals(b.getPublisher()) &&
           this.getRelevance().equals(b.getRelevance()) &&
           this.getSource().equals(b.getSource()) &&
           this.getTitle().equals(b.getTitle()) &&
           this.getType().equals(b.getType()) &&
           this.getUrl().equals(b.getUrl()) &&
+          this.getVolume().equals(b.getVolume()) &&
           this.getYear().equals(b.getYear());
     }
 

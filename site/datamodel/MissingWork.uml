@@ -1,21 +1,27 @@
  class MissingWork {
 String abstractText
 String author
+String chapter
 Double conceptWeight
 Integer crossrefCitations
 Integer crossrefReferences
 String doi
+String editor
 String encoded
 Boolean isSelected
+String issue
 String keywords
 Integer knownAuthors
 Integer nrCitations
 Integer nrCited
 Integer nrLinks
+String page
+String publisher
 Double relevance
 String source
 String title
 String type
 String url
+String volume
 Integer year
 }

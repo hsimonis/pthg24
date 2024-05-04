@@ -122,7 +122,7 @@ public class ComputeRelevance {
             }
             res = 1000.0 * ((cntA + cntC) * (cntB + cntD + cntE) + cntF) + cntA + cntB + cntC + cntD + cntE;
             if (res > 0) {
-                info("terrorism keywords " + res + " " + cntA + " " + cntB + " " + cntC + " " + cntD + " " + cntE + " " + cntF + " " + matches + " title " + title);
+//                info("terrorism keywords " + res + " " + cntA + " " + cntB + " " + cntC + " " + cntD + " " + cntE + " " + cntF + " " + matches + " title " + title);
             }
         } else if (type.equals("scheduling")){
             ConceptType a = ConceptType.findByName(base, "Scheduling");
@@ -145,7 +145,7 @@ public class ComputeRelevance {
             }
             res = 1000.0 * (cntA * cntB)  + cntA + cntB ;
             if (res > 0) {
-                info("scheduling keywords " + res + " " + cntA + " " + cntB + " "  + matches + " title " + title);
+//                info("scheduling keywords " + res + " " + cntA + " " + cntB + " "  + matches + " title " + title);
             }
 
         } else {

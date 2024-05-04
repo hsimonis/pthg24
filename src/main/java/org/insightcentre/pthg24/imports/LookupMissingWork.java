@@ -46,7 +46,7 @@ public class LookupMissingWork {
                 info("Reading file "+saveFile);
                 interpret(mw,contents(saveFile));
             } else {
-                if (mw.getDoi() != null && !mw.getDoi().equals("") && nrGets++ < 200) {
+                if (mw.getDoi() != null && !mw.getDoi().equals("") && nrGets++ < 10) {
                     target = "https://api.crossref.org/works/" + URLEncoder.encode(properDOI(mw.getDoi()), StandardCharsets.UTF_8.toString());
                     URI targetURI = new URI(target);
                     HttpRequest httpRequest = HttpRequest.newBuilder()
@@ -56,7 +56,8 @@ public class LookupMissingWork {
                             .build();
                     HttpClient httpClient = HttpClient.newHttpClient();
                     HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-                    info("Result " + response + " body " + response.body());
+                    info("Result " + nrGets+" reponse "+response );
+//                    info("Result " + response + " body " + response.body());
                     PrintWriter out = new PrintWriter(saveFile);
                     out.print(response.body());
                     out.close();
@@ -92,7 +93,8 @@ public class LookupMissingWork {
                             .build();
                     HttpClient httpClient = HttpClient.newHttpClient();
                     HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-                    info("Result " + response + " body " + response.body());
+                    info("Result " + response);
+//                    info("Result " + response + " body " + response.body());
                     PrintWriter out = new PrintWriter(saveFile);
                     out.print(response.body());
                     out.close();
@@ -118,7 +120,7 @@ public class LookupMissingWork {
 
     }
 
-        private void interpret(MissingWork mw, String body) {
+    private void interpret(MissingWork mw, String body) {
         if (body.startsWith("Resource not found.")) {
             severe(mw.getDoi() + " Resource not found");
             return;
@@ -132,19 +134,71 @@ public class LookupMissingWork {
         int referencedByCount = message.getInt("is-referenced-by-count");
         String messageType = message.getString("type");
         JSONArray title = message.getJSONArray("title");
-        String title1 = title.getString(0);
-        JSONArray author = message.getJSONArray("author");
-        String authors = extractAuthors(author);
+        String titleText = "";
+        if (title.length() > 0) {
+            titleText = title.getString(0);
+        } else {
+            warning("No titleText "+message.toString(4));
+        }
+        String authors = "";
+        if (message.has("author")) {
+            JSONArray author = message.getJSONArray("author");
+            authors = extractAuthors(author);
+        }
+        String editors = "";
+        if (message.has("editor")) {
+            JSONArray editor = message.getJSONArray("editor");
+            editors = extractAuthors(editor);
+        }
+        if (authors.equals("") && editors.equals("")){
+            warning("Neither author nor editors "+message.toString(4));
+        }
+        String publisher="";
+        if (message.has("publisher")){
+            publisher = message.getString("publisher");
+        }
+        String volume="";
+        if (message.has("volume")){
+            volume = message.getString("volume");
+        }
+        String issue="";
+        if (message.has("issue")){
+            issue = message.getString("issue");
+        }
+        String page="";
+        if (message.has("page")){
+            page = message.getString("page");
+        }
+        String chapter="";
+        if (message.has("chapter")){
+            chapter = message.getString("chapter");
+        }
+        String url="";
+        if (message.has("URL")){
+            url = message.getString("URL");
+        }
+        String abstractText="";
+        if (message.has("abstract")){
+            abstractText = message.getString("abstract");
+        }
         String source = extractSource(messageType,message);
         int year = extractYear(message);
 
-        mw.setTitle(title1);
+        mw.setTitle(titleText);
         mw.setType(messageType);
         mw.setCrossrefReferences(referenceCount);
         mw.setCrossrefCitations(referencedByCount);
         mw.setAuthor(authors);
+        mw.setEditor(editors);
         mw.setSource(source);
         mw.setYear(year);
+        mw.setPublisher(publisher);
+        mw.setVolume(volume);
+        mw.setIssue(issue);
+        mw.setPage(page);
+        mw.setChapter(chapter);
+        mw.setUrl(url);
+        mw.setAbstractText(abstractText);
     }
 
     private String extractSource(String type,JSONObject message){
@@ -152,14 +206,20 @@ public class LookupMissingWork {
         if (message.has("container-title")){
             JSONArray containerTitle = message.getJSONArray("container-title");
             if (containerTitle.length() > 0) {
-                res = containerTitle.getString(0);
+                res = removeEntity(containerTitle.getString(0));
             } else {
-                warning("No first containerTitle");
+                if (!type.equals("book") && !type.equals("monograph")&& !type.equals("edited-book")&& !type.equals("report")&& !type.equals("reference-book")) {
+                    warning("No first containerTitle" + message.toString(4));
+                }
             }
         } else {
             severe("no container"+message.toString(4));
         }
         return res;
+    }
+
+    private String removeEntity(String text){
+        return text.replace("&amp;","\\&");
     }
 
     private int extractYear(JSONObject message){
@@ -213,8 +273,19 @@ public class LookupMissingWork {
                 sb.append(", ");
             }
             JSONObject author = arr.getJSONObject(i);
-            String given = author.getString("given");
-            String family = author.getString("family");
+            String given = "";
+            if (author.has("given")) {
+                given = author.getString("given");
+            } else {
+                warning("No given name "+author.toString(4));
+            }
+
+            String family = "";
+            if (author.has("family")) {
+                family = author.getString("family");
+            } else {
+                warning("No family name "+author.toString(4));
+            }
             sb.append(given);sb.append(" ");sb.append(family);
         }
         return sb.toString();

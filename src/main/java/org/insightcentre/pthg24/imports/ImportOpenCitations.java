@@ -67,7 +67,8 @@ public class ImportOpenCitations {
                             .build();
                     HttpClient httpClient = HttpClient.newHttpClient();
                     HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-                    info("Result " + response + " body " + response.body());
+                    info("Result " + response);
+//                    info("Result " + response + " body " + response.body());
                     PrintWriter out = new PrintWriter(saveFile);
                     out.print(response.body());
                     out.close();
@@ -123,7 +124,7 @@ public class ImportOpenCitations {
     }
 
     private boolean exists(String fileName){
-        info("fileName "+fileName);
+//        info("fileName "+fileName);
         Path path = Paths.get(fileName);
         return Files.exists(path);
     }
