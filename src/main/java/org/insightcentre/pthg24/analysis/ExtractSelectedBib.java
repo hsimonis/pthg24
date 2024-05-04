@@ -3,7 +3,6 @@ package org.insightcentre.pthg24.analysis;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Scenario;
 import org.insightcentre.pthg24.datamodel.Work;
-import org.jfree.util.StringUtils;
 
 import java.io.IOException;
 import java.io.PrintWriter;

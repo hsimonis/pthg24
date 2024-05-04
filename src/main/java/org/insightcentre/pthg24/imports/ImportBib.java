@@ -456,7 +456,8 @@ public class ImportBib {
                 "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL","ICORES","SOCS","SAT",
                 "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA",
                 "Canadian AI","CSCLP","LION","FGCS","EvoWorkshop","Conf AI","ICOA","ASTAIR","LPNMR","ICMSAO","IESM",
-                "MIKE","IDAACS","ISI","IDS","CCS","ACSAC","INFOCOM","IST","WSC","SWSTE","CCEM","ICTS","HST","DSC","IWCMC","HPCC","ICCUBEA","CSR","ICICACS"
+                "MIKE","IDAACS","ISI","IDS","CCS","ACSAC","INFOCOM","IST","WSC","SWSTE","CCEM","ICTS","HST","DSC",
+                "IWCMC","HPCC","ICCUBEA","CSR","ICICACS","SIN","ISI","IWCMC"
         };
         for(String cand:series) {
             if (text.contains(cand)) {

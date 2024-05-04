@@ -61,8 +61,8 @@ public class ImportCrossref {
                 info("Reading file " + saveFile);
                 interpret(w, contents(saveFile));
             } else if (exists(missingWorkFile)){
-                    info("Reading file "+saveFile);
-                    interpret(w,contents(saveFile));
+                    info("Reading file "+missingWorkFile);
+                    interpret(w,contents(missingWorkFile));
             } else {
                 if (w.getDoi() != null && !w.getDoi().equals("")) {
                     w.setDoiStatus(true);
