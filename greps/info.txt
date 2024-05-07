@@ -1,22 +1,22 @@
-Title:           Promises and pitfalls of computational modelling for insurgency conflicts
-Subject:         Journal of Defense Modeling & Simulation 2023.20:333-350
-Keywords:        Insurgency,agent-based modeling,system dynamics,dynamic network analysis,literature review
-Author:          Koen van der Zwet, Ana I Barros, Tom M van Engers, and Peter M A Sloot
-Creator:         C&M
-Producer:        Acrobat Distiller 8.0.0 (Windows); modified using iText 4.2.0 by 1T3XT
-CreationDate:    Tue Jun  6 07:40:43 2023 GMT Summer Time
-ModDate:         Sat May  4 15:43:12 2024 GMT Summer Time
+Title:           Spatial Distribution Assessment of Terrorist Attack Types Based on I-MLKNN Model
+Subject:         Terrorist attacks are harmful to lives and property and seriously affect the stability of the international community and economic development. Exploring the regularity of terrorist attacks and building a model for assessing the risk of terrorist attacks (a kind of public safety risk, and it means the possibility of a terrorist attack) are of great significance to the security and stability of the international community and to global anti-terrorism. We propose a fusion of Inverse Distance Weighting (IDW) and a Multi-label k-Nearest Neighbor (I-MLKNN)-based assessment model for terrorist attacks, which is in a grid-scale and considers 17 factors of socio-economic and natural environments, and applied the I-MLKNN assessment model to assess the risk of terrorist attacks in Southeast Asia. The results show the I-MLKNN multi-label classification algorithm is proven to be an ideal tool for the assessment of the spatial distribution of terrorist attacks, and it can assess the risk of different types of terrorist attacks, thus revealing the law of distribution of different types of terrorist attacks. The terrorist attack risk assessment results indicate that Armed Attacks, Bombing/Explosions and Facility/Infrastructure Attacks in Southeast Asia are high-risk terrorist attack events, and the southernmost part of Thailand and the Philippines are high-risk terrorist attack areas for terrorism. We do not only provide a reference for incorporating spatial features in multi-label classification algorithms, but also provide a theoretical basis for decision-makers involved in terrorist attacks, which is meaningful to the implementation of the international counter-terrorism strategy.
+Keywords:        assessment; terrorist attack types; I-MLKNN; multi-source factors
+Author:          Ruifang Zhao, Xiaolan Xie, Xun Zhang, Min Jin and Mengmeng Hao
+Creator:         LaTeX with hyperref
+Producer:        pdfTeX-1.40.21
+CreationDate:    Tue Aug 17 11:12:54 2021 GMT Daylight Time
+ModDate:         Wed Aug 25 14:33:23 2021 GMT Daylight Time
 Custom Metadata: no
-Metadata Stream: yes
+Metadata Stream: no
 Tagged:          no
 UserProperties:  no
 Suspects:        no
 Form:            none
 JavaScript:      no
-Pages:           18
+Pages:           22
 Encrypted:       no
-Page size:       612.283 x 793.701 pts
+Page size:       595.276 x 841.89 pts (A4)
 Page rot:        0
-File size:       1565799 bytes
+File size:       3984640 bytes
 Optimized:       no
-PDF version:     1.4
+PDF version:     1.7

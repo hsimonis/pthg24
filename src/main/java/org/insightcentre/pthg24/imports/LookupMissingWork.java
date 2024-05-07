@@ -25,17 +25,21 @@ public class LookupMissingWork {
     Scenario base;
     String missingWorkDir;
     int nrGets = 0;
+    int getLimit = 0;
+    int discoverable = 0;
 
-    public LookupMissingWork(Scenario base, String missingWorkDir, int linkCountLimit) {
+    public LookupMissingWork(Scenario base, String missingWorkDir, int linkCountLimit,int getLimit) {
         this.base = base;
+        this.getLimit = getLimit;
         this.missingWorkDir = missingWorkDir;
         for (MissingWork mw : base.getListMissingWork().stream().
                 filter(x -> x.getNrLinks() >= linkCountLimit).
                 sorted(Comparator.comparing(MissingWork::getNrLinks).reversed()).
                 toList()) {
             lookup(mw);
-            lookupScopus(mw);
+//            lookupScopus(mw);
         }
+        info("ToDo: "+discoverable+" works to be checked");
     }
 
     private void lookup(MissingWork mw) {
@@ -46,7 +50,7 @@ public class LookupMissingWork {
                 info("Reading file "+saveFile);
                 interpret(mw,contents(saveFile));
             } else {
-                if (mw.getDoi() != null && !mw.getDoi().equals("") && nrGets++ < 10) {
+                if (mw.getDoi() != null && !mw.getDoi().equals("") && nrGets++ < getLimit) {
                     target = "https://api.crossref.org/works/" + URLEncoder.encode(properDOI(mw.getDoi()), StandardCharsets.UTF_8.toString());
                     URI targetURI = new URI(target);
                     HttpRequest httpRequest = HttpRequest.newBuilder()
@@ -56,14 +60,19 @@ public class LookupMissingWork {
                             .build();
                     HttpClient httpClient = HttpClient.newHttpClient();
                     HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-                    info("Result " + nrGets+" reponse "+response );
+                    info("Result " + nrGets+" links "+mw.getNrLinks()+" reponse "+response );
 //                    info("Result " + response + " body " + response.body());
                     PrintWriter out = new PrintWriter(saveFile);
                     out.print(response.body());
                     out.close();
                     interpret(mw, response.body());
                 } else {
-                    warning("DOI not usable for missing work doi " + mw.getDoi());
+                    if (nrGets < getLimit){
+                        warning("DOI not usable for missing work doi " + mw.getDoi());
+                    } else {
+                        discoverable++;
+//                        warning("To be discovered doi "+mw.getDoi());
+                   }
                 }
             }
 
@@ -80,7 +89,7 @@ public class LookupMissingWork {
                 info("Reading file "+saveFile);
                 interpretScopus(mw,contents(saveFile));
             } else {
-                if (mw.getDoi() != null && !mw.getDoi().equals("") && nrGets<200) {
+                if (mw.getDoi() != null && !mw.getDoi().equals("") && nrGets<getLimit) {
                     target = "https://api.elsevier.com/content/abstract/doi/" +
                             URLEncoder.encode(properDOI(mw.getDoi()), StandardCharsets.UTF_8.toString())+
                             // get key from hidden file
@@ -100,7 +109,9 @@ public class LookupMissingWork {
                     out.close();
                     interpretScopus(mw, response.body());
                 } else {
-                    warning("DOI not usable for work " + mw.getName() + " doi " + mw.getDoi());
+                    if (nrGets < getLimit) {
+                        warning("DOI not usable for work " + mw.getName() + " doi " + mw.getDoi());
+                    }
 
                 }
             }
@@ -179,7 +190,7 @@ public class LookupMissingWork {
         }
         String abstractText="";
         if (message.has("abstract")){
-            abstractText = message.getString("abstract");
+            abstractText = removeMarkup(message.getString("abstract"));
         }
         String source = extractSource(messageType,message);
         int year = extractYear(message);
@@ -201,6 +212,19 @@ public class LookupMissingWork {
         mw.setAbstractText(abstractText);
     }
 
+    public static String removeMarkup(String t){
+        return t.replaceAll("<jats:[^>]*>"," ").replaceAll("</jats:[^>]*>"," ")/*
+                .replaceAll("<jats:p>","").replaceAll("</jats:p>","")
+                .replaceAll("<jats:title>","").replaceAll("</jats:title>","")
+                .replaceAll("<jats:italic>","").replaceAll("</jats:italic>","")
+                .replaceAll("<jats:bold>","").replaceAll("</jats:bold>","")
+                .replaceAll("<jats:roman>","").replaceAll("</jats:roman>","")
+                .replaceAll("<jats:sec>","").replaceAll("</jats:sec>","")
+                .replaceAll("<jats:list>","").replaceAll("</jats:list>","")
+                .replaceAll("<jats:list-item>","").replaceAll("</jats:list-item>","")
+                .replaceAll("<jats:label />","")*/;
+    }
+
     private String extractSource(String type,JSONObject message){
         String res = "";
         if (message.has("container-title")){
@@ -208,7 +232,8 @@ public class LookupMissingWork {
             if (containerTitle.length() > 0) {
                 res = removeEntity(containerTitle.getString(0));
             } else {
-                if (!type.equals("book") && !type.equals("monograph")&& !type.equals("edited-book")&& !type.equals("report")&& !type.equals("reference-book")) {
+                if (!type.equals("book") && !type.equals("monograph")&& !type.equals("edited-book")&&
+                        !type.equals("report")&& !type.equals("reference-book")&& !type.equals("posted-content")) {
                     warning("No first containerTitle" + message.toString(4));
                 }
             }

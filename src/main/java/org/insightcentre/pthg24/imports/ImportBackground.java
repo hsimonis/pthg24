@@ -25,7 +25,9 @@ public class ImportBackground {
             JSONArray arr = new JSONArray(text);
             for(int i=0;i<arr.length();i++){
                 Work w = findWork(base,arr.getString(i));
-                w.setBackground(true);
+                if (w != null) {
+                    w.setBackground(true);
+                }
             }
 
         } catch(IOException e){
@@ -36,7 +38,6 @@ public class ImportBackground {
 
     private Work findWork(Scenario base, String name){
         Work res = Work.findByName(base,name);
-        assert(res != null);
         return res;
     }
 

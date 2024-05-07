@@ -11,6 +11,7 @@ import java.util.*;
 
 import static org.insightcentre.pthg24.analysis.ListWorks.localCopyExists;
 import static org.insightcentre.pthg24.imports.ImportCrossref.properDOI;
+import static org.insightcentre.pthg24.imports.LookupMissingWork.removeMarkup;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
 import static org.jbibtex.BibTeXEntry.*;
 
@@ -127,7 +128,7 @@ public class ImportBib {
                         work.setWosStatus(true);
                     }
                     if (!fieldString(entry,abstractKey).equals("")){
-                        work.setAbstractText(fieldString(entry,abstractKey));
+                        work.setAbstractText(removeMarkup(fieldString(entry,abstractKey)));
                     }
                     Work previous = keyHash.get(work.getKey());
                     if (previous != null){
@@ -457,7 +458,10 @@ public class ImportBib {
                 "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA",
                 "Canadian AI","CSCLP","LION","FGCS","EvoWorkshop","Conf AI","ICOA","ASTAIR","LPNMR","ICMSAO","IESM",
                 "MIKE","IDAACS","ISI","IDS","CCS","ACSAC","INFOCOM","IST","WSC","SWSTE","CCEM","ICTS","HST","DSC",
-                "IWCMC","HPCC","ICCUBEA","CSR","ICICACS","SIN","ISI","IWCMC"
+                "IWCMC","HPCC","ICCUBEA","CSR","ICICACS","SIN","ISI","IWCMC","IC3","SSD","CSDE","COMPSAC","CNS",
+                "SOSE","CYBER","ISM","ACC","IJCNN","RCIS","CCDC","ICESC","PDGC","GlobalSIP","NIGERCON","TrustCom",
+                "RWS","TPEC","ICIC","ICCR","CAI","LCN","DSN","SmartCity","HASE","Allerton","ITNEC","CyberC","SMC",
+                "ICEA","PST","AVSS","ICISS","IKT","EI2","IEC","IEMCON","CICN","CCNC","ACC","IMTIC"
         };
         for(String cand:series) {
             if (text.contains(cand)) {
@@ -498,7 +502,7 @@ public class ImportBib {
             return "Chinese Control and Decision Conference";
         }
         if (text.contains("IEEE International Conference on Automation and Logistics")){
-            return "IEEE International Conference on Automation and Logistics";
+            return "ICAL";
         }
         if (text.toLowerCase().contains("international joint conference on artificial intelligence")){
             return "IJCAI";
@@ -507,7 +511,7 @@ public class ImportBib {
             return "GECCO";
         }
         if (text.toLowerCase().contains("Australian Joint Conference on Artificial Intelligence".toLowerCase())){
-            return "Australian Joint Conference on Artificial Intelligence";
+            return "AJCAI";
         }
         if (text.toLowerCase().contains("Railway Operations Modelling and Analysis".toLowerCase())){
             return "ICROMA";
@@ -535,6 +539,60 @@ public class ImportBib {
         }
         if (text.toLowerCase().contains("International Conference on Big Data".toLowerCase())){
             return "Big Data";
+        }
+        if (text.toLowerCase().contains("International Symposium on Natural Language Processing".toLowerCase())){
+            return "International Symposium on Natural Language Processing";
+        }
+        if (text.toLowerCase().contains("International Multitopic Conference".toLowerCase())){
+            return "INMIC";
+        }
+        if (text.toLowerCase().contains("International Conference on Intelligence and Security Informatics".toLowerCase())){
+            return "ISI";
+        }
+        if (text.toLowerCase().contains("International Conference on Software Technology and Engineering".toLowerCase())){
+            return "ICSTE";
+        }
+        if (text.toLowerCase().contains("Advances in Social Networks Analysis and Mining".toLowerCase())){
+            return "ASONAM";
+        }
+        if (text.toLowerCase().contains("Advances in Computing, Control, and Telecommunication Technologies".toLowerCase())){
+            return "ACT";
+        }
+        if (text.toLowerCase().contains("International Conference on Tools with Artificial Intelligence".toLowerCase())){
+            return "ICTAI";
+        }
+        if (text.toLowerCase().contains("International Conference on Information Systems Security and Privacy".toLowerCase())){
+            return "ICISSP";
+        }
+        if (text.toLowerCase().contains("International Conference on Dependable Systems and Networks".toLowerCase())){
+            return "DSN";
+        }
+        if (text.toLowerCase().contains("Annual Computer Security Applications Conference".toLowerCase())){
+            return "ACSAC";
+        }
+        if (text.toLowerCase().contains("Hawaii International Conference on System Sciences".toLowerCase())){
+            return "HICSS ";
+        }
+        if (text.toLowerCase().contains("IEEE Aerospace Conference".toLowerCase())){
+            return "AeroConf";
+        }
+        if (text.toLowerCase().contains("International Conference on Machine Learning and Cybernetics".toLowerCase())){
+            return "ICMLC";
+        }
+        if (text.toLowerCase().contains("Conference on Multimedia Information Networking and Security".toLowerCase())){
+            return "Multimedia Information Networking and Security";
+        }
+        if (text.toLowerCase().contains("Conference on Dependable, Autonomic and Secure Computing".toLowerCase())){
+            return "DASC";
+        }
+        if (text.toLowerCase().contains("International Symposium on the Analytic Hierarchy Process".toLowerCase())){
+            return "ISAHP";
+        }
+        if (text.toLowerCase().contains("International Computer Software and Applications Conference".toLowerCase())){
+            return "COMPSAC";
+        }
+        if (text.toLowerCase().contains("Conference on Computer and communications security".toLowerCase())){
+            return "CCS";
         }
 //        if (text.toLowerCase().contains("".toLowerCase())){
 //            return "";

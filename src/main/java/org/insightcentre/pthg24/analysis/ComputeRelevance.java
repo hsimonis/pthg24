@@ -4,6 +4,8 @@ import org.insightcentre.pthg24.datamodel.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.warning;
@@ -89,38 +91,33 @@ public class ComputeRelevance {
             List<String> matches = new ArrayList<>();
             for (Concept con : base.getListConcept()) {
                 if (con.getConceptType() == a &&
-                        ((!con.getCaseSensitive() && lower.contains(con.getRegExpr())) ||
-                                (con.getCaseSensitive() && title.contains(con.getRegExpr())))) {
+                        occurs(con,title,lower)) {
                     cntA++;
                     matches.add(con.getLabel());
                 } else if (con.getConceptType() == b &&
-                        ((!con.getCaseSensitive() && lower.contains(con.getRegExpr())) ||
-                                (con.getCaseSensitive() && title.contains(con.getRegExpr())))) {
+                        occurs(con,title,lower)) {
                     cntB++;
                     matches.add(con.getLabel());
                 } else if (con.getConceptType() == c &&
-                        ((!con.getCaseSensitive() && lower.contains(con.getRegExpr())) ||
-                                (con.getCaseSensitive() && title.contains(con.getRegExpr())))) {
+                        occurs(con,title,lower)) {
                     cntC++;
                     matches.add(con.getLabel());
                 } else if (con.getConceptType() == d &&
-                        ((!con.getCaseSensitive() && lower.contains(con.getRegExpr())) ||
-                                (con.getCaseSensitive() && title.contains(con.getRegExpr())))) {
+                        occurs(con,title,lower)) {
                     cntD++;
                     matches.add(con.getLabel());
                 } else if (con.getConceptType() == e &&
-                        ((!con.getCaseSensitive() && lower.contains(con.getRegExpr())) ||
-                                (con.getCaseSensitive() && title.contains(con.getRegExpr())))) {
+                        occurs(con,title,lower)) {
                     cntE++;
                     matches.add(con.getLabel());
                 } else if (con.getConceptType() == f &&
-                        ((!con.getCaseSensitive() && lower.contains(con.getRegExpr())) ||
-                                (con.getCaseSensitive() && title.contains(con.getRegExpr())))) {
+                        occurs(con,title,lower)) {
                     cntF++;
                     matches.add(con.getLabel());
                 }
             }
-            res = 1000.0 * ((cntA + cntC) * (cntB + cntD + cntE) + cntF) + cntA + cntB + cntC + cntD + cntE;
+            res = 1000.0 * (cntA * (cntB + cntD + cntE) + cntF) + cntA + cntB + cntD + cntE;
+//            res = 1000.0 * ((cntA + cntC) * (cntB + cntD + cntE) + cntF) + cntA + cntB + cntC + cntD + cntE;
             if (res > 0) {
 //                info("terrorism keywords " + res + " " + cntA + " " + cntB + " " + cntC + " " + cntD + " " + cntE + " " + cntF + " " + matches + " title " + title);
             }
@@ -132,13 +129,11 @@ public class ComputeRelevance {
             List<String> matches = new ArrayList<>();
             for (Concept con : base.getListConcept()) {
                 if (con.getConceptType() == a &&
-                        ((!con.getCaseSensitive() && lower.contains(con.getRegExpr())) ||
-                                (con.getCaseSensitive() && title.contains(con.getRegExpr())))) {
+                        occurs(con,title,lower)) {
                     cntA++;
                     matches.add(con.getLabel());
                 } else if (con.getConceptType() == b &&
-                        ((!con.getCaseSensitive() && lower.contains(con.getRegExpr())) ||
-                                (con.getCaseSensitive() && title.contains(con.getRegExpr())))) {
+                        occurs(con,title,lower)) {
                     cntB++;
                     matches.add(con.getLabel());
                 }
@@ -152,6 +147,12 @@ public class ComputeRelevance {
             warning("No keyword match setup for type "+type);
         }
         return res;
+    }
+
+    private boolean occurs(Concept c,String t,String lower){
+        Pattern pattern = Pattern.compile(c.getRegExpr());
+        Matcher matcher = pattern.matcher(c.getCaseSensitive()?t:lower);
+        return matcher.find();
     }
 
     private double age(Work w){

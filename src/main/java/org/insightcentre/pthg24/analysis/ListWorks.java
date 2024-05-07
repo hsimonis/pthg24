@@ -62,9 +62,10 @@ public class ListWorks {
         for(Work a:works){
             out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %d & %s & %s & %s & %s",
                     rowLabel(a,"a:"+a.getName(),showLabel),
-                    a.getKey(),a.getUrl(),a.getKey(),
+                    a.getKey(),
+                    a.getUrl(),a.getKey(),
                     authors(a),
-                    openAccessHighlight(a),safe(a.getTitle()),
+                    openAccessHighlight(a),safe(a.getTitle()+(a.getAbstractText().equals("")?"":" \\hyperref[abs:"+a.getKey()+"]{Abstract}")),
                     (localCopyExists1(a)?"\\href{"+local(a.getLocalCopy())+"}{Yes}":"No"),
                     a.getName(),
                     a.getYear(),

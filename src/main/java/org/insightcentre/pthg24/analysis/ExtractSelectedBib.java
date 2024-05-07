@@ -25,6 +25,8 @@ public class ExtractSelectedBib {
                     filter(x->!x.getType().equals("other")).
                     filter(x->!x.getType().equals("posted-content")).
                     filter(x->!x.getType().equals("dataset")).
+                    filter(x->!x.getType().equals("report")).
+                    filter(x->!x.getType().equals("reference-entry")).
                     sorted(Comparator.comparing(MissingWork::getYear)).
                     toList();
             for(MissingWork mw:list){
@@ -138,7 +140,7 @@ public class ExtractSelectedBib {
 
     // we cannot have non-ascii unicode characters in keys, bibtex library does not all this
     private String keySafe(String key){
-        return key.replaceAll("[^\\x00-\\x7F]","");
+        return key.replaceAll("[^\\x00-\\x7F]","").replace("*","-").replace("?","-");
     }
 
     private Hashtable<String,String> createWorkHash(Scenario base){

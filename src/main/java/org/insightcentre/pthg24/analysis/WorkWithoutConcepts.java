@@ -76,6 +76,24 @@ public class WorkWithoutConcepts {
                         filter(x->!hasConcept(base,x)).
                         sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
                         collect(Collectors.toUnmodifiableList());
+            case INCOLLECTION:
+                return base.getListInCollection().stream().
+                        filter(x->!x.getLocalCopy().equals("")).
+                        filter(x->!hasConcept(base,x)).
+                        sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
+                        collect(Collectors.toUnmodifiableList());
+            case THESIS:
+                return base.getListPhDThesis().stream().
+                        filter(x->!x.getLocalCopy().equals("")).
+                        filter(x->!hasConcept(base,x)).
+                        sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
+                        collect(Collectors.toUnmodifiableList());
+            case BOOK:
+                return base.getListBook().stream().
+                        filter(x->!x.getLocalCopy().equals("")).
+                        filter(x->!hasConcept(base,x)).
+                        sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
+                        collect(Collectors.toUnmodifiableList());
             default:
                 severe("Bad type "+type);
                 assert(false);

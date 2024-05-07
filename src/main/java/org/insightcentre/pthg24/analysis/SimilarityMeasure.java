@@ -154,7 +154,7 @@ public class SimilarityMeasure {
         if (cw == null){
             // this should be there
             severe("missing cw "+c+" for work "+w);
-            assert(false);
+//            assert(false);
             return 0;
         } else {
             return matchlevelToValue(cw.getMatchLevel());

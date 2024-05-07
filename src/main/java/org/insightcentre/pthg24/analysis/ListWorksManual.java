@@ -4,16 +4,11 @@ import org.insightcentre.pthg24.datamodel.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
-import static org.insightcentre.pthg24.analysis.AnalysisByWork.concepts;
+import static org.insightcentre.pthg24.analysis.ListConceptsByWork.concepts;
 import static org.insightcentre.pthg24.analysis.ListWorks.*;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 

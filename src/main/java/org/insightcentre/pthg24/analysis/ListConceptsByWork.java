@@ -6,21 +6,19 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.ListWorks.*;
-import static org.insightcentre.pthg24.datamodel.ConceptType.*;
 import static org.insightcentre.pthg24.datamodel.MatchLevel.None;
 import static org.insightcentre.pthg24.datamodel.WorkType.*;
 import static org.insightcentre.pthg24.imports.Importer.safer;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
-public class AnalysisByWork {
-    public AnalysisByWork(Scenario base, List<Work> works,String exportDir, String fileName,String caption){
+public class ListConceptsByWork {
+    public ListConceptsByWork(Scenario base, List<Work> works, String exportDir, String fileName, String caption){
         analyze(base,null,works,exportDir,fileName,false,caption);
     }
-    public AnalysisByWork(Scenario base, WorkType type,String exportDir, String fileName) {
+    public ListConceptsByWork(Scenario base, WorkType type, String exportDir, String fileName) {
         List<Work> works = sortedWorks(base, type);
         analyze(base, type,works, exportDir, fileName,true,"Automatically Extracted "+type+" Features (Requires Local Copy)");
     }
@@ -31,9 +29,9 @@ public class AnalysisByWork {
         try{
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}r%srr}\n",conceptTypeWidths(base));
+            out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}rr%srr}\n",conceptTypeWidths(base));
             out.printf("\\rowcolor{white}\\caption{%s}\\\\ \\toprule\n",caption);
-            out.printf("\\rowcolor{white}Work & Pages %s & a & c\\\\ \\midrule",conceptTypeLabels(base));
+            out.printf("\\rowcolor{white}Work & Pages & Relevance %s & a & c\\\\ \\midrule",conceptTypeLabels(base));
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
@@ -43,6 +41,7 @@ public class AnalysisByWork {
                         local(w.getLocalCopy()),safe(w.getName()),
                         w.getName());
                 out.printf(" & %d",w.getNrPages());
+                out.printf(" & %5.2f",w.getRelevance());
                 for(ConceptType ct:conceptTypes(base)) {
                     out.printf(" & %s", concepts(base, w, ct));
                 }
@@ -71,8 +70,9 @@ public class AnalysisByWork {
     }
     private String conceptTypeWidths(Scenario base){
         StringBuilder sb = new StringBuilder();
+        double width=15.0/conceptTypes(base).size();
         for(ConceptType ct:conceptTypes(base)){
-            sb.append(">{\\raggedright\\arraybackslash}p{1.5cm}");
+            sb.append(String.format(">{\\raggedright\\arraybackslash}p{%5.2fcm}",width));
         }
         return sb.toString();
     }
@@ -88,6 +88,7 @@ public class AnalysisByWork {
     private List<Work> sortedWorks(Scenario base,WorkType type){
         return base.getListWork().stream().
                 filter(x -> workType(x, type)).
+                filter(x->x.getLocalCopy() != null).
                 filter(x -> !x.getLocalCopy().equals("")).
                 filter(x -> !x.getBackground()).
                 sorted(Comparator.comparing(Work::getName)).
@@ -98,7 +99,9 @@ public class AnalysisByWork {
         return (w instanceof Article && type == ARTICLE) ||
                 (w instanceof Paper && type == PAPER)||
                 (w instanceof PhDThesis && type == THESIS)||
-                (w instanceof InCollection && type == INCOLLECTION);
+                (w instanceof InCollection && type == INCOLLECTION)||
+                (w instanceof InBook && type == INBOOK)||
+                (w instanceof Book && type == BOOK);
     }
 
     public static String concepts(Scenario base,Work w,ConceptType type){

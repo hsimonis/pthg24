@@ -266,21 +266,31 @@ public class PublicationReport extends AbstractReport{
             j.setNrBackgroundArticles((int) map.get(j).stream().filter(Work::getBackground).count());
             j.setNrBackgroundCitations(map.get(j).stream().filter(Work::getBackground).mapToInt(Work::getNrCitations).sum());
         }
-        new BarPlot<>(base.getListJournal().stream().filter(x -> x.getNrArticles() > limit).toList(),
+        new BarPlot<>(base.getListJournal().stream().
+                filter(x -> x.getNrArticles() > limit).
+                sorted(Comparator.comparing(Journal::getNrArticles).reversed()).
+                limit(30).
+                toList(),
                 this::nameOf,
                 Journal::getNrArticles).
                 width(22).height(10).
                 title("Article Count by Journal (Count > "+limit+")").
                 xlabel("Journal").ylabel("Article Count").
                 generate().latex(tex);
-        new BarPlot<>(base.getListJournal().stream().filter(x -> x.getNrArticles() > limit).toList(),
+        new BarPlot<>(base.getListJournal().stream().
+                filter(x -> x.getNrArticles() > limit).
+                sorted(Comparator.comparing(Journal::getNrArticles).reversed()).
+                limit(30).toList(),
                 this::nameOf,
                 Journal::getNrCitations).
                 width(22).height(10).
                 title("Citation Count by Journal (Article Count > "+limit+")").
                 xlabel("Journal").ylabel("Citation Count").
                 generate().latex(tex);
-        new BarPlot<>(base.getListJournal().stream().filter(x -> x.getNrArticles() > limit).toList(),
+        new BarPlot<>(base.getListJournal().stream().
+                filter(x -> x.getNrArticles() > limit).
+                sorted(Comparator.comparing(Journal::getNrArticles).reversed()).
+                limit(30).toList(),
                 this::nameOf,
                 x->1.0*x.getNrCitations()/x.getNrArticles()).
                 width(22).height(10).
@@ -495,6 +505,7 @@ public class PublicationReport extends AbstractReport{
         new TableDraw<>("Orphan Files",base.getListOrphan()).
                 addStringColumn("Key", this::nameOf).
                 addStringColumn("File",x->safe(x.getFileName())).
+                tableStyle(TableStyle.LONGTABLE).
                 generate().latex(tex);
 
     }

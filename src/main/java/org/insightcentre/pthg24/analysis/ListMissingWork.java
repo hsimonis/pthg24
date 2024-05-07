@@ -26,6 +26,11 @@ public class ListMissingWork {
             PrintWriter out = new PrintWriter(fullFile);
             List<MissingWork> all = base.getListMissingWork().stream().
                     filter(x->!x.getTitle().equals("")).
+                    filter(x->!x.getType().equals("other")).
+                    filter(x->!x.getType().equals("posted-content")).
+                    filter(x->!x.getType().equals("report")).
+                    filter(x->!x.getType().equals("dataset")).
+                    filter(x->!x.getType().equals("reference-entry")).
                     sorted(Comparator.comparing(MissingWork::getRelevance).reversed()).
                     toList();
             int nrRelevant = (int) all.stream().filter(x->x.getRelevance() >= 1000).count();
@@ -41,7 +46,7 @@ public class ListMissingWork {
                 out.printf("\\href{http://dx.doi.org/%s}{%s} \\href{https://www.doi2bib.org/bib/%s}{(bib)} & %s & %s & %d & %d & %d & %d & %d & %5.2f",
                         mw.getDoi(),safe(mw.getDoi()),mw.getDoi(),
                         safe(mw.getType()),
-                        authorsTitle(alphaSafe(mw.getAuthor()),highlightWords(alphaSafe(safe(mw.getTitle())),wordList),removeEntity(mw.getSource()),mw.getYear()),
+                        authorsTitle(alphaSafe(mw.getAuthor()),highlightWords(alphaSafe(safe(mw.getTitle())),wordList),removeEntity(mw.getSource()),mw.getYear(),mw.getAbstractText()),
                         mw.getNrLinks(),
                         mw.getNrCited(),
                         mw.getNrCitations(),
@@ -64,8 +69,8 @@ public class ListMissingWork {
         return s.replace("&amp;","\\&");
     }
 
-    private String authorsTitle(String author,String title,String source,int year){
-        return author+". "+title+". "+source+", "+year+".";
+    private String authorsTitle(String author,String title,String source,int year,String abstractText){
+        return author+". "+title+". "+source+", "+year+"."+(abstractText.equals("")?"":"(Abstract)");
     }
 
     private String alphaSafe(String s){
@@ -74,7 +79,7 @@ public class ListMissingWork {
             res = res.replace(tl.getUnicode(),tl.getLatex());
         }
         //??? temporary hack, get rid of unicode characters alltogether, replace with ?
-        return s.replaceAll("&","");
+        return s.replaceAll("&","").replace("%","\\%");
 //        return s.replaceAll("&","").replaceAll("[^\\x00-\\x7F]","?").replace("α","$\\alpha$");
     }
 

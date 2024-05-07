@@ -50,6 +50,7 @@ public class JfxApp extends GeneratedJfxApp {
                 String authors = "Helmut Simonis"; // authors for this particular type
                 int coauthorLimit = 2; // how many works an author needs to have to be included in coauthor graph
                 int linkCountLimit = 10; // how many links are required to lookup a missing work by its DOI
+                int getLimit=200; // how many Crossref/Scopus lookups from the web are allowed in one run; does not count cache
                 double citingSurveyWeight = 1.0;
                 double citedBySurveyWeight=1.0;
                 double citationCountWeight = 1e-6;
@@ -81,15 +82,10 @@ public class JfxApp extends GeneratedJfxApp {
                                 bibDir = prefix + "imports/";
                                 bibFile = "terrorism.bib";
                                 authors = "B. O'Sullivan and H. Simonis";
-                                coauthorLimit = 2;
                                 linkCountLimit = 1;
-                                citingSurveyWeight = 100;
-                                keywordWeight = 1;
                                 ageWeight=0.0;
-                                wordList = new String[]{"Terror","terror","Insurgency","insurgency","Opponent",
-                                        "AI","Artificial Intelligence","Forecasting","Learn","Computational",
-                                        "Predictive","Markov Model"};
                                 conceptTypes=new String[]{"AIMethod","Terrorism","Group","Region","Objective","System"};
+                                getLimit=1000;
                                 break;
                         case "scheduling":
                                 // settings for scheduling are a bit different
@@ -99,10 +95,8 @@ public class JfxApp extends GeneratedJfxApp {
                                 authors = "Helmut Simonis and Cemalettin Öztürk";
                                 coauthorLimit = 5;
                                 linkCountLimit = 5;
-                                wordList = new String[]{"Scheduling","scheduling",
-                                        "CP","CLP","CSP","COP","Constraint Programming",
-                                        "Constraint Logic Programming","Constraint Satisfaction"};
-                                conceptTypes = new String[]{"Scheduling","CP","Concepts","Classification","Constraints","ApplicationAreas","Industries","CPSystems","Benchmarks","Algorithms"};
+                                conceptTypes = new String[]{"Scheduling","CP","Concepts","Classification","Constraints",
+                                        "ApplicationAreas","Industries","CPSystems","Benchmarks","Algorithms"};
                         break;
                         default:
                                 severe("Bad type " + type);
@@ -146,6 +140,11 @@ public class JfxApp extends GeneratedJfxApp {
                 new RunPDFInfoURL(base,bibDir);
                 new FindConnectedPapers(base);
                 new FindCoauthorLinks(base);
+
+                new SimilarityMeasure(base);
+                new LookupMissingWork(base,missingWorkDir,linkCountLimit,getLimit);
+                new ComputeRelevance(base,type,citingSurveyWeight,citedBySurveyWeight, citationCountWeight,keywordWeight,authorWeight,ageWeight);
+
                 new ListWorks(base,PAPER,exportDir,"papers.tex");
                 new ListWorksManual(base,PAPER,exportDir,"papersmanual.tex");
                 new ListWorks(base,ARTICLE,exportDir,"articles.tex");
@@ -166,11 +165,29 @@ public class JfxApp extends GeneratedJfxApp {
 
 
                 new ListAuthors(base,exportDir,"authors.tex");
-                new AnalysisByWork(base,ARTICLE,exportDir,"conceptsarticle.tex");
-                new AnalysisByWork(base,PAPER,exportDir,"conceptspaper.tex");
-                new AnalysisByWork(base,THESIS,exportDir,"conceptsthesis.tex");
-                new AnalysisByWork(base,INCOLLECTION,exportDir,"conceptsincollection.tex");
                 new AnalysisByConcept(base,exportDir,"concepts.tex");
+
+
+                new MissingLocalCopy(base,ARTICLE,exportDir,"missingarticle.tex");
+                new MissingLocalCopy(base,PAPER,exportDir,"missingpaper.tex");
+                new MissingLocalCopy(base,INBOOK,exportDir,"missinginbook.tex");
+                new MissingLocalCopy(base,INCOLLECTION,exportDir,"missingincollection.tex");
+                new WorkWithoutConcepts(base,ARTICLE,exportDir,"conceptlessarticle.tex");
+                new WorkWithoutConcepts(base,PAPER,exportDir,"conceptlesspaper.tex");
+                new WorkWithoutConcepts(base,INBOOK,exportDir,"conceptlessinbook.tex");
+                new WorkWithoutConcepts(base,INCOLLECTION,exportDir,"conceptlessincollection.tex");
+                new UnmatchedConcepts(base,exportDir,"unmatchedconcept.tex");
+                new KeyOverview(base,exportDir,"keylist.tex");
+                new WorksByAuthor(base,exportDir,"worksbyauthor.tex");
+                new CoauthorGraph(base,coauthorLimit,graphvizDir,reportDir,"coauthors.pdf");
+                new ListSimilarity(base,exportDir,"mostsimilar.tex");
+
+                new ListMissingWork(base,exportDir,"missingwork.tex",wordList);
+                new ListConceptsByWork(base,ARTICLE,exportDir,"conceptsarticle.tex");
+                new ListConceptsByWork(base,PAPER,exportDir,"conceptspaper.tex");
+                new ListConceptsByWork(base,THESIS,exportDir,"conceptsthesis.tex");
+                new ListConceptsByWork(base,INBOOK,exportDir,"conceptsinbook.tex");
+                new ListConceptsByWork(base,INCOLLECTION,exportDir,"conceptsincollection.tex");
 
                 List<Work> lowNrConcepts = base.getListWork().stream().
                         filter(this::hasLocalCopy).
@@ -182,33 +199,16 @@ public class JfxApp extends GeneratedJfxApp {
                         limit(20).
                         toList();
                 new ListWorks(base,lowNrConcepts,exportDir,"lownrworks.tex","Works with Low Feature Count");
-                new AnalysisByWork(base,lowNrConcepts,exportDir,"lownrconcepts.tex","Features of Works with Low Feature Count");
+                new ListConceptsByWork(base,lowNrConcepts,exportDir,"lownrconcepts.tex","Features of Works with Low Feature Count");
                 List<Work> irrelevant = base.getListWork().stream().
                         filter(x->!x.getBackground()).
                         filter(this::hasLocalCopy).
                         filter(x->x.getNrConcepts() > 0).
-                        filter(x->irrelevant(x,base)).
+                        filter(x->x.getRelevance() < 1000).
                         sorted(Comparator.comparing(Work::getYear).reversed()).
                         toList();
                 new ListWorks(base,irrelevant,exportDir,"irrelevantworks.tex","Works that might be Irrelevant");
-                new AnalysisByWork(base,irrelevant,exportDir,"irrelevantconcepts.tex","Features of Works that might be Irrelevant");
-
-                new MissingLocalCopy(base,ARTICLE,exportDir,"missingarticle.tex");
-                new MissingLocalCopy(base,PAPER,exportDir,"missingpaper.tex");
-                new MissingLocalCopy(base,INBOOK,exportDir,"missinginbook.tex");
-                new WorkWithoutConcepts(base,ARTICLE,exportDir,"conceptlessarticle.tex");
-                new WorkWithoutConcepts(base,PAPER,exportDir,"conceptlesspaper.tex");
-                new WorkWithoutConcepts(base,INBOOK,exportDir,"conceptlessinbook.tex");
-                new UnmatchedConcepts(base,exportDir,"unmatchedconcept.tex");
-                new KeyOverview(base,exportDir,"keylist.tex");
-                new WorksByAuthor(base,exportDir,"worksbyauthor.tex");
-                new CoauthorGraph(base,coauthorLimit,graphvizDir,reportDir,"coauthors.pdf");
-                new SimilarityMeasure(base);
-                new ListSimilarity(base,exportDir,"mostsimilar.tex");
-                new LookupMissingWork(base,missingWorkDir,linkCountLimit);
-
-                new ComputeRelevance(base,type,citingSurveyWeight,citedBySurveyWeight, citationCountWeight,keywordWeight,authorWeight,ageWeight);
-                new ListMissingWork(base,exportDir,"missingwork.tex",wordList);
+                new ListConceptsByWork(base,irrelevant,exportDir,"irrelevantconcepts.tex","Features of Works that might be Irrelevant");
 
                 new ListWorks(base,
                         base.getListWork().stream().
@@ -219,13 +219,13 @@ public class JfxApp extends GeneratedJfxApp {
 
                 List<Work> similar = similarWorks(base,20);
                 new ListWorks(base,similar,exportDir,"similarworks.tex","Works Close by Euclidean Distance");
-                new AnalysisByWork(base,similar,exportDir,"similarconcepts.tex","Features of Work Close by Euclidean Distance");
+                new ListConceptsByWork(base,similar,exportDir,"similarconcepts.tex","Features of Work Close by Euclidean Distance");
                 List<Work> dot = dotWorks(base,20);
                 new ListWorks(base,dot,exportDir,"dotworks.tex","Works Similar by Dot Product");
-                new AnalysisByWork(base,dot,exportDir,"dotconcepts.tex","Features of Works Similar by Dot Product");
+                new ListConceptsByWork(base,dot,exportDir,"dotconcepts.tex","Features of Works Similar by Dot Product");
                 List<Work> cosine = cosineWorks(base,20);
                 new ListWorks(base,cosine,exportDir,"cosineworks.tex","Works Similar by Cosine Similarity");
-                new AnalysisByWork(base,cosine,exportDir,"cosineconcepts.tex","Features of Works Similar by Cosine Similarity");
+                new ListConceptsByWork(base,cosine,exportDir,"cosineconcepts.tex","Features of Works Similar by Cosine Similarity");
                 new ListAcronyms(base,exportDir,"acronyms.tex");
 
 
@@ -243,6 +243,8 @@ public class JfxApp extends GeneratedJfxApp {
                 new ListPapersByConferenceSeries(base,exportDir,"byseries.tex");
                 new ListArticlesByJournal(base,exportDir,"byjournal.tex");
 
+                new ListAbstracts(base,exportDir,"abstracts.tex");
+
                 new CitationGraph(base);
                 new DumpFeatures(base,dumpDir,"allconcepts.csv");
                 new ExtractSelectedBib(base,dumpDir,"suggested.bib");
@@ -256,22 +258,6 @@ public class JfxApp extends GeneratedJfxApp {
                 launch(args);
         }
 
-        private boolean irrelevant(Work w,Scenario base){
-                List<String> concepts = base.getListConceptWork().stream().
-                        filter(x->x.getWork()==w).
-                        filter(x->x.getCount() >0).
-                        map(x->x.getConcept().getName()).
-                        toList();
-                return !concepts.contains("scheduling") ||
-                        !concepts.contains("constraint programming") &&
-                                !concepts.contains("constraint satisfaction") &&
-                                !concepts.contains("constraint logic programming") &&
-                                !concepts.contains("constraint optimization") &&
-                                !concepts.contains("CP") &&
-                                !concepts.contains("CLP") &&
-                                !concepts.contains("CSP") &&
-                                !concepts.contains("COP");
-        }
 
         private boolean hasLocalCopy(Work w){
                 return w.getLocalCopy() != null && !w.getLocalCopy().equals("");

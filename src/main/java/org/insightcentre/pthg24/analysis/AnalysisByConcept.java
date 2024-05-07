@@ -63,20 +63,6 @@ public class AnalysisByConcept {
                 toList();
     }
 
-    private String dirName(Work w){
-        if (w instanceof Paper){
-            return "papers";
-        } else {
-            return "articles";
-        }
-    }
-
-    private List<Work> sortedWorks(Scenario base){
-        return base.getListWork().stream().
-                sorted(Comparator.comparing(Work::getName)).
-                toList();
-    }
-
     private String concepts(Scenario base, Concept c, MatchLevel level){
         int limit = 30;
         List<String> citations = base.getListConceptWork().stream().
