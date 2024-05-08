@@ -1,5 +1,6 @@
 package org.insightcentre.pthg24.imports;
 
+import org.apache.commons.lang3.StringUtils;
 import org.insightcentre.pthg24.datamodel.*;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.jbibtex.*;
@@ -94,12 +95,6 @@ public class ImportBib {
                         b.setKey(shortKey(workKey.toString()));
                         work=b;
                         break;
-//                    case "collection":
-//                        Collection c = new Collection(base);
-//                        c.setName(workKey.toString());
-//                        c.setKey(shortKey(workKey.toString()));
-//                        work=c;
-//                        break;
                     default:
                        warning("Work type "+type+" for entry "+workKey.toString()+" not implemented");
                 }
@@ -223,22 +218,37 @@ public class ImportBib {
         String[] split = authors.split(" and ");
         int i=0;
         for (String s : split) {
-//            s = normalize(s);
-            Author author = findAuthor(s);
-            author.incNrWorks();
-            Authorship ship = new Authorship(base);
-            ship.setAuthor(author);
-            ship.setWork(work);
-            ship.setSeqNr(i++);
-            ship.setAffiliation(new ArrayList<>());
-            res.add(author);
+            s = s.trim();
+            if(!s.equals("")) {
+                Author author = findAuthor(s);
+                author.incNrWorks();
+                Authorship ship = new Authorship(base);
+                ship.setAuthor(author);
+                ship.setWork(work);
+                ship.setSeqNr(i++);
+                ship.setAffiliation(new ArrayList<>());
+                res.add(author);
+            } else {
+                warning("Empty author in "+authors+ " for work "+work.getKey());
+            }
         }
         return res;
     }
 
+    private String capitalizeAllCaps(String t){
+        if (StringUtils.isAllUpperCase(t)) {
+            return StringUtils.capitalize(t);
+        }
+        return t;
+    }
+
+    /*
+    if name contains a comma, then it is lastName, firstName, result should be firstName+lastName
+     */
 
     private int authorNr=0;
     private Author findAuthor(String name){
+        name = name.trim();
         name = name.replace("{-}","-");
         String fullName = name;
         String firstName;
@@ -250,9 +260,15 @@ public class ImportBib {
                 severe("Name has too many commas "+name);
             }
             assert(split.length == 2);
-            fullName = split[1].trim()+" "+split[0].trim();
-            firstName=split[1].trim();
-            familyName=split[0].trim();
+            familyName=capitalizeAllCaps(split[0].trim());
+            firstName=capitalizeAllCaps(split[1].trim());
+            fullName = firstName+" "+familyName;
+        } else if(StringUtils.isAllUpperCase(name)){
+            String[] split = name.split(" ");
+            for(int i=0;i<split.length;i++){
+                split[i] = capitalizeAllCaps(split[i]);
+            }
+            fullName = String.join(" ",split);
         }
         Author res = Author.findByName(base,fullName);
         if (res==null){
@@ -310,6 +326,7 @@ public class ImportBib {
     }
 
     //???We do not mess with names that start with latex special characters
+    //We also do not deal with lower-case names
     private boolean startsWithAZ(String name){
         return name.matches("[A-Z].*");
     }

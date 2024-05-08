@@ -1,5 +1,6 @@
 package org.insightcentre.pthg24.analysis;
 
+import org.apache.commons.lang3.StringUtils;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Scenario;
 import org.insightcentre.pthg24.datamodel.Work;
@@ -112,7 +113,8 @@ public class ExtractSelectedBib {
     String[] suffix= new String[]{"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v"};
 
     private String key(MissingWork mw,Hashtable<String,String> keyHash){
-        String[] split = mw.getAuthor().split(",");
+
+        String[] split = (!mw.getAuthor().equals("")?mw.getAuthor():mw.getEditor()).split(",");
         String root = keySafe(familyName(split[0]))+mw.getYear();
         String res = root;
         int i= 0;
@@ -132,10 +134,17 @@ public class ExtractSelectedBib {
         String[] parts = text.split(" ");
         int last = parts.length-1;
         if (last >= 0) {
-            return parts[last];
+            return capitalize(parts[last]);
         } else {
             return "";
         }
+    }
+
+    private String capitalize(String t){
+        if (StringUtils.isAllUpperCase(t)) {
+            return StringUtils.capitalize(t);
+        }
+        return t;
     }
 
     // we cannot have non-ascii unicode characters in keys, bibtex library does not all this
