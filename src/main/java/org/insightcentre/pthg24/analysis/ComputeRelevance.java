@@ -49,7 +49,7 @@ public class ComputeRelevance {
         double res =citingSurveyWeight * w.getNrReferences() +
                     citedBySurveyWeight * w.getNrCitations() +
                     authorWeight * knownAuthors(w) +
-                    keywordWeight * keywords(type,w.getTitle() + " " + w.getAbstractText()) +
+                    keywordWeight * keywords(type,text) +
                     ageWeight * age(w) +
                     citationCountWeight * w.getCrossrefCitations();
         return res;
