@@ -72,6 +72,13 @@ public  class ConferenceSeries extends ApplicationObject{
  *
 */
 
+    public String description;
+
+/**
+ *  
+ *
+*/
+
     public Integer nrBackgroundCitations;
 
 /**
@@ -96,6 +103,13 @@ public  class ConferenceSeries extends ApplicationObject{
     public Integer nrPapers;
 
 /**
+ *  
+ *
+*/
+
+    public String regExpr;
+
+/**
  *  No-arg constructor for use in TableView
  *
 */
@@ -114,10 +128,12 @@ public  class ConferenceSeries extends ApplicationObject{
 
     public ConferenceSeries(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setDescription("");
         setNrBackgroundCitations(0);
         setNrBackgroundPapers(0);
         setNrCitations(0);
         setNrPapers(0);
+        setRegExpr("");
         applicationDataset.addConferenceSeries(this);
     }
 
@@ -131,17 +147,21 @@ public  class ConferenceSeries extends ApplicationObject{
     public ConferenceSeries(ApplicationDataset applicationDataset,
             Integer id,
             String name,
+            String description,
             Integer nrBackgroundCitations,
             Integer nrBackgroundPapers,
             Integer nrCitations,
-            Integer nrPapers){
+            Integer nrPapers,
+            String regExpr){
         super(applicationDataset,
             id,
             name);
+        setDescription(description);
         setNrBackgroundCitations(nrBackgroundCitations);
         setNrBackgroundPapers(nrBackgroundPapers);
         setNrCitations(nrCitations);
         setNrPapers(nrPapers);
+        setRegExpr(regExpr);
         applicationDataset.addConferenceSeries(this);
     }
 
@@ -149,10 +169,12 @@ public  class ConferenceSeries extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
+            other.description,
             other.nrBackgroundCitations,
             other.nrBackgroundPapers,
             other.nrCitations,
-            other.nrPapers);
+            other.nrPapers,
+            other.regExpr);
     }
 
 /**
@@ -165,6 +187,16 @@ public  class ConferenceSeries extends ApplicationObject{
     public Boolean remove(){
         getApplicationDataset().cascadeProceedingsConferenceSeries(this);
         return getApplicationDataset().removeConferenceSeries(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  get attribute description
+ *
+ * @return String
+*/
+
+    public String getDescription(){
+        return this.description;
     }
 
 /**
@@ -205,6 +237,28 @@ public  class ConferenceSeries extends ApplicationObject{
 
     public Integer getNrPapers(){
         return this.nrPapers;
+    }
+
+/**
+ *  get attribute regExpr
+ *
+ * @return String
+*/
+
+    public String getRegExpr(){
+        return this.regExpr;
+    }
+
+/**
+ *  set attribute description, mark dataset as dirty, mark dataset as not valid
+@param description String
+ *
+*/
+
+    public void setDescription(String description){
+        this.description = description;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -251,6 +305,18 @@ public  class ConferenceSeries extends ApplicationObject{
 
     public void setNrPapers(Integer nrPapers){
         this.nrPapers = nrPapers;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute regExpr, mark dataset as dirty, mark dataset as not valid
+@param regExpr String
+ *
+*/
+
+    public void setRegExpr(String regExpr){
+        this.regExpr = regExpr;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -316,7 +382,7 @@ public  class ConferenceSeries extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getNrBackgroundCitations()+ " " +getNrBackgroundPapers()+ " " +getNrCitations()+ " " +getNrPapers();
+        return ""+ " " +getId()+ " " +getName()+ " " +getDescription()+ " " +getNrBackgroundCitations()+ " " +getNrBackgroundPapers()+ " " +getNrCitations()+ " " +getNrPapers()+ " " +getRegExpr();
     }
 
 /**
@@ -340,11 +406,23 @@ public  class ConferenceSeries extends ApplicationObject{
          out.println("<conferenceSeries "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
+            " description=\""+toXMLDescription()+"\""+
             " nrBackgroundCitations=\""+toXMLNrBackgroundCitations()+"\""+
             " nrBackgroundPapers=\""+toXMLNrBackgroundPapers()+"\""+
             " nrCitations=\""+toXMLNrCitations()+"\""+
-            " nrPapers=\""+toXMLNrPapers()+"\""+" />");
+            " nrPapers=\""+toXMLNrPapers()+"\""+
+            " regExpr=\""+toXMLRegExpr()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLDescription(){
+        return this.safeXML(getDescription());
+    }
 
 /**
  * helper method for toXML(), prcess one attribute
@@ -387,17 +465,27 @@ public  class ConferenceSeries extends ApplicationObject{
     }
 
 /**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLRegExpr(){
+        return this.safeXML(getRegExpr());
+    }
+
+/**
  * show object as one row in an HTML table
  * 
  * @return String of form <tr>...</tr>
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>ConferenceSeries</th>"+"<th>Name</th>"+"<th>NrPapers</th>"+"<th>NrCitations</th>"+"<th>NrBackgroundPapers</th>"+"<th>NrBackgroundCitations</th>"+"</tr>";
+        return "<tr><th>ConferenceSeries</th>"+"<th>Name</th>"+"<th>Description</th>"+"<th>RegExpr</th>"+"<th>NrPapers</th>"+"<th>NrCitations</th>"+"<th>NrBackgroundPapers</th>"+"<th>NrBackgroundCitations</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getNrPapers()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrBackgroundPapers()+"</td>"+ " " +"<td>"+getNrBackgroundCitations()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDescription()+"</td>"+ " " +"<td>"+getRegExpr()+"</td>"+ " " +"<td>"+getNrPapers()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrBackgroundPapers()+"</td>"+ " " +"<td>"+getNrBackgroundCitations()+"</td>"+"</tr>";
     }
 
 /**
@@ -514,6 +602,9 @@ public  class ConferenceSeries extends ApplicationObject{
 */
 
     public Boolean applicationEqual(ConferenceSeries b){
+      if(!this.getDescription().equals(b.getDescription())){
+         System.out.println("Description");
+        }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
@@ -529,11 +620,16 @@ public  class ConferenceSeries extends ApplicationObject{
       if(!this.getNrPapers().equals(b.getNrPapers())){
          System.out.println("NrPapers");
         }
-        return  this.getName().equals(b.getName()) &&
+      if(!this.getRegExpr().equals(b.getRegExpr())){
+         System.out.println("RegExpr");
+        }
+        return  this.getDescription().equals(b.getDescription()) &&
+          this.getName().equals(b.getName()) &&
           this.getNrBackgroundCitations().equals(b.getNrBackgroundCitations()) &&
           this.getNrBackgroundPapers().equals(b.getNrBackgroundPapers()) &&
           this.getNrCitations().equals(b.getNrCitations()) &&
-          this.getNrPapers().equals(b.getNrPapers());
+          this.getNrPapers().equals(b.getNrPapers()) &&
+          this.getRegExpr().equals(b.getRegExpr());
     }
 
 /**

@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 12:23:41 on 2024-05-04 */
+ * Generated at 08:06:14 on 2024-05-09 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -125,7 +125,9 @@ public class PieChartController extends ChartController {
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
 		attributeNames.add("wosStatus");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		attributeNames.add("abstractText");
 		choicesMap.put("Work", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -174,7 +176,9 @@ public class PieChartController extends ChartController {
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
 		attributeNames.add("wosStatus");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		attributeNames.add("abstractText");
 		attributeNames.add("proceedings");
 		choicesMap.put("Paper", attributeNames);
@@ -224,7 +228,9 @@ public class PieChartController extends ChartController {
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
 		attributeNames.add("wosStatus");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		attributeNames.add("abstractText");
 		attributeNames.add("journal");
 		choicesMap.put("Article", attributeNames);
@@ -274,7 +280,9 @@ public class PieChartController extends ChartController {
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
 		attributeNames.add("wosStatus");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		attributeNames.add("abstractText");
 		attributeNames.add("school");
 		choicesMap.put("PhDThesis", attributeNames);
@@ -324,7 +332,9 @@ public class PieChartController extends ChartController {
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
 		attributeNames.add("wosStatus");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		attributeNames.add("abstractText");
 		attributeNames.add("collection");
 		choicesMap.put("InCollection", attributeNames);
@@ -374,7 +384,9 @@ public class PieChartController extends ChartController {
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
 		attributeNames.add("wosStatus");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		attributeNames.add("abstractText");
 		attributeNames.add("booktitle");
 		choicesMap.put("InBook", attributeNames);
@@ -424,7 +436,9 @@ public class PieChartController extends ChartController {
 		attributeNames.add("crossrefStatus");
 		attributeNames.add("scopusStatus");
 		attributeNames.add("wosStatus");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		attributeNames.add("abstractText");
 		choicesMap.put("Book", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -447,6 +461,8 @@ public class PieChartController extends ChartController {
 		choicesMap.put("Proceedings", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("description");
+		attributeNames.add("regExpr");
 		attributeNames.add("nrPapers");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrBackgroundPapers");
@@ -516,6 +532,7 @@ public class PieChartController extends ChartController {
 		choicesMap.put("MissingCitedWork", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("key");
 		attributeNames.add("doi");
 		attributeNames.add("encoded");
 		attributeNames.add("nrCited");

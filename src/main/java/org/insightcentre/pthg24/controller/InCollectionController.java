@@ -32,7 +32,7 @@ import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 12:23:41 on 2024-05-04 */
+ * Generated at 08:06:13 on 2024-05-09 */
 public class InCollectionController extends Table3Controller {
 	@FXML
 	private TableView<InCollection> table;
@@ -173,7 +173,13 @@ public class InCollectionController extends Table3Controller {
 	private TableColumn<InCollection, Boolean> wosStatus;
 
 	@FXML
-	private TableColumn<InCollection, Double> relevance;
+	private TableColumn<InCollection, Double> relevanceTitle;
+
+	@FXML
+	private TableColumn<InCollection, Double> relevanceAbstract;
+
+	@FXML
+	private TableColumn<InCollection, Double> relevanceBody;
 
 	@FXML
 	private TableColumn<InCollection, String> abstractText;
@@ -374,10 +380,18 @@ public class InCollectionController extends Table3Controller {
 		choices.add("wosStatus");
 		wosStatus.setCellValueFactory(new WosStatusCallback());
 		wosStatus.setCellFactory(CheckBoxTableCell.forTableColumn(wosStatus));
-		choices.add("relevance");
-		relevance.setCellValueFactory(new PropertyValueFactory<>("relevance"));
-		relevance.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
-		relevance.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRelevance(event.getNewValue()); mainApp.reset();});
+		choices.add("relevanceTitle");
+		relevanceTitle.setCellValueFactory(new PropertyValueFactory<>("relevanceTitle"));
+		relevanceTitle.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		relevanceTitle.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRelevanceTitle(event.getNewValue()); mainApp.reset();});
+		choices.add("relevanceAbstract");
+		relevanceAbstract.setCellValueFactory(new PropertyValueFactory<>("relevanceAbstract"));
+		relevanceAbstract.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		relevanceAbstract.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRelevanceAbstract(event.getNewValue()); mainApp.reset();});
+		choices.add("relevanceBody");
+		relevanceBody.setCellValueFactory(new PropertyValueFactory<>("relevanceBody"));
+		relevanceBody.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		relevanceBody.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRelevanceBody(event.getNewValue()); mainApp.reset();});
 		choices.add("abstractText");
 		abstractText.setCellValueFactory(new PropertyValueFactory<>("abstractText"));
 		abstractText.setCellFactory(TextFieldTableCell.forTableColumn());

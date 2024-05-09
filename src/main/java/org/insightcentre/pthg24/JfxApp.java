@@ -57,7 +57,6 @@ public class JfxApp extends GeneratedJfxApp {
                 double keywordWeight = 1.0;
                 double authorWeight = 0.1;
                 double ageWeight = 0.1;
-                String[] wordList = new String[]{};
                 String[] conceptTypes = new String[]{};
 
                 switch(type) {
@@ -85,7 +84,7 @@ public class JfxApp extends GeneratedJfxApp {
                                 linkCountLimit = 1;
                                 ageWeight=0.0;
                                 conceptTypes=new String[]{"AIMethod","Terrorism","Group","Region","Objective","System"};
-                                getLimit=1000;
+                                getLimit=0;
                                 break;
                         case "scheduling":
                                 // settings for scheduling are a bit different
@@ -120,6 +119,7 @@ public class JfxApp extends GeneratedJfxApp {
 
                 new ImportConcepts(base,importDir,"concepts.json");
                 new ImportAlias(base,importDir,"alias.json");
+                new ImportConferenceSeries(base,importDir,"conferenceseries.json");
                 new ImportBib(base,bibDir,bibFile,worksDir);
                 new ImportBackground(base,importDir,"background.json");
                 new ImportExtra(base,importDir,"manual.csv");
@@ -182,7 +182,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new CoauthorGraph(base,coauthorLimit,graphvizDir,reportDir,"coauthors.pdf");
                 new ListSimilarity(base,exportDir,"mostsimilar.tex");
 
-                new ListMissingWork(base,exportDir,"missingwork.tex",wordList);
+                new ListMissingWork(base,exportDir,"missingwork.tex");
                 new ListConceptsByWork(base,ARTICLE,exportDir,"conceptsarticle.tex");
                 new ListConceptsByWork(base,PAPER,exportDir,"conceptspaper.tex");
                 new ListConceptsByWork(base,THESIS,exportDir,"conceptsthesis.tex");
@@ -204,7 +204,7 @@ public class JfxApp extends GeneratedJfxApp {
                         filter(x->!x.getBackground()).
                         filter(this::hasLocalCopy).
                         filter(x->x.getNrConcepts() > 0).
-                        filter(x->x.getRelevance() < 1000).
+                        filter(x->x.getRelevanceAbstract() < 1000).
                         sorted(Comparator.comparing(Work::getYear).reversed()).
                         toList();
                 new ListWorks(base,irrelevant,exportDir,"irrelevantworks.tex","Works that might be Irrelevant");
@@ -244,6 +244,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new ListArticlesByJournal(base,exportDir,"byjournal.tex");
 
                 new ListAbstracts(base,exportDir,"abstracts.tex");
+                new ListAbstractsMissingWork(base,exportDir,"abstractsmissingwork.tex");
 
                 new CitationGraph(base);
                 new DumpFeatures(base,dumpDir,"allconcepts.csv");

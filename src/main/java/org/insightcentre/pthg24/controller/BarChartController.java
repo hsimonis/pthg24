@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 12:23:41 on 2024-05-04 */
+ * Generated at 08:06:14 on 2024-05-09 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -56,7 +56,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		choicesMap.put("Work", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -79,7 +81,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		choicesMap.put("Paper", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -102,7 +106,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -125,7 +131,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		choicesMap.put("PhDThesis", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -148,7 +156,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		choicesMap.put("InCollection", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -171,7 +181,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		choicesMap.put("InBook", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -194,7 +206,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("percentReferencesCovered");
 		attributeNames.add("maxCitations");
 		attributeNames.add("rangeCitations");
-		attributeNames.add("relevance");
+		attributeNames.add("relevanceTitle");
+		attributeNames.add("relevanceAbstract");
+		attributeNames.add("relevanceBody");
 		choicesMap.put("Book", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("seqNr");

@@ -26,7 +26,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Journal;
 
 /**
- * Generated at 12:23:41 on 2024-05-04 */
+ * Generated at 08:06:13 on 2024-05-09 */
 public class JournalController extends Table3Controller {
 	@FXML
 	private TableView<Journal> table;

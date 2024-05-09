@@ -34,7 +34,9 @@ Double percentCitationsCovered
 Double percentReferencesCovered
 Integer rangeCitations
 String relatedTo
-Double relevance
+Double relevanceAbstract
+Double relevanceBody
+Double relevanceTitle
 Integer scopusCitations
 Boolean scopusStatus
 String solutionAvail

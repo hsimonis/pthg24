@@ -19,7 +19,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 
 /**
- * Generated at 12:23:41 on 2024-05-04 */
+ * Generated at 08:06:14 on 2024-05-09 */
 public class MissingCitedWorkController extends Table3Controller {
 	@FXML
 	private TableView<MissingCitedWork> table;

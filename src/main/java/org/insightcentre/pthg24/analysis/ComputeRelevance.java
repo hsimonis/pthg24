@@ -40,11 +40,12 @@ public class ComputeRelevance {
             }
         }
         for(Work w:base.getListWork()){
-            w.setRelevance(relevance(type,w));
+            w.setRelevanceTitle(relevance(type,w,w.getTitle() ));
+            w.setRelevanceAbstract(relevance(type,w,w.getTitle() + " " + w.getAbstractText()));
         }
     }
 
-    public double relevance(String type,Work w){
+    public double relevance(String type,Work w,String text){
         double res =citingSurveyWeight * w.getNrReferences() +
                     citedBySurveyWeight * w.getNrCitations() +
                     authorWeight * knownAuthors(w) +

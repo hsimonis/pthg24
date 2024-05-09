@@ -10,6 +10,7 @@ String editor
 String encoded
 Boolean isSelected
 String issue
+String key
 String keywords
 Integer knownAuthors
 Integer nrCitations

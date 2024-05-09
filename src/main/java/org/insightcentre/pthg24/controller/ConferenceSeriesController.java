@@ -19,13 +19,19 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 
 /**
- * Generated at 12:23:41 on 2024-05-04 */
+ * Generated at 08:06:13 on 2024-05-09 */
 public class ConferenceSeriesController extends Table3Controller {
 	@FXML
 	private TableView<ConferenceSeries> table;
 
 	@FXML
 	private TableColumn<ConferenceSeries, String> name;
+
+	@FXML
+	private TableColumn<ConferenceSeries, String> description;
+
+	@FXML
+	private TableColumn<ConferenceSeries, String> regExpr;
 
 	@FXML
 	private TableColumn<ConferenceSeries, Integer> nrPapers;
@@ -60,6 +66,14 @@ public class ConferenceSeriesController extends Table3Controller {
 		name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		name.setCellFactory(TextFieldTableCell.forTableColumn());
 		name.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setName(event.getNewValue()); mainApp.reset();});
+		choices.add("description");
+		description.setCellValueFactory(new PropertyValueFactory<>("description"));
+		description.setCellFactory(TextFieldTableCell.forTableColumn());
+		description.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setDescription(event.getNewValue()); mainApp.reset();});
+		choices.add("regExpr");
+		regExpr.setCellValueFactory(new PropertyValueFactory<>("regExpr"));
+		regExpr.setCellFactory(TextFieldTableCell.forTableColumn());
+		regExpr.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRegExpr(event.getNewValue()); mainApp.reset();});
 		choices.add("nrPapers");
 		nrPapers.setCellValueFactory(new PropertyValueFactory<>("nrPapers"));
 		nrPapers.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));

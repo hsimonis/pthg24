@@ -27,13 +27,16 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 
 /**
- * Generated at 12:23:41 on 2024-05-04 */
+ * Generated at 08:06:14 on 2024-05-09 */
 public class MissingWorkController extends Table3Controller {
 	@FXML
 	private TableView<MissingWork> table;
 
 	@FXML
 	private TableColumn<MissingWork, String> name;
+
+	@FXML
+	private TableColumn<MissingWork, String> key;
 
 	@FXML
 	private TableColumn<MissingWork, String> doi;
@@ -131,6 +134,10 @@ public class MissingWorkController extends Table3Controller {
 		name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		name.setCellFactory(TextFieldTableCell.forTableColumn());
 		name.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setName(event.getNewValue()); mainApp.reset();});
+		choices.add("key");
+		key.setCellValueFactory(new PropertyValueFactory<>("key"));
+		key.setCellFactory(TextFieldTableCell.forTableColumn());
+		key.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setKey(event.getNewValue()); mainApp.reset();});
 		choices.add("doi");
 		doi.setCellValueFactory(new PropertyValueFactory<>("doi"));
 		doi.setCellFactory(TextFieldTableCell.forTableColumn());

@@ -151,6 +151,13 @@ public  class MissingWork extends ApplicationObject{
  *
 */
 
+    public String key;
+
+/**
+ *  
+ *
+*/
+
     public String keywords;
 
 /**
@@ -274,6 +281,7 @@ public  class MissingWork extends ApplicationObject{
         setEncoded("");
         setIsSelected(false);
         setIssue("");
+        setKey("");
         setKeywords("");
         setKnownAuthors(0);
         setNrCitations(0);
@@ -312,6 +320,7 @@ public  class MissingWork extends ApplicationObject{
             String encoded,
             Boolean isSelected,
             String issue,
+            String key,
             String keywords,
             Integer knownAuthors,
             Integer nrCitations,
@@ -340,6 +349,7 @@ public  class MissingWork extends ApplicationObject{
         setEncoded(encoded);
         setIsSelected(isSelected);
         setIssue(issue);
+        setKey(key);
         setKeywords(keywords);
         setKnownAuthors(knownAuthors);
         setNrCitations(nrCitations);
@@ -372,6 +382,7 @@ public  class MissingWork extends ApplicationObject{
             other.encoded,
             other.isSelected,
             other.issue,
+            other.key,
             other.keywords,
             other.knownAuthors,
             other.nrCitations,
@@ -516,6 +527,16 @@ public  class MissingWork extends ApplicationObject{
 
     public String getIssue(){
         return this.issue;
+    }
+
+/**
+ *  get attribute key
+ *
+ * @return String
+*/
+
+    public String getKey(){
+        return this.key;
     }
 
 /**
@@ -791,6 +812,18 @@ public  class MissingWork extends ApplicationObject{
     }
 
 /**
+ *  set attribute key, mark dataset as dirty, mark dataset as not valid
+@param key String
+ *
+*/
+
+    public void setKey(String key){
+        this.key = key;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute keywords, mark dataset as dirty, mark dataset as not valid
 @param keywords String
  *
@@ -1052,7 +1085,7 @@ public  class MissingWork extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getChapter()+ " " +getConceptWeight()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getDoi()+ " " +getEditor()+ " " +getEncoded()+ " " +getIsSelected()+ " " +getIssue()+ " " +getKeywords()+ " " +getKnownAuthors()+ " " +getNrCitations()+ " " +getNrCited()+ " " +getNrLinks()+ " " +getPage()+ " " +getPublisher()+ " " +getRelevance()+ " " +getSource()+ " " +getTitle()+ " " +getType()+ " " +getUrl()+ " " +getVolume()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getChapter()+ " " +getConceptWeight()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getDoi()+ " " +getEditor()+ " " +getEncoded()+ " " +getIsSelected()+ " " +getIssue()+ " " +getKey()+ " " +getKeywords()+ " " +getKnownAuthors()+ " " +getNrCitations()+ " " +getNrCited()+ " " +getNrLinks()+ " " +getPage()+ " " +getPublisher()+ " " +getRelevance()+ " " +getSource()+ " " +getTitle()+ " " +getType()+ " " +getUrl()+ " " +getVolume()+ " " +getYear();
     }
 
 /**
@@ -1087,6 +1120,7 @@ public  class MissingWork extends ApplicationObject{
             " encoded=\""+toXMLEncoded()+"\""+
             " isSelected=\""+toXMLIsSelected()+"\""+
             " issue=\""+toXMLIssue()+"\""+
+            " key=\""+toXMLKey()+"\""+
             " keywords=\""+toXMLKeywords()+"\""+
             " knownAuthors=\""+toXMLKnownAuthors()+"\""+
             " nrCitations=\""+toXMLNrCitations()+"\""+
@@ -1211,6 +1245,16 @@ public  class MissingWork extends ApplicationObject{
 
     String toXMLIssue(){
         return this.safeXML(getIssue());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLKey(){
+        return this.safeXML(getKey());
     }
 
 /**
@@ -1360,11 +1404,11 @@ public  class MissingWork extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>MissingWork</th>"+"<th>Name</th>"+"<th>Doi</th>"+"<th>Encoded</th>"+"<th>NrCited</th>"+"<th>NrCitations</th>"+"<th>NrLinks</th>"+"<th>Year</th>"+"<th>Author</th>"+"<th>Editor</th>"+"<th>Title</th>"+"<th>Publisher</th>"+"<th>Volume</th>"+"<th>Issue</th>"+"<th>Page</th>"+"<th>Chapter</th>"+"<th>Source</th>"+"<th>AbstractText</th>"+"<th>Keywords</th>"+"<th>Url</th>"+"<th>Type</th>"+"<th>CrossrefReferences</th>"+"<th>CrossrefCitations</th>"+"<th>KnownAuthors</th>"+"<th>ConceptWeight</th>"+"<th>Relevance</th>"+"<th>IsSelected</th>"+"</tr>";
+        return "<tr><th>MissingWork</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Doi</th>"+"<th>Encoded</th>"+"<th>NrCited</th>"+"<th>NrCitations</th>"+"<th>NrLinks</th>"+"<th>Year</th>"+"<th>Author</th>"+"<th>Editor</th>"+"<th>Title</th>"+"<th>Publisher</th>"+"<th>Volume</th>"+"<th>Issue</th>"+"<th>Page</th>"+"<th>Chapter</th>"+"<th>Source</th>"+"<th>AbstractText</th>"+"<th>Keywords</th>"+"<th>Url</th>"+"<th>Type</th>"+"<th>CrossrefReferences</th>"+"<th>CrossrefCitations</th>"+"<th>KnownAuthors</th>"+"<th>ConceptWeight</th>"+"<th>Relevance</th>"+"<th>IsSelected</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getEncoded()+"</td>"+ " " +"<td>"+getNrCited()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getEditor()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getPublisher()+"</td>"+ " " +"<td>"+getVolume()+"</td>"+ " " +"<td>"+getIssue()+"</td>"+ " " +"<td>"+getPage()+"</td>"+ " " +"<td>"+getChapter()+"</td>"+ " " +"<td>"+getSource()+"</td>"+ " " +"<td>"+getAbstractText()+"</td>"+ " " +"<td>"+getKeywords()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getType()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getKnownAuthors()+"</td>"+ " " +"<td>"+getConceptWeight()+"</td>"+ " " +"<td>"+getRelevance()+"</td>"+ " " +"<td>"+getIsSelected()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getEncoded()+"</td>"+ " " +"<td>"+getNrCited()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getEditor()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getPublisher()+"</td>"+ " " +"<td>"+getVolume()+"</td>"+ " " +"<td>"+getIssue()+"</td>"+ " " +"<td>"+getPage()+"</td>"+ " " +"<td>"+getChapter()+"</td>"+ " " +"<td>"+getSource()+"</td>"+ " " +"<td>"+getAbstractText()+"</td>"+ " " +"<td>"+getKeywords()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getType()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getKnownAuthors()+"</td>"+ " " +"<td>"+getConceptWeight()+"</td>"+ " " +"<td>"+getRelevance()+"</td>"+ " " +"<td>"+getIsSelected()+"</td>"+"</tr>";
     }
 
 /**
@@ -1514,6 +1558,9 @@ public  class MissingWork extends ApplicationObject{
       if(!this.getIssue().equals(b.getIssue())){
          System.out.println("Issue");
         }
+      if(!this.getKey().equals(b.getKey())){
+         System.out.println("Key");
+        }
       if(!this.getKeywords().equals(b.getKeywords())){
          System.out.println("Keywords");
         }
@@ -1570,6 +1617,7 @@ public  class MissingWork extends ApplicationObject{
           this.getEncoded().equals(b.getEncoded()) &&
           this.getIsSelected().equals(b.getIsSelected()) &&
           this.getIssue().equals(b.getIssue()) &&
+          this.getKey().equals(b.getKey()) &&
           this.getKeywords().equals(b.getKeywords()) &&
           this.getKnownAuthors().equals(b.getKnownAuthors()) &&
           this.getName().equals(b.getName()) &&

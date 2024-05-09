@@ -132,7 +132,9 @@
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
-			<xs:attribute name="relevance" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceAbstract" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceBody" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -215,7 +217,9 @@
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
-			<xs:attribute name="relevance" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceAbstract" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceBody" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -322,10 +326,12 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="description" use="required" type="xs:string"/>
 			<xs:attribute name="nrBackgroundCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrBackgroundPapers" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPapers" use="required" type="xs:integer"/>
+			<xs:attribute name="regExpr" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="doiReference">
@@ -385,7 +391,9 @@
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
-			<xs:attribute name="relevance" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceAbstract" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceBody" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -439,7 +447,9 @@
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
-			<xs:attribute name="relevance" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceAbstract" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceBody" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -527,6 +537,7 @@
 			<xs:attribute name="encoded" use="required" type="xs:string"/>
 			<xs:attribute name="isSelected" use="required" type="xs:boolean"/>
 			<xs:attribute name="issue" use="required" type="xs:string"/>
+			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="knownAuthors" use="required" type="xs:integer"/>
 			<xs:attribute name="nrCitations" use="required" type="xs:integer"/>
@@ -591,7 +602,9 @@
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
-			<xs:attribute name="relevance" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceAbstract" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceBody" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
@@ -645,7 +658,9 @@
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
-			<xs:attribute name="relevance" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceAbstract" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceBody" use="required" type="xs:double"/>
+			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>

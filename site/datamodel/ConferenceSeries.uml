@@ -1,6 +1,8 @@
  class ConferenceSeries {
+String description
 Integer nrBackgroundCitations
 Integer nrBackgroundPapers
 Integer nrCitations
 Integer nrPapers
+String regExpr
 }

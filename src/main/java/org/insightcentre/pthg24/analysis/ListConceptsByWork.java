@@ -15,6 +15,9 @@ import static org.insightcentre.pthg24.imports.Importer.safer;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListConceptsByWork {
+    public ListConceptsByWork(PrintWriter out,Scenario base, List<Work> works, String caption){
+        analyze(out,base,works,false,caption);
+    }
     public ListConceptsByWork(Scenario base, List<Work> works, String exportDir, String fileName, String caption){
         analyze(base,null,works,exportDir,fileName,false,caption);
     }
@@ -28,33 +31,38 @@ public class ListConceptsByWork {
         String fullName = exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullName);
-            out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}rr%srr}\n",conceptTypeWidths(base));
-            out.printf("\\rowcolor{white}\\caption{%s}\\\\ \\toprule\n",caption);
-            out.printf("\\rowcolor{white}Work & Pages & Relevance %s & a & c\\\\ \\midrule",conceptTypeLabels(base));
-            out.printf("\\endhead\n");
-            out.printf("\\bottomrule\n");
-            out.printf("\\endfoot\n");
-            for(Work w:works){
-                out.printf("%s\\href{%s}{%s}~\\cite{%s}",
-                        rowLabel(w,"b:"+w.getName(),rowLabels),
-                        local(w.getLocalCopy()),safe(w.getName()),
-                        w.getName());
-                out.printf(" & %d",w.getNrPages());
-                out.printf(" & %5.2f",w.getRelevance());
-                for(ConceptType ct:conceptTypes(base)) {
-                    out.printf(" & %s", concepts(base, w, ct));
-                }
-                out.printf(" & %s & %s",aLabelRef(w),cLabelRef(base,w));
-                out.printf("\\\\\n");
-            }
-            out.printf("\\end{longtable}\n");
-            out.printf("}\n\n");
+            analyze(out,base,works,rowLabels,caption);
             out.close();
         } catch(IOException e){
             severe("Cannot write file "+fullName);
             assert(false);
         }
+    }
+
+    private void analyze(PrintWriter out,Scenario base,List<Work> works,boolean rowLabels,String caption){
+        out.printf("{\\scriptsize\n");
+        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}r>{\\raggedright\\arraybackslash}p{1.5cm}%srr}\n",conceptTypeWidths(base));
+        out.printf("\\rowcolor{white}\\caption{%s}\\\\ \\toprule\n",caption);
+        out.printf("\\rowcolor{white}Work & Pages & Relevance %s & a & c\\\\ \\midrule",conceptTypeLabels(base));
+        out.printf("\\endhead\n");
+        out.printf("\\bottomrule\n");
+        out.printf("\\endfoot\n");
+        for(Work w:works){
+            out.printf("%s\\href{%s}{%s}~\\cite{%s}",
+                    rowLabel(w,"b:"+w.getName(),rowLabels),
+                    local(w.getLocalCopy()),safe(w.getName()),
+                    w.getName());
+            out.printf(" & %d",w.getNrPages());
+            out.printf(" & %5.2f %5.2f %5.2f",w.getRelevanceTitle(),w.getRelevanceAbstract(),w.getRelevanceBody());
+            for(ConceptType ct:conceptTypes(base)) {
+                out.printf(" & %s", concepts(base, w, ct));
+            }
+            out.printf(" & %s & %s",aLabelRef(w),cLabelRef(base,w));
+            out.printf("\\\\\n");
+        }
+        out.printf("\\end{longtable}\n");
+        out.printf("}\n\n");
+
     }
 
     private List<ConceptType> conceptTypes(Scenario base){

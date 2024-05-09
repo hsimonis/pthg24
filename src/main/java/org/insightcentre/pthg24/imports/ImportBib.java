@@ -443,178 +443,25 @@ public class ImportBib {
             res = new Proceedings(base);
             res.setName(name);
 //            info("Conf "+name);
-            res.setConferenceSeries(findSeries(extractSeries(name)));
+            res.setConferenceSeries(extractSeries(name));
             res.setShortName(res.getConferenceSeries().getName()+" "+year);
         }
         return res;
     }
 
-    private ConferenceSeries findSeries(String name){
-//        info("series "+name);
-        ConferenceSeries res = ConferenceSeries.findByName(base,name);
-        if (res == null){
-            res = new ConferenceSeries(base);
-            res.setName(name);
-        }
-        return res;
-    }
-
-
-    //???hacky version to extract the conference series name in a simple form, extend cases as required
-    private String extractSeries(String text){
-        if (text.toLowerCase().contains("Principles and Practice of Constraint Programming".toLowerCase())){
-            return "CP";
-        }
-        if (text.toLowerCase().contains("International Conference on Automated Planning and Scheduling".toLowerCase())){
-            return "ICAPS";
-        }
-        String[] series = new String[]{"CPAIOR","ECAI","AAAI","IJCAI","ICTAI","ICAPS","GECCO","CoDIT","ICAART",
-                "ICNSC","ICCL","Fog-IoT","EUROCAST","FUZZ-IEEE","ICRA","IDC","RAAD","ACIIDS","AICCC","AIAI","CONTESSA",
-                "PATAT","PLILP","PACT","EUROMICRO","DIMACS","FPGA","ECC","CIT","INAP","ISCA","DSD","KES","CAiSE","CCL'99",
-                "ERCIM/CologNet","APMS","JFPL","ICPADS","ATMOS","ISMIS","IPDPS","RAST","PADL","ICORES","SOCS","SAT",
-                "TENCON","FSKD","GOR","ICPC","ICNC","PRICAI","CANDAR","SCAM","GreenCom","CSE","SoC","ANT","HM","SEA",
-                "Canadian AI","CSCLP","LION","FGCS","EvoWorkshop","Conf AI","ICOA","ASTAIR","LPNMR","ICMSAO","IESM",
-                "MIKE","IDAACS","ISI","IDS","CCS","ACSAC","INFOCOM","IST","WSC","SWSTE","CCEM","ICTS","HST","DSC",
-                "IWCMC","HPCC","ICCUBEA","CSR","ICICACS","SIN","ISI","IWCMC","IC3","SSD","CSDE","COMPSAC","CNS",
-                "SOSE","CYBER","ISM","ACC","IJCNN","RCIS","CCDC","ICESC","PDGC","GlobalSIP","NIGERCON","TrustCom",
-                "RWS","TPEC","ICIC","ICCR","CAI","LCN","DSN","SmartCity","HASE","Allerton","ITNEC","CyberC","SMC",
-                "ICEA","PST","AVSS","ICISS","IKT","EI2","IEC","IEMCON","CICN","CCNC","ACC","IMTIC"
-        };
-        for(String cand:series) {
-            if (text.contains(cand)) {
-                return cand;
+    private ConferenceSeries extractSeries(String text) {
+        String lower = text.toLowerCase();
+        for (ConferenceSeries cs : base.getListConferenceSeries()) {
+            if (!cs.getDescription().equals("") && lower.contains(cs.getDescription().toLowerCase())) {
+                return cs;
             }
         }
-        if (text.contains("Doctoral Consortium") && text.contains("Symposium of the Italian Association for Artificial Intelligence")){
-            return "DC SIAAI";
+        for (ConferenceSeries cs : base.getListConferenceSeries()) {
+            if (text.contains(cs.getName())) {
+                return cs;
+            }
         }
-        if (text.contains("Symposium of the Italian Association for Artificial Intelligence")){
-            return "SIAAI";
-        }
-        if (text.contains("Logic Programming") && text.contains("Symposium")) {
-            return "ILPS";
-        }
-        if (text.contains("International Conference on Robotics and Automation")){
-            return "ICRA";
-        }
-        if (text.contains("National Conference on Artificial Intelligence")){
-            return "AAAI";
-        }
-        if (text.contains("International Conference on Artificial Intelligence Planning Systems")){
-            return "AIPS";
-        }
-        if (text.contains("European Conference on Artificial Intelligence")){
-            return "ECAI";
-        }
-        if (text.contains("Principles of Knowledge Representation and Reasoning")){
-            return "KR";
-        }
-        if (text.equals("Constraint Programming")){
-            return "Constraint Programming";
-        }
-        if (text.contains("Operations Research Proceedings")){
-            return "Operations Research Proceedings";
-        }
-        if (text.contains("Chinese Control and Decision Conference")){
-            return "Chinese Control and Decision Conference";
-        }
-        if (text.contains("IEEE International Conference on Automation and Logistics")){
-            return "ICAL";
-        }
-        if (text.toLowerCase().contains("international joint conference on artificial intelligence")){
-            return "IJCAI";
-        }
-        if (text.toLowerCase().contains("genetic and evolutionary computation")){
-            return "GECCO";
-        }
-        if (text.toLowerCase().contains("Australian Joint Conference on Artificial Intelligence".toLowerCase())){
-            return "AJCAI";
-        }
-        if (text.toLowerCase().contains("Railway Operations Modelling and Analysis".toLowerCase())){
-            return "ICROMA";
-        }
-        if (text.toLowerCase().contains("Multidisciplinary Scheduling".toLowerCase())){
-            return "MISTA";
-        }
-        if (text.toLowerCase().contains("PRACTICE AND THEORY OF AUTOMATED TIMETABLING".toLowerCase())){
-            return "PATAT";
-        }
-        if (text.toLowerCase().contains("Ant Colony Optimization and Swarm Intelligence".toLowerCase())){
-            return "ANTS";
-        }
-        if (text.toLowerCase().contains("INTEGRATION OF AI AND OR TECHNIQUES IN CONSTRAINT PROGRAMMING FOR COMBINATORIAL OPTIMIZATION PROBLEMS".toLowerCase())){
-            return "CPAIOR";
-        }
-        if (text.toLowerCase().contains("INTERNATIONAL SYMPOSIUM ON PROCESS SYSTEMS ENGINEERING".toLowerCase())){
-            return "PSE";
-        }
-        if (text.toLowerCase().contains("European Symposium on Computer-Aided Process Engineering".toLowerCase())){
-            return "ESCAPE";
-        }
-        if (text.toLowerCase().contains("European Intelligence and Security Informatics Conference".toLowerCase())){
-            return "EISIC";
-        }
-        if (text.toLowerCase().contains("International Conference on Big Data".toLowerCase())){
-            return "Big Data";
-        }
-        if (text.toLowerCase().contains("International Symposium on Natural Language Processing".toLowerCase())){
-            return "International Symposium on Natural Language Processing";
-        }
-        if (text.toLowerCase().contains("International Multitopic Conference".toLowerCase())){
-            return "INMIC";
-        }
-        if (text.toLowerCase().contains("International Conference on Intelligence and Security Informatics".toLowerCase())){
-            return "ISI";
-        }
-        if (text.toLowerCase().contains("International Conference on Software Technology and Engineering".toLowerCase())){
-            return "ICSTE";
-        }
-        if (text.toLowerCase().contains("Advances in Social Networks Analysis and Mining".toLowerCase())){
-            return "ASONAM";
-        }
-        if (text.toLowerCase().contains("Advances in Computing, Control, and Telecommunication Technologies".toLowerCase())){
-            return "ACT";
-        }
-        if (text.toLowerCase().contains("International Conference on Tools with Artificial Intelligence".toLowerCase())){
-            return "ICTAI";
-        }
-        if (text.toLowerCase().contains("International Conference on Information Systems Security and Privacy".toLowerCase())){
-            return "ICISSP";
-        }
-        if (text.toLowerCase().contains("International Conference on Dependable Systems and Networks".toLowerCase())){
-            return "DSN";
-        }
-        if (text.toLowerCase().contains("Annual Computer Security Applications Conference".toLowerCase())){
-            return "ACSAC";
-        }
-        if (text.toLowerCase().contains("Hawaii International Conference on System Sciences".toLowerCase())){
-            return "HICSS ";
-        }
-        if (text.toLowerCase().contains("IEEE Aerospace Conference".toLowerCase())){
-            return "AeroConf";
-        }
-        if (text.toLowerCase().contains("International Conference on Machine Learning and Cybernetics".toLowerCase())){
-            return "ICMLC";
-        }
-        if (text.toLowerCase().contains("Conference on Multimedia Information Networking and Security".toLowerCase())){
-            return "Multimedia Information Networking and Security";
-        }
-        if (text.toLowerCase().contains("Conference on Dependable, Autonomic and Secure Computing".toLowerCase())){
-            return "DASC";
-        }
-        if (text.toLowerCase().contains("International Symposium on the Analytic Hierarchy Process".toLowerCase())){
-            return "ISAHP";
-        }
-        if (text.toLowerCase().contains("International Computer Software and Applications Conference".toLowerCase())){
-            return "COMPSAC";
-        }
-        if (text.toLowerCase().contains("Conference on Computer and communications security".toLowerCase())){
-            return "CCS";
-        }
-//        if (text.toLowerCase().contains("".toLowerCase())){
-//            return "";
-//        }
-        return "unknown";
+        return ConferenceSeries.findOrCreate(base, "unknown");
     }
 
 

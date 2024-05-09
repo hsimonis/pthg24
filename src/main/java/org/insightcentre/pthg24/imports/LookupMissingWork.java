@@ -1,5 +1,6 @@
 package org.insightcentre.pthg24.imports;
 
+import org.apache.commons.lang3.StringUtils;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Scenario;
 import org.insightcentre.pthg24.datamodel.Work;
@@ -16,6 +17,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Comparator;
+import java.util.Locale;
 
 import static org.insightcentre.pthg24.imports.ImportCrossref.*;
 import static org.insightcentre.pthg24.imports.Keys.scopusKey;
@@ -148,6 +150,11 @@ public class LookupMissingWork {
         String titleText = "";
         if (title.length() > 0) {
             titleText = title.getString(0);
+            if (!StringUtils.isMixedCase(titleText)){
+                info("Capitalize "+titleText);
+                titleText = StringUtils.capitalize(titleText.toLowerCase());
+            }
+            titleText = removeEntity(titleText.replaceAll("<^>*>","").replaceAll("</^>*>",""));
         } else {
             warning("No titleText "+message.toString(4));
         }
@@ -213,16 +220,11 @@ public class LookupMissingWork {
     }
 
     public static String removeMarkup(String t){
-        return t.replaceAll("<jats:[^>]*>"," ").replaceAll("</jats:[^>]*>"," ")/*
-                .replaceAll("<jats:p>","").replaceAll("</jats:p>","")
-                .replaceAll("<jats:title>","").replaceAll("</jats:title>","")
-                .replaceAll("<jats:italic>","").replaceAll("</jats:italic>","")
-                .replaceAll("<jats:bold>","").replaceAll("</jats:bold>","")
-                .replaceAll("<jats:roman>","").replaceAll("</jats:roman>","")
-                .replaceAll("<jats:sec>","").replaceAll("</jats:sec>","")
-                .replaceAll("<jats:list>","").replaceAll("</jats:list>","")
-                .replaceAll("<jats:list-item>","").replaceAll("</jats:list-item>","")
-                .replaceAll("<jats:label />","")*/;
+        return t.replaceAll("<jats:[^>]*>"," ").replaceAll("</jats:[^>]*>"," ").
+                //??? if you remove this xml, then the rest of the abstract it contains has more problems
+//                replaceAll("<mml:[^>]*>"," ").replaceAll("</mml:[^>]*>"," ").
+                replaceAll("<\\w*>","").replaceAll("</\\w*>","").
+                replace("&#x0D;"," ").replace("&\\#x0D;"," ").replaceAll("#","\\\\#");
     }
 
     private String extractSource(String type,JSONObject message){
@@ -244,7 +246,7 @@ public class LookupMissingWork {
     }
 
     private String removeEntity(String text){
-        return text.replace("&amp;","\\&");
+        return text.replace("&amp;","\\&").replaceAll("&\\w*;","");
     }
 
     private int extractYear(JSONObject message){
@@ -300,19 +302,58 @@ public class LookupMissingWork {
             JSONObject author = arr.getJSONObject(i);
             String given = "";
             if (author.has("given")) {
-                given = author.getString("given");
+                given = removeAllCaps(author.getString("given"));
             } else {
-                warning("No given name "+author.toString(4));
+//                warning("No given name "+author.toString(4));
             }
 
             String family = "";
             if (author.has("family")) {
-                family = author.getString("family");
+                family = removeAllCaps(author.getString("family"));
             } else {
                 warning("No family name "+author.toString(4));
             }
             sb.append(given);sb.append(" ");sb.append(family);
         }
-        return sb.toString();
+        //??? special hack to eliminate some non unicode characters that create problems for lualatex
+        return sb.toString().replace("�","").replace("�","");
+    }
+
+    private String removeAllCaps(String name){
+        if (name.matches("[A-Z]")){
+//            info("solo "+name);
+            return name+".";
+        }
+        if (name.matches("[A-Z]\\.")){
+//            info("abbrev "+name);
+            return name;
+        }
+        if (name.matches("[A-Z]\\.[A-Z]\\.")){
+//            info("double abbrev "+name);
+            return name.charAt(0)+". "+name.charAt(2)+".";
+        }
+        if (name.matches("[A-Z]\\.[A-Z]\\.[A-Z]\\.")){
+//            info("triple abbrev "+name);
+            return name.charAt(0)+". "+name.charAt(2)+". "+name.charAt(4)+".";
+        }
+        if (name.contains(" ")) {
+            String[] split = name.split(" ");
+            for (int i = 0; i < split.length; i++) {
+                split[i] = removeAllCaps(split[i]);
+            }
+            return String.join(" ", split);
+        } else if (name.contains("-")) {
+            String[] split = name.split("-");
+            for (int i = 0; i < split.length; i++) {
+                split[i] = removeAllCaps(split[i]);
+            }
+            return String.join("-", split);
+        } else {
+            if (StringUtils.isMixedCase(name) ||StringUtils.isAllLowerCase(name)) {
+                return name;
+            }
+//            info("capit "+name);
+            return StringUtils.capitalize(name.toLowerCase());
+        }
     }
 }

@@ -12,12 +12,14 @@ import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class FindMissingWorks {
     public FindMissingWorks(Scenario base){
+        int i=0;
         Hashtable <String, MissingWork> hash = new Hashtable<>();
         for(MissingCitedWork mw:base.getListMissingCitedWork()){
             MissingWork m = hash.get(mw.getDoi());
             if (m==null){
                 m = new MissingWork(base);
                 m.setName(mw.getDoi());
+                m.setKey("mw"+i++);
                 m.setDoi(mw.getDoi());
                 hash.put(mw.getDoi(),m);
             } else {
@@ -32,6 +34,7 @@ public class FindMissingWorks {
             if (m==null){
                 m = new MissingWork(base);
                 m.setName(mw.getDoi());
+                m.setKey("mw"+i++);
                 m.setDoi(mw.getDoi());
                 hash.put(mw.getDoi(),m);
             }
