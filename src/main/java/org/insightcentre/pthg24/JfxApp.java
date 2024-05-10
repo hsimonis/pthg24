@@ -83,7 +83,7 @@ public class JfxApp extends GeneratedJfxApp {
                                 authors = "B. O'Sullivan and H. Simonis";
                                 linkCountLimit = 1;
                                 ageWeight=0.0;
-                                conceptTypes=new String[]{"AIMethod","Terrorism","Group","Region","Objective","System"};
+                                conceptTypes=new String[]{"AIMethod","Terrorism","Group","Region","Objective","System","Other"};
                                 getLimit=0;
                                 break;
                         case "scheduling":
