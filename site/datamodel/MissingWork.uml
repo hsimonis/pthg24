@@ -2,6 +2,7 @@
 String abstractText
 String author
 String chapter
+List<Concept> concept
 Double conceptWeight
 Integer crossrefCitations
 Integer crossrefReferences

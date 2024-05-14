@@ -52,6 +52,20 @@ $\square$\ & nrBackgroundCitations &  \\
 \end{table}
 
 \begin{table}
+\caption{AuthorDouble  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & reason &  \\
+$\square$\ & author1 &  \\
+$\square$\ & author2 &  \\
+$\square$\ & work1 &  \\
+$\square$\ & work2 &  \\
+\end{longtable}
+\label{attr:AuthorDouble}
+\end{table}
+
+\begin{table}
 \caption{Authorship  }
 
 \begin{longtable}{llp{8cm}}
@@ -65,6 +79,7 @@ $\square$\ & affiliation &  \\
 \label{attr:Authorship}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Book  }
 
@@ -74,7 +89,6 @@ $\square$\ & affiliation &  \\
 \label{attr:Book}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Citation  }
 
@@ -134,6 +148,7 @@ $\square$\ & fraction &  \\
 \label{attr:CollabWork}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Collection  }
 
@@ -143,17 +158,18 @@ $\square$\ & fraction &  \\
 \label{attr:Collection}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Concept  }
 
 \begin{longtable}{llp{8cm}}
 & Attribute & Description \\
+$\square$\ & shortName &  \\
 $\square$\ & conceptType &  \\
 $\square$\ & label &  \\
 $\square$\ & regExpr &  \\
 $\square$\ & caseSensitive &  \\
 $\square$\ & revision &  \\
+$\square$\ & weight &  \\
 $\square$\ & nrOccurrences &  \\
 \end{longtable}
 \label{attr:Concept}
@@ -196,6 +212,7 @@ $\square$\ & nrBackgroundCitations &  \\
 \label{attr:ConferenceSeries}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{CrossReference  }
 
@@ -214,7 +231,6 @@ $\square$\ & title &  \\
 \label{attr:CrossReference}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{DoiReference  }
 
@@ -261,6 +277,7 @@ $\square$\ & isBlocked &  \\
 \label{attr:Journal}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{JournalAlias  }
 
@@ -272,7 +289,6 @@ $\square$\ & alias &  \\
 \label{attr:JournalAlias}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{MissingCitedWork  }
 
@@ -345,10 +361,12 @@ $\square$\ & knownAuthors &  \\
 $\square$\ & conceptWeight &  \\
 $\square$\ & relevance &  \\
 $\square$\ & isSelected &  \\
+$\square$\ & concept &  \\
 \end{longtable}
 \label{attr:MissingWork}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Orphan  }
 
@@ -359,7 +377,6 @@ $\square$\ & fileName &  \\
 \label{attr:Orphan}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Paper  }
 
@@ -409,6 +426,7 @@ $\square$\ & journalSC &  \\
 \label{attr:Reference}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{ReferenceFlow  }
 
@@ -422,7 +440,6 @@ $\square$\ & normalized &  \\
 \label{attr:ReferenceFlow}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Scenario  This class describes the dataset for the application. Typically there is a single instance of this class in the application at all times.}
 
@@ -472,6 +489,7 @@ $\square$\ & workCount &  \\
 \label{attr:ScopusCity}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{ScopusCountry  }
 
@@ -483,7 +501,6 @@ $\square$\ & nrWorks &  \\
 \label{attr:ScopusCountry}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Similarity  }
 
@@ -540,11 +557,13 @@ $\square$\ & latex &  \\
 \label{attr:UncategorizedReference}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Work  }
 
 \begin{longtable}{llp{8cm}}
 & Attribute & Description \\
+$\square$\ & shortName &  \\
 $\square$\ & nr &  \\
 $\square$\ & nrEdges &  \\
 $\square$\ & cluster &  \\
@@ -592,12 +611,13 @@ $\square$\ & wosStatus &  \\
 $\square$\ & relevanceTitle &  \\
 $\square$\ & relevanceAbstract &  \\
 $\square$\ & relevanceBody &  \\
+$\square$\ & language &  \\
 $\square$\ & abstractText &  \\
+$\square$\ & concept &  \\
 \end{longtable}
 \label{attr:Work}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{WorkAffiliation  }
 

@@ -46,6 +46,7 @@ import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.Translator;
+import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -422,6 +423,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<Translator> listTranslator = new ArrayList<Translator>();
 
 /**
+ *  This lists holds all items of class AuthorDouble and its subclasses
+ *
+*/
+
+    List<AuthorDouble> listAuthorDouble = new ArrayList<AuthorDouble>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -550,6 +558,7 @@ public int compareTo(ApplicationDataset ds2){
                              "ApplicationWarning",
                              "Article",
                              "Author",
+                             "AuthorDouble",
                              "Authorship",
                              "Book",
                              "Citation",
@@ -684,6 +693,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListCollabWork();
         resetListCollabCount();
         resetListTranslator();
+        resetListAuthorDouble();
     }
 
 /**
@@ -2255,6 +2265,40 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class AuthorDouble
+ *
+*/
+
+    public Iterator<AuthorDouble> getIteratorAuthorDouble(){
+        return listAuthorDouble.iterator();
+    }
+
+/**
+ *  Getter for list of class AuthorDouble
+ *
+*/
+
+    public List<AuthorDouble> getListAuthorDouble(){
+        return listAuthorDouble;
+    }
+
+/**
+ *  reset the list of class AuthorDouble; use with care, does not call cascades
+ *
+*/
+
+    public void resetListAuthorDouble(){
+        listAuthorDouble = new ArrayList<AuthorDouble>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof AuthorDouble)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -2398,6 +2442,24 @@ public int compareTo(ApplicationDataset ds2){
         for(Work a:getListWork()) {
          if (a.getSourceGroup() == item) {
             toRemove.add(a);
+         }
+        }
+        for(Work b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Concept; remove all dependent objects of class Work which refer to item through their attribute concept
+ *
+*/
+
+    public void cascadeWorkConcept(Concept item){
+        assert item != null;
+        List<Work> toRemove = new ArrayList<Work>();
+        for(Work a:getListWork()) {
+         if (a.getConcept().contains(item)) {
+            a.getConcept().remove(item);
          }
         }
         for(Work b:toRemove) {
@@ -2671,6 +2733,24 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(Reference b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Concept; remove all dependent objects of class MissingWork which refer to item through their attribute concept
+ *
+*/
+
+    public void cascadeMissingWorkConcept(Concept item){
+        assert item != null;
+        List<MissingWork> toRemove = new ArrayList<MissingWork>();
+        for(MissingWork a:getListMissingWork()) {
+         if (a.getConcept().contains(item)) {
+            a.getConcept().remove(item);
+         }
+        }
+        for(MissingWork b:toRemove) {
             b.remove();
         }
     }
@@ -3013,6 +3093,84 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(CollabCount b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Author; remove all dependent objects of class AuthorDouble which refer to item through their attribute author1
+ *
+*/
+
+    public void cascadeAuthorDoubleAuthor1(Author item){
+        assert item != null;
+        List<AuthorDouble> toRemove = new ArrayList<AuthorDouble>();
+        for(AuthorDouble a:getListAuthorDouble()) {
+         if (a.getAuthor1() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(AuthorDouble b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Author; remove all dependent objects of class AuthorDouble which refer to item through their attribute author2
+ *
+*/
+
+    public void cascadeAuthorDoubleAuthor2(Author item){
+        assert item != null;
+        List<AuthorDouble> toRemove = new ArrayList<AuthorDouble>();
+        for(AuthorDouble a:getListAuthorDouble()) {
+         if (a.getAuthor2() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(AuthorDouble b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class AuthorDouble which refer to item through their attribute work1
+ *
+*/
+
+    public void cascadeAuthorDoubleWork1(Work item){
+        assert item != null;
+        List<AuthorDouble> toRemove = new ArrayList<AuthorDouble>();
+        for(AuthorDouble a:getListAuthorDouble()) {
+         if (a.getWork1().contains(item)) {
+            a.getWork1().remove(item);
+            if (a.getWork1().isEmpty()) {
+               toRemove.add(a);
+            }
+         }
+        }
+        for(AuthorDouble b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class AuthorDouble which refer to item through their attribute work2
+ *
+*/
+
+    public void cascadeAuthorDoubleWork2(Work item){
+        assert item != null;
+        List<AuthorDouble> toRemove = new ArrayList<AuthorDouble>();
+        for(AuthorDouble a:getListAuthorDouble()) {
+         if (a.getWork2().contains(item)) {
+            a.getWork2().remove(item);
+            if (a.getWork2().isEmpty()) {
+               toRemove.add(a);
+            }
+         }
+        }
+        for(AuthorDouble b:toRemove) {
             b.remove();
         }
     }
@@ -3938,6 +4096,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class AuthorDouble
+ *
+*/
+
+    public void addAuthorDouble(AuthorDouble authorDouble){
+        assert authorDouble != null;
+        this.listAuthorDouble.add(authorDouble);
+    }
+
+/**
+ *  remove an item from the list for class AuthorDouble
+ *
+*/
+
+    public Boolean removeAuthorDouble(AuthorDouble authorDouble){
+        assert authorDouble != null;
+        return this.listAuthorDouble.remove(authorDouble);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -3959,6 +4137,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(Author x:getListAuthor()){
+            System.out.println(x);
+        }
+        for(AuthorDouble x:getListAuthorDouble()){
             System.out.println(x);
         }
         for(Authorship x:getListAuthorship()){
@@ -4122,6 +4303,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(Author x:getListAuthor()){
             if (x.getClass().equals(Author.class)) x.toXML(out);
+        }
+        for(AuthorDouble x:getListAuthorDouble()){
+            if (x.getClass().equals(AuthorDouble.class)) x.toXML(out);
         }
         for(Authorship x:getListAuthorship()){
             if (x.getClass().equals(Authorship.class)) x.toXML(out);
@@ -4328,6 +4512,7 @@ public int compareTo(ApplicationDataset ds2){
         compareApplicationWarning(this.getListApplicationWarning(),compare.getListApplicationWarning());
         compareArticle(this.getListArticle(),compare.getListArticle());
         compareAuthor(this.getListAuthor(),compare.getListAuthor());
+        compareAuthorDouble(this.getListAuthorDouble(),compare.getListAuthorDouble());
         compareAuthorship(this.getListAuthorship(),compare.getListAuthorship());
         compareBook(this.getListBook(),compare.getListBook());
         compareCitation(this.getListCitation(),compare.getListCitation());
@@ -4482,6 +4667,30 @@ public int compareTo(ApplicationDataset ds2){
             Author a = Author.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Author B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types AuthorDouble, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareAuthorDouble(List<AuthorDouble> aList,List<AuthorDouble> bList){
+        System.out.println("Comparing AuthorDouble");
+        for(AuthorDouble a:aList){
+            AuthorDouble b= AuthorDouble.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"AuthorDouble A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"AuthorDouble A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"AuthorDouble B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(AuthorDouble b: bList){
+            AuthorDouble a = AuthorDouble.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"AuthorDouble B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -5337,6 +5546,7 @@ public int compareTo(ApplicationDataset ds2){
         checkApplicationWarning(this.getListApplicationWarning());
         checkArticle(this.getListArticle());
         checkAuthor(this.getListAuthor());
+        checkAuthorDouble(this.getListAuthorDouble());
         checkAuthorship(this.getListAuthorship());
         checkBook(this.getListBook());
         checkCitation(this.getListCitation());
@@ -5426,6 +5636,17 @@ public int compareTo(ApplicationDataset ds2){
 
     public void checkAuthor(List<Author> list){
         for(Author a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<AuthorDouble> dataset list of all items of type AuthorDouble
+*/
+
+    public void checkAuthorDouble(List<AuthorDouble> list){
+        for(AuthorDouble a:list){
             a.check();
         }
     }
@@ -5833,6 +6054,7 @@ public int compareTo(ApplicationDataset ds2){
         ApplicationWarning.dummy(this);
         Article.dummy(this);
         Author.dummy(this);
+        AuthorDouble.dummy(this);
         Authorship.dummy(this);
         Book.dummy(this);
         Citation.dummy(this);

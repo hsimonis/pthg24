@@ -6,6 +6,7 @@ Boolean background
 String classification
 Integer cluster
 String codeAvail
+List<Concept> concept
 String constraints
 String cpSystem
 Integer crossrefCitations
@@ -16,6 +17,7 @@ String doi
 Boolean doiStatus
 String issn
 String key
+String language
 String localCopy
 Integer maxCitations
 Integer nr
@@ -39,6 +41,7 @@ Double relevanceBody
 Double relevanceTitle
 Integer scopusCitations
 Boolean scopusStatus
+String shortName
 String solutionAvail
 SourceGroup sourceGroup
 String title

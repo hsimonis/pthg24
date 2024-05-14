@@ -27,7 +27,7 @@ public class ImportConferenceSeries {
                 JSONObject obj = arr.getJSONObject(i);
                 String abbrev = obj.getString("abbrev");
                 String description = obj.getString("name");
-                String regExpr = "";
+                String regExpr = "\\W"+abbrev+"\\W";
                 if (obj.has("regExpr")){
                     regExpr = obj.getString("regExpr");
                 }

@@ -9,6 +9,7 @@
 				<xs:element ref="applicationWarning" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="article" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="author" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="authorDouble" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="authorship" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="book" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="citation" minOccurs="0" maxOccurs="unbounded"/>
@@ -59,6 +60,8 @@
 			<xs:attribute name="nrOccurrences" use="required" type="xs:integer"/>
 			<xs:attribute name="regExpr" use="required" type="xs:string"/>
 			<xs:attribute name="revision" use="required" type="xs:integer"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
+			<xs:attribute name="weight" use="required" type="xs:double"/>
 			<xs:attribute name="description" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
@@ -104,6 +107,7 @@
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
+			<xs:attribute name="concept" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
@@ -114,6 +118,7 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="language" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nr" use="required" type="xs:integer"/>
@@ -137,6 +142,7 @@
 			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
@@ -165,6 +171,18 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="authorDouble">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="author1" use="required" type="xs:IDREF"/>
+			<xs:attribute name="author2" use="required" type="xs:IDREF"/>
+			<xs:attribute name="reason" use="required" type="xs:string"/>
+			<xs:attribute name="work1" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="work2" use="required" type="xs:IDREFS"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="authorship">
 		<xs:complexType>
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
@@ -189,6 +207,7 @@
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
+			<xs:attribute name="concept" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
@@ -199,6 +218,7 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="language" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nr" use="required" type="xs:integer"/>
@@ -222,6 +242,7 @@
 			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
@@ -301,6 +322,8 @@
 			<xs:attribute name="nrOccurrences" use="required" type="xs:integer"/>
 			<xs:attribute name="regExpr" use="required" type="xs:string"/>
 			<xs:attribute name="revision" use="required" type="xs:integer"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
+			<xs:attribute name="weight" use="required" type="xs:double"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="conceptType">
@@ -363,6 +386,7 @@
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
+			<xs:attribute name="concept" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
@@ -373,6 +397,7 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="language" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nr" use="required" type="xs:integer"/>
@@ -396,6 +421,7 @@
 			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
@@ -419,6 +445,7 @@
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
+			<xs:attribute name="concept" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
@@ -429,6 +456,7 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="language" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nr" use="required" type="xs:integer"/>
@@ -452,6 +480,7 @@
 			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
@@ -529,6 +558,7 @@
 			<xs:attribute name="abstractText" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="chapter" use="required" type="xs:string"/>
+			<xs:attribute name="concept" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="conceptWeight" use="required" type="xs:double"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
@@ -574,6 +604,7 @@
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
+			<xs:attribute name="concept" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
@@ -584,6 +615,7 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="language" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nr" use="required" type="xs:integer"/>
@@ -607,6 +639,7 @@
 			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
@@ -630,6 +663,7 @@
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
 			<xs:attribute name="codeAvail" use="required" type="xs:string"/>
+			<xs:attribute name="concept" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="constraints" use="required" type="xs:string"/>
 			<xs:attribute name="cpSystem" use="required" type="xs:string"/>
 			<xs:attribute name="crossrefCitations" use="required" type="xs:integer"/>
@@ -640,6 +674,7 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="language" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nr" use="required" type="xs:integer"/>
@@ -663,6 +698,7 @@
 			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>

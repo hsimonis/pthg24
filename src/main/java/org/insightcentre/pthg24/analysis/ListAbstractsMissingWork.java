@@ -11,11 +11,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static framework.reports.AbstractCommon.safe;
+import static java.util.stream.Collectors.joining;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListAbstractsMissingWork extends AbstractList{
 
-    public ListAbstractsMissingWork(Scenario base, String exportDir, String fileName){
+    public ListAbstractsMissingWork(Scenario base, String exportDir, String fileName,double relevanceLimit){
         super(base);
         assert(exportDir.endsWith("/"));
         String fullName = exportDir+fileName;
@@ -23,7 +24,7 @@ public class ListAbstractsMissingWork extends AbstractList{
             PrintWriter out = new PrintWriter(fullName);
             List<MissingWork> works = base.getListMissingWork().stream().
                     filter(x->!x.getAbstractText().equals("")).
-                    filter(x->x.getRelevance() >= 1000.0).
+                    filter(x->x.getRelevance() >= relevanceLimit).
                     sorted(Comparator.comparing(MissingWork::getRelevance).reversed()).
                     toList();
             for(MissingWork w:works){
@@ -35,9 +36,10 @@ public class ListAbstractsMissingWork extends AbstractList{
                 out.printf("Authors: %s\n\n",showAuthor(w.getAuthor()));
                 out.printf("Title: %s\n\n",showTitle(w.getTitle()));
                 out.printf("Relevance: %5.2f\n\n",w.getRelevance());
+
+                listConcepts(base,out,w.getConcept());
+
                 out.printf("%s\n\n",showAbstract(w.getAbstractText()));
-                String concepts = highlighter(w.getTitle()+" "+w.getAbstractText());
-                out.printf("%s\n\n",concepts);
             }
             out.close();
         } catch(IOException e){
@@ -45,21 +47,24 @@ public class ListAbstractsMissingWork extends AbstractList{
         }
     }
 
-
-    private String highlighter(String t){
-        String lower = t.toLowerCase();
-        StringBuilder sb = new StringBuilder();
-        for(ConceptType type:base.getListConceptType()){
-            sb.append(type.getName());sb.append(":");
-            for(Concept c:base.getListConcept().stream().filter(x->x.getConceptType()==type).toList()){
-                Pattern pattern = Pattern.compile(c.getRegExpr());
-                Matcher matcher = pattern.matcher(c.getCaseSensitive()?t:lower);
-                if (matcher.find()){
-                    sb.append(" ");sb.append(c.getName());
-                }
-            }
-            sb.append("\n\n");
+    public static void listConcepts(Scenario base,PrintWriter out,List<Concept> concepts) {
+        out.printf("{\\scriptsize\n");
+        out.printf("\\begin{longtable}{p{2cm}p{20cm}}\n");
+        out.printf("\\caption{Extracted Features from Title and Abstract}\\\\ \\toprule\n");
+        out.printf("Type & Concepts Found\\\\ \\midrule\n");
+        out.printf("\\endhead\n");
+        out.printf("\\bottomrule\n");
+        out.printf("\\endfoot\n");
+        for (ConceptType type : base.getListConceptType()) {
+            out.printf("%s & %s\\\\ \n", type.getName(), conceptString(type, concepts));
         }
-        return sb.toString();
+        out.printf("\\end{longtable}\n}\n\n");
     }
+
+
+    public static String conceptString(ConceptType type,List<Concept> list){
+        return list.stream().filter(x->x.getConceptType()==type).map(ApplicationObject::getName).collect(joining(", "));
+    }
+
+
 }

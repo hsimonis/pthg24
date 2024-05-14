@@ -27,6 +27,7 @@ import org.insightcentre.pthg24.datamodel.ApplicationDifference;
 import org.insightcentre.pthg24.datamodel.ApplicationWarning;
 import org.insightcentre.pthg24.datamodel.Article;
 import org.insightcentre.pthg24.datamodel.Author;
+import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Citation;
@@ -68,7 +69,7 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 08:06:13 on 2024-05-09 */
+ * Generated at 19:13:04 on 2024-05-13 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -168,6 +169,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<Translator> translatorData = FXCollections.observableArrayList();
 
+	private ObservableList<AuthorDouble> authorDoubleData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
 		fs = minimalDataset();
@@ -213,6 +216,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("CollabWork", "CollabWork");
 		tableViews.put("CollabCount", "CollabCount");
 		tableViews.put("Translator", "Translator");
+		tableViews.put("AuthorDouble", "AuthorDouble");
 		tableViews.put("Scenario", "Scenario");
 		tableViews.put("Scenario Differences", "ApplicationDifference");
 		tableViews.put("Warnings", "ApplicationWarning");
@@ -373,6 +377,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		collabCountData.addAll(base.getListCollabCount());
 		translatorData.clear();
 		translatorData.addAll(base.getListTranslator());
+		authorDoubleData.clear();
+		authorDoubleData.addAll(base.getListAuthorDouble());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -552,5 +558,9 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<Translator> getTranslatorData() {
 		return translatorData;
+	}
+
+	public ObservableList<AuthorDouble> getAuthorDoubleData() {
+		return authorDoubleData;
 	}
 }

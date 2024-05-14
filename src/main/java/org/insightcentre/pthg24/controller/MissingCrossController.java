@@ -19,7 +19,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.MissingCross;
 
 /**
- * Generated at 08:06:14 on 2024-05-09 */
+ * Generated at 19:13:04 on 2024-05-13 */
 public class MissingCrossController extends Table3Controller {
 	@FXML
 	private TableView<MissingCross> table;

@@ -16,12 +16,14 @@ import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.ListWorksManual.manualInterest;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
-public class ListWorks {
+public class ListWorks extends AbstractList{
 
     public ListWorks(PrintWriter out, Scenario base,List<Work> works,boolean showLabel,String caption){
+        super(base);
         showTable(out,base,works,showLabel,caption);
     }
     public ListWorks(Scenario base, WorkType type, String exportDir, String fileName){
+        super(base);
         assert(exportDir.endsWith("/"));
         String fullName= exportDir+fileName;
         try{
@@ -38,6 +40,7 @@ public class ListWorks {
         return type.toString();
     }
     public ListWorks(Scenario base, List<Work> works, String exportDir, String fileName,String caption){
+        super(base);
         assert(exportDir.endsWith("/"));
         String fullName= exportDir+fileName;
         try{
@@ -51,16 +54,16 @@ public class ListWorks {
 
     private void showTable(PrintWriter out,Scenario base,List<Work> works,boolean showLabel,String caption){
         out.printf("{\\scriptsize\n");
-        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}>{\\raggedright\\arraybackslash}p{4.5cm}>{\\raggedright\\arraybackslash}p{6.0cm}rrrp{2.5cm}rp{1cm}p{1cm}rr}\n");
+        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}>{\\raggedright\\arraybackslash}p{4.5cm}>{\\raggedright\\arraybackslash}p{6.0cm}rrrp{2.5cm}rp{1cm}p{1cm}p{1cm}rr}\n");
         out.printf("\\rowcolor{white}\\caption{%s (Total %d)}\\\\ \\toprule\n",safe(caption),works.size());
         out.printf("\\rowcolor{white}\\shortstack{Key\\\\Source} & Authors & Title (Colored by Open Access)& LC & Cite & Year & " +
-                "\\shortstack{Conference\\\\/Journal\\\\/School} & Pages & \\shortstack{Cites\\\\OC XR\\\\SC} & " +
+                "\\shortstack{Conference\\\\/Journal\\\\/School} & Pages & Relevance &\\shortstack{Cites\\\\OC XR\\\\SC} & " +
                 "\\shortstack{Refs\\\\OC\\\\XR} & b & c \\\\ \\midrule");
         out.printf("\\endhead\n");
         out.printf("\\bottomrule\n");
         out.printf("\\endfoot\n");
         for(Work a:works){
-            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %d & %s & %s & %s & %s",
+            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %d & %s & %s & %s & %s & %s",
                     rowLabel(a,"a:"+a.getName(),showLabel),
                     a.getKey(),
                     a.getUrl(),a.getKey(),
@@ -71,6 +74,7 @@ public class ListWorks {
                     a.getYear(),
                     confOrJournal(a),
                     a.getNrPages(),
+                    showRelevances(a),
                     citations(a),
                     references(a),
                     bLabelRef(a),
@@ -81,6 +85,7 @@ public class ListWorks {
         out.printf("}\n\n");
 
     }
+
 
     public static String openAccessHighlight(Work w){
         if (w.getOpenAccessType()==OpenAccessType.Gold){

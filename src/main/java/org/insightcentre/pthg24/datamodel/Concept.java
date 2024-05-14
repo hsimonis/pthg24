@@ -46,6 +46,7 @@ import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.Translator;
+import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -66,7 +67,7 @@ import framework.AppearInCollection;
  * @author generated
 */
 
-public  class Concept extends ApplicationObject{
+public  class Concept extends ApplicationObject implements AppearInCollection{
 /**
  *  
  *
@@ -112,6 +113,20 @@ public  class Concept extends ApplicationObject{
     public Integer revision;
 
 /**
+ *  
+ *
+*/
+
+    public String shortName;
+
+/**
+ *  
+ *
+*/
+
+    public Double weight;
+
+/**
  *  No-arg constructor for use in TableView
  *
 */
@@ -136,6 +151,8 @@ public  class Concept extends ApplicationObject{
         setNrOccurrences(0);
         setRegExpr("");
         setRevision(0);
+        setShortName("");
+        setWeight(1.0);
         applicationDataset.addConcept(this);
     }
 
@@ -154,7 +171,9 @@ public  class Concept extends ApplicationObject{
             String label,
             Integer nrOccurrences,
             String regExpr,
-            Integer revision){
+            Integer revision,
+            String shortName,
+            Double weight){
         super(applicationDataset,
             id,
             name);
@@ -164,6 +183,8 @@ public  class Concept extends ApplicationObject{
         setNrOccurrences(nrOccurrences);
         setRegExpr(regExpr);
         setRevision(revision);
+        setShortName(shortName);
+        setWeight(weight);
         applicationDataset.addConcept(this);
     }
 
@@ -176,7 +197,9 @@ public  class Concept extends ApplicationObject{
             other.label,
             other.nrOccurrences,
             other.regExpr,
-            other.revision);
+            other.revision,
+            other.shortName,
+            other.weight);
     }
 
 /**
@@ -187,8 +210,23 @@ public  class Concept extends ApplicationObject{
 */
 
     public Boolean remove(){
+        getApplicationDataset().cascadeWorkConcept(this);
         getApplicationDataset().cascadeConceptWorkConcept(this);
+        getApplicationDataset().cascadeMissingWorkConcept(this);
         return getApplicationDataset().removeConcept(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  (varargs) build list of items of type Concept
+ *
+ * @param pList multiple items of type Concept
+ * @return List<Concept>
+*/
+
+    static public List<Concept> buildList(Concept... pList){
+        List<Concept> l = new ArrayList<Concept>();
+        l.addAll(Arrays.asList(pList));
+        return l;
     }
 
 /**
@@ -257,6 +295,26 @@ public  class Concept extends ApplicationObject{
 
     public Integer getRevision(){
         return this.revision;
+    }
+
+/**
+ *  get attribute shortName
+ *
+ * @return String
+*/
+
+    public String getShortName(){
+        return this.shortName;
+    }
+
+/**
+ *  get attribute weight
+ *
+ * @return Double
+*/
+
+    public Double getWeight(){
+        return this.weight;
     }
 
 /**
@@ -332,6 +390,30 @@ public  class Concept extends ApplicationObject{
     }
 
 /**
+ *  set attribute shortName, mark dataset as dirty, mark dataset as not valid
+@param shortName String
+ *
+*/
+
+    public void setShortName(String shortName){
+        this.shortName = shortName;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute weight, mark dataset as dirty, mark dataset as not valid
+@param weight Double
+ *
+*/
+
+    public void setWeight(Double weight){
+        this.weight = weight;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  inc attribute nrOccurrences, mark dataset as dirty, mark dataset as not valid
  *
 */
@@ -370,7 +452,7 @@ public  class Concept extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getCaseSensitive()+ " " +getConceptType().toColumnString()+ " " +getLabel()+ " " +getNrOccurrences()+ " " +getRegExpr()+ " " +getRevision();
+        return ""+ " " +getId()+ " " +getName()+ " " +getCaseSensitive()+ " " +getConceptType().toColumnString()+ " " +getLabel()+ " " +getNrOccurrences()+ " " +getRegExpr()+ " " +getRevision()+ " " +getShortName()+ " " +getWeight();
     }
 
 /**
@@ -399,7 +481,9 @@ public  class Concept extends ApplicationObject{
             " label=\""+toXMLLabel()+"\""+
             " nrOccurrences=\""+toXMLNrOccurrences()+"\""+
             " regExpr=\""+toXMLRegExpr()+"\""+
-            " revision=\""+toXMLRevision()+"\""+" />");
+            " revision=\""+toXMLRevision()+"\""+
+            " shortName=\""+toXMLShortName()+"\""+
+            " weight=\""+toXMLWeight()+"\""+" />");
      }
 
 /**
@@ -463,17 +547,37 @@ public  class Concept extends ApplicationObject{
     }
 
 /**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLShortName(){
+        return this.safeXML(getShortName());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLWeight(){
+        return this.getWeight().toString();
+    }
+
+/**
  * show object as one row in an HTML table
  * 
  * @return String of form <tr>...</tr>
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Concept</th>"+"<th>Name</th>"+"<th>ConceptType</th>"+"<th>Label</th>"+"<th>RegExpr</th>"+"<th>CaseSensitive</th>"+"<th>Revision</th>"+"<th>NrOccurrences</th>"+"</tr>";
+        return "<tr><th>Concept</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>ConceptType</th>"+"<th>Label</th>"+"<th>RegExpr</th>"+"<th>CaseSensitive</th>"+"<th>Revision</th>"+"<th>Weight</th>"+"<th>NrOccurrences</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getConceptType().toColumnString()+"</td>"+ " " +"<td>"+getLabel()+"</td>"+ " " +"<td>"+getRegExpr()+"</td>"+ " " +"<td>"+getCaseSensitive()+"</td>"+ " " +"<td>"+getRevision()+"</td>"+ " " +"<td>"+getNrOccurrences()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getConceptType().toColumnString()+"</td>"+ " " +"<td>"+getLabel()+"</td>"+ " " +"<td>"+getRegExpr()+"</td>"+ " " +"<td>"+getCaseSensitive()+"</td>"+ " " +"<td>"+getRevision()+"</td>"+ " " +"<td>"+getWeight()+"</td>"+ " " +"<td>"+getNrOccurrences()+"</td>"+"</tr>";
     }
 
 /**
@@ -611,13 +715,21 @@ public  class Concept extends ApplicationObject{
       if(!this.getRevision().equals(b.getRevision())){
          System.out.println("Revision");
         }
+      if(!this.getShortName().equals(b.getShortName())){
+         System.out.println("ShortName");
+        }
+      if(!this.getWeight().equals(b.getWeight())){
+         System.out.println("Weight");
+        }
         return  this.getCaseSensitive().equals(b.getCaseSensitive()) &&
           this.getConceptType().applicationSame(b.getConceptType()) &&
           this.getLabel().equals(b.getLabel()) &&
           this.getName().equals(b.getName()) &&
           this.getNrOccurrences().equals(b.getNrOccurrences()) &&
           this.getRegExpr().equals(b.getRegExpr()) &&
-          this.getRevision().equals(b.getRevision());
+          this.getRevision().equals(b.getRevision()) &&
+          this.getShortName().equals(b.getShortName()) &&
+          this.getWeight().equals(b.getWeight());
     }
 
 /**

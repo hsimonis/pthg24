@@ -46,6 +46,7 @@ import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.Translator;
+import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -87,6 +88,13 @@ public  class MissingWork extends ApplicationObject{
 */
 
     public String chapter;
+
+/**
+ *  
+ *
+*/
+
+    public List<Concept> concept;
 
 /**
  *  
@@ -273,6 +281,7 @@ public  class MissingWork extends ApplicationObject{
         setAbstractText("");
         setAuthor("");
         setChapter("");
+        setConcept(new ArrayList<Concept>());
         setConceptWeight(0.0);
         setCrossrefCitations(0);
         setCrossrefReferences(0);
@@ -312,6 +321,7 @@ public  class MissingWork extends ApplicationObject{
             String abstractText,
             String author,
             String chapter,
+            List<Concept> concept,
             Double conceptWeight,
             Integer crossrefCitations,
             Integer crossrefReferences,
@@ -341,6 +351,7 @@ public  class MissingWork extends ApplicationObject{
         setAbstractText(abstractText);
         setAuthor(author);
         setChapter(chapter);
+        setConcept(concept);
         setConceptWeight(conceptWeight);
         setCrossrefCitations(crossrefCitations);
         setCrossrefReferences(crossrefReferences);
@@ -374,6 +385,7 @@ public  class MissingWork extends ApplicationObject{
             other.abstractText,
             other.author,
             other.chapter,
+            other.concept,
             other.conceptWeight,
             other.crossrefCitations,
             other.crossrefReferences,
@@ -439,6 +451,16 @@ public  class MissingWork extends ApplicationObject{
 
     public String getChapter(){
         return this.chapter;
+    }
+
+/**
+ *  get attribute concept
+ *
+ * @return List<Concept>
+*/
+
+    public List<Concept> getConcept(){
+        return this.concept;
     }
 
 /**
@@ -711,6 +733,18 @@ public  class MissingWork extends ApplicationObject{
 
     public void setChapter(String chapter){
         this.chapter = chapter;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute concept, mark dataset as dirty, mark dataset as not valid
+@param concept List<Concept>
+ *
+*/
+
+    public void setConcept(List<Concept> concept){
+        this.concept = concept;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -1085,7 +1119,7 @@ public  class MissingWork extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getChapter()+ " " +getConceptWeight()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getDoi()+ " " +getEditor()+ " " +getEncoded()+ " " +getIsSelected()+ " " +getIssue()+ " " +getKey()+ " " +getKeywords()+ " " +getKnownAuthors()+ " " +getNrCitations()+ " " +getNrCited()+ " " +getNrLinks()+ " " +getPage()+ " " +getPublisher()+ " " +getRelevance()+ " " +getSource()+ " " +getTitle()+ " " +getType()+ " " +getUrl()+ " " +getVolume()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getChapter()+ " " +getConcept()+ " " +getConceptWeight()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getDoi()+ " " +getEditor()+ " " +getEncoded()+ " " +getIsSelected()+ " " +getIssue()+ " " +getKey()+ " " +getKeywords()+ " " +getKnownAuthors()+ " " +getNrCitations()+ " " +getNrCited()+ " " +getNrLinks()+ " " +getPage()+ " " +getPublisher()+ " " +getRelevance()+ " " +getSource()+ " " +getTitle()+ " " +getType()+ " " +getUrl()+ " " +getVolume()+ " " +getYear();
     }
 
 /**
@@ -1112,6 +1146,7 @@ public  class MissingWork extends ApplicationObject{
             " abstractText=\""+toXMLAbstractText()+"\""+
             " author=\""+toXMLAuthor()+"\""+
             " chapter=\""+toXMLChapter()+"\""+
+            " concept=\""+toXMLConcept()+"\""+
             " conceptWeight=\""+toXMLConceptWeight()+"\""+
             " crossrefCitations=\""+toXMLCrossrefCitations()+"\""+
             " crossrefReferences=\""+toXMLCrossrefReferences()+"\""+
@@ -1165,6 +1200,20 @@ public  class MissingWork extends ApplicationObject{
 
     String toXMLChapter(){
         return this.safeXML(getChapter());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLConcept(){
+        String str="";
+        for(Concept x:getConcept()){
+            str=str+" "+"ID_"+x.getId();
+        }
+        return str;
     }
 
 /**
@@ -1404,11 +1453,11 @@ public  class MissingWork extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>MissingWork</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Doi</th>"+"<th>Encoded</th>"+"<th>NrCited</th>"+"<th>NrCitations</th>"+"<th>NrLinks</th>"+"<th>Year</th>"+"<th>Author</th>"+"<th>Editor</th>"+"<th>Title</th>"+"<th>Publisher</th>"+"<th>Volume</th>"+"<th>Issue</th>"+"<th>Page</th>"+"<th>Chapter</th>"+"<th>Source</th>"+"<th>AbstractText</th>"+"<th>Keywords</th>"+"<th>Url</th>"+"<th>Type</th>"+"<th>CrossrefReferences</th>"+"<th>CrossrefCitations</th>"+"<th>KnownAuthors</th>"+"<th>ConceptWeight</th>"+"<th>Relevance</th>"+"<th>IsSelected</th>"+"</tr>";
+        return "<tr><th>MissingWork</th>"+"<th>Name</th>"+"<th>Key</th>"+"<th>Doi</th>"+"<th>Encoded</th>"+"<th>NrCited</th>"+"<th>NrCitations</th>"+"<th>NrLinks</th>"+"<th>Year</th>"+"<th>Author</th>"+"<th>Editor</th>"+"<th>Title</th>"+"<th>Publisher</th>"+"<th>Volume</th>"+"<th>Issue</th>"+"<th>Page</th>"+"<th>Chapter</th>"+"<th>Source</th>"+"<th>AbstractText</th>"+"<th>Keywords</th>"+"<th>Url</th>"+"<th>Type</th>"+"<th>CrossrefReferences</th>"+"<th>CrossrefCitations</th>"+"<th>KnownAuthors</th>"+"<th>ConceptWeight</th>"+"<th>Relevance</th>"+"<th>IsSelected</th>"+"<th>Concept</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getEncoded()+"</td>"+ " " +"<td>"+getNrCited()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getEditor()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getPublisher()+"</td>"+ " " +"<td>"+getVolume()+"</td>"+ " " +"<td>"+getIssue()+"</td>"+ " " +"<td>"+getPage()+"</td>"+ " " +"<td>"+getChapter()+"</td>"+ " " +"<td>"+getSource()+"</td>"+ " " +"<td>"+getAbstractText()+"</td>"+ " " +"<td>"+getKeywords()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getType()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getKnownAuthors()+"</td>"+ " " +"<td>"+getConceptWeight()+"</td>"+ " " +"<td>"+getRelevance()+"</td>"+ " " +"<td>"+getIsSelected()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getEncoded()+"</td>"+ " " +"<td>"+getNrCited()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getEditor()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getPublisher()+"</td>"+ " " +"<td>"+getVolume()+"</td>"+ " " +"<td>"+getIssue()+"</td>"+ " " +"<td>"+getPage()+"</td>"+ " " +"<td>"+getChapter()+"</td>"+ " " +"<td>"+getSource()+"</td>"+ " " +"<td>"+getAbstractText()+"</td>"+ " " +"<td>"+getKeywords()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getType()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getKnownAuthors()+"</td>"+ " " +"<td>"+getConceptWeight()+"</td>"+ " " +"<td>"+getRelevance()+"</td>"+ " " +"<td>"+getIsSelected()+"</td>"+ " " +"<td>"+getConcept()+"</td>"+"</tr>";
     }
 
 /**
@@ -1534,6 +1583,8 @@ public  class MissingWork extends ApplicationObject{
       if(!this.getChapter().equals(b.getChapter())){
          System.out.println("Chapter");
         }
+      if (true) {         System.out.println("Concept");
+        }
       if(!this.getConceptWeight().equals(b.getConceptWeight())){
          System.out.println("ConceptWeight");
         }
@@ -1609,6 +1660,7 @@ public  class MissingWork extends ApplicationObject{
         return  this.getAbstractText().equals(b.getAbstractText()) &&
           this.getAuthor().equals(b.getAuthor()) &&
           this.getChapter().equals(b.getChapter()) &&
+          true &&
           this.getConceptWeight().equals(b.getConceptWeight()) &&
           this.getCrossrefCitations().equals(b.getCrossrefCitations()) &&
           this.getCrossrefReferences().equals(b.getCrossrefReferences()) &&
@@ -1644,6 +1696,9 @@ public  class MissingWork extends ApplicationObject{
         if (getApplicationDataset() == null){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"applicationDataset","MissingWork",(getApplicationDataset()==null?"null":getApplicationDataset().toString()),"",WarningType.NOTNULL);
         }
+        if (getConcept() == null){
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"concept","MissingWork",(getConcept()==null?"null":getConcept().toString()),"",WarningType.NOTNULL);
+        }
     }
 
     static void dummy(ApplicationDataset base){
@@ -1660,6 +1715,9 @@ public  class MissingWork extends ApplicationObject{
     }
 
    public List<ApplicationObjectInterface> getFeasibleValues(ApplicationDatasetInterface base,String attrName){
+      if (attrName.equals("concept")){
+         return (List) ((Scenario)base).getListConcept();
+      }
       return null;
    }
 

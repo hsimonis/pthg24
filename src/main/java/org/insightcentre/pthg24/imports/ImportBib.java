@@ -9,6 +9,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static org.insightcentre.pthg24.analysis.ListWorks.localCopyExists;
 import static org.insightcentre.pthg24.imports.ImportCrossref.properDOI;
@@ -51,6 +53,7 @@ public class ImportBib {
                     case "article":
                         Article art = new Article(base);
                         art.setName(workKey.toString());
+                        art.setShortName(workKey.toString());
                         art.setKey(shortKey(workKey.toString()));
                         art.setIssn(fieldString(entry,issn));
                         art.setJournal(findJournal(fieldString(entry,KEY_JOURNAL),fieldString(entry,journalISO),fieldString(entry,issn)));
@@ -60,6 +63,7 @@ public class ImportBib {
                     case "inproceedings":
                         Paper pap = new Paper(base);
                         pap.setName(workKey.toString());
+                        pap.setShortName(workKey.toString());
                         pap.setKey(shortKey(workKey.toString()));
                         pap.setProceedings(findProceedings(fieldString(entry,KEY_BOOKTITLE),fieldInteger(entry,KEY_YEAR)));
                         pap.setLocalCopy(worksDir+pap.getKey()+".pdf");
@@ -68,6 +72,7 @@ public class ImportBib {
                     case "incollection":
                         InCollection inc = new InCollection(base);
                         inc.setName(workKey.toString());
+                        inc.setShortName(workKey.toString());
                         inc.setKey(shortKey(workKey.toString()));
                         inc.setCollection(findCollection(fieldString(entry,KEY_BOOKTITLE)));
                         inc.setLocalCopy(worksDir+inc.getKey()+".pdf");
@@ -76,6 +81,7 @@ public class ImportBib {
                     case "inbook":
                         InBook inb = new InBook(base);
                         inb.setName(workKey.toString());
+                        inb.setShortName(workKey.toString());
                         inb.setKey(shortKey(workKey.toString()));
                         inb.setBooktitle(fieldString(entry,KEY_BOOKTITLE));
                         inb.setLocalCopy(worksDir+inb.getKey()+".pdf");
@@ -84,6 +90,7 @@ public class ImportBib {
                     case "phdthesis":
                         PhDThesis phd = new PhDThesis(base);
                         phd.setName(workKey.toString());
+                        phd.setShortName(workKey.toString());
                         phd.setKey(shortKey(workKey.toString()));
                         phd.setSchool(findSchool(fieldString(entry,KEY_SCHOOL)));
                         phd.setLocalCopy(worksDir+phd.getKey()+".pdf");
@@ -92,6 +99,7 @@ public class ImportBib {
                     case "book":
                         Book b = new Book(base);
                         b.setName(workKey.toString());
+                        b.setShortName(workKey.toString());
                         b.setKey(shortKey(workKey.toString()));
                         work=b;
                         break;
@@ -100,7 +108,7 @@ public class ImportBib {
                 }
                 if (work != null){
                     work.setNr(workNr++);
-                    work.setTitle(fieldString(entry,KEY_TITLE));
+                    work.setTitle(fieldString(entry,KEY_TITLE).replaceAll("<\\w*>","").replaceAll("</\\w*>",""));
                     work.setAuthor(fieldString(entry,KEY_AUTHOR));
                     work.setAuthors(splitAuthors(work.getAuthor(),work));
                     work.setYear(fieldInteger(entry,KEY_YEAR));
@@ -452,16 +460,40 @@ public class ImportBib {
     private ConferenceSeries extractSeries(String text) {
         String lower = text.toLowerCase();
         for (ConferenceSeries cs : base.getListConferenceSeries()) {
-            if (!cs.getDescription().equals("") && lower.contains(cs.getDescription().toLowerCase())) {
+            if (!cs.getRegExpr().equals("")) {
+                Pattern pattern = Pattern.compile(cs.getRegExpr());
+                Matcher matcher = pattern.matcher(text);
+                if (matcher.find()){
+//                    info("series regex");
+                    return cs;
+                }
+            }
+        }
+        for (ConferenceSeries cs : base.getListConferenceSeries().stream().sorted(Comparator.comparing(this::nameLength).reversed()).toList()) {
+            if (text.contains("("+cs.getName()+")")) {
+//                info("series ()");
                 return cs;
             }
         }
         for (ConferenceSeries cs : base.getListConferenceSeries()) {
-            if (text.contains(cs.getName())) {
+            if (!cs.getDescription().equals("") && lower.contains(cs.getDescription().toLowerCase())) {
+//                info("series desc");
                 return cs;
             }
         }
+        for (ConferenceSeries cs : base.getListConferenceSeries().stream().sorted(Comparator.comparing(this::nameLength).reversed()).toList()) {
+            if (text.contains(cs.getName())) {
+                //??? possible mis-classification
+//                info("series name");
+                return cs;
+            }
+        }
+        info("series unknown "+text);
         return ConferenceSeries.findOrCreate(base, "unknown");
+    }
+
+    private int nameLength(ConferenceSeries cs){
+        return cs.getName().length();
     }
 
 

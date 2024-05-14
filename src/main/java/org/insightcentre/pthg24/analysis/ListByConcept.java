@@ -6,22 +6,20 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.ListWorks.local;
-import static org.insightcentre.pthg24.datamodel.ConceptType.*;
 import static org.insightcentre.pthg24.datamodel.MatchLevel.*;
 import static org.insightcentre.pthg24.imports.Importer.safer;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
-public class AnalysisByConcept {
-    public AnalysisByConcept(Scenario base, String exportDir, String fileName){
+public class ListByConcept {
+    public ListByConcept(Scenario base, String exportDir, String fileName){
         assert(exportDir.endsWith("/"));
         String fullName=exportDir+fileName;
         try {
             PrintWriter out = new PrintWriter(fullName);
-            for(ConceptType type:base.getListConceptType().stream().sorted(Comparator.comparing(ConceptType::getName)).toList()){
+            for(ConceptType type:base.getListConceptType()){
                 out.printf("\\clearpage\n");
                 out.printf("\\subsection{Concept Type %s}\n",safe(type.toString()));
                 out.printf("\\label{sec:%s}\n",safe(type.toString()));
@@ -30,16 +28,17 @@ public class AnalysisByConcept {
                 List<Concept> list = sortedConcepts(base, type);
                 int nrConcepts = (int) base.getListConcept().stream().filter(x->x.getConceptType()==type).count();
                 int usedConcepts = list.size();
-                out.printf("\\begin{longtable}{lp{3cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{8cm}}\n");
+                out.printf("\\begin{longtable}{p{3cm}r>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{6cm}>{\\raggedright\\arraybackslash}p{8cm}}\n");
                 out.printf("\\rowcolor{white}\\caption{Works for Concepts of Type %s (Total %d Concepts, %d Used)}\\\\ \\toprule\n",safe(type.toString()),nrConcepts,usedConcepts);
-                out.printf("\\rowcolor{white}Type & Keyword & High & Medium & Low\\\\ \\midrule");
+                out.printf("\\rowcolor{white}Keyword & Weight & High & Medium & Low\\\\ \\midrule");
                 out.printf("\\endhead\n");
                 out.printf("\\bottomrule\n");
                 out.printf("\\endfoot\n");
                 for (Concept c : list) {
                     out.printf("\\index{%s}",safer(safe(c.getName())));
                     out.printf("\\index{%s!%s}",safe(type.toString()), safer(safe(c.getName())));
-                    out.printf("%s & %s", safe(type.toString()), safer(safe(c.getName())));
+                    out.printf("%s", safer(safe(c.getName())));
+                    out.printf(" & %5.2f",c.getWeight());
                     out.printf(" & %s", concepts(base, c, Strong));
                     out.printf(" & %s", concepts(base, c, Medium));
                     out.printf(" & %s", concepts(base, c, Weak));
@@ -65,6 +64,7 @@ public class AnalysisByConcept {
 
     private String concepts(Scenario base, Concept c, MatchLevel level){
         int limit = 30;
+        int limitTail=10;
         List<String> citations = base.getListConceptWork().stream().
                 filter(x -> x.getConcept() == c).
                 filter(x -> x.getMatchLevel() == level).
@@ -72,8 +72,12 @@ public class AnalysisByConcept {
                 sorted(Comparator.comparing(this::getYear).reversed()).
                 map(x -> citation(x.getWork())).
                 toList();
-        if (citations.size() > limit){
-            return String.join(", ", citations.subList(0,limit-1))+"... (Total: "+citations.size()+")";
+        int size = citations.size();
+        if (size > limit){
+            return String.join(", ", citations.subList(0,limit-(limitTail+1)))+
+                    "..."+
+                    String.join(", ",citations.subList(size-(limitTail+1),size-1))+
+                    " (Total: "+citations.size()+")";
         } else {
             return String.join(", ", citations);
         }

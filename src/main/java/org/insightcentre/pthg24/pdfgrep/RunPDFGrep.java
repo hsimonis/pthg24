@@ -2,10 +2,7 @@ package org.insightcentre.pthg24.pdfgrep;
 
 import org.insightcentre.pthg24.datamodel.*;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -70,16 +67,31 @@ public class RunPDFGrep {
         assert(directory.endsWith("/"));
         String cmd = String.format("%s -i -c \"%s\" %s",program,pattern,pdfFile);
         try {
+            String patternFile="pat.pat";
+            safePatternFile(pattern,directory+patternFile);
             ProcessBuilder pb;
+//            if (caseSensitive) {
+//                pb = new ProcessBuilder(program,
+//                        "-c",
+//                        pattern, pdfFile);
+//            } else {
+//                pb = new ProcessBuilder(program,
+//                        "-i",
+//                        "-c",
+//                        pattern, pdfFile);
+//
+//            }
             if (caseSensitive) {
                 pb = new ProcessBuilder(program,
                         "-c",
-                        pattern, pdfFile);
+                        "-f",patternFile,
+                        pdfFile);
             } else {
                 pb = new ProcessBuilder(program,
                         "-i",
                         "-c",
-                        pattern, pdfFile);
+                        "-f",patternFile,
+                        pdfFile);
 
             }
 
@@ -98,6 +110,12 @@ public class RunPDFGrep {
         } catch(Exception e) {
             severe("Problem with executing command, " + e.getMessage());
         }
+    }
+
+    private void safePatternFile(String pattern,String fileName) throws IOException{
+        PrintWriter out = new PrintWriter(fileName);
+        out.printf("%s\n",pattern);
+        out.close();
     }
 
     private void deleteExistingResultFile(String directory,String resFile){

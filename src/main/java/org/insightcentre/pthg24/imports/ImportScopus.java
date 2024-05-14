@@ -1,5 +1,6 @@
 package org.insightcentre.pthg24.imports;
 
+import org.apache.commons.lang3.StringUtils;
 import org.insightcentre.pthg24.datamodel.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -25,11 +26,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Comparator;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
+import static org.insightcentre.pthg24.imports.ImportOpenCitations.handleToRemove;
 import static org.insightcentre.pthg24.imports.Keys.scopusKey;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
 
@@ -37,6 +36,7 @@ public class ImportScopus {
     Scenario base;
     String scopusDir;
     String missingDir;
+    List<Work> toRemove = new ArrayList<>();
 
     Hashtable<String,Affiliation> affHash = new Hashtable<>();
     public ImportScopus(Scenario base, String scopusDir,String missingDir){
@@ -50,6 +50,7 @@ public class ImportScopus {
             info("Scopus "+w.getName());
             scopus(w);
         }
+        handleToRemove("scopus",toRemove);
         updateCountryNrWorks();
     }
 
@@ -127,6 +128,18 @@ public class ImportScopus {
                     if (node.getNodeType()==Node.ELEMENT_NODE && node.getNodeName().equals("coredata")){
 //                        info("node "+node.getNodeName()+node.getTextContent());
                     }
+                }
+                NodeList doiFields = doc.getElementsByTagName("prism:doi");
+                assert(doiFields.getLength()<= 1);
+                if (doiFields.getLength()==1){
+                    Node doiField = doiFields.item(0);
+                    String doi = doiField.getTextContent().toLowerCase().trim();
+                    if (!w.getDoi().equals(doi)){
+                        info("doi >"+w.getDoi()+"< >"+doi+"<"+" differ "+ StringUtils.difference(w.getDoi(),doi));
+
+                        toRemove.add(w);
+                    }
+
                 }
                 NodeList citedBy = doc.getElementsByTagName("citedby-count");
                 assert(citedBy.getLength()<=1);

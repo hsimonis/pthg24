@@ -66,31 +66,45 @@ public class FindMissingWorks {
             }
         }
         info("Checked "+checked+" found "+found);
-        Hashtable<String,MissingCross> crossHash = new Hashtable<>();
+        Hashtable<String,MissingWork> crossHash = new Hashtable<>();
+        int k=0;
         for(DoiReference ref:base.getListDoiReference()){
             if (ref.getReferredWork()==null && ref.getMissingWork()==null){
                 String doi = ref.getDoi().toLowerCase();
-                MissingCross mc = crossHash.get(doi);
-                if (mc == null) {
-                    mc = new MissingCross(base);
-                    mc.setName(doi);
-                    mc.setDoi(doi);
-                    if (ref.getAuthor() != null && !ref.getAuthor().equals("")){
-                        mc.setAuthor(ref.getAuthor());
-                    }
-                    if (ref.getSource() != null && !ref.getSource().equals("")){
-                        mc.setSource(ref.getSource());
-                    }
-                    if (ref.getTitle() != null && !ref.getTitle().equals("")){
-                        mc.setTitle(ref.getTitle());
-                    }
-                    if (ref.getYear()!= null){
-                        mc.setYear(ref.getYear());
-                    }
-                    crossHash.put(doi, mc);
+                MissingWork mw = crossHash.get(doi);
+                if (mw == null) {
+                    mw = new MissingWork(base);
+                    mw.setName(doi);
+                    mw.setDoi(doi);
+                    mw.setNrLinks(0);
+                    mw.setNrCitations(0);
+                    mw.setNrCited(0);
+                    mw.setKey("xref" + k++);
+                    crossHash.put(doi,mw);
                 }
-                mc.incCount();
-                ref.setMissingCross(mc);
+                mw.incNrLinks();
+                mw.incNrCitations();
+//                MissingCross mc = crossHash.get(doi);
+//                if (mc == null) {
+//                    mc = new MissingCross(base);
+//                    mc.setName(doi);
+//                    mc.setDoi(doi);
+//                    if (ref.getAuthor() != null && !ref.getAuthor().equals("")){
+//                        mc.setAuthor(ref.getAuthor());
+//                    }
+//                    if (ref.getSource() != null && !ref.getSource().equals("")){
+//                        mc.setSource(ref.getSource());
+//                    }
+//                    if (ref.getTitle() != null && !ref.getTitle().equals("")){
+//                        mc.setTitle(ref.getTitle());
+//                    }
+//                    if (ref.getYear()!= null){
+//                        mc.setYear(ref.getYear());
+//                    }
+//                    crossHash.put(doi, mc);
+//                }
+//                mc.incCount();
+//                ref.setMissingCross(mc);
 
             }
         }

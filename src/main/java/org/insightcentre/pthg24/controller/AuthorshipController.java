@@ -23,7 +23,7 @@ import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 08:06:13 on 2024-05-09 */
+ * Generated at 19:13:04 on 2024-05-13 */
 public class AuthorshipController extends Table3Controller {
 	@FXML
 	private TableView<Authorship> table;

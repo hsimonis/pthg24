@@ -19,17 +19,21 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.insightcentre.pthg24.imports.ImportCrossref.properDOI;
+import static org.insightcentre.pthg24.imports.ImportOpenCitations.handleToRemove;
 import static org.insightcentre.pthg24.imports.Keys.opencitationsKey;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
 
 public class ImportOpenReferences {
     Scenario base;
     String citationDir;
+    List<Work> toRemove = new ArrayList<>();
     public ImportOpenReferences(Scenario base, String citationDir){
         this.base = base;
         this.citationDir = citationDir;
@@ -39,6 +43,7 @@ public class ImportOpenReferences {
             info("References "+w.getName());
             citations(w);
         }
+        handleToRemove("ref",toRemove);
     }
 
     public void citations(String key){
@@ -96,6 +101,11 @@ public class ImportOpenReferences {
                 JSONObject obj = arr.getJSONObject(i);
                 String citing = obj.getString("citing").toLowerCase();
                 String cited = obj.getString("cited").toLowerCase();
+                if (!w.getDoi().equals(citing)) {
+                    info("doi " + w.getDoi() + " " + citing);
+                    toRemove.add(w);
+                }
+
                 String oci = obj.getString("oci");
                 String creation = obj.getString("creation");
                 String timespan = obj.getString("timespan");

@@ -1,0 +1,7 @@
+ class AuthorDouble {
+Author author1
+Author author2
+String reason
+List<Work> work1
+List<Work> work2
+}

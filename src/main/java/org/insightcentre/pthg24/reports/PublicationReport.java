@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import static framework.reports.visualization.heatmap.ColorScheme.defineColors;
+import static framework.reports.visualization.plot.distributionplot.DistributionPlotOrdering.LABEL;
 import static framework.reports.visualization.plot.distributionplot.DistributionPlotOrdering.NR;
 import static java.util.stream.Collectors.groupingBy;
 
@@ -32,6 +33,7 @@ public class PublicationReport extends AbstractReport{
 
     public void content(){
         tex.printf("%s\n\n",defineColors());
+        double relevanceLimit = 0.8;
 
         section("Introduction");
 
@@ -59,10 +61,18 @@ public class PublicationReport extends AbstractReport{
 
         clearpage();
         section("Journal Articles by Most Common Journals");
-        byJournal(base.getListArticle(),2);
+        byJournal("Relevant Articles",base.getListArticle(),2,relevanceLimit);
+        byJournal("All Articles",base.getListArticle(),2,0.0);
 
         clearpage();
         section("Works by Year");
+        subsection("Relevant Works");
+        byYear(base.getListWork().stream().filter(x->isRelevant(x,relevanceLimit)).filter(x->!x.getBackground()).collect(Collectors.toList()),
+                base.getListWork().stream().filter(x->isRelevant(x,relevanceLimit)).filter(x->!x.getBackground()).filter(x->x instanceof Paper).collect(Collectors.toList()),
+                base.getListWork().stream().filter(x->isRelevant(x,relevanceLimit)).filter(x->!x.getBackground()).filter(x->x instanceof Article).collect(Collectors.toList()),
+                base.getListWork().stream().filter(x->isRelevant(x,relevanceLimit)).filter(x->!x.getBackground()).filter(x->x instanceof PhDThesis).collect(Collectors.toList()));
+
+        subsection("All Works");
         byYear(base.getListWork().stream().filter(x->!x.getBackground()).collect(Collectors.toList()),
                 base.getListWork().stream().filter(x->!x.getBackground()).filter(x->x instanceof Paper).collect(Collectors.toList()),
                 base.getListWork().stream().filter(x->!x.getBackground()).filter(x->x instanceof Article).collect(Collectors.toList()),
@@ -120,7 +130,7 @@ public class PublicationReport extends AbstractReport{
         tex.printf("\\begin{figure}[htbp]\n");
         tex.printf("\\caption{Coauthor Graph Drawn with fdp (Graphviz)}\n");
         tex.printf("\\centering\n");
-        tex.printf("\\includegraphics[width=.6\\textwidth]{../graphviz/fdp.pdf}\n\n");
+        tex.printf("\\includegraphics[height=15cm]{../graphviz/fdp.pdf}\n\n");
         tex.printf("\\end{figure}\n\n");
 
         clearpage();
@@ -203,6 +213,10 @@ public class PublicationReport extends AbstractReport{
                 generate().latex(tex);
 
         sourceGroups();
+
+        pageLength();
+
+        relevanceDistribution();
     }
 
     private Integer nrOfAffiliations(Work w,Map<Work,List<WorkAffiliation>> map){
@@ -235,6 +249,13 @@ public class PublicationReport extends AbstractReport{
             series.setNrBackgroundPapers((int) map.get(series).stream().filter(Work::getBackground).count());
             series.setNrBackgroundCitations(map.get(series).stream().filter(Work::getBackground).mapToInt(Work::getNrCitations).sum());
         }
+        new DistributionPlot<>(base.getListConferenceSeries().stream().filter(x->x.getNrPapers() >0).toList(), ConferenceSeries::getNrPapers).
+                ordering(NR).
+                width(22).height(10).
+                xlabel("Number of Papers in ConferenceSeries").ylabel("Nr ConferenceSeries").
+                title("Distribution of ConferenceSeries with a given Number of Papers in Survey").
+                generate().latex(tex);
+
         new BarPlot<>(base.getListConferenceSeries().stream().filter(x -> x.getNrPapers() > limit).toList(),
                 this::nameOf,
                 ConferenceSeries::getNrPapers).
@@ -258,30 +279,37 @@ public class PublicationReport extends AbstractReport{
                 generate().latex(tex);
 
     }
-    private void byJournal(List<Article> work,int limit){
-        Map<Journal,List<Article>> map = work.stream().collect(groupingBy(Article::getJournal));
+    private void byJournal(String caption,List<Article> work,int limit,double relevanceLimit){
+        subsection(caption);
+        Map<Journal,List<Article>> map = work.stream().filter(x->isRelevant(x,relevanceLimit)).collect(groupingBy(Article::getJournal));
         for(Journal j:map.keySet()){
             j.setNrArticles((int) map.get(j).stream().filter(x->!x.getBackground()).count());
             j.setNrCitations(map.get(j).stream().filter(x->!x.getBackground()).mapToInt(Work::getNrCitations).sum());
             j.setNrBackgroundArticles((int) map.get(j).stream().filter(Work::getBackground).count());
             j.setNrBackgroundCitations(map.get(j).stream().filter(Work::getBackground).mapToInt(Work::getNrCitations).sum());
         }
+        new DistributionPlot<>(base.getListJournal().stream().filter(x->x.getNrArticles() >0).toList(), Journal::getNrArticles).
+                ordering(NR).
+                width(22).height(10).
+                xlabel("Number of Articles in Journal").ylabel("Nr Journals").
+                title("Distribution of Journals with a given Number of Articles in Survey ("+caption+")").
+                generate().latex(tex);
         new BarPlot<>(base.getListJournal().stream().
                 filter(x -> x.getNrArticles() > limit).
                 sorted(Comparator.comparing(Journal::getNrArticles).reversed()).
                 limit(30).
                 toList(),
-                this::nameOf,
+                x->safe(x.getName()).replaceAll(",",""),
                 Journal::getNrArticles).
                 width(22).height(10).
-                title("Article Count by Journal (Count > "+limit+")").
+                title(caption +" Count by Journal (Count > "+limit+")").
                 xlabel("Journal").ylabel("Article Count").
                 generate().latex(tex);
         new BarPlot<>(base.getListJournal().stream().
                 filter(x -> x.getNrArticles() > limit).
                 sorted(Comparator.comparing(Journal::getNrArticles).reversed()).
                 limit(30).toList(),
-                this::nameOf,
+                x->safe(x.getName()).replaceAll(",",""),
                 Journal::getNrCitations).
                 width(22).height(10).
                 title("Citation Count by Journal (Article Count > "+limit+")").
@@ -291,13 +319,17 @@ public class PublicationReport extends AbstractReport{
                 filter(x -> x.getNrArticles() > limit).
                 sorted(Comparator.comparing(Journal::getNrArticles).reversed()).
                 limit(30).toList(),
-                this::nameOf,
+                x->safe(x.getName()).replaceAll(",",""),
                 x->1.0*x.getNrCitations()/x.getNrArticles()).
                 width(22).height(10).
                 title("Average Citation Count per Article by Journal (Article Count > "+limit+")").
                 xlabel("Journal").ylabel("Average Citation Count").
                 generate().latex(tex);
 
+    }
+
+    private boolean isRelevant(Work w,double relevanceLimit){
+        return w.getRelevanceBody() >= relevanceLimit || (w.getRelevanceBody()==0.0 && w.getRelevanceAbstract() >= relevanceLimit);
     }
 
     private void byYear(List<Work> works,List<Work> papers,List<Work> articles,List<Work> theses){
@@ -423,6 +455,7 @@ public class PublicationReport extends AbstractReport{
 
         int d = base.getListWork().size();
         new DistributionPlot<>(base.getListWork().stream().filter(x -> !x.getBackground()).toList(), this::workStatus).
+                includeZero(true).
                 title("Data Quality (Total " + d + " Works)").
                 xlabel("Status").ylabel("Nr Works").
                 width(15).height(12).
@@ -489,7 +522,16 @@ public class PublicationReport extends AbstractReport{
                 "differ slightly from the published version. ");
 
         new DistributionPlot<>(base.getListWork(),this::hasLocalCopy).
+                includeZero(true).
                 title("Work has Local Copy (Total "+base.getListWork().size()+" Works)").
+                xlabel("Status").ylabel("Nr Works").
+                width(8).height(12).generate().latex(tex);
+
+        subsection("Presence of Abstracts");
+
+        new DistributionPlot<>(base.getListWork(),this::hasAbstract).
+                includeZero(true).
+                title("Work has Abstract (Total "+base.getListWork().size()+" Works)").
                 xlabel("Status").ylabel("Nr Works").
                 width(8).height(12).generate().latex(tex);
 
@@ -508,6 +550,13 @@ public class PublicationReport extends AbstractReport{
                 tableStyle(TableStyle.LONGTABLE).
                 generate().latex(tex);
 
+    }
+
+    private String hasAbstract(Work w){
+        if (w.getAbstractText() != null && !w.getAbstractText().equals("")) {
+            return "Yes";
+        }
+        return "No";
     }
 
     private String hasLocalCopy(Work w){
@@ -836,7 +885,7 @@ public class PublicationReport extends AbstractReport{
                 filter(x->x.getYear()==year).
                 filter(x->x.getSourceGroup()==sg).
                 count();
-        return 100.0*perGroup/total;
+        return (total==0?0:100.0*perGroup/total);
     }
     private int perGroup(int year,SourceGroup sg){
         return (int) base.getListWork().stream().
@@ -927,7 +976,7 @@ public class PublicationReport extends AbstractReport{
                 filter(x->!Double.isNaN(x.getSimilarityRef())).
                 filter(x->!Double.isInfinite(x.getSimilarityRef())).
                 toList(),this::similarRef).
-                ordering(DistributionPlotOrdering.LABEL).
+                ordering(LABEL).
                 title("Distribution Plot of Distance Values by References (Low value is similar)").
                 xlabel("Distance").ylabel("Count").
                 width(25).height(15).
@@ -937,7 +986,7 @@ public class PublicationReport extends AbstractReport{
                 filter(x->!Double.isNaN(x.getSimilarityCite())).
                 filter(x->!Double.isInfinite(x.getSimilarityCite())).
                 toList(),this::similarCite).
-                ordering(DistributionPlotOrdering.LABEL).
+                ordering(LABEL).
                 title("Distribution Plot of Distance Values by Citations (Low value is similar)").
                 xlabel("Distance").ylabel("Count").
                 width(25).height(15).
@@ -947,7 +996,7 @@ public class PublicationReport extends AbstractReport{
                 filter(x->!Double.isNaN(x.getSimilarity())).
                 filter(x->!Double.isInfinite(x.getSimilarity())).
                 toList(),this::similar).
-                ordering(DistributionPlotOrdering.LABEL).
+                ordering(LABEL).
                 title("Distribution Plot of Distance Values by References and Citations (Low value is similar)").
                 xlabel("Distance").ylabel("Count").
                 width(25).height(15).
@@ -964,7 +1013,7 @@ public class PublicationReport extends AbstractReport{
                 filter(x->!Double.isNaN(x.getSimilarityConcept())).
                 filter(x->!Double.isInfinite(x.getSimilarityConcept())).
                 toList(),this::similarConcept).
-                ordering(DistributionPlotOrdering.LABEL).
+                ordering(LABEL).
                 title("Distribution Plot of Euclidean Distance Values by Concept (Low value is similar)").
                 xlabel("Distance").ylabel("Count").
                 width(25).height(15).
@@ -975,7 +1024,7 @@ public class PublicationReport extends AbstractReport{
                 filter(x->!Double.isNaN(x.getCosine())).
                 filter(x->!Double.isInfinite(x.getCosine())).
                 toList(),this::similarCosine).
-                ordering(DistributionPlotOrdering.LABEL).
+                ordering(LABEL).
                 title("Distribution Plot of Cosine Similarity Values by Concept (High value is similar)").
                 xlabel("Cosine Similarity Value").ylabel("Count").
                 width(25).height(15).
@@ -1017,5 +1066,94 @@ public class PublicationReport extends AbstractReport{
         return String.format("%.2f",Math.round(s*20.0)/20.0);
     }
 
+
+    private void pageLength(){
+        clearpage();
+        section("Page Length Distribution");
+        List<Work> works = base.getListWork().stream().
+                filter(x->!x.getBackground()).
+                filter(x->x.getNrPages()!=null).
+                toList();
+        new DistributionPlot<>(works, Work::getNrPages).
+                ordering(NR).
+                title("Nr of Works with Given Number of Pages (Total "+works.size()+" entries)").
+                xlabel("Number of Pages").ylabel("Nr Works").
+                width(24).height(12).
+                generate().latex(tex);
+    }
+
+    private void relevanceDistribution(){
+        clearpage();
+        section("Relevance Distribution");
+        List<Work> works = base.getListWork().stream().
+                filter(x->!x.getBackground()).
+                filter(x->x.getRelevanceBody() > 0.0).
+                toList();
+
+        new ScatterPlot<>(works, this::cappedBodyRelevance, Work::getRelevanceAbstract, Work::getRelevanceTitle).
+                width(22).height(15).
+                title("Link between Body and Abstract Relevance (Colored by Title Relevance cutoff at 20.0)").
+                xlabel("Body Relevance").ylabel("Abstract Relevance").
+                generate().latex(tex);
+        new ScatterPlot<>(works.stream().filter(x->x.getRelevanceAbstract() > x.getRelevanceTitle()).toList(),
+                this::cappedBodyRelevance, Work::getRelevanceAbstract, Work::getRelevanceTitle).
+                width(22).height(15).
+                title("Link between Body and Abstract Relevance (Only where Abstract is present)").
+                xlabel("Body Relevance").ylabel("Abstract Relevance").
+                generate().latex(tex);
+        new ScatterPlot<>(works, Work::getRelevanceTitle, Work::getRelevanceAbstract, this::cappedBodyRelevance).
+                width(22).height(15).
+                title("Link between Title and Abstract Relevance (Colored by Body Relevance)").
+                xlabel("Title Relevance").ylabel("Abstract Relevance").
+                generate().latex(tex);
+
+        new DistributionPlot<>(works, this::relevanceBodyAsInt).
+                ordering(NR).
+                title("Nr of Works with Given Body Relevance (Nonzero relevance only Total "+works.size()+" entries cutoff at 20.0)").
+                xlabel("Body Relevance").ylabel("Nr Works").
+                width(24).height(12).
+                generate().latex(tex);
+
+
+        List<Work> abstracts = base.getListWork().stream().
+                filter(x->!x.getBackground()).
+                filter(x->x.getRelevanceAbstract() > 0.0).
+                toList();
+
+        new DistributionPlot<>(abstracts, this::relevanceAbstractAsInt).
+                ordering(NR).
+                title("Nr of Works with Given Abstract Relevance (Nonzero relevance only Total "+abstracts.size()+" entries)").
+                xlabel("Abstract Relevance").ylabel("Nr Works").
+                width(24).height(12).
+                generate().latex(tex);
+
+        List<MissingWork> missing = base.getListMissingWork();
+
+        new DistributionPlot<>(missing, this::relevanceAsInt).
+                ordering(NR).
+                title("Nr of Missing Works with Given Abstract Relevance (Total "+missing.size()+" entries)").
+                xlabel("Abstract Relevance").ylabel("Nr Missing Works").
+                width(24).height(12).
+                generate().latex(tex);
+
+    }
+
+    private double cappedBodyRelevance(Work w){
+        return Math.min(20.0,w.getRelevanceBody());
+    }
+
+    private int relevanceBodyAsInt(Work w){
+        int raw = (int) Math.floor(w.getRelevanceBody());
+        return Math.min(raw, 20);
+    }
+    private int relevanceAbstractAsInt(Work w){
+        int raw = (int) Math.floor(w.getRelevanceAbstract());
+        return Math.min(raw, 20);
+    }
+
+    private int relevanceAsInt(MissingWork w){
+        int raw = (int) Math.floor(w.getRelevance());
+        return Math.min(raw, 20);
+    }
 
 }

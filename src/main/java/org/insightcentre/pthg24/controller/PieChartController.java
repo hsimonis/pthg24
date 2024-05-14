@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 08:06:14 on 2024-05-09 */
+ * Generated at 19:13:04 on 2024-05-13 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -49,20 +49,24 @@ public class PieChartController extends ChartController {
 		choicesMap.put("ConceptType", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("shortName");
 		attributeNames.add("conceptType");
 		attributeNames.add("label");
 		attributeNames.add("regExpr");
 		attributeNames.add("caseSensitive");
 		attributeNames.add("revision");
+		attributeNames.add("weight");
 		attributeNames.add("nrOccurrences");
 		choicesMap.put("Concept", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("shortName");
 		attributeNames.add("conceptType");
 		attributeNames.add("label");
 		attributeNames.add("regExpr");
 		attributeNames.add("caseSensitive");
 		attributeNames.add("revision");
+		attributeNames.add("weight");
 		attributeNames.add("nrOccurrences");
 		attributeNames.add("description");
 		choicesMap.put("Acronym", attributeNames);
@@ -81,6 +85,7 @@ public class PieChartController extends ChartController {
 		choicesMap.put("Author", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("shortName");
 		attributeNames.add("nr");
 		attributeNames.add("nrEdges");
 		attributeNames.add("cluster");
@@ -128,10 +133,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("language");
 		attributeNames.add("abstractText");
+		attributeNames.add("concept");
 		choicesMap.put("Work", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("shortName");
 		attributeNames.add("nr");
 		attributeNames.add("nrEdges");
 		attributeNames.add("cluster");
@@ -179,11 +187,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("language");
 		attributeNames.add("abstractText");
+		attributeNames.add("concept");
 		attributeNames.add("proceedings");
 		choicesMap.put("Paper", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("shortName");
 		attributeNames.add("nr");
 		attributeNames.add("nrEdges");
 		attributeNames.add("cluster");
@@ -231,11 +242,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("language");
 		attributeNames.add("abstractText");
+		attributeNames.add("concept");
 		attributeNames.add("journal");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("shortName");
 		attributeNames.add("nr");
 		attributeNames.add("nrEdges");
 		attributeNames.add("cluster");
@@ -283,11 +297,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("language");
 		attributeNames.add("abstractText");
+		attributeNames.add("concept");
 		attributeNames.add("school");
 		choicesMap.put("PhDThesis", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("shortName");
 		attributeNames.add("nr");
 		attributeNames.add("nrEdges");
 		attributeNames.add("cluster");
@@ -335,11 +352,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("language");
 		attributeNames.add("abstractText");
+		attributeNames.add("concept");
 		attributeNames.add("collection");
 		choicesMap.put("InCollection", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("shortName");
 		attributeNames.add("nr");
 		attributeNames.add("nrEdges");
 		attributeNames.add("cluster");
@@ -387,11 +407,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("language");
 		attributeNames.add("abstractText");
+		attributeNames.add("concept");
 		attributeNames.add("booktitle");
 		choicesMap.put("InBook", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("shortName");
 		attributeNames.add("nr");
 		attributeNames.add("nrEdges");
 		attributeNames.add("cluster");
@@ -439,7 +462,9 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("language");
 		attributeNames.add("abstractText");
+		attributeNames.add("concept");
 		choicesMap.put("Book", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -558,6 +583,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("conceptWeight");
 		attributeNames.add("relevance");
 		attributeNames.add("isSelected");
+		attributeNames.add("concept");
 		choicesMap.put("MissingWork", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -704,6 +730,14 @@ public class PieChartController extends ChartController {
 		attributeNames.add("unicode");
 		attributeNames.add("latex");
 		choicesMap.put("Translator", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("reason");
+		attributeNames.add("author1");
+		attributeNames.add("author2");
+		attributeNames.add("work1");
+		attributeNames.add("work2");
+		choicesMap.put("AuthorDouble", attributeNames);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -850,6 +884,9 @@ public class PieChartController extends ChartController {
 			}
 			else if (className.equals("Translator")) {
 				objectList = mainApp.getTranslatorData();
+			}
+			else if (className.equals("AuthorDouble")) {
+				objectList = mainApp.getAuthorDoubleData();
 			}
 			if (objectList != null) {
 				Map<String, Integer> countMap = new HashMap<String, Integer>();

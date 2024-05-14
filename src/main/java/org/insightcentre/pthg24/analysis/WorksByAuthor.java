@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
-import static org.insightcentre.pthg24.analysis.AnalysisByConcept.citation;
 import static org.insightcentre.pthg24.analysis.ListAuthors.index;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 

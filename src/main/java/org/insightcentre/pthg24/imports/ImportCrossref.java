@@ -16,12 +16,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Comparator;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
+import static org.insightcentre.pthg24.imports.ImportOpenCitations.handleToRemove;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
 
 public class ImportCrossref {
@@ -29,6 +27,7 @@ public class ImportCrossref {
     String crossrefDir;
     String missingDir;
     Hashtable<String,Affiliation> affHash = new Hashtable<>();
+    List<Work> toRemove = new ArrayList<>();
 
     public ImportCrossref(Scenario base, String crossrefDir,String missingDir){
         this.base = base;
@@ -42,6 +41,7 @@ public class ImportCrossref {
             info("Crossref "+w.getName());
             crossrefs(w);
         }
+        handleToRemove("xref",toRemove);
     }
 
     // alternative API for testing
@@ -123,6 +123,18 @@ public class ImportCrossref {
             extractReferences(w,reference);
 
         }
+        if(message.has("DOI")){
+            String doi = message.getString("DOI");
+            info(w.getKey()+" DOI "+w.getDoi()+" "+doi);
+            if (!w.getDoi().equals(doi)){
+                toRemove.add(w);
+            }
+        }
+        String language = "";
+        if(message.has("language")){
+            language = message.getString("language");
+        }
+        w.setLanguage(language);
 
         List<Authorship> ships = base.getListAuthorship().stream().
                 filter(x->x.getWork()==w).

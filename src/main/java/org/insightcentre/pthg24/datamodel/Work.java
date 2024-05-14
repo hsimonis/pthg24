@@ -46,6 +46,7 @@ import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.Translator;
+import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -66,7 +67,7 @@ import framework.AppearInCollection;
  * @author generated
 */
 
-public abstract class Work extends ApplicationObject{
+public abstract class Work extends ApplicationObject implements AppearInCollection{
 /**
  *  
  *
@@ -117,6 +118,13 @@ public abstract class Work extends ApplicationObject{
 */
 
     public String codeAvail;
+
+/**
+ *  
+ *
+*/
+
+    public List<Concept> concept;
 
 /**
  *  
@@ -191,6 +199,13 @@ public abstract class Work extends ApplicationObject{
 */
 
     public String key;
+
+/**
+ *  
+ *
+*/
+
+    public String language;
 
 /**
  *  
@@ -360,6 +375,13 @@ public abstract class Work extends ApplicationObject{
  *
 */
 
+    public String shortName;
+
+/**
+ *  
+ *
+*/
+
     public String solutionAvail;
 
 /**
@@ -439,6 +461,7 @@ public abstract class Work extends ApplicationObject{
         setClassification("");
         setCluster(0);
         setCodeAvail("");
+        setConcept(new ArrayList<Concept>());
         setConstraints("");
         setCpSystem("");
         setCrossrefCitations(0);
@@ -449,6 +472,7 @@ public abstract class Work extends ApplicationObject{
         setDoiStatus(true);
         setIssn("");
         setKey("");
+        setLanguage("");
         setLocalCopy("");
         setMaxCitations(0);
         setNr(0);
@@ -472,6 +496,7 @@ public abstract class Work extends ApplicationObject{
         setRelevanceTitle(0.0);
         setScopusCitations(0);
         setScopusStatus(true);
+        setShortName("");
         setSolutionAvail("");
         setSourceGroup(null);
         setTitle("");
@@ -500,6 +525,7 @@ public abstract class Work extends ApplicationObject{
             String classification,
             Integer cluster,
             String codeAvail,
+            List<Concept> concept,
             String constraints,
             String cpSystem,
             Integer crossrefCitations,
@@ -510,6 +536,7 @@ public abstract class Work extends ApplicationObject{
             Boolean doiStatus,
             String issn,
             String key,
+            String language,
             String localCopy,
             Integer maxCitations,
             Integer nr,
@@ -533,6 +560,7 @@ public abstract class Work extends ApplicationObject{
             Double relevanceTitle,
             Integer scopusCitations,
             Boolean scopusStatus,
+            String shortName,
             String solutionAvail,
             SourceGroup sourceGroup,
             String title,
@@ -551,6 +579,7 @@ public abstract class Work extends ApplicationObject{
         setClassification(classification);
         setCluster(cluster);
         setCodeAvail(codeAvail);
+        setConcept(concept);
         setConstraints(constraints);
         setCpSystem(cpSystem);
         setCrossrefCitations(crossrefCitations);
@@ -561,6 +590,7 @@ public abstract class Work extends ApplicationObject{
         setDoiStatus(doiStatus);
         setIssn(issn);
         setKey(key);
+        setLanguage(language);
         setLocalCopy(localCopy);
         setMaxCitations(maxCitations);
         setNr(nr);
@@ -584,6 +614,7 @@ public abstract class Work extends ApplicationObject{
         setRelevanceTitle(relevanceTitle);
         setScopusCitations(scopusCitations);
         setScopusStatus(scopusStatus);
+        setShortName(shortName);
         setSolutionAvail(solutionAvail);
         setSourceGroup(sourceGroup);
         setTitle(title);
@@ -606,6 +637,7 @@ public abstract class Work extends ApplicationObject{
             other.classification,
             other.cluster,
             other.codeAvail,
+            other.concept,
             other.constraints,
             other.cpSystem,
             other.crossrefCitations,
@@ -616,6 +648,7 @@ public abstract class Work extends ApplicationObject{
             other.doiStatus,
             other.issn,
             other.key,
+            other.language,
             other.localCopy,
             other.maxCitations,
             other.nr,
@@ -639,6 +672,7 @@ public abstract class Work extends ApplicationObject{
             other.relevanceTitle,
             other.scopusCitations,
             other.scopusStatus,
+            other.shortName,
             other.solutionAvail,
             other.sourceGroup,
             other.title,
@@ -669,7 +703,22 @@ public abstract class Work extends ApplicationObject{
         getApplicationDataset().cascadeCrossReferenceReferredWork(this);
         getApplicationDataset().cascadeWorkAffiliationWork(this);
         getApplicationDataset().cascadeCollabWorkWork(this);
+        getApplicationDataset().cascadeAuthorDoubleWork1(this);
+        getApplicationDataset().cascadeAuthorDoubleWork2(this);
         return getApplicationDataset().removeWork(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  (varargs) build list of items of type Work
+ *
+ * @param pList multiple items of type Work
+ * @return List<Work>
+*/
+
+    static public List<Work> buildList(Work... pList){
+        List<Work> l = new ArrayList<Work>();
+        l.addAll(Arrays.asList(pList));
+        return l;
     }
 
 /**
@@ -748,6 +797,16 @@ public abstract class Work extends ApplicationObject{
 
     public String getCodeAvail(){
         return this.codeAvail;
+    }
+
+/**
+ *  get attribute concept
+ *
+ * @return List<Concept>
+*/
+
+    public List<Concept> getConcept(){
+        return this.concept;
     }
 
 /**
@@ -864,6 +923,16 @@ public abstract class Work extends ApplicationObject{
 
     public String getKey(){
         return this.key;
+    }
+
+/**
+ *  get attribute language
+ *
+ * @return String
+*/
+
+    public String getLanguage(){
+        return this.language;
     }
 
 /**
@@ -1105,6 +1174,16 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  get attribute shortName
+ *
+ * @return String
+*/
+
+    public String getShortName(){
+        return this.shortName;
+    }
+
+/**
  *  get attribute solutionAvail
  *
  * @return String
@@ -1277,6 +1356,18 @@ public abstract class Work extends ApplicationObject{
     }
 
 /**
+ *  set attribute concept, mark dataset as dirty, mark dataset as not valid
+@param concept List<Concept>
+ *
+*/
+
+    public void setConcept(List<Concept> concept){
+        this.concept = concept;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute constraints, mark dataset as dirty, mark dataset as not valid
 @param constraints String
  *
@@ -1392,6 +1483,18 @@ public abstract class Work extends ApplicationObject{
 
     public void setKey(String key){
         this.key = key;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute language, mark dataset as dirty, mark dataset as not valid
+@param language String
+ *
+*/
+
+    public void setLanguage(String language){
+        this.language = language;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -1668,6 +1771,18 @@ public abstract class Work extends ApplicationObject{
 
     public void setScopusStatus(Boolean scopusStatus){
         this.scopusStatus = scopusStatus;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute shortName, mark dataset as dirty, mark dataset as not valid
+@param shortName String
+ *
+*/
+
+    public void setShortName(String shortName){
+        this.shortName = shortName;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -1983,7 +2098,7 @@ public abstract class Work extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
     }
 
 /**
@@ -2014,6 +2129,7 @@ public abstract class Work extends ApplicationObject{
             " classification=\""+toXMLClassification()+"\""+
             " cluster=\""+toXMLCluster()+"\""+
             " codeAvail=\""+toXMLCodeAvail()+"\""+
+            " concept=\""+toXMLConcept()+"\""+
             " constraints=\""+toXMLConstraints()+"\""+
             " cpSystem=\""+toXMLCpSystem()+"\""+
             " crossrefCitations=\""+toXMLCrossrefCitations()+"\""+
@@ -2024,6 +2140,7 @@ public abstract class Work extends ApplicationObject{
             " doiStatus=\""+toXMLDoiStatus()+"\""+
             " issn=\""+toXMLIssn()+"\""+
             " key=\""+toXMLKey()+"\""+
+            " language=\""+toXMLLanguage()+"\""+
             " localCopy=\""+toXMLLocalCopy()+"\""+
             " maxCitations=\""+toXMLMaxCitations()+"\""+
             " nr=\""+toXMLNr()+"\""+
@@ -2047,6 +2164,7 @@ public abstract class Work extends ApplicationObject{
             " relevanceTitle=\""+toXMLRelevanceTitle()+"\""+
             " scopusCitations=\""+toXMLScopusCitations()+"\""+
             " scopusStatus=\""+toXMLScopusStatus()+"\""+
+            " shortName=\""+toXMLShortName()+"\""+
             " solutionAvail=\""+toXMLSolutionAvail()+"\""+
             " sourceGroup=\""+toXMLSourceGroup()+"\""+
             " title=\""+toXMLTitle()+"\""+
@@ -2129,6 +2247,20 @@ public abstract class Work extends ApplicationObject{
 
     String toXMLCodeAvail(){
         return this.safeXML(getCodeAvail());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLConcept(){
+        String str="";
+        for(Concept x:getConcept()){
+            str=str+" "+"ID_"+x.getId();
+        }
+        return str;
     }
 
 /**
@@ -2229,6 +2361,16 @@ public abstract class Work extends ApplicationObject{
 
     String toXMLKey(){
         return this.safeXML(getKey());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLLanguage(){
+        return this.safeXML(getLanguage());
     }
 
 /**
@@ -2467,6 +2609,16 @@ public abstract class Work extends ApplicationObject{
  * @return String
 */
 
+    String toXMLShortName(){
+        return this.safeXML(getShortName());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLSolutionAvail(){
         return this.safeXML(getSolutionAvail());
     }
@@ -2655,6 +2807,8 @@ public abstract class Work extends ApplicationObject{
       if(!this.getCodeAvail().equals(b.getCodeAvail())){
          System.out.println("CodeAvail");
         }
+      if (true) {         System.out.println("Concept");
+        }
       if(!this.getConstraints().equals(b.getConstraints())){
          System.out.println("Constraints");
         }
@@ -2684,6 +2838,9 @@ public abstract class Work extends ApplicationObject{
         }
       if(!this.getKey().equals(b.getKey())){
          System.out.println("Key");
+        }
+      if(!this.getLanguage().equals(b.getLanguage())){
+         System.out.println("Language");
         }
       if(!this.getLocalCopy().equals(b.getLocalCopy())){
          System.out.println("LocalCopy");
@@ -2757,6 +2914,9 @@ public abstract class Work extends ApplicationObject{
       if(!this.getScopusStatus().equals(b.getScopusStatus())){
          System.out.println("ScopusStatus");
         }
+      if(!this.getShortName().equals(b.getShortName())){
+         System.out.println("ShortName");
+        }
       if(!this.getSolutionAvail().equals(b.getSolutionAvail())){
          System.out.println("SolutionAvail");
         }
@@ -2788,6 +2948,7 @@ public abstract class Work extends ApplicationObject{
           this.getClassification().equals(b.getClassification()) &&
           this.getCluster().equals(b.getCluster()) &&
           this.getCodeAvail().equals(b.getCodeAvail()) &&
+          true &&
           this.getConstraints().equals(b.getConstraints()) &&
           this.getCpSystem().equals(b.getCpSystem()) &&
           this.getCrossrefCitations().equals(b.getCrossrefCitations()) &&
@@ -2798,6 +2959,7 @@ public abstract class Work extends ApplicationObject{
           this.getDoiStatus().equals(b.getDoiStatus()) &&
           this.getIssn().equals(b.getIssn()) &&
           this.getKey().equals(b.getKey()) &&
+          this.getLanguage().equals(b.getLanguage()) &&
           this.getLocalCopy().equals(b.getLocalCopy()) &&
           this.getMaxCitations().equals(b.getMaxCitations()) &&
           this.getName().equals(b.getName()) &&
@@ -2822,6 +2984,7 @@ public abstract class Work extends ApplicationObject{
           this.getRelevanceTitle().equals(b.getRelevanceTitle()) &&
           this.getScopusCitations().equals(b.getScopusCitations()) &&
           this.getScopusStatus().equals(b.getScopusStatus()) &&
+          this.getShortName().equals(b.getShortName()) &&
           this.getSolutionAvail().equals(b.getSolutionAvail()) &&
           this.getSourceGroup().applicationSame(b.getSourceGroup()) &&
           this.getTitle().equals(b.getTitle()) &&
@@ -2847,6 +3010,9 @@ public abstract class Work extends ApplicationObject{
         if (getAuthors().size() == 0){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"authors","Work",(getAuthors()==null?"null":getAuthors().toString()),"",WarningType.NOTEMPTY);
         }
+        if (getConcept() == null){
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"concept","Work",(getConcept()==null?"null":getConcept().toString()),"",WarningType.NOTNULL);
+        }
         if (getSourceGroup() == null){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"sourceGroup","Work",(getSourceGroup()==null?"null":getSourceGroup().toString()),"",WarningType.NOTNULL);
         }
@@ -2864,6 +3030,9 @@ public abstract class Work extends ApplicationObject{
    public List<ApplicationObjectInterface> getFeasibleValues(ApplicationDatasetInterface base,String attrName){
       if (attrName.equals("authors")){
          return (List) ((Scenario)base).getListAuthor();
+      }
+      if (attrName.equals("concept")){
+         return (List) ((Scenario)base).getListConcept();
       }
       if (attrName.equals("sourceGroup")){
          return (List) ((Scenario)base).getListSourceGroup();

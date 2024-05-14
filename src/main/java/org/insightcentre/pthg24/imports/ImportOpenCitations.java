@@ -18,8 +18,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.insightcentre.pthg24.imports.ImportCrossref.properDOI;
@@ -29,6 +31,7 @@ import static org.insightcentre.pthg24.logging.LogShortcut.*;
 public class ImportOpenCitations {
     Scenario base;
     String citationDir;
+    List<Work> toRemove = new ArrayList<>();
     public ImportOpenCitations(Scenario base, String citationDir){
         this.base = base;
         this.citationDir = citationDir;
@@ -39,6 +42,17 @@ public class ImportOpenCitations {
             info("Citations "+w.getName());
             citations(w);
         }
+        handleToRemove("cite",toRemove);
+    }
+
+    public static void handleToRemove(String tag,List<Work> toRemove){
+        toRemove = toRemove.stream().sorted(Comparator.comparing(Work::getKey)).distinct().toList();
+        for(Work w:toRemove){
+            warning("remove "+tag+" "+w.getKey());
+        }
+        warning("total "+tag+" "+toRemove.size());
+        assert(toRemove.size()==0);
+
     }
 
     public void citations(String key){
@@ -97,6 +111,10 @@ public class ImportOpenCitations {
                 JSONObject obj = arr.getJSONObject(i);
                 String citing = obj.getString("citing").toLowerCase();
                 String cited = obj.getString("cited").toLowerCase();
+                if (!w.getDoi().equals(cited)) {
+                    info("doi " + w.getDoi() + " " + cited);
+                    toRemove.add(w);
+                }
                 String oci = obj.getString("oci");
                 String creation = obj.getString("creation");
                 String timespan = obj.getString("timespan");

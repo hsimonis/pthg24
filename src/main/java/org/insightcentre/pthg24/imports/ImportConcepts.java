@@ -29,7 +29,7 @@ public class ImportConcepts {
                 JSONObject c = arr.getJSONObject(i);
                 String type = c.getString("type");
                 String label = c.getString("label");
-                String regExpr = label;
+                String regExpr = "";
                 if (c.has("regExpr")) {
                     regExpr = c.getString("regExpr");
                 }
@@ -41,6 +41,10 @@ public class ImportConcepts {
                 if (c.has("revision")){
                     revision = c.getInt("revision");
                 }
+                double weight=1.0;
+                if (c.has("weight")){
+                    weight = c.getDouble("weight");
+                }
                 Concept con;
                 if (c.has("description")){
                     String description = c.getString("description");
@@ -50,11 +54,22 @@ public class ImportConcepts {
                     con = new Concept(base);
                 }
                 con.setName(label);
+                con.setShortName(label);
                 con.setLabel(label);
-                con.setRegExpr(regExpr);
+                con.setRevision(revision);
                 con.setConceptType(stringToConceptType(type));
                 con.setCaseSensitive(caseSensitive);
-                con.setRevision(revision);
+                con.setWeight(weight);
+                if(!regExpr.equals("")) {
+                    con.setRegExpr(regExpr);
+                } else if (con instanceof Acronym){
+                    // we only want to match the acronym itself, not any longer word containing it
+                    con.setRegExpr("[^a-zA-Z]"+label+"[^a-zA-Z]");
+                    //??? temporary fix to force recalculation
+                    con.setRevision(2);
+                } else {
+                    con.setRegExpr(label);
+                }
             }
 
         } catch(IOException e){

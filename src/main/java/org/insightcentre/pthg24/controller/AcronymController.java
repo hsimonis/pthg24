@@ -3,6 +3,7 @@ package org.insightcentre.pthg24.controller;
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
 import java.lang.Boolean;
+import java.lang.Double;
 import java.lang.Exception;
 import java.lang.Integer;
 import java.lang.Object;
@@ -28,13 +29,16 @@ import org.insightcentre.pthg24.datamodel.Acronym;
 import org.insightcentre.pthg24.datamodel.ConceptType;
 
 /**
- * Generated at 08:06:13 on 2024-05-09 */
+ * Generated at 19:13:04 on 2024-05-13 */
 public class AcronymController extends Table3Controller {
 	@FXML
 	private TableView<Acronym> table;
 
 	@FXML
 	private TableColumn<Acronym, String> name;
+
+	@FXML
+	private TableColumn<Acronym, String> shortName;
 
 	@FXML
 	private TableColumn<Acronym, ConceptType> conceptType;
@@ -50,6 +54,9 @@ public class AcronymController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Acronym, Integer> revision;
+
+	@FXML
+	private TableColumn<Acronym, Double> weight;
 
 	@FXML
 	private TableColumn<Acronym, Integer> nrOccurrences;
@@ -80,6 +87,10 @@ public class AcronymController extends Table3Controller {
 		name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		name.setCellFactory(TextFieldTableCell.forTableColumn());
 		name.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setName(event.getNewValue()); mainApp.reset();});
+		choices.add("shortName");
+		shortName.setCellValueFactory(new PropertyValueFactory<>("shortName"));
+		shortName.setCellFactory(TextFieldTableCell.forTableColumn());
+		shortName.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setShortName(event.getNewValue()); mainApp.reset();});
 		choices.add("conceptType");
 		conceptType.setCellValueFactory(new PropertyValueFactory<>("conceptType"));
 		choices.add("label");
@@ -97,6 +108,10 @@ public class AcronymController extends Table3Controller {
 		revision.setCellValueFactory(new PropertyValueFactory<>("revision"));
 		revision.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		revision.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRevision(event.getNewValue()); mainApp.reset();});
+		choices.add("weight");
+		weight.setCellValueFactory(new PropertyValueFactory<>("weight"));
+		weight.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		weight.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setWeight(event.getNewValue()); mainApp.reset();});
 		choices.add("nrOccurrences");
 		nrOccurrences.setCellValueFactory(new PropertyValueFactory<>("nrOccurrences"));
 		nrOccurrences.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));

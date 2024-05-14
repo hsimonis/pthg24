@@ -154,9 +154,9 @@ public class LookupMissingWork {
                 info("Capitalize "+titleText);
                 titleText = StringUtils.capitalize(titleText.toLowerCase());
             }
-            titleText = removeEntity(titleText.replaceAll("<^>*>","").replaceAll("</^>*>",""));
+            titleText = removeEntity(titleText.replaceAll("<[^>]*>","").replaceAll("</[^>]*>",""));
         } else {
-            warning("No titleText "+message.toString(4));
+            warning("No titleText "/*+message.toString(4)*/);
         }
         String authors = "";
         if (message.has("author")) {
@@ -169,7 +169,7 @@ public class LookupMissingWork {
             editors = extractAuthors(editor);
         }
         if (authors.equals("") && editors.equals("")){
-            warning("Neither author nor editors "+message.toString(4));
+            warning("Neither author nor editors "/*+message.toString(4)*/);
         }
         String publisher="";
         if (message.has("publisher")){
@@ -236,7 +236,7 @@ public class LookupMissingWork {
             } else {
                 if (!type.equals("book") && !type.equals("monograph")&& !type.equals("edited-book")&&
                         !type.equals("report")&& !type.equals("reference-book")&& !type.equals("posted-content")) {
-                    warning("No first containerTitle" + message.toString(4));
+                    warning("No first containerTitle"/* + message.toString(4)*/);
                 }
             }
         } else {

@@ -31,13 +31,16 @@ import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 08:06:13 on 2024-05-09 */
+ * Generated at 19:13:04 on 2024-05-13 */
 public class BookController extends Table3Controller {
 	@FXML
 	private TableView<Book> table;
 
 	@FXML
 	private TableColumn<Book, String> name;
+
+	@FXML
+	private TableColumn<Book, String> shortName;
 
 	@FXML
 	private TableColumn<Book, Integer> nr;
@@ -181,7 +184,13 @@ public class BookController extends Table3Controller {
 	private TableColumn<Book, Double> relevanceBody;
 
 	@FXML
+	private TableColumn<Book, String> language;
+
+	@FXML
 	private TableColumn<Book, String> abstractText;
+
+	@FXML
+	private TableColumn<Book, String> concept;
 
 	private GeneratedJfxApp mainApp;
 
@@ -209,6 +218,10 @@ public class BookController extends Table3Controller {
 		name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		name.setCellFactory(TextFieldTableCell.forTableColumn());
 		name.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setName(event.getNewValue()); mainApp.reset();});
+		choices.add("shortName");
+		shortName.setCellValueFactory(new PropertyValueFactory<>("shortName"));
+		shortName.setCellFactory(TextFieldTableCell.forTableColumn());
+		shortName.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setShortName(event.getNewValue()); mainApp.reset();});
 		choices.add("nr");
 		nr.setCellValueFactory(new PropertyValueFactory<>("nr"));
 		nr.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
@@ -386,10 +399,16 @@ public class BookController extends Table3Controller {
 		relevanceBody.setCellValueFactory(new PropertyValueFactory<>("relevanceBody"));
 		relevanceBody.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
 		relevanceBody.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRelevanceBody(event.getNewValue()); mainApp.reset();});
+		choices.add("language");
+		language.setCellValueFactory(new PropertyValueFactory<>("language"));
+		language.setCellFactory(TextFieldTableCell.forTableColumn());
+		language.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setLanguage(event.getNewValue()); mainApp.reset();});
 		choices.add("abstractText");
 		abstractText.setCellValueFactory(new PropertyValueFactory<>("abstractText"));
 		abstractText.setCellFactory(TextFieldTableCell.forTableColumn());
 		abstractText.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAbstractText(event.getNewValue()); mainApp.reset();});
+		choices.add("concept");
+		concept.setCellValueFactory(cellData -> new SimpleStringProperty(convert(cellData.getValue().getConcept())));
 		initialize(choices);
 	}
 

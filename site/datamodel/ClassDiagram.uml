@@ -28,6 +28,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include ApplicationWarning.uml
 !include Article.uml
 !include Author.uml
+!include AuthorDouble.uml
 !include Authorship.uml
 !include Book.uml
 !include Citation.uml
@@ -88,6 +89,7 @@ ApplicationDataset  *-- ApplicationObject
 ConceptType  *-- Concept 
 Author "1..*" *-- Work : authors
 SourceGroup  *-- Work 
+Concept "0..*" *-- Work 
 ConferenceSeries  *-- Proceedings 
 Journal  *-- JournalAlias 
 Journal  *-- Article 
@@ -103,6 +105,7 @@ Work  *-- Citation : citedWork
 Work  *-- Citation : citingWork
 Work  *-- Reference : citedWork
 Work  *-- Reference : citingWork
+Concept "0..*" *-- MissingWork 
 Author  *-- Coauthor : author1
 Author  *-- Coauthor : author2
 Work  *-- Similarity : work1
@@ -122,6 +125,10 @@ ScopusAffiliation  *-- CollabWork : affiliation2
 Work  *-- CollabWork 
 ScopusAffiliation  *-- CollabCount : affiliation1
 ScopusAffiliation  *-- CollabCount : affiliation2
+Author  *-- AuthorDouble : author1
+Author  *-- AuthorDouble : author2
+Work "1..*" *-- AuthorDouble : work1
+Work "1..*" *-- AuthorDouble : work2
 header
 Datamodel of Application pthg24
 endheader

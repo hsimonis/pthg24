@@ -22,7 +22,7 @@ import org.insightcentre.pthg24.datamodel.ScopusAffiliation;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 08:06:14 on 2024-05-09 */
+ * Generated at 19:13:04 on 2024-05-13 */
 public class CollabWorkController extends Table3Controller {
 	@FXML
 	private TableView<CollabWork> table;

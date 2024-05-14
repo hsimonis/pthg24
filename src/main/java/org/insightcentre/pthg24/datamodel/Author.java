@@ -46,6 +46,7 @@ import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.Translator;
+import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -233,6 +234,8 @@ public  class Author extends ApplicationObject implements AppearInCollection{
         getApplicationDataset().cascadeAuthorshipAuthor(this);
         getApplicationDataset().cascadeCoauthorAuthor1(this);
         getApplicationDataset().cascadeCoauthorAuthor2(this);
+        getApplicationDataset().cascadeAuthorDoubleAuthor1(this);
+        getApplicationDataset().cascadeAuthorDoubleAuthor2(this);
         return getApplicationDataset().removeAuthor(this) && getApplicationDataset().removeApplicationObject(this);
     }
 

@@ -14,6 +14,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.ListAbstractsMissingWork.conceptString;
+import static org.insightcentre.pthg24.analysis.ListAbstractsMissingWork.listConcepts;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListAbstracts extends AbstractList{
@@ -25,27 +27,31 @@ public class ListAbstracts extends AbstractList{
         try{
             PrintWriter out = new PrintWriter(fullName);
             List<Work> works = base.getListWork().stream().
-                    filter(x->!x.getAbstractText().equals("")).
-                    sorted(Comparator.comparing(Work::getKey)).
+//                    filter(x->!x.getAbstractText().equals("")).
+//                    sorted(Comparator.comparing(Work::getKey)).
+                    sorted(Comparator.comparing(Work::getRelevanceBody).thenComparing(Work::getRelevanceAbstract).reversed()).
                     toList();
             for(Work w:works){
                 List<Work> listW = new ArrayList<>();
                 listW.add(w);
+                out.printf("\\clearpage\n");
                 out.printf("\\subsection{%s}\n",w.getKey());
                 out.printf("\\label{abs:%s}\n\n",w.getKey());
                 out.printf("\\index{%s}\n\n",w.getKey());
                 new ListWorks(out,base,listW,false,"Work "+w.getKey());
 
                 if(w.getLocalCopy()!= null && !w.getLocalCopy().equals("")){
-                    new ListConceptsByWork(out,base,listW,"Extracted Features from PDF");
+                    new ListConceptsByWork(out,base,listW,"Extracted Features from PDF of "+w.getKey());
                 }
 
-                out.printf("Authors: %s\n\n",showAuthor(w.getAuthor()));
-                out.printf("Title: %s\n\n",showTitle(w.getTitle()));
-                out.printf("Relevance: %5.2f %5.2f %5.2f\n\n",w.getRelevanceTitle(),w.getRelevanceAbstract(),w.getRelevanceBody());
+//                out.printf("Authors: %s\n\n",showAuthor(w.getAuthor()));
+//                out.printf("Title: %s\n\n",showTitle(w.getTitle()));
+                out.printf("Relevance: Title only %5.2f, Title and Abstract %5.2f, Body %5.2f\n\n",
+                        w.getRelevanceTitle(),w.getRelevanceAbstract(),w.getRelevanceBody());
+
+                listConcepts(base,out,w.getConcept());
+
                 out.printf("%s\n\n",showAbstract(w.getAbstractText()));
-                String concepts = highlighter(w.getTitle()+" "+w.getAbstractText());
-                out.printf("%s\n\n",concepts);
             }
             out.close();
         } catch(IOException e){
@@ -54,20 +60,5 @@ public class ListAbstracts extends AbstractList{
     }
 
 
-    private String highlighter(String t){
-        String lower = t.toLowerCase();
-        StringBuilder sb = new StringBuilder();
-        for(ConceptType type:base.getListConceptType()){
-            sb.append(type.getName());sb.append(":");
-            for(Concept c:base.getListConcept().stream().filter(x->x.getConceptType()==type).toList()){
-                Pattern pattern = Pattern.compile(c.getRegExpr());
-                Matcher matcher = pattern.matcher(c.getCaseSensitive()?t:lower);
-                if (matcher.find()){
-                    sb.append(" ");sb.append(c.getName());
-                }
-            }
-            sb.append("\n\n");
-        }
-        return sb.toString();
-    }
+
 }

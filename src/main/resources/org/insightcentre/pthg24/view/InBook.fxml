@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 08:06:14 on 2024-05-09-->
+<!--Generated at 19:13:04 on 2024-05-13-->
 
 
 <Tab text="InBook" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.InBookController">
@@ -19,6 +19,7 @@
          <TableView fx:id="table" editable="true">
             <columns>
                <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
+               <TableColumn fx:id="shortName" styleClass="right-aligned" text="ShortName" />
                <TableColumn fx:id="nr" styleClass="right-aligned" text="Nr" />
                <TableColumn fx:id="nrEdges" styleClass="right-aligned" text="NrEdges" />
                <TableColumn fx:id="cluster" styleClass="right-aligned" text="Cluster" />
@@ -66,7 +67,9 @@
                <TableColumn fx:id="relevanceTitle" styleClass="right-aligned" text="RelevanceTitle" />
                <TableColumn fx:id="relevanceAbstract" styleClass="right-aligned" text="RelevanceAbstract" />
                <TableColumn fx:id="relevanceBody" styleClass="right-aligned" text="RelevanceBody" />
+               <TableColumn fx:id="language" styleClass="right-aligned" text="Language" />
                <TableColumn fx:id="abstractText" styleClass="right-aligned" text="AbstractText" />
+               <TableColumn fx:id="concept" styleClass="right-aligned" text="Concept" />
                <TableColumn fx:id="booktitle" styleClass="right-aligned" text="Booktitle" />
             </columns>
          </TableView>

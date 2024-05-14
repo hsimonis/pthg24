@@ -46,6 +46,7 @@ import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.Translator;
+import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -113,6 +114,8 @@ public  class Acronym extends Concept{
             Integer nrOccurrences,
             String regExpr,
             Integer revision,
+            String shortName,
+            Double weight,
             String description){
         super(applicationDataset,
             id,
@@ -122,7 +125,9 @@ public  class Acronym extends Concept{
             label,
             nrOccurrences,
             regExpr,
-            revision);
+            revision,
+            shortName,
+            weight);
         setDescription(description);
         applicationDataset.addAcronym(this);
     }
@@ -137,6 +142,8 @@ public  class Acronym extends Concept{
             other.nrOccurrences,
             other.regExpr,
             other.revision,
+            other.shortName,
+            other.weight,
             other.description);
     }
 
@@ -148,7 +155,9 @@ public  class Acronym extends Concept{
 */
 
     public Boolean remove(){
+        getApplicationDataset().cascadeWorkConcept(this);
         getApplicationDataset().cascadeConceptWorkConcept(this);
+        getApplicationDataset().cascadeMissingWorkConcept(this);
         return getApplicationDataset().removeAcronym(this) && getApplicationDataset().removeConcept(this) && getApplicationDataset().removeApplicationObject(this);
     }
 
@@ -191,7 +200,7 @@ public  class Acronym extends Concept{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getCaseSensitive()+ " " +getConceptType().toColumnString()+ " " +getLabel()+ " " +getNrOccurrences()+ " " +getRegExpr()+ " " +getRevision()+ " " +getDescription();
+        return ""+ " " +getId()+ " " +getName()+ " " +getCaseSensitive()+ " " +getConceptType().toColumnString()+ " " +getLabel()+ " " +getNrOccurrences()+ " " +getRegExpr()+ " " +getRevision()+ " " +getShortName()+ " " +getWeight()+ " " +getDescription();
     }
 
 /**
@@ -221,6 +230,8 @@ public  class Acronym extends Concept{
             " nrOccurrences=\""+toXMLNrOccurrences()+"\""+
             " regExpr=\""+toXMLRegExpr()+"\""+
             " revision=\""+toXMLRevision()+"\""+
+            " shortName=\""+toXMLShortName()+"\""+
+            " weight=\""+toXMLWeight()+"\""+
             " description=\""+toXMLDescription()+"\""+" />");
      }
 
@@ -241,11 +252,11 @@ public  class Acronym extends Concept{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Acronym</th>"+"<th>Name</th>"+"<th>ConceptType</th>"+"<th>Label</th>"+"<th>RegExpr</th>"+"<th>CaseSensitive</th>"+"<th>Revision</th>"+"<th>NrOccurrences</th>"+"<th>Description</th>"+"</tr>";
+        return "<tr><th>Acronym</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>ConceptType</th>"+"<th>Label</th>"+"<th>RegExpr</th>"+"<th>CaseSensitive</th>"+"<th>Revision</th>"+"<th>Weight</th>"+"<th>NrOccurrences</th>"+"<th>Description</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getConceptType().toColumnString()+"</td>"+ " " +"<td>"+getLabel()+"</td>"+ " " +"<td>"+getRegExpr()+"</td>"+ " " +"<td>"+getCaseSensitive()+"</td>"+ " " +"<td>"+getRevision()+"</td>"+ " " +"<td>"+getNrOccurrences()+"</td>"+ " " +"<td>"+getDescription()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getConceptType().toColumnString()+"</td>"+ " " +"<td>"+getLabel()+"</td>"+ " " +"<td>"+getRegExpr()+"</td>"+ " " +"<td>"+getCaseSensitive()+"</td>"+ " " +"<td>"+getRevision()+"</td>"+ " " +"<td>"+getWeight()+"</td>"+ " " +"<td>"+getNrOccurrences()+"</td>"+ " " +"<td>"+getDescription()+"</td>"+"</tr>";
     }
 
 /**
@@ -386,6 +397,12 @@ public  class Acronym extends Concept{
       if(!this.getRevision().equals(b.getRevision())){
          System.out.println("Revision");
         }
+      if(!this.getShortName().equals(b.getShortName())){
+         System.out.println("ShortName");
+        }
+      if(!this.getWeight().equals(b.getWeight())){
+         System.out.println("Weight");
+        }
         return  this.getCaseSensitive().equals(b.getCaseSensitive()) &&
           this.getConceptType().applicationSame(b.getConceptType()) &&
           this.getDescription().equals(b.getDescription()) &&
@@ -393,7 +410,9 @@ public  class Acronym extends Concept{
           this.getName().equals(b.getName()) &&
           this.getNrOccurrences().equals(b.getNrOccurrences()) &&
           this.getRegExpr().equals(b.getRegExpr()) &&
-          this.getRevision().equals(b.getRevision());
+          this.getRevision().equals(b.getRevision()) &&
+          this.getShortName().equals(b.getShortName()) &&
+          this.getWeight().equals(b.getWeight());
     }
 
 /**

@@ -80,7 +80,11 @@ public class ConceptWorkHash {
                 if (obj.has("revision")){
                     revision = obj.getInt("revision");
                 }
-                if (concept != null && work != null && revision >= concept.getRevision()){
+                if (concept != null &&
+                        work != null &&
+                        work.getLocalCopy() != null &&
+                        !work.getLocalCopy().equals("") &&
+                        revision >= concept.getRevision()){
                     ConceptWork cw = new ConceptWork(base);
                     cw.setConcept(concept);
                     cw.setWork(work);

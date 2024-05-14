@@ -236,6 +236,25 @@ public OpenAccessType getOpenAccessType(String attributeName,
         return res;
     }
 
+    public AuthorDouble getAuthorDouble(String attributeName,
+                               Attributes attributes) {
+        return (AuthorDouble) find(getId(attributeName,attributes));
+    }
+
+    public List<AuthorDouble> getAuthorDoubleCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<AuthorDouble> res = new ArrayList<AuthorDouble>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((AuthorDouble) find(id));
+            }
+        }
+        return res;
+    }
+
     public Authorship getAuthorship(String attributeName,
                                Attributes attributes) {
         return (Authorship) find(getId(attributeName,attributes));
@@ -997,6 +1016,8 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getInteger("nrOccurrences",attributes,0),
                         getString("regExpr",attributes,""),
                         getInteger("revision",attributes,0),
+                        getString("shortName",attributes,""),
+                        getDouble("weight",attributes,0.0),
                         getString("description",attributes,"")
                         ));
             } else if (qname.equals("affiliation")) {
@@ -1042,6 +1063,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
                         getString("codeAvail",attributes,""),
+                        null,
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
@@ -1052,6 +1074,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("issn",attributes,""),
                         getString("key",attributes,""),
+                        getString("language",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
                         getInteger("nr",attributes,0),
@@ -1075,6 +1098,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getDouble("relevanceTitle",attributes,0.0),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
+                        getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
                         getString("title",attributes,""),
@@ -1102,6 +1126,18 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("orcid",attributes,""),
                         getString("shortName",attributes,"")
                         ));
+            } else if (qname.equals("authorDouble")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new AuthorDouble(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        null,
+                        null,
+                        getString("reason",attributes,""),
+                        null,
+                        null
+                        ));
             } else if (qname.equals("authorship")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1127,6 +1163,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
                         getString("codeAvail",attributes,""),
+                        null,
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
@@ -1137,6 +1174,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("issn",attributes,""),
                         getString("key",attributes,""),
+                        getString("language",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
                         getInteger("nr",attributes,0),
@@ -1160,6 +1198,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getDouble("relevanceTitle",attributes,0.0),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
+                        getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
                         getString("title",attributes,""),
@@ -1238,7 +1277,9 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("label",attributes,""),
                         getInteger("nrOccurrences",attributes,0),
                         getString("regExpr",attributes,""),
-                        getInteger("revision",attributes,0)
+                        getInteger("revision",attributes,0),
+                        getString("shortName",attributes,""),
+                        getDouble("weight",attributes,0.0)
                         ));
             } else if (qname.equals("conceptType")) {
                 assert (base != null);
@@ -1301,6 +1342,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
                         getString("codeAvail",attributes,""),
+                        null,
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
@@ -1311,6 +1353,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("issn",attributes,""),
                         getString("key",attributes,""),
+                        getString("language",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
                         getInteger("nr",attributes,0),
@@ -1334,6 +1377,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getDouble("relevanceTitle",attributes,0.0),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
+                        getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
                         getString("title",attributes,""),
@@ -1357,6 +1401,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
                         getString("codeAvail",attributes,""),
+                        null,
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
@@ -1367,6 +1412,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("issn",attributes,""),
                         getString("key",attributes,""),
+                        getString("language",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
                         getInteger("nr",attributes,0),
@@ -1390,6 +1436,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getDouble("relevanceTitle",attributes,0.0),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
+                        getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
                         getString("title",attributes,""),
@@ -1467,6 +1514,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("abstractText",attributes,""),
                         getString("author",attributes,""),
                         getString("chapter",attributes,""),
+                        null,
                         getDouble("conceptWeight",attributes,0.0),
                         getInteger("crossrefCitations",attributes,0),
                         getInteger("crossrefReferences",attributes,0),
@@ -1512,6 +1560,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
                         getString("codeAvail",attributes,""),
+                        null,
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
@@ -1522,6 +1571,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("issn",attributes,""),
                         getString("key",attributes,""),
+                        getString("language",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
                         getInteger("nr",attributes,0),
@@ -1545,6 +1595,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getDouble("relevanceTitle",attributes,0.0),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
+                        getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
                         getString("title",attributes,""),
@@ -1568,6 +1619,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
                         getString("codeAvail",attributes,""),
+                        null,
                         getString("constraints",attributes,""),
                         getString("cpSystem",attributes,""),
                         getInteger("crossrefCitations",attributes,0),
@@ -1578,6 +1630,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("issn",attributes,""),
                         getString("key",attributes,""),
+                        getString("language",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
                         getInteger("nr",attributes,0),
@@ -1601,6 +1654,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getDouble("relevanceTitle",attributes,0.0),
                         getInteger("scopusCitations",attributes,0),
                         getBoolean("scopusStatus",attributes,false),
+                        getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
                         getString("title",attributes,""),
@@ -1811,6 +1865,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 int id = getId("id", attributes);
                 Article item = (Article) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setJournal(getJournal("journal",attributes));
@@ -1818,6 +1873,14 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 Author item = (Author) find(id);
+            } else if (qname.equals("authorDouble")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                AuthorDouble item = (AuthorDouble) find(id);
+                 item.setAuthor1(getAuthor("author1",attributes));
+                 item.setAuthor2(getAuthor("author2",attributes));
+                 item.setWork1(getWorkCollectionFromIds("work1",attributes));
+                 item.setWork2(getWorkCollectionFromIds("work2",attributes));
             } else if (qname.equals("authorship")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1830,6 +1893,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 int id = getId("id", attributes);
                 Book item = (Book) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
             } else if (qname.equals("citation")) {
@@ -1894,6 +1958,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 int id = getId("id", attributes);
                 InBook item = (InBook) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
             } else if (qname.equals("inCollection")) {
@@ -1901,6 +1966,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 int id = getId("id", attributes);
                 InCollection item = (InCollection) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setCollection(getCollection("collection",attributes));
@@ -1929,6 +1995,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 MissingWork item = (MissingWork) find(id);
+                 item.setConcept(getConceptCollectionFromIds("concept",attributes));
             } else if (qname.equals("orphan")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1938,6 +2005,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 int id = getId("id", attributes);
                 Paper item = (Paper) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setProceedings(getProceedings("proceedings",attributes));
@@ -1946,6 +2014,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 int id = getId("id", attributes);
                 PhDThesis item = (PhDThesis) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setSchool(getSchool("school",attributes));

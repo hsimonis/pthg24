@@ -1,6 +1,7 @@
 package org.insightcentre.pthg24.analysis;
 
 import org.insightcentre.pthg24.datamodel.Scenario;
+import org.insightcentre.pthg24.datamodel.Work;
 
 public abstract class AbstractList {
     Scenario base;
@@ -25,6 +26,9 @@ public abstract class AbstractList {
         return specials(t);
     }
 
+    public String showRelevances(Work w){
+        return String.format("%5.2f %5.2f %5.2f",w.getRelevanceTitle(),w.getRelevanceAbstract(),w.getRelevanceBody());
+    }
 
     private String alphaSafe(String s){
         return s.replaceAll("&"," and ").

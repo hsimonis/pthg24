@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 08:06:14 on 2024-05-09-->
+<!--Generated at 19:13:04 on 2024-05-13-->
 
 
 <Tab text="Concept" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.ConceptController">
@@ -19,11 +19,13 @@
          <TableView fx:id="table" editable="true">
             <columns>
                <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
+               <TableColumn fx:id="shortName" styleClass="right-aligned" text="ShortName" />
                <TableColumn fx:id="conceptType" styleClass="right-aligned" text="ConceptType" />
                <TableColumn fx:id="label" styleClass="right-aligned" text="Label" />
                <TableColumn fx:id="regExpr" styleClass="right-aligned" text="RegExpr" />
                <TableColumn fx:id="caseSensitive" styleClass="right-aligned" text="CaseSensitive" />
                <TableColumn fx:id="revision" styleClass="right-aligned" text="Revision" />
+               <TableColumn fx:id="weight" styleClass="right-aligned" text="Weight" />
                <TableColumn fx:id="nrOccurrences" styleClass="right-aligned" text="NrOccurrences" />
             </columns>
          </TableView>

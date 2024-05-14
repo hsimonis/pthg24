@@ -12,6 +12,7 @@ import java.lang.String;
 import java.lang.SuppressWarnings;
 import java.lang.reflect.Field;
 import javafx.beans.property.Property;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -27,7 +28,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 
 /**
- * Generated at 08:06:14 on 2024-05-09 */
+ * Generated at 19:13:04 on 2024-05-13 */
 public class MissingWorkController extends Table3Controller {
 	@FXML
 	private TableView<MissingWork> table;
@@ -112,6 +113,9 @@ public class MissingWorkController extends Table3Controller {
 
 	@FXML
 	private TableColumn<MissingWork, Boolean> isSelected;
+
+	@FXML
+	private TableColumn<MissingWork, String> concept;
 
 	private GeneratedJfxApp mainApp;
 
@@ -237,6 +241,8 @@ public class MissingWorkController extends Table3Controller {
 		choices.add("isSelected");
 		isSelected.setCellValueFactory(new IsSelectedCallback());
 		isSelected.setCellFactory(CheckBoxTableCell.forTableColumn(isSelected));
+		choices.add("concept");
+		concept.setCellValueFactory(cellData -> new SimpleStringProperty(convert(cellData.getValue().getConcept())));
 		initialize(choices);
 	}
 

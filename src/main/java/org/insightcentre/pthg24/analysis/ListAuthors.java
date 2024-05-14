@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
-import static org.insightcentre.pthg24.analysis.AnalysisByConcept.citation;
+import static org.insightcentre.pthg24.analysis.ListByConcept.citation;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListAuthors {
@@ -18,14 +18,15 @@ public class ListAuthors {
         String fullName= exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullName);
+            List<Author> authors = sortedAuthors(base);
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{p{4cm}rrp{18cm}}\n");
-            out.printf("\\rowcolor{white}\\caption{Co-Authors of Articles/Papers}\\\\ \\toprule\n");
+            out.printf("\\rowcolor{white}\\caption{Co-Authors of Articles/Papers (Total %s Names)}\\\\ \\toprule\n",authors.size());
             out.printf("\\rowcolor{white}Author & \\shortstack{Nr\\\\Works} & \\shortstack{Nr\\\\Cites} & Entries \\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
-            for(Author a:sortedAuthors(base)){
+            for(Author a:authors){
                 out.printf("%s\\rowlabel{auth:%s}%s & ",
                         index(a),
                         a.getKey(),safe(a.getName()));
