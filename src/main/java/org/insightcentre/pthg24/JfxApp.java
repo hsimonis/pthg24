@@ -255,9 +255,10 @@ public class JfxApp extends GeneratedJfxApp {
 
 
                 new CreateSourceGroups(base,type);
-                new OrphanFiles(base,worksDir,".pdf",true);
-                new OrphanFiles(base,crossrefDir,".json",true);
-                new OrphanFiles(base,scopusDir,".xml",true);
+                // only set this to true if you want to remove all currently unused files
+                new OrphanFiles(base,worksDir,".pdf",false);
+                new OrphanFiles(base,crossrefDir,".json",false);
+                new OrphanFiles(base,scopusDir,".xml",false);
                 new CreateCollabWorks(base);
 
                 new PublicationReport(base,reportDir).
