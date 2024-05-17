@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 19:13:04 on 2024-05-13 */
+ * Generated at 18:03:54 on 2024-05-16 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -738,6 +738,33 @@ public class PieChartController extends ChartController {
 		attributeNames.add("work1");
 		attributeNames.add("work2");
 		choicesMap.put("AuthorDouble", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("shortName");
+		attributeNames.add("nr");
+		attributeNames.add("key");
+		attributeNames.add("workType");
+		attributeNames.add("editor");
+		attributeNames.add("author");
+		attributeNames.add("authors");
+		attributeNames.add("workCount");
+		attributeNames.add("title");
+		attributeNames.add("source");
+		attributeNames.add("url");
+		attributeNames.add("doi");
+		attributeNames.add("year");
+		attributeNames.add("relevance");
+		attributeNames.add("isFound");
+		attributeNames.add("isSelected");
+		attributeNames.add("concept");
+		attributeNames.add("keywords");
+		attributeNames.add("abstractText");
+		attributeNames.add("volume");
+		attributeNames.add("issue");
+		attributeNames.add("page");
+		attributeNames.add("chapter");
+		attributeNames.add("publisher");
+		choicesMap.put("OtherWork", attributeNames);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -887,6 +914,9 @@ public class PieChartController extends ChartController {
 			}
 			else if (className.equals("AuthorDouble")) {
 				objectList = mainApp.getAuthorDoubleData();
+			}
+			else if (className.equals("OtherWork")) {
+				objectList = mainApp.getOtherWorkData();
 			}
 			if (objectList != null) {
 				Map<String, Integer> countMap = new HashMap<String, Integer>();

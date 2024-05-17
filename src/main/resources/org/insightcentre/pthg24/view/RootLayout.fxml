@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<!--Generated at 19:13:04 on 2024-05-13-->
+<!--Generated at 18:03:54 on 2024-05-16-->
 
 
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.RootController">
@@ -65,48 +65,90 @@
             </Menu>
             <Menu text="_Window">
                <items>
-                  <MenuItem id="conceptTypePage" onAction="#handle" text="ConceptType" />
-                  <MenuItem id="conceptPage" onAction="#handle" text="Concept" />
-                  <MenuItem id="acronymPage" onAction="#handle" text="Acronym" />
-                  <MenuItem id="authorPage" onAction="#handle" text="Author" />
-                  <MenuItem id="workPage" accelerator="Shortcut+W" onAction="#handle" text="Work" />
-                  <MenuItem id="paperPage" onAction="#handle" text="Paper" />
-                  <MenuItem id="articlePage" onAction="#handle" text="Article" />
-                  <MenuItem id="phDThesisPage" onAction="#handle" text="PhDThesis" />
-                  <MenuItem id="inCollectionPage" onAction="#handle" text="InCollection" />
-                  <MenuItem id="inBookPage" onAction="#handle" text="InBook" />
-                  <MenuItem id="bookPage" accelerator="Shortcut+B" onAction="#handle" text="Book" />
-                  <MenuItem id="authorshipPage" onAction="#handle" text="Authorship" />
-                  <MenuItem id="affiliationPage" onAction="#handle" text="Affiliation" />
-                  <MenuItem id="proceedingsPage" onAction="#handle" text="Proceedings" />
-                  <MenuItem id="conferenceSeriesPage" onAction="#handle" text="ConferenceSeries" />
-                  <MenuItem id="journalPage" accelerator="Shortcut+J" onAction="#handle" text="Journal" />
-                  <MenuItem id="journalAliasPage" onAction="#handle" text="JournalAlias" />
-                  <MenuItem id="schoolPage" onAction="#handle" text="School" />
-                  <MenuItem id="collectionPage" onAction="#handle" text="Collection" />
-                  <MenuItem id="conceptWorkPage" onAction="#handle" text="ConceptWork" />
-                  <MenuItem id="citationPage" onAction="#handle" text="Citation" />
-                  <MenuItem id="referencePage" accelerator="Shortcut+R" onAction="#handle" text="Reference" />
-                  <MenuItem id="missingCitingWorkPage" onAction="#handle" text="MissingCitingWork" />
-                  <MenuItem id="missingCitedWorkPage" onAction="#handle" text="MissingCitedWork" />
-                  <MenuItem id="missingWorkPage" onAction="#handle" text="MissingWork" />
-                  <MenuItem id="coauthorPage" onAction="#handle" text="Coauthor" />
-                  <MenuItem id="similarityPage" onAction="#handle" text="Similarity" />
-                  <MenuItem id="crossReferencePage" onAction="#handle" text="CrossReference" />
-                  <MenuItem id="uncategorizedReferencePage" accelerator="Shortcut+U" onAction="#handle" text="UncategorizedReference" />
-                  <MenuItem id="doiReferencePage" onAction="#handle" text="DoiReference" />
-                  <MenuItem id="missingCrossPage" onAction="#handle" text="MissingCross" />
-                  <MenuItem id="sourceGroupPage" onAction="#handle" text="SourceGroup" />
-                  <MenuItem id="referenceFlowPage" onAction="#handle" text="ReferenceFlow" />
-                  <MenuItem id="scopusAffiliationPage" onAction="#handle" text="ScopusAffiliation" />
-                  <MenuItem id="workAffiliationPage" onAction="#handle" text="WorkAffiliation" />
-                  <MenuItem id="scopusCityPage" onAction="#handle" text="ScopusCity" />
-                  <MenuItem id="scopusCountryPage" onAction="#handle" text="ScopusCountry" />
-                  <MenuItem id="orphanPage" onAction="#handle" text="Orphan" />
-                  <MenuItem id="collabWorkPage" onAction="#handle" text="CollabWork" />
-                  <MenuItem id="collabCountPage" onAction="#handle" text="CollabCount" />
-                  <MenuItem id="translatorPage" onAction="#handle" text="Translator" />
-                  <MenuItem id="authorDoublePage" onAction="#handle" text="AuthorDouble" />
+                  <Menu text="_Concept">
+                     <items>
+                        <MenuItem id="conceptTypePage" onAction="#handle" text="ConceptType" />
+                        <MenuItem id="conceptPage" onAction="#handle" text="Concept" />
+                        <MenuItem id="acronymPage" onAction="#handle" text="Acronym" />
+                        <SeparatorMenuItem />
+                        <MenuItem id="conceptWorkPage" onAction="#handle" text="ConceptWork" />
+                     </items>
+                  </Menu>
+                  <Menu text="_Work">
+                     <items>
+                        <MenuItem id="workPage" accelerator="Shortcut+W" onAction="#handle" text="Work" />
+                        <MenuItem id="articlePage" onAction="#handle" text="Article" />
+                        <MenuItem id="paperPage" onAction="#handle" text="Paper" />
+                        <MenuItem id="phDThesisPage" onAction="#handle" text="PhDThesis" />
+                        <MenuItem id="inCollectionPage" onAction="#handle" text="InCollection" />
+                        <MenuItem id="inBookPage" onAction="#handle" text="InBook" />
+                        <MenuItem id="bookPage" accelerator="Shortcut+B" onAction="#handle" text="Book" />
+                        <SeparatorMenuItem />
+                        <MenuItem id="similarityPage" onAction="#handle" text="Similarity" />
+                     </items>
+                  </Menu>
+                  <Menu text="_Author">
+                     <items>
+                        <MenuItem id="authorPage" onAction="#handle" text="Author" />
+                        <MenuItem id="authorshipPage" onAction="#handle" text="Authorship" />
+                        <MenuItem id="affiliationPage" onAction="#handle" text="Affiliation" />
+                        <SeparatorMenuItem />
+                        <MenuItem id="coauthorPage" onAction="#handle" text="Coauthor" />
+                        <MenuItem id="authorDoublePage" onAction="#handle" text="AuthorDouble" />
+                     </items>
+                  </Menu>
+                  <Menu text="_Source">
+                     <items>
+                        <MenuItem id="proceedingsPage" onAction="#handle" text="Proceedings" />
+                        <MenuItem id="conferenceSeriesPage" onAction="#handle" text="ConferenceSeries" />
+                        <MenuItem id="journalPage" accelerator="Shortcut+J" onAction="#handle" text="Journal" />
+                        <MenuItem id="journalAliasPage" onAction="#handle" text="JournalAlias" />
+                        <MenuItem id="schoolPage" onAction="#handle" text="School" />
+                        <MenuItem id="collectionPage" onAction="#handle" text="Collection" />
+                     </items>
+                  </Menu>
+                  <Menu text="_OpenCitations">
+                     <items>
+                        <MenuItem id="citationPage" onAction="#handle" text="Citation" />
+                        <MenuItem id="referencePage" accelerator="Shortcut+R" onAction="#handle" text="Reference" />
+                        <MenuItem id="missingCitingWorkPage" onAction="#handle" text="MissingCitingWork" />
+                        <MenuItem id="missingCitedWorkPage" onAction="#handle" text="MissingCitedWork" />
+                     </items>
+                  </Menu>
+                  <Menu text="_Crossref">
+                     <items>
+                        <MenuItem id="crossReferencePage" onAction="#handle" text="CrossReference" />
+                        <MenuItem id="uncategorizedReferencePage" accelerator="Shortcut+U" onAction="#handle" text="UncategorizedReference" />
+                        <MenuItem id="doiReferencePage" onAction="#handle" text="DoiReference" />
+                        <SeparatorMenuItem />
+                        <MenuItem id="missingCrossPage" onAction="#handle" text="MissingCross" />
+                     </items>
+                  </Menu>
+                  <Menu text="_Scopus">
+                     <items>
+                        <MenuItem id="scopusAffiliationPage" onAction="#handle" text="ScopusAffiliation" />
+                        <MenuItem id="scopusCityPage" onAction="#handle" text="ScopusCity" />
+                        <MenuItem id="scopusCountryPage" onAction="#handle" text="ScopusCountry" />
+                        <SeparatorMenuItem />
+                        <MenuItem id="workAffiliationPage" onAction="#handle" text="WorkAffiliation" />
+                        <MenuItem id="collabWorkPage" onAction="#handle" text="CollabWork" />
+                        <MenuItem id="collabCountPage" onAction="#handle" text="CollabCount" />
+                     </items>
+                  </Menu>
+                  <Menu text="_MissingWork">
+                     <items>
+                        <MenuItem id="missingWorkPage" onAction="#handle" text="MissingWork" />
+                        <MenuItem id="otherWorkPage" onAction="#handle" text="OtherWork" />
+                        <MenuItem id="orphanPage" onAction="#handle" text="Orphan" />
+                        <MenuItem id="translatorPage" onAction="#handle" text="Translator" />
+                     </items>
+                  </Menu>
+                  <Menu text="_SourceGroups">
+                     <items>
+                        <MenuItem id="sourceGroupPage" onAction="#handle" text="SourceGroup" />
+                        <MenuItem id="referenceFlowPage" onAction="#handle" text="ReferenceFlow" />
+                     </items>
+                  </Menu>
                   <MenuItem id="scenarioPage" onAction="#handle" text="Scenario" />
                   <MenuItem id="GenericPieChart" onAction="#handle" text="Generic Pie Chart" />
                   <MenuItem id="GenericBarChart" onAction="#handle" text="Generic Bar Chart" />

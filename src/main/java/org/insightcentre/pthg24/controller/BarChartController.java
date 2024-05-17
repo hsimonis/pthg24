@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 19:13:04 on 2024-05-13 */
+ * Generated at 18:03:54 on 2024-05-16 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -320,6 +320,12 @@ public class BarChartController extends ChartController {
 		attributeNames.add("fraction");
 		choicesMap.put("CollabCount", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nr");
+		attributeNames.add("workCount");
+		attributeNames.add("year");
+		attributeNames.add("relevance");
+		choicesMap.put("OtherWork", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -469,6 +475,9 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("AuthorDouble")) {
 				objectList = mainApp.getAuthorDoubleData();
+			}
+			else if (className.equals("OtherWork")) {
+				objectList = mainApp.getOtherWorkData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

@@ -673,6 +673,25 @@ public OpenAccessType getOpenAccessType(String attributeName,
         return res;
     }
 
+    public OtherWork getOtherWork(String attributeName,
+                               Attributes attributes) {
+        return (OtherWork) find(getId(attributeName,attributes));
+    }
+
+    public List<OtherWork> getOtherWorkCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<OtherWork> res = new ArrayList<OtherWork>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((OtherWork) find(id));
+            }
+        }
+        return res;
+    }
+
     public Paper getPaper(String attributeName,
                                Attributes attributes) {
         return (Paper) find(getId(attributeName,attributes));
@@ -1547,6 +1566,37 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("name", attributes, "dummy"),
                         getString("fileName",attributes,"")
                         ));
+            } else if (qname.equals("otherWork")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new OtherWork(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getString("abstractText",attributes,""),
+                        getString("author",attributes,""),
+                        null,
+                        getString("chapter",attributes,""),
+                        null,
+                        getString("doi",attributes,""),
+                        getString("editor",attributes,""),
+                        getBoolean("isFound",attributes,false),
+                        getBoolean("isSelected",attributes,false),
+                        getString("issue",attributes,""),
+                        getString("key",attributes,""),
+                        getString("keywords",attributes,""),
+                        getInteger("nr",attributes,0),
+                        getString("page",attributes,""),
+                        getString("publisher",attributes,""),
+                        getDouble("relevance",attributes,0.0),
+                        getString("shortName",attributes,""),
+                        getString("source",attributes,""),
+                        getString("title",attributes,""),
+                        getString("url",attributes,""),
+                        getString("volume",attributes,""),
+                        getInteger("workCount",attributes,0),
+                        null,
+                        getInteger("year",attributes,0)
+                        ));
             } else if (qname.equals("paper")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2000,6 +2050,13 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 Orphan item = (Orphan) find(id);
+            } else if (qname.equals("otherWork")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                OtherWork item = (OtherWork) find(id);
+                 item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setConcept(getConceptCollectionFromIds("concept",attributes));
+                 item.setWorkType(getWorkType("workType",attributes));
             } else if (qname.equals("paper")) {
                 assert (base != null);
                 int id = getId("id", attributes);

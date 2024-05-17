@@ -43,6 +43,13 @@ public class ComputeRelevance {
                 mw.setIsSelected(true);
             }
         }
+        for(OtherWork ow:base.getListOtherWork()){
+            ow.setRelevance(relevance(type,ow,abstractRelevanceCutoff));
+            ow.setConcept(conceptList);
+            if (ow.getRelevance() >= 1.0){
+                ow.setIsSelected(true);
+            }
+        }
         for(Work w:base.getListWork()){
             w.setRelevanceTitle(relevance(type,w,w.getTitle(),abstractRelevanceCutoff ));
             w.setRelevanceAbstract(relevance(type,w,w.getTitle() + " " + w.getAbstractText(),abstractRelevanceCutoff));
@@ -70,6 +77,9 @@ public class ComputeRelevance {
                 ageWeight*age(mw)+
                 citationCountWeight*mw.getCrossrefCitations();
         return res;
+    }
+    public double relevance(String type,OtherWork ow,double abstractRelevanceCutoff){
+        return keywordWeight*keywords(type,ow.getTitle()+" "+ow.getAbstractText()+" "+ow.getKeywords(),abstractRelevanceCutoff);
     }
 
     private int knownAuthors(Work mw) {

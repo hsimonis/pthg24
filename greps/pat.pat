@@ -1,1 +1,1 @@
-zero.?day.?attack
+jihad

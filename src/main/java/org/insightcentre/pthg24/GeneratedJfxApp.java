@@ -50,6 +50,7 @@ import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.MissingCross;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Orphan;
+import org.insightcentre.pthg24.datamodel.OtherWork;
 import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.Proceedings;
@@ -69,7 +70,7 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 19:13:04 on 2024-05-13 */
+ * Generated at 18:03:53 on 2024-05-16 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -171,55 +172,58 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<AuthorDouble> authorDoubleData = FXCollections.observableArrayList();
 
+	private ObservableList<OtherWork> otherWorkData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
 		fs = minimalDataset();
 		reset();
+		tableViews.put("Scenario", "Scenario");
+		tableViews.put("Scenario Differences", "ApplicationDifference");
+		tableViews.put("Warnings", "ApplicationWarning");
 		tableViews.put("ConceptType", "ConceptType");
 		tableViews.put("Concept", "Concept");
 		tableViews.put("Acronym", "Acronym");
-		tableViews.put("Author", "Author");
+		tableViews.put("ConceptWork", "ConceptWork");
 		tableViews.put("Work", "Work");
-		tableViews.put("Paper", "Paper");
 		tableViews.put("Article", "Article");
+		tableViews.put("Paper", "Paper");
 		tableViews.put("PhDThesis", "PhDThesis");
 		tableViews.put("InCollection", "InCollection");
 		tableViews.put("InBook", "InBook");
 		tableViews.put("Book", "Book");
+		tableViews.put("Similarity", "Similarity");
+		tableViews.put("Author", "Author");
 		tableViews.put("Authorship", "Authorship");
 		tableViews.put("Affiliation", "Affiliation");
+		tableViews.put("Coauthor", "Coauthor");
+		tableViews.put("AuthorDouble", "AuthorDouble");
 		tableViews.put("Proceedings", "Proceedings");
 		tableViews.put("ConferenceSeries", "ConferenceSeries");
 		tableViews.put("Journal", "Journal");
 		tableViews.put("JournalAlias", "JournalAlias");
 		tableViews.put("School", "School");
 		tableViews.put("Collection", "Collection");
-		tableViews.put("ConceptWork", "ConceptWork");
 		tableViews.put("Citation", "Citation");
 		tableViews.put("Reference", "Reference");
 		tableViews.put("MissingCitingWork", "MissingCitingWork");
 		tableViews.put("MissingCitedWork", "MissingCitedWork");
-		tableViews.put("MissingWork", "MissingWork");
-		tableViews.put("Coauthor", "Coauthor");
-		tableViews.put("Similarity", "Similarity");
 		tableViews.put("CrossReference", "CrossReference");
 		tableViews.put("UncategorizedReference", "UncategorizedReference");
 		tableViews.put("DoiReference", "DoiReference");
 		tableViews.put("MissingCross", "MissingCross");
-		tableViews.put("SourceGroup", "SourceGroup");
-		tableViews.put("ReferenceFlow", "ReferenceFlow");
 		tableViews.put("ScopusAffiliation", "ScopusAffiliation");
-		tableViews.put("WorkAffiliation", "WorkAffiliation");
 		tableViews.put("ScopusCity", "ScopusCity");
 		tableViews.put("ScopusCountry", "ScopusCountry");
-		tableViews.put("Orphan", "Orphan");
+		tableViews.put("WorkAffiliation", "WorkAffiliation");
 		tableViews.put("CollabWork", "CollabWork");
 		tableViews.put("CollabCount", "CollabCount");
+		tableViews.put("MissingWork", "MissingWork");
+		tableViews.put("OtherWork", "OtherWork");
+		tableViews.put("Orphan", "Orphan");
 		tableViews.put("Translator", "Translator");
-		tableViews.put("AuthorDouble", "AuthorDouble");
-		tableViews.put("Scenario", "Scenario");
-		tableViews.put("Scenario Differences", "ApplicationDifference");
-		tableViews.put("Warnings", "ApplicationWarning");
+		tableViews.put("SourceGroup", "SourceGroup");
+		tableViews.put("ReferenceFlow", "ReferenceFlow");
 	}
 
 	public static void main(String[] args) {
@@ -379,6 +383,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		translatorData.addAll(base.getListTranslator());
 		authorDoubleData.clear();
 		authorDoubleData.addAll(base.getListAuthorDouble());
+		otherWorkData.clear();
+		otherWorkData.addAll(base.getListOtherWork());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -562,5 +568,9 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<AuthorDouble> getAuthorDoubleData() {
 		return authorDoubleData;
+	}
+
+	public ObservableList<OtherWork> getOtherWorkData() {
+		return otherWorkData;
 	}
 }

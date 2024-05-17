@@ -1,0 +1,26 @@
+ class OtherWork {
+String abstractText
+String author
+List<Author> authors
+String chapter
+List<Concept> concept
+String doi
+String editor
+Boolean isFound
+Boolean isSelected
+String issue
+String key
+String keywords
+Integer nr
+String page
+String publisher
+Double relevance
+String shortName
+String source
+String title
+String url
+String volume
+Integer workCount
+WorkType workType
+Integer year
+}

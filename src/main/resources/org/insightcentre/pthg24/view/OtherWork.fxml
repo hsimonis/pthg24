@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+
+<!--Generated at 18:03:54 on 2024-05-16-->
+
+
+<Tab text="OtherWork" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.OtherWorkController">
+   <BorderPane>
+      <center>
+         <TableView fx:id="table" editable="true">
+            <columns>
+               <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
+               <TableColumn fx:id="shortName" styleClass="right-aligned" text="ShortName" />
+               <TableColumn fx:id="nr" styleClass="right-aligned" text="Nr" />
+               <TableColumn fx:id="key" styleClass="right-aligned" text="Key" />
+               <TableColumn fx:id="workType" styleClass="right-aligned" text="WorkType" />
+               <TableColumn fx:id="editor" styleClass="right-aligned" text="Editor" />
+               <TableColumn fx:id="author" styleClass="right-aligned" text="Author" />
+               <TableColumn fx:id="authors" styleClass="right-aligned" text="Authors" />
+               <TableColumn fx:id="workCount" styleClass="right-aligned" text="WorkCount" />
+               <TableColumn fx:id="title" styleClass="right-aligned" text="Title" />
+               <TableColumn fx:id="source" styleClass="right-aligned" text="Source" />
+               <TableColumn fx:id="url" styleClass="right-aligned" text="Url" />
+               <TableColumn fx:id="doi" styleClass="right-aligned" text="Doi" />
+               <TableColumn fx:id="year" styleClass="right-aligned" text="Year" />
+               <TableColumn fx:id="relevance" styleClass="right-aligned" text="Relevance" />
+               <TableColumn fx:id="isFound" styleClass="right-aligned" text="IsFound" />
+               <TableColumn fx:id="isSelected" styleClass="right-aligned" text="IsSelected" />
+               <TableColumn fx:id="concept" styleClass="right-aligned" text="Concept" />
+               <TableColumn fx:id="keywords" styleClass="right-aligned" text="Keywords" />
+               <TableColumn fx:id="abstractText" styleClass="right-aligned" text="AbstractText" />
+               <TableColumn fx:id="volume" styleClass="right-aligned" text="Volume" />
+               <TableColumn fx:id="issue" styleClass="right-aligned" text="Issue" />
+               <TableColumn fx:id="page" styleClass="right-aligned" text="Page" />
+               <TableColumn fx:id="chapter" styleClass="right-aligned" text="Chapter" />
+               <TableColumn fx:id="publisher" styleClass="right-aligned" text="Publisher" />
+            </columns>
+         </TableView>
+      </center>
+      <bottom>
+         <TitledPane fx:id="filterPane" expanded="false" text="Filter">
+            <content>
+               <HBox alignment="center" spacing="5.0">
+                  <ChoiceBox fx:id="filterChoiceBox" />
+                  <ChoiceBox fx:id="filterComparisonBox" />
+                  <TextField fx:id="filterTextField" />
+               </HBox>
+            </content>
+         </TitledPane>
+      </bottom>
+   </BorderPane>
+</Tab>

@@ -47,6 +47,7 @@ import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.AuthorDouble;
+import org.insightcentre.pthg24.datamodel.OtherWork;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -213,6 +214,7 @@ public  class Concept extends ApplicationObject implements AppearInCollection{
         getApplicationDataset().cascadeWorkConcept(this);
         getApplicationDataset().cascadeConceptWorkConcept(this);
         getApplicationDataset().cascadeMissingWorkConcept(this);
+        getApplicationDataset().cascadeOtherWorkConcept(this);
         return getApplicationDataset().removeConcept(this) && getApplicationDataset().removeApplicationObject(this);
     }
 

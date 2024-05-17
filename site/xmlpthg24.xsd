@@ -31,6 +31,7 @@
 				<xs:element ref="missingCross" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="orphan" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="otherWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="paper" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="phDThesis" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="proceedings" minOccurs="0" maxOccurs="unbounded"/>
@@ -590,6 +591,37 @@
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="fileName" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="otherWork">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="abstractText" use="required" type="xs:string"/>
+			<xs:attribute name="author" use="required" type="xs:string"/>
+			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="chapter" use="required" type="xs:string"/>
+			<xs:attribute name="concept" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="doi" use="required" type="xs:string"/>
+			<xs:attribute name="editor" use="required" type="xs:string"/>
+			<xs:attribute name="isFound" use="required" type="xs:boolean"/>
+			<xs:attribute name="isSelected" use="required" type="xs:boolean"/>
+			<xs:attribute name="issue" use="required" type="xs:string"/>
+			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="keywords" use="required" type="xs:string"/>
+			<xs:attribute name="nr" use="required" type="xs:integer"/>
+			<xs:attribute name="page" use="required" type="xs:string"/>
+			<xs:attribute name="publisher" use="required" type="xs:string"/>
+			<xs:attribute name="relevance" use="required" type="xs:double"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
+			<xs:attribute name="source" use="required" type="xs:string"/>
+			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="url" use="required" type="xs:string"/>
+			<xs:attribute name="volume" use="required" type="xs:string"/>
+			<xs:attribute name="workCount" use="required" type="xs:integer"/>
+			<xs:attribute name="workType" use="required" type="xs:string"/>
+			<xs:attribute name="year" use="required" type="xs:integer"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="paper">

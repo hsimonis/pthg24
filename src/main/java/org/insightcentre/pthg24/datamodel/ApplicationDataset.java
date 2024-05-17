@@ -47,6 +47,7 @@ import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.AuthorDouble;
+import org.insightcentre.pthg24.datamodel.OtherWork;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -430,6 +431,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<AuthorDouble> listAuthorDouble = new ArrayList<AuthorDouble>();
 
 /**
+ *  This lists holds all items of class OtherWork and its subclasses
+ *
+*/
+
+    List<OtherWork> listOtherWork = new ArrayList<OtherWork>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -580,6 +588,7 @@ public int compareTo(ApplicationDataset ds2){
                              "MissingCross",
                              "MissingWork",
                              "Orphan",
+                             "OtherWork",
                              "Paper",
                              "PhDThesis",
                              "Proceedings",
@@ -694,6 +703,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListCollabCount();
         resetListTranslator();
         resetListAuthorDouble();
+        resetListOtherWork();
     }
 
 /**
@@ -2299,6 +2309,40 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class OtherWork
+ *
+*/
+
+    public Iterator<OtherWork> getIteratorOtherWork(){
+        return listOtherWork.iterator();
+    }
+
+/**
+ *  Getter for list of class OtherWork
+ *
+*/
+
+    public List<OtherWork> getListOtherWork(){
+        return listOtherWork;
+    }
+
+/**
+ *  reset the list of class OtherWork; use with care, does not call cascades
+ *
+*/
+
+    public void resetListOtherWork(){
+        listOtherWork = new ArrayList<OtherWork>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof OtherWork)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -3171,6 +3215,45 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(AuthorDouble b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Author; remove all dependent objects of class OtherWork which refer to item through their attribute authors
+ *
+*/
+
+    public void cascadeOtherWorkAuthors(Author item){
+        assert item != null;
+        List<OtherWork> toRemove = new ArrayList<OtherWork>();
+        for(OtherWork a:getListOtherWork()) {
+         if (a.getAuthors().contains(item)) {
+            a.getAuthors().remove(item);
+            if (a.getAuthors().isEmpty()) {
+               toRemove.add(a);
+            }
+         }
+        }
+        for(OtherWork b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Concept; remove all dependent objects of class OtherWork which refer to item through their attribute concept
+ *
+*/
+
+    public void cascadeOtherWorkConcept(Concept item){
+        assert item != null;
+        List<OtherWork> toRemove = new ArrayList<OtherWork>();
+        for(OtherWork a:getListOtherWork()) {
+         if (a.getConcept().contains(item)) {
+            a.getConcept().remove(item);
+         }
+        }
+        for(OtherWork b:toRemove) {
             b.remove();
         }
     }
@@ -4116,6 +4199,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class OtherWork
+ *
+*/
+
+    public void addOtherWork(OtherWork otherWork){
+        assert otherWork != null;
+        this.listOtherWork.add(otherWork);
+    }
+
+/**
+ *  remove an item from the list for class OtherWork
+ *
+*/
+
+    public Boolean removeOtherWork(OtherWork otherWork){
+        assert otherWork != null;
+        return this.listOtherWork.remove(otherWork);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -4203,6 +4306,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(Orphan x:getListOrphan()){
+            System.out.println(x);
+        }
+        for(OtherWork x:getListOtherWork()){
             System.out.println(x);
         }
         for(Paper x:getListPaper()){
@@ -4370,6 +4476,9 @@ public int compareTo(ApplicationDataset ds2){
         for(Orphan x:getListOrphan()){
             if (x.getClass().equals(Orphan.class)) x.toXML(out);
         }
+        for(OtherWork x:getListOtherWork()){
+            if (x.getClass().equals(OtherWork.class)) x.toXML(out);
+        }
         for(Paper x:getListPaper()){
             if (x.getClass().equals(Paper.class)) x.toXML(out);
         }
@@ -4534,6 +4643,7 @@ public int compareTo(ApplicationDataset ds2){
         compareMissingCross(this.getListMissingCross(),compare.getListMissingCross());
         compareMissingWork(this.getListMissingWork(),compare.getListMissingWork());
         compareOrphan(this.getListOrphan(),compare.getListOrphan());
+        compareOtherWork(this.getListOtherWork(),compare.getListOtherWork());
         comparePaper(this.getListPaper(),compare.getListPaper());
         comparePhDThesis(this.getListPhDThesis(),compare.getListPhDThesis());
         compareProceedings(this.getListProceedings(),compare.getListProceedings());
@@ -5200,6 +5310,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types OtherWork, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareOtherWork(List<OtherWork> aList,List<OtherWork> bList){
+        System.out.println("Comparing OtherWork");
+        for(OtherWork a:aList){
+            OtherWork b= OtherWork.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"OtherWork A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"OtherWork A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"OtherWork B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(OtherWork b: bList){
+            OtherWork a = OtherWork.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"OtherWork B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types Paper, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -5568,6 +5702,7 @@ public int compareTo(ApplicationDataset ds2){
         checkMissingCross(this.getListMissingCross());
         checkMissingWork(this.getListMissingWork());
         checkOrphan(this.getListOrphan());
+        checkOtherWork(this.getListOtherWork());
         checkPaper(this.getListPaper());
         checkPhDThesis(this.getListPhDThesis());
         checkProceedings(this.getListProceedings());
@@ -5884,6 +6019,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<OtherWork> dataset list of all items of type OtherWork
+*/
+
+    public void checkOtherWork(List<OtherWork> list){
+        for(OtherWork a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<Paper> dataset list of all items of type Paper
 */
 
@@ -6076,6 +6222,7 @@ public int compareTo(ApplicationDataset ds2){
         MissingCross.dummy(this);
         MissingWork.dummy(this);
         Orphan.dummy(this);
+        OtherWork.dummy(this);
         Paper.dummy(this);
         PhDThesis.dummy(this);
         Proceedings.dummy(this);

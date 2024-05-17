@@ -51,6 +51,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include MissingCross.uml
 !include MissingWork.uml
 !include Orphan.uml
+!include OtherWork.uml
 !include Paper.uml
 !include PhDThesis.uml
 !include Proceedings.uml
@@ -129,6 +130,8 @@ Author  *-- AuthorDouble : author1
 Author  *-- AuthorDouble : author2
 Work "1..*" *-- AuthorDouble : work1
 Work "1..*" *-- AuthorDouble : work2
+Author "1..*" *-- OtherWork : authors
+Concept "0..*" *-- OtherWork 
 header
 Datamodel of Application pthg24
 endheader

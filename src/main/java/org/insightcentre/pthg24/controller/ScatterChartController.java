@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 19:13:04 on 2024-05-13 */
+ * Generated at 18:03:54 on 2024-05-16 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -1036,6 +1036,40 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("author2");
 		filterNames.add("work1");
 		filterNames.add("work2");
+		filterNames.add("name");
+		filterNames.add("shortName");
+		attributeNames.add("nr");
+		filterNames.add("nr");
+		filterNames.add("key");
+		filterNames.add("workType");
+		filterNames.add("editor");
+		filterNames.add("author");
+		filterNames.add("authors");
+		attributeNames.add("workCount");
+		filterNames.add("workCount");
+		filterNames.add("title");
+		filterNames.add("source");
+		filterNames.add("url");
+		filterNames.add("doi");
+		attributeNames.add("year");
+		filterNames.add("year");
+		attributeNames.add("relevance");
+		filterNames.add("relevance");
+		filterNames.add("isFound");
+		filterNames.add("isSelected");
+		filterNames.add("concept");
+		filterNames.add("keywords");
+		filterNames.add("abstractText");
+		filterNames.add("volume");
+		filterNames.add("issue");
+		filterNames.add("page");
+		filterNames.add("chapter");
+		filterNames.add("publisher");
+		choicesMap.put("OtherWork", attributeNames);
+		filterMap.put("OtherWork", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -1193,6 +1227,9 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("AuthorDouble")) {
 				objectList = mainApp.getAuthorDoubleData();
+			}
+			else if (className.equals("OtherWork")) {
+				objectList = mainApp.getOtherWorkData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

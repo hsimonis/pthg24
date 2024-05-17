@@ -47,6 +47,7 @@ public class JfxApp extends GeneratedJfxApp {
                 String prefix = "cars/"; // the overall directory where data for this type is kept
                 String bibDir = prefix + "imports/"; // the directory where the bib file is placed
                 String bibFile = "cars.bib"; // the name of hte bib file to read
+                String otherFile = ""; // alternative bibliography for comparison
                 String authors = "Helmut Simonis"; // authors for this particular type
                 int coauthorLimit = 2; // how many works an author needs to have to be included in coauthor graph
                 int linkCountLimit = 10; // how many links are required to lookup a missing work by its DOI
@@ -83,6 +84,7 @@ public class JfxApp extends GeneratedJfxApp {
                                 prefix = "terrorism/";
                                 bibDir = prefix + "imports/";
                                 bibFile = "terrorism.bib";
+                                otherFile = "other.bib";
                                 authors = "B. O'Sullivan and H. Simonis";
                                 // only use relevance to rank works
                                 citingSurveyWeight = 0;
@@ -131,6 +133,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new ImportAlias(base,importDir,"alias.json");
                 new ImportConferenceSeries(base,importDir,"conferenceseries.json");
                 new ImportBib(base,bibDir,bibFile,worksDir);
+                new ImportOther(base,bibDir,otherFile);
                 new ImportBackground(base,importDir,"background.json");
                 new ImportExtra(base,importDir,"manual.csv");
                 new ImportBlocked(base,importDir,"blocked.json");
@@ -280,6 +283,8 @@ public class JfxApp extends GeneratedJfxApp {
                 new UnknownConferenceSeries(base,exportDir,"unknown.json");
 
                 new CheckInconsistentConcepts(base);
+                new FindOthers(base);
+                new ExtractOtherBib(base,dumpDir,"otherselected.bib");
 
 
                 return base;

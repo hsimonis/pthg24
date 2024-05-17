@@ -146,8 +146,10 @@ public class ImportBib {
             }
         } catch(IOException e){
             severe("Cannot read file "+fullName+", exception "+e.getMessage());
+            assert(false);
         } catch(ParseException e){
             severe("Parsing error "+e.getMessage());
+            assert(false);
         }
     }
 

@@ -147,9 +147,10 @@ public class ExtractSelectedBib {
         return t;
     }
 
-    // we cannot have non-ascii unicode characters in keys, bibtex library does not all this
-    private String keySafe(String key){
-        return key.replaceAll("[^\\x00-\\x7F]","").replace("*","-").replace("?","-");
+    // we cannot have non-ascii unicode characters in keys, bibtex library does not like all this
+    //??? the ' is not the standard single quote I think
+    public static String keySafe(String key){
+        return key.replaceAll("[^\\x00-\\x7F]","").replace("*","-").replace("?","-").replace("'","");
     }
 
     private Hashtable<String,String> createWorkHash(Scenario base){
