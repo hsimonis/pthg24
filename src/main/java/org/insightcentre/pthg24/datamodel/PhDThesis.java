@@ -135,7 +135,7 @@ public  class PhDThesis extends Work{
             Integer nrCitationsCovered,
             Integer nrConcepts,
             Integer nrEdges,
-            Integer nrLinks,
+            Integer nrHyperLinks,
             Integer nrPages,
             Integer nrReferences,
             Integer nrReferencesCovered,
@@ -190,7 +190,7 @@ public  class PhDThesis extends Work{
             nrCitationsCovered,
             nrConcepts,
             nrEdges,
-            nrLinks,
+            nrHyperLinks,
             nrPages,
             nrReferences,
             nrReferencesCovered,
@@ -249,7 +249,7 @@ public  class PhDThesis extends Work{
             other.nrCitationsCovered,
             other.nrConcepts,
             other.nrEdges,
-            other.nrLinks,
+            other.nrHyperLinks,
             other.nrPages,
             other.nrReferences,
             other.nrReferencesCovered,
@@ -341,7 +341,7 @@ public  class PhDThesis extends Work{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear()+ " " +getSchool().toColumnString();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear()+ " " +getSchool().toColumnString();
     }
 
 /**
@@ -391,7 +391,7 @@ public  class PhDThesis extends Work{
             " nrCitationsCovered=\""+toXMLNrCitationsCovered()+"\""+
             " nrConcepts=\""+toXMLNrConcepts()+"\""+
             " nrEdges=\""+toXMLNrEdges()+"\""+
-            " nrLinks=\""+toXMLNrLinks()+"\""+
+            " nrHyperLinks=\""+toXMLNrHyperLinks()+"\""+
             " nrPages=\""+toXMLNrPages()+"\""+
             " nrReferences=\""+toXMLNrReferences()+"\""+
             " nrReferencesCovered=\""+toXMLNrReferencesCovered()+"\""+
@@ -436,11 +436,11 @@ public  class PhDThesis extends Work{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>PhDThesis</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>Nr</th>"+"<th>NrEdges</th>"+"<th>Cluster</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>Issn</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>NrLinks</th>"+"<th>Background</th>"+"<th>SourceGroup</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>RelatedTo</th>"+"<th>OpenAccess</th>"+"<th>OpenAccessType</th>"+"<th>NrConcepts</th>"+"<th>NrCitations</th>"+"<th>NrReferences</th>"+"<th>CrossrefCitations</th>"+"<th>CrossrefReferences</th>"+"<th>WosCitations</th>"+"<th>WosReferences</th>"+"<th>ScopusCitations</th>"+"<th>NrCitationsCovered</th>"+"<th>NrReferencesCovered</th>"+"<th>PercentCitationsCovered</th>"+"<th>PercentReferencesCovered</th>"+"<th>MaxCitations</th>"+"<th>RangeCitations</th>"+"<th>DoiStatus</th>"+"<th>CrossrefStatus</th>"+"<th>ScopusStatus</th>"+"<th>WosStatus</th>"+"<th>RelevanceTitle</th>"+"<th>RelevanceAbstract</th>"+"<th>RelevanceBody</th>"+"<th>Language</th>"+"<th>AbstractText</th>"+"<th>Concept</th>"+"<th>School</th>"+"</tr>";
+        return "<tr><th>PhDThesis</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>Nr</th>"+"<th>NrEdges</th>"+"<th>Cluster</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>Issn</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>NrHyperLinks</th>"+"<th>Background</th>"+"<th>SourceGroup</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>RelatedTo</th>"+"<th>OpenAccess</th>"+"<th>OpenAccessType</th>"+"<th>NrConcepts</th>"+"<th>NrCitations</th>"+"<th>NrReferences</th>"+"<th>CrossrefCitations</th>"+"<th>CrossrefReferences</th>"+"<th>WosCitations</th>"+"<th>WosReferences</th>"+"<th>ScopusCitations</th>"+"<th>NrCitationsCovered</th>"+"<th>NrReferencesCovered</th>"+"<th>PercentCitationsCovered</th>"+"<th>PercentReferencesCovered</th>"+"<th>MaxCitations</th>"+"<th>RangeCitations</th>"+"<th>DoiStatus</th>"+"<th>CrossrefStatus</th>"+"<th>ScopusStatus</th>"+"<th>WosStatus</th>"+"<th>RelevanceTitle</th>"+"<th>RelevanceAbstract</th>"+"<th>RelevanceBody</th>"+"<th>Language</th>"+"<th>AbstractText</th>"+"<th>Concept</th>"+"<th>School</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getNr()+"</td>"+ " " +"<td>"+getNrEdges()+"</td>"+ " " +"<td>"+getCluster()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getIssn()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getNrLinks()+"</td>"+ " " +"<td>"+getBackground()+"</td>"+ " " +"<td>"+getSourceGroup().toColumnString()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getRelatedTo()+"</td>"+ " " +"<td>"+getOpenAccess()+"</td>"+ " " +"<td>"+getOpenAccessType()+"</td>"+ " " +"<td>"+getNrConcepts()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getWosCitations()+"</td>"+ " " +"<td>"+getWosReferences()+"</td>"+ " " +"<td>"+getScopusCitations()+"</td>"+ " " +"<td>"+getNrCitationsCovered()+"</td>"+ " " +"<td>"+getNrReferencesCovered()+"</td>"+ " " +"<td>"+getPercentCitationsCovered()+"</td>"+ " " +"<td>"+getPercentReferencesCovered()+"</td>"+ " " +"<td>"+getMaxCitations()+"</td>"+ " " +"<td>"+getRangeCitations()+"</td>"+ " " +"<td>"+getDoiStatus()+"</td>"+ " " +"<td>"+getCrossrefStatus()+"</td>"+ " " +"<td>"+getScopusStatus()+"</td>"+ " " +"<td>"+getWosStatus()+"</td>"+ " " +"<td>"+getRelevanceTitle()+"</td>"+ " " +"<td>"+getRelevanceAbstract()+"</td>"+ " " +"<td>"+getRelevanceBody()+"</td>"+ " " +"<td>"+getLanguage()+"</td>"+ " " +"<td>"+getAbstractText()+"</td>"+ " " +"<td>"+getConcept()+"</td>"+ " " +"<td>"+getSchool().toColumnString()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getNr()+"</td>"+ " " +"<td>"+getNrEdges()+"</td>"+ " " +"<td>"+getCluster()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getIssn()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getNrHyperLinks()+"</td>"+ " " +"<td>"+getBackground()+"</td>"+ " " +"<td>"+getSourceGroup().toColumnString()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getRelatedTo()+"</td>"+ " " +"<td>"+getOpenAccess()+"</td>"+ " " +"<td>"+getOpenAccessType()+"</td>"+ " " +"<td>"+getNrConcepts()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getWosCitations()+"</td>"+ " " +"<td>"+getWosReferences()+"</td>"+ " " +"<td>"+getScopusCitations()+"</td>"+ " " +"<td>"+getNrCitationsCovered()+"</td>"+ " " +"<td>"+getNrReferencesCovered()+"</td>"+ " " +"<td>"+getPercentCitationsCovered()+"</td>"+ " " +"<td>"+getPercentReferencesCovered()+"</td>"+ " " +"<td>"+getMaxCitations()+"</td>"+ " " +"<td>"+getRangeCitations()+"</td>"+ " " +"<td>"+getDoiStatus()+"</td>"+ " " +"<td>"+getCrossrefStatus()+"</td>"+ " " +"<td>"+getScopusStatus()+"</td>"+ " " +"<td>"+getWosStatus()+"</td>"+ " " +"<td>"+getRelevanceTitle()+"</td>"+ " " +"<td>"+getRelevanceAbstract()+"</td>"+ " " +"<td>"+getRelevanceBody()+"</td>"+ " " +"<td>"+getLanguage()+"</td>"+ " " +"<td>"+getAbstractText()+"</td>"+ " " +"<td>"+getConcept()+"</td>"+ " " +"<td>"+getSchool().toColumnString()+"</td>"+"</tr>";
     }
 
 /**
@@ -636,8 +636,8 @@ public  class PhDThesis extends Work{
       if(!this.getNrEdges().equals(b.getNrEdges())){
          System.out.println("NrEdges");
         }
-      if(!this.getNrLinks().equals(b.getNrLinks())){
-         System.out.println("NrLinks");
+      if(!this.getNrHyperLinks().equals(b.getNrHyperLinks())){
+         System.out.println("NrHyperLinks");
         }
       if(!this.getNrPages().equals(b.getNrPages())){
          System.out.println("NrPages");
@@ -741,7 +741,7 @@ public  class PhDThesis extends Work{
           this.getNrCitationsCovered().equals(b.getNrCitationsCovered()) &&
           this.getNrConcepts().equals(b.getNrConcepts()) &&
           this.getNrEdges().equals(b.getNrEdges()) &&
-          this.getNrLinks().equals(b.getNrLinks()) &&
+          this.getNrHyperLinks().equals(b.getNrHyperLinks()) &&
           this.getNrPages().equals(b.getNrPages()) &&
           this.getNrReferences().equals(b.getNrReferences()) &&
           this.getNrReferencesCovered().equals(b.getNrReferencesCovered()) &&

@@ -18,23 +18,31 @@ import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 public class ListMissingWork extends AbstractList{
     double relevanceLimit;
 
-    public ListMissingWork(Scenario base, String exportDir, String fileName,String fileName2,double relevanceLimit) {
+    public ListMissingWork(Scenario base, String exportDir, String fileName,String fileName2,String fileName3,double relevanceLimit) {
         super(base);
         this.relevanceLimit = relevanceLimit;
         assert (exportDir.endsWith("/"));
         String fullFile = exportDir + fileName;
         String fullFile2 = exportDir + fileName2;
+        String fullFile3= exportDir+ fileName3;
         List<MissingWork> included = base.getListMissingWork().stream().
                 filter(this::included).
-                filter(x->x.getRelevance()> 0.0).
+                filter(x->x.getRelevance()>= relevanceLimit).
                 sorted(Comparator.comparing(MissingWork::getRelevance).reversed()).
+                toList();
+        List<MissingWork> highlyConnected = base.getListMissingWork().stream().
+                filter(this::included).
+                filter(x->x.getRelevance()< relevanceLimit).
+                sorted(Comparator.comparing(MissingWork::getNrLinks).reversed()).
+                limit(50).
                 toList();
         List<MissingWork> excluded = base.getListMissingWork().stream().
                 filter(x -> !included(x)).
                 filter(x->x.getRelevance()>= relevanceLimit).
                 sorted(Comparator.comparing(MissingWork::getRelevance).reversed()).
                 toList();
-        table("Missing Work",included, fullFile);
+        table("Missing Work Considered Relevant",included, fullFile);
+        table("Highly Connected Missing Work Not Considered Relevant",highlyConnected, fullFile3);
         table("Excluded Work",excluded, fullFile2);
     }
 

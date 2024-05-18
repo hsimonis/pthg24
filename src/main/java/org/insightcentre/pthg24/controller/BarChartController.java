@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 18:03:54 on 2024-05-16 */
+ * Generated at 15:28:48 on 2024-05-18 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -43,7 +43,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -68,7 +68,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -93,7 +93,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -118,7 +118,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -143,7 +143,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -168,7 +168,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");
@@ -193,7 +193,7 @@ public class BarChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("year");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("nrConcepts");
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrReferences");

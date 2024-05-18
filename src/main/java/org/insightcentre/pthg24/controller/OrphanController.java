@@ -18,7 +18,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Orphan;
 
 /**
- * Generated at 18:03:54 on 2024-05-16 */
+ * Generated at 15:28:48 on 2024-05-18 */
 public class OrphanController extends Table3Controller {
 	@FXML
 	private TableView<Orphan> table;

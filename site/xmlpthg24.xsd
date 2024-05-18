@@ -127,7 +127,7 @@
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
 			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
 			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
-			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
+			<xs:attribute name="nrHyperLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferencesCovered" use="required" type="xs:integer"/>
@@ -227,7 +227,7 @@
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
 			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
 			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
-			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
+			<xs:attribute name="nrHyperLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferencesCovered" use="required" type="xs:integer"/>
@@ -406,7 +406,7 @@
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
 			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
 			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
-			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
+			<xs:attribute name="nrHyperLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferencesCovered" use="required" type="xs:integer"/>
@@ -465,7 +465,7 @@
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
 			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
 			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
-			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
+			<xs:attribute name="nrHyperLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferencesCovered" use="required" type="xs:integer"/>
@@ -655,7 +655,7 @@
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
 			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
 			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
-			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
+			<xs:attribute name="nrHyperLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferencesCovered" use="required" type="xs:integer"/>
@@ -714,7 +714,7 @@
 			<xs:attribute name="nrCitationsCovered" use="required" type="xs:integer"/>
 			<xs:attribute name="nrConcepts" use="required" type="xs:integer"/>
 			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
-			<xs:attribute name="nrLinks" use="required" type="xs:integer"/>
+			<xs:attribute name="nrHyperLinks" use="required" type="xs:integer"/>
 			<xs:attribute name="nrPages" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="nrReferencesCovered" use="required" type="xs:integer"/>

@@ -22,7 +22,7 @@ import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.ScopusAffiliation;
 
 /**
- * Generated at 18:03:54 on 2024-05-16 */
+ * Generated at 15:28:48 on 2024-05-18 */
 public class CollabCountController extends Table3Controller {
 	@FXML
 	private TableView<CollabCount> table;

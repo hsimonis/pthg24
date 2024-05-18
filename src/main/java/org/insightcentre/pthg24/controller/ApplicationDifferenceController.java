@@ -20,7 +20,7 @@ import org.insightcentre.pthg24.datamodel.ApplicationDifference;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 
 /**
- * Generated at 18:03:53 on 2024-05-16 */
+ * Generated at 15:28:48 on 2024-05-18 */
 public class ApplicationDifferenceController extends Table3Controller {
 	@FXML
 	private TableView<ApplicationDifference> table;

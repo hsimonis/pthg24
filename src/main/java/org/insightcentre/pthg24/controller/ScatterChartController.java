@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 18:03:54 on 2024-05-16 */
+ * Generated at 15:28:48 on 2024-05-18 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -112,8 +112,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("pages");
 		attributeNames.add("nrPages");
 		filterNames.add("nrPages");
-		attributeNames.add("nrLinks");
-		filterNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
+		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
@@ -192,8 +192,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("pages");
 		attributeNames.add("nrPages");
 		filterNames.add("nrPages");
-		attributeNames.add("nrLinks");
-		filterNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
+		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
@@ -273,8 +273,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("pages");
 		attributeNames.add("nrPages");
 		filterNames.add("nrPages");
-		attributeNames.add("nrLinks");
-		filterNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
+		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
@@ -354,8 +354,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("pages");
 		attributeNames.add("nrPages");
 		filterNames.add("nrPages");
-		attributeNames.add("nrLinks");
-		filterNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
+		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
@@ -435,8 +435,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("pages");
 		attributeNames.add("nrPages");
 		filterNames.add("nrPages");
-		attributeNames.add("nrLinks");
-		filterNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
+		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
@@ -516,8 +516,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("pages");
 		attributeNames.add("nrPages");
 		filterNames.add("nrPages");
-		attributeNames.add("nrLinks");
-		filterNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
+		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
@@ -597,8 +597,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("pages");
 		attributeNames.add("nrPages");
 		filterNames.add("nrPages");
-		attributeNames.add("nrLinks");
-		filterNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
+		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");

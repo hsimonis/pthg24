@@ -96,7 +96,7 @@ public class JfxApp extends GeneratedJfxApp {
                                 linkCountLimit = 1;
                                 conceptTypes=new String[]{"AIMethod","Terrorism","Group","Region","System","Objective","Other"};
                                 // how many external crossref queries to make to identify missing works
-                                getLimit=0;
+                                getLimit=1000;
                                 break;
                         case "scheduling":
                                 // settings for scheduling are a bit different
@@ -208,7 +208,10 @@ public class JfxApp extends GeneratedJfxApp {
                 new CoauthorGraph(base,coauthorLimit,graphvizDir,reportDir,"coauthors.pdf");
                 new ListSimilarity(base,exportDir,"mostsimilar.tex");
 
-                new ListMissingWork(base,exportDir,"missingwork.tex","excludedwork.tex",relevanceLimit);
+                new ListMissingWork(base,exportDir,"missingwork.tex",
+                        "excludedwork.tex",
+                        "connectedwork.tex",
+                        relevanceLimit);
                 new ListConceptsByWork(base,ARTICLE,exportDir,"conceptsarticle.tex");
                 new ListConceptsByWork(base,PAPER,exportDir,"conceptspaper.tex");
                 new ListConceptsByWork(base,THESIS,exportDir,"conceptsthesis.tex");
@@ -273,7 +276,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new ListPapersByConferenceSeries(base,exportDir,"byseries.tex");
                 new ListArticlesByJournal(base,exportDir,"byjournal.tex");
 
-                new ListAbstracts(base,exportDir,"abstracts.tex");
+                new ListAbstracts(base,exportDir,"abstracts.tex",1.0,1.0);
                 new ListAbstractsMissingWork(base,exportDir,"abstractsmissingwork.tex",relevanceLimit);
 
                 new CitationGraph(base);

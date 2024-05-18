@@ -32,7 +32,7 @@ import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 18:03:54 on 2024-05-16 */
+ * Generated at 15:28:48 on 2024-05-18 */
 public class PhDThesisController extends Table3Controller {
 	@FXML
 	private TableView<PhDThesis> table;
@@ -86,7 +86,7 @@ public class PhDThesisController extends Table3Controller {
 	private TableColumn<PhDThesis, Integer> nrPages;
 
 	@FXML
-	private TableColumn<PhDThesis, Integer> nrLinks;
+	private TableColumn<PhDThesis, Integer> nrHyperLinks;
 
 	@FXML
 	private TableColumn<PhDThesis, Boolean> background;
@@ -282,10 +282,10 @@ public class PhDThesisController extends Table3Controller {
 		nrPages.setCellValueFactory(new PropertyValueFactory<>("nrPages"));
 		nrPages.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
 		nrPages.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrPages(event.getNewValue()); mainApp.reset();});
-		choices.add("nrLinks");
-		nrLinks.setCellValueFactory(new PropertyValueFactory<>("nrLinks"));
-		nrLinks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
-		nrLinks.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrLinks(event.getNewValue()); mainApp.reset();});
+		choices.add("nrHyperLinks");
+		nrHyperLinks.setCellValueFactory(new PropertyValueFactory<>("nrHyperLinks"));
+		nrHyperLinks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrHyperLinks.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrHyperLinks(event.getNewValue()); mainApp.reset();});
 		choices.add("background");
 		background.setCellValueFactory(new BackgroundCallback());
 		background.setCellFactory(CheckBoxTableCell.forTableColumn(background));

@@ -29,7 +29,7 @@ import org.insightcentre.pthg24.datamodel.Acronym;
 import org.insightcentre.pthg24.datamodel.ConceptType;
 
 /**
- * Generated at 18:03:53 on 2024-05-16 */
+ * Generated at 15:28:48 on 2024-05-18 */
 public class AcronymController extends Table3Controller {
 	@FXML
 	private TableView<Acronym> table;

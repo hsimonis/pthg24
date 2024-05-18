@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 18:03:54 on 2024-05-16-->
+<!--Generated at 15:28:49 on 2024-05-18-->
 
 
 <Tab text="ScopusAffiliation" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.ScopusAffiliationController">

@@ -28,7 +28,7 @@ public class ListPapersByConferenceSeries {
                     //??? this attribute is set by PublicationReport, this must run after report generation
                     filter(x->x.getNrPapers() > 0).
                     sorted(Comparator.comparing(ApplicationObject::getName)).toList()) {
-                out.printf("\\subsection{%s}\n\n", s.getName());
+                out.printf("\\subsection{%s}\n\n", safe(s.getName()));
 //                out.printf("\\label{series:%s}\n",safe(s.getName()));
                 out.printf("\\index{%s}\n",s.getName());
                 List<Work> works = base.getListPaper().stream().
@@ -36,7 +36,7 @@ public class ListPapersByConferenceSeries {
                         filter(x -> !x.getBackground()).
                         sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getKey)).
                         collect(Collectors.toList());
-                new ListWorks(out, base, works, false, "Papers in Conference Series " + s.getName() + " (Total " + works.size() + ")");
+                new ListWorks(out, base, works, false, "Papers in Conference Series " + safe(s.getName()) +" - "+safe(s.getDescription()));
             }
             out.close();
         } catch (IOException e) {

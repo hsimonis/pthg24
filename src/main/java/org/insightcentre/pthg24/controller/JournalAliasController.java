@@ -20,7 +20,7 @@ import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.JournalAlias;
 
 /**
- * Generated at 18:03:54 on 2024-05-16 */
+ * Generated at 15:28:48 on 2024-05-18 */
 public class JournalAliasController extends Table3Controller {
 	@FXML
 	private TableView<JournalAlias> table;

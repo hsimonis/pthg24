@@ -25,7 +25,7 @@ Integer nrCitations
 Integer nrCitationsCovered
 Integer nrConcepts
 Integer nrEdges
-Integer nrLinks
+Integer nrHyperLinks
 Integer nrPages
 Integer nrReferences
 Integer nrReferencesCovered

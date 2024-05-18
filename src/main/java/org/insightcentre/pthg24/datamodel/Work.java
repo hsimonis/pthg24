@@ -262,7 +262,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  *
 */
 
-    public Integer nrLinks;
+    public Integer nrHyperLinks;
 
 /**
  *  
@@ -481,7 +481,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setNrCitationsCovered(0);
         setNrConcepts(0);
         setNrEdges(0);
-        setNrLinks(0);
+        setNrHyperLinks(0);
         setNrPages(0);
         setNrReferences(0);
         setNrReferencesCovered(0);
@@ -545,7 +545,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             Integer nrCitationsCovered,
             Integer nrConcepts,
             Integer nrEdges,
-            Integer nrLinks,
+            Integer nrHyperLinks,
             Integer nrPages,
             Integer nrReferences,
             Integer nrReferencesCovered,
@@ -599,7 +599,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setNrCitationsCovered(nrCitationsCovered);
         setNrConcepts(nrConcepts);
         setNrEdges(nrEdges);
-        setNrLinks(nrLinks);
+        setNrHyperLinks(nrHyperLinks);
         setNrPages(nrPages);
         setNrReferences(nrReferences);
         setNrReferencesCovered(nrReferencesCovered);
@@ -657,7 +657,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             other.nrCitationsCovered,
             other.nrConcepts,
             other.nrEdges,
-            other.nrLinks,
+            other.nrHyperLinks,
             other.nrPages,
             other.nrReferences,
             other.nrReferencesCovered,
@@ -1007,13 +1007,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
- *  get attribute nrLinks
+ *  get attribute nrHyperLinks
  *
  * @return Integer
 */
 
-    public Integer getNrLinks(){
-        return this.nrLinks;
+    public Integer getNrHyperLinks(){
+        return this.nrHyperLinks;
     }
 
 /**
@@ -1585,13 +1585,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
- *  set attribute nrLinks, mark dataset as dirty, mark dataset as not valid
-@param nrLinks Integer
+ *  set attribute nrHyperLinks, mark dataset as dirty, mark dataset as not valid
+@param nrHyperLinks Integer
  *
 */
 
-    public void setNrLinks(Integer nrLinks){
-        this.nrLinks = nrLinks;
+    public void setNrHyperLinks(Integer nrHyperLinks){
+        this.nrHyperLinks = nrHyperLinks;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -1984,12 +1984,12 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
- *  inc attribute nrLinks, mark dataset as dirty, mark dataset as not valid
+ *  inc attribute nrHyperLinks, mark dataset as dirty, mark dataset as not valid
  *
 */
 
-    public void incNrLinks(){
-        this.nrLinks++;
+    public void incNrHyperLinks(){
+        this.nrHyperLinks++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -2099,7 +2099,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
     }
 
 /**
@@ -2149,7 +2149,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             " nrCitationsCovered=\""+toXMLNrCitationsCovered()+"\""+
             " nrConcepts=\""+toXMLNrConcepts()+"\""+
             " nrEdges=\""+toXMLNrEdges()+"\""+
-            " nrLinks=\""+toXMLNrLinks()+"\""+
+            " nrHyperLinks=\""+toXMLNrHyperLinks()+"\""+
             " nrPages=\""+toXMLNrPages()+"\""+
             " nrReferences=\""+toXMLNrReferences()+"\""+
             " nrReferencesCovered=\""+toXMLNrReferencesCovered()+"\""+
@@ -2450,8 +2450,8 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  * @return String
 */
 
-    String toXMLNrLinks(){
-        return this.getNrLinks().toString();
+    String toXMLNrHyperLinks(){
+        return this.getNrHyperLinks().toString();
     }
 
 /**
@@ -2867,8 +2867,8 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
       if(!this.getNrEdges().equals(b.getNrEdges())){
          System.out.println("NrEdges");
         }
-      if(!this.getNrLinks().equals(b.getNrLinks())){
-         System.out.println("NrLinks");
+      if(!this.getNrHyperLinks().equals(b.getNrHyperLinks())){
+         System.out.println("NrHyperLinks");
         }
       if(!this.getNrPages().equals(b.getNrPages())){
          System.out.println("NrPages");
@@ -2969,7 +2969,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
           this.getNrCitationsCovered().equals(b.getNrCitationsCovered()) &&
           this.getNrConcepts().equals(b.getNrConcepts()) &&
           this.getNrEdges().equals(b.getNrEdges()) &&
-          this.getNrLinks().equals(b.getNrLinks()) &&
+          this.getNrHyperLinks().equals(b.getNrHyperLinks()) &&
           this.getNrPages().equals(b.getNrPages()) &&
           this.getNrReferences().equals(b.getNrReferences()) &&
           this.getNrReferencesCovered().equals(b.getNrReferencesCovered()) &&

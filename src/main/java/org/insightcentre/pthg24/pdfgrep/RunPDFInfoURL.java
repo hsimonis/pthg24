@@ -32,7 +32,7 @@ public class RunPDFInfoURL {
                     logFile);
             int nrURL = parseResult("greps/", logFile);
             info(a.getName() + ": " + nrURL);
-            a.setNrLinks(nrURL);
+            a.setNrHyperLinks(nrURL);
 
 
         }

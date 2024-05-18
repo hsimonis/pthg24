@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 18:03:54 on 2024-05-16 */
+ * Generated at 15:28:48 on 2024-05-18 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -100,7 +100,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
@@ -154,7 +154,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
@@ -209,7 +209,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
@@ -264,7 +264,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
@@ -319,7 +319,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
@@ -374,7 +374,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
@@ -429,7 +429,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("year");
 		attributeNames.add("pages");
 		attributeNames.add("nrPages");
-		attributeNames.add("nrLinks");
+		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
