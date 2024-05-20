@@ -44,23 +44,24 @@ public class ListConceptsByWork extends AbstractList{
 
     private void analyze(PrintWriter out,Scenario base,List<Work> works,boolean rowLabels,String caption){
         out.printf("{\\scriptsize\n");
-        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}r>{\\raggedright\\arraybackslash}p{1.5cm}%srr}\n",conceptTypeWidths(base));
+        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}r>{\\raggedright\\arraybackslash}p{1.0cm}%s}\n",conceptTypeWidths(base));
         out.printf("\\rowcolor{white}\\caption{%s}\\\\ \\toprule\n",caption);
-        out.printf("\\rowcolor{white}Work/Title & Pages & Relevance %s & a & c\\\\ \\midrule",conceptTypeLabels(base));
+        out.printf("\\rowcolor{white}Work/Title & Pages & Relevance %s\\\\ \\midrule",conceptTypeLabels(base));
         out.printf("\\endhead\n");
         out.printf("\\bottomrule\n");
         out.printf("\\endfoot\n");
         for(Work w:works){
-            out.printf("%s\\href{%s}{%s}~\\cite{%s} %s",
+            out.printf("%s\\href{%s}{%s}~\\cite{%s} \\hyperref[detail:%s]{Details} %s",
                     rowLabel(w,"b:"+w.getName(),rowLabels),
                     local(w.getLocalCopy()),safe(w.getName()),
-                    w.getName(),showTitle(w.getTitle()));
+                    w.getName(),
+                    w.getName(),
+                    showTitle(w.getTitle()));
             out.printf(" & %d",w.getNrPages());
             out.printf(" & %s",showRelevances(w));
             for(ConceptType ct:conceptTypes(base)) {
                 out.printf(" & %s", concepts(base, w, ct));
             }
-            out.printf(" & %s & %s",aLabelRef(w),cLabelRef(base,w));
             out.printf("\\\\\n");
         }
         out.printf("\\end{longtable}\n");
@@ -105,7 +106,7 @@ public class ListConceptsByWork extends AbstractList{
                 filter(x->x.getLocalCopy() != null).
                 filter(x -> !x.getLocalCopy().equals("")).
                 filter(x -> !x.getBackground()).
-                sorted(Comparator.comparing(Work::getName)).
+                sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
                 toList();
     }
 

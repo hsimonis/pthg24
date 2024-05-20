@@ -23,16 +23,15 @@ public class ListWorksManual {
             PrintWriter out = new PrintWriter(fullName);
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}" +
-                    ">{\\raggedright\\arraybackslash}p{6cm}p{2cm}rrrrlrr}\n");
+                    ">{\\raggedright\\arraybackslash}p{6cm}p{2cm}rrrrl}\n");
             out.printf("\\rowcolor{white}\\caption{Manually Defined %s Properties}\\\\ \\toprule\n",type);
             out.printf("\\rowcolor{white}Key & Title (Local Copy)  & Bench & \\shortstack{Hyper\\\\Links} & \\shortstack{Data\\\\Avail} & " +
-                    "\\shortstack{Sol\\\\Avail} & \\shortstack{Code\\\\Avail} & \\shortstack{Related\\\\To} & " +
-                    "a & b\\\\ \\midrule");
+                    "\\shortstack{Sol\\\\Avail} & \\shortstack{Code\\\\Avail} & \\shortstack{Related\\\\To} \\\\ \\midrule");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");
             out.printf("\\endfoot\n");
             for(Work a:manualInterest(sortedWorks(base,type))){
-                out.printf("\\index{%s}\\rowlabel{%s}%s \\href{%s}{%s}~\\cite{%s} & \\href{%s}{%s} & %s & %d & %s & %s & %s & %s & %s & %s",
+                out.printf("\\index{%s}\\rowlabel{%s}%s \\href{%s}{%s}~\\cite{%s} & \\href{%s}{%s} & %s & %d & %s & %s & %s & %s",
                         a.getKey(),"c:"+a.getName(),
                         a.getName(),
                         a.getUrl(),safe(a.getName()),
@@ -44,11 +43,7 @@ public class ListWorksManual {
                         a.getDataAvail(),
                         a.getSolutionAvail(),
                         a.getCodeAvail(),
-                        a.getRelatedTo(),
-//                        a.getClassification(),
-//                        a.getConstraints(),
-                        aLabelRef(a),
-                        bLabelRef(a));
+                        a.getRelatedTo());
                 out.printf("\\\\\n");
             }
             out.printf("\\end{longtable}\n");

@@ -28,7 +28,9 @@ public class ExtractSelectedBib {
                     filter(x->!x.getType().equals("dataset")).
                     filter(x->!x.getType().equals("report")).
                     filter(x->!x.getType().equals("reference-entry")).
-                    sorted(Comparator.comparing(MissingWork::getYear)).
+                    //??? what is more important, relevance or age
+                    sorted(Comparator.comparing(MissingWork::getRelevance).reversed()).
+//                    sorted(Comparator.comparing(MissingWork::getYear)).
                     toList();
             for(MissingWork mw:list){
                 exportBib(out,mw,keyHash);

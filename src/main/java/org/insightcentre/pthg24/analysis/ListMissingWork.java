@@ -41,19 +41,20 @@ public class ListMissingWork extends AbstractList{
                 filter(x->x.getRelevance()>= relevanceLimit).
                 sorted(Comparator.comparing(MissingWork::getRelevance).reversed()).
                 toList();
-        table("Missing Work Considered Relevant",included, fullFile);
-        table("Highly Connected Missing Work Not Considered Relevant",highlyConnected, fullFile3);
-        table("Excluded Work",excluded, fullFile2);
+        int total = base.getListMissingWork().size();
+        table("Missing Work Considered Relevant",included, total,fullFile);
+        table("Highly Connected Missing Work Not Considered Relevant",highlyConnected, total,fullFile3);
+        table("Excluded Work",excluded, total,fullFile2);
     }
 
-    private void table(String caption,List<MissingWork> list,String fullFile){
+    private void table(String caption,List<MissingWork> list,int total,String fullFile){
         try{
             PrintWriter out = new PrintWriter(fullFile);
 
-            int nrRelevant = (int) list.stream().filter(x->x.getRelevance() >= relevanceLimit).count();
+            int nrShown = list.size();
             out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{p{5cm}lp{11cm}rrrrrr}\n");
-            out.printf("\\caption{%s (Total %s Works, %d considered Relevant)}\\\\ \\toprule\n",caption,list.size(),nrRelevant);
+            out.printf("\\caption{%s (Total %s Works Checked, %d Selected)}\\\\ \\toprule\n",caption,total,nrShown);
             out.printf("DOI & Type & Authors/Title & \\shortstack{Nr\\\\Links} & \\shortstack{Citing\\\\Survey} & " +
                     "\\shortstack{Cited by\\\\Survey} & \\shortstack{XRef\\\\Refs} & \\shortstack{XRef\\\\Cite} & Relevance\\\\ \\midrule");
             out.printf("\\endhead\n");

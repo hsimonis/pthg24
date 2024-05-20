@@ -27,7 +27,21 @@ public abstract class AbstractList {
     }
 
     public String showRelevances(Work w){
-        return String.format("%5.2f %5.2f %5.2f",w.getRelevanceTitle(),w.getRelevanceAbstract(),w.getRelevanceBody());
+        if (w.getLocalCopy() != null && !w.getLocalCopy().equals("")) {
+            return String.format("\\noindent{}%s %s %s", highlighted(w.getRelevanceTitle()), highlighted(w.getRelevanceAbstract()), highlighted(w.getRelevanceBody()));
+        } else {
+            return String.format("\\noindent{}%s %s n/a", highlighted(w.getRelevanceTitle()), highlighted(w.getRelevanceAbstract()));
+        }
+    }
+
+    private String highlighted(double x){
+        if (x >= 1.0){
+            return String.format("\\textbf{%.2f}",x);
+        } else if (x <= 0.2){
+            return String.format("\\textcolor{black!50}{%.2f}",x);
+        } else {
+            return String.format("%.2f",x);
+        }
     }
 
     private String alphaSafe(String s){

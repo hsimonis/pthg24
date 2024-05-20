@@ -47,91 +47,121 @@ public class ListSimilarity {
     double percentile99d; //red
     double percentile995d; //red
 
+    Map<Work, List<Similarity>> map1;
+    Map<Work, List<Similarity>> map2;
+
     public ListSimilarity(Scenario base, String exportDir, String fileName){
         assert(exportDir.endsWith("/"));
         setPercentiles(base);
         String fullFile = exportDir+fileName;
+        map1 = base.getListSimilarity().stream().
+                collect(groupingBy(Similarity::getWork1));
+        map2 = base.getListSimilarity().stream().
+                collect(groupingBy(Similarity::getWork2));
         try{
             PrintWriter out = new PrintWriter(fullFile);
-            out.printf("{\\scriptsize\n");
-            out.printf("\\begin{longtable}{rlllll}\n");
-            out.printf("\\caption{Most Similar Works}\\\\ \\toprule\n");
-            out.printf("Work & 1 & 2 & 3 & 4 & 5 \\\\ \\midrule");
-            out.printf("\\endhead\n");
-            out.printf("\\bottomrule\n");
-            out.printf("\\endfoot\n");
-            Map<Work, List<Similarity>> map1 = base.getListSimilarity().stream().
-                    collect(groupingBy(Similarity::getWork1));
-            Map<Work, List<Similarity>> map2 = base.getListSimilarity().stream().
-                    collect(groupingBy(Similarity::getWork2));
-            for(Work w:base.getListWork().stream().
+            List<Work> works = base.getListWork().stream().
                     filter(x->!x.getBackground()).
                     filter(x->map1.get(x) != null || map2.get(x) != null).
-                    sorted(Comparator.comparing(Work::getName)).toList()){
-                List<Similarity> simil = selectSimilarity(w,map1,map2);
-                List<Similarity> mostSimilar = simil.stream().
-                        filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
-                        filter(x->!Double.isNaN(x.getSimilarity())).
-                        filter(x->!Double.isInfinite(x.getSimilarity())).
-                        filter(x->x.getSimilarity() < 1.0).
-                        sorted(Comparator.comparing(Similarity::getSimilarity)).
-                        limit(5).
-                        toList();
-                out.printf("\\index{%s}%s R\\&C",w.getKey(),keyLink(w));
-                for(Similarity s:mostSimilar){
-                    out.printf("& %s%s (%.2f)",colorSimilarity(s.getSimilarity()),keyLink(selectOther(s,w)),s.getSimilarity());
-                }
-                out.printf("\\\\\n");
-                out.printf("Euclid");
-                List<Similarity> mostConcept = simil.stream().
-                        filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
-                        filter(x->!Double.isNaN(x.getSimilarityConcept())).
-                        filter(x->!Double.isInfinite(x.getSimilarityConcept())).
-                        filter(x->x.getSimilarityConcept() < 1.0).
-                        sorted(Comparator.comparing(Similarity::getSimilarityConcept)).
-                        limit(5).
-                        toList();
-                for(Similarity s:mostConcept){
-                    out.printf("& %s%s (%.2f)",colorSimilarityConcept(s.getSimilarityConcept()),keyLink(selectOther(s,w)),s.getSimilarityConcept());
-                }
-                out.printf("\\\\\n");
-                out.printf("Dot");
-                List<Similarity> dot = simil.stream().
-                        filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
-                        filter(x->!Double.isNaN(x.getDotProduct())).
-                        filter(x->!Double.isInfinite(x.getDotProduct())).
-                        filter(x->x.getDotProduct() > 0.0).
-                        sorted(Comparator.comparing(Similarity::getDotProduct).reversed()).
-                        limit(5).
-                        toList();
-                for(Similarity s:dot){
-                    out.printf("& %s%s (%.2f)",colorDotProduct(s.getDotProduct()),keyLink(selectOther(s,w)),s.getDotProduct());
-                }
-                out.printf("\\\\\n");
-                out.printf("Cosine");
-                List<Similarity> cosine = simil.stream().
-                        filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
-                        filter(x->!Double.isNaN(x.getCosine())).
-                        filter(x->!Double.isInfinite(x.getCosine())).
-                        filter(x->x.getCosine() > 0.0).
-                        sorted(Comparator.comparing(Similarity::getCosine).reversed()).
-                        limit(5).
-                        toList();
-                for(Similarity s:cosine){
-                    out.printf("& %s%s (%.2f)",colorCosine(s.getCosine()),keyLink(selectOther(s,w)),s.getCosine());
-                }
-                out.printf("\\\\\n");
-
-            }
-            out.printf("\\end{longtable}\n");
-            out.printf("}\n\n");
+                    sorted(Comparator.comparing(Work::getName)).toList();
+            similarityTable(out,works);
             out.close();
         } catch(IOException e){
             severe("Cannot write file "+fullFile+", exception "+e.getMessage());
         }
     }
+    public ListSimilarity(Scenario base){
+        setPercentiles(base);
+        map1 = base.getListSimilarity().stream().
+                collect(groupingBy(Similarity::getWork1));
+        map2 = base.getListSimilarity().stream().
+                collect(groupingBy(Similarity::getWork2));
 
-    private List<Similarity> selectSimilarity(Work w,Map<Work,List<Similarity>> map1,Map<Work,List<Similarity>> map2){
+    }
+
+    public void listSimilarity(PrintWriter out,Work w){
+        if (!w.getBackground() && (map1.get(w) != null || map2.get(w) != null)) {
+            List<Work> works = new ArrayList<>();
+            works.add(w);
+            similarityTable(out, works);
+        }
+    }
+
+    private void similarityTable(PrintWriter out,List<Work> works){
+        out.printf("{\\scriptsize\n");
+        out.printf("\\begin{longtable}{rlllll}\n");
+        out.printf("\\caption{Most Similar Works}\\\\ \\toprule\n");
+        out.printf("Work & 1 & 2 & 3 & 4 & 5 \\\\ \\midrule");
+        out.printf("\\endhead\n");
+        out.printf("\\bottomrule\n");
+        out.printf("\\endfoot\n");
+        for(Work w:works){
+            similarityList(out,w);
+
+        }
+        out.printf("\\end{longtable}\n");
+        out.printf("}\n\n");
+    }
+
+    private void similarityList(PrintWriter out,Work w){
+        List<Similarity> simil = selectSimilarity(w);
+        List<Similarity> mostSimilar = simil.stream().
+                filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                filter(x->!Double.isNaN(x.getSimilarity())).
+                filter(x->!Double.isInfinite(x.getSimilarity())).
+                filter(x->x.getSimilarity() < 1.0).
+                sorted(Comparator.comparing(Similarity::getSimilarity)).
+                limit(5).
+                toList();
+        out.printf("\\index{%s}%s R\\&C",w.getKey(),keyLink(w));
+        for(Similarity s:mostSimilar){
+            out.printf("& %s%s (%.2f)",colorSimilarity(s.getSimilarity()),keyLink(selectOther(s,w)),s.getSimilarity());
+        }
+        out.printf("\\\\\n");
+        out.printf("Euclid");
+        List<Similarity> mostConcept = simil.stream().
+                filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                filter(x->!Double.isNaN(x.getSimilarityConcept())).
+                filter(x->!Double.isInfinite(x.getSimilarityConcept())).
+                filter(x->x.getSimilarityConcept() < 1.0).
+                sorted(Comparator.comparing(Similarity::getSimilarityConcept)).
+                limit(5).
+                toList();
+        for(Similarity s:mostConcept){
+            out.printf("& %s%s (%.2f)",colorSimilarityConcept(s.getSimilarityConcept()),keyLink(selectOther(s,w)),s.getSimilarityConcept());
+        }
+        out.printf("\\\\\n");
+        out.printf("Dot");
+        List<Similarity> dot = simil.stream().
+                filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                filter(x->!Double.isNaN(x.getDotProduct())).
+                filter(x->!Double.isInfinite(x.getDotProduct())).
+                filter(x->x.getDotProduct() > 0.0).
+                sorted(Comparator.comparing(Similarity::getDotProduct).reversed()).
+                limit(5).
+                toList();
+        for(Similarity s:dot){
+            out.printf("& %s%s (%.2f)",colorDotProduct(s.getDotProduct()),keyLink(selectOther(s,w)),s.getDotProduct());
+        }
+        out.printf("\\\\\n");
+        out.printf("Cosine");
+        List<Similarity> cosine = simil.stream().
+                filter(x->!x.getWork1().getBackground() && !x.getWork2().getBackground()).
+                filter(x->!Double.isNaN(x.getCosine())).
+                filter(x->!Double.isInfinite(x.getCosine())).
+                filter(x->x.getCosine() > 0.0).
+                sorted(Comparator.comparing(Similarity::getCosine).reversed()).
+                limit(5).
+                toList();
+        for(Similarity s:cosine){
+            out.printf("& %s%s (%.2f)",colorCosine(s.getCosine()),keyLink(selectOther(s,w)),s.getCosine());
+        }
+        out.printf("\\\\\n");
+
+    }
+
+
+    private List<Similarity> selectSimilarity(Work w){
         List<Similarity> list1 = map1.get(w);
         List<Similarity> list2 = map2.get(w);
         if (list1 ==null) {

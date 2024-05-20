@@ -92,11 +92,12 @@ public class JfxApp extends GeneratedJfxApp {
                                 citationCountWeight = 0;
                                 authorWeight = 0;
                                 ageWeight = 0;
+                                coauthorLimit = 2;
                                 //when to stop look up missing work
                                 linkCountLimit = 1;
                                 conceptTypes=new String[]{"AIMethod","Terrorism","Group","Region","System","Objective","Other"};
                                 // how many external crossref queries to make to identify missing works
-                                getLimit=1000;
+                                getLimit=5000;
                                 break;
                         case "scheduling":
                                 // settings for scheduling are a bit different
@@ -178,6 +179,11 @@ public class JfxApp extends GeneratedJfxApp {
                         sorted(Comparator.comparing(Work::getRelevanceBody).reversed()).
                         limit(30).
                         toList(),exportDir,"mostrelevant.tex","Most Relevant Works");
+                new ListWorks(base,base.getListWork().stream().
+                        filter(x->!x.getBackground()).
+                        sorted(Comparator.comparing(this::nrConnected).reversed()).
+                        limit(30).
+                        toList(),exportDir,"mostconnected.tex","Most Connected Works");
                 new ListWorks(base,base.getListWork().stream().
                         filter(x->!x.getBackground()).
                         filter(x->x.getNrPages()!=null).
@@ -276,7 +282,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new ListPapersByConferenceSeries(base,exportDir,"byseries.tex");
                 new ListArticlesByJournal(base,exportDir,"byjournal.tex");
 
-                new ListAbstracts(base,exportDir,"abstracts.tex",1.0,1.0);
+                new ListDetails(base,exportDir,"abstracts.tex",1.0,1.0);
                 new ListAbstractsMissingWork(base,exportDir,"abstractsmissingwork.tex",relevanceLimit);
 
                 new CitationGraph(base);
@@ -286,8 +292,8 @@ public class JfxApp extends GeneratedJfxApp {
                 new UnknownConferenceSeries(base,exportDir,"unknown.json");
 
                 new CheckInconsistentConcepts(base);
-                new FindOthers(base);
-                new ExtractOtherBib(base,dumpDir,"otherselected.bib");
+//                new FindOthers(base);
+//                new ExtractOtherBib(base,dumpDir,"otherselected.bib");
 
 
                 return base;
@@ -298,6 +304,10 @@ public class JfxApp extends GeneratedJfxApp {
                 launch(args);
         }
 
+
+        private int nrConnected(Work w){
+                return w.getNrCitationsCovered()+w.getNrCitationsCovered();
+        }
 
         private boolean hasLocalCopy(Work w){
                 return w.getLocalCopy() != null && !w.getLocalCopy().equals("");

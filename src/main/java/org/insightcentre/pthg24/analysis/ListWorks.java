@@ -54,22 +54,23 @@ public class ListWorks extends AbstractList{
 
     private void showTable(PrintWriter out,Scenario base,List<Work> works,boolean showLabel,String caption){
         out.printf("{\\scriptsize\n");
-        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}>{\\raggedright\\arraybackslash}p{4.5cm}>{\\raggedright\\arraybackslash}p{6.0cm}rrrp{2.5cm}rp{1cm}p{1cm}p{1cm}rr}\n");
+        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{2.5cm}>{\\raggedright\\arraybackslash}p{4.5cm}" +
+                ">{\\raggedright\\arraybackslash}p{6.0cm}p{1.0cm}rr>{\\raggedright\\arraybackslash}p{2.0cm}r>{\\raggedright\\arraybackslash}p{1cm}p{1cm}p{1cm}p{1cm}}\n");
         out.printf("\\rowcolor{white}\\caption{%s (Total %d)}\\\\ \\toprule\n",safe(caption),works.size());
-        out.printf("\\rowcolor{white}\\shortstack{Key\\\\Source} & Authors & Title (Colored by Open Access)& LC & Cite & Year & " +
+        out.printf("\\rowcolor{white}\\shortstack{Key\\\\Source} & Authors & Title (Colored by Open Access)& \\shortstack{Details\\\\LC} & Cite & Year & " +
                 "\\shortstack{Conference\\\\/Journal\\\\/School} & Pages & Relevance &\\shortstack{Cites\\\\OC XR\\\\SC} & " +
-                "\\shortstack{Refs\\\\OC\\\\XR} & b & c \\\\ \\midrule");
+                "\\shortstack{Refs\\\\OC\\\\XR} & \\shortstack{Links\\\\Cites\\\\Refs}\\\\ \\midrule");
         out.printf("\\endhead\n");
         out.printf("\\bottomrule\n");
         out.printf("\\endfoot\n");
         for(Work a:works){
-            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %d & %s & %s & %s & %s & %s",
+            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %d & %s & %s & %s & %s",
                     rowLabel(a,"a:"+a.getName(),showLabel),
                     a.getKey(),
                     a.getUrl(),a.getKey(),
                     authors(a),
                     openAccessHighlight(a),safe(a.getTitle()+(a.getAbstractText().equals("")?"":" \\hyperref[abs:"+a.getKey()+"]{Abstract}")),
-                    (localCopyExists1(a)?"\\href{"+local(a.getLocalCopy())+"}{Yes}":"No"),
+                    lcAndDetails(a),
                     a.getName(),
                     a.getYear(),
                     confOrJournal(a),
@@ -77,8 +78,7 @@ public class ListWorks extends AbstractList{
                     showRelevances(a),
                     citations(a),
                     references(a),
-                    bLabelRef(a),
-                    cLabelRef(base,a));
+                    links(a));
             out.printf("\\\\\n");
         }
         out.printf("\\end{longtable}\n");
@@ -86,6 +86,9 @@ public class ListWorks extends AbstractList{
 
     }
 
+    private String lcAndDetails(Work a){
+        return "\\hyperref[detail:"+a.getKey()+"]{Details}"+" "+(localCopyExists1(a)?"\\href{"+local(a.getLocalCopy())+"}{Yes}":"No");
+    }
 
     public static String openAccessHighlight(Work w){
         if (w.getOpenAccessType()==OpenAccessType.Gold){
@@ -101,6 +104,10 @@ public class ListWorks extends AbstractList{
         return "";
     }
 
+    private String links(Work a){
+        return String.format("%d %d %d",a.getNrCitationsCovered()+a.getNrReferencesCovered(),a.getNrCitationsCovered(),a.getNrReferencesCovered());
+
+    }
     private String citations(Work a){
         return String.format("%d %d %d",a.getNrCitations(),a.getCrossrefCitations(),a.getScopusCitations());
 //        return String.format("\\shortstack[r]{%d\\\\%d\\\\%d}",a.getNrCitations(),a.getCrossrefCitations(),a.getScopusCitations());
@@ -121,23 +128,6 @@ public class ListWorks extends AbstractList{
 
     public static String local(String lc){
         return "../"+lc;
-    }
-    public static String aLabelRef(Work w){
-        return "\\ref{a:"+w.getName()+"}";
-    }
-    public static String bLabelRef(Work w){
-        if (w.getLocalCopy().equals("") || w.getBackground()){
-            return "No";
-        } else {
-            return "\\ref{b:"+w.getName()+"}";
-        }
-    }
-    public static String cLabelRef(Scenario base,Work w){
-        if (manualInterest(base,w) && !w.getBackground() && (w instanceof Paper || w instanceof Article)) {
-            return "\\ref{c:" + w.getName() + "}";
-        } else {
-            return "n/a";
-        }
     }
 
     private String confOrJournal(Work w){

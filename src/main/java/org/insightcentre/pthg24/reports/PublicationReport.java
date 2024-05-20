@@ -133,6 +133,8 @@ public class PublicationReport extends AbstractReport{
         tex.printf("\\includegraphics[height=15cm]{../graphviz/fdp.pdf}\n\n");
         tex.printf("\\end{figure}\n\n");
 
+
+
         clearpage();
         section("OpenCitations vs. Crossref Data vs. Scopus Data");
 
@@ -618,6 +620,7 @@ public class PublicationReport extends AbstractReport{
     }
 
     private void location() {
+        countryOverview();
         paragraph("This section analyzes papers by affiliation, which is given by the Scopus data only. Only works " +
                 "which are covered by Scopus are included. We first present the number of papers by country. A paper " +
                 "is counted in this analysis (once), if at least one of the affiliations is from the country. Multiple " +
@@ -626,6 +629,7 @@ public class PublicationReport extends AbstractReport{
                 "different countries. So the sum of the bar heights typically exceeds the total number of works considered.");
         byCountry();
 
+        institutionOverview();
         paragraph("The next plot shows the number of papers associated to institutions, as stated in the Scopus " +
                 "affiliation. A work is counted, if at least one of the affiliations is from a given institution. " +
                 "Due to the format of the Scopus data, we cannot fractionally assign a paper based on the author " +
@@ -643,6 +647,22 @@ public class PublicationReport extends AbstractReport{
         byCountryYear();
     }
 
+    private void institutionOverview(){
+        new DistributionPlot<>(base.getListScopusAffiliation(),ScopusAffiliation::getWorkCount).
+                ordering(NR).
+                width(25).height(12).
+                title("Number of Institutions with Given Number of Works (Total "+base.getListScopusAffiliation().size()+" Institutions)").
+                xlabel("Nr of Works").ylabel("Number of Institutions").
+                generate().latex(tex);
+    }
+    private void countryOverview(){
+        new DistributionPlot<>(base.getListScopusCountry(),ScopusCountry::getNrWorks).
+                ordering(NR).
+                width(25).height(12).
+                title("Number of Countries with Given number of Works (Total "+base.getListScopusCountry().size()+" Countries)").
+                xlabel("Nr of Works").ylabel("Number of Countries").
+                generate().latex(tex);
+    }
     private void byCountry(){
         int d = (int) base.getListWorkAffiliation().stream().map(WorkAffiliation::getWork).distinct().count();
         new BarPlot<>(base.getListScopusCountry().stream().
@@ -1136,6 +1156,16 @@ public class PublicationReport extends AbstractReport{
                 width(24).height(12).
                 generate().latex(tex);
 
+        new ScatterPlot<>(works, this::nrLinks, this::cappedBodyRelevance,Work::getRelevanceAbstract).
+                width(22).height(15).
+                title("Connection Between Number of Links Inside Survey and Body Relevance (Colored by Abstract Relevance)").
+                xlabel("Nr Links").ylabel("Body Relevance").
+                generate().latex(tex);
+
+    }
+
+    private int nrLinks(Work w){
+        return w.getNrCitationsCovered()+w.getNrReferencesCovered();
     }
 
     private double cappedBodyRelevance(Work w){

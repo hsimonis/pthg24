@@ -140,7 +140,8 @@ public class ComputeRelevance {
                     conceptList.add(con);
                 }
             }
-            res = (1000.0 * (cntAiMethod * (cntTerror + cntGroup + cntRegion + cntSystem)) + cntAiMethod + cntTerror + cntGroup + cntRegion+cntSystem)/abstractRelevanceCutoff;
+//            res = (1000.0 * (cntAiMethod * (cntTerror + cntGroup + cntRegion + cntSystem)) + cntAiMethod + cntTerror + cntGroup + cntRegion+cntSystem)/abstractRelevanceCutoff;
+            res = (1000.0 * (cntAiMethod * (cntTerror + cntGroup + cntSystem)) + cntAiMethod + cntTerror + cntGroup + cntSystem)/abstractRelevanceCutoff;
             if (res > 0) {
 //                info("terrorism keywords " + res + " " + cntA + " " + cntB + " " + cntC + " " + cntD + " " + cntE + " " + cntF + " " + matches + " title " + title);
             }
@@ -205,7 +206,9 @@ public class ComputeRelevance {
                 double weightGroup = addWeights(list, group);
                 double weightRegion = addWeights(list, region);
                 double weightSystem = addWeights(list, system);
-                double total = weightAI * (weightTerror + weightGroup + weightRegion + weightSystem);
+                //??? unclear if region should be included, problem if paper only refers to region
+//                double total = weightAI * (weightTerror + weightGroup + weightRegion + weightSystem);
+                double total = weightAI * (weightTerror + weightGroup + weightSystem);
                 max = Math.max(max,total);
                 w.setRelevanceBody(total);
             }
