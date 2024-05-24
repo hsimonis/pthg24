@@ -48,10 +48,10 @@ public class ImportOpenCitations {
     public static void handleToRemove(String tag,List<Work> toRemove){
         toRemove = toRemove.stream().sorted(Comparator.comparing(Work::getKey)).distinct().toList();
         for(Work w:toRemove){
-            warning("remove "+tag+" "+w.getKey());
+            severe("remove "+tag+" "+w.getKey());
         }
-        warning("total "+tag+" "+toRemove.size());
-        assert(toRemove.size()==0);
+        severe("total "+tag+" "+toRemove.size());
+//        assert(toRemove.size()==0);
 
     }
 

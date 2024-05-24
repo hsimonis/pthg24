@@ -23,7 +23,7 @@ public class ListAbstractsMissingWork extends AbstractList{
         try{
             PrintWriter out = new PrintWriter(fullName);
             List<MissingWork> works = base.getListMissingWork().stream().
-                    filter(x->!x.getAbstractText().equals("")).
+//                    filter(x->!x.getAbstractText().equals("")).
                     filter(x->x.getRelevance() >= relevanceLimit).
                     sorted(Comparator.comparing(MissingWork::getRelevance).reversed()).
                     toList();

@@ -130,6 +130,9 @@ public class ImportCrossref {
                 toRemove.add(w);
             }
         }
+        if (message.has("publisher") && w.getPublisher()==null){
+            w.setPublisher(findPublisher(message.getString("publisher")));
+        }
         String language = "";
         if(message.has("language")){
             language = message.getString("language");
@@ -311,4 +314,14 @@ public class ImportCrossref {
         }
         return null;
     }
+
+    private Publisher findPublisher(String name){
+        Publisher res = Publisher.findByName(base,name);
+        if (res == null){
+            res = new Publisher(base);
+            res.setName(name);
+        }
+        return res;
+    }
+
 }

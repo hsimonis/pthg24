@@ -54,6 +54,7 @@ import org.insightcentre.pthg24.datamodel.OtherWork;
 import org.insightcentre.pthg24.datamodel.Paper;
 import org.insightcentre.pthg24.datamodel.PhDThesis;
 import org.insightcentre.pthg24.datamodel.Proceedings;
+import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.Reference;
 import org.insightcentre.pthg24.datamodel.ReferenceFlow;
 import org.insightcentre.pthg24.datamodel.Scenario;
@@ -70,7 +71,7 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 15:28:48 on 2024-05-18 */
+ * Generated at 06:53:46 on 2024-05-24 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -123,6 +124,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	private ObservableList<JournalAlias> journalAliasData = FXCollections.observableArrayList();
 
 	private ObservableList<School> schoolData = FXCollections.observableArrayList();
+
+	private ObservableList<Publisher> publisherData = FXCollections.observableArrayList();
 
 	private ObservableList<Collection> collectionData = FXCollections.observableArrayList();
 
@@ -178,6 +181,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
 		fs = minimalDataset();
 		reset();
+		tableViews.put("Publisher", "Publisher");
 		tableViews.put("Scenario", "Scenario");
 		tableViews.put("Scenario Differences", "ApplicationDifference");
 		tableViews.put("Warnings", "ApplicationWarning");
@@ -335,6 +339,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		journalAliasData.addAll(base.getListJournalAlias());
 		schoolData.clear();
 		schoolData.addAll(base.getListSchool());
+		publisherData.clear();
+		publisherData.addAll(base.getListPublisher());
 		collectionData.clear();
 		collectionData.addAll(base.getListCollection());
 		conceptWorkData.clear();
@@ -472,6 +478,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<School> getSchoolData() {
 		return schoolData;
+	}
+
+	public ObservableList<Publisher> getPublisherData() {
+		return publisherData;
 	}
 
 	public ObservableList<Collection> getCollectionData() {

@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 15:28:49 on 2024-05-18-->
+<!--Generated at 06:53:46 on 2024-05-24-->
 
 
 <Tab text="Book" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.BookController">
@@ -27,6 +27,7 @@
                <TableColumn fx:id="author" styleClass="right-aligned" text="Author" />
                <TableColumn fx:id="authors" styleClass="right-aligned" text="Authors" />
                <TableColumn fx:id="title" styleClass="right-aligned" text="Title" />
+               <TableColumn fx:id="publisher" styleClass="right-aligned" text="Publisher" />
                <TableColumn fx:id="url" styleClass="right-aligned" text="Url" />
                <TableColumn fx:id="doi" styleClass="right-aligned" text="Doi" />
                <TableColumn fx:id="issn" styleClass="right-aligned" text="Issn" />

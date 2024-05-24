@@ -148,6 +148,14 @@ public class ComputeRelevance {
         } else if (type.equals("scheduling")){
             ConceptType scheduling = ConceptType.findByName(base, "Scheduling");
             ConceptType cp = ConceptType.findByName(base, "CP");
+            ConceptType algorithms = ConceptType.findByName(base, "Algorithms");
+            ConceptType applicationAreas = ConceptType.findByName(base, "ApplicationAreas");
+            ConceptType benchmarks = ConceptType.findByName(base, "Benchmarks");
+            ConceptType classification = ConceptType.findByName(base, "Classification");
+            ConceptType concepts = ConceptType.findByName(base, "Concepts");
+            ConceptType constraints = ConceptType.findByName(base, "Constraints");
+            ConceptType cpSystems = ConceptType.findByName(base, "CPSystems");
+            ConceptType industries = ConceptType.findByName(base, "Industries");
             double cntScheduling = 0.0;
             double cntCP = 0.0;
             conceptList = new ArrayList<>();
@@ -159,6 +167,30 @@ public class ComputeRelevance {
                 } else if (con.getConceptType() == cp &&
                         occurs(con,title,lower)) {
                     cntCP+= con.getWeight();
+                    conceptList.add(con);
+                } else if (con.getConceptType() == algorithms &&
+                        occurs(con,title,lower)) {
+                    conceptList.add(con);
+                } else if (con.getConceptType() == applicationAreas &&
+                        occurs(con,title,lower)) {
+                    conceptList.add(con);
+                } else if (con.getConceptType() == benchmarks &&
+                        occurs(con,title,lower)) {
+                    conceptList.add(con);
+                } else if (con.getConceptType() == classification &&
+                        occurs(con,title,lower)) {
+                    conceptList.add(con);
+                } else if (con.getConceptType() == concepts &&
+                        occurs(con,title,lower)) {
+                    conceptList.add(con);
+                } else if (con.getConceptType() == constraints &&
+                        occurs(con,title,lower)) {
+                    conceptList.add(con);
+                } else if (con.getConceptType() == cpSystems &&
+                        occurs(con,title,lower)) {
+                    conceptList.add(con);
+                } else if (con.getConceptType() == industries &&
+                        occurs(con,title,lower)) {
                     conceptList.add(con);
                 }
             }
@@ -219,6 +251,25 @@ public class ComputeRelevance {
 //                w.setRelevanceBody(Math.min(1.0,w.getRelevanceBody()/bodyRelevanceCutoff));
                 w.setRelevanceBody(w.getRelevanceBody()/bodyRelevanceCutoff);
             }
+        } else if (type.equals("scheduling")){
+            ConceptType scheduling = ConceptType.findByName(base, "Scheduling");
+            ConceptType cp = ConceptType.findByName(base, "CP");
+            Map<Work, List<ConceptWork>> map = base.getListConceptWork().stream().
+                    filter(x->x.getCount() > 0).
+                    collect(groupingBy(ConceptWork::getWork));
+            for (Work w : map.keySet()) {
+                List<ConceptWork> list = map.get(w);
+                double weightScheduling = addWeights(list, scheduling);
+                double weightCP = addWeights(list, cp);
+                double total = weightScheduling * weightCP;
+                max = Math.max(max,total);
+                w.setRelevanceBody(total);
+            }
+            info("Max raw relevance "+max);
+            for (Work w : map.keySet()) {
+                w.setRelevanceBody(w.getRelevanceBody()/bodyRelevanceCutoff);
+            }
+
         }
 
     }

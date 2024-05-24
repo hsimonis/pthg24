@@ -34,6 +34,7 @@ OpenAccessType openAccessType
 String pages
 Double percentCitationsCovered
 Double percentReferencesCovered
+Publisher publisher
 Integer rangeCitations
 String relatedTo
 Double relevanceAbstract

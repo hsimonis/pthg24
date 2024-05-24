@@ -27,11 +27,12 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.Callback;
 import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.OpenAccessType;
+import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 15:28:48 on 2024-05-18 */
+ * Generated at 06:53:46 on 2024-05-24 */
 public class WorkController extends Table3Controller {
 	@FXML
 	private TableView<Work> table;
@@ -62,6 +63,9 @@ public class WorkController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Work, String> title;
+
+	@FXML
+	private TableColumn<Work, Publisher> publisher;
 
 	@FXML
 	private TableColumn<Work, String> url;
@@ -198,6 +202,8 @@ public class WorkController extends Table3Controller {
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
 		table.setItems(mainApp.getWorkData());
+		publisher.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getPublisherData()));
+		publisher.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPublisher(event.getNewValue()); mainApp.reset();});
 		sourceGroup.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getSourceGroupData()));
 		sourceGroup.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSourceGroup(event.getNewValue()); mainApp.reset();});
 		ObservableList<OpenAccessType> openAccessTypeValues = FXCollections.observableArrayList(OpenAccessType.values());
@@ -248,6 +254,8 @@ public class WorkController extends Table3Controller {
 		title.setCellValueFactory(new PropertyValueFactory<>("title"));
 		title.setCellFactory(TextFieldTableCell.forTableColumn());
 		title.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setTitle(event.getNewValue()); mainApp.reset();});
+		choices.add("publisher");
+		publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
 		choices.add("url");
 		url.setCellValueFactory(new PropertyValueFactory<>("url"));
 		url.setCellFactory(TextFieldTableCell.forTableColumn());

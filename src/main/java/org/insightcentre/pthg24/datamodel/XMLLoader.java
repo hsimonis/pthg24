@@ -749,6 +749,25 @@ public OpenAccessType getOpenAccessType(String attributeName,
         return res;
     }
 
+    public Publisher getPublisher(String attributeName,
+                               Attributes attributes) {
+        return (Publisher) find(getId(attributeName,attributes));
+    }
+
+    public List<Publisher> getPublisherCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<Publisher> res = new ArrayList<Publisher>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((Publisher) find(id));
+            }
+        }
+        return res;
+    }
+
     public Reference getReference(String attributeName,
                                Attributes attributes) {
         return (Reference) find(getId(attributeName,attributes));
@@ -1110,6 +1129,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
+                        null,
                         getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
                         getDouble("relevanceAbstract",attributes,0.0),
@@ -1210,6 +1230,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
+                        null,
                         getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
                         getDouble("relevanceAbstract",attributes,0.0),
@@ -1389,6 +1410,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
+                        null,
                         getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
                         getDouble("relevanceAbstract",attributes,0.0),
@@ -1448,6 +1470,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
+                        null,
                         getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
                         getDouble("relevanceAbstract",attributes,0.0),
@@ -1478,6 +1501,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getInteger("nrBackgroundArticles",attributes,0),
                         getInteger("nrBackgroundCitations",attributes,0),
                         getInteger("nrCitations",attributes,0),
+                        null,
                         getString("shortName",attributes,"")
                         ));
             } else if (qname.equals("journalAlias")) {
@@ -1638,6 +1662,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
+                        null,
                         getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
                         getDouble("relevanceAbstract",attributes,0.0),
@@ -1697,6 +1722,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("pages",attributes,""),
                         getDouble("percentCitationsCovered",attributes,0.0),
                         getDouble("percentReferencesCovered",attributes,0.0),
+                        null,
                         getInteger("rangeCitations",attributes,0),
                         getString("relatedTo",attributes,""),
                         getDouble("relevanceAbstract",attributes,0.0),
@@ -1723,6 +1749,13 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("name", attributes, "dummy"),
                         null,
                         getString("shortName",attributes,"")
+                        ));
+            } else if (qname.equals("publisher")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new Publisher(base,
+                        id,
+                        getString("name", attributes, "dummy")
                         ));
             } else if (qname.equals("reference")) {
                 assert (base != null);
@@ -1917,6 +1950,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
+                 item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setJournal(getJournal("journal",attributes));
             } else if (qname.equals("author")) {
@@ -1945,6 +1979,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
+                 item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
             } else if (qname.equals("citation")) {
                 assert (base != null);
@@ -2010,6 +2045,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
+                 item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
             } else if (qname.equals("inCollection")) {
                 assert (base != null);
@@ -2018,12 +2054,14 @@ public OpenAccessType getOpenAccessType(String attributeName,
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
+                 item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setCollection(getCollection("collection",attributes));
             } else if (qname.equals("journal")) {
                 assert (base != null);
                 int id = getId("id", attributes);
                 Journal item = (Journal) find(id);
+                 item.setPublisher(getPublisher("publisher",attributes));
             } else if (qname.equals("journalAlias")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2064,6 +2102,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
+                 item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setProceedings(getProceedings("proceedings",attributes));
             } else if (qname.equals("phDThesis")) {
@@ -2073,6 +2112,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
+                 item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setSchool(getSchool("school",attributes));
             } else if (qname.equals("proceedings")) {
@@ -2080,6 +2120,10 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 int id = getId("id", attributes);
                 Proceedings item = (Proceedings) find(id);
                  item.setConferenceSeries(getConferenceSeries("conferenceSeries",attributes));
+            } else if (qname.equals("publisher")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                Publisher item = (Publisher) find(id);
             } else if (qname.equals("reference")) {
                 assert (base != null);
                 int id = getId("id", attributes);

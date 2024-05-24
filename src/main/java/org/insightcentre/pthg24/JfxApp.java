@@ -41,7 +41,7 @@ public class JfxApp extends GeneratedJfxApp {
                 base.setDirty(false);
                 new CreateTranslators(base);
 
-                String type = "terrorism"; // others "scheduling" "cars" "mobilehealth","terrorism"
+                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth","terrorism"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -105,11 +105,17 @@ public class JfxApp extends GeneratedJfxApp {
                                 bibDir = "overview/";
                                 bibFile = "bib.bib";
                                 authors = "Helmut Simonis and Cemalettin Öztürk";
-                                coauthorLimit = 5;
-                                linkCountLimit = 5;
+                                citingSurveyWeight = 0;
+                                citedBySurveyWeight=0;
+                                citationCountWeight = 0;
+                                authorWeight = 0;
+                                ageWeight = 0;
+                                coauthorLimit = 2;
+                                linkCountLimit = 1;
                                 conceptTypes = new String[]{"Scheduling","CP","Concepts","Classification","Constraints",
                                         "ApplicationAreas","Industries","CPSystems","Benchmarks","Algorithms"};
-                        break;
+                                getLimit=5000;
+                                break;
                         default:
                                 severe("Bad type " + type);
                                 assert (false);
@@ -174,6 +180,12 @@ public class JfxApp extends GeneratedJfxApp {
                         sorted(Comparator.comparing(Work::getMaxCitations).reversed()).
                         limit(30).
                         toList(),exportDir,"mostcited.tex","Most Cited Works");
+                new ListWorks(base,base.getListWork().stream().
+                        filter(x->!x.getBackground()).
+                        filter(x->x.getRelevanceBody() >= 1.0).
+                        sorted(Comparator.comparing(Work::getMaxCitations).reversed()).
+                        limit(30).
+                        toList(),exportDir,"mostcitedrelevant.tex","Most Cited Relevant Works");
                 new ListWorks(base,base.getListWork().stream().
                         filter(x->!x.getBackground()).
                         sorted(Comparator.comparing(Work::getRelevanceBody).reversed()).

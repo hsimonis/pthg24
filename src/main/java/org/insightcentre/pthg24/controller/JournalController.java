@@ -19,14 +19,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.Callback;
 import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Journal;
+import org.insightcentre.pthg24.datamodel.Publisher;
 
 /**
- * Generated at 15:28:48 on 2024-05-18 */
+ * Generated at 06:53:46 on 2024-05-24 */
 public class JournalController extends Table3Controller {
 	@FXML
 	private TableView<Journal> table;
@@ -36,6 +38,9 @@ public class JournalController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Journal, String> shortName;
+
+	@FXML
+	private TableColumn<Journal, Publisher> publisher;
 
 	@FXML
 	private TableColumn<Journal, String> issn;
@@ -61,6 +66,8 @@ public class JournalController extends Table3Controller {
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
 		table.setItems(mainApp.getJournalData());
+		publisher.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getPublisherData()));
+		publisher.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPublisher(event.getNewValue()); mainApp.reset();});
 	}
 
 	public TableView<Journal> getTable() {
@@ -80,6 +87,8 @@ public class JournalController extends Table3Controller {
 		shortName.setCellValueFactory(new PropertyValueFactory<>("shortName"));
 		shortName.setCellFactory(TextFieldTableCell.forTableColumn());
 		shortName.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setShortName(event.getNewValue()); mainApp.reset();});
+		choices.add("publisher");
+		publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
 		choices.add("issn");
 		issn.setCellValueFactory(new PropertyValueFactory<>("issn"));
 		issn.setCellFactory(TextFieldTableCell.forTableColumn());

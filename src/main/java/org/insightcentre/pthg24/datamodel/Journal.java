@@ -23,6 +23,7 @@ import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.School;
+import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
 import org.insightcentre.pthg24.datamodel.Citation;
@@ -118,6 +119,13 @@ public  class Journal extends ApplicationObject{
  *
 */
 
+    public Publisher publisher;
+
+/**
+ *  
+ *
+*/
+
     public String shortName;
 
 /**
@@ -145,6 +153,7 @@ public  class Journal extends ApplicationObject{
         setNrBackgroundArticles(0);
         setNrBackgroundCitations(0);
         setNrCitations(0);
+        setPublisher(null);
         setShortName("");
         applicationDataset.addJournal(this);
     }
@@ -165,6 +174,7 @@ public  class Journal extends ApplicationObject{
             Integer nrBackgroundArticles,
             Integer nrBackgroundCitations,
             Integer nrCitations,
+            Publisher publisher,
             String shortName){
         super(applicationDataset,
             id,
@@ -175,6 +185,7 @@ public  class Journal extends ApplicationObject{
         setNrBackgroundArticles(nrBackgroundArticles);
         setNrBackgroundCitations(nrBackgroundCitations);
         setNrCitations(nrCitations);
+        setPublisher(publisher);
         setShortName(shortName);
         applicationDataset.addJournal(this);
     }
@@ -189,6 +200,7 @@ public  class Journal extends ApplicationObject{
             other.nrBackgroundArticles,
             other.nrBackgroundCitations,
             other.nrCitations,
+            other.publisher,
             other.shortName);
     }
 
@@ -274,6 +286,16 @@ public  class Journal extends ApplicationObject{
     }
 
 /**
+ *  get attribute publisher
+ *
+ * @return Publisher
+*/
+
+    public Publisher getPublisher(){
+        return this.publisher;
+    }
+
+/**
  *  get attribute shortName
  *
  * @return String
@@ -356,6 +378,18 @@ public  class Journal extends ApplicationObject{
     }
 
 /**
+ *  set attribute publisher, mark dataset as dirty, mark dataset as not valid
+@param publisher Publisher
+ *
+*/
+
+    public void setPublisher(Publisher publisher){
+        this.publisher = publisher;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute shortName, mark dataset as dirty, mark dataset as not valid
 @param shortName String
  *
@@ -428,7 +462,7 @@ public  class Journal extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getIsBlocked()+ " " +getIssn()+ " " +getNrArticles()+ " " +getNrBackgroundArticles()+ " " +getNrBackgroundCitations()+ " " +getNrCitations()+ " " +getShortName();
+        return ""+ " " +getId()+ " " +getName()+ " " +getIsBlocked()+ " " +getIssn()+ " " +getNrArticles()+ " " +getNrBackgroundArticles()+ " " +getNrBackgroundCitations()+ " " +getNrCitations()+ " " +getPublisher().toColumnString()+ " " +getShortName();
     }
 
 /**
@@ -458,6 +492,7 @@ public  class Journal extends ApplicationObject{
             " nrBackgroundArticles=\""+toXMLNrBackgroundArticles()+"\""+
             " nrBackgroundCitations=\""+toXMLNrBackgroundCitations()+"\""+
             " nrCitations=\""+toXMLNrCitations()+"\""+
+            " publisher=\""+toXMLPublisher()+"\""+
             " shortName=\""+toXMLShortName()+"\""+" />");
      }
 
@@ -527,6 +562,16 @@ public  class Journal extends ApplicationObject{
  * @return String
 */
 
+    String toXMLPublisher(){
+        return "ID_"+this.getPublisher().getId().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLShortName(){
         return this.safeXML(getShortName());
     }
@@ -538,11 +583,11 @@ public  class Journal extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Journal</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>Issn</th>"+"<th>NrArticles</th>"+"<th>NrBackgroundArticles</th>"+"<th>NrCitations</th>"+"<th>NrBackgroundCitations</th>"+"<th>IsBlocked</th>"+"</tr>";
+        return "<tr><th>Journal</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>Publisher</th>"+"<th>Issn</th>"+"<th>NrArticles</th>"+"<th>NrBackgroundArticles</th>"+"<th>NrCitations</th>"+"<th>NrBackgroundCitations</th>"+"<th>IsBlocked</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getIssn()+"</td>"+ " " +"<td>"+getNrArticles()+"</td>"+ " " +"<td>"+getNrBackgroundArticles()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrBackgroundCitations()+"</td>"+ " " +"<td>"+getIsBlocked()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getPublisher().toColumnString()+"</td>"+ " " +"<td>"+getIssn()+"</td>"+ " " +"<td>"+getNrArticles()+"</td>"+ " " +"<td>"+getNrBackgroundArticles()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrBackgroundCitations()+"</td>"+ " " +"<td>"+getIsBlocked()+"</td>"+"</tr>";
     }
 
 /**
@@ -680,6 +725,9 @@ public  class Journal extends ApplicationObject{
       if(!this.getNrCitations().equals(b.getNrCitations())){
          System.out.println("NrCitations");
         }
+      if(!this.getPublisher().applicationSame(b.getPublisher())){
+         System.out.println("Publisher");
+        }
       if(!this.getShortName().equals(b.getShortName())){
          System.out.println("ShortName");
         }
@@ -690,6 +738,7 @@ public  class Journal extends ApplicationObject{
           this.getNrBackgroundArticles().equals(b.getNrBackgroundArticles()) &&
           this.getNrBackgroundCitations().equals(b.getNrBackgroundCitations()) &&
           this.getNrCitations().equals(b.getNrCitations()) &&
+          this.getPublisher().applicationSame(b.getPublisher()) &&
           this.getShortName().equals(b.getShortName());
     }
 
@@ -701,6 +750,9 @@ public  class Journal extends ApplicationObject{
     public void check(){
         if (getApplicationDataset() == null){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"applicationDataset","Journal",(getApplicationDataset()==null?"null":getApplicationDataset().toString()),"",WarningType.NOTNULL);
+        }
+        if (getPublisher() == null){
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"publisher","Journal",(getPublisher()==null?"null":getPublisher().toString()),"",WarningType.NOTNULL);
         }
     }
 
@@ -718,6 +770,9 @@ public  class Journal extends ApplicationObject{
     }
 
    public List<ApplicationObjectInterface> getFeasibleValues(ApplicationDatasetInterface base,String attrName){
+      if (attrName.equals("publisher")){
+         return (List) ((Scenario)base).getListPublisher();
+      }
       return null;
    }
 

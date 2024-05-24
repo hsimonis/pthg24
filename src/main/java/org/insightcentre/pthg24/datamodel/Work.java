@@ -23,6 +23,7 @@ import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.School;
+import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
 import org.insightcentre.pthg24.datamodel.Citation;
@@ -325,6 +326,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  *
 */
 
+    public Publisher publisher;
+
+/**
+ *  
+ *
+*/
+
     public Integer rangeCitations;
 
 /**
@@ -490,6 +498,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setPages("");
         setPercentCitationsCovered(0.0);
         setPercentReferencesCovered(0.0);
+        setPublisher(null);
         setRangeCitations(0);
         setRelatedTo("");
         setRelevanceAbstract(0.0);
@@ -554,6 +563,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             String pages,
             Double percentCitationsCovered,
             Double percentReferencesCovered,
+            Publisher publisher,
             Integer rangeCitations,
             String relatedTo,
             Double relevanceAbstract,
@@ -608,6 +618,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setPages(pages);
         setPercentCitationsCovered(percentCitationsCovered);
         setPercentReferencesCovered(percentReferencesCovered);
+        setPublisher(publisher);
         setRangeCitations(rangeCitations);
         setRelatedTo(relatedTo);
         setRelevanceAbstract(relevanceAbstract);
@@ -666,6 +677,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             other.pages,
             other.percentCitationsCovered,
             other.percentReferencesCovered,
+            other.publisher,
             other.rangeCitations,
             other.relatedTo,
             other.relevanceAbstract,
@@ -1094,6 +1106,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public Double getPercentReferencesCovered(){
         return this.percentReferencesCovered;
+    }
+
+/**
+ *  get attribute publisher
+ *
+ * @return Publisher
+*/
+
+    public Publisher getPublisher(){
+        return this.publisher;
     }
 
 /**
@@ -1693,6 +1715,18 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
+ *  set attribute publisher, mark dataset as dirty, mark dataset as not valid
+@param publisher Publisher
+ *
+*/
+
+    public void setPublisher(Publisher publisher){
+        this.publisher = publisher;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute rangeCitations, mark dataset as dirty, mark dataset as not valid
 @param rangeCitations Integer
  *
@@ -2099,7 +2133,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
     }
 
 /**
@@ -2158,6 +2192,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             " pages=\""+toXMLPages()+"\""+
             " percentCitationsCovered=\""+toXMLPercentCitationsCovered()+"\""+
             " percentReferencesCovered=\""+toXMLPercentReferencesCovered()+"\""+
+            " publisher=\""+toXMLPublisher()+"\""+
             " rangeCitations=\""+toXMLRangeCitations()+"\""+
             " relatedTo=\""+toXMLRelatedTo()+"\""+
             " relevanceAbstract=\""+toXMLRelevanceAbstract()+"\""+
@@ -2540,6 +2575,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  * @return String
 */
 
+    String toXMLPublisher(){
+        return "ID_"+this.getPublisher().getId().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLRangeCitations(){
         return this.getRangeCitations().toString();
     }
@@ -2894,6 +2939,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
       if(!this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered())){
          System.out.println("PercentReferencesCovered");
         }
+      if(!this.getPublisher().applicationSame(b.getPublisher())){
+         System.out.println("Publisher");
+        }
       if(!this.getRangeCitations().equals(b.getRangeCitations())){
          System.out.println("RangeCitations");
         }
@@ -2978,6 +3026,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
           this.getPages().equals(b.getPages()) &&
           this.getPercentCitationsCovered().equals(b.getPercentCitationsCovered()) &&
           this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered()) &&
+          this.getPublisher().applicationSame(b.getPublisher()) &&
           this.getRangeCitations().equals(b.getRangeCitations()) &&
           this.getRelatedTo().equals(b.getRelatedTo()) &&
           this.getRelevanceAbstract().equals(b.getRelevanceAbstract()) &&
@@ -3014,6 +3063,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         if (getConcept() == null){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"concept","Work",(getConcept()==null?"null":getConcept().toString()),"",WarningType.NOTNULL);
         }
+        if (getPublisher() == null){
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"publisher","Work",(getPublisher()==null?"null":getPublisher().toString()),"",WarningType.NOTNULL);
+        }
         if (getSourceGroup() == null){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"sourceGroup","Work",(getSourceGroup()==null?"null":getSourceGroup().toString()),"",WarningType.NOTNULL);
         }
@@ -3034,6 +3086,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
       }
       if (attrName.equals("concept")){
          return (List) ((Scenario)base).getListConcept();
+      }
+      if (attrName.equals("publisher")){
+         return (List) ((Scenario)base).getListPublisher();
       }
       if (attrName.equals("sourceGroup")){
          return (List) ((Scenario)base).getListSourceGroup();

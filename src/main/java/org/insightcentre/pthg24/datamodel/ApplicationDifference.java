@@ -23,6 +23,7 @@ import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.School;
+import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
 import org.insightcentre.pthg24.datamodel.Citation;

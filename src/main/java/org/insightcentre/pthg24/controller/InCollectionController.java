@@ -29,10 +29,11 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.OpenAccessType;
+import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 15:28:48 on 2024-05-18 */
+ * Generated at 06:53:46 on 2024-05-24 */
 public class InCollectionController extends Table3Controller {
 	@FXML
 	private TableView<InCollection> table;
@@ -63,6 +64,9 @@ public class InCollectionController extends Table3Controller {
 
 	@FXML
 	private TableColumn<InCollection, String> title;
+
+	@FXML
+	private TableColumn<InCollection, Publisher> publisher;
 
 	@FXML
 	private TableColumn<InCollection, String> url;
@@ -202,6 +206,8 @@ public class InCollectionController extends Table3Controller {
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
 		table.setItems(mainApp.getInCollectionData());
+		publisher.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getPublisherData()));
+		publisher.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPublisher(event.getNewValue()); mainApp.reset();});
 		sourceGroup.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getSourceGroupData()));
 		sourceGroup.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSourceGroup(event.getNewValue()); mainApp.reset();});
 		ObservableList<OpenAccessType> openAccessTypeValues = FXCollections.observableArrayList(OpenAccessType.values());
@@ -254,6 +260,8 @@ public class InCollectionController extends Table3Controller {
 		title.setCellValueFactory(new PropertyValueFactory<>("title"));
 		title.setCellFactory(TextFieldTableCell.forTableColumn());
 		title.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setTitle(event.getNewValue()); mainApp.reset();});
+		choices.add("publisher");
+		publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
 		choices.add("url");
 		url.setCellValueFactory(new PropertyValueFactory<>("url"));
 		url.setCellFactory(TextFieldTableCell.forTableColumn());

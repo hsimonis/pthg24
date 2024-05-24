@@ -1094,12 +1094,16 @@ public class PublicationReport extends AbstractReport{
                 filter(x->!x.getBackground()).
                 filter(x->x.getNrPages()!=null).
                 toList();
-        new DistributionPlot<>(works, Work::getNrPages).
+        new DistributionPlot<>(works, this::nrPages).
                 ordering(NR).
-                title("Nr of Works with Given Number of Pages (Total "+works.size()+" entries)").
+                title("Nr of Works with Given Number of Pages (Total "+works.size()+" values entries capped at 50 pages)").
                 xlabel("Number of Pages").ylabel("Nr Works").
                 width(24).height(12).
                 generate().latex(tex);
+    }
+
+    private int nrPages(Work w){
+        return Math.min(50,w.getNrPages());
     }
 
     private void relevanceDistribution(){

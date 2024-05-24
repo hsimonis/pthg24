@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 15:28:48 on 2024-05-18 */
+ * Generated at 06:53:46 on 2024-05-24 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -103,6 +103,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
+		filterNames.add("publisher");
 		filterNames.add("url");
 		filterNames.add("doi");
 		filterNames.add("issn");
@@ -183,6 +184,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
+		filterNames.add("publisher");
 		filterNames.add("url");
 		filterNames.add("doi");
 		filterNames.add("issn");
@@ -264,6 +266,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
+		filterNames.add("publisher");
 		filterNames.add("url");
 		filterNames.add("doi");
 		filterNames.add("issn");
@@ -345,6 +348,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
+		filterNames.add("publisher");
 		filterNames.add("url");
 		filterNames.add("doi");
 		filterNames.add("issn");
@@ -426,6 +430,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
+		filterNames.add("publisher");
 		filterNames.add("url");
 		filterNames.add("doi");
 		filterNames.add("issn");
@@ -507,6 +512,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
+		filterNames.add("publisher");
 		filterNames.add("url");
 		filterNames.add("doi");
 		filterNames.add("issn");
@@ -588,6 +594,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
+		filterNames.add("publisher");
 		filterNames.add("url");
 		filterNames.add("doi");
 		filterNames.add("issn");
@@ -698,6 +705,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add(filterNone);
 		filterNames.add("name");
 		filterNames.add("shortName");
+		filterNames.add("publisher");
 		filterNames.add("issn");
 		attributeNames.add("nrArticles");
 		filterNames.add("nrArticles");
@@ -716,6 +724,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("name");
 		filterNames.add("journal");
 		filterNames.add("alias");
+		filterNames.add("name");
 		filterNames.add("name");
 		filterNames.add("name");
 		filterNames.add("name");
@@ -1155,6 +1164,9 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("School")) {
 				objectList = mainApp.getSchoolData();
+			}
+			else if (className.equals("Publisher")) {
+				objectList = mainApp.getPublisherData();
 			}
 			else if (className.equals("Collection")) {
 				objectList = mainApp.getCollectionData();

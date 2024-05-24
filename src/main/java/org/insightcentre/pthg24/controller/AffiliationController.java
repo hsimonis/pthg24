@@ -19,7 +19,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Affiliation;
 
 /**
- * Generated at 15:28:48 on 2024-05-18 */
+ * Generated at 06:53:46 on 2024-05-24 */
 public class AffiliationController extends Table3Controller {
 	@FXML
 	private TableView<Affiliation> table;

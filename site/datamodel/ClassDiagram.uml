@@ -55,6 +55,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include Paper.uml
 !include PhDThesis.uml
 !include Proceedings.uml
+!include Publisher.uml
 !include Reference.uml
 !include ReferenceFlow.uml
 !include Scenario.uml
@@ -89,9 +90,11 @@ CrossReference <|-- DoiReference
 ApplicationDataset  *-- ApplicationObject 
 ConceptType  *-- Concept 
 Author "1..*" *-- Work : authors
+Publisher  *-- Work 
 SourceGroup  *-- Work 
 Concept "0..*" *-- Work 
 ConferenceSeries  *-- Proceedings 
+Publisher  *-- Journal 
 Journal  *-- JournalAlias 
 Journal  *-- Article 
 Proceedings  *-- Paper 

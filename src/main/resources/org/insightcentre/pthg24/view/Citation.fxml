@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 15:28:49 on 2024-05-18-->
+<!--Generated at 06:53:46 on 2024-05-24-->
 
 
 <Tab text="Citation" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.CitationController">

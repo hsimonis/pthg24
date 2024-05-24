@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 15:28:48 on 2024-05-18 */
+ * Generated at 06:53:46 on 2024-05-24 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -93,6 +93,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("author");
 		attributeNames.add("authors");
 		attributeNames.add("title");
+		attributeNames.add("publisher");
 		attributeNames.add("url");
 		attributeNames.add("doi");
 		attributeNames.add("issn");
@@ -147,6 +148,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("author");
 		attributeNames.add("authors");
 		attributeNames.add("title");
+		attributeNames.add("publisher");
 		attributeNames.add("url");
 		attributeNames.add("doi");
 		attributeNames.add("issn");
@@ -202,6 +204,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("author");
 		attributeNames.add("authors");
 		attributeNames.add("title");
+		attributeNames.add("publisher");
 		attributeNames.add("url");
 		attributeNames.add("doi");
 		attributeNames.add("issn");
@@ -257,6 +260,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("author");
 		attributeNames.add("authors");
 		attributeNames.add("title");
+		attributeNames.add("publisher");
 		attributeNames.add("url");
 		attributeNames.add("doi");
 		attributeNames.add("issn");
@@ -312,6 +316,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("author");
 		attributeNames.add("authors");
 		attributeNames.add("title");
+		attributeNames.add("publisher");
 		attributeNames.add("url");
 		attributeNames.add("doi");
 		attributeNames.add("issn");
@@ -367,6 +372,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("author");
 		attributeNames.add("authors");
 		attributeNames.add("title");
+		attributeNames.add("publisher");
 		attributeNames.add("url");
 		attributeNames.add("doi");
 		attributeNames.add("issn");
@@ -422,6 +428,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("author");
 		attributeNames.add("authors");
 		attributeNames.add("title");
+		attributeNames.add("publisher");
 		attributeNames.add("url");
 		attributeNames.add("doi");
 		attributeNames.add("issn");
@@ -496,6 +503,7 @@ public class PieChartController extends ChartController {
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
 		attributeNames.add("shortName");
+		attributeNames.add("publisher");
 		attributeNames.add("issn");
 		attributeNames.add("nrArticles");
 		attributeNames.add("nrBackgroundArticles");
@@ -511,6 +519,9 @@ public class PieChartController extends ChartController {
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
 		choicesMap.put("School", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		choicesMap.put("Publisher", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
 		choicesMap.put("Collection", attributeNames);
@@ -842,6 +853,9 @@ public class PieChartController extends ChartController {
 			}
 			else if (className.equals("School")) {
 				objectList = mainApp.getSchoolData();
+			}
+			else if (className.equals("Publisher")) {
+				objectList = mainApp.getPublisherData();
 			}
 			else if (className.equals("Collection")) {
 				objectList = mainApp.getCollectionData();

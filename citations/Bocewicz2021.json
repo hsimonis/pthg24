@@ -1,0 +1,47 @@
+[
+    {
+        "author_sc": "no",
+        "cited": "10.17531/ein.2021.1.13",
+        "journal_sc": "no",
+        "oci": "061403416556-06201701548",
+        "timespan": "P0Y",
+        "creation": "2022",
+        "citing": "10.1007/978-3-031-16014-1_31"
+    },
+    {
+        "author_sc": "yes",
+        "cited": "10.17531/ein.2021.1.13",
+        "journal_sc": "no",
+        "oci": "061503899750-06201701548",
+        "timespan": "P2Y1M",
+        "creation": "2023-03",
+        "citing": "10.1016/j.engappai.2022.105725"
+    },
+    {
+        "author_sc": "yes",
+        "cited": "10.17531/ein.2021.1.13",
+        "journal_sc": "no",
+        "oci": "06350191350-06201701548",
+        "timespan": "P2Y0M17D",
+        "creation": "2023-01-19",
+        "citing": "10.3390/su15031949"
+    },
+    {
+        "author_sc": "yes",
+        "cited": "10.17531/ein.2021.1.13",
+        "journal_sc": "no",
+        "oci": "06470109441-06201701548",
+        "timespan": "P1Y",
+        "creation": "2023",
+        "citing": "10.1007/978-3-031-38318-2_2"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.17531/ein.2021.1.13",
+        "journal_sc": "no",
+        "oci": "06470109444-06201701548",
+        "timespan": "P1Y",
+        "creation": "2023",
+        "citing": "10.1007/978-3-031-38318-2_1"
+    }
+]

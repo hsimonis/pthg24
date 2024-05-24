@@ -31,7 +31,7 @@ public class ListArticlesByJournal {
                         filter(x -> !x.getBackground()).
                         sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getKey)).
                         collect(Collectors.toList());
-                new ListWorks(out, base, works, false, "Articles in Journal " + s.getName() + " (Total " + works.size() + ")");
+                new ListWorks(out, base, works, false, "Articles in Journal " + s.getName());
             }
             out.close();
         } catch (IOException e) {

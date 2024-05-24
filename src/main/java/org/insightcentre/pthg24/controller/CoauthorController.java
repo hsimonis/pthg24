@@ -21,7 +21,7 @@ import org.insightcentre.pthg24.datamodel.Author;
 import org.insightcentre.pthg24.datamodel.Coauthor;
 
 /**
- * Generated at 15:28:48 on 2024-05-18 */
+ * Generated at 06:53:46 on 2024-05-24 */
 public class CoauthorController extends Table3Controller {
 	@FXML
 	private TableView<Coauthor> table;

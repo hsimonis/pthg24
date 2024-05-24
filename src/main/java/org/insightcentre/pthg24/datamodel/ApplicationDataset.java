@@ -23,6 +23,7 @@ import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.School;
+import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.Collection;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
 import org.insightcentre.pthg24.datamodel.Citation;
@@ -261,6 +262,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
 */
 
     List<School> listSchool = new ArrayList<School>();
+
+/**
+ *  This lists holds all items of class Publisher and its subclasses
+ *
+*/
+
+    List<Publisher> listPublisher = new ArrayList<Publisher>();
 
 /**
  *  This lists holds all items of class Collection and its subclasses
@@ -592,6 +600,7 @@ public int compareTo(ApplicationDataset ds2){
                              "Paper",
                              "PhDThesis",
                              "Proceedings",
+                             "Publisher",
                              "Reference",
                              "ReferenceFlow",
                              "Scenario",
@@ -679,6 +688,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListJournal();
         resetListJournalAlias();
         resetListSchool();
+        resetListPublisher();
         resetListCollection();
         resetListConceptWork();
         resetListCitation();
@@ -1470,6 +1480,40 @@ public int compareTo(ApplicationDataset ds2){
         List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
         for(ApplicationObject a:listApplicationObject){
             if (!(a instanceof School)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class Publisher
+ *
+*/
+
+    public Iterator<Publisher> getIteratorPublisher(){
+        return listPublisher.iterator();
+    }
+
+/**
+ *  Getter for list of class Publisher
+ *
+*/
+
+    public List<Publisher> getListPublisher(){
+        return listPublisher;
+    }
+
+/**
+ *  reset the list of class Publisher; use with care, does not call cascades
+ *
+*/
+
+    public void resetListPublisher(){
+        listPublisher = new ArrayList<Publisher>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Publisher)){
                 newListApplicationObject.add(a);
             }
         }
@@ -2476,6 +2520,24 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Removing object item of class Publisher; remove all dependent objects of class Work which refer to item through their attribute publisher
+ *
+*/
+
+    public void cascadeWorkPublisher(Publisher item){
+        assert item != null;
+        List<Work> toRemove = new ArrayList<Work>();
+        for(Work a:getListWork()) {
+         if (a.getPublisher() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Work b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
  *  Removing object item of class SourceGroup; remove all dependent objects of class Work which refer to item through their attribute sourceGroup
  *
 */
@@ -2525,6 +2587,24 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(Proceedings b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Publisher; remove all dependent objects of class Journal which refer to item through their attribute publisher
+ *
+*/
+
+    public void cascadeJournalPublisher(Publisher item){
+        assert item != null;
+        List<Journal> toRemove = new ArrayList<Journal>();
+        for(Journal a:getListJournal()) {
+         if (a.getPublisher() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Journal b:toRemove) {
             b.remove();
         }
     }
@@ -3719,6 +3799,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class Publisher
+ *
+*/
+
+    public void addPublisher(Publisher publisher){
+        assert publisher != null;
+        this.listPublisher.add(publisher);
+    }
+
+/**
+ *  remove an item from the list for class Publisher
+ *
+*/
+
+    public Boolean removePublisher(Publisher publisher){
+        assert publisher != null;
+        return this.listPublisher.remove(publisher);
+    }
+
+/**
  *  add an item to the list for class Collection
  *
 */
@@ -4320,6 +4420,9 @@ public int compareTo(ApplicationDataset ds2){
         for(Proceedings x:getListProceedings()){
             System.out.println(x);
         }
+        for(Publisher x:getListPublisher()){
+            System.out.println(x);
+        }
         for(Reference x:getListReference()){
             System.out.println(x);
         }
@@ -4488,6 +4591,9 @@ public int compareTo(ApplicationDataset ds2){
         for(Proceedings x:getListProceedings()){
             if (x.getClass().equals(Proceedings.class)) x.toXML(out);
         }
+        for(Publisher x:getListPublisher()){
+            if (x.getClass().equals(Publisher.class)) x.toXML(out);
+        }
         for(Reference x:getListReference()){
             if (x.getClass().equals(Reference.class)) x.toXML(out);
         }
@@ -4647,6 +4753,7 @@ public int compareTo(ApplicationDataset ds2){
         comparePaper(this.getListPaper(),compare.getListPaper());
         comparePhDThesis(this.getListPhDThesis(),compare.getListPhDThesis());
         compareProceedings(this.getListProceedings(),compare.getListProceedings());
+        comparePublisher(this.getListPublisher(),compare.getListPublisher());
         compareReference(this.getListReference(),compare.getListReference());
         compareReferenceFlow(this.getListReferenceFlow(),compare.getListReferenceFlow());
         compareSchool(this.getListSchool(),compare.getListSchool());
@@ -5406,6 +5513,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types Publisher, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void comparePublisher(List<Publisher> aList,List<Publisher> bList){
+        System.out.println("Comparing Publisher");
+        for(Publisher a:aList){
+            Publisher b= Publisher.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Publisher A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Publisher A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Publisher B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Publisher b: bList){
+            Publisher a = Publisher.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Publisher B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types Reference, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -5706,6 +5837,7 @@ public int compareTo(ApplicationDataset ds2){
         checkPaper(this.getListPaper());
         checkPhDThesis(this.getListPhDThesis());
         checkProceedings(this.getListProceedings());
+        checkPublisher(this.getListPublisher());
         checkReference(this.getListReference());
         checkReferenceFlow(this.getListReferenceFlow());
         checkScenario(this.getListScenario());
@@ -6063,6 +6195,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<Publisher> dataset list of all items of type Publisher
+*/
+
+    public void checkPublisher(List<Publisher> list){
+        for(Publisher a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<Reference> dataset list of all items of type Reference
 */
 
@@ -6226,6 +6369,7 @@ public int compareTo(ApplicationDataset ds2){
         Paper.dummy(this);
         PhDThesis.dummy(this);
         Proceedings.dummy(this);
+        Publisher.dummy(this);
         Reference.dummy(this);
         ReferenceFlow.dummy(this);
         Scenario.dummy(this);

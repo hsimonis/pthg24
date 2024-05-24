@@ -14,15 +14,18 @@
 \usepackage{stackengine}
 \usepackage{multicol}
 %\usepackage{showkeys}
-\definecolor{gold}{rgb}{1.0, 0.84, 0.0}
-\definecolor{goldenrod}{rgb}{0.85, 0.65, 0.13}
 \newcounter{rowcounter}
 \newcommand{\rowlabel}[1]{\refstepcounter{rowcounter}\label{#1}}
+\usepackage{soul}
+\definecolor{gold}{rgb}{1.0, 0.84, 0.0}
+\definecolor{goldenrod}{rgb}{0.85, 0.65, 0.13}
+\definecolor{darkspringgreen}{rgb}{0.09, 0.45, 0.27}
 \usepackage{imakeidx}
 \makeindex[columns=3, title=Alphabetical Index, intoc]
 
 \usepackage{url}
 \usepackage[pdfnewwindow]{hyperref}
+\usepackage{pdfcomment}
 
 \newcommand{\su}[1]{\Shortunderstack[l]{#1}}
 
@@ -67,9 +70,9 @@ We then give the title of the publication, using the original capitalization of 
 \subsection{Extracted Concepts}
 \input{../exports/conceptspaper}
 
-\clearpage
-\subsection{Manually Defined Fields}
-\input{../exports/papersmanual}
+%\clearpage
+%\subsection{Manually Defined Fields}
+%\input{../exports/papersmanual}
 
 \clearpage
 \section{Journal Articles}
@@ -83,9 +86,9 @@ We then give the title of the publication, using the original capitalization of 
 \subsection{Extracted Concepts}
 \input{../exports/conceptsarticle}
 
-\clearpage
-\subsection{Manually Defined Fields}
-\input{../exports/articlesmanual}
+%\clearpage
+%\subsection{Manually Defined Fields}
+%\input{../exports/articlesmanual}
 
 \clearpage
 \section{Authors}
@@ -97,6 +100,25 @@ We then give the title of the publication, using the original capitalization of 
 
 \input{../exports/mostcited}
 
+\clearpage
+\section{Most Cited Relevant Works}
+
+\input{../exports/mostcitedrelevant}
+
+\clearpage
+\section{Most Relevant Works}
+
+\input{../exports/mostrelevant}
+
+\clearpage
+\section{Most Connected Works}
+
+\input{../exports/mostconnected}
+
+\clearpage
+\section{Longest Works}
+
+\input{../exports/longest}
 
 \clearpage
 \section{Acronyms}
@@ -135,6 +157,10 @@ Some journals are highlighted in red, indicating that I cannot read these throug
 \input{../exports/missingpaper}
 
 \input{../exports/missingarticle}
+
+\input{../exports/missinginbook}
+
+\input{../exports/missingincollection}
 
 \clearpage
 \section{Papers and Articles Without Recognized Concepts}
@@ -256,11 +282,37 @@ The following table shows works that are currently not included in the survey, b
 \input{../exports/missingwork}
 
 \clearpage
+\section{Highly Connected Missing Work}
+
+The following table shows work currently not considered which is highly connected to the survey, but which does not have a high enough relevance to be included automatically. The top 50 entries are shown. Some of these work may be background material cited by many works in the survey, or we might be missing some features to show that they are relevant to the survey topic.
+
+\input{../exports/connectedwork}
+
+\clearpage
+\section{Excluded Work}
+
+The following entries have not been included, as they are of the wrong type or are incomplete. Some of these might be highly relevant, but they will need some manual work to be included in the survey.
+
+\input{../exports/excludedwork}
+
+\clearpage
 \section{Missing DOI}
 
 The following works do not have a DOI entry in their bib entry. This might be due to an non-standard or defunct publisher, but for many works a DOI should exist. It would be helpful to add these to the bib entries, so that the OpenCitation and Crossref lookup procedures can report the appropriate numbers for citations and references.
 
 \input{../exports/missingdoi}
+
+\clearpage
+\section{Details of Works}
+
+\input{../exports/abstracts}
+
+\clearpage
+\section{Abstracts of Missing Works}
+
+\input{../exports/abstractsmissingwork}
+
+
 
 \printindex
 

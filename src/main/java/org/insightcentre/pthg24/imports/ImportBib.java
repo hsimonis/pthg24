@@ -93,6 +93,7 @@ public class ImportBib {
                         phd.setShortName(workKey.toString());
                         phd.setKey(shortKey(workKey.toString()));
                         phd.setSchool(findSchool(fieldString(entry,KEY_SCHOOL)));
+                        phd.setPublisher(findPublisher(fieldString(entry,KEY_SCHOOL)));
                         phd.setLocalCopy(worksDir+phd.getKey()+".pdf");
                         work=phd;
                         break;
@@ -132,6 +133,9 @@ public class ImportBib {
                     }
                     if (!fieldString(entry,abstractKey).equals("")){
                         work.setAbstractText(removeMarkup(fieldString(entry,abstractKey)));
+                    }
+                    if (!fieldString(entry,KEY_PUBLISHER).equals("")){
+                        work.setPublisher(findPublisher(fieldString(entry,KEY_PUBLISHER)));
                     }
                     Work previous = keyHash.get(work.getKey());
                     if (previous != null){
@@ -517,6 +521,15 @@ public class ImportBib {
         School res = School.findByName(base,name);
         if (res == null){
             res = new School(base);
+            res.setName(name);
+        }
+        return res;
+    }
+
+    private Publisher findPublisher(String name){
+        Publisher res = Publisher.findByName(base,name);
+        if (res == null){
+            res = new Publisher(base);
             res.setName(name);
         }
         return res;

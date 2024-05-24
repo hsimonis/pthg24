@@ -18,7 +18,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Translator;
 
 /**
- * Generated at 15:28:48 on 2024-05-18 */
+ * Generated at 06:53:46 on 2024-05-24 */
 public class TranslatorController extends Table3Controller {
 	@FXML
 	private TableView<Translator> table;
