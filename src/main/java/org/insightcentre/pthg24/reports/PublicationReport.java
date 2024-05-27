@@ -219,6 +219,8 @@ public class PublicationReport extends AbstractReport{
         pageLength();
 
         relevanceDistribution();
+
+        publishers();
     }
 
     private Integer nrOfAffiliations(Work w,Map<Work,List<WorkAffiliation>> map){
@@ -551,6 +553,10 @@ public class PublicationReport extends AbstractReport{
                 addStringColumn("File",x->safe(x.getFileName())).
                 tableStyle(TableStyle.LONGTABLE).
                 generate().latex(tex);
+
+        subsection("Missing Publisher");
+
+        listWorks("Missing Publisher",base.getListWork().stream().filter(x->x.getPublisher()==null).sorted(Comparator.comparing(Work::getName)).toList());
 
     }
 
@@ -1166,6 +1172,17 @@ public class PublicationReport extends AbstractReport{
                 xlabel("Nr Links").ylabel("Body Relevance").
                 generate().latex(tex);
 
+        new ScatterPlot<>(works.stream().
+                filter(x->x.getNrPages() != null).
+                filter(x->x.getNrPages() <= 60).
+                filter(x->!x.getLocalCopy().equals("")).
+                toList(),
+                Work::getNrPages, this::cappedBodyRelevance,Work::getRelevanceAbstract).
+                width(24).height(15).
+                title("Number of Pages (less than 60) vs Body Relevance (capped at 20 Colored by Abstract Relevance)").
+                xlabel("Nr Pages").ylabel("Body Relevance").
+                generate().latex(tex);
+
     }
 
     private int nrLinks(Work w){
@@ -1189,5 +1206,59 @@ public class PublicationReport extends AbstractReport{
         int raw = (int) Math.floor(w.getRelevance());
         return Math.min(raw, 20);
     }
+
+    private void publishers(){
+        int limit = 30;
+        int d = base.getListPublisher().stream().mapToInt(Publisher::getNrWorks).sum();
+        clearpage();
+        section("Most Important Publishers");
+        label("sec","publishers");
+        List<Publisher> pubs = base.getListPublisher().stream().sorted(Comparator.comparing(Publisher::getNrWorks).reversed()).limit(limit).toList();
+
+        new BarPlot<>(pubs,
+                ApplicationObject::getName, Publisher::getNrWorks).
+                width(25).height(12).
+                title(limit+ " Most Important Publishers (Based on "+d+" Works)").
+                xlabel("Publisher").ylabel("Nr Works Published").
+                generate().latex(tex);
+
+        for(Publisher p:pubs){
+            List<Work> works = base.getListWork().stream().
+                    filter(x->!x.getBackground()).
+                    filter(x->x.getPublisher()==p).
+                    toList();
+            new DistributionPlot<>(works, Work::getYear).
+                    ordering(NR).
+                    title("Works of Publisher "+safe(p.getName())+" by Year (Total "+works.size()+" Works)").
+                    xlabel("Year").ylabel("Nr Works Published").
+                    width(24).height(12).
+                    generate().latex(tex);
+        }
+
+           List<Work> allWorks = base.getListWork().stream().
+                    filter(x->!x.getBackground()).
+                    toList();
+            int firstYear = allWorks.stream().mapToInt(Work::getYear).min().orElse(0);
+            int lastYear = allWorks.stream().mapToInt(Work::getYear).max().orElse(0);
+            int maxCitations = allWorks.stream().mapToInt(Work::getNrCitations).max().orElse(0);
+
+            for(Publisher p:pubs){
+                List<Work> works = base.getListWork().stream().
+                        filter(x->x.getPublisher()==p).
+                        filter(x->!x.getBackground()).
+                        toList();
+                if (works.size() > 1) {
+                    new ScatterPlot<>(works,
+                            Work::getYear, Work::getNrCitations, Work::getNrReferences).
+                            xrange(firstYear,lastYear).
+                            yrange(0,maxCitations).
+                            title("Nr Citations of Works per Year for Publisher " + safe(p.getName()) + " colored by Nr References").
+                            xlabel("Year").ylabel("Citations").
+                            width(23).height(15).
+                            generate().latex(tex);
+                }
+            }
+
+        }
 
 }

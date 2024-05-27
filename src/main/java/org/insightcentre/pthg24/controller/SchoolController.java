@@ -18,7 +18,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.School;
 
 /**
- * Generated at 06:53:46 on 2024-05-24 */
+ * Generated at 06:46:00 on 2024-05-25 */
 public class SchoolController extends Table3Controller {
 	@FXML
 	private TableView<School> table;

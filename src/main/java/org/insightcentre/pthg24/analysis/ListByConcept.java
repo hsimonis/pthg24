@@ -88,7 +88,8 @@ public class ListByConcept {
     }
 
     public static String citation(Work w){
-        return "\\href{"+local(w.getLocalCopy())+"}{"+w.getName()+"}~\\cite{"+safer(w.getName())+"}";
+        return "\\hyperref[detail:"+w.getName()+"]{"+w.getName()+"}";
+//        return "\\href{"+local(w.getLocalCopy())+"}{"+w.getName()+"}~\\cite{"+safer(w.getName())+"}";
     }
 
 

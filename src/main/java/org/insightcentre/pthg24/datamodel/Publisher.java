@@ -71,6 +71,13 @@ import framework.AppearInCollection;
 
 public  class Publisher extends ApplicationObject{
 /**
+ *  
+ *
+*/
+
+    public Integer nrWorks;
+
+/**
  *  No-arg constructor for use in TableView
  *
 */
@@ -89,6 +96,7 @@ public  class Publisher extends ApplicationObject{
 
     public Publisher(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setNrWorks(0);
         applicationDataset.addPublisher(this);
     }
 
@@ -101,17 +109,20 @@ public  class Publisher extends ApplicationObject{
 
     public Publisher(ApplicationDataset applicationDataset,
             Integer id,
-            String name){
+            String name,
+            Integer nrWorks){
         super(applicationDataset,
             id,
             name);
+        setNrWorks(nrWorks);
         applicationDataset.addPublisher(this);
     }
 
     public Publisher(Publisher other){
         this(other.applicationDataset,
             other.id,
-            other.name);
+            other.name,
+            other.nrWorks);
     }
 
 /**
@@ -125,6 +136,39 @@ public  class Publisher extends ApplicationObject{
         getApplicationDataset().cascadeWorkPublisher(this);
         getApplicationDataset().cascadeJournalPublisher(this);
         return getApplicationDataset().removePublisher(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  get attribute nrWorks
+ *
+ * @return Integer
+*/
+
+    public Integer getNrWorks(){
+        return this.nrWorks;
+    }
+
+/**
+ *  set attribute nrWorks, mark dataset as dirty, mark dataset as not valid
+@param nrWorks Integer
+ *
+*/
+
+    public void setNrWorks(Integer nrWorks){
+        this.nrWorks = nrWorks;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute nrWorks, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incNrWorks(){
+        this.nrWorks++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -144,7 +188,7 @@ public  class Publisher extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName();
+        return ""+ " " +getId()+ " " +getName()+ " " +getNrWorks();
     }
 
 /**
@@ -167,8 +211,19 @@ public  class Publisher extends ApplicationObject{
      public void toXML(PrintWriter out){
          out.println("<publisher "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
-            " name=\""+toXMLName()+"\""+" />");
+            " name=\""+toXMLName()+"\""+
+            " nrWorks=\""+toXMLNrWorks()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLNrWorks(){
+        return this.getNrWorks().toString();
+    }
 
 /**
  * show object as one row in an HTML table
@@ -177,11 +232,11 @@ public  class Publisher extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Publisher</th>"+"<th>Name</th>"+"</tr>";
+        return "<tr><th>Publisher</th>"+"<th>Name</th>"+"<th>NrWorks</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getNrWorks()+"</td>"+"</tr>";
     }
 
 /**
@@ -301,7 +356,11 @@ public  class Publisher extends ApplicationObject{
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
-        return  this.getName().equals(b.getName());
+      if(!this.getNrWorks().equals(b.getNrWorks())){
+         System.out.println("NrWorks");
+        }
+        return  this.getName().equals(b.getName()) &&
+          this.getNrWorks().equals(b.getNrWorks());
     }
 
 /**

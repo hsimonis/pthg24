@@ -3,6 +3,7 @@ package org.insightcentre.pthg24.controller;
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
 import java.lang.Exception;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
@@ -18,13 +19,16 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Publisher;
 
 /**
- * Generated at 06:53:46 on 2024-05-24 */
+ * Generated at 06:46:00 on 2024-05-25 */
 public class PublisherController extends Table3Controller {
 	@FXML
 	private TableView<Publisher> table;
 
 	@FXML
 	private TableColumn<Publisher, String> name;
+
+	@FXML
+	private TableColumn<Publisher, Integer> nrWorks;
 
 	private GeneratedJfxApp mainApp;
 
@@ -47,6 +51,10 @@ public class PublisherController extends Table3Controller {
 		name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		name.setCellFactory(TextFieldTableCell.forTableColumn());
 		name.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setName(event.getNewValue()); mainApp.reset();});
+		choices.add("nrWorks");
+		nrWorks.setCellValueFactory(new PropertyValueFactory<>("nrWorks"));
+		nrWorks.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nrWorks.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNrWorks(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

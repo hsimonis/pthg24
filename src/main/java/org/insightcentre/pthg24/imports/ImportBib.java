@@ -93,7 +93,7 @@ public class ImportBib {
                         phd.setShortName(workKey.toString());
                         phd.setKey(shortKey(workKey.toString()));
                         phd.setSchool(findSchool(fieldString(entry,KEY_SCHOOL)));
-                        phd.setPublisher(findPublisher(fieldString(entry,KEY_SCHOOL)));
+                        phd.setPublisher(findPublisher(base,fieldString(entry,KEY_SCHOOL)));
                         phd.setLocalCopy(worksDir+phd.getKey()+".pdf");
                         work=phd;
                         break;
@@ -135,7 +135,10 @@ public class ImportBib {
                         work.setAbstractText(removeMarkup(fieldString(entry,abstractKey)));
                     }
                     if (!fieldString(entry,KEY_PUBLISHER).equals("")){
-                        work.setPublisher(findPublisher(fieldString(entry,KEY_PUBLISHER)));
+                        work.setPublisher(findPublisher(base,fieldString(entry,KEY_PUBLISHER)));
+                        if (work instanceof Article){
+                            ((Article)work).getJournal().setPublisher(work.getPublisher());
+                        }
                     }
                     Work previous = keyHash.get(work.getKey());
                     if (previous != null){
@@ -526,13 +529,75 @@ public class ImportBib {
         return res;
     }
 
-    private Publisher findPublisher(String name){
+    public static Publisher findPublisher(Scenario base,String raw){
+        String name = simplifyPublisherName(raw);
         Publisher res = Publisher.findByName(base,name);
         if (res == null){
             res = new Publisher(base);
             res.setName(name);
         }
+        res.incNrWorks();
         return res;
+    }
+
+    private static String simplifyPublisherName(String name){
+        String lower = name.toLowerCase();
+        if (lower.contains("springer")){
+            return "Springer";
+        } else if (lower.contains("elsevier")){
+            return "Elsevier";
+        } else if (lower.contains("wiley")){
+            return "Wiley";
+        } else if (name.contains("INFORMS")){
+            return "INFORMS";
+        } else if (name.contains("IEEE")){
+            return "IEEE";
+        } else if (name.contains("ACM")){
+            return "ACM";
+        } else if (name.contains("AAAI")){
+            return "AAAI";
+        } else if (name.contains("MIT")){
+            return "MIT Press";
+        } else if (name.contains("IOS")){
+            return "IOS Press";
+        } else if (name.contains("IET")){
+            return "IET";
+        } else if (name.contains("ASCE")){
+            return "ACSE";
+        } else if (lower.contains("scitepress")){
+            return "Scitepress";
+        } else if (lower.contains("emerald")){
+            return "Emerald";
+        } else if (lower.contains("frontiers media")){
+            return "Frontiers Media";
+        } else if (lower.contains("sage publications")){
+            return "SAGE Publications";
+        } else if (lower.contains("world scientific pub")){
+            return "World Scientific Pub";
+        } else if (lower.contains("cambridge university press")){
+            return "Cambridge University Press";
+        } else if (lower.contains("oxford university press")){
+            return "Oxford University Press";
+        } else if (lower.contains("mines de nantes")){
+            return "Ecole des Mines de Nantes";
+        } else if (lower.contains("assoc advancement artificial intelligence")){
+            return "AAAI";
+        } else if (lower.contains("amer assoc artificial intelligence")){
+            return "AAAI";
+        } else if (lower.contains("taylor \\& francis")){
+            return "Taylor \\& Francis";
+        } else if (lower.contains("hindawi")){
+            return "Hindawi";
+        } else if (lower.contains("assoc computing machinery")){
+            return "ACM";
+        } else if (lower.contains("informa")){
+            return "Informa";
+        } else if (name.contains("MDPI")){
+            return "MDPI";
+        } else if (name.contains("ijcai")){
+            return "IJCAI";
+        }
+        return name.replaceAll(","," ").replaceAll("\\.","");
     }
 
 }

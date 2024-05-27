@@ -19,6 +19,7 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static org.insightcentre.pthg24.imports.ImportBib.findPublisher;
 import static org.insightcentre.pthg24.imports.ImportOpenCitations.handleToRemove;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
 
@@ -131,7 +132,11 @@ public class ImportCrossref {
             }
         }
         if (message.has("publisher") && w.getPublisher()==null){
-            w.setPublisher(findPublisher(message.getString("publisher")));
+            w.setPublisher(findPublisher(base,message.getString("publisher")));
+            if (w instanceof Article){
+                ((Article)w).getJournal().setPublisher(w.getPublisher());
+            }
+
         }
         String language = "";
         if(message.has("language")){
@@ -315,13 +320,6 @@ public class ImportCrossref {
         return null;
     }
 
-    private Publisher findPublisher(String name){
-        Publisher res = Publisher.findByName(base,name);
-        if (res == null){
-            res = new Publisher(base);
-            res.setName(name);
-        }
-        return res;
-    }
+
 
 }

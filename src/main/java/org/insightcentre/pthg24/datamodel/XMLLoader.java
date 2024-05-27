@@ -1755,7 +1755,8 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 int id = getId("id", attributes);
                 store(id, new Publisher(base,
                         id,
-                        getString("name", attributes, "dummy")
+                        getString("name", attributes, "dummy"),
+                        getInteger("nrWorks",attributes,0)
                         ));
             } else if (qname.equals("reference")) {
                 assert (base != null);

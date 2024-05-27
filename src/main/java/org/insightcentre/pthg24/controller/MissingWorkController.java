@@ -28,7 +28,7 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 
 /**
- * Generated at 06:53:46 on 2024-05-24 */
+ * Generated at 06:46:00 on 2024-05-25 */
 public class MissingWorkController extends Table3Controller {
 	@FXML
 	private TableView<MissingWork> table;

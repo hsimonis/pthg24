@@ -26,7 +26,7 @@ public class KeyOverview {
             List<Work> sorted  = sortedWorks(base);
 //            out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{*{%d}{l}}\n",nrColumns);
-            out.printf("\\rowcolor{white}\\caption{Key Overview (Total: %d)}\\\\ \\toprule\n",sorted.size());
+            out.printf("\\rowcolor{white}\\caption{Key Overview (Total: %d Not Including Background Works)}\\\\ \\toprule\n",sorted.size());
             out.printf("\\rowcolor{white}1 & 2 & 3 & 4 & 5 & 6\\\\ \\midrule\n");
             out.printf("\\endhead\n");
             out.printf("\\bottomrule\n");

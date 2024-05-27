@@ -26,7 +26,7 @@ import org.insightcentre.pthg24.datamodel.Work;
 import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 
 /**
- * Generated at 06:53:46 on 2024-05-24 */
+ * Generated at 06:46:00 on 2024-05-25 */
 public class WorkAffiliationController extends Table3Controller {
 	@FXML
 	private TableView<WorkAffiliation> table;

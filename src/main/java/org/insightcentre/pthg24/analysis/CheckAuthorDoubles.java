@@ -6,10 +6,13 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
+import static org.insightcentre.pthg24.logging.LogShortcut.info;
+
 public class CheckAuthorDoubles {
     Scenario base;
     int nr = 0;
     public CheckAuthorDoubles(Scenario base){
+        info("Checking for author doubles");
         this.base = base;
         List<Author> list = base.getListAuthor();
         checkOrcid(list.stream().

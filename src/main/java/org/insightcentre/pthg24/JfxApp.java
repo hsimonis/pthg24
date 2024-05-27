@@ -22,6 +22,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import static org.insightcentre.pthg24.datamodel.WorkType.*;
+import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class JfxApp extends GeneratedJfxApp {
@@ -110,7 +111,7 @@ public class JfxApp extends GeneratedJfxApp {
                                 citationCountWeight = 0;
                                 authorWeight = 0;
                                 ageWeight = 0;
-                                coauthorLimit = 2;
+                                coauthorLimit = 4;
                                 linkCountLimit = 1;
                                 conceptTypes = new String[]{"Scheduling","CP","Concepts","Classification","Constraints",
                                         "ApplicationAreas","Industries","CPSystems","Benchmarks","Algorithms"};
@@ -166,6 +167,8 @@ public class JfxApp extends GeneratedJfxApp {
                 new ComputeRelevance(base,type,citingSurveyWeight,citedBySurveyWeight, citationCountWeight,
                         keywordWeight,authorWeight,ageWeight,abstractRelevanceCutoff,bodyRelevanceCutoff);
                 new CheckAuthorDoubles(base);
+
+                info("File output starting");
 
                 new ListWorks(base,PAPER,exportDir,"papers.tex");
                 new ListWorksManual(base,PAPER,exportDir,"papersmanual.tex");

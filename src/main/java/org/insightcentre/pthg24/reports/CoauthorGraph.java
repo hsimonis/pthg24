@@ -37,6 +37,7 @@ public class CoauthorGraph {
                         replace("{\\\"{u}}","ü").
                         replace("{\\'{e}}","é").
                         replace("{\\'{a}}","á").
+                        replace("{\\AA}","Å").
                         replace("{\\'{i}}","í").
                         replace("{\\'{\\i}}","í").
                         replace("{-}","-"));

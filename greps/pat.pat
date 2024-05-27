@@ -1,1 +1,1 @@
-[^a-zA-Z]NEH[^a-zA-Z]
+time.?tabling

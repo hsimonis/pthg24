@@ -49,7 +49,7 @@ public class LookupMissingWork {
         try {
             String saveFile = missingWorkDir + URLEncoder.encode(properDOI(mw.getDoi()), StandardCharsets.UTF_8.toString()) + ".json";
             if (exists(saveFile)){
-                info("Reading file "+saveFile);
+//                info("Reading file "+saveFile);
                 interpret(mw,contents(saveFile));
             } else {
                 if (mw.getDoi() != null && !mw.getDoi().equals("") && nrGets++ < getLimit) {

@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 06:53:46 on 2024-05-24 */
+ * Generated at 06:46:00 on 2024-05-25 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -230,6 +230,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("nrCitations");
 		attributeNames.add("nrBackgroundCitations");
 		choicesMap.put("Journal", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nrWorks");
+		choicesMap.put("Publisher", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("count");
 		choicesMap.put("ConceptWork", attributeNames);

@@ -87,7 +87,15 @@ public class ListWorks extends AbstractList{
     }
 
     private String lcAndDetails(Work a){
-        return "\\hyperref[detail:"+a.getKey()+"]{Details}"+" "+(localCopyExists1(a)?"\\href{"+local(a.getLocalCopy())+"}{Yes}":"No");
+        return highlightNoLocalCopy(a)+"\\hyperref[detail:"+a.getKey()+"]{Details}"+" "+(localCopyExists1(a)?"\\href{"+local(a.getLocalCopy())+"}{Yes}":"No");
+    }
+
+    private String highlightNoLocalCopy(Work a){
+        if (!localCopyExists1(a)) {
+            return "\\cellcolor{red!30}";
+        }
+        return "";
+
     }
 
     public static String openAccessHighlight(Work w){
