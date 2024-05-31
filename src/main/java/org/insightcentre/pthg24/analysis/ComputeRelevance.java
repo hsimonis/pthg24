@@ -198,6 +198,32 @@ public class ComputeRelevance {
             if (res > 0) {
 //                info("scheduling keywords " + res + " " + cntA + " " + cntB + " "  + matches + " title " + title);
             }
+        } else if (type.equals("medicaldrones")){
+            ConceptType drone = ConceptType.findByName(base, "Drone");
+            ConceptType medical = ConceptType.findByName(base, "Medical");
+            ConceptType other = ConceptType.findByName(base, "Other");
+            double cntDrone = 0.0;
+            double cntMedical = 0.0;
+            conceptList = new ArrayList<>();
+            for (Concept con : base.getListConcept()) {
+                if (con.getConceptType() == drone &&
+                        occurs(con,title,lower)) {
+                    cntDrone+= con.getWeight();
+                    conceptList.add(con);
+                } else if (con.getConceptType() == medical &&
+                        occurs(con,title,lower)) {
+                    cntMedical+= con.getWeight();
+                    conceptList.add(con);
+                } else if (con.getConceptType() == other &&
+                        occurs(con,title,lower)) {
+                    conceptList.add(con);
+
+                }
+            }
+            res = (1000.0 * (cntDrone * cntMedical)  + cntDrone + cntMedical)/abstractRelevanceCutoff ;
+            if (res > 0) {
+//                info("scheduling keywords " + res + " " + cntA + " " + cntB + " "  + matches + " title " + title);
+            }
 
         } else {
             warning("No keyword match setup for type "+type);
@@ -262,6 +288,24 @@ public class ComputeRelevance {
                 double weightScheduling = addWeights(list, scheduling);
                 double weightCP = addWeights(list, cp);
                 double total = weightScheduling * weightCP;
+                max = Math.max(max,total);
+                w.setRelevanceBody(total);
+            }
+            info("Max raw relevance "+max);
+            for (Work w : map.keySet()) {
+                w.setRelevanceBody(w.getRelevanceBody()/bodyRelevanceCutoff);
+            }
+        } else if (type.equals("medicaldrones")){
+            ConceptType drone = ConceptType.findByName(base, "Drone");
+            ConceptType medical = ConceptType.findByName(base, "Medical");
+            Map<Work, List<ConceptWork>> map = base.getListConceptWork().stream().
+                    filter(x->x.getCount() > 0).
+                    collect(groupingBy(ConceptWork::getWork));
+            for (Work w : map.keySet()) {
+                List<ConceptWork> list = map.get(w);
+                double weightDrone = addWeights(list, drone);
+                double weightMedical = addWeights(list, medical);
+                double total = weightDrone * weightMedical;
                 max = Math.max(max,total);
                 w.setRelevanceBody(total);
             }

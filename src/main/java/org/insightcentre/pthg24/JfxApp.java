@@ -42,7 +42,7 @@ public class JfxApp extends GeneratedJfxApp {
                 base.setDirty(false);
                 new CreateTranslators(base);
 
-                String type = "terrorism"; // others "scheduling" "cars" "mobilehealth","terrorism"
+                String type = "medicaldrones"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -80,6 +80,17 @@ public class JfxApp extends GeneratedJfxApp {
                                 authors = "G. Tacadao and B. O'Sullivan and L. Quesada and H. Simonis";
                                 coauthorLimit = 2;
                                 linkCountLimit = 10;
+                                break;
+                        case "medicaldrones":
+                                prefix = "medicaldrones/";
+                                bibDir = prefix + "imports/";
+                                bibFile = "medicaldrones.bib";
+                                authors = "G. Tacadao and B. O'Sullivan and L. Quesada and H. Simonis";
+                                coauthorLimit = 2;
+                                linkCountLimit = 1;
+                                conceptTypes=new String[]{"Drone","Medical","Other"};
+                                // how many external crossref queries to make to identify missing works
+                                getLimit=5000;
                                 break;
                         case "terrorism":
                                 prefix = "terrorism/";
