@@ -42,7 +42,7 @@ public class JfxApp extends GeneratedJfxApp {
                 base.setDirty(false);
                 new CreateTranslators(base);
 
-                String type = "medicaldrones"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones"
+                String type = "terrorism"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -86,9 +86,15 @@ public class JfxApp extends GeneratedJfxApp {
                                 bibDir = prefix + "imports/";
                                 bibFile = "medicaldrones.bib";
                                 authors = "G. Tacadao and B. O'Sullivan and L. Quesada and H. Simonis";
+                                // only use relevance to rank works
+                                citingSurveyWeight = 0;
+                                citedBySurveyWeight=0;
+                                citationCountWeight = 0;
+                                authorWeight = 0;
+                                ageWeight = 0;
                                 coauthorLimit = 2;
                                 linkCountLimit = 1;
-                                conceptTypes=new String[]{"Drone","Medical","Other"};
+                                conceptTypes=new String[]{"Drone","Medical","Optimization","Surveys","Other"};
                                 // how many external crossref queries to make to identify missing works
                                 getLimit=5000;
                                 break;
@@ -309,13 +315,14 @@ public class JfxApp extends GeneratedJfxApp {
                 new ListArticlesByJournal(base,exportDir,"byjournal.tex");
 
                 new ListDetails(base,exportDir,"abstracts.tex",1.0,1.0);
+
                 new ListAbstractsMissingWork(base,exportDir,"abstractsmissingwork.tex",relevanceLimit);
 
                 new CitationGraph(base);
                 new DumpFeatures(base,dumpDir,"allconcepts.csv");
                 new ExtractSelectedBib(base,dumpDir,"suggested.bib");
 
-                new UnknownConferenceSeries(base,exportDir,"unknown.json");
+                new UnknownConferenceSeries(base,dumpDir,"unknown.json");
 
                 new CheckInconsistentConcepts(base);
 //                new FindOthers(base);

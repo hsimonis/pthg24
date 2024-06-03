@@ -30,23 +30,16 @@ public class CoauthorGraph {
             PrintWriter out = new PrintWriter(graphvizDir+"coauth.gv");
             out.printf("strict graph coauth {\n");
             for(Author a:authors){
-                out.printf("%s [label=\"%s\"]\n",a.getKey(),a.getShortName().
-                        replace("{\\\"{O}}","Ö").
-                        replace("{\\\"{o}}","ö").
-                        replace("{\\\"{U}}","Ü").
-                        replace("{\\\"{u}}","ü").
-                        replace("{\\'{e}}","é").
-                        replace("{\\'{a}}","á").
-                        replace("{\\AA}","Å").
-                        replace("{\\'{i}}","í").
-                        replace("{\\'{\\i}}","í").
-                        replace("{-}","-"));
+                out.printf("%s [label=\"%s\" style=\"filled\" fillcolor=\"%s\"]\n",
+                        a.getKey(),noLatexName(a.getShortName()),color(a.getNrWorks()));
+
             }
             for(Coauthor ca:list){
-                out.printf("  %s -- %s [weight=%d]\n ",
+                out.printf("  %s -- %s [weight=%d color=\"%s\"]\n ",
                         ca.getAuthor1().getKey(),
                         ca.getAuthor2().getKey(),
-                        ca.getNrWorks());
+                        ca.getNrWorks(),
+                        edgeColor(ca.getNrWorks()));
             }
             out.printf("}\n");
             out.close();
@@ -54,5 +47,42 @@ public class CoauthorGraph {
         } catch(IOException e){
             severe("Cannot write graph file");
         }
+    }
+
+    private String noLatexName(String name){
+        return name.replace("{\\\"{O}}","Ö").
+                replace("{\\\"{o}}","ö").
+                replace("{\\\"{U}}","Ü").
+                replace("{\\\"{u}}","ü").
+                replace("{\\'{e}}","é").
+                replace("{\\'{a}}","á").
+                replace("{\\AA}","Å").
+                replace("{\\'{i}}","í").
+                replace("{\\'{\\i}}","í").
+                replace("{-}","-");
+    }
+
+    private String color(int nrWorks){
+        return switch (nrWorks) {
+            case 1 -> "black";
+            case 2 -> "white";
+            case 3 -> "grey85";
+            case 4 -> "lightblue";
+            case 5 -> "lightgreen";
+            case 6 -> "lightgoldenrod";
+            case 7 -> "orange";
+            default -> "hotpink";
+        };
+    }
+    private String edgeColor(int nrWorks){
+        return switch (nrWorks) {
+            case 1 -> "grey90";
+            case 2 -> "grey70";
+            case 3 -> "grey50";
+            case 4 -> "blue";
+            case 5 -> "green";
+            case 6 -> "orange";
+            default -> "red";
+        };
     }
 }

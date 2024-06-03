@@ -15,7 +15,7 @@ import static org.insightcentre.pthg24.analysis.ListWorks.local;
 import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
-public class ListMissingWork extends AbstractList{
+public class ListMissingWork extends AbstractMissingWorkList{
     double relevanceLimit;
 
     public ListMissingWork(Scenario base, String exportDir, String fileName,String fileName2,String fileName3,double relevanceLimit) {
@@ -25,22 +25,11 @@ public class ListMissingWork extends AbstractList{
         String fullFile = exportDir + fileName;
         String fullFile2 = exportDir + fileName2;
         String fullFile3= exportDir+ fileName3;
-        List<MissingWork> included = base.getListMissingWork().stream().
-                filter(this::included).
-                filter(x->x.getRelevance()>= relevanceLimit).
-                sorted(Comparator.comparing(MissingWork::getRelevance).reversed()).
-                toList();
-        List<MissingWork> highlyConnected = base.getListMissingWork().stream().
-                filter(this::included).
-                filter(x->x.getRelevance()< relevanceLimit).
-                sorted(Comparator.comparing(MissingWork::getNrLinks).reversed()).
-                limit(50).
-                toList();
-        List<MissingWork> excluded = base.getListMissingWork().stream().
-                filter(x -> !included(x)).
-                filter(x->x.getRelevance()>= relevanceLimit).
-                sorted(Comparator.comparing(MissingWork::getRelevance).reversed()).
-                toList();
+
+        List<MissingWork> included = included(relevanceLimit);
+        List<MissingWork> highlyConnected = highlyConnected(relevanceLimit);
+        List<MissingWork> excluded = excluded(relevanceLimit);
+
         int total = base.getListMissingWork().size();
         table("Missing Work Considered Relevant",included, total,fullFile);
         table("Highly Connected Missing Work Not Considered Relevant",highlyConnected, total,fullFile3);
@@ -84,15 +73,6 @@ public class ListMissingWork extends AbstractList{
         }
     }
 
-    private boolean included(MissingWork x){
-        return !x.getTitle().equals("") &&
-                !x.getType().equals("other") &&
-                !x.getType().equals("posted-content") &&
-                !x.getType().equals("report") &&
-                !x.getType().equals("dataset") &&
-                !x.getType().equals("reference-entry");
-
-    }
 
 
     private String authorsTitle(String author,String title,String source,int year,String abstractText,MissingWork mw){

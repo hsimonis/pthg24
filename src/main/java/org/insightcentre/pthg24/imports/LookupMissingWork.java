@@ -17,6 +17,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Locale;
 
 import static org.insightcentre.pthg24.imports.ImportCrossref.*;
@@ -34,17 +35,20 @@ public class LookupMissingWork {
         this.base = base;
         this.getLimit = getLimit;
         this.missingWorkDir = missingWorkDir;
-        for (MissingWork mw : base.getListMissingWork().stream().
+        List<MissingWork> missing = base.getListMissingWork().stream().
                 filter(x -> x.getNrLinks() >= linkCountLimit).
                 sorted(Comparator.comparing(MissingWork::getNrLinks).reversed()).
-                toList()) {
-            lookup(mw);
+                toList();
+        int remaining = missing.size();
+        for (MissingWork mw : missing) {
+            lookup(mw,remaining);
+            remaining--;
 //            lookupScopus(mw);
         }
         info("ToDo: "+discoverable+" works to be checked");
     }
 
-    private void lookup(MissingWork mw) {
+    private void lookup(MissingWork mw,int remaining) {
         String target = "";
         try {
             String saveFile = missingWorkDir + URLEncoder.encode(properDOI(mw.getDoi()), StandardCharsets.UTF_8.toString()) + ".json";
@@ -62,7 +66,7 @@ public class LookupMissingWork {
                             .build();
                     HttpClient httpClient = HttpClient.newHttpClient();
                     HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-                    info("Result " + nrGets+" links "+mw.getNrLinks()+" reponse "+response );
+                    info("Result " + nrGets+" remaining "+remaining+" links "+mw.getNrLinks()+" response "+response );
 //                    info("Result " + response + " body " + response.body());
                     PrintWriter out = new PrintWriter(saveFile);
                     out.print(response.body());

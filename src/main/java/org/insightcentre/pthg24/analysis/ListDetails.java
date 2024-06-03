@@ -26,22 +26,30 @@ public class ListDetails extends AbstractList{
         try{
             PrintWriter out = new PrintWriter(fullName);
             List<Work> relevantBody = base.getListWork().stream().
+                    filter(x->!x.getBackground()).
                     filter(x->x.getRelevanceBody() >= bodyLimit).
                     sorted(Comparator.comparing(Work::getRelevanceBody).thenComparing(Work::getRelevanceAbstract).reversed()).
                     toList();
             List<Work> irrelevantBody = base.getListWork().stream().
-                    filter(x->x.getRelevanceBody() > 0.0).
+                    filter(x->!x.getBackground()).
+                    filter(x->!x.getLocalCopy().equals("")).
                     filter(x->x.getRelevanceBody() < bodyLimit).
                     sorted(Comparator.comparing(Work::getRelevanceBody).thenComparing(Work::getRelevanceAbstract).reversed()).
                     toList();
             List<Work> relevantAbstract = base.getListWork().stream().
-                    filter(x->x.getRelevanceBody() == 0.0).
+                    filter(x->!x.getBackground()).
+                    filter(x->x.getLocalCopy().equals("")).
                     filter(x->x.getRelevanceAbstract() >= abstractLimit).
                     sorted(Comparator.comparing(Work::getRelevanceBody).thenComparing(Work::getRelevanceAbstract).reversed()).
                     toList();
             List<Work> notRelevant = base.getListWork().stream().
-                    filter(x->x.getRelevanceBody() == 0.0).
+                    filter(x->!x.getBackground()).
+                    filter(x->x.getLocalCopy().equals("")).
                     filter(x->x.getRelevanceAbstract() < abstractLimit).
+                    sorted(Comparator.comparing(Work::getRelevanceBody).thenComparing(Work::getRelevanceAbstract).reversed()).
+                    toList();
+            List<Work> background = base.getListWork().stream().
+                    filter(Work::getBackground).
                     sorted(Comparator.comparing(Work::getRelevanceBody).thenComparing(Work::getRelevanceAbstract).reversed()).
                     toList();
             out.printf("\\subsection{Relevant Body (Total %d)}\n\n",relevantBody.size());
@@ -55,6 +63,9 @@ public class ListDetails extends AbstractList{
             out.printf("\\clearpage\n");
             out.printf("\\subsection{Non Relevant Abstract (Total %d)}\n\n",notRelevant.size());
             listAbstracts(out,notRelevant,ls);
+            out.printf("\\clearpage\n");
+            out.printf("\\subsection{Background (Total %d)}\n\n",background.size());
+            listAbstracts(out,background,ls);
 
             out.close();
         } catch(IOException e){

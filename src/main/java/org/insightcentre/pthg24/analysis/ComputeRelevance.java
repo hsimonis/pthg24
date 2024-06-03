@@ -201,6 +201,8 @@ public class ComputeRelevance {
         } else if (type.equals("medicaldrones")){
             ConceptType drone = ConceptType.findByName(base, "Drone");
             ConceptType medical = ConceptType.findByName(base, "Medical");
+            ConceptType surveys = ConceptType.findByName(base, "Surveys");
+            ConceptType optimization = ConceptType.findByName(base, "Optimization");
             ConceptType other = ConceptType.findByName(base, "Other");
             double cntDrone = 0.0;
             double cntMedical = 0.0;
@@ -213,6 +215,12 @@ public class ComputeRelevance {
                 } else if (con.getConceptType() == medical &&
                         occurs(con,title,lower)) {
                     cntMedical+= con.getWeight();
+                    conceptList.add(con);
+                } else if (con.getConceptType() == surveys &&
+                        occurs(con,title,lower)) {
+                    conceptList.add(con);
+                } else if (con.getConceptType() == optimization &&
+                        occurs(con,title,lower)) {
                     conceptList.add(con);
                 } else if (con.getConceptType() == other &&
                         occurs(con,title,lower)) {
