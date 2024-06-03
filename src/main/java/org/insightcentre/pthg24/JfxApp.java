@@ -42,7 +42,7 @@ public class JfxApp extends GeneratedJfxApp {
                 base.setDirty(false);
                 new CreateTranslators(base);
 
-                String type = "terrorism"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones"
+                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -118,10 +118,10 @@ public class JfxApp extends GeneratedJfxApp {
                                 getLimit=5000;
                                 break;
                         case "scheduling":
-                                // settings for scheduling are a bit different
-                                prefix = "";
-                                bibDir = "overview/";
-                                bibFile = "bib.bib";
+                                // scheduling now is just like any other survey
+                                prefix = "scheduling/";
+                                bibDir = prefix+"imports/";
+                                bibFile = "scheduling.bib";
                                 authors = "Helmut Simonis and Cemalettin Öztürk";
                                 citingSurveyWeight = 0;
                                 citedBySurveyWeight=0;
@@ -305,7 +305,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new OrphanFiles(base,scopusDir,".xml",false);
                 new CreateCollabWorks(base);
 
-                new PublicationReport(base,reportDir).
+                new PublicationReport(base,reportDir,coauthorLimit).
                         produce("publications",
                                 "Publication Report",
                                 authors);

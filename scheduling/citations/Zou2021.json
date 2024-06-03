@@ -1,0 +1,29 @@
+[
+    {
+        "author_sc": "no",
+        "cited": "10.1108/ecam-10-2020-0843",
+        "journal_sc": "yes",
+        "oci": "06310158482-06250507877",
+        "timespan": "P2Y5M23D",
+        "creation": "2023-09-08",
+        "citing": "10.1108/ecam-06-2022-0601"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1108/ecam-10-2020-0843",
+        "journal_sc": "yes",
+        "oci": "06310158613-06250507877",
+        "timespan": "P2Y0M14D",
+        "creation": "2023-03-30",
+        "citing": "10.1108/ecam-10-2022-0925"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1108/ecam-10-2020-0843",
+        "journal_sc": "no",
+        "oci": "06404410082-06250507877",
+        "timespan": "P1Y10M7D",
+        "creation": "2023-01-23",
+        "citing": "10.3846/jcem.2023.17568"
+    }
+]

@@ -1,0 +1,29 @@
+[
+    {
+        "author_sc": "yes",
+        "cited": "10.1016/j.cor.2022.105728",
+        "oci": "0601597586-06130167678",
+        "journal_sc": "no",
+        "citing": "10.1016/j.omega.2022.102805",
+        "creation": "2023-04",
+        "timespan": "P0Y10M"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1016/j.cor.2022.105728",
+        "oci": "06360135512-06130167678",
+        "journal_sc": "no",
+        "citing": "10.1016/j.jmsy.2023.08.006",
+        "creation": "2023-10",
+        "timespan": "P1Y4M"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1016/j.cor.2022.105728",
+        "oci": "06520105531-06130167678",
+        "journal_sc": "no",
+        "citing": "10.1016/j.omega.2022.102823",
+        "creation": "2023-06",
+        "timespan": "P1Y0M"
+    }
+]

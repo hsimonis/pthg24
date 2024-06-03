@@ -27,8 +27,11 @@ import static framework.reports.visualization.plot.distributionplot.Distribution
 import static java.util.stream.Collectors.groupingBy;
 
 public class PublicationReport extends AbstractReport{
-    public PublicationReport(Scenario base, String reportDir){
+    int coauthorLimit;
+    public PublicationReport(Scenario base, String reportDir,int coauthorLimit){
+
         super(base,reportDir);
+        this.coauthorLimit = coauthorLimit;
     }
 
     public void content(){
@@ -117,18 +120,18 @@ public class PublicationReport extends AbstractReport{
         clearpage();
         section("Coauthor graph");
         paragraph("The coauthor plot is created by graphviz, and is based on the coauthor relations extracted " +
-                "from the author fields of the works. Authors with few works are not shown, to avoid a cluttered " +
+                "from the author fields of the works. Authors with few works (less than coauthorLimit) are not shown, to avoid a cluttered " +
                 "view. Note that this analysis depends on the use of canonical forms of author names. If bib " +
-                "entries come from any different sources, we will need to check this manually. DBLP seems to be " +
+                "entries come from many different sources, we will need to check this manually. DBLP seems to be " +
                 "using ORCID values and typically identifies the authors of a work with a canonical " +
                 "representation of their name. Accents and umlauts are other sources of having multiple forms of the " +
                 "name of the same author. Note that the risk of two different authors using the same name should be " +
-                "low for very specific literature surveys, but cannot be checked with the data sources currently used.");
+                "low for very specific literature surveys, but cannot be checked automatically with the data sources currently used.");
         paragraph("The plots can be made with different layout tools in graphviz, it seems that fdp produces " +
                 "the most consistent visually attractive plots for this type of display. This probably needs more " +
                 "work on parameter settings to be fully automated.");
         tex.printf("\\begin{figure}[htbp]\n");
-        tex.printf("\\caption{Coauthor Graph Drawn with fdp (Graphviz)}\n");
+        tex.printf("\\caption{Coauthor Graph Drawn with fdp (Graphviz, CoauthorLimit = %d)}\n",coauthorLimit);
         tex.printf("\\centering\n");
         tex.printf("\\includegraphics[height=15cm]{../graphviz/fdp.pdf}\n\n");
         tex.printf("\\end{figure}\n\n");

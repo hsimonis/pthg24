@@ -1,0 +1,38 @@
+[
+    {
+        "author_sc": "no",
+        "cited": "10.3233/jifs-189721",
+        "journal_sc": "no",
+        "oci": "061903553172-061901465312",
+        "timespan": "P1Y0M0D",
+        "creation": "2022-10-14",
+        "citing": "10.3390/sym14102150"
+    },
+    {
+        "author_sc": "yes",
+        "cited": "10.3233/jifs-189721",
+        "journal_sc": "no",
+        "oci": "0630819340-061901465312",
+        "timespan": "P0Y7M20D",
+        "creation": "2022-06-03",
+        "citing": "10.1007/s00170-022-09394-8"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.3233/jifs-189721",
+        "journal_sc": "no",
+        "oci": "06310128559-061901465312",
+        "timespan": "P1Y3M5D",
+        "creation": "2023-01-19",
+        "citing": "10.3390/electronics12030526"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.3233/jifs-189721",
+        "journal_sc": "no",
+        "oci": "06380171875-061901465312",
+        "timespan": "P1Y4M24D",
+        "creation": "2023-03-10",
+        "citing": "10.1007/s11042-023-14544-5"
+    }
+]

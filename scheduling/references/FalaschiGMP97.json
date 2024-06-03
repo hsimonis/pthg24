@@ -1,0 +1,83 @@
+[
+    {
+        "author_sc": "yes",
+        "cited": "10.1007/3-540-53982-4_17",
+        "oci": "06701412317-06103221479",
+        "journal_sc": "no",
+        "citing": "10.1006/inco.1997.2638",
+        "creation": "1997-08",
+        "timespan": "P6Y"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1145/75277.75287",
+        "oci": "06701412317-061103405174",
+        "journal_sc": "no",
+        "citing": "10.1006/inco.1997.2638",
+        "creation": "1997-08",
+        "timespan": "P8Y"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1145/41625.41635",
+        "oci": "06701412317-061103405240",
+        "journal_sc": "no",
+        "citing": "10.1006/inco.1997.2638",
+        "creation": "1997-08",
+        "timespan": "P10Y"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1145/174675.177883",
+        "oci": "06701412317-061103405499",
+        "journal_sc": "no",
+        "citing": "10.1006/inco.1997.2638",
+        "creation": "1997-08",
+        "timespan": "P3Y"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1145/96709.96733",
+        "oci": "06701412317-061203391179",
+        "journal_sc": "no",
+        "citing": "10.1006/inco.1997.2638",
+        "creation": "1997-08",
+        "timespan": "P7Y"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1145/99583.99627",
+        "oci": "06701412317-061203391293",
+        "journal_sc": "no",
+        "citing": "10.1006/inco.1997.2638",
+        "creation": "1997-08",
+        "timespan": "P6Y"
+    },
+    {
+        "author_sc": "yes",
+        "cited": "10.1016/0304-3975(89)90070-4",
+        "oci": "06701412317-06240781416",
+        "journal_sc": "no",
+        "citing": "10.1006/inco.1997.2638",
+        "creation": "1997-08",
+        "timespan": "P7Y8M"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1093/logcom/5.2.133",
+        "oci": "06701412317-06403754471",
+        "journal_sc": "no",
+        "citing": "10.1006/inco.1997.2638",
+        "creation": "1997-08",
+        "timespan": "P2Y"
+    },
+    {
+        "author_sc": "no",
+        "cited": "10.1145/321978.321991",
+        "oci": "06701412317-06803893346",
+        "journal_sc": "no",
+        "citing": "10.1006/inco.1997.2638",
+        "creation": "1997-08",
+        "timespan": "P20Y10M"
+    }
+]
