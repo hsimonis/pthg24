@@ -1,0 +1,5 @@
+ class CountryCollab {
+Integer count
+ScopusCountry country1
+ScopusCountry country2
+}

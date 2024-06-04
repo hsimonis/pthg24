@@ -20,7 +20,7 @@ import org.insightcentre.pthg24.datamodel.ApplicationWarning;
 import org.insightcentre.pthg24.datamodel.WarningType;
 
 /**
- * Generated at 06:46:00 on 2024-05-25 */
+ * Generated at 11:17:58 on 2024-06-04 */
 public class ApplicationWarningController extends Table3Controller {
 	@FXML
 	private TableView<ApplicationWarning> table;

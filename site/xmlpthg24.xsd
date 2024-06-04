@@ -21,6 +21,7 @@
 				<xs:element ref="conceptType" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="conceptWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="conferenceSeries" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="countryCollab" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="doiReference" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="inBook" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="inCollection" minOccurs="0" maxOccurs="unbounded"/>
@@ -120,6 +121,7 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="language" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
@@ -221,6 +223,7 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="language" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
@@ -361,6 +364,16 @@
 			<xs:attribute name="regExpr" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="countryCollab">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="count" use="required" type="xs:integer"/>
+			<xs:attribute name="country1" use="required" type="xs:IDREF"/>
+			<xs:attribute name="country2" use="required" type="xs:IDREF"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="doiReference">
 		<xs:complexType>
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
@@ -401,6 +414,7 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="language" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
@@ -461,6 +475,7 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="language" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
@@ -653,6 +668,7 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="language" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
@@ -713,6 +729,7 @@
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
+			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="language" use="required" type="xs:string"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>

@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 06:46:00 on 2024-05-25 */
+ * Generated at 11:17:58 on 2024-06-04 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -135,6 +135,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
 		attributeNames.add("language");
+		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
 		choicesMap.put("Work", attributeNames);
@@ -190,6 +191,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
 		attributeNames.add("language");
+		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
 		attributeNames.add("proceedings");
@@ -246,6 +248,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
 		attributeNames.add("language");
+		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
 		attributeNames.add("journal");
@@ -302,6 +305,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
 		attributeNames.add("language");
+		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
 		attributeNames.add("school");
@@ -358,6 +362,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
 		attributeNames.add("language");
+		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
 		attributeNames.add("collection");
@@ -414,6 +419,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
 		attributeNames.add("language");
+		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
 		attributeNames.add("booktitle");
@@ -470,6 +476,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
 		attributeNames.add("language");
+		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
 		choicesMap.put("Book", attributeNames);
@@ -739,6 +746,12 @@ public class PieChartController extends ChartController {
 		choicesMap.put("CollabCount", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("country1");
+		attributeNames.add("country2");
+		attributeNames.add("count");
+		choicesMap.put("CountryCollab", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
 		attributeNames.add("unicode");
 		attributeNames.add("latex");
 		choicesMap.put("Translator", attributeNames);
@@ -923,6 +936,9 @@ public class PieChartController extends ChartController {
 			}
 			else if (className.equals("CollabCount")) {
 				objectList = mainApp.getCollabCountData();
+			}
+			else if (className.equals("CountryCollab")) {
+				objectList = mainApp.getCountryCollabData();
 			}
 			else if (className.equals("Translator")) {
 				objectList = mainApp.getTranslatorData();

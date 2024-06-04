@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 06:46:01 on 2024-05-25-->
+<!--Generated at 11:17:58 on 2024-06-04-->
 
 
 <Tab text="Paper" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.PaperController">
@@ -69,6 +69,7 @@
                <TableColumn fx:id="relevanceAbstract" styleClass="right-aligned" text="RelevanceAbstract" />
                <TableColumn fx:id="relevanceBody" styleClass="right-aligned" text="RelevanceBody" />
                <TableColumn fx:id="language" styleClass="right-aligned" text="Language" />
+               <TableColumn fx:id="keywords" styleClass="right-aligned" text="Keywords" />
                <TableColumn fx:id="abstractText" styleClass="right-aligned" text="AbstractText" />
                <TableColumn fx:id="concept" styleClass="right-aligned" text="Concept" />
                <TableColumn fx:id="proceedings" styleClass="right-aligned" text="Proceedings" />

@@ -33,7 +33,7 @@ import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 06:46:00 on 2024-05-25 */
+ * Generated at 11:17:58 on 2024-06-04 */
 public class PaperController extends Table3Controller {
 	@FXML
 	private TableView<Paper> table;
@@ -190,6 +190,9 @@ public class PaperController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Paper, String> language;
+
+	@FXML
+	private TableColumn<Paper, String> keywords;
 
 	@FXML
 	private TableColumn<Paper, String> abstractText;
@@ -417,6 +420,10 @@ public class PaperController extends Table3Controller {
 		language.setCellValueFactory(new PropertyValueFactory<>("language"));
 		language.setCellFactory(TextFieldTableCell.forTableColumn());
 		language.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setLanguage(event.getNewValue()); mainApp.reset();});
+		choices.add("keywords");
+		keywords.setCellValueFactory(new PropertyValueFactory<>("keywords"));
+		keywords.setCellFactory(TextFieldTableCell.forTableColumn());
+		keywords.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setKeywords(event.getNewValue()); mainApp.reset();});
 		choices.add("abstractText");
 		abstractText.setCellValueFactory(new PropertyValueFactory<>("abstractText"));
 		abstractText.setCellFactory(TextFieldTableCell.forTableColumn());

@@ -40,6 +40,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include ConceptType.uml
 !include ConceptWork.uml
 !include ConferenceSeries.uml
+!include CountryCollab.uml
 !include CrossReference.uml
 !include DoiReference.uml
 !include InBook.uml
@@ -129,6 +130,8 @@ ScopusAffiliation  *-- CollabWork : affiliation2
 Work  *-- CollabWork 
 ScopusAffiliation  *-- CollabCount : affiliation1
 ScopusAffiliation  *-- CollabCount : affiliation2
+ScopusCountry  *-- CountryCollab : country1
+ScopusCountry  *-- CountryCollab : country2
 Author  *-- AuthorDouble : author1
 Author  *-- AuthorDouble : author2
 Work "1..*" *-- AuthorDouble : work1

@@ -657,18 +657,24 @@ public class PublicationReport extends AbstractReport{
     }
 
     private void institutionOverview(){
+        int workCount = base.getListScopusAffiliation().stream().mapToInt(ScopusAffiliation::getWorkCount).sum();
         new DistributionPlot<>(base.getListScopusAffiliation(),ScopusAffiliation::getWorkCount).
                 ordering(NR).
                 width(25).height(12).
-                title("Number of Institutions with Given Number of Works (Total "+base.getListScopusAffiliation().size()+" Institutions)").
+                title("Number of Institutions with Given Number of Works (Total "+
+                        base.getListScopusAffiliation().size()+" Institutions "+
+                        workCount+" Work Count)").
                 xlabel("Nr of Works").ylabel("Number of Institutions").
                 generate().latex(tex);
     }
     private void countryOverview(){
+        int nrWorks = base.getListScopusCountry().stream().mapToInt(ScopusCountry::getNrWorks).sum();
         new DistributionPlot<>(base.getListScopusCountry(),ScopusCountry::getNrWorks).
                 ordering(NR).
                 width(25).height(12).
-                title("Number of Countries with Given number of Works (Total "+base.getListScopusCountry().size()+" Countries)").
+                title("Number of Countries with Given number of Works (Total "+
+                        base.getListScopusCountry().size()+" Countries " +
+                        nrWorks+" Works)").
                 xlabel("Nr of Works").ylabel("Number of Countries").
                 generate().latex(tex);
     }
@@ -784,15 +790,27 @@ public class PublicationReport extends AbstractReport{
                 textSize("\\scriptsize").
                 generate().latex(tex);
 
-        paragraph("The following heatmap is not complete. It needs a symmetric option to count a collaboration for both A-B and B-A.");
         new HeatMap<>(base.getListCollabWork(),
                 new HeatMapFunctions<>(x->x.getAffiliation1().getScopusCity().getScopusCountry(),
                         x->x.getAffiliation2().getScopusCity().getScopusCountry(),
                         this::nameOf,
-                        this::nameOf),45,50).
-                coloring(HeatMapColoring.PERCENTOFMAXIMUM).
+                        this::nameOf,
+                        CollabWork::getFraction),40,25).
+                symmetric().
+                coloring(HeatMapColoring.PERCENTILES).
                 colorSaturation(22).
-                caption("Heat Map based on Collaboration between Institutions (Integer Count)").
+                caption("Heat Map based on Collaboration between Countries (Fractional Count)").
+                generate().latex(tex);
+
+        new HeatMap<>(base.getListCountryCollab(),
+                new HeatMapFunctions<>(CountryCollab::getCountry1,
+                        CountryCollab::getCountry2,
+                        this::nameOf,
+                        this::nameOf,
+                        x->(double)x.getCount()),40,25).
+                coloring(HeatMapColoring.PERCENTILES).
+                colorSaturation(22).
+                caption("Heat Map based on Collaboration between Countries (Integer Count)").
                 generate().latex(tex);
 
     }
@@ -960,7 +978,7 @@ public class PublicationReport extends AbstractReport{
                         Similarity::getWork2,
                         this::nameOf,
                         this::nameOf,
-                        x->(int)Math.round(x.getDotProduct())),
+                        Similarity::getDotProduct),
                 42,22).
                 coloring(HeatMapColoring.PERCENTOFMAXIMUM).
                 colorSaturation(22).
@@ -977,7 +995,7 @@ public class PublicationReport extends AbstractReport{
                         Similarity::getWork2,
                         this::nameOf,
                         this::nameOf,
-                        x->(int)Math.round(100.0*x.getCosine())),
+                        Similarity::getCosine),
                 42,22).
                 coloring(HeatMapColoring.PERCENTOFMAXIMUM).
                 colorSaturation(40).

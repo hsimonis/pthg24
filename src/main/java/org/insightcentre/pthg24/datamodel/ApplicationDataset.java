@@ -46,6 +46,7 @@ import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
+import org.insightcentre.pthg24.datamodel.CountryCollab;
 import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.OtherWork;
@@ -425,6 +426,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<CollabCount> listCollabCount = new ArrayList<CollabCount>();
 
 /**
+ *  This lists holds all items of class CountryCollab and its subclasses
+ *
+*/
+
+    List<CountryCollab> listCountryCollab = new ArrayList<CountryCollab>();
+
+/**
  *  This lists holds all items of class Translator and its subclasses
  *
 */
@@ -586,6 +594,7 @@ public int compareTo(ApplicationDataset ds2){
                              "ConceptType",
                              "ConceptWork",
                              "ConferenceSeries",
+                             "CountryCollab",
                              "DoiReference",
                              "InBook",
                              "InCollection",
@@ -711,6 +720,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListOrphan();
         resetListCollabWork();
         resetListCollabCount();
+        resetListCountryCollab();
         resetListTranslator();
         resetListAuthorDouble();
         resetListOtherWork();
@@ -2285,6 +2295,40 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class CountryCollab
+ *
+*/
+
+    public Iterator<CountryCollab> getIteratorCountryCollab(){
+        return listCountryCollab.iterator();
+    }
+
+/**
+ *  Getter for list of class CountryCollab
+ *
+*/
+
+    public List<CountryCollab> getListCountryCollab(){
+        return listCountryCollab;
+    }
+
+/**
+ *  reset the list of class CountryCollab; use with care, does not call cascades
+ *
+*/
+
+    public void resetListCountryCollab(){
+        listCountryCollab = new ArrayList<CountryCollab>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof CountryCollab)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Iterator for list of class Translator
  *
 */
@@ -3217,6 +3261,42 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(CollabCount b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class ScopusCountry; remove all dependent objects of class CountryCollab which refer to item through their attribute country1
+ *
+*/
+
+    public void cascadeCountryCollabCountry1(ScopusCountry item){
+        assert item != null;
+        List<CountryCollab> toRemove = new ArrayList<CountryCollab>();
+        for(CountryCollab a:getListCountryCollab()) {
+         if (a.getCountry1() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(CountryCollab b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class ScopusCountry; remove all dependent objects of class CountryCollab which refer to item through their attribute country2
+ *
+*/
+
+    public void cascadeCountryCollabCountry2(ScopusCountry item){
+        assert item != null;
+        List<CountryCollab> toRemove = new ArrayList<CountryCollab>();
+        for(CountryCollab a:getListCountryCollab()) {
+         if (a.getCountry2() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(CountryCollab b:toRemove) {
             b.remove();
         }
     }
@@ -4259,6 +4339,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class CountryCollab
+ *
+*/
+
+    public void addCountryCollab(CountryCollab countryCollab){
+        assert countryCollab != null;
+        this.listCountryCollab.add(countryCollab);
+    }
+
+/**
+ *  remove an item from the list for class CountryCollab
+ *
+*/
+
+    public Boolean removeCountryCollab(CountryCollab countryCollab){
+        assert countryCollab != null;
+        return this.listCountryCollab.remove(countryCollab);
+    }
+
+/**
  *  add an item to the list for class Translator
  *
 */
@@ -4376,6 +4476,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(ConferenceSeries x:getListConferenceSeries()){
+            System.out.println(x);
+        }
+        for(CountryCollab x:getListCountryCollab()){
             System.out.println(x);
         }
         for(DoiReference x:getListDoiReference()){
@@ -4548,6 +4651,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(ConferenceSeries x:getListConferenceSeries()){
             if (x.getClass().equals(ConferenceSeries.class)) x.toXML(out);
+        }
+        for(CountryCollab x:getListCountryCollab()){
+            if (x.getClass().equals(CountryCollab.class)) x.toXML(out);
         }
         for(DoiReference x:getListDoiReference()){
             if (x.getClass().equals(DoiReference.class)) x.toXML(out);
@@ -4739,6 +4845,7 @@ public int compareTo(ApplicationDataset ds2){
         compareConceptType(this.getListConceptType(),compare.getListConceptType());
         compareConceptWork(this.getListConceptWork(),compare.getListConceptWork());
         compareConferenceSeries(this.getListConferenceSeries(),compare.getListConferenceSeries());
+        compareCountryCollab(this.getListCountryCollab(),compare.getListCountryCollab());
         compareDoiReference(this.getListDoiReference(),compare.getListDoiReference());
         compareInBook(this.getListInBook(),compare.getListInBook());
         compareInCollection(this.getListInCollection(),compare.getListInCollection());
@@ -5172,6 +5279,30 @@ public int compareTo(ApplicationDataset ds2){
             ConferenceSeries a = ConferenceSeries.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConferenceSeries B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types CountryCollab, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareCountryCollab(List<CountryCollab> aList,List<CountryCollab> bList){
+        System.out.println("Comparing CountryCollab");
+        for(CountryCollab a:aList){
+            CountryCollab b= CountryCollab.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"CountryCollab A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"CountryCollab A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"CountryCollab B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(CountryCollab b: bList){
+            CountryCollab a = CountryCollab.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"CountryCollab B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -5823,6 +5954,7 @@ public int compareTo(ApplicationDataset ds2){
         checkConceptType(this.getListConceptType());
         checkConceptWork(this.getListConceptWork());
         checkConferenceSeries(this.getListConferenceSeries());
+        checkCountryCollab(this.getListCountryCollab());
         checkDoiReference(this.getListDoiReference());
         checkInBook(this.getListInBook());
         checkInCollection(this.getListInCollection());
@@ -6035,6 +6167,17 @@ public int compareTo(ApplicationDataset ds2){
 
     public void checkConferenceSeries(List<ConferenceSeries> list){
         for(ConferenceSeries a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<CountryCollab> dataset list of all items of type CountryCollab
+*/
+
+    public void checkCountryCollab(List<CountryCollab> list){
+        for(CountryCollab a:list){
             a.check();
         }
     }
@@ -6355,6 +6498,7 @@ public int compareTo(ApplicationDataset ds2){
         ConceptType.dummy(this);
         ConceptWork.dummy(this);
         ConferenceSeries.dummy(this);
+        CountryCollab.dummy(this);
         DoiReference.dummy(this);
         InBook.dummy(this);
         InCollection.dummy(this);

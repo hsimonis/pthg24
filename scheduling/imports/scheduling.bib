@@ -22697,6 +22697,95 @@ disruptions. },
   year={2015}
 }
 
+@InProceedings{Euler2024,
+author="Euler, Ricardo
+and Bornd{\"o}rfer, Ralf
+and Puchert, Christian
+and Takkula, Tuomo",
+editor="Dilkina, Bistra",
+title="ULD Build-Up Scheduling with Logic-Based Benders Decomposition",
+booktitle="Integration of Constraint Programming, Artificial Intelligence, and Operations Research",
+year="2024",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="259--276",
+doi={10.1007/978-3-031-60597-0_17},
+abstract="We study a complex planning and scheduling problem arising from the build-up process of air cargo pallets and containers, collectively referred to as unit load devices (ULD), in which ULDs must be assigned to workstations for loading. Since air freight usually becomes available gradually along the planning horizon, ULD build-ups must be scheduled neither too early to avoid underutilizing ULD capacity, nor too late to avoid resource conflicts with other flights. Whenever possible, ULDs should be built up in batches, thereby giving ground handlers more freedom to rearrange cargo and utilize the ULD's capacity efficiently. The resulting scheduling problem has an intricate cost function and produces large time-expanded models, especially for longer planning horizons. We propose a logic-based Benders decomposition approach that assigns batches to time intervals and workstations in the master problem, while the actual schedule is decided in a subproblem. By choosing appropriate intervals, the subproblem becomes a feasibility problem that decomposes over the workstations. Additionally, the similarity of many batches is exploited by a strengthening procedure for no-good cuts. We benchmark our approach against a time-expanded MIP formulation from the literature on a publicly available data set. It solves 15{\%} more instances to optimality and decreases run times by more than 50{\%} in the geometric mean. This improvement is especially pronounced for longer planning horizons of up to one week, where the Benders approach solves over 50{\%} instances more than the baseline.",
+isbn="978-3-031-60597-0"
+}
+
+@InProceedings{Barral2024,
+author="Barral, Hugo
+and Gaha, Mohamed
+and Dems, Amira
+and C{\^o}t{\'e}, Alain
+and Nguewouo, Franklin
+and Cappart, Quentin",
+editor="Dilkina, Bistra",
+title="Acquiring Constraints for a Non-linear Transmission Maintenance Scheduling Problem",
+booktitle="Integration of Constraint Programming, Artificial Intelligence, and Operations Research",
+year="2024",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="34--50",
+doi={10.1007/978-3-031-60597-0_3},
+abstract="Over time, power network equipment can face defects and must be maintained to ensure transmission network reliability. Once a piece of equipment is scheduled to be withdrawn from the network, it becomes unavailable and can lead to power outages when other adjacent equipment fails. This problem is commonly referred to as a transmission maintenance scheduling (TMS) problem and remains a challenge for power utilities. Numerous combinatorial constraints must be satisfied to ensure the stability and reliability of the transmission network. While most of these constraints can be naturally formalized in constraint programming (CP), there are some complex constraints like transit-power limits that are challenging to model because of their continuous and non-linear nature. This paper proposes a methodology based on active constraint acquisition to automatically approximate these constraints. The acquisition is carried out using a simulator developed by Hydro-Qu{\'e}bec (HQ), a power utility to compute the power-flow of its transmission network. The acquired constraints are then integrated into a CP model to solve the HQ network's TMS problem. Our experimental results show the relevance of the methodology to approximate transit-power constraints in an automated way. It allows HQ to automatically schedule a maintenance plan for an instance that remained intractable until now. To our knowledge, it is the first time that active constraint acquisition has been used successfully for the TMS problem in an industrial setting.",
+isbn="978-3-031-60597-0"
+}
+
+@InProceedings{Thomas2024,
+author="Thomas, Charles
+and Schaus, Pierre",
+editor="Dilkina, Bistra",
+title="A Constraint Programming Approach for Aircraft Disassembly Scheduling",
+booktitle="Integration of Constraint Programming, Artificial Intelligence, and Operations Research",
+year="2024",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="211--220",
+doi={10.1007/978-3-031-60599-4_13},
+abstract="The dismantling and recycling of aircrafts is one of the future challenges for the air transport industry in terms of sustainability. This problem is hard to solve and optimize as planning operations are highly constrained. Indeed, extracting each part requires technicians with the necessary qualifications and equipment. The parts to be extracted are constrained by precedence relations and the number of simultaneous technicians on specific zones is restricted. It is also essential to avoid unbalancing the aircraft during disassembly. Cost is a significant factor, influenced by the duration of ground mobilization and the choice of technicians for each operation. This paper presents a first constraint programming model for this problem using optional interval variables. This model is used to solve variations of a large instance involving up to 1500 tasks, based on real-life data provided by our industrial partner. The results show that the model can find feasible solutions for all variations of the instance and compares the solutions obtained to lower bounds.",
+isbn="978-3-031-60599-4"
+}
+
+@InProceedings{Houten2024,
+author="van den Houten, Kim
+and Tax, David M. J.
+and Freydell, Esteban
+and de Weerdt, Mathijs",
+editor="Dilkina, Bistra",
+title="Learning from Scenarios for Repairable Stochastic Scheduling",
+booktitle="Integration of Constraint Programming, Artificial Intelligence, and Operations Research",
+year="2024",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="234--242",
+doi={10.1007/978-3-031-60599-4_15},
+abstract="When optimizing problems with uncertain parameter values in a linear objective, decision-focused learning enables end-to-end learning of these values. We are interested in a stochastic scheduling problem, in which processing times are uncertain, which brings uncertain values in the constraints, and thus repair of an initial schedule may be needed. Historical realizations of the stochastic processing times are available. We show how existing decision-focused learning techniques based on stochastic smoothing can be adapted to this scheduling problem. We include an extensive experimental evaluation to investigate in which situations decision-focused learning outperforms the state of the art, i.e., scenario-based stochastic optimization.",
+isbn="978-3-031-60599-4"
+}
+
+@InProceedings{Infantes2024,
+author="Infantes, Guillaume
+and Roussel, St{\'e}phanie
+and Pereira, Pierre
+and Jacquet, Antoine
+and Benazera, Emmanuel",
+editor="Dilkina, Bistra",
+title="Learning to Solve Job Shop Scheduling Under Uncertainty",
+booktitle="Integration of Constraint Programming, Artificial Intelligence, and Operations Research",
+year="2024",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="329--345",
+doi={10.1007/978-3-031-60597-0_21},
+abstract="Job-Shop Scheduling Problem (JSSP) is a combinatorial optimization problem where tasks need to be scheduled on machines in order to minimize criteria such as makespan or delay. To address more realistic scenarios, we associate a probability distribution with the duration of each task. Our objective is to generate a robust schedule, i.e. that minimizes the average makespan. This paper introduces a new approach that leverages Deep Reinforcement Learning (DRL) techniques to search for robust solutions, emphasizing JSSPs with uncertain durations. Key contributions of this research include: (1) advancements in DRL applications to JSSPs, enhancing generalization and scalability, (2) a novel method for addressing JSSPs with uncertain durations. The Wheatley approach, which integrates Graph Neural Networks (GNNs) and DRL, is made publicly available for further research and applications.",
+isbn="978-3-031-60597-0"
+}
+
+
+
+
 
 
 

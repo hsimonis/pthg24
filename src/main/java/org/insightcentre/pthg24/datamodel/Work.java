@@ -46,6 +46,7 @@ import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
+import org.insightcentre.pthg24.datamodel.CountryCollab;
 import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.OtherWork;
@@ -201,6 +202,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public String key;
+
+/**
+ *  
+ *
+*/
+
+    public String keywords;
 
 /**
  *  
@@ -481,6 +489,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setDoiStatus(true);
         setIssn("");
         setKey("");
+        setKeywords("");
         setLanguage("");
         setLocalCopy("");
         setMaxCitations(0);
@@ -546,6 +555,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             Boolean doiStatus,
             String issn,
             String key,
+            String keywords,
             String language,
             String localCopy,
             Integer maxCitations,
@@ -601,6 +611,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setDoiStatus(doiStatus);
         setIssn(issn);
         setKey(key);
+        setKeywords(keywords);
         setLanguage(language);
         setLocalCopy(localCopy);
         setMaxCitations(maxCitations);
@@ -660,6 +671,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             other.doiStatus,
             other.issn,
             other.key,
+            other.keywords,
             other.language,
             other.localCopy,
             other.maxCitations,
@@ -936,6 +948,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public String getKey(){
         return this.key;
+    }
+
+/**
+ *  get attribute keywords
+ *
+ * @return String
+*/
+
+    public String getKeywords(){
+        return this.keywords;
     }
 
 /**
@@ -1506,6 +1528,18 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public void setKey(String key){
         this.key = key;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute keywords, mark dataset as dirty, mark dataset as not valid
+@param keywords String
+ *
+*/
+
+    public void setKeywords(String keywords){
+        this.keywords = keywords;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -2133,7 +2167,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getKeywords()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
     }
 
 /**
@@ -2175,6 +2209,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             " doiStatus=\""+toXMLDoiStatus()+"\""+
             " issn=\""+toXMLIssn()+"\""+
             " key=\""+toXMLKey()+"\""+
+            " keywords=\""+toXMLKeywords()+"\""+
             " language=\""+toXMLLanguage()+"\""+
             " localCopy=\""+toXMLLocalCopy()+"\""+
             " maxCitations=\""+toXMLMaxCitations()+"\""+
@@ -2397,6 +2432,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     String toXMLKey(){
         return this.safeXML(getKey());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLKeywords(){
+        return this.safeXML(getKeywords());
     }
 
 /**
@@ -2885,6 +2930,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
       if(!this.getKey().equals(b.getKey())){
          System.out.println("Key");
         }
+      if(!this.getKeywords().equals(b.getKeywords())){
+         System.out.println("Keywords");
+        }
       if(!this.getLanguage().equals(b.getLanguage())){
          System.out.println("Language");
         }
@@ -3008,6 +3056,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
           this.getDoiStatus().equals(b.getDoiStatus()) &&
           this.getIssn().equals(b.getIssn()) &&
           this.getKey().equals(b.getKey()) &&
+          this.getKeywords().equals(b.getKeywords()) &&
           this.getLanguage().equals(b.getLanguage()) &&
           this.getLocalCopy().equals(b.getLocalCopy()) &&
           this.getMaxCitations().equals(b.getMaxCitations()) &&

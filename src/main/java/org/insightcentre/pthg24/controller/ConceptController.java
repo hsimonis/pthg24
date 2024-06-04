@@ -29,7 +29,7 @@ import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptType;
 
 /**
- * Generated at 06:46:00 on 2024-05-25 */
+ * Generated at 11:17:58 on 2024-06-04 */
 public class ConceptController extends Table3Controller {
 	@FXML
 	private TableView<Concept> table;

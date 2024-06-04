@@ -17,6 +17,7 @@ String doi
 Boolean doiStatus
 String issn
 String key
+String keywords
 String language
 String localCopy
 Integer maxCitations

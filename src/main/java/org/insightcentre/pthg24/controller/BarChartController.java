@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 06:46:00 on 2024-05-25 */
+ * Generated at 11:17:58 on 2024-06-04 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -323,6 +323,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("fraction");
 		choicesMap.put("CollabCount", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("count");
+		choicesMap.put("CountryCollab", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
 		attributeNames.add("workCount");
 		attributeNames.add("year");
@@ -475,6 +478,9 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("CollabCount")) {
 				objectList = mainApp.getCollabCountData();
+			}
+			else if (className.equals("CountryCollab")) {
+				objectList = mainApp.getCountryCollabData();
 			}
 			else if (className.equals("Translator")) {
 				objectList = mainApp.getTranslatorData();

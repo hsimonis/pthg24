@@ -39,6 +39,7 @@ import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptType;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
 import org.insightcentre.pthg24.datamodel.ConferenceSeries;
+import org.insightcentre.pthg24.datamodel.CountryCollab;
 import org.insightcentre.pthg24.datamodel.CrossReference;
 import org.insightcentre.pthg24.datamodel.DoiReference;
 import org.insightcentre.pthg24.datamodel.InBook;
@@ -71,7 +72,7 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 06:46:00 on 2024-05-25 */
+ * Generated at 11:17:58 on 2024-06-04 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -171,6 +172,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<CollabCount> collabCountData = FXCollections.observableArrayList();
 
+	private ObservableList<CountryCollab> countryCollabData = FXCollections.observableArrayList();
+
 	private ObservableList<Translator> translatorData = FXCollections.observableArrayList();
 
 	private ObservableList<AuthorDouble> authorDoubleData = FXCollections.observableArrayList();
@@ -222,6 +225,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("WorkAffiliation", "WorkAffiliation");
 		tableViews.put("CollabWork", "CollabWork");
 		tableViews.put("CollabCount", "CollabCount");
+		tableViews.put("CountryCollab", "CountryCollab");
 		tableViews.put("MissingWork", "MissingWork");
 		tableViews.put("OtherWork", "OtherWork");
 		tableViews.put("Orphan", "Orphan");
@@ -385,6 +389,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		collabWorkData.addAll(base.getListCollabWork());
 		collabCountData.clear();
 		collabCountData.addAll(base.getListCollabCount());
+		countryCollabData.clear();
+		countryCollabData.addAll(base.getListCountryCollab());
 		translatorData.clear();
 		translatorData.addAll(base.getListTranslator());
 		authorDoubleData.clear();
@@ -570,6 +576,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<CollabCount> getCollabCountData() {
 		return collabCountData;
+	}
+
+	public ObservableList<CountryCollab> getCountryCollabData() {
+		return countryCollabData;
 	}
 
 	public ObservableList<Translator> getTranslatorData() {

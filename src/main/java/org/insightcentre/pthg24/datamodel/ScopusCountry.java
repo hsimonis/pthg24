@@ -46,6 +46,7 @@ import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.CollabWork;
 import org.insightcentre.pthg24.datamodel.CollabCount;
+import org.insightcentre.pthg24.datamodel.CountryCollab;
 import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.OtherWork;
@@ -145,6 +146,8 @@ public  class ScopusCountry extends ApplicationObject{
 
     public Boolean remove(){
         getApplicationDataset().cascadeScopusCityScopusCountry(this);
+        getApplicationDataset().cascadeCountryCollabCountry1(this);
+        getApplicationDataset().cascadeCountryCollabCountry2(this);
         return getApplicationDataset().removeScopusCountry(this) && getApplicationDataset().removeApplicationObject(this);
     }
 

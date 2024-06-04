@@ -464,6 +464,25 @@ public OpenAccessType getOpenAccessType(String attributeName,
         return res;
     }
 
+    public CountryCollab getCountryCollab(String attributeName,
+                               Attributes attributes) {
+        return (CountryCollab) find(getId(attributeName,attributes));
+    }
+
+    public List<CountryCollab> getCountryCollabCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<CountryCollab> res = new ArrayList<CountryCollab>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((CountryCollab) find(id));
+            }
+        }
+        return res;
+    }
+
     public CrossReference getCrossReference(String attributeName,
                                Attributes attributes) {
         return (CrossReference) find(getId(attributeName,attributes));
@@ -1112,6 +1131,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("issn",attributes,""),
                         getString("key",attributes,""),
+                        getString("keywords",attributes,""),
                         getString("language",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
@@ -1213,6 +1233,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("issn",attributes,""),
                         getString("key",attributes,""),
+                        getString("keywords",attributes,""),
                         getString("language",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
@@ -1352,6 +1373,16 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getInteger("nrPapers",attributes,0),
                         getString("regExpr",attributes,"")
                         ));
+            } else if (qname.equals("countryCollab")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new CountryCollab(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getInteger("count",attributes,0),
+                        null,
+                        null
+                        ));
             } else if (qname.equals("doiReference")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1393,6 +1424,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("issn",attributes,""),
                         getString("key",attributes,""),
+                        getString("keywords",attributes,""),
                         getString("language",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
@@ -1453,6 +1485,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("issn",attributes,""),
                         getString("key",attributes,""),
+                        getString("keywords",attributes,""),
                         getString("language",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
@@ -1645,6 +1678,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("issn",attributes,""),
                         getString("key",attributes,""),
+                        getString("keywords",attributes,""),
                         getString("language",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
@@ -1705,6 +1739,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getBoolean("doiStatus",attributes,false),
                         getString("issn",attributes,""),
                         getString("key",attributes,""),
+                        getString("keywords",attributes,""),
                         getString("language",attributes,""),
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
@@ -2031,6 +2066,12 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 ConferenceSeries item = (ConferenceSeries) find(id);
+            } else if (qname.equals("countryCollab")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                CountryCollab item = (CountryCollab) find(id);
+                 item.setCountry1(getScopusCountry("country1",attributes));
+                 item.setCountry2(getScopusCountry("country2",attributes));
             } else if (qname.equals("doiReference")) {
                 assert (base != null);
                 int id = getId("id", attributes);

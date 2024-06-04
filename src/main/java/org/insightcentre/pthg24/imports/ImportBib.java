@@ -40,6 +40,7 @@ public class ImportBib {
             Key orcidNumbers = new Key("ORCID-Numbers");
             Key uniqueId = new Key("Unique-ID");
             Key abstractKey = new Key("abstract");
+            Key keywordsKey = new Key("Keywords");
 
             BibTeXDatabase database = bibtexParser.parse(reader);
             reader.close();
@@ -133,6 +134,9 @@ public class ImportBib {
                     }
                     if (!fieldString(entry,abstractKey).equals("")){
                         work.setAbstractText(removeMarkup(fieldString(entry,abstractKey)));
+                    }
+                    if (!fieldString(entry,keywordsKey).equals("")){
+                        work.setKeywords(removeMarkup(fieldString(entry,keywordsKey)));
                     }
                     if (!fieldString(entry,KEY_PUBLISHER).equals("")){
                         work.setPublisher(findPublisher(base,fieldString(entry,KEY_PUBLISHER)));

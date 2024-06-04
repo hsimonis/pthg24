@@ -184,6 +184,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new ComputeRelevance(base,type,citingSurveyWeight,citedBySurveyWeight, citationCountWeight,
                         keywordWeight,authorWeight,ageWeight,abstractRelevanceCutoff,bodyRelevanceCutoff);
                 new CheckAuthorDoubles(base);
+                new CreateCountryCollab(base);
 
                 info("File output starting");
 

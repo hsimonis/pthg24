@@ -12,7 +12,7 @@ import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 06:46:00 on 2024-05-25 */
+ * Generated at 11:17:58 on 2024-06-04 */
 public class ScatterChartController extends ChartXYFilterController {
 	@FXML
 	private ScatterChart<Number, Number> chart;
@@ -165,6 +165,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("relevanceBody");
 		filterNames.add("relevanceBody");
 		filterNames.add("language");
+		filterNames.add("keywords");
 		filterNames.add("abstractText");
 		filterNames.add("concept");
 		choicesMap.put("Work", attributeNames);
@@ -246,6 +247,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("relevanceBody");
 		filterNames.add("relevanceBody");
 		filterNames.add("language");
+		filterNames.add("keywords");
 		filterNames.add("abstractText");
 		filterNames.add("concept");
 		filterNames.add("proceedings");
@@ -328,6 +330,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("relevanceBody");
 		filterNames.add("relevanceBody");
 		filterNames.add("language");
+		filterNames.add("keywords");
 		filterNames.add("abstractText");
 		filterNames.add("concept");
 		filterNames.add("journal");
@@ -410,6 +413,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("relevanceBody");
 		filterNames.add("relevanceBody");
 		filterNames.add("language");
+		filterNames.add("keywords");
 		filterNames.add("abstractText");
 		filterNames.add("concept");
 		filterNames.add("school");
@@ -492,6 +496,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("relevanceBody");
 		filterNames.add("relevanceBody");
 		filterNames.add("language");
+		filterNames.add("keywords");
 		filterNames.add("abstractText");
 		filterNames.add("concept");
 		filterNames.add("collection");
@@ -574,6 +579,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("relevanceBody");
 		filterNames.add("relevanceBody");
 		filterNames.add("language");
+		filterNames.add("keywords");
 		filterNames.add("abstractText");
 		filterNames.add("concept");
 		filterNames.add("booktitle");
@@ -656,6 +662,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("relevanceBody");
 		filterNames.add("relevanceBody");
 		filterNames.add("language");
+		filterNames.add("keywords");
 		filterNames.add("abstractText");
 		filterNames.add("concept");
 		choicesMap.put("Book", attributeNames);
@@ -1044,6 +1051,16 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames = FXCollections.observableArrayList();
 		filterNames.add(filterNone);
 		filterNames.add("name");
+		filterNames.add("country1");
+		filterNames.add("country2");
+		attributeNames.add("count");
+		filterNames.add("count");
+		choicesMap.put("CountryCollab", attributeNames);
+		filterMap.put("CountryCollab", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
 		filterNames.add("unicode");
 		filterNames.add("latex");
 		filterNames.add("name");
@@ -1240,6 +1257,9 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("CollabCount")) {
 				objectList = mainApp.getCollabCountData();
+			}
+			else if (className.equals("CountryCollab")) {
+				objectList = mainApp.getCountryCollabData();
 			}
 			else if (className.equals("Translator")) {
 				objectList = mainApp.getTranslatorData();
