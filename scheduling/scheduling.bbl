@@ -901,6 +901,17 @@ Ada Barlatt, Amy~Mainville Cohn, and Oleg~Yu. Gusikhin.
 \newblock \href {https://doi.org/10.1007/978-3-540-68155-7_24}
   {\path{doi:10.1007/978-3-540-68155-7_24}}.
 
+\bibitem{Barral2024}
+Hugo Barral, Mohamed Gaha, Amira Dems, Alain C{\^o}t{\'e}, Franklin Nguewouo,
+  and Quentin Cappart.
+\newblock Acquiring constraints for a non-linear transmission maintenance
+  scheduling problem.
+\newblock In Bistra Dilkina, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research}, pages 34--50,
+  Cham, 2024. Springer Nature Switzerland.
+\newblock \href {https://doi.org/10.1007/978-3-031-60597-0_3}
+  {\path{doi:10.1007/978-3-031-60597-0_3}}.
+
 \bibitem{Bartak02a}
 Roman Bart{\'{a}}k.
 \newblock Visopt shopfloor: Going beyond traditional scheduling.
@@ -3484,6 +3495,15 @@ Alireza Etminaniesfahani, Hanyu Gu, Leila~Moslemi Naeni, and Amir Salehipour.
   {https://doi.org/10.1007/s42979-022-01487-1}
   {\path{doi:10.1007/s42979-022-01487-1}}.
 
+\bibitem{Euler2024}
+Ricardo Euler, Ralf Bornd{\"o}rfer, Christian Puchert, and Tuomo Takkula.
+\newblock Uld build-up scheduling with logic-based benders decomposition.
+\newblock In Bistra Dilkina, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research}, pages
+  259--276, Cham, 2024. Springer Nature Switzerland.
+\newblock \href {https://doi.org/10.1007/978-3-031-60597-0_17}
+  {\path{doi:10.1007/978-3-031-60597-0_17}}.
+
 \bibitem{EvenSH15}
 Caroline Even, Andreas Schutt, and Pascal~Van Hentenryck.
 \newblock A constraint programming approach for non-preemptive evacuation
@@ -5410,6 +5430,16 @@ Zangir Iklassov, Dmitrii Medvedev, Ruben Solozabal~Ochoa de~Retana, and Martin
 \newblock URL: \url{https://doi.org/10.24963/ijcai.2023/594}, \href
   {https://doi.org/10.24963/IJCAI.2023/594}
   {\path{doi:10.24963/IJCAI.2023/594}}.
+
+\bibitem{Infantes2024}
+Guillaume Infantes, St{\'e}phanie Roussel, Pierre Pereira, Antoine Jacquet, and
+  Emmanuel Benazera.
+\newblock Learning to solve job shop scheduling under uncertainty.
+\newblock In Bistra Dilkina, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research}, pages
+  329--345, Cham, 2024. Springer Nature Switzerland.
+\newblock \href {https://doi.org/10.1007/978-3-031-60597-0_21}
+  {\path{doi:10.1007/978-3-031-60597-0_21}}.
 
 \bibitem{IsikYA23}
 Ey{\"{u}}p~Ensar Isik, Seyda~Topaloglu Yildiz, and {\"{O}}zge~Satir Akpunar.
@@ -10484,6 +10514,16 @@ Charles Thomas, Roger Kameugne, and Pierre Schaus.
 \newblock \href {https://doi.org/10.1007/978-3-030-58942-4_30}
   {\path{doi:10.1007/978-3-030-58942-4_30}}.
 
+\bibitem{Thomas2024}
+Charles Thomas and Pierre Schaus.
+\newblock A constraint programming approach for aircraft disassembly
+  scheduling.
+\newblock In Bistra Dilkina, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research}, pages
+  211--220, Cham, 2024. Springer Nature Switzerland.
+\newblock \href {https://doi.org/10.1007/978-3-031-60599-4_13}
+  {\path{doi:10.1007/978-3-031-60599-4_13}}.
+
 \bibitem{Thorsteinsson01}
 Erlendur~S. Thorsteinsson.
 \newblock Branch-and-check: {A} hybrid framework integrating mixed integer
@@ -10851,6 +10891,15 @@ Pim van~den Bogaerdt and Mathijs de~Weerdt.
   Lecture Notes in Computer Science}, pages 565--580. Springer, 2019.
 \newblock \href {https://doi.org/10.1007/978-3-030-19212-9_38}
   {\path{doi:10.1007/978-3-030-19212-9_38}}.
+
+\bibitem{Houten2024}
+Kim van~den Houten, David M.~J. Tax, Esteban Freydell, and Mathijs de~Weerdt.
+\newblock Learning from scenarios for repairable stochastic scheduling.
+\newblock In Bistra Dilkina, editor, {\em Integration of Constraint
+  Programming, Artificial Intelligence, and Operations Research}, pages
+  234--242, Cham, 2024. Springer Nature Switzerland.
+\newblock \href {https://doi.org/10.1007/978-3-031-60599-4_15}
+  {\path{doi:10.1007/978-3-031-60599-4_15}}.
 
 \bibitem{KrogtLPHJ07}
 Roman van~der Krogt, James Little, Kenneth Pulliam, Sue Hanhilammi, and Yue
