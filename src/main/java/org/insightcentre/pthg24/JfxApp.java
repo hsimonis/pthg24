@@ -42,7 +42,7 @@ public class JfxApp extends GeneratedJfxApp {
                 base.setDirty(false);
                 new CreateTranslators(base);
 
-                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones"
+                String type = "medicaldrones"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -308,7 +308,7 @@ public class JfxApp extends GeneratedJfxApp {
 
                 new PublicationReport(base,reportDir,coauthorLimit).
                         produce("publications",
-                                "Publication Report",
+                                "Publication Report for "+type+" Survey",
                                 authors);
 
                 //??? these require attributes set by Publication Report

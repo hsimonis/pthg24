@@ -1,6 +1,6 @@
 [
 {"abbrev":"CP","name":"Principles and Practice of Constraint Programming"},
-{"abbrev":"CPAIOR","name":"Integration of AI and OR Techniques in Constraint Programming"},
+{"abbrev":"CPAIOR","name":"Integration of AI and OR Techniques in Constraint Programming","regExpr":"Integration of AI and OR Techniques in Constraint Programming|Integration of Constraint Programming, Artificial Intelligence, and Operations Research|CPAIOR|CP-AI-OR"},
 {"abbrev":"ICAPS","name":"International Conference on Automated Planning and Scheduling"},
 {"abbrev":"DC SIAAI","name":"Doctoral Consortium at Symposium of the Italian Association for Artificial Intelligence","regExpr":"Doctoral Consortium.*Symposium of the Italian Association for Artificial Intelligence"},
 {"abbrev":"SIAAI","name":"Symposium of the Italian Association for Artificial Intelligence"},
@@ -95,7 +95,7 @@
 {"abbrev":"AIAI","name":"Artificial Intelligence Applications and Innovations"},
 
 {"abbrev":"CP LSDO","name":"Constraint Programming and Large Scale Discrete Optimization"},
-{"abbrev":"Constraint Programming","name":"Workshop on Constraint Programming"},
+{"abbrev":"Workshop on Constraint Programming","name":"Workshop on Constraint Programming"},
 {"abbrev":"DATE","name":"Design, Automation & Test in Europe","regExpr":"Design.*Automation.*Test in Europe"},
 {"abbrev":"SKIMA","name":"International Conference on Software, Knowledge Information, Industrial Management and Applications"},
 {"abbrev":"ISSRE","name":"International Symposium on Software Reliability Engineering"},
