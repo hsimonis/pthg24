@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<!--Generated at 11:17:58 on 2024-06-04-->
+<!--Generated at 17:09:17 on 2024-07-04-->
 
 
 <Tab text="Scatter Chart" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.ScatterChartController">

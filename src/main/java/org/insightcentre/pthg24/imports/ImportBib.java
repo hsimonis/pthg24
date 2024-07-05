@@ -1,5 +1,6 @@
 package org.insightcentre.pthg24.imports;
 
+import framework.types.DateOnly;
 import org.apache.commons.lang3.StringUtils;
 import org.insightcentre.pthg24.datamodel.*;
 import org.insightcentre.pthg24.datamodel.Collection;
@@ -592,14 +593,16 @@ public class ImportBib {
             return "Taylor \\& Francis";
         } else if (lower.contains("hindawi")){
             return "Hindawi";
-        } else if (lower.contains("assoc computing machinery")){
+        } else if (lower.contains("assoc computing machinery")) {
             return "ACM";
-        } else if (lower.contains("informa")){
-            return "Informa";
-        } else if (name.contains("MDPI")){
+        } else if (lower.contains("schloss dagstuhl")){
+            return "Schloss Dagstuhl - Leibniz-Zentrum f{\\\"{u}}r Informatik";
+         } else if (name.contains("MDPI")){
             return "MDPI";
         } else if (name.contains("ijcai")){
             return "IJCAI";
+        } else if (lower.contains("informa")){
+            return "Informa";
         }
         return name.replaceAll(","," ").replaceAll("\\.","");
     }

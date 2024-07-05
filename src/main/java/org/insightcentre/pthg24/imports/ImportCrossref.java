@@ -1,5 +1,6 @@
 package org.insightcentre.pthg24.imports;
 
+import framework.types.DateOnly;
 import org.insightcentre.pthg24.datamodel.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -144,6 +145,45 @@ public class ImportCrossref {
         }
         w.setLanguage(language);
 
+        if (message.has("published")){
+            JSONObject dateObj = message.getJSONObject("published");
+            if (dateObj.has("date-parts")) {
+                JSONArray arr = dateObj.getJSONArray("date-parts");
+                JSONArray arr1 = arr.getJSONArray(0);
+                info("arr1 "+arr1.toString());
+                int month=1;
+                int day = 1;
+                int year = arr1.getInt(0);
+                if (arr.length()>1){
+                    month = arr1.getInt(1);
+                }
+                if (arr.length() == 3){
+                    day = arr1.getInt(2);
+
+                }
+                w.setPublished(year+"-"+month+"-"+day);
+            } else {
+                warning("date format "+dateObj.toString());
+            }
+
+        }
+        if (message.has("assertion")){
+            JSONArray assertions = message.getJSONArray("assertion");
+            for(int i=0;i<assertions.length();i++){
+                JSONObject ass = assertions.getJSONObject(i);
+                String assName = ass.getString("name");
+                String assLabel = ass.getString("label");
+                String assValue = ass.getString("value");
+                createAssertion(w,assName,assLabel,assValue);
+            }
+//            if (w.getReceived() != null && w.getPublished() != null){
+//                w.setDaysToPublish(w.getPublished().differenceDays(w.getReceived()));
+//            }
+//            if (w.getReceived() != null && w.getAccepted() != null){
+//                w.setDaysToAccept(w.getAccepted().differenceDays(w.getReceived()));
+//            }
+        }
+
         List<Authorship> ships = base.getListAuthorship().stream().
                 filter(x->x.getWork()==w).
                 sorted(Comparator.comparing(Authorship::getSeqNr)).
@@ -155,6 +195,32 @@ public class ImportCrossref {
 //        info("content "+status+" "+type+" "+refCount+" "+referenceCount+" "+referencedByCount+" "+messageType+" "+title.length()+" "+title1+" "+authors.length()+" "+authorInfo);
         w.setCrossrefReferences(referenceCount);
         w.setCrossrefCitations(referencedByCount);
+    }
+
+    private void createAssertion(Work w,String name,String label,String value){
+        Assertion a = new Assertion(base);
+        a.setName(name);
+        a.setWork(w);
+        a.setLabel(label);
+        a.setValue(value);
+        switch(name){
+            case "received":
+                w.setReceived(value);
+                break;
+            case "revised":
+                w.setRevised(value);
+                break;
+            case "accepted":
+                w.setAccepted(value);
+                break;
+            case"first_online":
+                w.setFirstOnline(value);
+                break;
+            case "published":
+                w.setPublished(value);
+                break;
+            default:
+        }
     }
 
     private void extractReferences(Work w,JSONArray arr){

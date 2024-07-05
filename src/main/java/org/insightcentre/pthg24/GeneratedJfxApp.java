@@ -26,6 +26,7 @@ import org.insightcentre.pthg24.datamodel.Affiliation;
 import org.insightcentre.pthg24.datamodel.ApplicationDifference;
 import org.insightcentre.pthg24.datamodel.ApplicationWarning;
 import org.insightcentre.pthg24.datamodel.Article;
+import org.insightcentre.pthg24.datamodel.Assertion;
 import org.insightcentre.pthg24.datamodel.Author;
 import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.Authorship;
@@ -72,7 +73,7 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 11:17:58 on 2024-06-04 */
+ * Generated at 17:09:16 on 2024-07-04 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
@@ -180,11 +181,14 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<OtherWork> otherWorkData = FXCollections.observableArrayList();
 
+	private ObservableList<Assertion> assertionData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
 		fs = minimalDataset();
 		reset();
 		tableViews.put("Publisher", "Publisher");
+		tableViews.put("Assertion", "Assertion");
 		tableViews.put("Scenario", "Scenario");
 		tableViews.put("Scenario Differences", "ApplicationDifference");
 		tableViews.put("Warnings", "ApplicationWarning");
@@ -397,6 +401,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		authorDoubleData.addAll(base.getListAuthorDouble());
 		otherWorkData.clear();
 		otherWorkData.addAll(base.getListOtherWork());
+		assertionData.clear();
+		assertionData.addAll(base.getListAssertion());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -592,5 +598,9 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<OtherWork> getOtherWorkData() {
 		return otherWorkData;
+	}
+
+	public ObservableList<Assertion> getAssertionData() {
+		return assertionData;
 	}
 }

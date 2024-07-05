@@ -20,7 +20,7 @@ import org.insightcentre.pthg24.datamodel.Reference;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 11:17:58 on 2024-06-04 */
+ * Generated at 17:09:16 on 2024-07-04 */
 public class ReferenceController extends Table3Controller {
 	@FXML
 	private TableView<Reference> table;

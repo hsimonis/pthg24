@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 11:17:58 on 2024-06-04 */
+ * Generated at 17:09:16 on 2024-07-04 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -61,6 +61,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		choicesMap.put("Work", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -86,6 +88,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		choicesMap.put("Paper", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -111,6 +115,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -136,6 +142,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		choicesMap.put("PhDThesis", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -161,6 +169,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		choicesMap.put("InCollection", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -186,6 +196,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		choicesMap.put("InBook", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("nr");
@@ -211,6 +223,8 @@ public class BarChartController extends ChartController {
 		attributeNames.add("relevanceTitle");
 		attributeNames.add("relevanceAbstract");
 		attributeNames.add("relevanceBody");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		choicesMap.put("Book", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("seqNr");
@@ -490,6 +504,9 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("OtherWork")) {
 				objectList = mainApp.getOtherWorkData();
+			}
+			else if (className.equals("Assertion")) {
+				objectList = mainApp.getAssertionData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

@@ -50,6 +50,7 @@ import org.insightcentre.pthg24.datamodel.CountryCollab;
 import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.OtherWork;
+import org.insightcentre.pthg24.datamodel.Assertion;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -77,6 +78,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public String abstractText;
+
+/**
+ *  
+ *
+*/
+
+    public String accepted;
 
 /**
  *  
@@ -178,6 +186,20 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  *
 */
 
+    public Integer daysToAccept;
+
+/**
+ *  
+ *
+*/
+
+    public Integer daysToPublish;
+
+/**
+ *  
+ *
+*/
+
     public String doi;
 
 /**
@@ -188,6 +210,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     public Boolean doiStatus;
 
     private transient BooleanProperty doiStatusWrapper;
+
+/**
+ *  
+ *
+*/
+
+    public String firstOnline;
 
 /**
  *  
@@ -334,6 +363,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  *
 */
 
+    public String published;
+
+/**
+ *  
+ *
+*/
+
     public Publisher publisher;
 
 /**
@@ -342,6 +378,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public Integer rangeCitations;
+
+/**
+ *  
+ *
+*/
+
+    public String received;
 
 /**
  *  
@@ -370,6 +413,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public Double relevanceTitle;
+
+/**
+ *  
+ *
+*/
+
+    public String revised;
 
 /**
  *  
@@ -472,6 +522,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     public Work(ApplicationDataset applicationDataset){
         super(applicationDataset);
         setAbstractText("");
+        setAccepted("");
         setAuthor("");
         setAuthors(new ArrayList<Author>());
         setBackground(false);
@@ -485,8 +536,11 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setCrossrefReferences(0);
         setCrossrefStatus(true);
         setDataAvail("");
+        setDaysToAccept(0);
+        setDaysToPublish(0);
         setDoi("");
         setDoiStatus(true);
+        setFirstOnline("");
         setIssn("");
         setKey("");
         setKeywords("");
@@ -507,12 +561,15 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setPages("");
         setPercentCitationsCovered(0.0);
         setPercentReferencesCovered(0.0);
+        setPublished("");
         setPublisher(null);
         setRangeCitations(0);
+        setReceived("");
         setRelatedTo("");
         setRelevanceAbstract(0.0);
         setRelevanceBody(0.0);
         setRelevanceTitle(0.0);
+        setRevised("");
         setScopusCitations(0);
         setScopusStatus(true);
         setShortName("");
@@ -538,6 +595,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             Integer id,
             String name,
             String abstractText,
+            String accepted,
             String author,
             List<Author> authors,
             Boolean background,
@@ -551,8 +609,11 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             Integer crossrefReferences,
             Boolean crossrefStatus,
             String dataAvail,
+            Integer daysToAccept,
+            Integer daysToPublish,
             String doi,
             Boolean doiStatus,
+            String firstOnline,
             String issn,
             String key,
             String keywords,
@@ -573,12 +634,15 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             String pages,
             Double percentCitationsCovered,
             Double percentReferencesCovered,
+            String published,
             Publisher publisher,
             Integer rangeCitations,
+            String received,
             String relatedTo,
             Double relevanceAbstract,
             Double relevanceBody,
             Double relevanceTitle,
+            String revised,
             Integer scopusCitations,
             Boolean scopusStatus,
             String shortName,
@@ -594,6 +658,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             id,
             name);
         setAbstractText(abstractText);
+        setAccepted(accepted);
         setAuthor(author);
         setAuthors(authors);
         setBackground(background);
@@ -607,8 +672,11 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setCrossrefReferences(crossrefReferences);
         setCrossrefStatus(crossrefStatus);
         setDataAvail(dataAvail);
+        setDaysToAccept(daysToAccept);
+        setDaysToPublish(daysToPublish);
         setDoi(doi);
         setDoiStatus(doiStatus);
+        setFirstOnline(firstOnline);
         setIssn(issn);
         setKey(key);
         setKeywords(keywords);
@@ -629,12 +697,15 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setPages(pages);
         setPercentCitationsCovered(percentCitationsCovered);
         setPercentReferencesCovered(percentReferencesCovered);
+        setPublished(published);
         setPublisher(publisher);
         setRangeCitations(rangeCitations);
+        setReceived(received);
         setRelatedTo(relatedTo);
         setRelevanceAbstract(relevanceAbstract);
         setRelevanceBody(relevanceBody);
         setRelevanceTitle(relevanceTitle);
+        setRevised(revised);
         setScopusCitations(scopusCitations);
         setScopusStatus(scopusStatus);
         setShortName(shortName);
@@ -654,6 +725,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             other.id,
             other.name,
             other.abstractText,
+            other.accepted,
             other.author,
             other.authors,
             other.background,
@@ -667,8 +739,11 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             other.crossrefReferences,
             other.crossrefStatus,
             other.dataAvail,
+            other.daysToAccept,
+            other.daysToPublish,
             other.doi,
             other.doiStatus,
+            other.firstOnline,
             other.issn,
             other.key,
             other.keywords,
@@ -689,12 +764,15 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             other.pages,
             other.percentCitationsCovered,
             other.percentReferencesCovered,
+            other.published,
             other.publisher,
             other.rangeCitations,
+            other.received,
             other.relatedTo,
             other.relevanceAbstract,
             other.relevanceBody,
             other.relevanceTitle,
+            other.revised,
             other.scopusCitations,
             other.scopusStatus,
             other.shortName,
@@ -730,6 +808,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         getApplicationDataset().cascadeCollabWorkWork(this);
         getApplicationDataset().cascadeAuthorDoubleWork1(this);
         getApplicationDataset().cascadeAuthorDoubleWork2(this);
+        getApplicationDataset().cascadeAssertionWork(this);
         return getApplicationDataset().removeWork(this) && getApplicationDataset().removeApplicationObject(this);
     }
 
@@ -754,6 +833,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public String getAbstractText(){
         return this.abstractText;
+    }
+
+/**
+ *  get attribute accepted
+ *
+ * @return String
+*/
+
+    public String getAccepted(){
+        return this.accepted;
     }
 
 /**
@@ -903,6 +992,26 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
+ *  get attribute daysToAccept
+ *
+ * @return Integer
+*/
+
+    public Integer getDaysToAccept(){
+        return this.daysToAccept;
+    }
+
+/**
+ *  get attribute daysToPublish
+ *
+ * @return Integer
+*/
+
+    public Integer getDaysToPublish(){
+        return this.daysToPublish;
+    }
+
+/**
  *  get attribute doi
  *
  * @return String
@@ -928,6 +1037,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         }
         doiStatusWrapper.set(doiStatus);
         return doiStatusWrapper;
+    }
+
+/**
+ *  get attribute firstOnline
+ *
+ * @return String
+*/
+
+    public String getFirstOnline(){
+        return this.firstOnline;
     }
 
 /**
@@ -1131,6 +1250,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
+ *  get attribute published
+ *
+ * @return String
+*/
+
+    public String getPublished(){
+        return this.published;
+    }
+
+/**
  *  get attribute publisher
  *
  * @return Publisher
@@ -1148,6 +1277,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public Integer getRangeCitations(){
         return this.rangeCitations;
+    }
+
+/**
+ *  get attribute received
+ *
+ * @return String
+*/
+
+    public String getReceived(){
+        return this.received;
     }
 
 /**
@@ -1188,6 +1327,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public Double getRelevanceTitle(){
         return this.relevanceTitle;
+    }
+
+/**
+ *  get attribute revised
+ *
+ * @return String
+*/
+
+    public String getRevised(){
+        return this.revised;
     }
 
 /**
@@ -1324,6 +1473,18 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public void setAbstractText(String abstractText){
         this.abstractText = abstractText;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute accepted, mark dataset as dirty, mark dataset as not valid
+@param accepted String
+ *
+*/
+
+    public void setAccepted(String accepted){
+        this.accepted = accepted;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -1485,6 +1646,30 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
+ *  set attribute daysToAccept, mark dataset as dirty, mark dataset as not valid
+@param daysToAccept Integer
+ *
+*/
+
+    public void setDaysToAccept(Integer daysToAccept){
+        this.daysToAccept = daysToAccept;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute daysToPublish, mark dataset as dirty, mark dataset as not valid
+@param daysToPublish Integer
+ *
+*/
+
+    public void setDaysToPublish(Integer daysToPublish){
+        this.daysToPublish = daysToPublish;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute doi, mark dataset as dirty, mark dataset as not valid
 @param doi String
  *
@@ -1504,6 +1689,18 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public void setDoiStatus(Boolean doiStatus){
         this.doiStatus = doiStatus;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute firstOnline, mark dataset as dirty, mark dataset as not valid
+@param firstOnline String
+ *
+*/
+
+    public void setFirstOnline(String firstOnline){
+        this.firstOnline = firstOnline;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -1749,6 +1946,18 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
+ *  set attribute published, mark dataset as dirty, mark dataset as not valid
+@param published String
+ *
+*/
+
+    public void setPublished(String published){
+        this.published = published;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute publisher, mark dataset as dirty, mark dataset as not valid
 @param publisher Publisher
  *
@@ -1768,6 +1977,18 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public void setRangeCitations(Integer rangeCitations){
         this.rangeCitations = rangeCitations;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute received, mark dataset as dirty, mark dataset as not valid
+@param received String
+ *
+*/
+
+    public void setReceived(String received){
+        this.received = received;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -1816,6 +2037,18 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public void setRelevanceTitle(Double relevanceTitle){
         this.relevanceTitle = relevanceTitle;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute revised, mark dataset as dirty, mark dataset as not valid
+@param revised String
+ *
+*/
+
+    public void setRevised(String revised){
+        this.revised = revised;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -1981,6 +2214,28 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public void incCrossrefReferences(){
         this.crossrefReferences++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute daysToAccept, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incDaysToAccept(){
+        this.daysToAccept++;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  inc attribute daysToPublish, mark dataset as dirty, mark dataset as not valid
+ *
+*/
+
+    public void incDaysToPublish(){
+        this.daysToPublish++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -2167,7 +2422,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getIssn()+ " " +getKey()+ " " +getKeywords()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAccepted()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDaysToAccept()+ " " +getDaysToPublish()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getFirstOnline()+ " " +getIssn()+ " " +getKey()+ " " +getKeywords()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublished()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getReceived()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getRevised()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
     }
 
 /**
@@ -2192,6 +2447,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
             " abstractText=\""+toXMLAbstractText()+"\""+
+            " accepted=\""+toXMLAccepted()+"\""+
             " author=\""+toXMLAuthor()+"\""+
             " authors=\""+toXMLAuthors()+"\""+
             " background=\""+toXMLBackground()+"\""+
@@ -2205,8 +2461,11 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             " crossrefReferences=\""+toXMLCrossrefReferences()+"\""+
             " crossrefStatus=\""+toXMLCrossrefStatus()+"\""+
             " dataAvail=\""+toXMLDataAvail()+"\""+
+            " daysToAccept=\""+toXMLDaysToAccept()+"\""+
+            " daysToPublish=\""+toXMLDaysToPublish()+"\""+
             " doi=\""+toXMLDoi()+"\""+
             " doiStatus=\""+toXMLDoiStatus()+"\""+
+            " firstOnline=\""+toXMLFirstOnline()+"\""+
             " issn=\""+toXMLIssn()+"\""+
             " key=\""+toXMLKey()+"\""+
             " keywords=\""+toXMLKeywords()+"\""+
@@ -2227,12 +2486,15 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             " pages=\""+toXMLPages()+"\""+
             " percentCitationsCovered=\""+toXMLPercentCitationsCovered()+"\""+
             " percentReferencesCovered=\""+toXMLPercentReferencesCovered()+"\""+
+            " published=\""+toXMLPublished()+"\""+
             " publisher=\""+toXMLPublisher()+"\""+
             " rangeCitations=\""+toXMLRangeCitations()+"\""+
+            " received=\""+toXMLReceived()+"\""+
             " relatedTo=\""+toXMLRelatedTo()+"\""+
             " relevanceAbstract=\""+toXMLRelevanceAbstract()+"\""+
             " relevanceBody=\""+toXMLRelevanceBody()+"\""+
             " relevanceTitle=\""+toXMLRelevanceTitle()+"\""+
+            " revised=\""+toXMLRevised()+"\""+
             " scopusCitations=\""+toXMLScopusCitations()+"\""+
             " scopusStatus=\""+toXMLScopusStatus()+"\""+
             " shortName=\""+toXMLShortName()+"\""+
@@ -2254,6 +2516,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     String toXMLAbstractText(){
         return this.safeXML(getAbstractText());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLAccepted(){
+        return this.safeXML(getAccepted());
     }
 
 /**
@@ -2400,6 +2672,26 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  * @return String
 */
 
+    String toXMLDaysToAccept(){
+        return this.getDaysToAccept().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLDaysToPublish(){
+        return this.getDaysToPublish().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLDoi(){
         return this.safeXML(getDoi());
     }
@@ -2412,6 +2704,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     String toXMLDoiStatus(){
         return this.getDoiStatus().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLFirstOnline(){
+        return this.safeXML(getFirstOnline());
     }
 
 /**
@@ -2620,6 +2922,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  * @return String
 */
 
+    String toXMLPublished(){
+        return this.safeXML(getPublished());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLPublisher(){
         return "ID_"+this.getPublisher().getId().toString();
     }
@@ -2632,6 +2944,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     String toXMLRangeCitations(){
         return this.getRangeCitations().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLReceived(){
+        return this.safeXML(getReceived());
     }
 
 /**
@@ -2672,6 +2994,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     String toXMLRelevanceTitle(){
         return this.getRelevanceTitle().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLRevised(){
+        return this.safeXML(getRevised());
     }
 
 /**
@@ -2881,6 +3213,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
       if(!this.getAbstractText().equals(b.getAbstractText())){
          System.out.println("AbstractText");
         }
+      if(!this.getAccepted().equals(b.getAccepted())){
+         System.out.println("Accepted");
+        }
       if(!this.getAuthor().equals(b.getAuthor())){
          System.out.println("Author");
         }
@@ -2918,11 +3253,20 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
       if(!this.getDataAvail().equals(b.getDataAvail())){
          System.out.println("DataAvail");
         }
+      if(!this.getDaysToAccept().equals(b.getDaysToAccept())){
+         System.out.println("DaysToAccept");
+        }
+      if(!this.getDaysToPublish().equals(b.getDaysToPublish())){
+         System.out.println("DaysToPublish");
+        }
       if(!this.getDoi().equals(b.getDoi())){
          System.out.println("Doi");
         }
       if(!this.getDoiStatus().equals(b.getDoiStatus())){
          System.out.println("DoiStatus");
+        }
+      if(!this.getFirstOnline().equals(b.getFirstOnline())){
+         System.out.println("FirstOnline");
         }
       if(!this.getIssn().equals(b.getIssn())){
          System.out.println("Issn");
@@ -2987,11 +3331,17 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
       if(!this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered())){
          System.out.println("PercentReferencesCovered");
         }
+      if(!this.getPublished().equals(b.getPublished())){
+         System.out.println("Published");
+        }
       if(!this.getPublisher().applicationSame(b.getPublisher())){
          System.out.println("Publisher");
         }
       if(!this.getRangeCitations().equals(b.getRangeCitations())){
          System.out.println("RangeCitations");
+        }
+      if(!this.getReceived().equals(b.getReceived())){
+         System.out.println("Received");
         }
       if(!this.getRelatedTo().equals(b.getRelatedTo())){
          System.out.println("RelatedTo");
@@ -3004,6 +3354,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         }
       if(!this.getRelevanceTitle().equals(b.getRelevanceTitle())){
          System.out.println("RelevanceTitle");
+        }
+      if(!this.getRevised().equals(b.getRevised())){
+         System.out.println("Revised");
         }
       if(!this.getScopusCitations().equals(b.getScopusCitations())){
          System.out.println("ScopusCitations");
@@ -3039,6 +3392,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
          System.out.println("Year");
         }
         return  this.getAbstractText().equals(b.getAbstractText()) &&
+          this.getAccepted().equals(b.getAccepted()) &&
           this.getAuthor().equals(b.getAuthor()) &&
           true &&
           this.getBackground().equals(b.getBackground()) &&
@@ -3052,8 +3406,11 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
           this.getCrossrefReferences().equals(b.getCrossrefReferences()) &&
           this.getCrossrefStatus().equals(b.getCrossrefStatus()) &&
           this.getDataAvail().equals(b.getDataAvail()) &&
+          this.getDaysToAccept().equals(b.getDaysToAccept()) &&
+          this.getDaysToPublish().equals(b.getDaysToPublish()) &&
           this.getDoi().equals(b.getDoi()) &&
           this.getDoiStatus().equals(b.getDoiStatus()) &&
+          this.getFirstOnline().equals(b.getFirstOnline()) &&
           this.getIssn().equals(b.getIssn()) &&
           this.getKey().equals(b.getKey()) &&
           this.getKeywords().equals(b.getKeywords()) &&
@@ -3075,12 +3432,15 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
           this.getPages().equals(b.getPages()) &&
           this.getPercentCitationsCovered().equals(b.getPercentCitationsCovered()) &&
           this.getPercentReferencesCovered().equals(b.getPercentReferencesCovered()) &&
+          this.getPublished().equals(b.getPublished()) &&
           this.getPublisher().applicationSame(b.getPublisher()) &&
           this.getRangeCitations().equals(b.getRangeCitations()) &&
+          this.getReceived().equals(b.getReceived()) &&
           this.getRelatedTo().equals(b.getRelatedTo()) &&
           this.getRelevanceAbstract().equals(b.getRelevanceAbstract()) &&
           this.getRelevanceBody().equals(b.getRelevanceBody()) &&
           this.getRelevanceTitle().equals(b.getRelevanceTitle()) &&
+          this.getRevised().equals(b.getRevised()) &&
           this.getScopusCitations().equals(b.getScopusCitations()) &&
           this.getScopusStatus().equals(b.getScopusStatus()) &&
           this.getShortName().equals(b.getShortName()) &&

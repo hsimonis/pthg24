@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 11:17:58 on 2024-06-04-->
+<!--Generated at 17:09:17 on 2024-07-04-->
 
 
 <Tab text="PhDThesis" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.PhDThesisController">
@@ -72,6 +72,13 @@
                <TableColumn fx:id="keywords" styleClass="right-aligned" text="Keywords" />
                <TableColumn fx:id="abstractText" styleClass="right-aligned" text="AbstractText" />
                <TableColumn fx:id="concept" styleClass="right-aligned" text="Concept" />
+               <TableColumn fx:id="received" styleClass="right-aligned" text="Received" />
+               <TableColumn fx:id="accepted" styleClass="right-aligned" text="Accepted" />
+               <TableColumn fx:id="revised" styleClass="right-aligned" text="Revised" />
+               <TableColumn fx:id="firstOnline" styleClass="right-aligned" text="FirstOnline" />
+               <TableColumn fx:id="published" styleClass="right-aligned" text="Published" />
+               <TableColumn fx:id="daysToAccept" styleClass="right-aligned" text="DaysToAccept" />
+               <TableColumn fx:id="daysToPublish" styleClass="right-aligned" text="DaysToPublish" />
                <TableColumn fx:id="school" styleClass="right-aligned" text="School" />
             </columns>
          </TableView>

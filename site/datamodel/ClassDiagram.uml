@@ -27,6 +27,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include ApplicationObject.uml
 !include ApplicationWarning.uml
 !include Article.uml
+!include Assertion.uml
 !include Author.uml
 !include AuthorDouble.uml
 !include Authorship.uml
@@ -138,6 +139,7 @@ Work "1..*" *-- AuthorDouble : work1
 Work "1..*" *-- AuthorDouble : work2
 Author "1..*" *-- OtherWork : authors
 Concept "0..*" *-- OtherWork 
+Work  *-- Assertion 
 header
 Datamodel of Application pthg24
 endheader

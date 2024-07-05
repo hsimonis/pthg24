@@ -50,6 +50,7 @@ import org.insightcentre.pthg24.datamodel.CountryCollab;
 import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.OtherWork;
+import org.insightcentre.pthg24.datamodel.Assertion;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -454,6 +455,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<OtherWork> listOtherWork = new ArrayList<OtherWork>();
 
 /**
+ *  This lists holds all items of class Assertion and its subclasses
+ *
+*/
+
+    List<Assertion> listAssertion = new ArrayList<Assertion>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -581,6 +589,7 @@ public int compareTo(ApplicationDataset ds2){
                              "ApplicationDifference",
                              "ApplicationWarning",
                              "Article",
+                             "Assertion",
                              "Author",
                              "AuthorDouble",
                              "Authorship",
@@ -724,6 +733,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListTranslator();
         resetListAuthorDouble();
         resetListOtherWork();
+        resetListAssertion();
     }
 
 /**
@@ -2431,6 +2441,40 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class Assertion
+ *
+*/
+
+    public Iterator<Assertion> getIteratorAssertion(){
+        return listAssertion.iterator();
+    }
+
+/**
+ *  Getter for list of class Assertion
+ *
+*/
+
+    public List<Assertion> getListAssertion(){
+        return listAssertion;
+    }
+
+/**
+ *  reset the list of class Assertion; use with care, does not call cascades
+ *
+*/
+
+    public void resetListAssertion(){
+        listAssertion = new ArrayList<Assertion>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Assertion)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -3414,6 +3458,24 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(OtherWork b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class Assertion which refer to item through their attribute work
+ *
+*/
+
+    public void cascadeAssertionWork(Work item){
+        assert item != null;
+        List<Assertion> toRemove = new ArrayList<Assertion>();
+        for(Assertion a:getListAssertion()) {
+         if (a.getWork() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Assertion b:toRemove) {
             b.remove();
         }
     }
@@ -4419,6 +4481,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class Assertion
+ *
+*/
+
+    public void addAssertion(Assertion assertion){
+        assert assertion != null;
+        this.listAssertion.add(assertion);
+    }
+
+/**
+ *  remove an item from the list for class Assertion
+ *
+*/
+
+    public Boolean removeAssertion(Assertion assertion){
+        assert assertion != null;
+        return this.listAssertion.remove(assertion);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -4437,6 +4519,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(Article x:getListArticle()){
+            System.out.println(x);
+        }
+        for(Assertion x:getListAssertion()){
             System.out.println(x);
         }
         for(Author x:getListAuthor()){
@@ -4612,6 +4697,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(Article x:getListArticle()){
             if (x.getClass().equals(Article.class)) x.toXML(out);
+        }
+        for(Assertion x:getListAssertion()){
+            if (x.getClass().equals(Assertion.class)) x.toXML(out);
         }
         for(Author x:getListAuthor()){
             if (x.getClass().equals(Author.class)) x.toXML(out);
@@ -4832,6 +4920,7 @@ public int compareTo(ApplicationDataset ds2){
         compareAffiliation(this.getListAffiliation(),compare.getListAffiliation());
         compareApplicationWarning(this.getListApplicationWarning(),compare.getListApplicationWarning());
         compareArticle(this.getListArticle(),compare.getListArticle());
+        compareAssertion(this.getListAssertion(),compare.getListAssertion());
         compareAuthor(this.getListAuthor(),compare.getListAuthor());
         compareAuthorDouble(this.getListAuthorDouble(),compare.getListAuthorDouble());
         compareAuthorship(this.getListAuthorship(),compare.getListAuthorship());
@@ -4967,6 +5056,30 @@ public int compareTo(ApplicationDataset ds2){
             Article a = Article.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Article B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types Assertion, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareAssertion(List<Assertion> aList,List<Assertion> bList){
+        System.out.println("Comparing Assertion");
+        for(Assertion a:aList){
+            Assertion b= Assertion.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Assertion A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Assertion A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Assertion B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Assertion b: bList){
+            Assertion a = Assertion.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Assertion B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -5941,6 +6054,7 @@ public int compareTo(ApplicationDataset ds2){
         checkAffiliation(this.getListAffiliation());
         checkApplicationWarning(this.getListApplicationWarning());
         checkArticle(this.getListArticle());
+        checkAssertion(this.getListAssertion());
         checkAuthor(this.getListAuthor());
         checkAuthorDouble(this.getListAuthorDouble());
         checkAuthorship(this.getListAuthorship());
@@ -6024,6 +6138,17 @@ public int compareTo(ApplicationDataset ds2){
 
     public void checkArticle(List<Article> list){
         for(Article a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<Assertion> dataset list of all items of type Assertion
+*/
+
+    public void checkAssertion(List<Assertion> list){
+        for(Assertion a:list){
             a.check();
         }
     }
@@ -6485,6 +6610,7 @@ public int compareTo(ApplicationDataset ds2){
         ApplicationDifference.dummy(this);
         ApplicationWarning.dummy(this);
         Article.dummy(this);
+        Assertion.dummy(this);
         Author.dummy(this);
         AuthorDouble.dummy(this);
         Authorship.dummy(this);

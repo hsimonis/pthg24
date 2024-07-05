@@ -30,7 +30,7 @@ import org.insightcentre.pthg24.datamodel.OtherWork;
 import org.insightcentre.pthg24.datamodel.WorkType;
 
 /**
- * Generated at 11:17:58 on 2024-06-04 */
+ * Generated at 17:09:16 on 2024-07-04 */
 public class OtherWorkController extends Table3Controller {
 	@FXML
 	private TableView<OtherWork> table;

@@ -42,7 +42,7 @@ public class JfxApp extends GeneratedJfxApp {
                 base.setDirty(false);
                 new CreateTranslators(base);
 
-                String type = "medicaldrones"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones"
+                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -329,6 +329,7 @@ public class JfxApp extends GeneratedJfxApp {
 //                new FindOthers(base);
 //                new ExtractOtherBib(base,dumpDir,"otherselected.bib");
 
+                info("analysis finished");
 
                 return base;
         }

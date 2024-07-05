@@ -1,5 +1,6 @@
 abstract class Work {
 String abstractText
+String accepted
 String author
 List<Author> authors
 Boolean background
@@ -13,8 +14,11 @@ Integer crossrefCitations
 Integer crossrefReferences
 Boolean crossrefStatus
 String dataAvail
+Integer daysToAccept
+Integer daysToPublish
 String doi
 Boolean doiStatus
+String firstOnline
 String issn
 String key
 String keywords
@@ -35,12 +39,15 @@ OpenAccessType openAccessType
 String pages
 Double percentCitationsCovered
 Double percentReferencesCovered
+String published
 Publisher publisher
 Integer rangeCitations
+String received
 String relatedTo
 Double relevanceAbstract
 Double relevanceBody
 Double relevanceTitle
+String revised
 Integer scopusCitations
 Boolean scopusStatus
 String shortName

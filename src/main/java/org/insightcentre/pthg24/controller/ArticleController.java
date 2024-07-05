@@ -33,7 +33,7 @@ import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 11:17:58 on 2024-06-04 */
+ * Generated at 17:09:16 on 2024-07-04 */
 public class ArticleController extends Table3Controller {
 	@FXML
 	private TableView<Article> table;
@@ -199,6 +199,27 @@ public class ArticleController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Article, String> concept;
+
+	@FXML
+	private TableColumn<Article, String> received;
+
+	@FXML
+	private TableColumn<Article, String> accepted;
+
+	@FXML
+	private TableColumn<Article, String> revised;
+
+	@FXML
+	private TableColumn<Article, String> firstOnline;
+
+	@FXML
+	private TableColumn<Article, String> published;
+
+	@FXML
+	private TableColumn<Article, Integer> daysToAccept;
+
+	@FXML
+	private TableColumn<Article, Integer> daysToPublish;
 
 	@FXML
 	private TableColumn<Article, Journal> journal;
@@ -430,6 +451,34 @@ public class ArticleController extends Table3Controller {
 		abstractText.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAbstractText(event.getNewValue()); mainApp.reset();});
 		choices.add("concept");
 		concept.setCellValueFactory(cellData -> new SimpleStringProperty(convert(cellData.getValue().getConcept())));
+		choices.add("received");
+		received.setCellValueFactory(new PropertyValueFactory<>("received"));
+		received.setCellFactory(TextFieldTableCell.forTableColumn());
+		received.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setReceived(event.getNewValue()); mainApp.reset();});
+		choices.add("accepted");
+		accepted.setCellValueFactory(new PropertyValueFactory<>("accepted"));
+		accepted.setCellFactory(TextFieldTableCell.forTableColumn());
+		accepted.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAccepted(event.getNewValue()); mainApp.reset();});
+		choices.add("revised");
+		revised.setCellValueFactory(new PropertyValueFactory<>("revised"));
+		revised.setCellFactory(TextFieldTableCell.forTableColumn());
+		revised.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setRevised(event.getNewValue()); mainApp.reset();});
+		choices.add("firstOnline");
+		firstOnline.setCellValueFactory(new PropertyValueFactory<>("firstOnline"));
+		firstOnline.setCellFactory(TextFieldTableCell.forTableColumn());
+		firstOnline.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setFirstOnline(event.getNewValue()); mainApp.reset();});
+		choices.add("published");
+		published.setCellValueFactory(new PropertyValueFactory<>("published"));
+		published.setCellFactory(TextFieldTableCell.forTableColumn());
+		published.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPublished(event.getNewValue()); mainApp.reset();});
+		choices.add("daysToAccept");
+		daysToAccept.setCellValueFactory(new PropertyValueFactory<>("daysToAccept"));
+		daysToAccept.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		daysToAccept.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setDaysToAccept(event.getNewValue()); mainApp.reset();});
+		choices.add("daysToPublish");
+		daysToPublish.setCellValueFactory(new PropertyValueFactory<>("daysToPublish"));
+		daysToPublish.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		daysToPublish.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setDaysToPublish(event.getNewValue()); mainApp.reset();});
 		choices.add("journal");
 		journal.setCellValueFactory(new PropertyValueFactory<>("journal"));
 		initialize(choices);

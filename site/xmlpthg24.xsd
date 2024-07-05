@@ -8,6 +8,7 @@
 				<xs:element ref="applicationDifference" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="applicationWarning" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="article" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="assertion" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="author" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="authorDouble" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="authorship" minOccurs="0" maxOccurs="unbounded"/>
@@ -104,6 +105,7 @@
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="abstractText" use="required" type="xs:string"/>
+			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
@@ -117,8 +119,11 @@
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
+			<xs:attribute name="daysToAccept" use="required" type="xs:integer"/>
+			<xs:attribute name="daysToPublish" use="required" type="xs:integer"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="firstOnline" use="required" type="xs:string"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
@@ -139,12 +144,15 @@
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
+			<xs:attribute name="published" use="required" type="xs:string"/>
 			<xs:attribute name="publisher" use="required" type="xs:IDREF"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="received" use="required" type="xs:string"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
 			<xs:attribute name="relevanceAbstract" use="required" type="xs:double"/>
 			<xs:attribute name="relevanceBody" use="required" type="xs:double"/>
 			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
+			<xs:attribute name="revised" use="required" type="xs:string"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
@@ -157,6 +165,16 @@
 			<xs:attribute name="wosStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
 			<xs:attribute name="journal" use="required" type="xs:IDREF"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="assertion">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="label" use="required" type="xs:string"/>
+			<xs:attribute name="value" use="required" type="xs:string"/>
+			<xs:attribute name="work" use="required" type="xs:IDREF"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="author">
@@ -206,6 +224,7 @@
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="abstractText" use="required" type="xs:string"/>
+			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
@@ -219,8 +238,11 @@
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
+			<xs:attribute name="daysToAccept" use="required" type="xs:integer"/>
+			<xs:attribute name="daysToPublish" use="required" type="xs:integer"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="firstOnline" use="required" type="xs:string"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
@@ -241,12 +263,15 @@
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
+			<xs:attribute name="published" use="required" type="xs:string"/>
 			<xs:attribute name="publisher" use="required" type="xs:IDREF"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="received" use="required" type="xs:string"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
 			<xs:attribute name="relevanceAbstract" use="required" type="xs:double"/>
 			<xs:attribute name="relevanceBody" use="required" type="xs:double"/>
 			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
+			<xs:attribute name="revised" use="required" type="xs:string"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
@@ -397,6 +422,7 @@
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="abstractText" use="required" type="xs:string"/>
+			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
@@ -410,8 +436,11 @@
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
+			<xs:attribute name="daysToAccept" use="required" type="xs:integer"/>
+			<xs:attribute name="daysToPublish" use="required" type="xs:integer"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="firstOnline" use="required" type="xs:string"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
@@ -432,12 +461,15 @@
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
+			<xs:attribute name="published" use="required" type="xs:string"/>
 			<xs:attribute name="publisher" use="required" type="xs:IDREF"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="received" use="required" type="xs:string"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
 			<xs:attribute name="relevanceAbstract" use="required" type="xs:double"/>
 			<xs:attribute name="relevanceBody" use="required" type="xs:double"/>
 			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
+			<xs:attribute name="revised" use="required" type="xs:string"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
@@ -458,6 +490,7 @@
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="abstractText" use="required" type="xs:string"/>
+			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
@@ -471,8 +504,11 @@
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
+			<xs:attribute name="daysToAccept" use="required" type="xs:integer"/>
+			<xs:attribute name="daysToPublish" use="required" type="xs:integer"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="firstOnline" use="required" type="xs:string"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
@@ -493,12 +529,15 @@
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
+			<xs:attribute name="published" use="required" type="xs:string"/>
 			<xs:attribute name="publisher" use="required" type="xs:IDREF"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="received" use="required" type="xs:string"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
 			<xs:attribute name="relevanceAbstract" use="required" type="xs:double"/>
 			<xs:attribute name="relevanceBody" use="required" type="xs:double"/>
 			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
+			<xs:attribute name="revised" use="required" type="xs:string"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
@@ -651,6 +690,7 @@
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="abstractText" use="required" type="xs:string"/>
+			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
@@ -664,8 +704,11 @@
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
+			<xs:attribute name="daysToAccept" use="required" type="xs:integer"/>
+			<xs:attribute name="daysToPublish" use="required" type="xs:integer"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="firstOnline" use="required" type="xs:string"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
@@ -686,12 +729,15 @@
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
+			<xs:attribute name="published" use="required" type="xs:string"/>
 			<xs:attribute name="publisher" use="required" type="xs:IDREF"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="received" use="required" type="xs:string"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
 			<xs:attribute name="relevanceAbstract" use="required" type="xs:double"/>
 			<xs:attribute name="relevanceBody" use="required" type="xs:double"/>
 			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
+			<xs:attribute name="revised" use="required" type="xs:string"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
@@ -712,6 +758,7 @@
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="abstractText" use="required" type="xs:string"/>
+			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
@@ -725,8 +772,11 @@
 			<xs:attribute name="crossrefReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="crossrefStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="dataAvail" use="required" type="xs:string"/>
+			<xs:attribute name="daysToAccept" use="required" type="xs:integer"/>
+			<xs:attribute name="daysToPublish" use="required" type="xs:integer"/>
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 			<xs:attribute name="doiStatus" use="required" type="xs:boolean"/>
+			<xs:attribute name="firstOnline" use="required" type="xs:string"/>
 			<xs:attribute name="issn" use="required" type="xs:string"/>
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
@@ -747,12 +797,15 @@
 			<xs:attribute name="pages" use="required" type="xs:string"/>
 			<xs:attribute name="percentCitationsCovered" use="required" type="xs:double"/>
 			<xs:attribute name="percentReferencesCovered" use="required" type="xs:double"/>
+			<xs:attribute name="published" use="required" type="xs:string"/>
 			<xs:attribute name="publisher" use="required" type="xs:IDREF"/>
 			<xs:attribute name="rangeCitations" use="required" type="xs:integer"/>
+			<xs:attribute name="received" use="required" type="xs:string"/>
 			<xs:attribute name="relatedTo" use="required" type="xs:string"/>
 			<xs:attribute name="relevanceAbstract" use="required" type="xs:double"/>
 			<xs:attribute name="relevanceBody" use="required" type="xs:double"/>
 			<xs:attribute name="relevanceTitle" use="required" type="xs:double"/>
+			<xs:attribute name="revised" use="required" type="xs:string"/>
 			<xs:attribute name="scopusCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="scopusStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="shortName" use="required" type="xs:string"/>

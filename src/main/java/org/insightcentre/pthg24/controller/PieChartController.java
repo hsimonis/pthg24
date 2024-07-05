@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 11:17:58 on 2024-06-04 */
+ * Generated at 17:09:16 on 2024-07-04 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -138,6 +138,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
+		attributeNames.add("received");
+		attributeNames.add("accepted");
+		attributeNames.add("revised");
+		attributeNames.add("firstOnline");
+		attributeNames.add("published");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		choicesMap.put("Work", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -194,6 +201,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
+		attributeNames.add("received");
+		attributeNames.add("accepted");
+		attributeNames.add("revised");
+		attributeNames.add("firstOnline");
+		attributeNames.add("published");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		attributeNames.add("proceedings");
 		choicesMap.put("Paper", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -251,6 +265,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
+		attributeNames.add("received");
+		attributeNames.add("accepted");
+		attributeNames.add("revised");
+		attributeNames.add("firstOnline");
+		attributeNames.add("published");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		attributeNames.add("journal");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -308,6 +329,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
+		attributeNames.add("received");
+		attributeNames.add("accepted");
+		attributeNames.add("revised");
+		attributeNames.add("firstOnline");
+		attributeNames.add("published");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		attributeNames.add("school");
 		choicesMap.put("PhDThesis", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -365,6 +393,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
+		attributeNames.add("received");
+		attributeNames.add("accepted");
+		attributeNames.add("revised");
+		attributeNames.add("firstOnline");
+		attributeNames.add("published");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		attributeNames.add("collection");
 		choicesMap.put("InCollection", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -422,6 +457,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
+		attributeNames.add("received");
+		attributeNames.add("accepted");
+		attributeNames.add("revised");
+		attributeNames.add("firstOnline");
+		attributeNames.add("published");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		attributeNames.add("booktitle");
 		choicesMap.put("InBook", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -479,6 +521,13 @@ public class PieChartController extends ChartController {
 		attributeNames.add("keywords");
 		attributeNames.add("abstractText");
 		attributeNames.add("concept");
+		attributeNames.add("received");
+		attributeNames.add("accepted");
+		attributeNames.add("revised");
+		attributeNames.add("firstOnline");
+		attributeNames.add("published");
+		attributeNames.add("daysToAccept");
+		attributeNames.add("daysToPublish");
 		choicesMap.put("Book", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -790,6 +839,12 @@ public class PieChartController extends ChartController {
 		attributeNames.add("chapter");
 		attributeNames.add("publisher");
 		choicesMap.put("OtherWork", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("work");
+		attributeNames.add("label");
+		attributeNames.add("value");
+		choicesMap.put("Assertion", attributeNames);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -948,6 +1003,9 @@ public class PieChartController extends ChartController {
 			}
 			else if (className.equals("OtherWork")) {
 				objectList = mainApp.getOtherWorkData();
+			}
+			else if (className.equals("Assertion")) {
+				objectList = mainApp.getAssertionData();
 			}
 			if (objectList != null) {
 				Map<String, Integer> countMap = new HashMap<String, Integer>();
