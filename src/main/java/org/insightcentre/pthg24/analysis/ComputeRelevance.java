@@ -233,6 +233,41 @@ public class ComputeRelevance {
 //                info("scheduling keywords " + res + " " + cntA + " " + cntB + " "  + matches + " title " + title);
             }
 
+        } else if (type.equals("uncertaincp")){
+            ConceptType uncertainty = ConceptType.findByName(base, "Uncertainty");
+            ConceptType cp = ConceptType.findByName(base, "CP");
+//            ConceptType surveys = ConceptType.findByName(base, "Surveys");
+//            ConceptType optimization = ConceptType.findByName(base, "Optimization");
+//            ConceptType other = ConceptType.findByName(base, "Other");
+            double cntCP = 0.0;
+            double cntUncertainty = 0.0;
+            conceptList = new ArrayList<>();
+            for (Concept con : base.getListConcept()) {
+                if (con.getConceptType() == cp &&
+                        occurs(con,title,lower)) {
+                    cntCP+= con.getWeight();
+                    conceptList.add(con);
+                } else if (con.getConceptType() == uncertainty &&
+                        occurs(con,title,lower)) {
+                    cntUncertainty+= con.getWeight();
+                    conceptList.add(con);
+//                } else if (con.getConceptType() == surveys &&
+//                        occurs(con,title,lower)) {
+//                    conceptList.add(con);
+//                } else if (con.getConceptType() == optimization &&
+//                        occurs(con,title,lower)) {
+//                    conceptList.add(con);
+//                } else if (con.getConceptType() == other &&
+//                        occurs(con,title,lower)) {
+//                    conceptList.add(con);
+//
+                }
+            }
+            res = (1000.0 * (cntCP * cntUncertainty)  + cntCP + cntUncertainty)/abstractRelevanceCutoff ;
+            if (res > 0) {
+//                info("scheduling keywords " + res + " " + cntA + " " + cntB + " "  + matches + " title " + title);
+            }
+
         } else {
             warning("No keyword match setup for type "+type);
         }

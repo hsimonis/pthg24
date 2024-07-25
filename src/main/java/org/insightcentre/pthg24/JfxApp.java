@@ -17,6 +17,10 @@ import org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL;
 import org.insightcentre.pthg24.reports.CoauthorGraph;
 import org.insightcentre.pthg24.reports.PublicationReport;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -42,7 +46,7 @@ public class JfxApp extends GeneratedJfxApp {
                 base.setDirty(false);
                 new CreateTranslators(base);
 
-                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones"
+                String type = "uncertaincp"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones","uncertaincp"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -80,6 +84,21 @@ public class JfxApp extends GeneratedJfxApp {
                                 authors = "G. Tacadao and B. O'Sullivan and L. Quesada and H. Simonis";
                                 coauthorLimit = 2;
                                 linkCountLimit = 10;
+                                break;
+                        case "uncertaincp":
+                                prefix ="uncertaincp/";
+                                bibDir = prefix+"imports/";
+                                bibFile="uncertaincp.bib";
+                                authors="Jheisson Lopez and Helmut Simonis";
+                                citingSurveyWeight = 0;
+                                citedBySurveyWeight=0;
+                                citationCountWeight = 0;
+                                authorWeight = 0;
+                                ageWeight = 0;
+                                coauthorLimit = 2;
+                                linkCountLimit = 1;
+                                conceptTypes=new String[]{"Uncertainty","CP"};
+                                getLimit=1000;
                                 break;
                         case "medicaldrones":
                                 prefix = "medicaldrones/";
@@ -151,6 +170,10 @@ public class JfxApp extends GeneratedJfxApp {
                 String scopusDir = prefix+"scopus/"; // input/output dir for scopus records
                 String missingWorkDir = prefix+"missing/"; // input/output dir for missing work crossref records
                 String dumpDir = prefix+"dump/"; // output directory for feature tables
+                boolean dirsExist = checkDirectories(prefix,bibDir,importDir,exportDir,citationsDir,referencesDir,
+                        reportDir,worksDir,graphvizDir,crossrefDir,scopusDir,missingWorkDir,dumpDir);
+                assert(dirsExist);
+
                 createConceptTypes(base,conceptTypes);
 
 
@@ -402,5 +425,41 @@ public class JfxApp extends GeneratedJfxApp {
                         ct.setName(type);
                 }
         }
+
+        private boolean checkDirectories(String prefix,String bibDir,String importDir,String exportDir,
+                                      String citationsDir,String referencesDir,String reportDir,String worksDir,
+                                      String graphvizDir,String crossrefDir,String scopusDir,String missingWorkDir,String dumpDir) {
+                boolean res = true;
+                res &= existsOrCreate(prefix);
+                res &= existsOrCreate(bibDir);
+                res &= existsOrCreate(importDir);
+                res &= existsOrCreate(exportDir);
+                res &= existsOrCreate(citationsDir);
+                res &= existsOrCreate(referencesDir);
+                res &= existsOrCreate(reportDir);
+                res &= existsOrCreate(worksDir);
+                res &= existsOrCreate(graphvizDir);
+                res &= existsOrCreate(crossrefDir);
+                res &= existsOrCreate(scopusDir);
+                res &= existsOrCreate(missingWorkDir);
+                res &= existsOrCreate(dumpDir);
+                return res;
+        }
+
+        private boolean existsOrCreate(String dir){
+                Path path = Paths.get(dir);
+                try {
+                        if (!Files.exists(path)){
+                                Files.createDirectory(path);
+                                return false;
+                        }
+                } catch (IOException e){
+                        severe("Cannot create directory "+dir+", exception "+e.getMessage());
+                        assert(false);
+                        return false;
+                }
+                return true;
+        }
+
 
 }
