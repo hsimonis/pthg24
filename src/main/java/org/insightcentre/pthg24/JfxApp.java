@@ -206,7 +206,7 @@ public class JfxApp extends GeneratedJfxApp {
                 new LookupMissingWork(base,missingWorkDir,linkCountLimit,getLimit);
                 new ComputeRelevance(base,type,citingSurveyWeight,citedBySurveyWeight, citationCountWeight,
                         keywordWeight,authorWeight,ageWeight,abstractRelevanceCutoff,bodyRelevanceCutoff);
-                new CheckAuthorDoubles(base);
+//                new CheckAuthorDoubles(base);
                 new CreateCountryCollab(base);
 
                 info("File output starting");

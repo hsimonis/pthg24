@@ -1,1 +1,1 @@
-time.?tabling
+constraint satisfaction
