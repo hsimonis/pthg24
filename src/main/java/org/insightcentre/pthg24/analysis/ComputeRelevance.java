@@ -357,6 +357,29 @@ public class ComputeRelevance {
                 w.setRelevanceBody(w.getRelevanceBody()/bodyRelevanceCutoff);
             }
 
+        } else if (type.equals("uncertaincp")){
+            ConceptType uncertainty = ConceptType.findByName(base, "Uncertainty");
+            ConceptType cp = ConceptType.findByName(base, "CP");
+            assert(uncertainty != null);
+            assert(cp != null);
+            Map<Work, List<ConceptWork>> map = base.getListConceptWork().stream().
+                    filter(x->x.getCount() > 0).
+                    collect(groupingBy(ConceptWork::getWork));
+            for (Work w : map.keySet()) {
+                List<ConceptWork> list = map.get(w);
+                double weightUncertainty = addWeights(list, uncertainty);
+                double weightCP = addWeights(list, cp);
+                double total = weightUncertainty * weightCP;
+                max = Math.max(max,total);
+                w.setRelevanceBody(total);
+            }
+            info("Max raw relevance "+max);
+            for (Work w : map.keySet()) {
+                w.setRelevanceBody(w.getRelevanceBody()/bodyRelevanceCutoff);
+            }
+
+        } else {
+            warning("Relevance for type "+type+" not defined");
         }
 
     }
