@@ -1,371 +1,398 @@
 [
     {
+        "creation": "2024-02",
+        "timespan": "P5Y6M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
+        "oci": "06104655009-06210225130",
+        "journal_sc": "no",
+        "citing": "10.1016/j.cie.2024.109880",
+        "cited": "10.1016/j.ejor.2017.08.033"
+    },
+    {
+        "creation": "2021-03",
+        "timespan": "P2Y7M",
+        "author_sc": "no",
         "oci": "061101483569-06210225130",
         "journal_sc": "no",
         "citing": "10.1162/evco_a_00273",
-        "creation": "2021-03",
-        "timespan": "P2Y7M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2024-05",
+        "timespan": "P5Y9M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
+        "oci": "061104240890-06210225130",
+        "journal_sc": "no",
+        "citing": "10.1016/j.cor.2024.106580",
+        "cited": "10.1016/j.ejor.2017.08.033"
+    },
+    {
+        "creation": "2021-04-01",
+        "timespan": "P2Y8M",
+        "author_sc": "no",
         "oci": "061203098118-06210225130",
         "journal_sc": "no",
         "citing": "10.1080/17509653.2021.1905096",
-        "creation": "2021-04-01",
-        "timespan": "P2Y8M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2020-03-10",
+        "timespan": "P1Y7M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "0612096310-06210225130",
         "journal_sc": "no",
         "citing": "10.1080/0951192x.2020.1736713",
-        "creation": "2020-03-10",
-        "timespan": "P1Y7M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2022-06",
+        "timespan": "P3Y10M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06130167678-06210225130",
         "journal_sc": "no",
         "citing": "10.1016/j.cor.2022.105728",
-        "creation": "2022-06",
-        "timespan": "P3Y10M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2021-02",
+        "timespan": "P2Y6M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06130168085-06210225130",
         "journal_sc": "no",
         "citing": "10.1016/j.cor.2020.105111",
-        "creation": "2021-02",
-        "timespan": "P2Y6M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2018-12-07",
+        "timespan": "P0Y4M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "061302375273-06210225130",
         "journal_sc": "no",
         "citing": "10.1080/0305215x.2018.1547716",
-        "creation": "2018-12-07",
-        "timespan": "P0Y4M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2018-09-14",
+        "timespan": "P0Y1M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "061302375311-06210225130",
         "journal_sc": "no",
         "citing": "10.1080/0305215x.2018.1514500",
-        "creation": "2018-09-14",
-        "timespan": "P0Y1M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2021-05",
+        "timespan": "P2Y9M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06130726880-06210225130",
         "journal_sc": "no",
         "citing": "10.1016/j.trc.2021.103108",
-        "creation": "2021-05",
-        "timespan": "P2Y9M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2020-12",
+        "timespan": "P2Y4M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06130776055-06210225130",
         "journal_sc": "no",
         "citing": "10.1016/j.seps.2020.100904",
-        "creation": "2020-12",
-        "timespan": "P2Y4M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2019-10",
+        "timespan": "P1Y2M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06140729112-06210225130",
         "journal_sc": "no",
         "citing": "10.1016/j.trc.2019.07.020",
-        "creation": "2019-10",
-        "timespan": "P1Y2M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2023-07",
+        "timespan": "P4Y11M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "061603842428-06210225130",
         "journal_sc": "no",
         "citing": "10.1287/ijoc.2023.1287",
-        "creation": "2023-07",
-        "timespan": "P4Y11M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2022-06",
+        "timespan": "P3Y10M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06160750799-06210225130",
         "journal_sc": "no",
         "citing": "10.1016/j.oceaneng.2022.111281",
-        "creation": "2022-06",
-        "timespan": "P3Y10M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2020-12-12",
+        "timespan": "P2Y4M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "061702605611-06210225130",
         "journal_sc": "no",
         "citing": "10.3390/app10248887",
-        "creation": "2020-12-12",
-        "timespan": "P2Y4M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2019-09",
+        "timespan": "P1Y1M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "061802268299-06210225130",
         "journal_sc": "no",
         "citing": "10.1109/ubmk.2019.8907175",
-        "creation": "2019-09",
-        "timespan": "P1Y1M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2021-07-26",
+        "timespan": "P2Y11M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "061802536147-06210225130",
         "journal_sc": "no",
         "citing": "10.23919/ccc52363.2021.9549754",
-        "creation": "2021-07-26",
-        "timespan": "P2Y11M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2022-01-31",
+        "timespan": "P3Y5M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "061802638450-06210225130",
         "journal_sc": "no",
         "citing": "10.29137/umagd.973271",
-        "creation": "2022-01-31",
-        "timespan": "P3Y5M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2020-06",
+        "timespan": "P1Y10M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06190226233-06210225130",
         "journal_sc": "yes",
         "citing": "10.1016/j.ejor.2019.06.016",
-        "creation": "2020-06",
-        "timespan": "P1Y10M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2021-08-30",
+        "timespan": "P3Y0M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "061903344141-06210225130",
         "journal_sc": "no",
         "citing": "10.1177/03611981211036368",
-        "creation": "2021-08-30",
-        "timespan": "P3Y0M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2022-09-27",
+        "timespan": "P4Y1M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "061903446320-06210225130",
         "journal_sc": "no",
         "citing": "10.1080/01605682.2022.2125843",
-        "creation": "2022-09-27",
-        "timespan": "P4Y1M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2022",
+        "timespan": "P3Y",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "062101521892-06210225130",
         "journal_sc": "no",
         "citing": "10.1007/978-3-030-93639-6_7",
-        "creation": "2022",
-        "timespan": "P3Y"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2021-09-14",
+        "timespan": "P3Y1M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "062102003587-06210225130",
         "journal_sc": "no",
         "citing": "10.3846/transport.2021.15369",
-        "creation": "2021-09-14",
-        "timespan": "P3Y1M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2022-10",
+        "timespan": "P4Y2M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "062103423194-06210225130",
         "journal_sc": "no",
         "citing": "10.1016/j.cie.2022.108586",
-        "creation": "2022-10",
-        "timespan": "P4Y2M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2020-01",
+        "timespan": "P1Y5M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06210435000-06210225130",
         "journal_sc": "no",
         "citing": "10.1016/j.jmsy.2019.12.004",
-        "creation": "2020-01",
-        "timespan": "P1Y5M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2021-03-24",
+        "timespan": "P2Y7M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "062202413654-06210225130",
         "journal_sc": "no",
         "citing": "10.1108/jqme-09-2020-0099",
-        "creation": "2021-03-24",
-        "timespan": "P2Y7M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2023",
+        "timespan": "P4Y",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "062203891518-06210225130",
         "journal_sc": "no",
         "citing": "10.2139/ssrn.4494381",
-        "creation": "2023",
-        "timespan": "P4Y"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2020",
+        "timespan": "P1Y",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "062301138704-06210225130",
         "journal_sc": "no",
         "citing": "10.1109/access.2020.3038228",
-        "creation": "2020",
-        "timespan": "P1Y"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2020-10-26",
+        "timespan": "P2Y2M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "062301769349-06210225130",
         "journal_sc": "no",
         "citing": "10.48084/etasr.3795",
-        "creation": "2020-10-26",
-        "timespan": "P2Y2M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2019-10",
+        "timespan": "P1Y2M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "062301908735-06210225130",
         "journal_sc": "no",
         "citing": "10.1109/tase.2019.2894093",
-        "creation": "2019-10",
-        "timespan": "P1Y2M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2019",
+        "timespan": "P0Y",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "062303897662-06210225130",
         "journal_sc": "no",
         "citing": "10.1109/tdsc.2022.3198843",
-        "creation": "2019",
-        "timespan": "P0Y"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2024-03",
+        "timespan": "P5Y7M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
+        "oci": "062404253648-06210225130",
+        "journal_sc": "no",
+        "citing": "10.1016/j.ress.2023.109809",
+        "cited": "10.1016/j.ejor.2017.08.033"
+    },
+    {
+        "creation": "2018-11-19",
+        "timespan": "P0Y3M",
+        "author_sc": "no",
         "oci": "06303530892-06210225130",
         "journal_sc": "no",
         "citing": "10.1007/s10462-018-9667-6",
-        "creation": "2018-11-19",
-        "timespan": "P0Y3M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2023-06",
+        "timespan": "P4Y10M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "0631072853-06210225130",
         "journal_sc": "no",
         "citing": "10.1016/j.cie.2023.109218",
-        "creation": "2023-06",
-        "timespan": "P4Y10M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2023-04-28",
+        "timespan": "P4Y8M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06450140341-06210225130",
         "journal_sc": "no",
         "citing": "10.1007/s10696-023-09495-w",
-        "creation": "2023-04-28",
-        "timespan": "P4Y8M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2023-08-03",
+        "timespan": "P5Y0M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06460149159-06210225130",
         "journal_sc": "no",
         "citing": "10.1080/0305215x.2023.2219206",
-        "creation": "2023-08-03",
-        "timespan": "P5Y0M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2022-11-03",
+        "timespan": "P4Y3M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06503969955-06210225130",
         "journal_sc": "no",
         "citing": "10.3390/su142114431",
-        "creation": "2022-11-03",
-        "timespan": "P4Y3M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2022-12-17",
+        "timespan": "P4Y4M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06510120372-06210225130",
         "journal_sc": "no",
         "citing": "10.1007/s42979-022-01487-1",
-        "creation": "2022-12-17",
-        "timespan": "P4Y4M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2021",
+        "timespan": "P2Y",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06702263138-06210225130",
         "journal_sc": "no",
         "citing": "10.1007/978-3-030-67540-0_7",
-        "creation": "2021",
-        "timespan": "P2Y"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2020-12-01",
+        "timespan": "P2Y4M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06802533360-06210225130",
         "journal_sc": "no",
         "citing": "10.36306/konjes.589835",
-        "creation": "2020-12-01",
-        "timespan": "P2Y4M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2022",
+        "timespan": "P3Y",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06804353363-06210225130",
         "journal_sc": "no",
         "citing": "10.2139/ssrn.4140716",
-        "creation": "2022",
-        "timespan": "P3Y"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2021-12",
+        "timespan": "P3Y4M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "0680662744-06210225130",
         "journal_sc": "no",
         "citing": "10.1016/j.eswa.2021.115693",
-        "creation": "2021-12",
-        "timespan": "P3Y4M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2022-12",
+        "timespan": "P4Y4M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06903526780-06210225130",
         "journal_sc": "no",
         "citing": "10.1016/j.compeleceng.2022.108422",
-        "creation": "2022-12",
-        "timespan": "P4Y4M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     },
     {
+        "creation": "2023-09-20",
+        "timespan": "P5Y1M",
         "author_sc": "no",
-        "cited": "10.1016/j.ejor.2017.08.033",
         "oci": "06903993400-06210225130",
         "journal_sc": "no",
         "citing": "10.3390/app131810503",
-        "creation": "2023-09-20",
-        "timespan": "P5Y1M"
+        "cited": "10.1016/j.ejor.2017.08.033"
     }
 ]

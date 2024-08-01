@@ -1,47 +1,47 @@
 [
     {
+        "creation": "2013-05",
+        "timespan": "P4Y8M",
         "author_sc": "no",
-        "cited": "10.1007/s10951-008-0083-7",
         "oci": "061502939383-062103120882",
         "journal_sc": "no",
         "citing": "10.1109/rcis.2013.6577690",
-        "creation": "2013-05",
-        "timespan": "P4Y8M"
+        "cited": "10.1007/s10951-008-0083-7"
     },
     {
+        "creation": "2010",
+        "timespan": "P1Y",
         "author_sc": "yes",
-        "cited": "10.1007/s10951-008-0083-7",
         "oci": "061803024367-062103120882",
         "journal_sc": "no",
         "citing": "10.1007/978-3-642-13022-9_25",
-        "creation": "2010",
-        "timespan": "P1Y"
+        "cited": "10.1007/s10951-008-0083-7"
     },
     {
+        "creation": "2018-11-19",
+        "timespan": "P10Y2M27D",
         "author_sc": "no",
-        "cited": "10.1007/s10951-008-0083-7",
         "oci": "06303530892-062103120882",
         "journal_sc": "no",
         "citing": "10.1007/s10462-018-9667-6",
-        "creation": "2018-11-19",
-        "timespan": "P10Y2M27D"
+        "cited": "10.1007/s10951-008-0083-7"
     },
     {
+        "creation": "2013-09-03",
+        "timespan": "P5Y0M11D",
         "author_sc": "yes",
-        "cited": "10.1007/s10951-008-0083-7",
         "oci": "0630422455-062103120882",
         "journal_sc": "no",
         "citing": "10.1007/s10796-013-9443-8",
-        "creation": "2013-09-03",
-        "timespan": "P5Y0M11D"
+        "cited": "10.1007/s10951-008-0083-7"
     },
     {
+        "creation": "2022-04",
+        "timespan": "P13Y7M",
         "author_sc": "yes",
-        "cited": "10.1007/s10951-008-0083-7",
         "oci": "0690166705-062103120882",
         "journal_sc": "no",
         "citing": "10.1007/s10601-022-09330-3",
-        "creation": "2022-04",
-        "timespan": "P13Y7M"
+        "cited": "10.1007/s10951-008-0083-7"
     }
 ]

@@ -1,101 +1,101 @@
 [
     {
-        "author_sc": "yes",
-        "cited": "10.1287/ijoc.1110.0449",
-        "journal_sc": "no",
-        "oci": "061403433525-0680834514",
-        "timespan": "P10Y6M",
         "creation": "2022-11",
-        "citing": "10.1016/j.disopt.2022.100731"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.1287/ijoc.1110.0449",
-        "journal_sc": "no",
-        "oci": "061801459463-0680834514",
-        "timespan": "P9Y9M",
-        "creation": "2022-02-02",
-        "citing": "10.3233/jifs-211042"
-    },
-    {
-        "author_sc": "yes",
-        "cited": "10.1287/ijoc.1110.0449",
-        "journal_sc": "no",
-        "oci": "06240246550-0680834514",
-        "timespan": "P6Y7M",
-        "creation": "2018-12",
-        "citing": "10.1016/j.dam.2018.05.030"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.1287/ijoc.1110.0449",
-        "journal_sc": "no",
-        "oci": "062502238703-0680834514",
-        "timespan": "P4Y",
-        "creation": "2017",
-        "citing": "10.1007/978-3-319-66158-2_17"
-    },
-    {
-        "author_sc": "yes",
-        "cited": "10.1287/ijoc.1110.0449",
-        "journal_sc": "no",
-        "oci": "062502862957-0680834514",
-        "timespan": "P1Y3M",
-        "creation": "2013-08",
-        "citing": "10.1080/02331934.2012.690154"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.1287/ijoc.1110.0449",
-        "journal_sc": "no",
-        "oci": "06290194695-0680834514",
-        "timespan": "P10Y9M",
-        "creation": "2023-02-14",
-        "citing": "10.3390/su15043494"
-    },
-    {
-        "author_sc": "yes",
-        "cited": "10.1287/ijoc.1110.0449",
-        "journal_sc": "no",
-        "oci": "0630805627-0680834514",
-        "timespan": "P1Y10M",
-        "creation": "2014-03",
-        "citing": "10.1016/j.tcs.2013.12.017"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.1287/ijoc.1110.0449",
-        "journal_sc": "no",
-        "oci": "0645043096-0680834514",
-        "timespan": "P10Y0M",
-        "creation": "2022-05",
-        "citing": "10.1016/j.mathsocsci.2022.03.001"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.1287/ijoc.1110.0449",
-        "journal_sc": "no",
-        "oci": "06490112545-0680834514",
         "timespan": "P10Y6M",
-        "creation": "2022-11-25",
-        "citing": "10.1145/3573834.3574467"
+        "author_sc": "yes",
+        "oci": "061403433525-0680834514",
+        "journal_sc": "no",
+        "citing": "10.1016/j.disopt.2022.100731",
+        "cited": "10.1287/ijoc.1110.0449"
     },
     {
+        "creation": "2022-02-02",
+        "timespan": "P9Y9M",
         "author_sc": "no",
-        "cited": "10.1287/ijoc.1110.0449",
+        "oci": "061801459463-0680834514",
         "journal_sc": "no",
-        "oci": "0690166701-0680834514",
-        "timespan": "P10Y1M",
-        "creation": "2022-06-01",
-        "citing": ""
+        "citing": "10.3233/jifs-211042",
+        "cited": "10.1287/ijoc.1110.0449"
     },
     {
-        "author_sc": "no",
-        "cited": "10.1287/ijoc.1110.0449",
+        "creation": "2018-12",
+        "timespan": "P6Y7M",
+        "author_sc": "yes",
+        "oci": "06240246550-0680834514",
         "journal_sc": "no",
-        "oci": "0690314446-0680834514",
-        "timespan": "P4Y",
+        "citing": "10.1016/j.dam.2018.05.030",
+        "cited": "10.1287/ijoc.1110.0449"
+    },
+    {
         "creation": "2017",
-        "citing": "10.2139/ssrn.3067130"
+        "timespan": "P4Y",
+        "author_sc": "no",
+        "oci": "062502238703-0680834514",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-319-66158-2_17",
+        "cited": "10.1287/ijoc.1110.0449"
+    },
+    {
+        "creation": "2013-08",
+        "timespan": "P1Y3M",
+        "author_sc": "yes",
+        "oci": "062502862957-0680834514",
+        "journal_sc": "no",
+        "citing": "10.1080/02331934.2012.690154",
+        "cited": "10.1287/ijoc.1110.0449"
+    },
+    {
+        "creation": "2023-02-14",
+        "timespan": "P10Y9M",
+        "author_sc": "no",
+        "oci": "06290194695-0680834514",
+        "journal_sc": "no",
+        "citing": "10.3390/su15043494",
+        "cited": "10.1287/ijoc.1110.0449"
+    },
+    {
+        "creation": "2014-03",
+        "timespan": "P1Y10M",
+        "author_sc": "yes",
+        "oci": "0630805627-0680834514",
+        "journal_sc": "no",
+        "citing": "10.1016/j.tcs.2013.12.017",
+        "cited": "10.1287/ijoc.1110.0449"
+    },
+    {
+        "creation": "2022-05",
+        "timespan": "P10Y0M",
+        "author_sc": "no",
+        "oci": "0645043096-0680834514",
+        "journal_sc": "no",
+        "citing": "10.1016/j.mathsocsci.2022.03.001",
+        "cited": "10.1287/ijoc.1110.0449"
+    },
+    {
+        "creation": "2022-11-25",
+        "timespan": "P10Y6M",
+        "author_sc": "no",
+        "oci": "06490112545-0680834514",
+        "journal_sc": "no",
+        "citing": "10.1145/3573834.3574467",
+        "cited": "10.1287/ijoc.1110.0449"
+    },
+    {
+        "creation": "",
+        "timespan": "",
+        "author_sc": "no",
+        "oci": "0690166701-0680834514",
+        "journal_sc": "no",
+        "citing": "",
+        "cited": "10.1287/ijoc.1110.0449"
+    },
+    {
+        "creation": "2017",
+        "timespan": "P4Y",
+        "author_sc": "no",
+        "oci": "0690314446-0680834514",
+        "journal_sc": "no",
+        "citing": "10.2139/ssrn.3067130",
+        "cited": "10.1287/ijoc.1110.0449"
     }
 ]

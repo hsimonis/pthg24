@@ -1,209 +1,218 @@
 [
     {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "06101209729-06402397307",
-        "timespan": "P16Y",
         "creation": "2010-07-01",
-        "citing": "10.1177/0037549710373601"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "06103622132-06402397307",
-        "timespan": "P15Y",
-        "creation": "2009-10",
-        "citing": "10.1109/milcom.2009.5380099"
-    },
-    {
-        "author_sc": "yes",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "061103545435-06402397307",
-        "timespan": "P5Y",
-        "creation": "1999-12",
-        "citing": "10.1145/322880.322886"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "0613091393-06402397307",
-        "timespan": "P22Y",
-        "creation": "2016-12-05",
-        "citing": "10.1145/3022671.2984007"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "061402462188-06402397307",
-        "timespan": "P22Y",
-        "creation": "2016-10-19",
-        "citing": "10.1145/2983990.2984007"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "061402667211-06402397307",
-        "timespan": "P20Y",
-        "creation": "2014",
-        "citing": "10.1007/978-3-319-01692-4_25"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "061502373502-06402397307",
-        "timespan": "P23Y",
-        "creation": "2017-07-20",
-        "citing": "10.1201/9781315119366-15"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "061502884695-06402397307",
-        "timespan": "P7Y",
-        "creation": "2001",
-        "citing": "10.1007/3-540-44593-5_30"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "061602941954-06402397307",
-        "timespan": "P19Y",
-        "creation": "2013-09",
-        "citing": "10.1109/ukci.2013.6651304"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "06160903535-06402397307",
-        "timespan": "P1Y",
-        "creation": "1995-08",
-        "citing": "10.1111/j.1468-0394.1995.tb00112.x"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "061702128006-06402397307",
-        "timespan": "P25Y",
-        "creation": "2019",
-        "citing": "10.1007/978-3-030-17728-7_14"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "061702891063-06402397307",
-        "timespan": "P17Y",
-        "creation": "2011",
-        "citing": "10.1007/978-3-642-21587-2_27"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "061703179829-06402397307",
         "timespan": "P16Y",
-        "creation": "2010-07",
-        "citing": "10.1109/cec.2010.5585965"
+        "author_sc": "no",
+        "oci": "06101209729-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1177/0037549710373601",
+        "cited": "10.7551/mitpress/2122.001.0001"
     },
     {
+        "creation": "2009-10",
+        "timespan": "P15Y",
         "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
+        "oci": "06103622132-06402397307",
         "journal_sc": "no",
-        "oci": "06201160697-06402397307",
-        "timespan": "P8Y",
-        "creation": "2002-03",
-        "citing": "10.1080/088395102753559262"
+        "citing": "10.1109/milcom.2009.5380099",
+        "cited": "10.7551/mitpress/2122.001.0001"
     },
     {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
+        "creation": "1999-12",
+        "timespan": "P5Y",
+        "author_sc": "yes",
+        "oci": "061103545435-06402397307",
         "journal_sc": "no",
-        "oci": "06202043729-06402397307",
-        "timespan": "",
-        "creation": "",
-        "citing": "10.1109/dance.2002.1003489"
+        "citing": "10.1145/322880.322886",
+        "cited": "10.7551/mitpress/2122.001.0001"
     },
     {
+        "creation": "2016-12-05",
+        "timespan": "P22Y",
         "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
+        "oci": "0613091393-06402397307",
         "journal_sc": "no",
-        "oci": "062302844079-06402397307",
-        "timespan": "P4Y",
-        "creation": "1998",
-        "citing": "10.1007/3-540-49519-3_10"
+        "citing": "10.1145/3022671.2984007",
+        "cited": "10.7551/mitpress/2122.001.0001"
     },
     {
+        "creation": "2016-10-19",
+        "timespan": "P22Y",
         "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
+        "oci": "061402462188-06402397307",
         "journal_sc": "no",
-        "oci": "06303043743-06402397307",
-        "timespan": "P10Y",
-        "creation": "2004",
-        "citing": "10.1007/978-3-540-30201-8_57"
+        "citing": "10.1145/2983990.2984007",
+        "cited": "10.7551/mitpress/2122.001.0001"
     },
     {
+        "creation": "2014",
+        "timespan": "P20Y",
         "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
+        "oci": "061402667211-06402397307",
         "journal_sc": "no",
-        "oci": "06403096547-06402397307",
-        "timespan": "P19Y",
-        "creation": "2013",
-        "citing": "10.1007/978-3-642-38989-4_29"
+        "citing": "10.1007/978-3-319-01692-4_25",
+        "cited": "10.7551/mitpress/2122.001.0001"
     },
     {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "06403529630-06402397307",
-        "timespan": "P4Y",
-        "creation": "1998",
-        "citing": "10.1007/3-540-49254-2_10"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "0660816374-06402397307",
-        "timespan": "P2Y",
-        "creation": "1996-06",
-        "citing": "10.1111/j.1468-0017.1996.tb00039.x"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "06903422370-06402397307",
-        "timespan": "",
-        "creation": "",
-        "citing": "10.1109/tai.1999.809786"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "06903441441-06402397307",
-        "timespan": "",
-        "creation": "",
-        "citing": "10.1109/tai.1998.744860"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.7551/mitpress/2122.001.0001",
-        "journal_sc": "no",
-        "oci": "0690420846-06402397307",
+        "creation": "2017-07-20",
         "timespan": "P23Y",
+        "author_sc": "no",
+        "oci": "061502373502-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1201/9781315119366-15",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "2001",
+        "timespan": "P7Y",
+        "author_sc": "no",
+        "oci": "061502884695-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1007/3-540-44593-5_30",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "2013-09",
+        "timespan": "P19Y",
+        "author_sc": "no",
+        "oci": "061602941954-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1109/ukci.2013.6651304",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "1995-08",
+        "timespan": "P1Y",
+        "author_sc": "no",
+        "oci": "06160903535-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1111/j.1468-0394.1995.tb00112.x",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "2019",
+        "timespan": "P25Y",
+        "author_sc": "no",
+        "oci": "061702128006-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-030-17728-7_14",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "2011",
+        "timespan": "P17Y",
+        "author_sc": "no",
+        "oci": "061702891063-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-642-21587-2_27",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "2010-07",
+        "timespan": "P16Y",
+        "author_sc": "no",
+        "oci": "061703179829-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1109/cec.2010.5585965",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "2002-03",
+        "timespan": "P8Y",
+        "author_sc": "no",
+        "oci": "06201160697-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1080/088395102753559262",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "",
+        "timespan": "",
+        "author_sc": "no",
+        "oci": "06202043729-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1109/dance.2002.1003489",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "1998",
+        "timespan": "P4Y",
+        "author_sc": "no",
+        "oci": "062302844079-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1007/3-540-49519-3_10",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "1998-01",
+        "timespan": "P4Y",
+        "author_sc": "no",
+        "oci": "062502680515-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1207/s15516709cog2201_1",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "2004",
+        "timespan": "P10Y",
+        "author_sc": "no",
+        "oci": "06303043743-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-540-30201-8_57",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "2013",
+        "timespan": "P19Y",
+        "author_sc": "no",
+        "oci": "06403096547-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-642-38989-4_29",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "1998",
+        "timespan": "P4Y",
+        "author_sc": "no",
+        "oci": "06403529630-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1007/3-540-49254-2_10",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "1996-06",
+        "timespan": "P2Y",
+        "author_sc": "no",
+        "oci": "0660816374-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1111/j.1468-0017.1996.tb00039.x",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "",
+        "timespan": "",
+        "author_sc": "no",
+        "oci": "06903422370-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1109/tai.1999.809786",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
+        "creation": "",
+        "timespan": "",
+        "author_sc": "no",
+        "oci": "06903441441-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1109/tai.1998.744860",
+        "cited": "10.7551/mitpress/2122.001.0001"
+    },
+    {
         "creation": "2017-01-17",
-        "citing": "10.1609/aimag.v37i4.2688"
+        "timespan": "P23Y",
+        "author_sc": "no",
+        "oci": "0690420846-06402397307",
+        "journal_sc": "no",
+        "citing": "10.1609/aimag.v37i4.2688",
+        "cited": "10.7551/mitpress/2122.001.0001"
     }
 ]

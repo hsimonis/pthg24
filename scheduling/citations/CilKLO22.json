@@ -1,47 +1,74 @@
 [
     {
-        "journal_sc": "no",
-        "oci": "062203502667-0660661123",
-        "author_sc": "no",
-        "citing": "10.1007/s10479-022-04910-1",
-        "timespan": "P0Y0M",
-        "cited": "10.1016/j.eswa.2022.117529",
-        "creation": "2022-10-04"
-    },
-    {
-        "journal_sc": "yes",
-        "oci": "06404343694-0660661123",
-        "author_sc": "no",
-        "citing": "10.1016/j.eswa.2023.120589",
-        "timespan": "P1Y1M",
-        "cited": "10.1016/j.eswa.2022.117529",
-        "creation": "2023-11"
-    },
-    {
-        "journal_sc": "no",
-        "oci": "06440131991-0660661123",
-        "author_sc": "no",
-        "citing": "10.1016/j.rcim.2023.102650",
+        "creation": "2024-04",
         "timespan": "P1Y6M",
-        "cited": "10.1016/j.eswa.2022.117529",
-        "creation": "2024-04"
+        "author_sc": "no",
+        "oci": "061804207543-0660661123",
+        "journal_sc": "no",
+        "citing": "10.1016/j.asoc.2024.111415",
+        "cited": "10.1016/j.eswa.2022.117529"
     },
     {
-        "journal_sc": "no",
-        "oci": "06520105531-0660661123",
+        "creation": "2022-10-04",
+        "timespan": "P0Y0M",
         "author_sc": "no",
-        "citing": "10.1016/j.omega.2022.102823",
+        "oci": "062203502667-0660661123",
+        "journal_sc": "no",
+        "citing": "10.1007/s10479-022-04910-1",
+        "cited": "10.1016/j.eswa.2022.117529"
+    },
+    {
+        "creation": "2024-02",
+        "timespan": "P1Y4M",
+        "author_sc": "no",
+        "oci": "06310409564-0660661123",
+        "journal_sc": "no",
+        "citing": "10.1016/j.jmsy.2023.11.011",
+        "cited": "10.1016/j.eswa.2022.117529"
+    },
+    {
+        "creation": "2024-04",
+        "timespan": "P1Y6M",
+        "author_sc": "no",
+        "oci": "06350397318-0660661123",
+        "journal_sc": "yes",
+        "citing": "10.1016/j.eswa.2023.122323",
+        "cited": "10.1016/j.eswa.2022.117529"
+    },
+    {
+        "creation": "2023-11",
+        "timespan": "P1Y1M",
+        "author_sc": "no",
+        "oci": "06404343694-0660661123",
+        "journal_sc": "yes",
+        "citing": "10.1016/j.eswa.2023.120589",
+        "cited": "10.1016/j.eswa.2022.117529"
+    },
+    {
+        "creation": "2024-04",
+        "timespan": "P1Y6M",
+        "author_sc": "no",
+        "oci": "06440131991-0660661123",
+        "journal_sc": "no",
+        "citing": "10.1016/j.rcim.2023.102650",
+        "cited": "10.1016/j.eswa.2022.117529"
+    },
+    {
+        "creation": "2023-06",
         "timespan": "P0Y8M",
-        "cited": "10.1016/j.eswa.2022.117529",
-        "creation": "2023-06"
+        "author_sc": "no",
+        "oci": "06520105531-0660661123",
+        "journal_sc": "no",
+        "citing": "10.1016/j.omega.2022.102823",
+        "cited": "10.1016/j.eswa.2022.117529"
     },
     {
-        "journal_sc": "no",
-        "oci": "0652078339-0660661123",
-        "author_sc": "no",
-        "citing": "10.1080/00207543.2023.2201352",
+        "creation": "2023-04-18",
         "timespan": "P0Y6M",
-        "cited": "10.1016/j.eswa.2022.117529",
-        "creation": "2023-04-18"
+        "author_sc": "no",
+        "oci": "0652078339-0660661123",
+        "journal_sc": "no",
+        "citing": "10.1080/00207543.2023.2201352",
+        "cited": "10.1016/j.eswa.2022.117529"
     }
 ]

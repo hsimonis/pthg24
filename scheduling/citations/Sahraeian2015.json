@@ -1,20 +1,29 @@
 [
     {
-        "author_sc": "no",
-        "cited": "10.1016/j.apm.2014.07.032",
-        "journal_sc": "no",
-        "oci": "061603307929-061901027903",
-        "timespan": "P3Y10M",
         "creation": "2018-11-21",
-        "citing": "10.1155/2018/7870849"
+        "timespan": "P3Y10M",
+        "author_sc": "no",
+        "oci": "061603307929-061901027903",
+        "journal_sc": "no",
+        "citing": "10.1155/2018/7870849",
+        "cited": "10.1016/j.apm.2014.07.032"
     },
     {
-        "author_sc": "no",
-        "cited": "10.1016/j.apm.2014.07.032",
-        "journal_sc": "yes",
-        "oci": "061801017025-061901027903",
-        "timespan": "P2Y4M",
         "creation": "2017-05",
-        "citing": "10.1016/j.apm.2016.12.034"
+        "timespan": "P2Y4M",
+        "author_sc": "no",
+        "oci": "061801017025-061901027903",
+        "journal_sc": "yes",
+        "citing": "10.1016/j.apm.2016.12.034",
+        "cited": "10.1016/j.apm.2014.07.032"
+    },
+    {
+        "creation": "2024-03",
+        "timespan": "P9Y2M",
+        "author_sc": "no",
+        "oci": "06904266857-061901027903",
+        "journal_sc": "no",
+        "citing": "10.1016/j.rico.2023.100350",
+        "cited": "10.1016/j.apm.2014.07.032"
     }
 ]

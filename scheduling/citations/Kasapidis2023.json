@@ -1,11 +1,29 @@
 [
     {
-        "author_sc": "yes",
-        "cited": "10.1111/poms.13977",
-        "journal_sc": "no",
-        "oci": "062503964524-061603903811",
-        "timespan": "P0Y0M",
         "creation": "2023-05",
-        "citing": "10.1016/j.ejor.2023.05.017"
+        "timespan": "P0Y0M",
+        "author_sc": "yes",
+        "oci": "062503964524-061603903811",
+        "journal_sc": "no",
+        "citing": "10.1016/j.ejor.2023.05.017",
+        "cited": "10.1111/poms.13977"
+    },
+    {
+        "creation": "2024-09",
+        "timespan": "P1Y4M",
+        "author_sc": "no",
+        "oci": "06350397393-061603903811",
+        "journal_sc": "no",
+        "citing": "10.1016/j.eswa.2024.123556",
+        "cited": "10.1111/poms.13977"
+    },
+    {
+        "creation": "2023",
+        "timespan": "P0Y",
+        "author_sc": "no",
+        "oci": "06404657266-061603903811",
+        "journal_sc": "no",
+        "citing": "10.1109/access.2023.3345793",
+        "cited": "10.1111/poms.13977"
     }
 ]

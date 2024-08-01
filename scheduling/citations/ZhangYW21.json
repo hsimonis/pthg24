@@ -1,56 +1,56 @@
 [
     {
+        "creation": "2022-02-23",
+        "timespan": "P0Y7M",
         "author_sc": "no",
-        "cited": "10.1016/j.cor.2021.105282",
         "oci": "06103422357-06130167965",
         "journal_sc": "no",
         "citing": "10.1109/csicc55295.2022.9780501",
-        "creation": "2022-02-23",
-        "timespan": "P0Y7M"
+        "cited": "10.1016/j.cor.2021.105282"
     },
     {
+        "creation": "2022-06",
+        "timespan": "P0Y11M",
         "author_sc": "no",
-        "cited": "10.1016/j.cor.2021.105282",
         "oci": "06110466595-06130167965",
         "journal_sc": "no",
         "citing": "10.1016/j.swevo.2022.101058",
-        "creation": "2022-06",
-        "timespan": "P0Y11M"
+        "cited": "10.1016/j.cor.2021.105282"
     },
     {
+        "creation": "2022-06",
+        "timespan": "P0Y11M",
         "author_sc": "no",
-        "cited": "10.1016/j.cor.2021.105282",
         "oci": "06130167700-06130167965",
         "journal_sc": "yes",
         "citing": "10.1016/j.cor.2022.105733",
-        "creation": "2022-06",
-        "timespan": "P0Y11M"
+        "cited": "10.1016/j.cor.2021.105282"
     },
     {
+        "creation": "2021-08-30",
+        "timespan": "P0Y1M",
         "author_sc": "no",
-        "cited": "10.1016/j.cor.2021.105282",
         "oci": "0620408975-06130167965",
         "journal_sc": "no",
         "citing": "10.1080/00207543.2021.1963496",
-        "creation": "2021-08-30",
-        "timespan": "P0Y1M"
+        "cited": "10.1016/j.cor.2021.105282"
     },
     {
+        "creation": "2023-05",
+        "timespan": "P1Y10M",
         "author_sc": "no",
-        "cited": "10.1016/j.cor.2021.105282",
         "oci": "062203934424-06130167965",
         "journal_sc": "no",
         "citing": "10.1016/j.knosys.2023.110458",
-        "creation": "2023-05",
-        "timespan": "P1Y10M"
+        "cited": "10.1016/j.cor.2021.105282"
     },
     {
+        "creation": "2023-06",
+        "timespan": "P1Y11M",
         "author_sc": "no",
-        "cited": "10.1016/j.cor.2021.105282",
         "oci": "06520105531-06130167965",
         "journal_sc": "no",
         "citing": "10.1016/j.omega.2022.102823",
-        "creation": "2023-06",
-        "timespan": "P1Y11M"
+        "cited": "10.1016/j.cor.2021.105282"
     }
 ]

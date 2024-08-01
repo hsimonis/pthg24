@@ -1,11 +1,11 @@
 [
     {
-        "author_sc": "no",
-        "cited": "10.1609/aaai.v36i4.20296",
-        "journal_sc": "no",
-        "oci": "0644052533-06303969288",
-        "timespan": "P0Y",
         "creation": "2022",
-        "citing": "10.1007/978-3-031-08011-1_21"
+        "timespan": "P0Y",
+        "author_sc": "no",
+        "oci": "0644052533-06303969288",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-031-08011-1_21",
+        "cited": "10.1609/aaai.v36i4.20296"
     }
 ]

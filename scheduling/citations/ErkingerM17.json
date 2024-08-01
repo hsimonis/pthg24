@@ -1,38 +1,38 @@
 [
     {
-        "journal_sc": "no",
-        "oci": "062103120337-06402761892",
-        "author_sc": "no",
-        "citing": "10.1007/s10951-020-00659-2",
+        "creation": "2020-06-30",
         "timespan": "P2Y10M",
-        "cited": "10.24963/ijcai.2017/86",
-        "creation": "2020-06-30"
-    },
-    {
-        "journal_sc": "no",
-        "oci": "06302564579-06402761892",
-        "author_sc": "yes",
-        "citing": "10.1007/978-3-319-93031-2_31",
-        "timespan": "P0Y",
-        "cited": "10.24963/ijcai.2017/86",
-        "creation": "2018"
-    },
-    {
-        "journal_sc": "no",
-        "oci": "06702389028-06402761892",
-        "author_sc": "yes",
-        "citing": "10.1007/s10472-020-09695-2",
-        "timespan": "P2Y8M",
-        "cited": "10.24963/ijcai.2017/86",
-        "creation": "2020-04-24"
-    },
-    {
-        "journal_sc": "no",
-        "oci": "0690912087-06402761892",
         "author_sc": "no",
-        "citing": "10.1111/exsy.12975",
+        "oci": "062103120337-06402761892",
+        "journal_sc": "no",
+        "citing": "10.1007/s10951-020-00659-2",
+        "cited": "10.24963/ijcai.2017/86"
+    },
+    {
+        "creation": "2018",
+        "timespan": "P0Y",
+        "author_sc": "yes",
+        "oci": "06302564579-06402761892",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-319-93031-2_31",
+        "cited": "10.24963/ijcai.2017/86"
+    },
+    {
+        "creation": "2020-04-24",
+        "timespan": "P2Y8M",
+        "author_sc": "yes",
+        "oci": "06702389028-06402761892",
+        "journal_sc": "no",
+        "citing": "10.1007/s10472-020-09695-2",
+        "cited": "10.24963/ijcai.2017/86"
+    },
+    {
+        "creation": "2022-03-06",
         "timespan": "P4Y7M",
-        "cited": "10.24963/ijcai.2017/86",
-        "creation": "2022-03-06"
+        "author_sc": "no",
+        "oci": "0690912087-06402761892",
+        "journal_sc": "no",
+        "citing": "10.1111/exsy.12975",
+        "cited": "10.24963/ijcai.2017/86"
     }
 ]

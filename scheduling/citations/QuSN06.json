@@ -1,20 +1,20 @@
 [
     {
+        "creation": "2007-05",
+        "timespan": "P0Y6M",
         "author_sc": "yes",
-        "cited": "10.1109/issoc.2006.321973",
         "oci": "061203263056-06403694833",
         "journal_sc": "no",
         "citing": "10.1109/iscas.2007.378246",
-        "creation": "2007-05",
-        "timespan": "P0Y6M"
+        "cited": "10.1109/issoc.2006.321973"
     },
     {
+        "creation": "2020-08",
+        "timespan": "P13Y9M",
         "author_sc": "no",
-        "cited": "10.1109/issoc.2006.321973",
         "oci": "06202065709-06403694833",
         "journal_sc": "no",
         "citing": "10.1109/dsd51259.2020.00021",
-        "creation": "2020-08",
-        "timespan": "P13Y9M"
+        "cited": "10.1109/issoc.2006.321973"
     }
 ]

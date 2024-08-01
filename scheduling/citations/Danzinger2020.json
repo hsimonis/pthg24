@@ -1,11 +1,20 @@
 [
     {
-        "author_sc": "no",
-        "cited": "10.1609/icaps.v30i1.6681",
-        "journal_sc": "no",
-        "oci": "062103120296-061603902893",
-        "timespan": "",
         "creation": "2021-09-13",
-        "citing": "10.1007/s10951-021-00699-2"
+        "timespan": "",
+        "author_sc": "no",
+        "oci": "062103120296-061603902893",
+        "journal_sc": "no",
+        "citing": "10.1007/s10951-021-00699-2",
+        "cited": "10.1609/icaps.v30i1.6681"
+    },
+    {
+        "creation": "2024-02-19",
+        "timespan": "",
+        "author_sc": "no",
+        "oci": "06304645009-061603902893",
+        "journal_sc": "no",
+        "citing": "10.1007/s11740-024-01261-7",
+        "cited": "10.1609/icaps.v30i1.6681"
     }
 ]

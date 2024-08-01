@@ -1,38 +1,38 @@
 [
     {
-        "author_sc": "no",
-        "cited": "10.1109/access.2018.2859618",
-        "journal_sc": "no",
-        "oci": "061201666465-06701142482",
-        "timespan": "P1Y",
         "creation": "2019-08-06",
-        "citing": "10.3390/e21080766"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.1109/access.2018.2859618",
-        "journal_sc": "no",
-        "oci": "06150535332-06701142482",
-        "timespan": "P4Y",
-        "creation": "2022-01-28",
-        "citing": "10.1080/09540091.2022.2025765"
-    },
-    {
-        "author_sc": "no",
-        "cited": "10.1109/access.2018.2859618",
-        "journal_sc": "no",
-        "oci": "06602639287-06701142482",
         "timespan": "P1Y",
-        "creation": "2019-12",
-        "citing": "10.1109/ispa-bdcloud-sustaincom-socialcom48970.2019.00106"
+        "author_sc": "no",
+        "oci": "061201666465-06701142482",
+        "journal_sc": "no",
+        "citing": "10.3390/e21080766",
+        "cited": "10.1109/access.2018.2859618"
     },
     {
+        "creation": "2022-01-28",
+        "timespan": "P4Y",
         "author_sc": "no",
-        "cited": "10.1109/access.2018.2859618",
+        "oci": "06150535332-06701142482",
         "journal_sc": "no",
-        "oci": "06902051118-06701142482",
-        "timespan": "P2Y",
+        "citing": "10.1080/09540091.2022.2025765",
+        "cited": "10.1109/access.2018.2859618"
+    },
+    {
+        "creation": "2019-12",
+        "timespan": "P1Y",
+        "author_sc": "no",
+        "oci": "06602639287-06701142482",
+        "journal_sc": "no",
+        "citing": "10.1109/ispa-bdcloud-sustaincom-socialcom48970.2019.00106",
+        "cited": "10.1109/access.2018.2859618"
+    },
+    {
         "creation": "2020-03-16",
-        "citing": "10.1007/s11704-019-9179-9"
+        "timespan": "P2Y",
+        "author_sc": "no",
+        "oci": "06902051118-06701142482",
+        "journal_sc": "no",
+        "citing": "10.1007/s11704-019-9179-9",
+        "cited": "10.1109/access.2018.2859618"
     }
 ]

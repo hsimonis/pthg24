@@ -1,20 +1,20 @@
 [
     {
-        "author_sc": "no",
-        "cited": "10.1007/s40685-019-00102-z",
-        "journal_sc": "no",
-        "oci": "06190186175-061202174225",
-        "timespan": "P2Y4M29D",
         "creation": "2022-02-17",
-        "citing": "10.1186/s12911-022-01756-2"
+        "timespan": "P2Y4M29D",
+        "author_sc": "no",
+        "oci": "06190186175-061202174225",
+        "journal_sc": "no",
+        "citing": "10.1186/s12911-022-01756-2",
+        "cited": "10.1007/s40685-019-00102-z"
     },
     {
-        "author_sc": "no",
-        "cited": "10.1007/s40685-019-00102-z",
-        "journal_sc": "no",
-        "oci": "062203935045-061202174225",
-        "timespan": "P3Y11M",
         "creation": "2023-09",
-        "citing": "10.1016/j.knosys.2023.110980"
+        "timespan": "P3Y11M",
+        "author_sc": "no",
+        "oci": "062203935045-061202174225",
+        "journal_sc": "no",
+        "citing": "10.1016/j.knosys.2023.110980",
+        "cited": "10.1007/s40685-019-00102-z"
     }
 ]

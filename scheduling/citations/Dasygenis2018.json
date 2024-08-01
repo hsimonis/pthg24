@@ -1,11 +1,11 @@
 [
     {
-        "author_sc": "no",
-        "cited": "10.1142/s0218213018600023",
-        "journal_sc": "no",
-        "oci": "061601148810-062301351979",
-        "timespan": "P0Y",
         "creation": "2019",
-        "citing": "10.1109/access.2019.2951027"
+        "timespan": "P0Y",
+        "author_sc": "no",
+        "oci": "061601148810-062301351979",
+        "journal_sc": "no",
+        "citing": "10.1109/access.2019.2951027",
+        "cited": "10.1142/s0218213018600023"
     }
 ]

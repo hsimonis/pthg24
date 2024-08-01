@@ -1,47 +1,47 @@
 [
     {
-        "author_sc": "no",
-        "cited": "10.1109/icppw.2009.31",
-        "journal_sc": "no",
-        "oci": "061302947930-062203186876",
-        "timespan": "P3Y1M",
         "creation": "2012-10",
-        "citing": "10.1109/srds.2012.7"
+        "timespan": "P3Y1M",
+        "author_sc": "no",
+        "oci": "061302947930-062203186876",
+        "journal_sc": "no",
+        "citing": "10.1109/srds.2012.7",
+        "cited": "10.1109/icppw.2009.31"
     },
     {
-        "author_sc": "no",
-        "cited": "10.1109/icppw.2009.31",
-        "journal_sc": "no",
-        "oci": "061702417834-062203186876",
-        "timespan": "P7Y0M",
         "creation": "2016-09-22",
-        "citing": "10.1007/978-3-319-44162-7_5"
+        "timespan": "P7Y0M",
+        "author_sc": "no",
+        "oci": "061702417834-062203186876",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-319-44162-7_5",
+        "cited": "10.1109/icppw.2009.31"
     },
     {
+        "creation": "2014",
+        "timespan": "P4Y",
         "author_sc": "no",
-        "cited": "10.1109/icppw.2009.31",
-        "journal_sc": "no",
         "oci": "062102660106-062203186876",
-        "timespan": "P4Y",
-        "creation": "2014",
-        "citing": "10.1007/978-3-319-04942-7_7"
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-319-04942-7_7",
+        "cited": "10.1109/icppw.2009.31"
     },
     {
+        "creation": "2014",
+        "timespan": "P4Y",
         "author_sc": "no",
-        "cited": "10.1109/icppw.2009.31",
-        "journal_sc": "no",
         "oci": "062102660107-062203186876",
-        "timespan": "P4Y",
-        "creation": "2014",
-        "citing": "10.1007/978-3-319-04942-7_3"
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-319-04942-7_3",
+        "cited": "10.1109/icppw.2009.31"
     },
     {
-        "author_sc": "no",
-        "cited": "10.1109/icppw.2009.31",
-        "journal_sc": "no",
-        "oci": "062601632082-062203186876",
-        "timespan": "P3Y5M",
         "creation": "2013-02",
-        "citing": "10.1145/2431211.2431213"
+        "timespan": "P3Y5M",
+        "author_sc": "no",
+        "oci": "062601632082-062203186876",
+        "journal_sc": "no",
+        "citing": "10.1145/2431211.2431213",
+        "cited": "10.1109/icppw.2009.31"
     }
 ]

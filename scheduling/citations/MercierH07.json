@@ -1,47 +1,47 @@
 [
     {
-        "journal_sc": "no",
-        "oci": "06102584764-062302693430",
-        "author_sc": "no",
-        "citing": "10.1007/978-3-319-98334-9_41",
+        "creation": "2018",
         "timespan": "P10Y",
-        "cited": "10.1016/j.disopt.2007.01.001",
-        "creation": "2018"
+        "author_sc": "no",
+        "oci": "06102584764-062302693430",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-319-98334-9_41",
+        "cited": "10.1016/j.disopt.2007.01.001"
     },
     {
-        "journal_sc": "no",
-        "oci": "06110828009-062302693430",
-        "author_sc": "no",
-        "citing": "10.1287/ijoc.1070.0226",
+        "creation": "2008-02",
         "timespan": "P0Y2M",
-        "cited": "10.1016/j.disopt.2007.01.001",
-        "creation": "2008-02"
+        "author_sc": "no",
+        "oci": "06110828009-062302693430",
+        "journal_sc": "no",
+        "citing": "10.1287/ijoc.1070.0226",
+        "cited": "10.1016/j.disopt.2007.01.001"
     },
     {
-        "journal_sc": "no",
-        "oci": "061501993537-062302693430",
-        "author_sc": "no",
-        "citing": "10.3724/sp.j.1004.2010.00603",
+        "creation": "2010-05-17",
         "timespan": "P2Y5M",
-        "cited": "10.1016/j.disopt.2007.01.001",
-        "creation": "2010-05-17"
+        "author_sc": "no",
+        "oci": "061501993537-062302693430",
+        "journal_sc": "no",
+        "citing": "10.3724/sp.j.1004.2010.00603",
+        "cited": "10.1016/j.disopt.2007.01.001"
     },
     {
-        "journal_sc": "no",
-        "oci": "062103120577-062302693430",
-        "author_sc": "no",
-        "citing": "10.1007/s10951-014-0404-y",
+        "creation": "2014-12-03",
         "timespan": "P7Y0M",
-        "cited": "10.1016/j.disopt.2007.01.001",
-        "creation": "2014-12-03"
+        "author_sc": "no",
+        "oci": "062103120577-062302693430",
+        "journal_sc": "no",
+        "citing": "10.1007/s10951-014-0404-y",
+        "cited": "10.1016/j.disopt.2007.01.001"
     },
     {
-        "journal_sc": "no",
-        "oci": "0670409394-062302693430",
-        "author_sc": "no",
-        "citing": "10.1080/00207540903067193",
+        "creation": "2009-09-14",
         "timespan": "P1Y9M",
-        "cited": "10.1016/j.disopt.2007.01.001",
-        "creation": "2009-09-14"
+        "author_sc": "no",
+        "oci": "0670409394-062302693430",
+        "journal_sc": "no",
+        "citing": "10.1080/00207540903067193",
+        "cited": "10.1016/j.disopt.2007.01.001"
     }
 ]

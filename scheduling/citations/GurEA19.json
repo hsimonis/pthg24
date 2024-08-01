@@ -1,173 +1,191 @@
 [
     {
-        "journal_sc": "no",
-        "oci": "06101644443-06502281767",
-        "author_sc": "no",
-        "citing": "10.3390/ejihpe10010013",
+        "creation": "2019-10-24",
         "timespan": "P0Y7M13D",
-        "cited": "10.3390/math7030251",
-        "creation": "2019-10-24"
+        "author_sc": "no",
+        "oci": "06101644443-06502281767",
+        "journal_sc": "no",
+        "citing": "10.3390/ejihpe10010013",
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "no",
-        "oci": "06102079626-06502281767",
-        "author_sc": "no",
-        "citing": "10.1109/csudet47057.2019.9214700",
+        "creation": "2019-11",
         "timespan": "P0Y7M",
-        "cited": "10.3390/math7030251",
-        "creation": "2019-11"
+        "author_sc": "no",
+        "oci": "06102079626-06502281767",
+        "journal_sc": "no",
+        "citing": "10.1109/csudet47057.2019.9214700",
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "no",
-        "oci": "061101284895-06502281767",
-        "author_sc": "no",
-        "citing": "10.3390/healthcare9060640",
+        "creation": "2021-05-28",
         "timespan": "P2Y2M17D",
-        "cited": "10.3390/math7030251",
-        "creation": "2021-05-28"
+        "author_sc": "no",
+        "oci": "061101284895-06502281767",
+        "journal_sc": "no",
+        "citing": "10.3390/healthcare9060640",
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "no",
-        "oci": "061303846365-06502281767",
-        "author_sc": "yes",
-        "citing": "10.1007/s00500-023-09105-9",
+        "creation": "2023-08-16",
         "timespan": "P4Y5M5D",
-        "cited": "10.3390/math7030251",
-        "creation": "2023-08-16"
+        "author_sc": "yes",
+        "oci": "061303846365-06502281767",
+        "journal_sc": "no",
+        "citing": "10.1007/s00500-023-09105-9",
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "no",
-        "oci": "061703861005-06502281767",
+        "creation": "2023-12-29",
+        "timespan": "P4Y9M18D",
         "author_sc": "no",
-        "citing": "10.1007/s10100-022-00835-z",
+        "oci": "061504110374-06502281767",
+        "journal_sc": "no",
+        "citing": "10.46464/tdad.1288213",
+        "cited": "10.3390/math7030251"
+    },
+    {
+        "creation": "2022-12-14",
         "timespan": "P3Y9M3D",
-        "cited": "10.3390/math7030251",
-        "creation": "2022-12-14"
+        "author_sc": "yes",
+        "oci": "061703861005-06502281767",
+        "journal_sc": "no",
+        "citing": "10.1007/s10100-022-00835-z",
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "no",
-        "oci": "061802638450-06502281767",
-        "author_sc": "no",
-        "citing": "10.29137/umagd.973271",
+        "creation": "2022-01-31",
         "timespan": "P2Y10M20D",
-        "cited": "10.3390/math7030251",
-        "creation": "2022-01-31"
+        "author_sc": "no",
+        "oci": "061802638450-06502281767",
+        "journal_sc": "no",
+        "citing": "10.29137/umagd.973271",
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "no",
-        "oci": "06180774590-06502281767",
-        "author_sc": "yes",
-        "citing": "10.1007/s00500-021-05602-x",
+        "creation": "2021-02-11",
         "timespan": "P1Y11M0D",
-        "cited": "10.3390/math7030251",
-        "creation": "2021-02-11"
-    },
-    {
-        "journal_sc": "yes",
-        "oci": "06202272414-06502281767",
-        "author_sc": "no",
-        "citing": "10.3390/math9050459",
-        "timespan": "P1Y11M13D",
-        "cited": "10.3390/math7030251",
-        "creation": "2021-02-24"
-    },
-    {
-        "journal_sc": "no",
-        "oci": "06202278822-06502281767",
-        "author_sc": "no",
-        "citing": "10.1007/s43069-022-00134-y",
-        "timespan": "P2Y11M",
-        "cited": "10.3390/math7030251",
-        "creation": "2022-03"
-    },
-    {
-        "journal_sc": "no",
-        "oci": "062303922395-06502281767",
         "author_sc": "yes",
-        "citing": "10.51551/verimlilik.1050109",
+        "oci": "06180774590-06502281767",
+        "journal_sc": "no",
+        "citing": "10.1007/s00500-021-05602-x",
+        "cited": "10.3390/math7030251"
+    },
+    {
+        "creation": "2021-02-24",
+        "timespan": "P1Y11M13D",
+        "author_sc": "no",
+        "oci": "06202272414-06502281767",
+        "journal_sc": "yes",
+        "citing": "10.3390/math9050459",
+        "cited": "10.3390/math7030251"
+    },
+    {
+        "creation": "2022-03",
+        "timespan": "P2Y11M",
+        "author_sc": "no",
+        "oci": "06202278822-06502281767",
+        "journal_sc": "no",
+        "citing": "10.1007/s43069-022-00134-y",
+        "cited": "10.3390/math7030251"
+    },
+    {
+        "creation": "2023-01-31",
         "timespan": "P3Y10M20D",
-        "cited": "10.3390/math7030251",
-        "creation": "2023-01-31"
+        "author_sc": "yes",
+        "oci": "062303922395-06502281767",
+        "journal_sc": "no",
+        "citing": "10.51551/verimlilik.1050109",
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "no",
-        "oci": "06230987287-06502281767",
-        "author_sc": "no",
-        "citing": "10.1213/ane.0000000000004829",
+        "creation": "2020-03-26",
         "timespan": "P1Y0M15D",
-        "cited": "10.3390/math7030251",
-        "creation": "2020-03-26"
+        "author_sc": "no",
+        "oci": "06230987287-06502281767",
+        "journal_sc": "no",
+        "citing": "10.1213/ane.0000000000004829",
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "yes",
-        "oci": "062401884226-06502281767",
-        "author_sc": "no",
-        "citing": "10.3390/math10050784",
+        "creation": "2022-03-01",
         "timespan": "P2Y11M18D",
-        "cited": "10.3390/math7030251",
-        "creation": "2022-03-01"
-    },
-    {
+        "author_sc": "no",
+        "oci": "062401884226-06502281767",
         "journal_sc": "yes",
-        "oci": "062501890510-06502281767",
-        "author_sc": "no",
-        "citing": "10.3390/math10010062",
+        "citing": "10.3390/math10050784",
+        "cited": "10.3390/math7030251"
+    },
+    {
+        "creation": "2021-12-25",
         "timespan": "P2Y9M14D",
-        "cited": "10.3390/math7030251",
-        "creation": "2021-12-25"
+        "author_sc": "no",
+        "oci": "062501890510-06502281767",
+        "journal_sc": "yes",
+        "citing": "10.3390/math10010062",
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "no",
-        "oci": "062503958160-06502281767",
-        "author_sc": "no",
-        "citing": "10.3390/analytics2030036",
+        "creation": "2023-08-21",
         "timespan": "P4Y5M10D",
-        "cited": "10.3390/math7030251",
-        "creation": "2023-08-21"
+        "author_sc": "no",
+        "oci": "062503958160-06502281767",
+        "journal_sc": "no",
+        "citing": "10.3390/analytics2030036",
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "no",
-        "oci": "06301588012-06502281767",
-        "author_sc": "no",
-        "citing": "10.1007/s11831-020-09432-2",
+        "creation": "2020-05-11",
         "timespan": "P1Y2M0D",
-        "cited": "10.3390/math7030251",
-        "creation": "2020-05-11"
+        "author_sc": "no",
+        "oci": "06301588012-06502281767",
+        "journal_sc": "no",
+        "citing": "10.1007/s11831-020-09432-2",
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "no",
+        "creation": "2023",
+        "timespan": "P3Y",
+        "author_sc": "no",
         "oci": "0643076598-06502281767",
-        "author_sc": "no",
+        "journal_sc": "no",
         "citing": "10.1051/e3sconf/202341201074",
-        "timespan": "P3Y",
-        "cited": "10.3390/math7030251",
-        "creation": "2023"
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "no",
+        "creation": "2023",
+        "timespan": "P3Y",
+        "author_sc": "yes",
         "oci": "06460164996-06502281767",
-        "author_sc": "no",
+        "journal_sc": "no",
         "citing": "10.1007/978-981-99-1818-8_8",
-        "timespan": "P3Y",
-        "cited": "10.3390/math7030251",
-        "creation": "2023"
+        "cited": "10.3390/math7030251"
     },
     {
+        "creation": "2023-11-20",
+        "timespan": "P4Y8M9D",
+        "author_sc": "yes",
+        "oci": "06504676803-06502281767",
         "journal_sc": "no",
-        "oci": "06802533360-06502281767",
-        "author_sc": "no",
-        "citing": "10.36306/konjes.589835",
+        "citing": "10.1007/s00500-023-09369-1",
+        "cited": "10.3390/math7030251"
+    },
+    {
+        "creation": "2020-12-01",
         "timespan": "P1Y8M20D",
-        "cited": "10.3390/math7030251",
-        "creation": "2020-12-01"
+        "author_sc": "no",
+        "oci": "06802533360-06502281767",
+        "journal_sc": "no",
+        "citing": "10.36306/konjes.589835",
+        "cited": "10.3390/math7030251"
     },
     {
-        "journal_sc": "no",
-        "oci": "06901665148-06502281767",
-        "author_sc": "no",
-        "citing": "10.33793/acperpro.02.03.109",
+        "creation": "2019-11-22",
         "timespan": "P0Y8M11D",
-        "cited": "10.3390/math7030251",
-        "creation": "2019-11-22"
+        "author_sc": "no",
+        "oci": "06901665148-06502281767",
+        "journal_sc": "no",
+        "citing": "10.33793/acperpro.02.03.109",
+        "cited": "10.3390/math7030251"
     }
 ]

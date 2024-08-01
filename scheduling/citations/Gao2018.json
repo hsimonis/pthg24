@@ -1,11 +1,20 @@
 [
     {
-        "author_sc": "no",
-        "cited": "10.2355/isijinternational.isijint-2018-305",
-        "journal_sc": "no",
-        "oci": "062401884417-062302389519",
-        "timespan": "P3Y4M0D",
         "creation": "2022-02-15",
-        "citing": "10.3390/math10040597"
+        "timespan": "P3Y4M0D",
+        "author_sc": "no",
+        "oci": "062401884417-062302389519",
+        "journal_sc": "no",
+        "citing": "10.3390/math10040597",
+        "cited": "10.2355/isijinternational.isijint-2018-305"
+    },
+    {
+        "creation": "2024-01",
+        "timespan": "P5Y2M",
+        "author_sc": "no",
+        "oci": "06504647125-062302389519",
+        "journal_sc": "no",
+        "citing": "10.1016/j.ejor.2023.12.032",
+        "cited": "10.2355/isijinternational.isijint-2018-305"
     }
 ]

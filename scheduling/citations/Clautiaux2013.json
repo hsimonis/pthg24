@@ -1,47 +1,47 @@
 [
     {
-        "author_sc": "no",
-        "cited": "10.1287/ijoc.1110.0478",
-        "journal_sc": "no",
-        "oci": "061501831860-0680834481",
-        "timespan": "P6Y4M",
         "creation": "2019-06-03",
-        "citing": "10.1111/itor.12687"
+        "timespan": "P6Y4M",
+        "author_sc": "no",
+        "oci": "061501831860-0680834481",
+        "journal_sc": "no",
+        "citing": "10.1111/itor.12687",
+        "cited": "10.1287/ijoc.1110.0478"
     },
     {
-        "author_sc": "no",
-        "cited": "10.1287/ijoc.1110.0478",
-        "journal_sc": "no",
-        "oci": "06170220636-0680834481",
-        "timespan": "P9Y7M",
         "creation": "2022-09",
-        "citing": "10.1016/j.ejor.2021.11.031"
-    },
-    {
+        "timespan": "P9Y7M",
         "author_sc": "no",
-        "cited": "10.1287/ijoc.1110.0478",
+        "oci": "06170220636-0680834481",
         "journal_sc": "no",
-        "oci": "06190227010-0680834481",
-        "timespan": "P5Y8M",
+        "citing": "10.1016/j.ejor.2021.11.031",
+        "cited": "10.1287/ijoc.1110.0478"
+    },
+    {
         "creation": "2018-10",
-        "citing": "10.1016/j.ejor.2018.04.014"
+        "timespan": "P5Y8M",
+        "author_sc": "no",
+        "oci": "06190227010-0680834481",
+        "journal_sc": "no",
+        "citing": "10.1016/j.ejor.2018.04.014",
+        "cited": "10.1287/ijoc.1110.0478"
     },
     {
+        "creation": "2016-11",
+        "timespan": "P3Y9M",
         "author_sc": "no",
-        "cited": "10.1287/ijoc.1110.0478",
-        "journal_sc": "yes",
         "oci": "0680834263-0680834481",
-        "timespan": "P3Y9M",
-        "creation": "2016-11",
-        "citing": "10.1287/ijoc.2016.0710"
+        "journal_sc": "yes",
+        "citing": "10.1287/ijoc.2016.0710",
+        "cited": "10.1287/ijoc.1110.0478"
     },
     {
-        "author_sc": "no",
-        "cited": "10.1287/ijoc.1110.0478",
-        "journal_sc": "yes",
-        "oci": "0680834267-0680834481",
-        "timespan": "P3Y9M",
         "creation": "2016-11",
-        "citing": "10.1287/ijoc.2016.0708"
+        "timespan": "P3Y9M",
+        "author_sc": "no",
+        "oci": "0680834267-0680834481",
+        "journal_sc": "yes",
+        "citing": "10.1287/ijoc.2016.0708",
+        "cited": "10.1287/ijoc.1110.0478"
     }
 ]

@@ -1,29 +1,29 @@
 [
     {
-        "author_sc": "yes",
-        "cited": "10.1109/ipdpsw.2014.24",
-        "journal_sc": "no",
-        "oci": "061801133381-061502550927",
-        "timespan": "P1Y9M",
         "creation": "2016-02-20",
-        "citing": "10.1145/2838733"
+        "timespan": "P1Y9M",
+        "author_sc": "yes",
+        "oci": "061801133381-061502550927",
+        "journal_sc": "no",
+        "citing": "10.1145/2838733",
+        "cited": "10.1109/ipdpsw.2014.24"
     },
     {
-        "author_sc": "no",
-        "cited": "10.1109/ipdpsw.2014.24",
-        "journal_sc": "no",
-        "oci": "062302353562-061502550927",
-        "timespan": "P3Y4M",
         "creation": "2017-09-28",
-        "citing": "10.1145/3139367.3139442"
+        "timespan": "P3Y4M",
+        "author_sc": "no",
+        "oci": "062302353562-061502550927",
+        "journal_sc": "no",
+        "citing": "10.1145/3139367.3139442",
+        "cited": "10.1109/ipdpsw.2014.24"
     },
     {
-        "author_sc": "no",
-        "cited": "10.1109/ipdpsw.2014.24",
-        "journal_sc": "no",
-        "oci": "062503924415-061502550927",
-        "timespan": "P7Y",
         "creation": "2022",
-        "citing": "10.2139/ssrn.4021739"
+        "timespan": "P7Y",
+        "author_sc": "no",
+        "oci": "062503924415-061502550927",
+        "journal_sc": "no",
+        "citing": "10.2139/ssrn.4021739",
+        "cited": "10.1109/ipdpsw.2014.24"
     }
 ]

@@ -1,38 +1,38 @@
 [
     {
+        "creation": "2008-09-03",
+        "timespan": "P3Y",
         "author_sc": "no",
-        "cited": "10.1007/11493853_15",
         "oci": "062103120879-06203728438",
         "journal_sc": "no",
         "citing": "10.1007/s10951-008-0079-3",
-        "creation": "2008-09-03",
-        "timespan": "P3Y"
+        "cited": "10.1007/11493853_15"
     },
     {
+        "creation": "",
+        "timespan": "",
         "author_sc": "no",
-        "cited": "10.1007/11493853_15",
         "oci": "062303282805-06203728438",
         "journal_sc": "no",
         "citing": "10.1109/smc-it.2006.70",
-        "creation": "",
-        "timespan": ""
+        "cited": "10.1007/11493853_15"
     },
     {
+        "creation": "2006",
+        "timespan": "P1Y",
         "author_sc": "no",
-        "cited": "10.1007/11493853_15",
         "oci": "06503713383-06203728438",
         "journal_sc": "no",
         "citing": "10.1145/1143997.1144203",
-        "creation": "2006",
-        "timespan": "P1Y"
+        "cited": "10.1007/11493853_15"
     },
     {
+        "creation": "2006",
+        "timespan": "P1Y",
         "author_sc": "no",
-        "cited": "10.1007/11493853_15",
         "oci": "06703685372-06203728438",
         "journal_sc": "no",
         "citing": "10.1145/1143997.1144218",
-        "creation": "2006",
-        "timespan": "P1Y"
+        "cited": "10.1007/11493853_15"
     }
 ]

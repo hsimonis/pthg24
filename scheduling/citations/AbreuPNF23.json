@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "creation": "2024-02",
+        "timespan": "P0Y2M",
+        "author_sc": "no",
+        "oci": "062304205493-06104359593",
+        "journal_sc": "no",
+        "citing": "10.1016/j.jer.2024.02.019",
+        "cited": "10.1016/j.cor.2023.106386"
+    },
+    {
+        "creation": "2024-03",
+        "timespan": "P0Y3M",
+        "author_sc": "yes",
+        "oci": "06904266857-06104359593",
+        "journal_sc": "no",
+        "citing": "10.1016/j.rico.2023.100350",
+        "cited": "10.1016/j.cor.2023.106386"
+    }
+]

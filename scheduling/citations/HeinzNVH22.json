@@ -1,47 +1,56 @@
 [
     {
+        "creation": "2023-12",
+        "timespan": "P1Y2M",
         "author_sc": "no",
-        "cited": "10.1016/j.cie.2022.108586",
         "oci": "06104359593-062103423194",
         "journal_sc": "no",
         "citing": "10.1016/j.cor.2023.106386",
-        "creation": "2023-12",
-        "timespan": "P1Y2M"
+        "cited": "10.1016/j.cie.2022.108586"
     },
     {
+        "creation": "2023-02",
+        "timespan": "P0Y4M",
         "author_sc": "no",
-        "cited": "10.1016/j.cie.2022.108586",
         "oci": "061103449311-062103423194",
         "journal_sc": "no",
         "citing": "10.1016/j.omega.2022.102770",
-        "creation": "2023-02",
-        "timespan": "P0Y4M"
+        "cited": "10.1016/j.cie.2022.108586"
     },
     {
+        "creation": "2023",
+        "timespan": "P0Y",
         "author_sc": "no",
-        "cited": "10.1016/j.cie.2022.108586",
         "oci": "062604035826-062103423194",
         "journal_sc": "no",
         "citing": "10.3934/mbe.2023683",
-        "creation": "2023",
-        "timespan": "P0Y"
+        "cited": "10.1016/j.cie.2022.108586"
     },
     {
+        "creation": "2023-07-19",
+        "timespan": "P0Y9M",
         "author_sc": "no",
-        "cited": "10.1016/j.cie.2022.108586",
         "oci": "06504375570-062103423194",
         "journal_sc": "no",
         "citing": "10.1007/s10288-023-00547-3",
-        "creation": "2023-07-19",
-        "timespan": "P0Y9M"
+        "cited": "10.1016/j.cie.2022.108586"
     },
     {
+        "creation": "2023-02-09",
+        "timespan": "P0Y4M",
         "author_sc": "no",
-        "cited": "10.1016/j.cie.2022.108586",
         "oci": "0652078053-062103423194",
         "journal_sc": "no",
         "citing": "10.1080/00207543.2023.2173503",
-        "creation": "2023-02-09",
-        "timespan": "P0Y4M"
+        "cited": "10.1016/j.cie.2022.108586"
+    },
+    {
+        "creation": "2024-03",
+        "timespan": "P1Y5M",
+        "author_sc": "no",
+        "oci": "06904266857-062103423194",
+        "journal_sc": "no",
+        "citing": "10.1016/j.rico.2023.100350",
+        "cited": "10.1016/j.cie.2022.108586"
     }
 ]

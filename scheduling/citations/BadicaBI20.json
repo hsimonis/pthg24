@@ -1,20 +1,29 @@
 [
     {
+        "creation": "2023-09",
+        "timespan": "P3Y0M",
         "author_sc": "no",
-        "cited": "10.3233/aic-200650",
         "oci": "061103967338-06220773853",
         "journal_sc": "no",
         "citing": "10.1016/j.simpat.2023.102777",
-        "creation": "2023-09",
-        "timespan": "P3Y0M"
+        "cited": "10.3233/aic-200650"
     },
     {
+        "creation": "2024-01-07",
+        "timespan": "P3Y5M2D",
         "author_sc": "no",
-        "cited": "10.3233/aic-200650",
+        "oci": "061104241737-06220773853",
+        "journal_sc": "no",
+        "citing": "10.4018/ijiit.335523",
+        "cited": "10.3233/aic-200650"
+    },
+    {
+        "creation": "2021",
+        "timespan": "P0Y",
+        "author_sc": "no",
         "oci": "062501459686-06220773853",
         "journal_sc": "no",
         "citing": "10.1007/978-3-030-88081-1_25",
-        "creation": "2021",
-        "timespan": "P0Y"
+        "cited": "10.3233/aic-200650"
     }
 ]

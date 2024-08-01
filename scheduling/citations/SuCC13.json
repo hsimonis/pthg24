@@ -1,20 +1,20 @@
 [
     {
-        "journal_sc": "no",
-        "oci": "06703912713-062101291204",
-        "author_sc": "no",
-        "citing": "10.1016/j.ejor.2022.10.010",
+        "creation": "2023-05",
         "timespan": "P9Y11M",
-        "cited": "10.1016/j.cie.2013.02.021",
-        "creation": "2023-05"
+        "author_sc": "no",
+        "oci": "06703912713-062101291204",
+        "journal_sc": "no",
+        "citing": "10.1016/j.ejor.2022.10.010",
+        "cited": "10.1016/j.cie.2013.02.021"
     },
     {
-        "journal_sc": "no",
-        "oci": "06901250368-062101291204",
-        "author_sc": "no",
-        "citing": "10.1051/matecconf/201815005027",
+        "creation": "2018",
         "timespan": "P4Y",
-        "cited": "10.1016/j.cie.2013.02.021",
-        "creation": "2018"
+        "author_sc": "no",
+        "oci": "06901250368-062101291204",
+        "journal_sc": "no",
+        "citing": "10.1051/matecconf/201815005027",
+        "cited": "10.1016/j.cie.2013.02.021"
     }
 ]

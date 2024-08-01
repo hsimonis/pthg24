@@ -1,56 +1,56 @@
 [
     {
-        "journal_sc": "no",
+        "creation": "2019",
+        "timespan": "P1Y",
+        "author_sc": "yes",
         "oci": "061202069659-06302755090",
-        "author_sc": "yes",
+        "journal_sc": "no",
         "citing": "10.1007/978-3-030-30048-7_2",
-        "timespan": "P1Y",
-        "cited": "10.24963/ijcai.2017/78",
-        "creation": "2019"
+        "cited": "10.24963/ijcai.2017/78"
     },
     {
-        "journal_sc": "no",
-        "oci": "061701300163-06302755090",
-        "author_sc": "yes",
-        "citing": "10.1016/j.cie.2020.106777",
+        "creation": "2020-11",
         "timespan": "P3Y3M",
-        "cited": "10.24963/ijcai.2017/78",
-        "creation": "2020-11"
+        "author_sc": "yes",
+        "oci": "061701300163-06302755090",
+        "journal_sc": "no",
+        "citing": "10.1016/j.cie.2020.106777",
+        "cited": "10.24963/ijcai.2017/78"
     },
     {
-        "journal_sc": "no",
-        "oci": "062502238728-06302755090",
-        "author_sc": "yes",
-        "citing": "10.1007/978-3-319-66158-2_5",
+        "creation": "2017",
         "timespan": "P0Y",
-        "cited": "10.24963/ijcai.2017/78",
-        "creation": "2017"
+        "author_sc": "yes",
+        "oci": "062502238728-06302755090",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-319-66158-2_5",
+        "cited": "10.24963/ijcai.2017/78"
     },
     {
-        "journal_sc": "no",
-        "oci": "06303530749-06302755090",
-        "author_sc": "yes",
-        "citing": "10.1007/s10462-020-09817-6",
+        "creation": "2020-02-18",
         "timespan": "P2Y6M",
-        "cited": "10.24963/ijcai.2017/78",
-        "creation": "2020-02-18"
-    },
-    {
-        "journal_sc": "no",
-        "oci": "06702451067-06302755090",
         "author_sc": "yes",
-        "citing": "10.1007/978-3-030-19212-9_8",
-        "timespan": "P1Y",
-        "cited": "10.24963/ijcai.2017/78",
-        "creation": "2019"
+        "oci": "06303530749-06302755090",
+        "journal_sc": "no",
+        "citing": "10.1007/s10462-020-09817-6",
+        "cited": "10.24963/ijcai.2017/78"
     },
     {
-        "journal_sc": "no",
-        "oci": "06702451068-06302755090",
-        "author_sc": "no",
-        "citing": "10.1007/978-3-030-19212-9_43",
+        "creation": "2019",
         "timespan": "P1Y",
-        "cited": "10.24963/ijcai.2017/78",
-        "creation": "2019"
+        "author_sc": "yes",
+        "oci": "06702451067-06302755090",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-030-19212-9_8",
+        "cited": "10.24963/ijcai.2017/78"
+    },
+    {
+        "creation": "2019",
+        "timespan": "P1Y",
+        "author_sc": "no",
+        "oci": "06702451068-06302755090",
+        "journal_sc": "no",
+        "citing": "10.1007/978-3-030-19212-9_43",
+        "cited": "10.24963/ijcai.2017/78"
     }
 ]

@@ -763,6 +763,15 @@ Zbigniew Banaszak, Grzegorz Bocewicz, and Irena Bach.
   {https://doi.org/10.7494/dmms.2008.2.2.5}
   {\path{doi:10.7494/dmms.2008.2.2.5}}.
 
+\bibitem{Bansal2024}
+Akshat Bansal, Kezhe~Perumpadappu Anoop, and Narayan Rangaraj.
+\newblock Heuristic for railway crew scheduling with connectivity of schedules.
+\newblock {\em Transportation Research Record: Journal of the Transportation
+  Research Board}, 2024.
+\newblock URL: \url{http://dx.doi.org/10.1177/03611981231223190}, \href
+  {https://doi.org/10.1177/03611981231223190}
+  {\path{doi:10.1177/03611981231223190}}.
+
 \bibitem{Baptiste02}
 Philippe Baptiste.
 \newblock {\em {R{\'e}sultats de complexit{\'e} et programmation par
@@ -821,8 +830,8 @@ Philippe Baptiste and Claude~Le Pape.
 \newblock Constraint propagation and decomposition techniques for highly
   disjunctive and highly cumulative project scheduling problems.
 \newblock In Gert Smolka, editor, {\em Principles and Practice of Constraint
-  Programming - CP97, Third International Conference, Linz, Austria, October 29
-  - November 1, 1997, Proceedings}, volume 1330 of {\em Lecture Notes in
+  Programming - {CP}97, Third International Conference, Linz, Austria, October
+  29 - November 1, 1997, Proceedings}, volume 1330 of {\em Lecture Notes in
   Computer Science}, pages 375--389. Springer, 1997.
 \newblock URL: \url{https://doi.org/10.1007/BFb0017454}, \href
   {https://doi.org/10.1007/BFB0017454} {\path{doi:10.1007/BFB0017454}}.
@@ -1094,8 +1103,8 @@ J.~Christopher Beck, Andrew~J. Davenport, Eugene~D. Davis, and Mark~S. Fox.
 J.~Christopher Beck, Andrew~J. Davenport, and Mark~S. Fox.
 \newblock Five pitfalls of empirical scheduling research.
 \newblock In Gert Smolka, editor, {\em Principles and Practice of Constraint
-  Programming - CP97, Third International Conference, Linz, Austria, October 29
-  - November 1, 1997, Proceedings}, volume 1330 of {\em Lecture Notes in
+  Programming - {CP}97, Third International Conference, Linz, Austria, October
+  29 - November 1, 1997, Proceedings}, volume 1330 of {\em Lecture Notes in
   Computer Science}, pages 390--404. Springer, 1997.
 \newblock URL: \url{https://doi.org/10.1007/BFb0017455}, \href
   {https://doi.org/10.1007/BFB0017455} {\path{doi:10.1007/BFB0017455}}.
@@ -2284,8 +2293,8 @@ Yves Caseau.
 \newblock Using constraint propagation for complex scheduling problems:
   Managing size, complex resources and travel.
 \newblock In Gert Smolka, editor, {\em Principles and Practice of Constraint
-  Programming - CP97, Third International Conference, Linz, Austria, October 29
-  - November 1, 1997, Proceedings}, volume 1330 of {\em Lecture Notes in
+  Programming - {CP}97, Third International Conference, Linz, Austria, October
+  29 - November 1, 1997, Proceedings}, volume 1330 of {\em Lecture Notes in
   Computer Science}, pages 163--166. Springer, 1997.
 \newblock URL: \url{https://doi.org/10.1007/BFb0017437}, \href
   {https://doi.org/10.1007/BFB0017437} {\path{doi:10.1007/BFB0017437}}.
@@ -2380,7 +2389,7 @@ Amedeo Cesta, Angelo Oddi, and Stephen~F. Smith.
 \newblock Scheduling multi-capacitated resources under complex temporal
   constraints.
 \newblock In Michael~J. Maher and Jean{-}Francois Puget, editors, {\em
-  Principles and Practice of Constraint Programming - CP98, 4th International
+  Principles and Practice of Constraint Programming - {CP}98, 4th International
   Conference, Pisa, Italy, October 26-30, 1998, Proceedings}, volume 1520 of
   {\em Lecture Notes in Computer Science}, page 465. Springer, 1998.
 \newblock \href {https://doi.org/10.1007/3-540-49481-2_36}
@@ -2669,6 +2678,15 @@ Giacomo~Da Col and Erich Teppan.
 \newblock {\em CoRR}, abs/2102.08778, 2021.
 \newblock URL: \url{https://arxiv.org/abs/2102.08778}, \href
   {http://arxiv.org/abs/2102.08778} {\path{arXiv:2102.08778}}.
+
+\bibitem{Col2024}
+Giacomo~Da Col and Erich Teppan.
+\newblock Pursuing the optimal cp model: A batch scheduling case study.
+\newblock In {\em Intelligent Systems and Applications. IntelliSys 2023}.
+  Springer Nature Switzerland, 2024.
+\newblock URL: \url{http://dx.doi.org/10.1007/978-3-031-47721-8_34}, \href
+  {https://doi.org/10.1007/978-3-031-47721-8_34}
+  {\path{doi:10.1007/978-3-031-47721-8_34}}.
 
 \bibitem{ColT19}
 Giacomo~Da Col and Erich~Christian Teppan.
@@ -3887,7 +3905,7 @@ Daniel Frost and Rina Dechter.
 \newblock Optimizing with constraints: {A} case study in scheduling maintenance
   of electric power units.
 \newblock In Michael~J. Maher and Jean{-}Francois Puget, editors, {\em
-  Principles and Practice of Constraint Programming - CP98, 4th International
+  Principles and Practice of Constraint Programming - {CP}98, 4th International
   Conference, Pisa, Italy, October 26-30, 1998, Proceedings}, volume 1520 of
   {\em Lecture Notes in Computer Science}, page 469. Springer, 1998.
 \newblock \href {https://doi.org/10.1007/3-540-49481-2_40}
@@ -5084,6 +5102,15 @@ Willy Herroelen, Bert De~Reyck, and Erik Demeulemeester.
   {https://doi.org/10.1016/s0305-0548(97)00055-5}
   {\path{doi:10.1016/s0305-0548(97)00055-5}}.
 
+\bibitem{Hessami2024}
+Shiba Hessami, Hamed Davari-Ardakani, Youness Javid, and Mariam Ameli.
+\newblock Bi-objective optimization of a multi-mode, multi-site
+  resource-constrained project scheduling problem.
+\newblock {\em Journal of Modelling in Management}, 19, 2024.
+\newblock URL: \url{http://dx.doi.org/10.1108/jm2-06-2023-0123}, \href
+  {https://doi.org/10.1108/jm2-06-2023-0123}
+  {\path{doi:10.1108/jm2-06-2023-0123}}.
+
 \bibitem{HillBCGN22}
 Alessandro Hill, Andrea~J. Brickey, Italo Cipriano, Marcos Goycoolea, and
   Alexandra Newman.
@@ -5954,6 +5981,15 @@ Rainer Kolisch and Arno Sprecher.
 \newblock URL: \url{http://dx.doi.org/10.1016/s0377-2217(96)00170-1}, \href
   {https://doi.org/10.1016/s0377-2217(96)00170-1}
   {\path{doi:10.1016/s0377-2217(96)00170-1}}.
+
+\bibitem{Komasilovs2024}
+Vitalijs Komasilovs, Aleksejs Zacepins, Armands Kviesis, and Vladislavs
+  Bezrukovs.
+\newblock Model for hydrogen production scheduling optimisation.
+\newblock {\em Modelling}, 5, 2024.
+\newblock URL: \url{http://dx.doi.org/10.3390/modelling5010014}, \href
+  {https://doi.org/10.3390/modelling5010014}
+  {\path{doi:10.3390/modelling5010014}}.
 
 \bibitem{Kong2020}
 Feng Kong and Dong Dou.
@@ -9248,6 +9284,15 @@ Jean{-}Fran{\c{c}}ois Rit.
   1986. Volume 1: Science}, pages 383--388. Morgan Kaufmann, 1986.
 \newblock URL: \url{http://www.aaai.org/Library/AAAI/1986/aaai86-064.php}.
 
+\bibitem{Rodler2021}
+Patrick Rodler, Erich Teppan, and Dietmar Jannach.
+\newblock Randomized problem-relaxation solving for over-constrained schedules.
+\newblock In {\em Proceedings of the Eighteenth International Conference on
+  Principles of Knowledge Representation and Reasoning}. International Joint
+  Conferences on Artificial Intelligence Organization, 2021.
+\newblock URL: \url{http://dx.doi.org/10.24963/kr.2021/72}, \href
+  {https://doi.org/10.24963/kr.2021/72} {\path{doi:10.24963/kr.2021/72}}.
+
 \bibitem{Rodosek94}
 Robert Rodosek.
 \newblock Combining constraint network and causal theory to solve scheduling
@@ -9260,7 +9305,7 @@ Robert Rodosek.
 Robert Rodosek and Mark~G. Wallace.
 \newblock A generic model and hybrid algorithm for hoist scheduling problems.
 \newblock In Michael~J. Maher and Jean{-}Francois Puget, editors, {\em
-  Principles and Practice of Constraint Programming - CP98, 4th International
+  Principles and Practice of Constraint Programming - {CP}98, 4th International
   Conference, Pisa, Italy, October 26-30, 1998, Proceedings}, volume 1520 of
   {\em Lecture Notes in Computer Science}, pages 385--399. Springer, 1998.
 \newblock \href {https://doi.org/10.1007/3-540-49481-2_28}
@@ -9764,6 +9809,16 @@ Felicia Schweitzer, Günter Bitsch, and Louis Louw.
 \newblock {\em Applied Sciences}, 13, 2023.
 \newblock URL: \url{http://dx.doi.org/10.3390/app13020806}, \href
   {https://doi.org/10.3390/app13020806} {\path{doi:10.3390/app13020806}}.
+
+\bibitem{Sciau2024}
+Jean-Baptiste Sciau, Agathe Goyon, Alexandre Sarazin, Jérémy Bascans, Charles
+  Prud’homme, and Xavier Lorca.
+\newblock Using constraint programming to address the operational aircraft line
+  maintenance scheduling problem.
+\newblock {\em Journal of Air Transport Management}, 115, 2024.
+\newblock URL: \url{http://dx.doi.org/10.1016/j.jairtraman.2024.102537}, \href
+  {https://doi.org/10.1016/j.jairtraman.2024.102537}
+  {\path{doi:10.1016/j.jairtraman.2024.102537}}.
 
 \bibitem{SenderovichBB19}
 Arik Senderovich, Kyle E.~C. Booth, and J.~Christopher Beck.
@@ -11915,6 +11970,15 @@ Xuedong Zhu, Junbo Son, Xi~Zhang, and Jianguo Wu.
   {https://doi.org/10.1016/j.omega.2022.102823}
   {\path{doi:10.1016/j.omega.2022.102823}}.
 
+\bibitem{Ziadlou2024}
+Ghazal Ziadlou, Saeed Emami, and Ebrahim Asadi-Gangraj.
+\newblock Network configuration distributed production scheduling problem: A
+  constraint programming approach.
+\newblock {\em Computers \& Industrial Engineering}, 188, 2024.
+\newblock URL: \url{http://dx.doi.org/10.1016/j.cie.2024.109916}, \href
+  {https://doi.org/10.1016/j.cie.2024.109916}
+  {\path{doi:10.1016/j.cie.2024.109916}}.
+
 \bibitem{ZibranR11}
 Minhaz~F. Zibran and Chanchal~K. Roy.
 \newblock Conflict-aware optimal scheduling of code clone refactoring: {A}
@@ -11950,6 +12014,14 @@ Tao Zou, Ronan~Le Bras, Marcos~Vaz Salles, Alan Demers, and Johannes Gehrke.
 \newblock URL: \url{http://dx.doi.org/10.14778/2535568.2448945}, \href
   {https://doi.org/10.14778/2535568.2448945}
   {\path{doi:10.14778/2535568.2448945}}.
+
+\bibitem{Zou2024}
+Xin Zou and Zhuang Rong.
+\newblock Resource-constrained repetitive project scheduling with soft logic.
+\newblock {\em Engineering, Construction and Architectural Management}, 2024.
+\newblock URL: \url{http://dx.doi.org/10.1108/ecam-08-2022-0703}, \href
+  {https://doi.org/10.1108/ecam-08-2022-0703}
+  {\path{doi:10.1108/ecam-08-2022-0703}}.
 
 \bibitem{ZouZ20}
 Xin Zou and Lihui Zhang.

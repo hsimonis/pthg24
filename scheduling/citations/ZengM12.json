@@ -1,29 +1,29 @@
 [
     {
-        "journal_sc": "no",
-        "oci": "06102313434-06150168227",
-        "author_sc": "no",
-        "citing": "10.1142/s0217595913400083",
+        "creation": "2013-06",
         "timespan": "P0Y11M",
-        "cited": "10.1016/j.cor.2011.10.004",
-        "creation": "2013-06"
+        "author_sc": "no",
+        "oci": "06102313434-06150168227",
+        "journal_sc": "no",
+        "citing": "10.1142/s0217595913400083",
+        "cited": "10.1016/j.cor.2011.10.004"
     },
     {
-        "journal_sc": "no",
-        "oci": "06190226168-06150168227",
-        "author_sc": "no",
-        "citing": "10.1016/j.ejor.2019.07.023",
+        "creation": "2020-01",
         "timespan": "P7Y6M",
-        "cited": "10.1016/j.cor.2011.10.004",
-        "creation": "2020-01"
+        "author_sc": "no",
+        "oci": "06190226168-06150168227",
+        "journal_sc": "no",
+        "citing": "10.1016/j.ejor.2019.07.023",
+        "cited": "10.1016/j.cor.2011.10.004"
     },
     {
-        "journal_sc": "no",
-        "oci": "062101290682-06150168227",
-        "author_sc": "no",
-        "citing": "10.1016/j.cie.2015.02.006",
+        "creation": "2015-05",
         "timespan": "P2Y10M",
-        "cited": "10.1016/j.cor.2011.10.004",
-        "creation": "2015-05"
+        "author_sc": "no",
+        "oci": "062101290682-06150168227",
+        "journal_sc": "no",
+        "citing": "10.1016/j.cie.2015.02.006",
+        "cited": "10.1016/j.cor.2011.10.004"
     }
 ]

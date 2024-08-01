@@ -1,47 +1,56 @@
 [
     {
+        "creation": "2022-07",
+        "timespan": "P0Y8M",
         "author_sc": "no",
-        "cited": "10.1007/s00500-021-06399-5",
         "oci": "062103423265-06170782487",
         "journal_sc": "no",
         "citing": "10.1016/j.cie.2022.108201",
-        "creation": "2022-07",
-        "timespan": "P0Y8M"
+        "cited": "10.1007/s00500-021-06399-5"
     },
     {
+        "creation": "2023-12",
+        "timespan": "P2Y1M",
         "author_sc": "no",
-        "cited": "10.1007/s00500-021-06399-5",
+        "oci": "06310354269-06170782487",
+        "journal_sc": "no",
+        "citing": "10.1016/j.heliyon.2023.e22678",
+        "cited": "10.1007/s00500-021-06399-5"
+    },
+    {
+        "creation": "2023-07",
+        "timespan": "P1Y8M",
+        "author_sc": "no",
         "oci": "06480122723-06170782487",
         "journal_sc": "no",
         "citing": "10.1109/tase.2022.3195540",
-        "creation": "2023-07",
-        "timespan": "P1Y8M"
+        "cited": "10.1007/s00500-021-06399-5"
     },
     {
+        "creation": "2023-06-27",
+        "timespan": "P1Y7M30D",
         "author_sc": "no",
-        "cited": "10.1007/s00500-021-06399-5",
         "oci": "06704353118-06170782487",
         "journal_sc": "no",
         "citing": "10.1680/jsmic.22.00038",
-        "creation": "2023-06-27",
-        "timespan": "P1Y7M30D"
+        "cited": "10.1007/s00500-021-06399-5"
     },
     {
+        "creation": "2023-04-29",
+        "timespan": "P1Y6M1D",
         "author_sc": "no",
-        "cited": "10.1007/s00500-021-06399-5",
         "oci": "06903999351-06170782487",
         "journal_sc": "no",
         "citing": "10.1007/s12205-023-2164-8",
-        "creation": "2023-04-29",
-        "timespan": "P1Y6M1D"
+        "cited": "10.1007/s00500-021-06399-5"
     },
     {
-        "author_sc": "no",
-        "cited": "10.1007/s00500-021-06399-5",
+        "creation": "2023-06-19",
+        "timespan": "P1Y7M22D",
+        "author_sc": "yes",
         "oci": "06904001118-06170782487",
         "journal_sc": "yes",
         "citing": "10.1007/s00500-023-08756-y",
-        "creation": "2023-06-19",
-        "timespan": "P1Y7M22D"
+        "cited": "10.1007/s00500-021-06399-5"
     }
 ]

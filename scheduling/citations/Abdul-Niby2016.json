@@ -1,29 +1,38 @@
 [
     {
-        "author_sc": "no",
-        "cited": "10.48084/etasr.627",
-        "journal_sc": "no",
-        "oci": "061302374918-062201765201",
-        "timespan": "P5Y3M20D",
         "creation": "2021-08-06",
-        "citing": "10.1080/0305215x.2021.1957101"
-    },
-    {
+        "timespan": "P5Y3M20D",
         "author_sc": "no",
-        "cited": "10.48084/etasr.627",
+        "oci": "061302374918-062201765201",
         "journal_sc": "no",
-        "oci": "061803293731-062201765201",
-        "timespan": "P0Y",
-        "creation": "2017",
-        "citing": "10.1155/2017/6924506"
+        "citing": "10.1080/0305215x.2021.1957101",
+        "cited": "10.48084/etasr.627"
     },
     {
+        "creation": "2017",
+        "timespan": "P0Y",
         "author_sc": "no",
-        "cited": "10.48084/etasr.627",
+        "oci": "061803293731-062201765201",
+        "journal_sc": "no",
+        "citing": "10.1155/2017/6924506",
+        "cited": "10.48084/etasr.627"
+    },
+    {
+        "creation": "2024-02-08",
+        "timespan": "P7Y9M22D",
+        "author_sc": "no",
+        "oci": "06340383740-062201765201",
         "journal_sc": "yes",
-        "oci": "0635080855-062201765201",
-        "timespan": "P7Y1M16D",
+        "citing": "10.48084/etasr.6718",
+        "cited": "10.48084/etasr.627"
+    },
+    {
         "creation": "2023-06-02",
-        "citing": "10.48084/etasr.5417"
+        "timespan": "P7Y1M16D",
+        "author_sc": "no",
+        "oci": "0635080855-062201765201",
+        "journal_sc": "yes",
+        "citing": "10.48084/etasr.5417",
+        "cited": "10.48084/etasr.627"
     }
 ]

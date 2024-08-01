@@ -1,47 +1,47 @@
 [
     {
-        "journal_sc": "no",
+        "creation": "2022-09",
+        "timespan": "P8Y",
+        "author_sc": "no",
         "oci": "061601303704-061502056764",
-        "author_sc": "no",
+        "journal_sc": "no",
         "citing": "10.1016/j.cie.2022.108496",
-        "timespan": "P8Y",
-        "cited": "10.1155/2014/917685",
-        "creation": "2022-09"
+        "cited": "10.1155/2014/917685"
     },
     {
-        "journal_sc": "no",
+        "creation": "2022-10",
+        "timespan": "P8Y",
+        "author_sc": "no",
         "oci": "062103423219-061502056764",
-        "author_sc": "no",
+        "journal_sc": "no",
         "citing": "10.1016/j.cie.2022.108544",
-        "timespan": "P8Y",
-        "cited": "10.1155/2014/917685",
-        "creation": "2022-10"
+        "cited": "10.1155/2014/917685"
     },
     {
-        "journal_sc": "no",
-        "oci": "0636045777-061502056764",
-        "author_sc": "no",
-        "citing": "10.1007/s10845-018-1417-8",
+        "creation": "2018-03-27",
         "timespan": "P4Y",
-        "cited": "10.1155/2014/917685",
-        "creation": "2018-03-27"
+        "author_sc": "no",
+        "oci": "0636045777-061502056764",
+        "journal_sc": "no",
+        "citing": "10.1007/s10845-018-1417-8",
+        "cited": "10.1155/2014/917685"
     },
     {
-        "journal_sc": "no",
-        "oci": "06802345609-061502056764",
-        "author_sc": "no",
-        "citing": "10.1016/j.compchemeng.2021.107565",
+        "creation": "2022-01",
         "timespan": "P8Y",
-        "cited": "10.1155/2014/917685",
-        "creation": "2022-01"
+        "author_sc": "no",
+        "oci": "06802345609-061502056764",
+        "journal_sc": "no",
+        "citing": "10.1016/j.compchemeng.2021.107565",
+        "cited": "10.1155/2014/917685"
     },
     {
-        "journal_sc": "no",
-        "oci": "0690347439-061502056764",
-        "author_sc": "no",
-        "citing": "10.1007/s10844-016-0431-6",
+        "creation": "2016-10-12",
         "timespan": "P2Y",
-        "cited": "10.1155/2014/917685",
-        "creation": "2016-10-12"
+        "author_sc": "no",
+        "oci": "0690347439-061502056764",
+        "journal_sc": "no",
+        "citing": "10.1007/s10844-016-0431-6",
+        "cited": "10.1155/2014/917685"
     }
 ]

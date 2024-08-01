@@ -1,29 +1,38 @@
 [
     {
-        "journal_sc": "no",
-        "oci": "06104359593-06802345609",
-        "author_sc": "no",
-        "citing": "10.1016/j.cor.2023.106386",
+        "creation": "2023-12",
         "timespan": "P1Y11M",
-        "cited": "10.1016/j.compchemeng.2021.107565",
-        "creation": "2023-12"
+        "author_sc": "no",
+        "oci": "06104359593-06802345609",
+        "journal_sc": "no",
+        "citing": "10.1016/j.cor.2023.106386",
+        "cited": "10.1016/j.compchemeng.2021.107565"
     },
     {
-        "journal_sc": "no",
-        "oci": "061803511465-06802345609",
-        "author_sc": "no",
-        "citing": "10.1016/j.cie.2022.108760",
+        "creation": "2022-12",
         "timespan": "P0Y11M",
-        "cited": "10.1016/j.compchemeng.2021.107565",
-        "creation": "2022-12"
+        "author_sc": "no",
+        "oci": "061803511465-06802345609",
+        "journal_sc": "no",
+        "citing": "10.1016/j.cie.2022.108760",
+        "cited": "10.1016/j.compchemeng.2021.107565"
     },
     {
-        "journal_sc": "no",
-        "oci": "0631072610-06802345609",
-        "author_sc": "no",
-        "citing": "10.1016/j.cie.2023.109330",
+        "creation": "2023-07",
         "timespan": "P1Y6M",
-        "cited": "10.1016/j.compchemeng.2021.107565",
-        "creation": "2023-07"
+        "author_sc": "no",
+        "oci": "0631072610-06802345609",
+        "journal_sc": "no",
+        "citing": "10.1016/j.cie.2023.109330",
+        "cited": "10.1016/j.compchemeng.2021.107565"
+    },
+    {
+        "creation": "2024-03",
+        "timespan": "P2Y2M",
+        "author_sc": "no",
+        "oci": "06904266857-06802345609",
+        "journal_sc": "no",
+        "citing": "10.1016/j.rico.2023.100350",
+        "cited": "10.1016/j.compchemeng.2021.107565"
     }
 ]
