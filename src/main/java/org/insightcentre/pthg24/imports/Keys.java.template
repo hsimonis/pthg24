@@ -1,0 +1,6 @@
+package org.insightcentre.pthg24.imports;
+
+public class Keys {
+    public static String opencitationsKey="";
+    public static String scopusKey="";
+}
