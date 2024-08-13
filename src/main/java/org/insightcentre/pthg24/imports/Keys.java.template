@@ -1,6 +1,8 @@
 package org.insightcentre.pthg24.imports;
 
 public class Keys {
+// get key from https://opencitations.net/accesstoken
     public static String opencitationsKey="";
+// get API key from https://dev.elsevier.com/
     public static String scopusKey="";
 }
