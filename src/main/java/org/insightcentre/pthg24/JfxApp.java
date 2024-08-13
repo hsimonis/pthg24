@@ -46,7 +46,7 @@ public class JfxApp extends GeneratedJfxApp {
                 base.setDirty(false);
                 new CreateTranslators(base);
 
-                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones","uncertaincp"
+                String type = "uncertaincp"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones","uncertaincp"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept
@@ -97,7 +97,7 @@ public class JfxApp extends GeneratedJfxApp {
                                 ageWeight = 0;
                                 coauthorLimit = 2;
                                 linkCountLimit = 1;
-                                conceptTypes=new String[]{"Uncertainty","CP"};
+                                conceptTypes=new String[]{"Uncertainty","CP","Concept"};
                                 getLimit=1000;
                                 break;
                         case "medicaldrones":
