@@ -46,7 +46,7 @@ public class JfxApp extends GeneratedJfxApp {
                 base.setDirty(false);
                 new CreateTranslators(base);
 
-                String type = "uncertaincp"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones","uncertaincp"
+                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones","uncertaincp"
 
                 // these must be set for each type
                 String prefix = "cars/"; // the overall directory where data for this type is kept

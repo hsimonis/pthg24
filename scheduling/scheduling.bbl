@@ -2483,6 +2483,19 @@ Yarong Chen, Zailin Guan, Yunfang Peng, Xinyu Shao, and Muhammad Hasseb.
   {https://doi.org/10.1007/s11465-010-0106-x}
   {\path{doi:10.1007/s11465-010-0106-x}}.
 
+\bibitem{Cherif24}
+Sami Cherif, Heythem Sattoutah, Chu{-}Min Li, Corinne Lucet, and Laure~Brisoux
+  Devendeville.
+\newblock Minimizing working-group conflicts in conference session scheduling
+  through maximum satisfiability (short paper).
+\newblock In Paul Shaw, editor, {\em 30th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2024, September 2-6,
+  2024, Girona, Spain}, volume 307 of {\em LIPIcs}, pages 34:1--34:11. Schloss
+  Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2024.
+\newblock URL: \url{https://doi.org/10.4230/LIPIcs.CP.2024.34}, \href
+  {https://doi.org/10.4230/LIPICS.CP.2024.34}
+  {\path{doi:10.4230/LIPICS.CP.2024.34}}.
+
 \bibitem{Choi2007}
 C.~W. Choi, J.~H.~M. Lee, and P.~J. Stuckey.
 \newblock Removing propagation redundant constraints in redundant modeling.
@@ -2630,6 +2643,17 @@ Alexis~De Clercq, Thierry Petit, Nicolas Beldiceanu, and Narendra Jussien.
   {\em Lecture Notes in Computer Science}, pages 240--255. Springer, 2011.
 \newblock \href {https://doi.org/10.1007/978-3-642-23786-7_20}
   {\path{doi:10.1007/978-3-642-23786-7_20}}.
+
+\bibitem{Cloutier24}
+Samuel Cloutier and Claude{-}Guy Quimper.
+\newblock Cumulative scheduling with calendars and overtime.
+\newblock In Paul Shaw, editor, {\em 30th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2024, September 2-6,
+  2024, Girona, Spain}, volume 307 of {\em LIPIcs}, pages 7:1--7:16. Schloss
+  Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2024.
+\newblock URL: \url{https://doi.org/10.4230/LIPIcs.CP.2024.7}, \href
+  {https://doi.org/10.4230/LIPICS.CP.2024.7}
+  {\path{doi:10.4230/LIPICS.CP.2024.7}}.
 
 \bibitem{CobanH10}
 Elvin Coban and John~N. Hooker.
@@ -4403,6 +4427,18 @@ R.~L. Graham, E.~L. Lawler, Jan~Karel Lenstra, and A.~H. G.~Rinnooy Kan.
 \newblock URL: \url{http://dx.doi.org/10.1016/s0167-5060(08)70356-x}, \href
   {https://doi.org/10.1016/s0167-5060(08)70356-x}
   {\path{doi:10.1016/s0167-5060(08)70356-x}}.
+
+\bibitem{Green24}
+Adam~Francis Green, J.~Christopher Beck, and Amanda~Jane Coles.
+\newblock Using constraint programming for disjunctive scheduling in temporal
+  {AI} planning.
+\newblock In Paul Shaw, editor, {\em 30th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2024, September 2-6,
+  2024, Girona, Spain}, volume 307 of {\em LIPIcs}, pages 12:1--12:17. Schloss
+  Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2024.
+\newblock URL: \url{https://doi.org/10.4230/LIPIcs.CP.2024.12}, \href
+  {https://doi.org/10.4230/LIPICS.CP.2024.12}
+  {\path{doi:10.4230/LIPICS.CP.2024.12}}.
 
 \bibitem{GrimesH10}
 Diarmuid Grimes and Emmanuel Hebrard.
@@ -6450,6 +6486,18 @@ Colin~J. Layfield.
 \newblock {\em A constraint programming pre-processor for duty scheduling}.
 \newblock PhD thesis, University of Leeds, {UK}, 2002.
 \newblock URL: \url{http://etheses.whiterose.ac.uk/1301/}.
+
+\bibitem{Le24}
+Duc~Anh Le, St{\'{e}}phanie Roussel, Christophe Lecoutre, and Anouck Chan.
+\newblock Learning effect and compound activities in high multiplicity {RCPSP:}
+  application to satellite production.
+\newblock In Paul Shaw, editor, {\em 30th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2024, September 2-6,
+  2024, Girona, Spain}, volume 307 of {\em LIPIcs}, pages 18:1--18:25. Schloss
+  Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2024.
+\newblock URL: \url{https://doi.org/10.4230/LIPIcs.CP.2024.18}, \href
+  {https://doi.org/10.4230/LIPICS.CP.2024.18}
+  {\path{doi:10.4230/LIPICS.CP.2024.18}}.
 
 \bibitem{LeeKLKKYHP97}
 Kyoung~Jun Lee, Hyun~Woo Kim, Jae~Kyu Lee, Tae~Hwan Kim, Chang~Gon Kim,
@@ -8964,6 +9012,18 @@ J.~Psarras, E.~Stefanitsis, and N.~Christodoulou.
   {https://doi.org/10.1016/s0377-2217(96)00114-2}
   {\path{doi:10.1016/s0377-2217(96)00114-2}}.
 
+\bibitem{Pucel24}
+Xavier Pucel and St{\'{e}}phanie Roussel.
+\newblock Constraint programming model for assembly line balancing and
+  scheduling with walking workers and parallel stations.
+\newblock In Paul Shaw, editor, {\em 30th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2024, September 2-6,
+  2024, Girona, Spain}, volume 307 of {\em LIPIcs}, pages 23:1--23:21. Schloss
+  Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2024.
+\newblock URL: \url{https://doi.org/10.4230/LIPIcs.CP.2024.23}, \href
+  {https://doi.org/10.4230/LIPICS.CP.2024.23}
+  {\path{doi:10.4230/LIPICS.CP.2024.23}}.
+
 \bibitem{Puget95}
 Jean{-}Francois Puget.
 \newblock Applications of constraint programming.
@@ -10342,6 +10402,16 @@ Yuanyuan Tan, MengChu Zhou, Yingying Wang, Xiwang Guo, and Liang Qi.
   {https://doi.org/10.1109/tase.2019.2894093}
   {\path{doi:10.1109/tase.2019.2894093}}.
 
+\bibitem{Tang2020}
+Tanya Tang.
+\newblock {\em Exact and Heuristic Approaches to Batching-and-Scheduling for
+  the Composites Manufacturing Problem}.
+\newblock PhD thesis, Graduate Department of Mechanical and Industrial
+  Engineering, University of Toronto, Toronto, Canada, 2020.
+\newblock Masters Thesis.
+\newblock URL:
+  \url{https://tidel.mie.utoronto.ca/pubs/Theses/Tanya_final_thesis.pdf}.
+
 \bibitem{TangB20}
 Tanya~Y. Tang and J.~Christopher Beck.
 \newblock {CP} and hybrid models for two-stage batching and scheduling.
@@ -11042,6 +11112,19 @@ Gérard Verfaillie, Cédric Pralet, and Michel Lemaître.
 \newblock URL: \url{http://dx.doi.org/10.1017/s0269888910000172}, \href
   {https://doi.org/10.1017/s0269888910000172}
   {\path{doi:10.1017/s0269888910000172}}.
+
+\bibitem{Verhaeghe24}
+H{\'{e}}l{\`{e}}ne Verhaeghe, Quentin Cappart, Gilles Pesant, and Claude{-}Guy
+  Quimper.
+\newblock Learning precedences for scheduling problems with graph neural
+  networks.
+\newblock In Paul Shaw, editor, {\em 30th International Conference on
+  Principles and Practice of Constraint Programming, {CP} 2024, September 2-6,
+  2024, Girona, Spain}, volume 307 of {\em LIPIcs}, pages 30:1--30:18. Schloss
+  Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik, 2024.
+\newblock URL: \url{https://doi.org/10.4230/LIPIcs.CP.2024.30}, \href
+  {https://doi.org/10.4230/LIPICS.CP.2024.30}
+  {\path{doi:10.4230/LIPICS.CP.2024.30}}.
 
 \bibitem{Vilim02}
 Petr Vil{\'{\i}}m.
