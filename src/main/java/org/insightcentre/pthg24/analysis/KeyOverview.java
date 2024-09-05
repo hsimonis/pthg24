@@ -33,8 +33,13 @@ public class KeyOverview {
             out.printf("\\endfoot\n");
             int i = 0;
             for(Work w:sorted){
-                out.printf("\\href{%s}{%s}~\\cite{%s}",
-                        local(w.getLocalCopy()),safe(w.getName()),
+                // old style: local copy and citation
+//                out.printf("\\href{%s}{%s}~\\cite{%s}",
+//                        local(w.getLocalCopy()),safe(w.getName()),
+//                        safe(w.getName()));
+                // new style: details of work
+                out.printf("\\hyperref[detail:%s]{%s}",
+                        safe(w.getName()),
                         safe(w.getName()));
                 if (++i % nrColumns == 0){
                     out.printf("\\\\ \n");
