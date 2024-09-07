@@ -442,6 +442,7 @@ public class ImportBib {
         if (res == null){
             res = new Journal(base);
             res.setName(name);
+            res.setShortName(name);
             res.setIssn(issn);
             if (issn!= null && !issn.equals("")){
                 aliasHash.put(issn,res);

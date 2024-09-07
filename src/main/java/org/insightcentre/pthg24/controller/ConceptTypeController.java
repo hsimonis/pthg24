@@ -2,6 +2,7 @@ package org.insightcentre.pthg24.controller;
 
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
+import java.lang.Double;
 import java.lang.Exception;
 import java.lang.Object;
 import java.lang.Override;
@@ -18,13 +19,22 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.ConceptType;
 
 /**
- * Generated at 17:09:16 on 2024-07-04 */
+ * Generated at 08:45:01 on 2024-09-07 */
 public class ConceptTypeController extends Table3Controller {
 	@FXML
 	private TableView<ConceptType> table;
 
 	@FXML
 	private TableColumn<ConceptType, String> name;
+
+	@FXML
+	private TableColumn<ConceptType, Double> weightA;
+
+	@FXML
+	private TableColumn<ConceptType, Double> weightB;
+
+	@FXML
+	private TableColumn<ConceptType, Double> weightC;
 
 	private GeneratedJfxApp mainApp;
 
@@ -47,6 +57,18 @@ public class ConceptTypeController extends Table3Controller {
 		name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		name.setCellFactory(TextFieldTableCell.forTableColumn());
 		name.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setName(event.getNewValue()); mainApp.reset();});
+		choices.add("weightA");
+		weightA.setCellValueFactory(new PropertyValueFactory<>("weightA"));
+		weightA.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		weightA.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setWeightA(event.getNewValue()); mainApp.reset();});
+		choices.add("weightB");
+		weightB.setCellValueFactory(new PropertyValueFactory<>("weightB"));
+		weightB.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		weightB.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setWeightB(event.getNewValue()); mainApp.reset();});
+		choices.add("weightC");
+		weightC.setCellValueFactory(new PropertyValueFactory<>("weightC"));
+		weightC.setCellFactory(TextFieldTableCell.forTableColumn(getDoubleConverter("#,##0.00")));
+		weightC.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setWeightC(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

@@ -32,7 +32,7 @@ import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 17:09:16 on 2024-07-04 */
+ * Generated at 08:45:01 on 2024-09-07 */
 public class InBookController extends Table3Controller {
 	@FXML
 	private TableView<InBook> table;

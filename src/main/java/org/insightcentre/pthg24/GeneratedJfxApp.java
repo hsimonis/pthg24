@@ -73,7 +73,7 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 17:09:16 on 2024-07-04 */
+ * Generated at 08:45:01 on 2024-09-07 */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
 		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");

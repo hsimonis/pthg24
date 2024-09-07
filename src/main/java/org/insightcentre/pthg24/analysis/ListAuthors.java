@@ -52,6 +52,7 @@ public class ListAuthors {
     private List<Author> sortedAuthors(Scenario base){
         return base.getListAuthor().stream().
                 filter(x->x.getNrWorks() > 0).
+//                filter(x->x.getNrWorks() >= 5).
                 sorted(Comparator.comparing(Author::getNrWorks).reversed().
                         thenComparing(Author::getFamilyName)).
                 toList();

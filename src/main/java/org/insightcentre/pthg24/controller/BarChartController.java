@@ -13,7 +13,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 
 /**
- * Generated at 17:09:16 on 2024-07-04 */
+ * Generated at 08:45:01 on 2024-09-07 */
 public class BarChartController extends ChartController {
 	@FXML
 	private BarChart<String, Number> chart;
@@ -22,6 +22,11 @@ public class BarChartController extends ChartController {
 	@SuppressWarnings("unchecked")
 	private void initialize() {
 		ObservableList<String> attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("weightA");
+		attributeNames.add("weightB");
+		attributeNames.add("weightC");
+		choicesMap.put("ConceptType", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("revision");
 		attributeNames.add("weight");
 		attributeNames.add("nrOccurrences");

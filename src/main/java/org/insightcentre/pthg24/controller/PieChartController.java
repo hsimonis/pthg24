@@ -15,7 +15,7 @@ import javafx.geometry.Side;
 import javafx.scene.chart.PieChart;
 
 /**
- * Generated at 17:09:16 on 2024-07-04 */
+ * Generated at 08:45:01 on 2024-09-07 */
 public class PieChartController extends ChartController {
 	public static final Double MIN_SLICE_PERCENTAGE = 1.0d;
 
@@ -46,6 +46,9 @@ public class PieChartController extends ChartController {
 		choicesMap.put("ApplicationWarning", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
+		attributeNames.add("weightA");
+		attributeNames.add("weightB");
+		attributeNames.add("weightC");
 		choicesMap.put("ConceptType", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");

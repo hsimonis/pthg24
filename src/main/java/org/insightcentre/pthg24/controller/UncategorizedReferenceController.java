@@ -23,7 +23,7 @@ import org.insightcentre.pthg24.datamodel.UncategorizedReference;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 17:09:16 on 2024-07-04 */
+ * Generated at 08:45:01 on 2024-09-07 */
 public class UncategorizedReferenceController extends Table3Controller {
 	@FXML
 	private TableView<UncategorizedReference> table;

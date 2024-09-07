@@ -363,6 +363,9 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="weightA" use="required" type="xs:double"/>
+			<xs:attribute name="weightB" use="required" type="xs:double"/>
+			<xs:attribute name="weightC" use="required" type="xs:double"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="conceptWork">

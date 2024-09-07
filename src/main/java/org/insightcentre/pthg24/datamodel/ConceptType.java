@@ -73,6 +73,27 @@ import framework.AppearInCollection;
 
 public  class ConceptType extends ApplicationObject{
 /**
+ *  
+ *
+*/
+
+    public Double weightA;
+
+/**
+ *  
+ *
+*/
+
+    public Double weightB;
+
+/**
+ *  
+ *
+*/
+
+    public Double weightC;
+
+/**
  *  No-arg constructor for use in TableView
  *
 */
@@ -91,6 +112,9 @@ public  class ConceptType extends ApplicationObject{
 
     public ConceptType(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setWeightA(0.0);
+        setWeightB(0.0);
+        setWeightC(0.0);
         applicationDataset.addConceptType(this);
     }
 
@@ -103,17 +127,26 @@ public  class ConceptType extends ApplicationObject{
 
     public ConceptType(ApplicationDataset applicationDataset,
             Integer id,
-            String name){
+            String name,
+            Double weightA,
+            Double weightB,
+            Double weightC){
         super(applicationDataset,
             id,
             name);
+        setWeightA(weightA);
+        setWeightB(weightB);
+        setWeightC(weightC);
         applicationDataset.addConceptType(this);
     }
 
     public ConceptType(ConceptType other){
         this(other.applicationDataset,
             other.id,
-            other.name);
+            other.name,
+            other.weightA,
+            other.weightB,
+            other.weightC);
     }
 
 /**
@@ -126,6 +159,72 @@ public  class ConceptType extends ApplicationObject{
     public Boolean remove(){
         getApplicationDataset().cascadeConceptConceptType(this);
         return getApplicationDataset().removeConceptType(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  get attribute weightA
+ *
+ * @return Double
+*/
+
+    public Double getWeightA(){
+        return this.weightA;
+    }
+
+/**
+ *  get attribute weightB
+ *
+ * @return Double
+*/
+
+    public Double getWeightB(){
+        return this.weightB;
+    }
+
+/**
+ *  get attribute weightC
+ *
+ * @return Double
+*/
+
+    public Double getWeightC(){
+        return this.weightC;
+    }
+
+/**
+ *  set attribute weightA, mark dataset as dirty, mark dataset as not valid
+@param weightA Double
+ *
+*/
+
+    public void setWeightA(Double weightA){
+        this.weightA = weightA;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute weightB, mark dataset as dirty, mark dataset as not valid
+@param weightB Double
+ *
+*/
+
+    public void setWeightB(Double weightB){
+        this.weightB = weightB;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute weightC, mark dataset as dirty, mark dataset as not valid
+@param weightC Double
+ *
+*/
+
+    public void setWeightC(Double weightC){
+        this.weightC = weightC;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -145,7 +244,7 @@ public  class ConceptType extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName();
+        return ""+ " " +getId()+ " " +getName()+ " " +getWeightA()+ " " +getWeightB()+ " " +getWeightC();
     }
 
 /**
@@ -168,8 +267,41 @@ public  class ConceptType extends ApplicationObject{
      public void toXML(PrintWriter out){
          out.println("<conceptType "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
-            " name=\""+toXMLName()+"\""+" />");
+            " name=\""+toXMLName()+"\""+
+            " weightA=\""+toXMLWeightA()+"\""+
+            " weightB=\""+toXMLWeightB()+"\""+
+            " weightC=\""+toXMLWeightC()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLWeightA(){
+        return this.getWeightA().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLWeightB(){
+        return this.getWeightB().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLWeightC(){
+        return this.getWeightC().toString();
+    }
 
 /**
  * show object as one row in an HTML table
@@ -178,11 +310,11 @@ public  class ConceptType extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>ConceptType</th>"+"<th>Name</th>"+"</tr>";
+        return "<tr><th>ConceptType</th>"+"<th>Name</th>"+"<th>WeightA</th>"+"<th>WeightB</th>"+"<th>WeightC</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getWeightA()+"</td>"+ " " +"<td>"+getWeightB()+"</td>"+ " " +"<td>"+getWeightC()+"</td>"+"</tr>";
     }
 
 /**
@@ -302,7 +434,19 @@ public  class ConceptType extends ApplicationObject{
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
-        return  this.getName().equals(b.getName());
+      if(!this.getWeightA().equals(b.getWeightA())){
+         System.out.println("WeightA");
+        }
+      if(!this.getWeightB().equals(b.getWeightB())){
+         System.out.println("WeightB");
+        }
+      if(!this.getWeightC().equals(b.getWeightC())){
+         System.out.println("WeightC");
+        }
+        return  this.getName().equals(b.getName()) &&
+          this.getWeightA().equals(b.getWeightA()) &&
+          this.getWeightB().equals(b.getWeightB()) &&
+          this.getWeightC().equals(b.getWeightC());
     }
 
 /**

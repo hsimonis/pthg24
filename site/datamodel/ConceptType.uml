@@ -1,2 +1,5 @@
  class ConceptType {
+Double weightA
+Double weightB
+Double weightC
 }

@@ -29,6 +29,9 @@ public class ImportAlias {
                 ja.setJournal(findJournal(base,journal));
                 ja.setAlias(alias);
                 ja.getJournal().setIssn(issn);
+                if (alias.length() < journal.length()){
+                    ja.getJournal().setShortName(alias);
+                }
             }
 
         } catch(IOException e){
@@ -42,6 +45,7 @@ public class ImportAlias {
         if (res == null){
             res = new Journal(base);
             res.setName(name);
+            res.setShortName(name);
         }
         return res;
     }

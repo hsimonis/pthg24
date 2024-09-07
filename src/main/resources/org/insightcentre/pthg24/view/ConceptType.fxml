@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 
-<!--Generated at 17:09:17 on 2024-07-04-->
+<!--Generated at 08:45:01 on 2024-09-07-->
 
 
 <Tab text="ConceptType" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.ConceptTypeController">
@@ -19,6 +19,9 @@
          <TableView fx:id="table" editable="true">
             <columns>
                <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
+               <TableColumn fx:id="weightA" styleClass="right-aligned" text="WeightA" />
+               <TableColumn fx:id="weightB" styleClass="right-aligned" text="WeightB" />
+               <TableColumn fx:id="weightC" styleClass="right-aligned" text="WeightC" />
             </columns>
          </TableView>
       </center>

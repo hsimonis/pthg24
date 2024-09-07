@@ -63,7 +63,6 @@ public class JfxApp extends GeneratedJfxApp {
                 double keywordWeight = 1.0;
                 double authorWeight = 0.1;
                 double ageWeight = 0.1;
-                String[] conceptTypes = new String[]{};
                 double relevanceLimit = 0.8; // which raw abstract relevance limit is enough to include
                 int abstractRelevanceCutoff = 1000; // which raw body relevance value should be mapped to 1.0
                 int bodyRelevanceCutoff = 900; // which raw body relevance value should be mapped to 1.0
@@ -97,7 +96,6 @@ public class JfxApp extends GeneratedJfxApp {
                                 ageWeight = 0;
                                 coauthorLimit = 2;
                                 linkCountLimit = 1;
-                                conceptTypes=new String[]{"Uncertainty","CP","Concept"};
                                 getLimit=1000;
                                 break;
                         case "medicaldrones":
@@ -113,7 +111,6 @@ public class JfxApp extends GeneratedJfxApp {
                                 ageWeight = 0;
                                 coauthorLimit = 2;
                                 linkCountLimit = 1;
-                                conceptTypes=new String[]{"Drone","Medical","Optimization","Surveys","Other"};
                                 // how many external crossref queries to make to identify missing works
                                 getLimit=5000;
                                 break;
@@ -132,7 +129,6 @@ public class JfxApp extends GeneratedJfxApp {
                                 coauthorLimit = 2;
                                 //when to stop look up missing work
                                 linkCountLimit = 1;
-                                conceptTypes=new String[]{"AIMethod","Terrorism","Group","Region","System","Objective","Other"};
                                 // how many external crossref queries to make to identify missing works
                                 getLimit=5000;
                                 break;
@@ -149,8 +145,6 @@ public class JfxApp extends GeneratedJfxApp {
                                 ageWeight = 0;
                                 coauthorLimit = 4;
                                 linkCountLimit = 1;
-                                conceptTypes = new String[]{"Scheduling","CP","Concepts","Classification","Constraints",
-                                        "ApplicationAreas","Industries","CPSystems","Benchmarks","Algorithms"};
                                 getLimit=5000;
                                 break;
                         default:
@@ -173,9 +167,6 @@ public class JfxApp extends GeneratedJfxApp {
                 boolean dirsExist = checkDirectories(prefix,bibDir,importDir,exportDir,citationsDir,referencesDir,
                         reportDir,worksDir,graphvizDir,crossrefDir,scopusDir,missingWorkDir,dumpDir);
                 assert(dirsExist);
-
-                createConceptTypes(base,conceptTypes);
-
 
                 new ImportConcepts(base,importDir,"concepts.json");
                 new ImportAlias(base,importDir,"alias.json");
@@ -351,6 +342,8 @@ public class JfxApp extends GeneratedJfxApp {
                 new CheckInconsistentConcepts(base);
 //                new FindOthers(base);
 //                new ExtractOtherBib(base,dumpDir,"otherselected.bib");
+                new ListAuthorsByConference(base,exportDir,"authorsbyconference.tex");
+                new ListAuthorsByJournal(base,exportDir,"authorsbyjournal.tex");
 
                 info("analysis finished");
 
@@ -419,12 +412,6 @@ public class JfxApp extends GeneratedJfxApp {
 
         }
 
-        private void createConceptTypes(Scenario base,String[] conceptTypes){
-                for(String type:conceptTypes){
-                        ConceptType ct = new ConceptType(base);
-                        ct.setName(type);
-                }
-        }
 
         private boolean checkDirectories(String prefix,String bibDir,String importDir,String exportDir,
                                       String citationsDir,String referencesDir,String reportDir,String worksDir,

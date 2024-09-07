@@ -13,7 +13,7 @@ import javafx.scene.control.ChoiceBox;
 import org.insightcentre.pthg24.GeneratedJfxApp;
 
 /**
- * Generated at 17:09:16 on 2024-07-04 */
+ * Generated at 08:45:01 on 2024-09-07 */
 public abstract class ChartXYController extends BaseController {
 	protected GeneratedJfxApp mainApp;
 

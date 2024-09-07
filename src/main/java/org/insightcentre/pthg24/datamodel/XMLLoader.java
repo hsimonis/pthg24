@@ -1390,7 +1390,10 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 int id = getId("id", attributes);
                 store(id, new ConceptType(base,
                         id,
-                        getString("name", attributes, "dummy")
+                        getString("name", attributes, "dummy"),
+                        getDouble("weightA",attributes,0.0),
+                        getDouble("weightB",attributes,0.0),
+                        getDouble("weightC",attributes,0.0)
                         ));
             } else if (qname.equals("conceptWork")) {
                 assert (base != null);
