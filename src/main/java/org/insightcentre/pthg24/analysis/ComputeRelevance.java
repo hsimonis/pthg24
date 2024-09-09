@@ -14,27 +14,11 @@ import static org.insightcentre.pthg24.logging.LogShortcut.warning;
 
 public class ComputeRelevance {
     Scenario base;
-    String type;
-    double citingSurveyWeight;
-    double citedBySurveyWeight;
-    double citationCountWeight;
-    double keywordWeight;
-    double authorWeight;
-    double ageWeight;
     List<Concept> conceptList=new ArrayList<>();
 
     public ComputeRelevance(Scenario base, String type,
-                            double citingSurveyWeight, double citedBySurveyWeight,
-                            double citationCountWeight, double keywordWeight,
-                            double authorWeight,double ageWeight,double abstractRelevanceCutoff,double bodyRelevanceCutoff){
+                            double abstractRelevanceCutoff,double bodyRelevanceCutoff){
         this.base = base;
-        this.type = type;
-        this.citingSurveyWeight = citingSurveyWeight;
-        this.citedBySurveyWeight = citedBySurveyWeight;
-        this.citationCountWeight = citationCountWeight;
-        this.keywordWeight = keywordWeight;
-        this.authorWeight = authorWeight;
-        this.ageWeight = ageWeight;
 
         for(MissingWork mw:base.getListMissingWork()){
             mw.setRelevance(relevance(type,mw,abstractRelevanceCutoff));
@@ -59,27 +43,16 @@ public class ComputeRelevance {
     }
 
     public double relevance(String type,Work w,String text,double abstractRelevanceCutoff){
-        double res =citingSurveyWeight * w.getNrReferences() +
-                    citedBySurveyWeight * w.getNrCitations() +
-                    authorWeight * knownAuthors(w) +
-                    keywordWeight * keywords(type,text,abstractRelevanceCutoff) +
-                    ageWeight * age(w) +
-                    citationCountWeight * w.getCrossrefCitations();
+        double res =keywords(type,text,abstractRelevanceCutoff);
         return res;
     }
 
-
     public double relevance(String type,MissingWork mw,double abstractRelevanceCutoff){
-        double res = citingSurveyWeight*mw.getNrCited()+
-                citedBySurveyWeight*mw.getNrCitations()+
-                authorWeight*knownAuthors(mw)+
-                keywordWeight*keywords(type,mw.getTitle()+" "+mw.getAbstractText(),abstractRelevanceCutoff)+
-                ageWeight*age(mw)+
-                citationCountWeight*mw.getCrossrefCitations();
+        double res = keywords(type,mw.getTitle()+" "+mw.getAbstractText(),abstractRelevanceCutoff);
         return res;
     }
     public double relevance(String type,OtherWork ow,double abstractRelevanceCutoff){
-        return keywordWeight*keywords(type,ow.getTitle()+" "+ow.getAbstractText()+" "+ow.getKeywords(),abstractRelevanceCutoff);
+        return keywords(type,ow.getTitle()+" "+ow.getAbstractText()+" "+ow.getKeywords(),abstractRelevanceCutoff);
     }
 
     private int knownAuthors(Work mw) {

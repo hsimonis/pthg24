@@ -1,0 +1,9 @@
+{
+    "type":"uncertaincp",
+    "prefix":"uncertaincp/",
+    "bibFile":"uncertaincp.bib",
+    "authors":"Jheisson Lopez and Helmut Simonis",
+    "coauthorLimit":2,
+    "linkCountLimit":1,
+    "getLimit":1000
+}

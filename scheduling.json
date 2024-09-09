@@ -1,0 +1,9 @@
+{
+    "type":"scheduling",
+    "prefix":"scheduling/",
+    "bibFile":"scheduling.bib",
+    "authors":"Helmut Simonis and Cemalettin Öztürk",
+    "coauthorLimit":4,
+    "linkCountLimit":1,
+    "getLimit":5000
+}

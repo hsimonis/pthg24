@@ -16,6 +16,8 @@ import org.insightcentre.pthg24.pdfgrep.RunPDFInfo;
 import org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL;
 import org.insightcentre.pthg24.reports.CoauthorGraph;
 import org.insightcentre.pthg24.reports.PublicationReport;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,10 +33,24 @@ import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class JfxApp extends GeneratedJfxApp {
 
-// callbacks to add for user interaction that is not generated
-// use stubs in GeneratedJFxApp as basis
-// callback for ctrl+selection in list
-        public void showObject(ApplicationObjectInterface obj){
+        // set from commandline; use it to change survey
+        static String[] args;
+        //the following fields are mandatory in the parameter files
+        static String type; // name of the survey
+        static String prefix; // directory prefix for a survey, typically type+"/"
+        static String bibFile; // bibfile containing works to be used
+        static String authors; // authors for the survey
+        //the following fields are optional; to change edit json parameter file, do not modify value here
+        static String otherFile=""; // alternative bibliography for comparison
+        static int coauthorLimit = 2; // how many works an author needs to have to be included in coauthor graph
+        static int linkCountLimit = 10; // how many links are required to lookup a missing work by its DOI
+        static int getLimit=200; // how many Crossref/Scopus lookups from the web are allowed in one run; does not count cache
+        static double relevanceLimit = 0.8; // which raw abstract relevance limit is enough to include
+        static int abstractRelevanceCutoff = 1000; // which raw body relevance value should be mapped to 1.0
+        static int bodyRelevanceCutoff = 900; // which raw body relevance value should be mapped to 1.0
+
+
+         public void showObject(ApplicationObjectInterface obj){
                 super.showObject(obj);
         }
 
@@ -46,113 +62,12 @@ public class JfxApp extends GeneratedJfxApp {
                 base.setDirty(false);
                 new CreateTranslators(base);
 
-                String type = "scheduling"; // others "scheduling" "cars" "mobilehealth","terrorism","medicaldrones","uncertaincp"
+                assert(args.length==1);
+                readParameters(args[0]);
+                assert(prefix.endsWith("/"));
 
-                // these must be set for each type
-                String prefix = "cars/"; // the overall directory where data for this type is kept
+                // derived directories where specific data are stored
                 String bibDir = prefix + "imports/"; // the directory where the bib file is placed
-                String bibFile = "cars.bib"; // the name of hte bib file to read
-                String otherFile = ""; // alternative bibliography for comparison
-                String authors = "Helmut Simonis"; // authors for this particular type
-                int coauthorLimit = 2; // how many works an author needs to have to be included in coauthor graph
-                int linkCountLimit = 10; // how many links are required to lookup a missing work by its DOI
-                int getLimit=200; // how many Crossref/Scopus lookups from the web are allowed in one run; does not count cache
-                double citingSurveyWeight = 1.0;
-                double citedBySurveyWeight=1.0;
-                double citationCountWeight = 1e-6;
-                double keywordWeight = 1.0;
-                double authorWeight = 0.1;
-                double ageWeight = 0.1;
-                double relevanceLimit = 0.8; // which raw abstract relevance limit is enough to include
-                int abstractRelevanceCutoff = 1000; // which raw body relevance value should be mapped to 1.0
-                int bodyRelevanceCutoff = 900; // which raw body relevance value should be mapped to 1.0
-
-                switch(type) {
-                        case "cars":
-                                prefix = "cars/";
-                                bibDir = prefix + "imports/";
-                                bibFile = "cars.bib";
-                                authors = "Helmut Simonis";
-                                coauthorLimit = 2;
-                                linkCountLimit = 10;
-                                break;
-                        case "mobilehealth":
-                                prefix = "mobilehealth/";
-                                bibDir = prefix + "imports/";
-                                bibFile = "mobilehealth.bib";
-                                authors = "G. Tacadao and B. O'Sullivan and L. Quesada and H. Simonis";
-                                coauthorLimit = 2;
-                                linkCountLimit = 10;
-                                break;
-                        case "uncertaincp":
-                                prefix ="uncertaincp/";
-                                bibDir = prefix+"imports/";
-                                bibFile="uncertaincp.bib";
-                                authors="Jheisson Lopez and Helmut Simonis";
-                                citingSurveyWeight = 0;
-                                citedBySurveyWeight=0;
-                                citationCountWeight = 0;
-                                authorWeight = 0;
-                                ageWeight = 0;
-                                coauthorLimit = 2;
-                                linkCountLimit = 1;
-                                getLimit=1000;
-                                break;
-                        case "medicaldrones":
-                                prefix = "medicaldrones/";
-                                bibDir = prefix + "imports/";
-                                bibFile = "medicaldrones.bib";
-                                authors = "G. Tacadao and B. O'Sullivan and L. Quesada and H. Simonis";
-                                // only use relevance to rank works
-                                citingSurveyWeight = 0;
-                                citedBySurveyWeight=0;
-                                citationCountWeight = 0;
-                                authorWeight = 0;
-                                ageWeight = 0;
-                                coauthorLimit = 2;
-                                linkCountLimit = 1;
-                                // how many external crossref queries to make to identify missing works
-                                getLimit=5000;
-                                break;
-                        case "terrorism":
-                                prefix = "terrorism/";
-                                bibDir = prefix + "imports/";
-                                bibFile = "terrorism.bib";
-                                otherFile = "other.bib";
-                                authors = "B. O'Sullivan and H. Simonis";
-                                // only use relevance to rank works
-                                citingSurveyWeight = 0;
-                                citedBySurveyWeight=0;
-                                citationCountWeight = 0;
-                                authorWeight = 0;
-                                ageWeight = 0;
-                                coauthorLimit = 2;
-                                //when to stop look up missing work
-                                linkCountLimit = 1;
-                                // how many external crossref queries to make to identify missing works
-                                getLimit=5000;
-                                break;
-                        case "scheduling":
-                                // scheduling now is just like any other survey
-                                prefix = "scheduling/";
-                                bibDir = prefix+"imports/";
-                                bibFile = "scheduling.bib";
-                                authors = "Helmut Simonis and Cemalettin Öztürk";
-                                citingSurveyWeight = 0;
-                                citedBySurveyWeight=0;
-                                citationCountWeight = 0;
-                                authorWeight = 0;
-                                ageWeight = 0;
-                                coauthorLimit = 4;
-                                linkCountLimit = 1;
-                                getLimit=5000;
-                                break;
-                        default:
-                                severe("Bad type " + type);
-                                assert (false);
-                }
-
-                // other directories where specific data are stored
                 String importDir = prefix+"imports/"; // input dir where input data is kept and work concepts are cached
                 String exportDir = prefix+"exports/"; // output dir where latex fragments are created
                 String citationsDir = prefix+"citations/"; // input/output dir where citations of works are cached
@@ -195,8 +110,7 @@ public class JfxApp extends GeneratedJfxApp {
 
                 new SimilarityMeasure(base);
                 new LookupMissingWork(base,missingWorkDir,linkCountLimit,getLimit);
-                new ComputeRelevance(base,type,citingSurveyWeight,citedBySurveyWeight, citationCountWeight,
-                        keywordWeight,authorWeight,ageWeight,abstractRelevanceCutoff,bodyRelevanceCutoff);
+                new ComputeRelevance(base,type,abstractRelevanceCutoff,bodyRelevanceCutoff);
 //                new CheckAuthorDoubles(base);
                 new CreateCountryCollab(base);
 
@@ -352,6 +266,7 @@ public class JfxApp extends GeneratedJfxApp {
 
 // main entry point for interactive application
         public static void main(String[] args) {
+                JfxApp.args = args;
                 launch(args);
         }
 
@@ -446,6 +361,43 @@ public class JfxApp extends GeneratedJfxApp {
                         return false;
                 }
                 return true;
+        }
+
+        private void readParameters(String parameterFile) {
+                try {
+                        String text = new String(Files.readAllBytes(Paths.get(parameterFile)));
+                        JSONObject obj = new JSONObject(text);
+                        type = obj.getString("type");
+                        prefix = obj.getString("prefix");
+                        bibFile = obj.getString("bibFile");
+                        authors = obj.getString("authors");
+                        if (obj.has("otherFile")) {
+                                otherFile = obj.getString("otherFile");
+                        } else {
+                                otherFile="";
+                        }
+                        if (obj.has("coauthorLimit")) {
+                                coauthorLimit = obj.getInt("coauthorLimit");
+                        }
+                        if (obj.has("linkCountLimit")) {
+                                linkCountLimit = obj.getInt("linkCountLimit");
+                        }
+                        if (obj.has("getLimit")) {
+                                getLimit = obj.getInt("getLimit");
+                        }
+                        if (obj.has("abstractRelevanceCutoff")) {
+                                abstractRelevanceCutoff = obj.getInt("abstractRelevanceCutoff");
+                        }
+                        if (obj.has("bodyRelevanceCutoff")) {
+                                bodyRelevanceCutoff = obj.getInt("bodyRelevanceCutoff");
+                        }
+                        if (obj.has("relevanceLimit")) {
+                                relevanceLimit = obj.getDouble("relevanceLimit");
+                        }
+                } catch (IOException e) {
+                        severe("Cannot read parameter file " + parameterFile + ", exception " + e.getMessage());
+                        assert (false);
+                }
         }
 
 

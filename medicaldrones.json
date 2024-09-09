@@ -1,0 +1,9 @@
+{
+    "type":"medicaldrones",
+    "prefix":"medicaldrones/",
+    "bibFile":"medicaldrones.bib",
+    "authors":"G. Tacadao and B. O'Sullivan and L. Quesada and H. Simonis",
+    "coauthorLimit":2,
+    "linkCountLimit":1,
+    "getLimit":5000
+}
