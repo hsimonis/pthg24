@@ -1,56 +1,56 @@
 [
     {
         "creation": "2022-10-14",
-        "timespan": "P1Y0M0D",
         "author_sc": "no",
-        "oci": "061903553172-061901465312",
+        "cited": "10.3233/jifs-189721",
+        "timespan": "P1Y0M0D",
         "journal_sc": "no",
-        "citing": "10.3390/sym14102150",
-        "cited": "10.3233/jifs-189721"
+        "oci": "061903553172-061901465312",
+        "citing": "10.3390/sym14102150"
     },
     {
         "creation": "2022-06-03",
-        "timespan": "P0Y7M20D",
         "author_sc": "yes",
-        "oci": "0630819340-061901465312",
+        "cited": "10.3233/jifs-189721",
+        "timespan": "P0Y7M20D",
         "journal_sc": "no",
-        "citing": "10.1007/s00170-022-09394-8",
-        "cited": "10.3233/jifs-189721"
+        "oci": "0630819340-061901465312",
+        "citing": "10.1007/s00170-022-09394-8"
     },
     {
         "creation": "2023-01-19",
-        "timespan": "P1Y3M5D",
         "author_sc": "no",
-        "oci": "06310128559-061901465312",
+        "cited": "10.3233/jifs-189721",
+        "timespan": "P1Y3M5D",
         "journal_sc": "no",
-        "citing": "10.3390/electronics12030526",
-        "cited": "10.3233/jifs-189721"
+        "oci": "06310128559-061901465312",
+        "citing": "10.3390/electronics12030526"
     },
     {
         "creation": "2024-02",
-        "timespan": "P2Y3M",
         "author_sc": "no",
-        "oci": "06350397240-061901465312",
+        "cited": "10.3233/jifs-189721",
+        "timespan": "P2Y3M",
         "journal_sc": "no",
-        "citing": "10.1016/j.eswa.2024.123473",
-        "cited": "10.3233/jifs-189721"
+        "oci": "06350397240-061901465312",
+        "citing": "10.1016/j.eswa.2024.123473"
     },
     {
         "creation": "2023-03-10",
-        "timespan": "P1Y4M24D",
         "author_sc": "no",
-        "oci": "06380171875-061901465312",
+        "cited": "10.3233/jifs-189721",
+        "timespan": "P1Y4M24D",
         "journal_sc": "no",
-        "citing": "10.1007/s11042-023-14544-5",
-        "cited": "10.3233/jifs-189721"
+        "oci": "06380171875-061901465312",
+        "citing": "10.1007/s11042-023-14544-5"
     },
     {
         "creation": "2024-03",
-        "timespan": "P2Y4M",
         "author_sc": "no",
-        "oci": "06904266857-061901465312",
+        "cited": "10.3233/jifs-189721",
+        "timespan": "P2Y4M",
         "journal_sc": "no",
-        "citing": "10.1016/j.rico.2023.100350",
-        "cited": "10.3233/jifs-189721"
+        "oci": "06904266857-061901465312",
+        "citing": "10.1016/j.rico.2023.100350"
     }
 ]

@@ -1,29 +1,29 @@
 [
     {
-        "creation": "2011-11",
         "timespan": "P5Y",
         "author_sc": "no",
         "oci": "06130701333-06903139512",
         "journal_sc": "no",
         "citing": "10.4028/www.scientific.net/amr.383-390.4546",
-        "cited": "10.1007/11760191_135"
+        "cited": "10.1007/11760191_135",
+        "creation": "2011-11"
     },
     {
-        "creation": "2017-11-24",
         "timespan": "P11Y",
         "author_sc": "no",
         "oci": "06260199055-06903139512",
         "journal_sc": "no",
         "citing": "10.3233/jcm-170748",
-        "cited": "10.1007/11760191_135"
+        "cited": "10.1007/11760191_135",
+        "creation": "2017-11-24"
     },
     {
-        "creation": "2017-08-01",
         "timespan": "P11Y",
         "author_sc": "no",
         "oci": "0690430411-06903139512",
         "journal_sc": "no",
         "citing": "10.1007/s10586-017-1060-8",
-        "cited": "10.1007/11760191_135"
+        "cited": "10.1007/11760191_135",
+        "creation": "2017-08-01"
     }
 ]

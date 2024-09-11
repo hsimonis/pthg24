@@ -1,29 +1,29 @@
 [
     {
         "creation": "2023-09-08",
-        "timespan": "P1Y11M12D",
         "author_sc": "no",
-        "oci": "06270101417-0690912235",
+        "cited": "10.1111/exsy.12830",
+        "timespan": "P1Y11M12D",
         "journal_sc": "no",
-        "citing": "10.1080/15623599.2023.2252255",
-        "cited": "10.1111/exsy.12830"
+        "oci": "06270101417-0690912235",
+        "citing": "10.1080/15623599.2023.2252255"
     },
     {
         "creation": "2022-09",
-        "timespan": "P0Y11M",
         "author_sc": "no",
-        "oci": "0630517506-0690912235",
+        "cited": "10.1111/exsy.12830",
+        "timespan": "P0Y11M",
         "journal_sc": "no",
-        "citing": "10.1016/j.ipm.2022.103005",
-        "cited": "10.1111/exsy.12830"
+        "oci": "0630517506-0690912235",
+        "citing": "10.1016/j.ipm.2022.103005"
     },
     {
         "creation": "2023-01-09",
-        "timespan": "P1Y3M13D",
         "author_sc": "yes",
-        "oci": "0653098497-0690912235",
+        "cited": "10.1111/exsy.12830",
+        "timespan": "P1Y3M13D",
         "journal_sc": "no",
-        "citing": "10.3390/math11020337",
-        "cited": "10.1111/exsy.12830"
+        "oci": "0653098497-0690912235",
+        "citing": "10.3390/math11020337"
     }
 ]

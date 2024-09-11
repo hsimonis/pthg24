@@ -1,47 +1,47 @@
 [
     {
         "creation": "2023-06-15",
-        "timespan": "P7Y3M14D",
         "author_sc": "no",
-        "oci": "061703809821-061801893690",
         "journal_sc": "no",
+        "cited": "10.1515/mper-2016-0003",
         "citing": "10.1080/23302674.2023.2221072",
-        "cited": "10.1515/mper-2016-0003"
+        "oci": "061703809821-061801893690",
+        "timespan": "P7Y3M14D"
     },
     {
         "creation": "2019-10",
-        "timespan": "P3Y7M",
         "author_sc": "no",
-        "oci": "061801296875-061801893690",
         "journal_sc": "no",
+        "cited": "10.1515/mper-2016-0003",
         "citing": "10.1016/j.cie.2019.07.011",
-        "cited": "10.1515/mper-2016-0003"
+        "oci": "061801296875-061801893690",
+        "timespan": "P3Y7M"
     },
     {
         "creation": "2018",
-        "timespan": "P1Y",
         "author_sc": "no",
-        "oci": "062101407713-061801893690",
         "journal_sc": "no",
+        "cited": "10.1515/mper-2016-0003",
         "citing": "10.1051/bioconf/20181002009",
-        "cited": "10.1515/mper-2016-0003"
+        "oci": "062101407713-061801893690",
+        "timespan": "P1Y"
     },
     {
         "creation": "2022-10",
-        "timespan": "P6Y7M",
         "author_sc": "no",
-        "oci": "062103423157-061801893690",
         "journal_sc": "no",
+        "cited": "10.1515/mper-2016-0003",
         "citing": "10.1016/j.cie.2022.108641",
-        "cited": "10.1515/mper-2016-0003"
+        "oci": "062103423157-061801893690",
+        "timespan": "P6Y7M"
     },
     {
         "creation": "2017-07-11",
-        "timespan": "P1Y4M10D",
         "author_sc": "yes",
-        "oci": "0640412658-061801893690",
         "journal_sc": "no",
+        "cited": "10.1515/mper-2016-0003",
         "citing": "10.1080/00207543.2017.1346322",
-        "cited": "10.1515/mper-2016-0003"
+        "oci": "0640412658-061801893690",
+        "timespan": "P1Y4M10D"
     }
 ]

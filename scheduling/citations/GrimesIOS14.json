@@ -1,56 +1,56 @@
 [
     {
-        "creation": "2021-03",
         "timespan": "P6Y3M",
         "author_sc": "no",
         "oci": "061802898838-06202993415",
         "journal_sc": "no",
         "citing": "10.1109/icict52872.2021.00009",
-        "cited": "10.1016/j.suscom.2014.08.009"
+        "cited": "10.1016/j.suscom.2014.08.009",
+        "creation": "2021-03"
     },
     {
-        "creation": "2021-12",
         "timespan": "P7Y0M",
         "author_sc": "no",
         "oci": "06202993012-06202993415",
         "journal_sc": "yes",
         "citing": "10.1016/j.suscom.2021.100616",
-        "cited": "10.1016/j.suscom.2014.08.009"
+        "cited": "10.1016/j.suscom.2014.08.009",
+        "creation": "2021-12"
     },
     {
-        "creation": "2021-09",
         "timespan": "P6Y9M",
         "author_sc": "no",
         "oci": "06210669906-06202993415",
         "journal_sc": "no",
         "citing": "10.1016/j.energy.2021.120821",
-        "cited": "10.1016/j.suscom.2014.08.009"
+        "cited": "10.1016/j.suscom.2014.08.009",
+        "creation": "2021-09"
     },
     {
-        "creation": "2021-11-12",
         "timespan": "P6Y11M",
         "author_sc": "no",
         "oci": "062401611922-06202993415",
         "journal_sc": "no",
         "citing": "10.3390/en14227587",
-        "cited": "10.1016/j.suscom.2014.08.009"
+        "cited": "10.1016/j.suscom.2014.08.009",
+        "creation": "2021-11-12"
     },
     {
-        "creation": "2016-08-04",
         "timespan": "P1Y8M",
         "author_sc": "no",
         "oci": "062601653186-06202993415",
         "journal_sc": "no",
         "citing": "10.3390/en9080618",
-        "cited": "10.1016/j.suscom.2014.08.009"
+        "cited": "10.1016/j.suscom.2014.08.009",
+        "creation": "2016-08-04"
     },
     {
-        "creation": "2017-10",
         "timespan": "P2Y10M",
         "author_sc": "no",
         "oci": "06602743241-06202993415",
         "journal_sc": "no",
         "citing": "10.1109/ias.2017.8101703",
-        "cited": "10.1016/j.suscom.2014.08.009"
+        "cited": "10.1016/j.suscom.2014.08.009",
+        "creation": "2017-10"
     }
 ]

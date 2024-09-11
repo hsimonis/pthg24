@@ -1,20 +1,20 @@
 [
     {
         "creation": "2024-04",
-        "timespan": "P2Y1M",
         "author_sc": "no",
-        "oci": "061104240913-0680833835",
+        "cited": "10.1287/ijoc.2021.1079",
+        "timespan": "P2Y1M",
         "journal_sc": "no",
-        "citing": "10.1016/j.cor.2023.106528",
-        "cited": "10.1287/ijoc.2021.1079"
+        "oci": "061104240913-0680833835",
+        "citing": "10.1016/j.cor.2023.106528"
     },
     {
         "creation": "2023-12",
-        "timespan": "P1Y9M",
         "author_sc": "no",
-        "oci": "062503964489-0680833835",
+        "cited": "10.1287/ijoc.2021.1079",
+        "timespan": "P1Y9M",
         "journal_sc": "no",
-        "citing": "10.1016/j.ejor.2023.06.006",
-        "cited": "10.1287/ijoc.2021.1079"
+        "oci": "062503964489-0680833835",
+        "citing": "10.1016/j.ejor.2023.06.006"
     }
 ]

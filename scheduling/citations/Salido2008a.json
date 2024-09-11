@@ -1,74 +1,74 @@
 [
     {
-        "creation": "2008-07",
         "timespan": "-P0Y1M",
         "author_sc": "no",
         "oci": "06103660293-06302145437",
         "journal_sc": "no",
         "citing": "10.1109/icmlc.2008.4620802",
-        "cited": "10.1016/j.engappai.2008.03.006"
+        "cited": "10.1016/j.engappai.2008.03.006",
+        "creation": "2008-07"
     },
     {
-        "creation": "2015-08",
         "timespan": "P7Y0M",
         "author_sc": "no",
         "oci": "061502512629-06302145437",
         "journal_sc": "no",
         "citing": "10.1109/fskd.2015.7382064",
-        "cited": "10.1016/j.engappai.2008.03.006"
+        "cited": "10.1016/j.engappai.2008.03.006",
+        "creation": "2015-08"
     },
     {
-        "creation": "2016-09",
         "timespan": "P8Y1M",
         "author_sc": "no",
         "oci": "06160252139-06302145437",
         "journal_sc": "no",
         "citing": "10.1016/j.compind.2015.08.010",
-        "cited": "10.1016/j.engappai.2008.03.006"
+        "cited": "10.1016/j.engappai.2008.03.006",
+        "creation": "2016-09"
     },
     {
-        "creation": "2014-09",
         "timespan": "P6Y1M",
         "author_sc": "no",
         "oci": "06202144957-06302145437",
         "journal_sc": "yes",
         "citing": "10.1016/j.engappai.2014.05.013",
-        "cited": "10.1016/j.engappai.2008.03.006"
+        "cited": "10.1016/j.engappai.2008.03.006",
+        "creation": "2014-09"
     },
     {
-        "creation": "2018-04-16",
         "timespan": "P9Y8M",
         "author_sc": "no",
         "oci": "06210444648-06302145437",
         "journal_sc": "no",
         "citing": "10.1002/net.21824",
-        "cited": "10.1016/j.engappai.2008.03.006"
+        "cited": "10.1016/j.engappai.2008.03.006",
+        "creation": "2018-04-16"
     },
     {
-        "creation": "2014-05",
         "timespan": "P5Y9M",
         "author_sc": "no",
         "oci": "062602585069-06302145437",
         "journal_sc": "no",
         "citing": "10.1109/aqtr.2014.6857900",
-        "cited": "10.1016/j.engappai.2008.03.006"
+        "cited": "10.1016/j.engappai.2008.03.006",
+        "creation": "2014-05"
     },
     {
-        "creation": "2019",
         "timespan": "P10Y",
         "author_sc": "no",
         "oci": "06602413691-06302145437",
         "journal_sc": "no",
         "citing": "10.1007/978-3-030-29157-0_13",
-        "cited": "10.1016/j.engappai.2008.03.006"
+        "cited": "10.1016/j.engappai.2008.03.006",
+        "creation": "2019"
     },
     {
-        "creation": "2016",
         "timespan": "P7Y",
         "author_sc": "no",
         "oci": "06702783932-06302145437",
         "journal_sc": "no",
         "citing": "10.1007/978-3-319-32689-4_31",
-        "cited": "10.1016/j.engappai.2008.03.006"
+        "cited": "10.1016/j.engappai.2008.03.006",
+        "creation": "2016"
     }
 ]

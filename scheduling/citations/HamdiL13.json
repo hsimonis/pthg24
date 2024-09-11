@@ -1,20 +1,20 @@
 [
     {
-        "creation": "2019",
         "timespan": "P5Y",
         "author_sc": "no",
         "oci": "062302021046-06103371365",
         "journal_sc": "no",
         "citing": "10.1007/978-3-030-22788-3_1",
-        "cited": "10.1109/icmsao.2013.6552689"
+        "cited": "10.1109/icmsao.2013.6552689",
+        "creation": "2019"
     },
     {
-        "creation": "2017-12-29",
         "timespan": "P4Y8M",
         "author_sc": "no",
         "oci": "0690166749-06103371365",
         "journal_sc": "no",
         "citing": "10.1007/s10601-017-9280-3",
-        "cited": "10.1109/icmsao.2013.6552689"
+        "cited": "10.1109/icmsao.2013.6552689",
+        "creation": "2017-12-29"
     }
 ]

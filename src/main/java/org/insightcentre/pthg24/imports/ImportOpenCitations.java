@@ -65,7 +65,7 @@ public class ImportOpenCitations {
         String target = "";
         String saveFile = citationDir+w.getKey()+".json";
         try {
-            if (exists(saveFile)){
+            if (exists(saveFile) && startsWithABracket(saveFile)){
                 info("Reading file "+saveFile);
                 interpret(w,contents(saveFile));
             } else {
@@ -92,7 +92,7 @@ public class ImportOpenCitations {
                 }
             }
         } catch (IOException e) {
-            severe("Bad HttpRequest GET " + target + ", exception " + e.getMessage());
+            severe("Bad HttpRequest GET " + target + ", exception " + e.toString());
         } catch (URISyntaxException e) {
             severe("URI Syntax " + target + ", exception " + e.getMessage());
         } catch (InterruptedException e) {
@@ -101,9 +101,15 @@ public class ImportOpenCitations {
 
     }
 
+    private boolean startsWithABracket(String fileName) throws IOException{
+        return contents(fileName).startsWith("[");
+    }
+
     private void interpret(Work w,String body){
-        if (body.startsWith("HTTP status code")){
-            severe("Problem with Citation "+w.getKey());
+        if (body.startsWith("HTTP status code")) {
+            severe("Problem with Citation " + w.getKey());
+        } else if (!body.startsWith("[")){
+                severe("Problem with Citation "+w.getKey());
         } else {
             JSONArray arr = new JSONArray(body);
             int covered = 0;

@@ -1,56 +1,56 @@
 [
     {
         "creation": "2022",
-        "timespan": "P0Y",
         "author_sc": "no",
-        "oci": "061403416556-06201701548",
+        "cited": "10.17531/ein.2021.1.13",
+        "timespan": "P0Y",
         "journal_sc": "no",
-        "citing": "10.1007/978-3-031-16014-1_31",
-        "cited": "10.17531/ein.2021.1.13"
+        "oci": "061403416556-06201701548",
+        "citing": "10.1007/978-3-031-16014-1_31"
     },
     {
         "creation": "2023-03",
-        "timespan": "P2Y1M",
         "author_sc": "yes",
-        "oci": "061503899750-06201701548",
+        "cited": "10.17531/ein.2021.1.13",
+        "timespan": "P2Y1M",
         "journal_sc": "no",
-        "citing": "10.1016/j.engappai.2022.105725",
-        "cited": "10.17531/ein.2021.1.13"
+        "oci": "061503899750-06201701548",
+        "citing": "10.1016/j.engappai.2022.105725"
     },
     {
         "creation": "2024-01-17",
-        "timespan": "P3Y0M15D",
         "author_sc": "no",
-        "oci": "062404212582-06201701548",
+        "cited": "10.17531/ein.2021.1.13",
+        "timespan": "P3Y0M15D",
         "journal_sc": "no",
-        "citing": "10.3390/electronics13020392",
-        "cited": "10.17531/ein.2021.1.13"
+        "oci": "062404212582-06201701548",
+        "citing": "10.3390/electronics13020392"
     },
     {
         "creation": "2023-01-19",
+        "author_sc": "yes",
+        "cited": "10.17531/ein.2021.1.13",
         "timespan": "P2Y0M17D",
-        "author_sc": "yes",
+        "journal_sc": "no",
         "oci": "06350191350-06201701548",
-        "journal_sc": "no",
-        "citing": "10.3390/su15031949",
-        "cited": "10.17531/ein.2021.1.13"
+        "citing": "10.3390/su15031949"
     },
     {
         "creation": "2023",
-        "timespan": "P1Y",
         "author_sc": "yes",
-        "oci": "06470109441-06201701548",
+        "cited": "10.17531/ein.2021.1.13",
+        "timespan": "P1Y",
         "journal_sc": "no",
-        "citing": "10.1007/978-3-031-38318-2_2",
-        "cited": "10.17531/ein.2021.1.13"
+        "oci": "06470109441-06201701548",
+        "citing": "10.1007/978-3-031-38318-2_2"
     },
     {
         "creation": "2023",
-        "timespan": "P1Y",
         "author_sc": "no",
-        "oci": "06470109444-06201701548",
+        "cited": "10.17531/ein.2021.1.13",
+        "timespan": "P1Y",
         "journal_sc": "no",
-        "citing": "10.1007/978-3-031-38318-2_1",
-        "cited": "10.17531/ein.2021.1.13"
+        "oci": "06470109444-06201701548",
+        "citing": "10.1007/978-3-031-38318-2_1"
     }
 ]

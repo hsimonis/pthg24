@@ -1,29 +1,29 @@
 [
     {
+        "creation": "2015",
         "author_sc": "no",
         "cited": "10.1016/j.compchemeng.2013.12.001",
+        "timespan": "P0Y",
         "journal_sc": "no",
         "oci": "061902535014-061101977977",
-        "timespan": "P0Y",
-        "creation": "2015",
         "citing": "10.1016/b978-0-444-63576-1.50032-7"
     },
     {
+        "creation": "2015",
         "author_sc": "yes",
         "cited": "10.1016/b978-0-444-63234-0.50099-3",
+        "timespan": "P2Y",
         "journal_sc": "no",
         "oci": "061902535014-062202934577",
-        "timespan": "P2Y",
-        "creation": "2015",
         "citing": "10.1016/b978-0-444-63576-1.50032-7"
     },
     {
+        "creation": "2015",
         "author_sc": "no",
         "cited": "10.1016/j.ejor.2010.06.002",
+        "timespan": "P4Y",
         "journal_sc": "no",
         "oci": "061902535014-06250221663",
-        "timespan": "P4Y",
-        "creation": "2015",
         "citing": "10.1016/b978-0-444-63576-1.50032-7"
     }
 ]

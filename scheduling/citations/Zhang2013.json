@@ -1,56 +1,56 @@
 [
     {
-        "creation": "2015-12",
         "timespan": "P2Y",
         "author_sc": "no",
         "oci": "061202504240-06901297495",
         "journal_sc": "no",
         "citing": "10.1109/iscbi.2015.16",
-        "cited": "10.5772/55956"
+        "cited": "10.5772/55956",
+        "creation": "2015-12"
     },
     {
-        "creation": "2019",
         "timespan": "P6Y",
         "author_sc": "no",
         "oci": "061501159897-06901297495",
         "journal_sc": "no",
         "citing": "10.1016/j.ifacol.2019.11.565",
-        "cited": "10.5772/55956"
+        "cited": "10.5772/55956",
+        "creation": "2019"
     },
     {
-        "creation": "2015",
         "timespan": "P2Y",
         "author_sc": "no",
         "oci": "061502056442-06901297495",
         "journal_sc": "no",
         "citing": "10.1155/2015/685408",
-        "cited": "10.5772/55956"
+        "cited": "10.5772/55956",
+        "creation": "2015"
     },
     {
-        "creation": "2022",
         "timespan": "P9Y",
         "author_sc": "no",
         "oci": "0644052555-06901297495",
         "journal_sc": "no",
         "citing": "10.1007/978-3-031-08011-1_10",
-        "cited": "10.5772/55956"
+        "cited": "10.5772/55956",
+        "creation": "2022"
     },
     {
-        "creation": "2014-08",
         "timespan": "P1Y",
         "author_sc": "no",
         "oci": "06602965182-06901297495",
         "journal_sc": "no",
         "citing": "10.1109/coase.2014.6899368",
-        "cited": "10.5772/55956"
+        "cited": "10.5772/55956",
+        "creation": "2014-08"
     },
     {
-        "creation": "2018",
         "timespan": "P5Y",
         "author_sc": "no",
         "oci": "06801287417-06901297495",
         "journal_sc": "yes",
         "citing": "10.1177/1729881417754145",
-        "cited": "10.5772/55956"
+        "cited": "10.5772/55956",
+        "creation": "2018"
     }
 ]

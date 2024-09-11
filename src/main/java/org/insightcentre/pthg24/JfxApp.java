@@ -38,7 +38,8 @@ public class JfxApp extends GeneratedJfxApp {
         //the following fields are mandatory in the parameter files
         static String type; // name of the survey
         static String prefix; // directory prefix for a survey, typically type+"/"
-        static String bibFile; // bibfile containing works to be used
+        static String bibFile; // bibfile containing works to be used, typically type+".bib"
+        static String title; // title for the survey
         static String authors; // authors for the survey
         //the following fields are optional; to change edit json parameter file, do not modify value here
         static String otherFile=""; // alternative bibliography for comparison
@@ -115,6 +116,10 @@ public class JfxApp extends GeneratedJfxApp {
                 new CreateCountryCollab(base);
 
                 info("File output starting");
+
+                new TitleFields(exportDir,"title.tex",title,authors);
+                new Biblio(exportDir,"biblio.tex",bibFile);
+                new CreateMakefile(prefix,"Makefile",type);
 
                 new ListWorks(base,PAPER,exportDir,"papers.tex");
                 new ListWorksManual(base,PAPER,exportDir,"papersmanual.tex");
@@ -370,11 +375,10 @@ public class JfxApp extends GeneratedJfxApp {
                         type = obj.getString("type");
                         prefix = obj.getString("prefix");
                         bibFile = obj.getString("bibFile");
+                        title = obj.getString("title");
                         authors = obj.getString("authors");
                         if (obj.has("otherFile")) {
                                 otherFile = obj.getString("otherFile");
-                        } else {
-                                otherFile="";
                         }
                         if (obj.has("coauthorLimit")) {
                                 coauthorLimit = obj.getInt("coauthorLimit");

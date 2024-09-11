@@ -2,6 +2,7 @@
     "type":"cars",
     "prefix":"cars/",
     "bibFile":"cars.bib",
+	"title":"Car Sequencing",
     "authors":"Helmut Simonis",
     "coauthorLimit":2,
     "linkCountLimit":10

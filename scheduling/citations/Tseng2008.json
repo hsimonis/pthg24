@@ -1,56 +1,56 @@
 [
     {
-        "creation": "2013-10",
         "timespan": "P5Y3M",
         "author_sc": "no",
         "oci": "06110400207-06110400473",
         "journal_sc": "yes",
         "citing": "10.1145/2505015",
-        "cited": "10.1145/1367045.1367061"
+        "cited": "10.1145/1367045.1367061",
+        "creation": "2013-10"
     },
     {
-        "creation": "2010-11",
         "timespan": "P2Y4M",
         "author_sc": "no",
         "oci": "062103143983-06110400473",
         "journal_sc": "no",
         "citing": "10.1109/tencon.2010.5686151",
-        "cited": "10.1145/1367045.1367061"
+        "cited": "10.1145/1367045.1367061",
+        "creation": "2010-11"
     },
     {
-        "creation": "2013-08",
         "timespan": "P5Y1M",
         "author_sc": "no",
         "oci": "06403336099-06110400473",
         "journal_sc": "no",
         "citing": "10.1109/mwscas.2013.6674683",
-        "cited": "10.1145/1367045.1367061"
+        "cited": "10.1145/1367045.1367061",
+        "creation": "2013-08"
     },
     {
-        "creation": "2013-04",
         "timespan": "P4Y9M",
         "author_sc": "no",
         "oci": "06803344058-06110400473",
         "journal_sc": "no",
         "citing": "10.1109/tenconspring.2013.6584505",
-        "cited": "10.1145/1367045.1367061"
+        "cited": "10.1145/1367045.1367061",
+        "creation": "2013-04"
     },
     {
-        "creation": "2013-06",
         "timespan": "P4Y11M",
         "author_sc": "no",
         "oci": "06803346028-06110400473",
         "journal_sc": "no",
         "citing": "10.1109/newcas.2013.6573570",
-        "cited": "10.1145/1367045.1367061"
+        "cited": "10.1145/1367045.1367061",
+        "creation": "2013-06"
     },
     {
-        "creation": "2013-02",
         "timespan": "P4Y7M",
         "author_sc": "no",
         "oci": "06803354819-06110400473",
         "journal_sc": "no",
         "citing": "10.1109/isne.2013.6512359",
-        "cited": "10.1145/1367045.1367061"
+        "cited": "10.1145/1367045.1367061",
+        "creation": "2013-02"
     }
 ]

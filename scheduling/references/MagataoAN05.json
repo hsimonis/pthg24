@@ -1,20 +1,20 @@
 [
     {
+        "creation": "2005",
+        "author_sc": "yes",
+        "cited": "10.1016/s0098-1354(03)00165-0",
+        "timespan": "P1Y",
         "journal_sc": "no",
         "oci": "062203235564-061401946472",
-        "author_sc": "yes",
-        "citing": "10.1016/s1570-7946(05)80013-6",
-        "timespan": "P1Y",
-        "cited": "10.1016/s0098-1354(03)00165-0",
-        "creation": "2005"
+        "citing": "10.1016/s1570-7946(05)80013-6"
     },
     {
+        "creation": "2005",
+        "author_sc": "no",
+        "cited": "10.1287/ijoc.10.3.261",
+        "timespan": "P6Y",
         "journal_sc": "no",
         "oci": "062203235564-0680834723",
-        "author_sc": "no",
-        "citing": "10.1016/s1570-7946(05)80013-6",
-        "timespan": "P6Y",
-        "cited": "10.1287/ijoc.10.3.261",
-        "creation": "2005"
+        "citing": "10.1016/s1570-7946(05)80013-6"
     }
 ]

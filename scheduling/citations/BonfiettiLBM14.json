@@ -1,83 +1,83 @@
 [
     {
-        "creation": "2017-07-22",
         "timespan": "P3Y6M",
         "author_sc": "no",
         "oci": "06110399951-061903115052",
         "journal_sc": "no",
         "citing": "10.1145/3035483",
-        "cited": "10.1016/j.artint.2013.09.006"
+        "cited": "10.1016/j.artint.2013.09.006",
+        "creation": "2017-07-22"
     },
     {
-        "creation": "2016-06-04",
         "timespan": "P2Y5M",
         "author_sc": "no",
         "oci": "061201343536-061903115052",
         "journal_sc": "no",
         "citing": "10.3233/ia-160095",
-        "cited": "10.1016/j.artint.2013.09.006"
+        "cited": "10.1016/j.artint.2013.09.006",
+        "creation": "2016-06-04"
     },
     {
-        "creation": "2018-08",
         "timespan": "P4Y7M",
         "author_sc": "no",
         "oci": "061602327006-061903115052",
         "journal_sc": "no",
         "citing": "10.1109/fpl.2018.00053",
-        "cited": "10.1016/j.artint.2013.09.006"
+        "cited": "10.1016/j.artint.2013.09.006",
+        "creation": "2018-08"
     },
     {
-        "creation": "2022-08",
         "timespan": "P8Y7M",
         "author_sc": "no",
         "oci": "061903996564-061903115052",
         "journal_sc": "no",
         "citing": "10.1109/fpl57034.2022.00056",
-        "cited": "10.1016/j.artint.2013.09.006"
+        "cited": "10.1016/j.artint.2013.09.006",
+        "creation": "2022-08"
     },
     {
-        "creation": "2015-07",
         "timespan": "P1Y6M",
         "author_sc": "no",
         "oci": "06210435394-061903115052",
         "journal_sc": "no",
         "citing": "10.1016/j.jmsy.2015.05.004",
-        "cited": "10.1016/j.artint.2013.09.006"
+        "cited": "10.1016/j.artint.2013.09.006",
+        "creation": "2015-07"
     },
     {
-        "creation": "2023-07-27",
         "timespan": "P9Y6M",
         "author_sc": "no",
         "oci": "06380112107-061903115052",
         "journal_sc": "no",
         "citing": "10.1145/3599972",
-        "cited": "10.1016/j.artint.2013.09.006"
+        "cited": "10.1016/j.artint.2013.09.006",
+        "creation": "2023-07-27"
     },
     {
-        "creation": "2018-08",
         "timespan": "P4Y7M",
         "author_sc": "no",
         "oci": "06402704926-061903115052",
         "journal_sc": "no",
         "citing": "10.1109/fpl.2018.00055",
-        "cited": "10.1016/j.artint.2013.09.006"
+        "cited": "10.1016/j.artint.2013.09.006",
+        "creation": "2018-08"
     },
     {
-        "creation": "2019-06-30",
         "timespan": "P5Y5M",
         "author_sc": "no",
         "oci": "06501277145-061903115052",
         "journal_sc": "no",
         "citing": "10.1145/3317670",
-        "cited": "10.1016/j.artint.2013.09.006"
+        "cited": "10.1016/j.artint.2013.09.006",
+        "creation": "2019-06-30"
     },
     {
-        "creation": "2016",
         "timespan": "P2Y",
         "author_sc": "no",
         "oci": "06702792794-061903115052",
         "journal_sc": "no",
         "citing": "10.1007/978-3-319-44953-1_8",
-        "cited": "10.1016/j.artint.2013.09.006"
+        "cited": "10.1016/j.artint.2013.09.006",
+        "creation": "2016"
     }
 ]

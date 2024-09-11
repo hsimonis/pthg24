@@ -29,8 +29,8 @@
 
 \newcommand{\su}[1]{\Shortunderstack[l]{#1}}
 
-\title{CP Papers on Scheduling}
-\author{Helmut Simonis and Cemalettin Öztürk}
+\input{./exports/title}
+
 \begin{document}
 \rowcolors{2}{gray!20}{white}
 
@@ -63,7 +63,7 @@ We then list the authors of the paper, in the order given in the bibtex file, ab
 We then give the title of the publication, using the original capitalization of the title entry in the bibtex entry, which may differ from the format shown in the bibliography. We then (column LC) provide a link to a local copy, if it is present, and a link to the bibliography entry of the paper.  We also show the year of publication, and the conference where the paper was published, using a short form abbreviation of the conference. This relies on a matching routine in the Java code to find the short title, new conference series may require an additional entry in \texttt{ImportBibtex.java} to work properly. Finally we list the number of pages of the paper, this information is using the bibtex entry where possible, otherwise uses \texttt{pdfinfo} to extract the actual number of pages from the local copy. 
 
 \clearpage
-\subsection{Papers from bibtex}
+\subsection{Conference Papers from bibtex}
 \input{./exports/papers}
 
 \clearpage
@@ -78,7 +78,7 @@ We then give the title of the publication, using the original capitalization of 
 \section{Journal Articles}
 
 \clearpage
-\subsection{Articles from bibtex}
+\subsection{Journal Articles from bibtex}
 \input{./exports/articles}
 
 
@@ -128,10 +128,13 @@ We then give the title of the publication, using the original capitalization of 
 
 \input{./exports/longest}
 
+
 \clearpage
 \section{Acronyms}
 
 \input{./exports/acronyms}
+
+
 
 \clearpage
 \section{Concept Matching}
@@ -146,11 +149,13 @@ Note that we only show the first 30 matching entries in each concept category, a
 \input{./exports/concepts}
 
 
+
 \clearpage
 \phantomsection
 \addcontentsline{toc}{section}{Bibliography}
 \bibliographystyle{plainurl}
-\bibliography{imports/scheduling}
+% the name of the bib file is survey dependent
+\input{./exports/biblio}
 
 
 
@@ -179,8 +184,12 @@ This section lists papers and articles for which we have a pdf local copy, but w
 
 \input{./exports/conceptlessarticle}
 
+\input{./exports/conceptlessinbook}
+
+\input{./exports/conceptlessincollection}
+
 \subsection{Irrelevant Work Suspects}
-The works in the following table might be irrelevant, as they either do not contain the concept "scheduling", or none of the "constraint" related concepts.
+The works in the following table might be irrelevant, as their computed relevance for the body text is very low. Works that do not have a local copy or that only are one or two pages long are excluded from this analysis.
 
 \input{./exports/irrelevantworks}
 \input{./exports/irrelevantconcepts}
@@ -196,6 +205,7 @@ These works do match only few concepts, they might be discussing other topics th
 \section{Unmatched Concepts}
 
 This section lists those concepts for which no matches were found. The most likely cause is a mistake in the regular expression used to find the concept, but it is also possible that some concept simply is not mentioned in any of the documents. 
+
 
 \input{./exports/unmatchedconcept}
 
@@ -222,6 +232,9 @@ This section lists those concepts for which no matches were found. The most like
 \clearpage
 \subsection{InBook from bibtex}
 \input{./exports/inbook}
+
+\clearpage
+\input{./exports/conceptsinbook}
 
 \clearpage
 \subsection{InCollection from bibtex}
@@ -285,19 +298,19 @@ As before, but now based on the cosine similarity measure. A high value means th
 \clearpage
 \section{Missing Works}
 
-The following table shows works that are currently not included in the survey, but which are links to works currently included. The "Nr Links" field shows how many connections exist according to OpenCitations.
+The following table shows works that are currently not included in the survey, but which are considered relevant. The "Nr Links" field shows how many connections exist according to OpenCitations.
 
 \input{./exports/missingwork}
 
 \clearpage
-\section{Highly Connected Missing Work}
+\section{Highly Connected Missing Works}
 
-The following table shows work currently not considered which is highly connected to the survey, but which does not have a high enough relevance to be included automatically. The top 50 entries are shown. Some of these work may be background material cited by many works in the survey, or we might be missing some features to show that they are relevant to the survey topic.
+The following table shows work currently not considered which are highly connected to the survey, but which do not have a high enough relevance to be included automatically. The top 50 entries are shown. Some of these work may be background material cited by many works in the survey, or we might be missing some concepts to show that they are relevant to the survey topic.
 
 \input{./exports/connectedwork}
 
 \clearpage
-\section{Excluded Work}
+\section{Excluded Missing Works}
 
 The following entries have not been included, as they are of the wrong type or are incomplete. Some of these might be highly relevant, but they will need some manual work to be included in the survey.
 
@@ -319,7 +332,6 @@ The following works do not have a DOI entry in their bib entry. This might be du
 \section{Abstracts of Missing Works}
 
 \input{./exports/abstractsmissingwork}
-
 
 
 \printindex

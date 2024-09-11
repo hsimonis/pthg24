@@ -1,74 +1,74 @@
 [
     {
-        "creation": "2019-09-05",
         "timespan": "P4Y9M4D",
         "author_sc": "yes",
         "oci": "061502084294-061702155135",
         "journal_sc": "no",
         "citing": "10.1007/978-3-030-30604-5_2",
-        "cited": "10.1515/fman-2015-0014"
+        "cited": "10.1515/fman-2015-0014",
+        "creation": "2019-09-05"
     },
     {
-        "creation": "2019",
         "timespan": "P4Y",
         "author_sc": "yes",
         "oci": "061601161422-061702155135",
         "journal_sc": "no",
         "citing": "10.1016/j.ifacol.2019.10.027",
-        "cited": "10.1515/fman-2015-0014"
+        "cited": "10.1515/fman-2015-0014",
+        "creation": "2019"
     },
     {
-        "creation": "2021-01-02",
         "timespan": "P6Y1M1D",
         "author_sc": "yes",
         "oci": "06201701548-061702155135",
         "journal_sc": "no",
         "citing": "10.17531/ein.2021.1.13",
-        "cited": "10.1515/fman-2015-0014"
+        "cited": "10.1515/fman-2015-0014",
+        "creation": "2021-01-02"
     },
     {
-        "creation": "2019-06-20",
         "timespan": "P4Y6M19D",
         "author_sc": "yes",
         "oci": "06201701667-061702155135",
         "journal_sc": "no",
         "citing": "10.17531/ein.2019.3.10",
-        "cited": "10.1515/fman-2015-0014"
+        "cited": "10.1515/fman-2015-0014",
+        "creation": "2019-06-20"
     },
     {
-        "creation": "2019",
         "timespan": "P4Y",
         "author_sc": "yes",
         "oci": "062102068600-061702155135",
         "journal_sc": "no",
         "citing": "10.1007/978-3-030-30275-7_2",
-        "cited": "10.1515/fman-2015-0014"
+        "cited": "10.1515/fman-2015-0014",
+        "creation": "2019"
     },
     {
-        "creation": "2018-04",
         "timespan": "P3Y4M",
         "author_sc": "no",
         "oci": "062602431029-061702155135",
         "journal_sc": "no",
         "citing": "10.1051/ro/2017083",
-        "cited": "10.1515/fman-2015-0014"
+        "cited": "10.1515/fman-2015-0014",
+        "creation": "2018-04"
     },
     {
-        "creation": "2016-09-24",
         "timespan": "P1Y9M23D",
         "author_sc": "yes",
         "oci": "06302803576-061702155135",
         "journal_sc": "no",
         "citing": "10.1007/978-3-319-46589-0_15",
-        "cited": "10.1515/fman-2015-0014"
+        "cited": "10.1515/fman-2015-0014",
+        "creation": "2016-09-24"
     },
     {
-        "creation": "2016",
         "timespan": "P1Y",
         "author_sc": "yes",
         "oci": "06402840945-061702155135",
         "journal_sc": "no",
         "citing": "10.1007/978-3-319-29357-8_11",
-        "cited": "10.1515/fman-2015-0014"
+        "cited": "10.1515/fman-2015-0014",
+        "creation": "2016"
     }
 ]

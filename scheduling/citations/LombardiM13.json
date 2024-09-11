@@ -1,29 +1,29 @@
 [
     {
-        "creation": "2019-03",
         "timespan": "P6Y10M",
         "author_sc": "no",
         "oci": "061701433125-061903115164",
         "journal_sc": "no",
         "citing": "10.1061/(asce)co.1943-7862.0001613",
-        "cited": "10.1016/j.artint.2011.12.001"
+        "cited": "10.1016/j.artint.2011.12.001",
+        "creation": "2019-03"
     },
     {
-        "creation": "2014",
         "timespan": "P1Y",
         "author_sc": "no",
         "oci": "06180779433-061903115164",
         "journal_sc": "no",
         "citing": "10.1155/2014/415870",
-        "cited": "10.1016/j.artint.2011.12.001"
+        "cited": "10.1016/j.artint.2011.12.001",
+        "creation": "2014"
     },
     {
-        "creation": "2014-01",
         "timespan": "P1Y8M",
         "author_sc": "yes",
         "oci": "061903115052-061903115164",
         "journal_sc": "yes",
         "citing": "10.1016/j.artint.2013.09.006",
-        "cited": "10.1016/j.artint.2011.12.001"
+        "cited": "10.1016/j.artint.2011.12.001",
+        "creation": "2014-01"
     }
 ]
