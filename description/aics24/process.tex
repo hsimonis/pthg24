@@ -1,0 +1,14 @@
+\begin{tikzpicture}[xscale=2,yscale=2]
+\node[draw=black,fill=pantone_127_4,rounded corners] (bib) at (2,4) {Bib File};
+\node[draw=black,fill=pantone_157_8,rounded corners] (refs) at (1,3) {\shortstack{References\\Citations}};
+\node[draw=black,fill=pantone_10_7,rounded corners] (works) at (2,2) {PDF};
+\node[draw=black,fill=pantone_157_8,rounded corners] (concepts) at (3,3) {\shortstack{Extracted\\Concepts}};
+\node[draw=black,fill=pantone_119_1,rounded corners] (reports) at (2,1) {Reports};
+\draw[very thick,black,->] (bib) -- node[left] {Using REST services} (refs);
+\draw[very thick,black,->] (refs) -- node[left] {Manual} (works);
+\draw[very thick,black,->] (refs) -- node[above] {\shortstack{Title\\Abstract\\Keywords}} (concepts);
+\draw[very thick,black,->] (works) -- node[right] {as LaTeX} (reports);
+\draw[very thick,black,->] (works) -- node[right] {pdfgrep} (concepts);
+\draw[very thick,black,->] (concepts) -- node[right] {Add relevant works} (bib);
+\end{tikzpicture}
+

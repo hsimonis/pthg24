@@ -21,7 +21,7 @@ import org.insightcentre.pthg24.datamodel.Author;
 import org.insightcentre.pthg24.datamodel.AuthorDouble;
 
 /**
- * Generated at 08:45:01 on 2024-09-07 */
+ * Generated at 08:56:10 on 2024-09-25 */
 public class AuthorDoubleController extends Table3Controller {
 	@FXML
 	private TableView<AuthorDouble> table;
