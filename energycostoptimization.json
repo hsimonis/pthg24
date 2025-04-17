@@ -1,0 +1,11 @@
+{
+	"type":"energycostoptimization",
+	"prefix":"energycostoptimization/",
+    "bibFile":"energycostoptimization.bib",
+    "otherFile":"other.bib",
+	"title":"Energy Cost Optimization",
+    "authors":"Helmut Simonis",
+    "coauthorLimit":2,
+    "linkCountLimit":1,
+    "getLimit":5000
+}
