@@ -61,7 +61,7 @@ public class ImportOpenReferences {
                 interpret(w,contents(saveFile));
             } else {
                 if (w.getDoi() != null && !w.getDoi().equals("")) {
-                    target = "https://opencitations.net/index/coci/api/v1/references/" + URLEncoder.encode(properDOI(w.getDoi()), StandardCharsets.UTF_8.toString());
+                    target = "https://opencitations.net/index/api/v2/references/doi:" + URLEncoder.encode(properDOI(w.getDoi()), StandardCharsets.UTF_8.toString());
                     URI targetURI = new URI(target);
                     HttpRequest httpRequest = HttpRequest.newBuilder()
                             .uri(targetURI)
@@ -105,8 +105,8 @@ public class ImportOpenReferences {
             int covered = 0;
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);
-                String citing = obj.getString("citing").toLowerCase();
-                String cited = obj.getString("cited").toLowerCase();
+                String citing = extractDOI(obj.getString("citing").toLowerCase());
+                String cited = extractDOI(obj.getString("cited").toLowerCase());
                 if (!w.getDoi().equals(citing)) {
                     info("doi " + w.getDoi() + " " + citing);
                     toRemove.add(w);
@@ -137,6 +137,17 @@ public class ImportOpenReferences {
             w.setPercentReferencesCovered(100.0 * covered / arr.length());
         }
     }
+
+    private String extractDOI(String text){
+        String[] split = text.split(" ");
+        for(String part:split){
+            if (part.startsWith("doi:")){
+                return part.substring(4);
+            }
+        }
+        return "no doi: part "+text;
+    }
+
 
     private boolean exists(String fileName){
         Path path = Paths.get(fileName);
