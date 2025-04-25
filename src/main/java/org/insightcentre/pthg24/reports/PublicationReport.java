@@ -263,25 +263,37 @@ public class PublicationReport extends AbstractReport{
                 title("Distribution of ConferenceSeries with a given Number of Papers in Survey").
                 generate().latex(tex);
 
-        new BarPlot<>(base.getListConferenceSeries().stream().filter(x -> x.getNrPapers() > limit).toList(),
+        new BarPlot<>(base.getListConferenceSeries().stream().
+                filter(x -> x.getNrPapers() > limit).
+                sorted(Comparator.comparing(ConferenceSeries::getNrPapers).reversed()).
+                limit(30).
+                toList(),
                 this::nameOf,
                 ConferenceSeries::getNrPapers).
                 width(20).height(10).
-                title("Conference Paper Count by Conference Series (Count > "+limit+")").
+                title("Conference Paper Count by Conference Series (Count > "+limit+" total limit 30)").
                 xlabel("Conference Series").ylabel("Paper Count").
                 generate().latex(tex);
-        new BarPlot<>(base.getListConferenceSeries().stream().filter(x -> x.getNrPapers() > limit).toList(),
+        new BarPlot<>(base.getListConferenceSeries().stream().
+                filter(x -> x.getNrPapers() > limit).
+                sorted(Comparator.comparing(ConferenceSeries::getNrPapers).reversed()).
+                limit(30).
+                toList(),
                 this::nameOf,
                 ConferenceSeries::getNrCitations).
                 width(20).height(10).
-                title("Citation Count by Conference Series (Paper Count > "+limit+")").
+                title("Citation Count by Conference Series (Paper Count > "+limit+" total limit 30)").
                 xlabel("Conference Series").ylabel("Citation Count").
                 generate().latex(tex);
-        new BarPlot<>(base.getListConferenceSeries().stream().filter(x -> x.getNrPapers() > limit).toList(),
+        new BarPlot<>(base.getListConferenceSeries().stream().
+                filter(x -> x.getNrPapers() > limit).
+                sorted(Comparator.comparing(ConferenceSeries::getNrPapers).reversed()).
+                limit(30).
+                toList(),
                 this::nameOf,
                 x->1.0*x.getNrCitations()/x.getNrPapers()).
                 width(20).height(10).
-                title("Average Citation Count per Paper by Conference Series (Paper Count > "+limit+")").
+                title("Average Citation Count per Paper by Conference Series (Paper Count > "+limit+" total limit 30)").
                 xlabel("Conference Series").ylabel("Average Citation Count").
                 generate().latex(tex);
 
@@ -309,7 +321,7 @@ public class PublicationReport extends AbstractReport{
                 x->safe(x.getName()).replaceAll(",",""),
                 Journal::getNrArticles).
                 width(22).height(10).
-                title(caption +" Count by Journal (Count > "+limit+")").
+                title(caption +" Count by Journal (Count > "+limit+" total limit 30)").
                 xlabel("Journal").ylabel("Article Count").
                 generate().latex(tex);
         new BarPlot<>(base.getListJournal().stream().
@@ -319,7 +331,7 @@ public class PublicationReport extends AbstractReport{
                 x->safe(x.getName()).replaceAll(",",""),
                 Journal::getNrCitations).
                 width(22).height(10).
-                title("Citation Count by Journal (Article Count > "+limit+")").
+                title("Citation Count by Journal (Article Count > "+limit+" total limit 30)").
                 xlabel("Journal").ylabel("Citation Count").
                 generate().latex(tex);
         new BarPlot<>(base.getListJournal().stream().
@@ -329,7 +341,7 @@ public class PublicationReport extends AbstractReport{
                 x->safe(x.getName()).replaceAll(",",""),
                 x->1.0*x.getNrCitations()/x.getNrArticles()).
                 width(22).height(10).
-                title("Average Citation Count per Article by Journal (Article Count > "+limit+")").
+                title("Average Citation Count per Article by Journal (Article Count > "+limit+" total limit 30)").
                 xlabel("Journal").ylabel("Average Citation Count").
                 generate().latex(tex);
 

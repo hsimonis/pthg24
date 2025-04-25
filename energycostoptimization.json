@@ -5,7 +5,9 @@
     "otherFile":"other.bib",
 	"title":"Energy Cost Optimization",
     "authors":"Helmut Simonis",
-    "coauthorLimit":2,
+    "overviewLimit": 200,
+    "coauthorLimit":8,
     "linkCountLimit":1,
+    "computeSimilarity": false,
     "getLimit":0
 }

@@ -43,12 +43,15 @@ public class JfxApp extends GeneratedJfxApp {
         static String authors; // authors for the survey
         //the following fields are optional; to change edit json parameter file, do not modify value here
         static String otherFile=""; // alternative bibliography for comparison
+        static int overviewLimit = 30; // how many works are listed on overview tables
         static int coauthorLimit = 2; // how many works an author needs to have to be included in coauthor graph
         static int linkCountLimit = 10; // how many links are required to lookup a missing work by its DOI
         static int getLimit=200; // how many Crossref/Scopus lookups from the web are allowed in one run; does not count cache
         static double relevanceLimit = 0.8; // which raw abstract relevance limit is enough to include
         static int abstractRelevanceCutoff = 1000; // which raw body relevance value should be mapped to 1.0
         static int bodyRelevanceCutoff = 900; // which raw body relevance value should be mapped to 1.0
+
+        static boolean computeSimilarity = true;
 
 
          public void showObject(ApplicationObjectInterface obj){
@@ -109,7 +112,9 @@ public class JfxApp extends GeneratedJfxApp {
                 new FindConnectedPapers(base);
                 new FindCoauthorLinks(base);
 
-                new SimilarityMeasure(base);
+                if (computeSimilarity) {
+                        new SimilarityMeasure(base);
+                }
                 new LookupMissingWork(base,missingWorkDir,linkCountLimit,getLimit);
                 new ComputeRelevance(base,type,abstractRelevanceCutoff,bodyRelevanceCutoff);
 //                new CheckAuthorDoubles(base);
@@ -132,29 +137,29 @@ public class JfxApp extends GeneratedJfxApp {
                 new ListWorks(base,base.getListWork().stream().
                         filter(x->!x.getBackground()).
                         sorted(Comparator.comparing(Work::getMaxCitations).reversed()).
-                        limit(30).
+                        limit(overviewLimit).
                         toList(),exportDir,"mostcited.tex","Most Cited Works");
                 new ListWorks(base,base.getListWork().stream().
                         filter(x->!x.getBackground()).
                         filter(x->x.getRelevanceBody() >= 1.0).
                         sorted(Comparator.comparing(Work::getMaxCitations).reversed()).
-                        limit(30).
+                        limit(overviewLimit).
                         toList(),exportDir,"mostcitedrelevant.tex","Most Cited Relevant Works");
                 new ListWorks(base,base.getListWork().stream().
                         filter(x->!x.getBackground()).
                         sorted(Comparator.comparing(Work::getRelevanceBody).reversed()).
-                        limit(30).
+                        limit(overviewLimit).
                         toList(),exportDir,"mostrelevant.tex","Most Relevant Works");
                 new ListWorks(base,base.getListWork().stream().
                         filter(x->!x.getBackground()).
                         sorted(Comparator.comparing(this::nrConnected).reversed()).
-                        limit(30).
+                        limit(overviewLimit).
                         toList(),exportDir,"mostconnected.tex","Most Connected Works");
                 new ListWorks(base,base.getListWork().stream().
                         filter(x->!x.getBackground()).
                         filter(x->x.getNrPages()!=null).
                         sorted(Comparator.comparing(Work::getNrPages).reversed()).
-                        limit(30).
+                        limit(overviewLimit).
                         toList(),exportDir,"longest.tex","Longest Works");
                 new ListWorks(base,base.getListWork().stream().
                         filter(Work::getBackground).
@@ -178,7 +183,9 @@ public class JfxApp extends GeneratedJfxApp {
                 new KeyOverview(base,exportDir,"keylist.tex");
                 new WorksByAuthor(base,exportDir,"worksbyauthor.tex");
                 new CoauthorGraph(base,coauthorLimit,graphvizDir,reportDir,"coauthors.pdf");
-                new ListSimilarity(base,exportDir,"mostsimilar.tex");
+                if (computeSimilarity) {
+                        new ListSimilarity(base,exportDir,"mostsimilar.tex");
+                }
 
                 new ListMissingWork(base,exportDir,"missingwork.tex",
                         "excludedwork.tex",
@@ -219,15 +226,17 @@ public class JfxApp extends GeneratedJfxApp {
                                 toList(),
                         exportDir,"missingdoi.tex","Works with Missing DOI");
 
-                List<Work> similar = similarWorks(base,20);
-                new ListWorks(base,similar,exportDir,"similarworks.tex","Works Close by Euclidean Distance");
-                new ListConceptsByWork(base,similar,exportDir,"similarconcepts.tex","Features of Work Close by Euclidean Distance");
-                List<Work> dot = dotWorks(base,20);
-                new ListWorks(base,dot,exportDir,"dotworks.tex","Works Similar by Dot Product");
-                new ListConceptsByWork(base,dot,exportDir,"dotconcepts.tex","Features of Works Similar by Dot Product");
-                List<Work> cosine = cosineWorks(base,20);
-                new ListWorks(base,cosine,exportDir,"cosineworks.tex","Works Similar by Cosine Similarity");
-                new ListConceptsByWork(base,cosine,exportDir,"cosineconcepts.tex","Features of Works Similar by Cosine Similarity");
+                if (computeSimilarity) {
+                        List<Work> similar = similarWorks(base, 20);
+                        new ListWorks(base, similar, exportDir, "similarworks.tex", "Works Close by Euclidean Distance");
+                        new ListConceptsByWork(base, similar, exportDir, "similarconcepts.tex", "Features of Work Close by Euclidean Distance");
+                        List<Work> dot = dotWorks(base, 20);
+                        new ListWorks(base, dot, exportDir, "dotworks.tex", "Works Similar by Dot Product");
+                        new ListConceptsByWork(base, dot, exportDir, "dotconcepts.tex", "Features of Works Similar by Dot Product");
+                        List<Work> cosine = cosineWorks(base, 20);
+                        new ListWorks(base, cosine, exportDir, "cosineworks.tex", "Works Similar by Cosine Similarity");
+                        new ListConceptsByWork(base, cosine, exportDir, "cosineconcepts.tex", "Features of Works Similar by Cosine Similarity");
+                }
                 new ListAcronyms(base,exportDir,"acronyms.tex");
 
 
@@ -388,6 +397,12 @@ public class JfxApp extends GeneratedJfxApp {
                         }
                         if (obj.has("getLimit")) {
                                 getLimit = obj.getInt("getLimit");
+                        }
+                        if (obj.has("overviewLimit")) {
+                                overviewLimit = obj.getInt("overviewLimit");
+                        }
+                        if (obj.has("computeSimilarity")) {
+                                computeSimilarity = obj.getBoolean("computeSimilarity");
                         }
                         if (obj.has("abstractRelevanceCutoff")) {
                                 abstractRelevanceCutoff = obj.getInt("abstractRelevanceCutoff");
