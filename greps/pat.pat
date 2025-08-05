@@ -1,1 +1,1 @@
-prompt.?engineering
+[^a-zA-Z]VM[^a-zA-Z]
