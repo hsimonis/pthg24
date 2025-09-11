@@ -28,7 +28,7 @@ public class RunPDFInfo {
             String logFile = "info.txt";
             deleteExistingResultFile("greps/", logFile);
             runPDFInfo("greps/",
-                    "C:/texlive/2022/bin/win32/pdfinfo",
+                    "C:/texlive/2025/bin/windows/pdfinfo",
                     "../"+a.getLocalCopy(),
                     logFile);
             int nrPages = parseResult("greps/", logFile);

@@ -1,7 +1,7 @@
 package org.insightcentre.pthg24.analysis;
 
-import edu.princeton.cs.algs4.CC;
-import edu.princeton.cs.algs4.Graph;
+import edu.princeton.cs.algorithms.CC;
+import edu.princeton.cs.algorithms.Graph;
 import org.insightcentre.pthg24.datamodel.*;
 
 import java.util.Comparator;

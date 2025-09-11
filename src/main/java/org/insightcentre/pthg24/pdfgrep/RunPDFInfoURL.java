@@ -27,7 +27,7 @@ public class RunPDFInfoURL {
             String logFile = "links.txt";
             deleteExistingResultFile("greps/", logFile);
             runPDFInfo("greps/",
-                    "C:/texlive/2022/bin/win32/pdfinfo",
+                    "C:/texlive/2025/bin/windows/pdfinfo",
                     "../"+a.getLocalCopy(),
                     logFile);
             int nrURL = parseResult("greps/", logFile);
