@@ -70,7 +70,7 @@ public class ImportOpenCitations {
                 interpret(w,contents(saveFile));
             } else {
                 if (w.getDoi() != null && !w.getDoi().equals("")) {
-                    target = "https://opencitations.net/index/api/v2/citations/doi:" +
+                    target = "https://api.opencitations.net/index/v2/citations/doi:" +
                             URLEncoder.encode(properDOI(w.getDoi()), StandardCharsets.UTF_8.toString());
                     URI targetURI = new URI(target);
                     HttpRequest httpRequest = HttpRequest.newBuilder()

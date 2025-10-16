@@ -61,7 +61,7 @@ public class ImportOpenReferences {
                 interpret(w,contents(saveFile));
             } else {
                 if (w.getDoi() != null && !w.getDoi().equals("")) {
-                    target = "https://opencitations.net/index/api/v2/references/doi:" + URLEncoder.encode(properDOI(w.getDoi()), StandardCharsets.UTF_8.toString());
+                    target = "https://api.opencitations.net/index/v2/references/doi:" + URLEncoder.encode(properDOI(w.getDoi()), StandardCharsets.UTF_8.toString());
                     URI targetURI = new URI(target);
                     HttpRequest httpRequest = HttpRequest.newBuilder()
                             .uri(targetURI)
