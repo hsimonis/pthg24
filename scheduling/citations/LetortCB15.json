@@ -1,20 +1,20 @@
 [
     {
-        "timespan": "P5Y",
-        "author_sc": "no",
-        "oci": "062601931306-0690166832",
+        "oci": "06602745091-0690166832",
+        "citing": "omid:br/06602745091 doi:10.1109/icitech.2017.8080065 openalex:W4255225598",
+        "cited": "omid:br/0690166832 doi:10.1007/s10601-014-9172-8 openalex:W2058435111",
+        "creation": "2017-05",
+        "timespan": "P2Y6M",
         "journal_sc": "no",
-        "citing": "10.1007/978-3-030-50097-9_40",
-        "cited": "10.1007/s10601-014-9172-8",
-        "creation": "2020"
+        "author_sc": "no"
     },
     {
-        "timespan": "P2Y6M",
-        "author_sc": "no",
-        "oci": "06602745091-0690166832",
+        "oci": "062601931306-0690166832",
+        "citing": "omid:br/062601931306 doi:10.1007/978-3-030-50097-9_40 openalex:W3035991174",
+        "cited": "omid:br/0690166832 doi:10.1007/s10601-014-9172-8 openalex:W2058435111",
+        "creation": "2020",
+        "timespan": "P5Y",
         "journal_sc": "no",
-        "citing": "10.1109/icitech.2017.8080065",
-        "cited": "10.1007/s10601-014-9172-8",
-        "creation": "2017-05"
+        "author_sc": "no"
     }
 ]

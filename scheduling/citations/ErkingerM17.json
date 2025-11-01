@@ -1,38 +1,38 @@
 [
     {
+        "oci": "062103120337-06402761892",
+        "citing": "omid:br/062103120337 doi:10.1007/s10951-020-00659-2 openalex:W3039087249",
+        "cited": "omid:br/06402761892 doi:10.24963/ijcai.2017/86 openalex:W2740052322",
         "creation": "2020-06-30",
-        "author_sc": "no",
-        "cited": "10.24963/ijcai.2017/86",
         "timespan": "P2Y10M",
         "journal_sc": "no",
-        "oci": "062103120337-06402761892",
-        "citing": "10.1007/s10951-020-00659-2"
+        "author_sc": "no"
     },
     {
-        "creation": "2018",
-        "author_sc": "yes",
-        "cited": "10.24963/ijcai.2017/86",
-        "timespan": "P0Y",
-        "journal_sc": "no",
-        "oci": "06302564579-06402761892",
-        "citing": "10.1007/978-3-319-93031-2_31"
-    },
-    {
-        "creation": "2020-04-24",
-        "author_sc": "yes",
-        "cited": "10.24963/ijcai.2017/86",
-        "timespan": "P2Y8M",
-        "journal_sc": "no",
-        "oci": "06702389028-06402761892",
-        "citing": "10.1007/s10472-020-09695-2"
-    },
-    {
+        "oci": "0690912087-06402761892",
+        "citing": "omid:br/0690912087 doi:10.1111/exsy.12975 openalex:W4220793858",
+        "cited": "omid:br/06402761892 doi:10.24963/ijcai.2017/86 openalex:W2740052322",
         "creation": "2022-03-06",
-        "author_sc": "no",
-        "cited": "10.24963/ijcai.2017/86",
         "timespan": "P4Y7M",
         "journal_sc": "no",
-        "oci": "0690912087-06402761892",
-        "citing": "10.1111/exsy.12975"
+        "author_sc": "no"
+    },
+    {
+        "oci": "06702389028-06402761892",
+        "citing": "omid:br/06702389028 doi:10.1007/s10472-020-09695-2 openalex:W3019160814",
+        "cited": "omid:br/06402761892 doi:10.24963/ijcai.2017/86 openalex:W2740052322",
+        "creation": "2020-04-24",
+        "timespan": "P2Y8M",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "06302564579-06402761892",
+        "citing": "omid:br/06302564579 doi:10.1007/978-3-319-93031-2_31 openalex:W2805181779",
+        "cited": "omid:br/06402761892 doi:10.24963/ijcai.2017/86 openalex:W2740052322",
+        "creation": "2018",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
     }
 ]

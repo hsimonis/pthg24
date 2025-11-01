@@ -1,1 +1,65 @@
-[]
+[
+    {
+        "oci": "062203099514-06110828213",
+        "citing": "omid:br/062203099514 doi:10.1016/s0004-3702(02)00362-4 openalex:W2102433499",
+        "cited": "omid:br/06110828213 doi:10.1287/ijoc.12.4.341.11881 openalex:W2163942338",
+        "creation": "2003-02",
+        "timespan": "P2Y3M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062401899803-06110828213",
+        "citing": "omid:br/062401899803 doi:10.1109/tase.2007.895005 openalex:W2109163399",
+        "cited": "omid:br/06110828213 doi:10.1287/ijoc.12.4.341.11881 openalex:W2163942338",
+        "creation": "2008-04",
+        "timespan": "P7Y5M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06703646378-06110828213",
+        "citing": "omid:br/06703646378 doi:10.1016/s1574-6526(06)80026-x openalex:W2098333147",
+        "cited": "omid:br/06110828213 doi:10.1287/ijoc.12.4.341.11881 openalex:W2163942338",
+        "creation": "2006",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103121021-06110828213",
+        "citing": "omid:br/062103121021 doi:10.1007/s10951-005-6812-2 openalex:W2040303793",
+        "cited": "omid:br/06110828213 doi:10.1287/ijoc.12.4.341.11881 openalex:W2163942338",
+        "creation": "2005-06",
+        "timespan": "P4Y7M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06301160496-06110828213",
+        "citing": "omid:br/06301160496 doi:10.1016/j.ifacol.2015.06.236 openalex:W2284279149",
+        "cited": "omid:br/06110828213 doi:10.1287/ijoc.12.4.341.11881 openalex:W2163942338",
+        "creation": "2015",
+        "timespan": "P14Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062602431045-06110828213",
+        "citing": "omid:br/062602431045 doi:10.1051/ro/2017073 openalex:W2763265129",
+        "cited": "omid:br/06110828213 doi:10.1287/ijoc.12.4.341.11881 openalex:W2163942338",
+        "creation": "2019-04",
+        "timespan": "P18Y5M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06250220969-06110828213",
+        "citing": "omid:br/06250220969 doi:10.1016/j.ejor.2011.10.020 openalex:W2051947812",
+        "cited": "omid:br/06110828213 doi:10.1287/ijoc.12.4.341.11881 openalex:W2163942338",
+        "creation": "2012-04",
+        "timespan": "P11Y5M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

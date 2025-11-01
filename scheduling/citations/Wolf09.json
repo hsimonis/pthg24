@@ -1,11 +1,11 @@
 [
     {
-        "timespan": "P2Y",
-        "author_sc": "no",
         "oci": "06503312215-061203086364",
+        "citing": "omid:br/06503312215 doi:10.1007/978-3-642-19486-3_8 openalex:W1800289497",
+        "cited": "omid:br/061203086364 doi:10.1007/978-3-642-00675-3_2 openalex:W2169713768",
+        "creation": "2011",
+        "timespan": "P2Y",
         "journal_sc": "no",
-        "citing": "10.1007/978-3-642-19486-3_8",
-        "cited": "10.1007/978-3-642-00675-3_2",
-        "creation": "2011"
+        "author_sc": "no"
     }
 ]

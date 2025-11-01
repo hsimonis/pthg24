@@ -1,1 +1,56 @@
-[]
+[
+    {
+        "oci": "062601954542-06102584723",
+        "citing": "omid:br/062601954542 doi:10.1007/978-3-030-58942-4_30 openalex:W3089394712",
+        "cited": "omid:br/06102584723 doi:10.1007/978-3-319-98334-9_32 openalex:W2888281122",
+        "creation": "2020",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "06702451081-06102584723",
+        "citing": "omid:br/06702451081 doi:10.1007/978-3-030-19212-9_9 openalex:W2922070351",
+        "cited": "omid:br/06102584723 doi:10.1007/978-3-319-98334-9_32 openalex:W2888281122",
+        "creation": "2019",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061101901339-06102584723",
+        "citing": "omid:br/061101901339 doi:10.1007/978-3-030-53440-0_13 openalex:W3124416885",
+        "cited": "omid:br/06102584723 doi:10.1007/978-3-319-98334-9_32 openalex:W2888281122",
+        "creation": "2021",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103120353-06102584723",
+        "citing": "omid:br/062103120353 doi:10.1007/s10951-019-00632-8 openalex:W3006399906",
+        "cited": "omid:br/06102584723 doi:10.1007/978-3-319-98334-9_32 openalex:W2888281122",
+        "creation": "2020-02-15",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061202069623-06102584723",
+        "citing": "omid:br/061202069623 doi:10.1007/978-3-030-30048-7_27 openalex:W2973825241",
+        "cited": "omid:br/06102584723 doi:10.1007/978-3-319-98334-9_32 openalex:W2888281122",
+        "creation": "2019",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061101950379-06102584723",
+        "citing": "omid:br/061101950379 doi:10.3390/su14053020 openalex:W4221085838",
+        "cited": "omid:br/06102584723 doi:10.1007/978-3-319-98334-9_32 openalex:W2888281122",
+        "creation": "2022-03-04",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

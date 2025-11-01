@@ -1,38 +1,38 @@
 [
     {
-        "creation": "2016-09",
-        "author_sc": "no",
-        "cited": "10.1007/s10601-015-9213-y",
-        "timespan": "P0Y11M",
-        "journal_sc": "no",
-        "oci": "061402442394-0690166796",
-        "citing": "10.1109/icmcs.2016.7905626"
-    },
-    {
+        "oci": "061702161027-0690166796",
+        "citing": "omid:br/061702161027 doi:10.1007/978-3-030-06167-8_6 openalex:W4211102162",
+        "cited": "omid:br/0690166796 doi:10.1007/s10601-015-9213-y openalex:W1864667578",
         "creation": "2020",
-        "author_sc": "no",
-        "cited": "10.1007/s10601-015-9213-y",
         "timespan": "P4Y",
         "journal_sc": "no",
-        "oci": "061702161027-0690166796",
-        "citing": "10.1007/978-3-030-06167-8_6"
+        "author_sc": "no"
     },
     {
+        "oci": "062602398863-0690166796",
+        "citing": "omid:br/062602398863 doi:10.1145/3090354.3090474 openalex:W2741765283",
+        "cited": "omid:br/0690166796 doi:10.1007/s10601-015-9213-y openalex:W1864667578",
         "creation": "2017-03-29",
-        "author_sc": "no",
-        "cited": "10.1007/s10601-015-9213-y",
         "timespan": "P1Y6M14D",
         "journal_sc": "no",
-        "oci": "062602398863-0690166796",
-        "citing": "10.1145/3090354.3090474"
+        "author_sc": "no"
     },
     {
+        "oci": "06702696182-0690166796",
+        "citing": "omid:br/06702696182 doi:10.1145/3230905.3230908 openalex:W2884750162",
+        "cited": "omid:br/0690166796 doi:10.1007/s10601-015-9213-y openalex:W1864667578",
         "creation": "2018",
-        "author_sc": "no",
-        "cited": "10.1007/s10601-015-9213-y",
         "timespan": "P2Y",
         "journal_sc": "no",
-        "oci": "06702696182-0690166796",
-        "citing": "10.1145/3230905.3230908"
+        "author_sc": "no"
+    },
+    {
+        "oci": "061402442394-0690166796",
+        "citing": "omid:br/061402442394 doi:10.1109/icmcs.2016.7905626 openalex:W2609641453",
+        "cited": "omid:br/0690166796 doi:10.1007/s10601-015-9213-y openalex:W1864667578",
+        "creation": "2016-09",
+        "timespan": "P0Y11M",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

@@ -1,20 +1,20 @@
 [
     {
-        "timespan": "P0Y",
-        "author_sc": "yes",
-        "oci": "062602674331-062602674331",
-        "journal_sc": "yes",
-        "citing": "10.1007/978-3-319-07046-9_14",
-        "cited": "10.1007/978-3-319-07046-9_14",
-        "creation": "2014"
+        "oci": "0640958739-062602674331",
+        "citing": "omid:br/0640958739 doi:10.1007/s13675-018-0095-9 openalex:W2800562845",
+        "cited": "omid:br/062602674331 doi:10.1007/978-3-319-07046-9_14 openalex:W6162201",
+        "creation": "2019-09",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     },
     {
-        "timespan": "P5Y",
-        "author_sc": "no",
-        "oci": "0640958739-062602674331",
-        "journal_sc": "no",
-        "citing": "10.1007/s13675-018-0095-9",
-        "cited": "10.1007/978-3-319-07046-9_14",
-        "creation": "2019-09"
+        "oci": "062602674331-062602674331",
+        "citing": "omid:br/062602674331 doi:10.1007/978-3-319-07046-9_14 openalex:W6162201",
+        "cited": "omid:br/062602674331 doi:10.1007/978-3-319-07046-9_14 openalex:W6162201",
+        "creation": "2014",
+        "timespan": "P0Y",
+        "journal_sc": "yes",
+        "author_sc": "yes"
     }
 ]

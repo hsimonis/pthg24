@@ -1,11 +1,11 @@
 [
     {
-        "timespan": "P4Y6M",
-        "author_sc": "no",
         "oci": "061201960761-06201074490",
+        "citing": "omid:br/061201960761 doi:10.1016/j.compchemeng.2013.01.019 openalex:W2042858294",
+        "cited": "omid:br/06201074490 doi:10.1590/s0101-74382008000300007 openalex:W2086763897",
+        "creation": "2013-06",
+        "timespan": "P4Y6M",
         "journal_sc": "no",
-        "citing": "10.1016/j.compchemeng.2013.01.019",
-        "cited": "10.1590/s0101-74382008000300007",
-        "creation": "2013-06"
+        "author_sc": "no"
     }
 ]

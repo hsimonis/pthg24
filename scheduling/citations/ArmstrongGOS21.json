@@ -1,11 +1,11 @@
 [
     {
+        "oci": "0644052549-060441",
+        "citing": "omid:br/0644052549 doi:10.1007/978-3-031-08011-1_1 openalex:W4285286126",
+        "cited": "omid:br/060441 doi:10.4230/lipics.cp.2021.16 openalex:W3206911038",
         "creation": "2022",
-        "author_sc": "no",
-        "cited": "10.4230/lipics.cp.2021.16",
         "timespan": "P1Y",
         "journal_sc": "no",
-        "oci": "0644052549-060441",
-        "citing": "10.1007/978-3-031-08011-1_1"
+        "author_sc": "no"
     }
 ]

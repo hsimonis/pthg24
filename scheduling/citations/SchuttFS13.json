@@ -1,92 +1,92 @@
 [
     {
-        "timespan": "P2Y",
-        "author_sc": "no",
-        "oci": "06103018071-062202683340",
-        "journal_sc": "no",
-        "citing": "10.1007/978-3-319-23219-5_36",
-        "cited": "10.1007/978-3-642-40627-0_47",
-        "creation": "2015"
-    },
-    {
-        "timespan": "P8Y",
-        "author_sc": "no",
-        "oci": "061701299554-062202683340",
-        "journal_sc": "no",
-        "citing": "10.1016/j.cie.2021.107542",
-        "cited": "10.1007/978-3-642-40627-0_47",
-        "creation": "2021-10"
-    },
-    {
-        "timespan": "P7Y",
-        "author_sc": "no",
-        "oci": "061701470660-062202683340",
-        "journal_sc": "no",
-        "citing": "10.1017/s1471068420000162",
-        "cited": "10.1007/978-3-642-40627-0_47",
-        "creation": "2020-09-22"
-    },
-    {
-        "timespan": "P6Y",
-        "author_sc": "no",
         "oci": "062301456303-062202683340",
+        "citing": "omid:br/062301456303 doi:10.1021/acs.iecr.9b02455 openalex:W2971673126",
+        "cited": "omid:br/062202683340 doi:10.1007/978-3-642-40627-0_47 openalex:W181741320",
+        "creation": "2019-09-03",
+        "timespan": "P6Y",
         "journal_sc": "no",
-        "citing": "10.1021/acs.iecr.9b02455",
-        "cited": "10.1007/978-3-642-40627-0_47",
-        "creation": "2019-09-03"
+        "author_sc": "no"
     },
     {
-        "timespan": "P4Y",
-        "author_sc": "no",
-        "oci": "062502238706-062202683340",
-        "journal_sc": "no",
-        "citing": "10.1007/978-3-319-66158-2_20",
-        "cited": "10.1007/978-3-642-40627-0_47",
-        "creation": "2017"
-    },
-    {
-        "timespan": "P4Y",
-        "author_sc": "no",
-        "oci": "062502238719-062202683340",
-        "journal_sc": "no",
-        "citing": "10.1007/978-3-319-66158-2_25",
-        "cited": "10.1007/978-3-642-40627-0_47",
-        "creation": "2017"
-    },
-    {
-        "timespan": "P2Y",
-        "author_sc": "no",
-        "oci": "062602633135-062202683340",
-        "journal_sc": "no",
-        "citing": "10.1007/978-3-319-18008-3_27",
-        "cited": "10.1007/978-3-642-40627-0_47",
-        "creation": "2015"
-    },
-    {
-        "timespan": "P1Y",
-        "author_sc": "yes",
         "oci": "062602674338-062202683340",
-        "journal_sc": "no",
-        "citing": "10.1007/978-3-319-07046-9_7",
-        "cited": "10.1007/978-3-642-40627-0_47",
-        "creation": "2014"
-    },
-    {
+        "citing": "omid:br/062602674338 doi:10.1007/978-3-319-07046-9_7 openalex:W8750543",
+        "cited": "omid:br/062202683340 doi:10.1007/978-3-642-40627-0_47 openalex:W181741320",
+        "creation": "2014",
         "timespan": "P1Y",
-        "author_sc": "no",
-        "oci": "06302958737-062202683340",
         "journal_sc": "no",
-        "citing": "10.1109/wsc.2014.7020091",
-        "cited": "10.1007/978-3-642-40627-0_47",
-        "creation": "2014-12"
+        "author_sc": "yes"
     },
     {
-        "timespan": "P3Y",
-        "author_sc": "yes",
-        "oci": "06702792843-062202683340",
+        "oci": "061701470660-062202683340",
+        "citing": "omid:br/061701470660 doi:10.1017/s1471068420000162 openalex:W3100903453",
+        "cited": "omid:br/062202683340 doi:10.1007/978-3-642-40627-0_47 openalex:W181741320",
+        "creation": "2020-09-22",
+        "timespan": "P7Y",
         "journal_sc": "no",
-        "citing": "10.1007/978-3-319-44953-1_31",
-        "cited": "10.1007/978-3-642-40627-0_47",
-        "creation": "2016"
+        "author_sc": "no"
+    },
+    {
+        "oci": "062602633135-062202683340",
+        "citing": "omid:br/062602633135 doi:10.1007/978-3-319-18008-3_27 openalex:W2296337383",
+        "cited": "omid:br/062202683340 doi:10.1007/978-3-642-40627-0_47 openalex:W181741320",
+        "creation": "2015",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701299554-062202683340",
+        "citing": "omid:br/061701299554 doi:10.1016/j.cie.2021.107542 openalex:W3182259687",
+        "cited": "omid:br/062202683340 doi:10.1007/978-3-642-40627-0_47 openalex:W181741320",
+        "creation": "2021-10",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062502238706-062202683340",
+        "citing": "omid:br/062502238706 doi:10.1007/978-3-319-66158-2_20 openalex:W2746303749",
+        "cited": "omid:br/062202683340 doi:10.1007/978-3-642-40627-0_47 openalex:W181741320",
+        "creation": "2017",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06702792843-062202683340",
+        "citing": "omid:br/06702792843 doi:10.1007/978-3-319-44953-1_31 openalex:W2511017421",
+        "cited": "omid:br/062202683340 doi:10.1007/978-3-642-40627-0_47 openalex:W181741320",
+        "creation": "2016",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "06302958737-062202683340",
+        "citing": "omid:br/06302958737 doi:10.1109/wsc.2014.7020091 openalex:W4229853993",
+        "cited": "omid:br/062202683340 doi:10.1007/978-3-642-40627-0_47 openalex:W181741320",
+        "creation": "2014-12",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103018071-062202683340",
+        "citing": "omid:br/06103018071 doi:10.1007/978-3-319-23219-5_36 openalex:W2264526809",
+        "cited": "omid:br/062202683340 doi:10.1007/978-3-642-40627-0_47 openalex:W181741320",
+        "creation": "2015",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062502238719-062202683340",
+        "citing": "omid:br/062502238719 doi:10.1007/978-3-319-66158-2_25 openalex:W3015423745",
+        "cited": "omid:br/062202683340 doi:10.1007/978-3-642-40627-0_47 openalex:W181741320",
+        "creation": "2017",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

@@ -1,38 +1,38 @@
 [
     {
-        "timespan": "P7Y",
-        "author_sc": "no",
-        "oci": "061202728015-06701332131",
-        "journal_sc": "no",
-        "citing": "10.1016/j.procir.2021.11.220",
-        "cited": "10.3182/20130522-3-br-4036.00069",
-        "creation": "2021"
-    },
-    {
-        "timespan": "P1Y",
-        "author_sc": "yes",
         "oci": "06301160660-06701332131",
+        "citing": "omid:br/06301160660 doi:10.1016/j.ifacol.2015.06.426 openalex:W2290465547",
+        "cited": "omid:br/06701332131 doi:10.3182/20130522-3-br-4036.00069 openalex:W1982050903",
+        "creation": "2015",
+        "timespan": "P1Y",
         "journal_sc": "no",
-        "citing": "10.1016/j.ifacol.2015.06.426",
-        "cited": "10.3182/20130522-3-br-4036.00069",
-        "creation": "2015"
+        "author_sc": "yes"
     },
     {
-        "timespan": "P5Y6M",
-        "author_sc": "no",
-        "oci": "06303530892-06701332131",
-        "journal_sc": "no",
-        "citing": "10.1007/s10462-018-9667-6",
-        "cited": "10.3182/20130522-3-br-4036.00069",
-        "creation": "2018-11-19"
-    },
-    {
-        "timespan": "P0Y",
-        "author_sc": "yes",
         "oci": "0650572994-06701332131",
+        "citing": "omid:br/0650572994 doi:10.1016/j.arcontrol.2014.03.013 openalex:W2045046946",
+        "cited": "omid:br/06701332131 doi:10.3182/20130522-3-br-4036.00069 openalex:W1982050903",
+        "creation": "2014",
+        "timespan": "P0Y",
         "journal_sc": "no",
-        "citing": "10.1016/j.arcontrol.2014.03.013",
-        "cited": "10.3182/20130522-3-br-4036.00069",
-        "creation": "2014"
+        "author_sc": "yes"
+    },
+    {
+        "oci": "06303530892-06701332131",
+        "citing": "omid:br/06303530892 doi:10.1007/s10462-018-9667-6 openalex:W2900886562",
+        "cited": "omid:br/06701332131 doi:10.3182/20130522-3-br-4036.00069 openalex:W1982050903",
+        "creation": "2018-11-19",
+        "timespan": "P5Y6M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061202728015-06701332131",
+        "citing": "omid:br/061202728015 doi:10.1016/j.procir.2021.11.220 openalex:W3215645283",
+        "cited": "omid:br/06701332131 doi:10.3182/20130522-3-br-4036.00069 openalex:W1982050903",
+        "creation": "2021",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

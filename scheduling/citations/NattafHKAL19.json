@@ -1,1 +1,65 @@
-[]
+[
+    {
+        "oci": "06801095127-06230257404",
+        "citing": "omid:br/06801095127 doi:10.1007/978-3-031-09173-5_105 openalex:W4285139305",
+        "cited": "omid:br/06230257404 doi:10.1016/j.dam.2018.11.008 openalex:W2615061682",
+        "creation": "2022",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0680834039-06230257404",
+        "citing": "omid:br/0680834039 doi:10.1287/ijoc.2020.0957 openalex:W3034520576",
+        "cited": "omid:br/06230257404 doi:10.1016/j.dam.2018.11.008 openalex:W2615061682",
+        "creation": "2021-01",
+        "timespan": "P1Y9M",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "06330425979-06230257404",
+        "citing": "omid:br/06330425979 doi:10.1007/s10951-024-00824-x",
+        "cited": "omid:br/06230257404 doi:10.1016/j.dam.2018.11.008 openalex:W2615061682",
+        "creation": "2024-10-14",
+        "timespan": "P5Y6M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06490192755-06230257404",
+        "citing": "omid:br/06490192755 doi:10.1016/j.dajour.2023.100248 openalex:W4375858675",
+        "cited": "omid:br/06230257404 doi:10.1016/j.dam.2018.11.008 openalex:W2615061682",
+        "creation": "2023-06",
+        "timespan": "P4Y2M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0680663519-06230257404",
+        "citing": "omid:br/0680663519 doi:10.1016/j.eswa.2021.114754 openalex:W3130821458",
+        "cited": "omid:br/06230257404 doi:10.1016/j.dam.2018.11.008 openalex:W2615061682",
+        "creation": "2021-07",
+        "timespan": "P2Y3M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06104359646-06230257404",
+        "citing": "omid:br/06104359646 doi:10.1016/j.cor.2023.106147 openalex:W4317528630",
+        "cited": "omid:br/06230257404 doi:10.1016/j.dam.2018.11.008 openalex:W2615061682",
+        "creation": "2023-04",
+        "timespan": "P4Y0M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062104315268-06230257404",
+        "citing": "omid:br/062104315268 doi:10.1287/ijoc.2022.0142",
+        "cited": "omid:br/06230257404 doi:10.1016/j.dam.2018.11.008 openalex:W2615061682",
+        "creation": "2024-04-08",
+        "timespan": "P5Y0M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

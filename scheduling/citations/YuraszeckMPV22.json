@@ -1,83 +1,101 @@
 [
     {
-        "creation": "2024-02",
-        "author_sc": "no",
-        "cited": "10.3390/math10030329",
-        "timespan": "P2Y0M",
+        "oci": "06404657266-062501890233",
+        "citing": "omid:br/06404657266 doi:10.1109/access.2023.3345793",
+        "cited": "omid:br/062501890233 doi:10.3390/math10030329 openalex:W4207018332",
+        "creation": "2023",
+        "timespan": "P0Y",
         "journal_sc": "no",
-        "oci": "061504106124-062501890233",
-        "citing": "10.1016/j.ijpe.2023.109102"
+        "author_sc": "yes"
     },
     {
+        "oci": "061803547504-062501890233",
+        "citing": "omid:br/061803547504 doi:10.3390/math10213976 openalex:W4308178697",
+        "cited": "omid:br/062501890233 doi:10.3390/math10030329 openalex:W4207018332",
         "creation": "2022-10-26",
-        "author_sc": "no",
-        "cited": "10.3390/math10030329",
         "timespan": "P0Y9M5D",
         "journal_sc": "yes",
-        "oci": "061803547504-062501890233",
-        "citing": "10.3390/math10213976"
+        "author_sc": "no"
     },
     {
-        "creation": "2022-07",
-        "author_sc": "no",
-        "cited": "10.3390/math10030329",
-        "timespan": "P0Y5M",
-        "journal_sc": "no",
-        "oci": "062103423265-062501890233",
-        "citing": "10.1016/j.cie.2022.108201"
-    },
-    {
-        "creation": "2023-06-30",
-        "author_sc": "no",
-        "cited": "10.3390/math10030329",
-        "timespan": "P1Y5M9D",
-        "journal_sc": "no",
-        "oci": "062504012562-062501890233",
-        "citing": "10.3390/designs7040084"
-    },
-    {
-        "creation": "2022-12-05",
-        "author_sc": "no",
-        "cited": "10.3390/math10030329",
-        "timespan": "P0Y10M14D",
-        "journal_sc": "yes",
-        "oci": "06304361724-062501890233",
-        "citing": "10.3390/math10234608"
-    },
-    {
-        "creation": "2023-05-10",
-        "author_sc": "no",
-        "cited": "10.3390/math10030329",
-        "timespan": "P1Y3M19D",
-        "journal_sc": "yes",
-        "oci": "06304362234-062501890233",
-        "citing": "10.3390/math11102229"
-    },
-    {
-        "creation": "2023",
-        "author_sc": "no",
-        "cited": "10.3390/math10030329",
-        "timespan": "P0Y",
-        "journal_sc": "no",
         "oci": "0638072160-062501890233",
-        "citing": "10.1016/j.procs.2023.03.130"
-    },
-    {
+        "citing": "omid:br/0638072160 doi:10.1016/j.procs.2023.03.130 openalex:W4366149318",
+        "cited": "omid:br/062501890233 doi:10.3390/math10030329 openalex:W4207018332",
         "creation": "2023",
-        "author_sc": "yes",
-        "cited": "10.3390/math10030329",
         "timespan": "P0Y",
         "journal_sc": "no",
-        "oci": "06404657266-062501890233",
-        "citing": "10.1109/access.2023.3345793"
+        "author_sc": "no"
     },
     {
+        "oci": "06904266857-062501890233",
+        "citing": "omid:br/06904266857 doi:10.1016/j.rico.2023.100350",
+        "cited": "omid:br/062501890233 doi:10.3390/math10030329 openalex:W4207018332",
         "creation": "2024-03",
-        "author_sc": "no",
-        "cited": "10.3390/math10030329",
         "timespan": "P2Y1M",
         "journal_sc": "no",
-        "oci": "06904266857-062501890233",
-        "citing": "10.1016/j.rico.2023.100350"
+        "author_sc": "no"
+    },
+    {
+        "oci": "06304361724-062501890233",
+        "citing": "omid:br/06304361724 doi:10.3390/math10234608 openalex:W4311626517",
+        "cited": "omid:br/062501890233 doi:10.3390/math10030329 openalex:W4207018332",
+        "creation": "2022-12-05",
+        "timespan": "P0Y10M14D",
+        "journal_sc": "yes",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062204284982-062501890233",
+        "citing": "omid:br/062204284982 doi:10.1016/j.asoc.2024.111943",
+        "cited": "omid:br/062501890233 doi:10.3390/math10030329 openalex:W4207018332",
+        "creation": "2024-09",
+        "timespan": "P2Y7M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06304362234-062501890233",
+        "citing": "omid:br/06304362234 doi:10.3390/math11102229 openalex:W4381481721",
+        "cited": "omid:br/062501890233 doi:10.3390/math10030329 openalex:W4207018332",
+        "creation": "2023-05-10",
+        "timespan": "P1Y3M19D",
+        "journal_sc": "yes",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "061504106124-062501890233",
+        "citing": "omid:br/061504106124 doi:10.1016/j.ijpe.2023.109102",
+        "cited": "omid:br/062501890233 doi:10.3390/math10030329 openalex:W4207018332",
+        "creation": "2024-02",
+        "timespan": "P2Y0M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06204822292-062501890233",
+        "citing": "omid:br/06204822292 doi:10.1111/itor.13504",
+        "cited": "omid:br/062501890233 doi:10.3390/math10030329 openalex:W4207018332",
+        "creation": "2024-07-08",
+        "timespan": "P2Y5M17D",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "062103423265-062501890233",
+        "citing": "omid:br/062103423265 doi:10.1016/j.cie.2022.108201 openalex:W4229441437",
+        "cited": "omid:br/062501890233 doi:10.3390/math10030329 openalex:W4207018332",
+        "creation": "2022-07",
+        "timespan": "P0Y5M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062504012562-062501890233",
+        "citing": "omid:br/062504012562 doi:10.3390/designs7040084 openalex:W4382791832",
+        "cited": "omid:br/062501890233 doi:10.3390/math10030329 openalex:W4207018332",
+        "creation": "2023-06-30",
+        "timespan": "P1Y5M9D",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

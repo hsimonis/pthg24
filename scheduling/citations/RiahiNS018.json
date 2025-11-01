@@ -1,1 +1,38 @@
-[]
+[
+    {
+        "oci": "062101983465-061503554177",
+        "citing": "omid:br/062101983465 doi:10.1007/s10479-019-03490-x openalex:W2989875806",
+        "cited": "omid:br/061503554177 doi:10.1609/icaps.v28i1.13895 openalex:W2809942990",
+        "creation": "2019-11-30",
+        "timespan": "P1Y5M15D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302103598-061503554177",
+        "citing": "omid:br/061302103598 doi:10.1007/978-3-030-03991-2_32 openalex:W2900157822",
+        "cited": "omid:br/061503554177 doi:10.1609/icaps.v28i1.13895 openalex:W2809942990",
+        "creation": "2018",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062202060000-061503554177",
+        "citing": "omid:br/062202060000 doi:10.1007/978-3-030-29911-8_29 openalex:W2969607611",
+        "cited": "omid:br/061503554177 doi:10.1609/icaps.v28i1.13895 openalex:W2809942990",
+        "creation": "2019",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06802144164-061503554177",
+        "citing": "omid:br/06802144164 doi:10.1016/j.engappai.2021.104264 openalex:W3157167435",
+        "cited": "omid:br/061503554177 doi:10.1609/icaps.v28i1.13895 openalex:W2809942990",
+        "creation": "2021-06",
+        "timespan": "P2Y11M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

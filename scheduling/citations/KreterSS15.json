@@ -1,65 +1,65 @@
 [
     {
+        "oci": "062502238706-06103018097",
+        "citing": "omid:br/062502238706 doi:10.1007/978-3-319-66158-2_20 openalex:W2746303749",
+        "cited": "omid:br/06103018097 doi:10.1007/978-3-319-23219-5_19 openalex:W1440160528",
+        "creation": "2017",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06702792843-06103018097",
+        "citing": "omid:br/06702792843 doi:10.1007/978-3-319-44953-1_31 openalex:W2511017421",
+        "cited": "omid:br/06103018097 doi:10.1007/978-3-319-23219-5_19 openalex:W1440160528",
         "creation": "2016",
-        "author_sc": "no",
-        "cited": "10.1007/978-3-319-23219-5_19",
         "timespan": "P1Y",
         "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "0690166761-06103018097",
+        "citing": "omid:br/0690166761 doi:10.1007/s10601-016-9266-6 openalex:W2574295746",
+        "cited": "omid:br/06103018097 doi:10.1007/978-3-319-23219-5_19 openalex:W1440160528",
+        "creation": "2017-01-17",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
         "oci": "061702419399-06103018097",
-        "citing": "10.1007/978-3-319-50349-3_16"
+        "citing": "omid:br/061702419399 doi:10.1007/978-3-319-50349-3_16 openalex:W2557529563",
+        "cited": "omid:br/06103018097 doi:10.1007/978-3-319-23219-5_19 openalex:W1440160528",
+        "creation": "2016",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     },
     {
-        "creation": "2017",
-        "author_sc": "no",
-        "cited": "10.1007/978-3-319-23219-5_19",
-        "timespan": "P2Y",
+        "oci": "06702792835-06103018097",
+        "citing": "omid:br/06702792835 doi:10.1007/978-3-319-44953-1_28 openalex:W2510809579",
+        "cited": "omid:br/06103018097 doi:10.1007/978-3-319-23219-5_19 openalex:W1440160528",
+        "creation": "2016",
+        "timespan": "P1Y",
         "journal_sc": "no",
-        "oci": "062502238706-06103018097",
-        "citing": "10.1007/978-3-319-66158-2_20"
+        "author_sc": "yes"
     },
     {
-        "creation": "2017",
-        "author_sc": "no",
-        "cited": "10.1007/978-3-319-23219-5_19",
-        "timespan": "P2Y",
-        "journal_sc": "no",
         "oci": "062502238719-06103018097",
-        "citing": "10.1007/978-3-319-66158-2_25"
+        "citing": "omid:br/062502238719 doi:10.1007/978-3-319-66158-2_25 openalex:W3015423745",
+        "cited": "omid:br/06103018097 doi:10.1007/978-3-319-23219-5_19 openalex:W1440160528",
+        "creation": "2017",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     },
     {
+        "oci": "0634079816-06103018097",
+        "citing": "omid:br/0634079816 doi:10.1108/k-09-2022-1339 openalex:W4327731643",
+        "cited": "omid:br/06103018097 doi:10.1007/978-3-319-23219-5_19 openalex:W1440160528",
         "creation": "2023-03-20",
-        "author_sc": "no",
-        "cited": "10.1007/978-3-319-23219-5_19",
         "timespan": "P8Y",
         "journal_sc": "no",
-        "oci": "0634079816-06103018097",
-        "citing": "10.1108/k-09-2022-1339"
-    },
-    {
-        "creation": "2016",
-        "author_sc": "yes",
-        "cited": "10.1007/978-3-319-23219-5_19",
-        "timespan": "P1Y",
-        "journal_sc": "no",
-        "oci": "06702792835-06103018097",
-        "citing": "10.1007/978-3-319-44953-1_28"
-    },
-    {
-        "creation": "2016",
-        "author_sc": "yes",
-        "cited": "10.1007/978-3-319-23219-5_19",
-        "timespan": "P1Y",
-        "journal_sc": "no",
-        "oci": "06702792843-06103018097",
-        "citing": "10.1007/978-3-319-44953-1_31"
-    },
-    {
-        "creation": "2017-01-17",
-        "author_sc": "yes",
-        "cited": "10.1007/978-3-319-23219-5_19",
-        "timespan": "P2Y",
-        "journal_sc": "no",
-        "oci": "0690166761-06103018097",
-        "citing": "10.1007/s10601-016-9266-6"
+        "author_sc": "no"
     }
 ]

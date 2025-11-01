@@ -1,29 +1,56 @@
 [
     {
+        "oci": "0606620599-06220773853",
+        "citing": "omid:br/0606620599 doi:10.1007/978-3-031-76572-8_3",
+        "cited": "omid:br/06220773853 doi:10.3233/aic-200650 openalex:W3039435436",
+        "creation": "2024",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061103967338-06220773853",
+        "citing": "omid:br/061103967338 doi:10.1016/j.simpat.2023.102777 openalex:W4376604903",
+        "cited": "omid:br/06220773853 doi:10.3233/aic-200650 openalex:W3039435436",
         "creation": "2023-09",
-        "author_sc": "no",
-        "cited": "10.3233/aic-200650",
         "timespan": "P3Y0M",
         "journal_sc": "no",
-        "oci": "061103967338-06220773853",
-        "citing": "10.1016/j.simpat.2023.102777"
+        "author_sc": "no"
     },
     {
-        "creation": "2024-01-07",
-        "author_sc": "no",
-        "cited": "10.3233/aic-200650",
-        "timespan": "P3Y5M2D",
+        "oci": "0605166614-06220773853",
+        "citing": "omid:br/0605166614 doi:10.55056/cte.838",
+        "cited": "omid:br/06220773853 doi:10.3233/aic-200650 openalex:W3039435436",
+        "creation": "2025-03-21",
+        "timespan": "P4Y7M16D",
         "journal_sc": "no",
-        "oci": "061104241737-06220773853",
-        "citing": "10.4018/ijiit.335523"
+        "author_sc": "no"
     },
     {
+        "oci": "062501459686-06220773853",
+        "citing": "omid:br/062501459686 doi:10.1007/978-3-030-88081-1_25 openalex:W3202403367",
+        "cited": "omid:br/06220773853 doi:10.3233/aic-200650 openalex:W3039435436",
         "creation": "2021",
-        "author_sc": "no",
-        "cited": "10.3233/aic-200650",
         "timespan": "P0Y",
         "journal_sc": "no",
-        "oci": "062501459686-06220773853",
-        "citing": "10.1007/978-3-030-88081-1_25"
+        "author_sc": "no"
+    },
+    {
+        "oci": "062204277419-06220773853",
+        "citing": "omid:br/062204277419 doi:10.1108/ijpcc-07-2022-0256",
+        "cited": "omid:br/06220773853 doi:10.3233/aic-200650 openalex:W3039435436",
+        "creation": "2023-10-11",
+        "timespan": "P3Y2M6D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061104241737-06220773853",
+        "citing": "omid:br/061104241737 doi:10.4018/ijiit.335523",
+        "cited": "omid:br/06220773853 doi:10.3233/aic-200650 openalex:W3039435436",
+        "creation": "2024-01-07",
+        "timespan": "P3Y5M2D",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

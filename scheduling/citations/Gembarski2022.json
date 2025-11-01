@@ -1,1 +1,38 @@
-[]
+[
+    {
+        "oci": "062304298485-062403442258",
+        "citing": "omid:br/062304298485 doi:10.3390/app14073113",
+        "cited": "omid:br/062403442258 doi:10.3390/a15090318 openalex:W4295062649",
+        "creation": "2024-04-08",
+        "timespan": "P1Y7M2D",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "062204282087-062403442258",
+        "citing": "omid:br/062204282087 doi:10.3390/app14198961",
+        "cited": "omid:br/062403442258 doi:10.3390/a15090318 openalex:W4295062649",
+        "creation": "2024-10-05",
+        "timespan": "P2Y0M29D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062204360438-062403442258",
+        "citing": "omid:br/062204360438 doi:10.1088/1742-6596/2772/1/012003",
+        "cited": "omid:br/062403442258 doi:10.3390/a15090318 openalex:W4295062649",
+        "creation": "2024-06-01",
+        "timespan": "P1Y8M26D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06460138435-062403442258",
+        "citing": "omid:br/06460138435 doi:10.1007/978-3-031-34821-1_11 openalex:W4385641738",
+        "cited": "omid:br/062403442258 doi:10.3390/a15090318 openalex:W4295062649",
+        "creation": "2023",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

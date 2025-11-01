@@ -1,1 +1,47 @@
-[]
+[
+    {
+        "oci": "06310518705-061204128487",
+        "citing": "omid:br/06310518705 doi:10.1016/j.surfcoat.2024.131186",
+        "cited": "omid:br/061204128487 doi:10.1108/jm2-06-2023-0123",
+        "creation": "2024-10",
+        "timespan": "P0Y8M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061404189375-061204128487",
+        "citing": "omid:br/061404189375 doi:10.3390/math12172679",
+        "cited": "omid:br/061204128487 doi:10.1108/jm2-06-2023-0123",
+        "creation": "2024-08-28",
+        "timespan": "P0Y7M10D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06904438426-061204128487",
+        "citing": "omid:br/06904438426 doi:10.1007/s10479-024-06291-z",
+        "cited": "omid:br/061204128487 doi:10.1108/jm2-06-2023-0123",
+        "creation": "2024-11-06",
+        "timespan": "P0Y9M19D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06904438646-061204128487",
+        "citing": "omid:br/06904438646 doi:10.1007/s10479-024-06310-z",
+        "cited": "omid:br/061204128487 doi:10.1108/jm2-06-2023-0123",
+        "creation": "2024-10-21",
+        "timespan": "P0Y9M3D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0608045183-061204128487",
+        "citing": "omid:br/0608045183 doi:10.1016/j.cie.2025.110968",
+        "cited": "omid:br/061204128487 doi:10.1108/jm2-06-2023-0123",
+        "creation": "2025-05",
+        "timespan": "P1Y3M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

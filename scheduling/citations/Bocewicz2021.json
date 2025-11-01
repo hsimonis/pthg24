@@ -1,56 +1,83 @@
 [
     {
+        "oci": "06470109444-06201701548",
+        "citing": "omid:br/06470109444 doi:10.1007/978-3-031-38318-2_1 openalex:W4385252234",
+        "cited": "omid:br/06201701548 doi:10.17531/ein.2021.1.13 openalex:W3120590624",
+        "creation": "2023",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061403416556-06201701548",
+        "citing": "omid:br/061403416556 doi:10.1007/978-3-031-16014-1_31 openalex:W4296498531",
+        "cited": "omid:br/06201701548 doi:10.17531/ein.2021.1.13 openalex:W3120590624",
         "creation": "2022",
-        "author_sc": "no",
-        "cited": "10.17531/ein.2021.1.13",
         "timespan": "P0Y",
         "journal_sc": "no",
-        "oci": "061403416556-06201701548",
-        "citing": "10.1007/978-3-031-16014-1_31"
+        "author_sc": "no"
     },
     {
-        "creation": "2023-03",
-        "author_sc": "yes",
-        "cited": "10.17531/ein.2021.1.13",
-        "timespan": "P2Y1M",
-        "journal_sc": "no",
-        "oci": "061503899750-06201701548",
-        "citing": "10.1016/j.engappai.2022.105725"
-    },
-    {
+        "oci": "062404212582-06201701548",
+        "citing": "omid:br/062404212582 doi:10.3390/electronics13020392",
+        "cited": "omid:br/06201701548 doi:10.17531/ein.2021.1.13 openalex:W3120590624",
         "creation": "2024-01-17",
-        "author_sc": "no",
-        "cited": "10.17531/ein.2021.1.13",
         "timespan": "P3Y0M15D",
         "journal_sc": "no",
-        "oci": "062404212582-06201701548",
-        "citing": "10.3390/electronics13020392"
+        "author_sc": "yes"
     },
     {
+        "oci": "06350191350-06201701548",
+        "citing": "omid:br/06350191350 doi:10.3390/su15031949 openalex:W4317503549",
+        "cited": "omid:br/06201701548 doi:10.17531/ein.2021.1.13 openalex:W3120590624",
         "creation": "2023-01-19",
-        "author_sc": "yes",
-        "cited": "10.17531/ein.2021.1.13",
         "timespan": "P2Y0M17D",
         "journal_sc": "no",
-        "oci": "06350191350-06201701548",
-        "citing": "10.3390/su15031949"
+        "author_sc": "yes"
     },
     {
-        "creation": "2023",
-        "author_sc": "yes",
-        "cited": "10.17531/ein.2021.1.13",
-        "timespan": "P1Y",
+        "oci": "06320413381-06201701548",
+        "citing": "omid:br/06320413381 doi:10.1109/ieem58616.2023.10406312",
+        "cited": "omid:br/06201701548 doi:10.17531/ein.2021.1.13 openalex:W3120590624",
+        "creation": "2023-12-18",
+        "timespan": "P2Y11M16D",
         "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061503899750-06201701548",
+        "citing": "omid:br/061503899750 doi:10.1016/j.engappai.2022.105725 openalex:W4311988295",
+        "cited": "omid:br/06201701548 doi:10.17531/ein.2021.1.13 openalex:W3120590624",
+        "creation": "2023-03",
+        "timespan": "P2Y1M",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "06304809048-06201701548",
+        "citing": "omid:br/06304809048 doi:10.1109/acait60137.2023.10528476",
+        "cited": "omid:br/06201701548 doi:10.17531/ein.2021.1.13 openalex:W3120590624",
+        "creation": "2023-11-10",
+        "timespan": "P2Y10M8D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06904466880-06201701548",
+        "citing": "omid:br/06904466880 doi:10.1016/j.procs.2024.01.155",
+        "cited": "omid:br/06201701548 doi:10.17531/ein.2021.1.13 openalex:W3120590624",
+        "creation": "2024",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
         "oci": "06470109441-06201701548",
-        "citing": "10.1007/978-3-031-38318-2_2"
-    },
-    {
+        "citing": "omid:br/06470109441 doi:10.1007/978-3-031-38318-2_2 openalex:W4385234513",
+        "cited": "omid:br/06201701548 doi:10.17531/ein.2021.1.13 openalex:W3120590624",
         "creation": "2023",
-        "author_sc": "no",
-        "cited": "10.17531/ein.2021.1.13",
         "timespan": "P1Y",
         "journal_sc": "no",
-        "oci": "06470109444-06201701548",
-        "citing": "10.1007/978-3-031-38318-2_1"
+        "author_sc": "yes"
     }
 ]

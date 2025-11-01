@@ -1,20 +1,20 @@
 [
     {
-        "timespan": "P10Y11M",
-        "author_sc": "no",
         "oci": "062202384328-062203200693",
+        "citing": "omid:br/062202384328 doi:10.2355/isijinternational.isijint-2019-574 openalex:W2997151079",
+        "cited": "omid:br/062203200693 doi:10.1109/itcs.2009.12 openalex:W2118812635",
+        "creation": "2020-06-15",
+        "timespan": "P10Y11M",
         "journal_sc": "no",
-        "citing": "10.2355/isijinternational.isijint-2019-574",
-        "cited": "10.1109/itcs.2009.12",
-        "creation": "2020-06-15"
+        "author_sc": "no"
     },
     {
-        "timespan": "P9Y4M",
-        "author_sc": "no",
         "oci": "06303530892-062203200693",
+        "citing": "omid:br/06303530892 doi:10.1007/s10462-018-9667-6 openalex:W2900886562",
+        "cited": "omid:br/062203200693 doi:10.1109/itcs.2009.12 openalex:W2118812635",
+        "creation": "2018-11-19",
+        "timespan": "P9Y4M",
         "journal_sc": "no",
-        "citing": "10.1007/s10462-018-9667-6",
-        "cited": "10.1109/itcs.2009.12",
-        "creation": "2018-11-19"
+        "author_sc": "no"
     }
 ]

@@ -1,11 +1,11 @@
 [
     {
+        "oci": "062601935897-06603050929",
+        "citing": "omid:br/062601935897 doi:10.1007/978-3-030-58475-7_15 openalex:W3083723648",
+        "cited": "omid:br/06603050929 doi:10.1609/aaai.v34i02.5510 openalex:W2997306468",
         "creation": "2020",
-        "author_sc": "no",
-        "cited": "10.1609/aaai.v34i02.5510",
         "timespan": "P0Y",
         "journal_sc": "no",
-        "oci": "062601935897-06603050929",
-        "citing": "10.1007/978-3-030-58475-7_15"
+        "author_sc": "no"
     }
 ]

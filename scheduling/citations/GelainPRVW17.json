@@ -1,11 +1,20 @@
 [
     {
-        "creation": "2020-11-16",
-        "author_sc": "no",
+        "oci": "061104334430-06902271230",
+        "citing": "omid:br/061104334430 doi:10.1109/hpcc-dss-smartcity-dependsys60770.2023.00080",
+        "cited": "omid:br/06902271230 doi:10.1007/978-3-319-59776-8_32 openalex:W2617208995",
+        "creation": "2023-12-17",
+        "timespan": "P6Y",
         "journal_sc": "no",
-        "cited": "10.1007/978-3-319-59776-8_32",
-        "citing": "10.1145/3427423.3427461",
+        "author_sc": "no"
+    },
+    {
         "oci": "061903366699-06902271230",
-        "timespan": "P3Y"
+        "citing": "omid:br/061903366699 doi:10.1145/3427423.3427461 openalex:W3114040408",
+        "cited": "omid:br/06902271230 doi:10.1007/978-3-319-59776-8_32 openalex:W2617208995",
+        "creation": "2020-11-16",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

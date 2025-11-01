@@ -1,1 +1,74 @@
-[]
+[
+    {
+        "oci": "062203454882-06102584751",
+        "citing": "omid:br/062203454882 doi:10.1109/tcns.2022.3146297 openalex:W4226213435",
+        "cited": "omid:br/06102584751 doi:10.1007/978-3-319-98334-9_42 openalex:W2888224723",
+        "creation": "2022-09",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061402251878-06102584751",
+        "citing": "omid:br/061402251878 doi:10.1109/isgteurope.2019.8905473 openalex:W2990468123",
+        "cited": "omid:br/06102584751 doi:10.1007/978-3-319-98334-9_42 openalex:W2888224723",
+        "creation": "2019-09",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06280556848-06102584751",
+        "citing": "omid:br/06280556848 doi:10.1007/978-3-031-62217-5_25",
+        "cited": "omid:br/06102584751 doi:10.1007/978-3-319-98334-9_42 openalex:W2888224723",
+        "creation": "2024",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061603435396-06102584751",
+        "citing": "omid:br/061603435396 doi:10.1109/isgt-europe47291.2020.9248790 openalex:W3100280681",
+        "cited": "omid:br/06102584751 doi:10.1007/978-3-319-98334-9_42 openalex:W2888224723",
+        "creation": "2020-10-26",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061703154291-06102584751",
+        "citing": "omid:br/061703154291 doi:10.1109/dsn53405.2022.00045 openalex:W4287848935",
+        "cited": "omid:br/06102584751 doi:10.1007/978-3-319-98334-9_42 openalex:W2888224723",
+        "creation": "2022-06",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06102120694-06102584751",
+        "citing": "omid:br/06102120694 doi:10.1109/noms47738.2020.9110476 openalex:W3035123377",
+        "cited": "omid:br/06102584751 doi:10.1007/978-3-319-98334-9_42 openalex:W2888224723",
+        "creation": "2020-04",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06402661781-06102584751",
+        "citing": "omid:br/06402661781 doi:10.1109/csde53843.2021.9718482 openalex:W4214908051",
+        "cited": "omid:br/06102584751 doi:10.1007/978-3-319-98334-9_42 openalex:W2888224723",
+        "creation": "2021-12-08",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06340462009-06102584751",
+        "citing": "omid:br/06340462009 doi:10.1109/smartgridcomm60555.2024.10738059",
+        "cited": "omid:br/06102584751 doi:10.1007/978-3-319-98334-9_42 openalex:W2888224723",
+        "creation": "2024-09-17",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

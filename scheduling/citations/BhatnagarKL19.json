@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "oci": "06502106950-061602298515",
+        "citing": "omid:br/06502106950 doi:10.1101/2022.03.31.486595 openalex:W4220827573",
+        "cited": "omid:br/061602298515 doi:10.24963/ijcai.2019/803 openalex:W2965083459",
+        "creation": "2022-04-01",
+        "timespan": "P2Y8M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0605409087-061602298515",
+        "citing": "omid:br/0605409087 doi:10.1109/nigercon62786.2024.10927173",
+        "cited": "omid:br/061602298515 doi:10.24963/ijcai.2019/803 openalex:W2965083459",
+        "creation": "2024-11-26",
+        "timespan": "P5Y3M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

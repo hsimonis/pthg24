@@ -1,1 +1,56 @@
-[]
+[
+    {
+        "oci": "0606736008-061501031627",
+        "citing": "omid:br/0606736008 doi:10.1016/j.cor.2025.107063",
+        "cited": "omid:br/061501031627 doi:10.1016/j.apm.2022.01.001 openalex:W4205160076",
+        "creation": "2025-03",
+        "timespan": "P2Y10M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06104384799-061501031627",
+        "citing": "omid:br/06104384799 doi:10.1080/01605682.2023.2198557 openalex:W4366590771",
+        "cited": "omid:br/061501031627 doi:10.1016/j.apm.2022.01.001 openalex:W4205160076",
+        "creation": "2023-04-20",
+        "timespan": "P0Y11M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061703809767-061501031627",
+        "citing": "omid:br/061703809767 doi:10.1080/23302674.2023.2224509 openalex:W4382699606",
+        "cited": "omid:br/061501031627 doi:10.1016/j.apm.2022.01.001 openalex:W4205160076",
+        "creation": "2023-06-29",
+        "timespan": "P1Y1M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06280110198-061501031627",
+        "citing": "omid:br/06280110198 doi:10.1007/s10957-023-02211-6 openalex:W4368372223",
+        "cited": "omid:br/061501031627 doi:10.1016/j.apm.2022.01.001 openalex:W4205160076",
+        "creation": "2023-05",
+        "timespan": "P1Y0M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103986057-061501031627",
+        "citing": "omid:br/062103986057 doi:10.1016/j.imu.2023.101180 openalex:W4318203865",
+        "cited": "omid:br/061501031627 doi:10.1016/j.apm.2022.01.001 openalex:W4205160076",
+        "creation": "2023",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06270522281-061501031627",
+        "citing": "omid:br/06270522281 doi:10.34172/aim.31106",
+        "cited": "omid:br/061501031627 doi:10.1016/j.apm.2022.01.001 openalex:W4205160076",
+        "creation": "2024-10-01",
+        "timespan": "P2Y5M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

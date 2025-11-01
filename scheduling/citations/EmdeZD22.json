@@ -1,1 +1,56 @@
-[]
+[
+    {
+        "oci": "06280515836-061503443081",
+        "citing": "omid:br/06280515836 doi:10.1038/s41598-024-68112-4",
+        "cited": "omid:br/061503443081 doi:10.1007/s10479-022-04891-1 openalex:W4292292969",
+        "creation": "2024-07-27",
+        "timespan": "P1Y11M19D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06270599762-061503443081",
+        "citing": "omid:br/06270599762 doi:10.3390/logistics8030086",
+        "cited": "omid:br/061503443081 doi:10.1007/s10479-022-04891-1 openalex:W4292292969",
+        "creation": "2024-09-03",
+        "timespan": "P2Y0M26D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06204795310-061503443081",
+        "citing": "omid:br/06204795310 doi:10.1016/j.cie.2024.110680",
+        "cited": "omid:br/061503443081 doi:10.1007/s10479-022-04891-1 openalex:W4292292969",
+        "creation": "2024-12",
+        "timespan": "P2Y3M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061404300115-061503443081",
+        "citing": "omid:br/061404300115 doi:10.2139/ssrn.4885532",
+        "cited": "omid:br/061503443081 doi:10.1007/s10479-022-04891-1 openalex:W4292292969",
+        "creation": "2024",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0607146380-061503443081",
+        "citing": "omid:br/0607146380 doi:10.1108/imds-09-2024-0874",
+        "cited": "omid:br/061503443081 doi:10.1007/s10479-022-04891-1 openalex:W4292292969",
+        "creation": "2025-01-28",
+        "timespan": "P2Y5M20D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06404737502-061503443081",
+        "citing": "omid:br/06404737502 doi:10.1007/s13198-024-02516-3",
+        "cited": "omid:br/061503443081 doi:10.1007/s10479-022-04891-1 openalex:W4292292969",
+        "creation": "2024-10-17",
+        "timespan": "P2Y2M9D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

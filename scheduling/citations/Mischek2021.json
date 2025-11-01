@@ -1,29 +1,47 @@
 [
     {
+        "oci": "061803456776-062103120296",
+        "citing": "omid:br/061803456776 doi:10.1145/3546871 openalex:W4289223938",
+        "cited": "omid:br/062103120296 doi:10.1007/s10951-021-00699-2 openalex:W3200300706",
         "creation": "2022-08",
-        "author_sc": "no",
-        "cited": "10.1007/s10951-021-00699-2",
         "timespan": "P0Y10M",
         "journal_sc": "no",
-        "oci": "061803456776-062103120296",
-        "citing": "10.1145/3546871"
+        "author_sc": "no"
     },
     {
-        "creation": "2023-07-12",
-        "author_sc": "yes",
-        "cited": "10.1007/s10951-021-00699-2",
-        "timespan": "P1Y9M29D",
+        "oci": "0606849927-062103120296",
+        "citing": "omid:br/0606849927 doi:10.1016/j.tre.2024.103905",
+        "cited": "omid:br/062103120296 doi:10.1007/s10951-021-00699-2 openalex:W3200300706",
+        "creation": "2025-02",
+        "timespan": "P3Y4M",
         "journal_sc": "no",
-        "oci": "061804223666-062103120296",
-        "citing": "10.1145/3583131.3590354"
+        "author_sc": "no"
     },
     {
+        "oci": "06304645009-062103120296",
+        "citing": "omid:br/06304645009 doi:10.1007/s11740-024-01261-7",
+        "cited": "omid:br/062103120296 doi:10.1007/s10951-021-00699-2 openalex:W3200300706",
         "creation": "2024-02-19",
-        "author_sc": "no",
-        "cited": "10.1007/s10951-021-00699-2",
         "timespan": "P2Y5M6D",
         "journal_sc": "no",
-        "oci": "06304645009-062103120296",
-        "citing": "10.1007/s11740-024-01261-7"
+        "author_sc": "no"
+    },
+    {
+        "oci": "061804223666-062103120296",
+        "citing": "omid:br/061804223666 doi:10.1145/3583131.3590354",
+        "cited": "omid:br/062103120296 doi:10.1007/s10951-021-00699-2 openalex:W3200300706",
+        "creation": "2023-07-12",
+        "timespan": "P1Y9M29D",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "06290451346-062103120296",
+        "citing": "omid:br/06290451346 doi:10.1515/comp-2024-0011",
+        "cited": "omid:br/062103120296 doi:10.1007/s10951-021-00699-2 openalex:W3200300706",
+        "creation": "2024",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

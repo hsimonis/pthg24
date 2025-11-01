@@ -1,1 +1,29 @@
-[]
+[
+    {
+        "oci": "06270169927-06804354894",
+        "citing": "omid:br/06270169927 doi:10.1109/devic57758.2023.10135064 openalex:W4378676089",
+        "cited": "omid:br/06804354894 doi:10.1016/j.conengprac.2022.105430 openalex:W4317498428",
+        "creation": "2023-04-07",
+        "timespan": "P0Y0M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06804354875-06804354894",
+        "citing": "omid:br/06804354875 doi:10.1016/j.conengprac.2023.105564 openalex:W4377018884",
+        "cited": "omid:br/06804354894 doi:10.1016/j.conengprac.2022.105430 openalex:W4317498428",
+        "creation": "2023-08",
+        "timespan": "P0Y4M",
+        "journal_sc": "yes",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0607312910-06804354894",
+        "citing": "omid:br/0607312910 doi:10.1007/978-981-97-7710-5_66",
+        "cited": "omid:br/06804354894 doi:10.1016/j.conengprac.2022.105430 openalex:W4317498428",
+        "creation": "2024",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

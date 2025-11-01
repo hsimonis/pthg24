@@ -1,11 +1,11 @@
 [
     {
-        "timespan": "P6Y9M",
-        "author_sc": "no",
         "oci": "062501605620-061801132899",
+        "citing": "omid:br/062501605620 doi:10.1145/3200920 openalex:W3123712173",
+        "cited": "omid:br/061801132899 doi:10.1145/2512470 openalex:W2013962395",
+        "creation": "2020-05-31",
+        "timespan": "P6Y9M",
         "journal_sc": "no",
-        "citing": "10.1145/3200920",
-        "cited": "10.1145/2512470",
-        "creation": "2020-05-31"
+        "author_sc": "no"
     }
 ]

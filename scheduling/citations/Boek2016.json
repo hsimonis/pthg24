@@ -1,47 +1,56 @@
 [
     {
-        "creation": "2023-06-15",
-        "author_sc": "no",
-        "journal_sc": "no",
-        "cited": "10.1515/mper-2016-0003",
-        "citing": "10.1080/23302674.2023.2221072",
-        "oci": "061703809821-061801893690",
-        "timespan": "P7Y3M14D"
-    },
-    {
-        "creation": "2019-10",
-        "author_sc": "no",
-        "journal_sc": "no",
-        "cited": "10.1515/mper-2016-0003",
-        "citing": "10.1016/j.cie.2019.07.011",
-        "oci": "061801296875-061801893690",
-        "timespan": "P3Y7M"
-    },
-    {
-        "creation": "2018",
-        "author_sc": "no",
-        "journal_sc": "no",
-        "cited": "10.1515/mper-2016-0003",
-        "citing": "10.1051/bioconf/20181002009",
-        "oci": "062101407713-061801893690",
-        "timespan": "P1Y"
-    },
-    {
-        "creation": "2022-10",
-        "author_sc": "no",
-        "journal_sc": "no",
-        "cited": "10.1515/mper-2016-0003",
-        "citing": "10.1016/j.cie.2022.108641",
         "oci": "062103423157-061801893690",
-        "timespan": "P6Y7M"
+        "citing": "omid:br/062103423157 doi:10.1016/j.cie.2022.108641 openalex:W4296124675",
+        "cited": "omid:br/061801893690 doi:10.1515/mper-2016-0003 openalex:W2460222765",
+        "creation": "2022-10",
+        "timespan": "P6Y7M",
+        "journal_sc": "no",
+        "author_sc": "no"
     },
     {
-        "creation": "2017-07-11",
-        "author_sc": "yes",
+        "oci": "061801296875-061801893690",
+        "citing": "omid:br/061801296875 doi:10.1016/j.cie.2019.07.011 openalex:W2960293379",
+        "cited": "omid:br/061801893690 doi:10.1515/mper-2016-0003 openalex:W2460222765",
+        "creation": "2019-10",
+        "timespan": "P3Y7M",
         "journal_sc": "no",
-        "cited": "10.1515/mper-2016-0003",
-        "citing": "10.1080/00207543.2017.1346322",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061304152499-061801893690",
+        "citing": "omid:br/061304152499 doi:10.1016/j.cor.2024.106785",
+        "cited": "omid:br/061801893690 doi:10.1515/mper-2016-0003 openalex:W2460222765",
+        "creation": "2024-11",
+        "timespan": "P8Y8M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061703809821-061801893690",
+        "citing": "omid:br/061703809821 doi:10.1080/23302674.2023.2221072 openalex:W4380878633",
+        "cited": "omid:br/061801893690 doi:10.1515/mper-2016-0003 openalex:W2460222765",
+        "creation": "2023-06-15",
+        "timespan": "P7Y3M14D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062101407713-061801893690",
+        "citing": "omid:br/062101407713 doi:10.1051/bioconf/20181002009 openalex:W2792421476",
+        "cited": "omid:br/061801893690 doi:10.1515/mper-2016-0003 openalex:W2460222765",
+        "creation": "2018",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
         "oci": "0640412658-061801893690",
-        "timespan": "P1Y4M10D"
+        "citing": "omid:br/0640412658 doi:10.1080/00207543.2017.1346322 openalex:W2734854649",
+        "cited": "omid:br/061801893690 doi:10.1515/mper-2016-0003 openalex:W2460222765",
+        "creation": "2017-07-11",
+        "timespan": "P1Y4M10D",
+        "journal_sc": "no",
+        "author_sc": "yes"
     }
 ]

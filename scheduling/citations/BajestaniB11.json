@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "oci": "062202147097-062603985341",
+        "citing": "omid:br/062202147097 doi:10.1016/j.sorms.2014.09.001 openalex:W2048113057",
+        "cited": "omid:br/062603985341 doi:10.1609/icaps.v21i1.13450 openalex:W112889630",
+        "creation": "2014-07",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06130167963-062603985341",
+        "citing": "omid:br/06130167963 doi:10.1016/j.cor.2021.105261 openalex:W3134895379",
+        "cited": "omid:br/062603985341 doi:10.1609/icaps.v21i1.13450 openalex:W112889630",
+        "creation": "2021-08",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

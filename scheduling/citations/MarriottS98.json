@@ -1,1 +1,3809 @@
-[]
+[
+    {
+        "oci": "061703086631-062602180493",
+        "citing": "omid:br/061703086631 doi:10.1007/978-3-642-03226-4_10 openalex:W1571891189",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06110828219-062602180493",
+        "citing": "omid:br/06110828219 doi:10.1287/ijoc.13.4.258.9733 openalex:W2097731353",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001-11",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061703123294-062602180493",
+        "citing": "omid:br/061703123294 doi:10.1007/3-540-45153-6_9 openalex:W1514777062",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06203062600-062602180493",
+        "citing": "omid:br/06203062600 doi:10.1007/978-3-319-10557-4_20 openalex:W977944177",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061601836427-062602180493",
+        "citing": "omid:br/061601836427 doi:10.1111/1475-3995.00434 openalex:W2007670071",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003-11",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103101963-062602180493",
+        "citing": "omid:br/062103101963 doi:10.1007/11596141_14 openalex:W1620177756",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403527080-062602180493",
+        "citing": "omid:br/06403527080 doi:10.1007/978-3-540-30482-1_24 openalex:W1564065799",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061103124635-062602180493",
+        "citing": "omid:br/061103124635 doi:10.1007/978-3-540-71545-0_12 openalex:W1877278765",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061301436103-062602180493",
+        "citing": "omid:br/061301436103 doi:10.1007/s11168-008-9050-x openalex:W2012223268",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-08-27",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403473331-062602180493",
+        "citing": "omid:br/06403473331 doi:10.1007/11430230_2 openalex:W1762199393",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062402725912-062602180493",
+        "citing": "omid:br/062402725912 doi:10.1007/3-540-46080-2_115 openalex:W1489465347",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302830336-062602180493",
+        "citing": "omid:br/061302830336 doi:10.1002/9781118033166.biblio openalex:W4211101151",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011-09-30",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "06120777970-062602180493",
+        "citing": "omid:br/06120777970 doi:10.1002/spe.623 openalex:W4236428523",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06803427053-062602180493",
+        "citing": "omid:br/06803427053 doi:10.1007/3-540-45635-x_14 openalex:W1525728225",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062601454604-062602180493",
+        "citing": "omid:br/062601454604 doi:10.1061/(asce)0733-9364(2002)128:6(513) openalex:W2124770699",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002-12",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0620773049-062602180493",
+        "citing": "omid:br/0620773049 doi:10.1080/09528130701538174 openalex:W2014205104",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009-06",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062401837525-062602180493",
+        "citing": "omid:br/062401837525 doi:10.1109/4235.887235 openalex:W2169886035",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062202854712-062602180493",
+        "citing": "omid:br/062202854712 doi:10.1007/978-3-642-04238-6_24 openalex:W2136179811",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061103218669-062602180493",
+        "citing": "omid:br/061103218669 doi:10.1109/ecrts.2009.32 openalex:W2147184085",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009-07",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0610418247-062602180493",
+        "citing": "omid:br/0610418247 doi:10.1080/00207540110072984 openalex:W2153593632",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001-01",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403266434-062602180493",
+        "citing": "omid:br/06403266434 doi:10.1007/978-3-642-22194-1_4 openalex:W1657824762",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061402136064-062602180493",
+        "citing": "omid:br/061402136064 doi:10.1007/3-540-45017-3_17 openalex:W1511201409",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062602758584-062602180493",
+        "citing": "omid:br/062602758584 doi:10.1007/3-540-44860-8_90 openalex:W1544251956",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061403077385-062602180493",
+        "citing": "omid:br/061403077385 doi:10.1007/978-3-540-68679-8_10 openalex:W1493702853",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062203107965-062602180493",
+        "citing": "omid:br/062203107965 doi:10.1007/3-540-44654-0_5 openalex:W1603241790",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061903145599-062602180493",
+        "citing": "omid:br/061903145599 doi:10.1007/11554554_15 openalex:W1597825325",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0650579428-062602180493",
+        "citing": "omid:br/0650579428 doi:10.1109/tkde.2004.1269672 openalex:W2110269566",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004-04",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303113672-062602180493",
+        "citing": "omid:br/062303113672 doi:10.1007/3-540-36377-7_13 openalex:W1822303551",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06604440045-062602180493",
+        "citing": "omid:br/06604440045 doi:10.1002/9780470611876.ch6 openalex:W1564236704",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009-01",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061801855116-062602180493",
+        "citing": "omid:br/061801855116 doi:10.3390/ijgi6030090 openalex:W2598107655",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2017-03-21",
+        "timespan": "P19Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503737354-062602180493",
+        "citing": "omid:br/06503737354 doi:10.1007/1-4020-3817-8_8 openalex:W1488282429",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061303268253-062602180493",
+        "citing": "omid:br/061303268253 doi:10.1109/ideas.2005.24 openalex:W2136290039",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06110828290-062602180493",
+        "citing": "omid:br/06110828290 doi:10.1287/ijoc.14.4.295.2828 openalex:W2072344787",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002-11",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061303362708-062602180493",
+        "citing": "omid:br/061303362708 doi:10.1109/cdc.2003.1272636 openalex:W4237123362",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303531159-062602180493",
+        "citing": "omid:br/06303531159 doi:10.1007/s10462-013-9399-6 openalex:W2027919246",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013-02-01",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062202334224-062602180493",
+        "citing": "omid:br/062202334224 doi:10.4018/978-1-5225-5969-6.ch006 openalex:W2883421699",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06101528127-062602180493",
+        "citing": "omid:br/06101528127 doi:10.1007/bf03001030 openalex:W418117445",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003-03",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06902870204-062602180493",
+        "citing": "omid:br/06902870204 doi:10.1007/978-1-84882-914-5_12 openalex:W1006217711",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0645022515-062602180493",
+        "citing": "omid:br/0645022515 doi:10.1541/ieejeiss.127.274 openalex:W2016956078",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503795956-062602180493",
+        "citing": "omid:br/06503795956 doi:10.1109/cec.2004.1331071 openalex:W1909576031",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06501169431-062602180493",
+        "citing": "omid:br/06501169431 doi:10.1007/s10990-007-9002-4 openalex:W2018700088",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007-02-24",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302150814-062602180493",
+        "citing": "omid:br/061302150814 doi:10.1109/jcn.2005.6387989 openalex:W1989960710",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005-12",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0610697243-062602180493",
+        "citing": "omid:br/0610697243 doi:10.1109/mc.2008.10 openalex:W2160983536",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-01",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062503024276-062602180493",
+        "citing": "omid:br/062503024276 doi:10.1007/978-3-540-25951-0_10 openalex:W1653581507",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103311969-062602180493",
+        "citing": "omid:br/06103311969 doi:10.1007/978-1-4419-1644-0_4 openalex:W151080287",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010-10-23",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06402307454-062602180493",
+        "citing": "omid:br/06402307454 doi:10.1007/978-3-030-60067-9_6 openalex:W3097479008",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2020",
+        "timespan": "P22Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06102553845-062602180493",
+        "citing": "omid:br/06102553845 doi:10.4018/ijpop.2012010102 openalex:W2008575575",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2012",
+        "timespan": "P14Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061802749509-062602180493",
+        "citing": "omid:br/061802749509 doi:10.1007/978-1-4614-5659-9_3 openalex:W75213143",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2012-11-06",
+        "timespan": "P14Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701008812-062602180493",
+        "citing": "omid:br/061701008812 doi:10.1145/1141911.1141965 openalex:W4239059383",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006-07",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103813714-062602180493",
+        "citing": "omid:br/06103813714 doi:10.1145/871895.871903 openalex:W2166414999",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06602693138-062602180493",
+        "citing": "omid:br/06602693138 doi:10.1109/cist.2018.8596542 openalex:W2906729740",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2018-10",
+        "timespan": "P20Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062603393676-062602180493",
+        "citing": "omid:br/062603393676 doi:10.1145/1017472.1017486 openalex:W1997150177",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503653185-062602180493",
+        "citing": "omid:br/06503653185 doi:10.4018/978-1-7998-5015-1.ch002 openalex:W3134876605",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2021",
+        "timespan": "P23Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061303294486-062602180493",
+        "citing": "omid:br/061303294486 doi:10.1007/978-3-540-27775-0_22 openalex:W1578792929",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06301487972-062602180493",
+        "citing": "omid:br/06301487972 doi:10.1007/978-3-030-94479-7_8 openalex:W4226360274",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2022",
+        "timespan": "P24Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061202146507-062602180493",
+        "citing": "omid:br/061202146507 doi:10.1109/jcn.2006.6182908 openalex:W2091152456",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006-03",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062302327295-062602180493",
+        "citing": "omid:br/062302327295 doi:10.1007/978-3-319-07124-4_21 openalex:W2593334699",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2018",
+        "timespan": "P20Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0690166980-062602180493",
+        "citing": "omid:br/0690166980 doi:10.1007/s10601-007-9017-9 openalex:W2158007510",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007-05-17",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061403131508-062602180493",
+        "citing": "omid:br/061403131508 doi:10.1017/9781316650998.016 openalex:W4232950959",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2021-05-06",
+        "timespan": "P23Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "061403078475-062602180493",
+        "citing": "omid:br/061403078475 doi:10.1007/978-3-540-85958-1_3 openalex:W1928622647",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06501536193-062602180493",
+        "citing": "omid:br/06501536193 doi:10.1371/journal.pone.0237935 openalex:W3086812776 pmid:32915791",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2020-09-11",
+        "timespan": "P22Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701470573-062602180493",
+        "citing": "omid:br/061701470573 doi:10.1017/s1471068422000102 openalex:W4280605585",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2022-05-17",
+        "timespan": "P24Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062503053467-062602180493",
+        "citing": "omid:br/062503053467 doi:10.1007/11527862_1 openalex:W1533094101",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062603328019-062602180493",
+        "citing": "omid:br/062603328019 doi:10.1007/978-1-4020-3953-9_27 openalex:W186979216",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0690166973-062602180493",
+        "citing": "omid:br/0690166973 doi:10.1007/s10601-007-9024-x openalex:W2130779728",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007-08-07",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701471169-062602180493",
+        "citing": "omid:br/061701471169 doi:10.1017/s1471068407003122 openalex:W2095555925",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007-05-29",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062203108266-062602180493",
+        "citing": "omid:br/062203108266 doi:10.1007/3-540-44614-1_39 openalex:W1488245440",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062102539222-062602180493",
+        "citing": "omid:br/062102539222 doi:10.1109/issrew.2014.90 openalex:W1993590692",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014-11",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061902888200-062602180493",
+        "citing": "omid:br/061902888200 doi:10.1007/3-540-45788-7_5 openalex:W2143399698",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06802038208-062602180493",
+        "citing": "omid:br/06802038208 doi:10.1109/iat.2003.1241065 openalex:W1576787010",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061103036329-062602180493",
+        "citing": "omid:br/061103036329 doi:10.1007/978-3-540-45220-1_43 openalex:W1853179771",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503478453-062602180493",
+        "citing": "omid:br/06503478453 doi:10.1007/978-3-540-45157-0_4 openalex:W1495165106",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062203307392-062602180493",
+        "citing": "omid:br/062203307392 doi:10.1007/11557432_42 openalex:W1964693405",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06703041790-062602180493",
+        "citing": "omid:br/06703041790 doi:10.1007/978-3-319-11164-3_3 openalex:W78586765",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303380464-062602180493",
+        "citing": "omid:br/062303380464 doi:10.1145/773184.773197 openalex:W2003690031",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0620773038-062602180493",
+        "citing": "omid:br/0620773038 doi:10.1080/09528130903119328 openalex:W1965051705",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009-09",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701470637-062602180493",
+        "citing": "omid:br/061701470637 doi:10.1017/s1471068420000496 openalex:W3122466558",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2021-01-19",
+        "timespan": "P23Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061203123885-062602180493",
+        "citing": "omid:br/061203123885 doi:10.1007/11941439_9 openalex:W1885487684",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303507580-062602180493",
+        "citing": "omid:br/06303507580 doi:10.1007/978-3-642-04244-7_37 openalex:W1602826054",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403799326-062602180493",
+        "citing": "omid:br/06403799326 doi:10.1145/508791.508793 openalex:W2115408193",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062402450053-062602180493",
+        "citing": "omid:br/062402450053 doi:10.1002/9781119794929.biblio openalex:W4200526639",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2021-11-28",
+        "timespan": "P23Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "06703662297-062602180493",
+        "citing": "omid:br/06703662297 doi:10.1109/ftdcs.2007.7 openalex:W2101798857",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007-03",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061403131509-062602180493",
+        "citing": "omid:br/061403131509 doi:10.1017/9781316650998.017 openalex:W3204680451",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2021-05-06",
+        "timespan": "P23Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "062403338794-062602180493",
+        "citing": "omid:br/062403338794 doi:10.1109/icmlc.2005.1527307 openalex:W2139765668",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061202727971-062602180493",
+        "citing": "omid:br/061202727971 doi:10.1007/978-0-387-35587-0_3 openalex:W1503896993",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06203799063-062602180493",
+        "citing": "omid:br/06203799063 doi:10.1145/775832.775895 openalex:W2163324353",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302805431-062602180493",
+        "citing": "omid:br/061302805431 doi:10.1007/3-540-45578-7_25 openalex:W1886779774",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302805446-062602180493",
+        "citing": "omid:br/061302805446 doi:10.1007/3-540-45578-7_18 openalex:W1497604652",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303342801-062602180493",
+        "citing": "omid:br/062303342801 doi:10.1145/1102199.1102202 openalex:W2153414845",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062403056478-062602180493",
+        "citing": "omid:br/062403056478 doi:10.1007/10720327_8 openalex:W1786315310",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06302009005-062602180493",
+        "citing": "omid:br/06302009005 doi:10.1109/clustr.2008.4663786 openalex:W2151562519",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-09",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06703684726-062602180493",
+        "citing": "omid:br/06703684726 doi:10.1145/1145735.1145740 openalex:W2031772321",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0670576387-062602180493",
+        "citing": "omid:br/0670576387 doi:10.3390/ai2040033 openalex:W3209426278",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2021-10-28",
+        "timespan": "P23Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061502724282-062602180493",
+        "citing": "omid:br/061502724282 doi:10.1007/978-3-662-05607-3_2 openalex:W4239154528",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062403291719-062602180493",
+        "citing": "omid:br/062403291719 doi:10.1007/978-3-540-24662-6_14 openalex:W2265344376",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062603126441-062602180493",
+        "citing": "omid:br/062603126441 doi:10.1007/978-3-540-78295-7_6 openalex:W1499471591",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06602632601-062602180493",
+        "citing": "omid:br/06602632601 doi:10.1145/2651360 openalex:W1996543446",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2015-01-20",
+        "timespan": "P17Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062403138963-062602180493",
+        "citing": "omid:br/062403138963 doi:10.1002/9780470400531.eorms0473 openalex:W2155124813",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011-02-15",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061303294465-062602180493",
+        "citing": "omid:br/061303294465 doi:10.1007/978-3-540-27775-0_21 openalex:W1605810992",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062602907598-062602180493",
+        "citing": "omid:br/062602907598 doi:10.1002/9780470904848.ch4 openalex:W1481213825",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011-04-04",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "061502495221-062602180493",
+        "citing": "omid:br/061502495221 doi:10.1081/e-ese-120044145 openalex:W4242400543",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010-11-24",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06120778374-062602180493",
+        "citing": "omid:br/06120778374 doi:10.1002/spe.405 openalex:W2023819514",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001-10",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701471163-062602180493",
+        "citing": "omid:br/061701471163 doi:10.1017/s1471068406002924 openalex:W2091555667",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007-09",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06702389550-062602180493",
+        "citing": "omid:br/06702389550 doi:10.1007/s10472-009-9116-y openalex:W2054623824",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-08",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062602904271-062602180493",
+        "citing": "omid:br/062602904271 doi:10.1007/978-3-642-18302-7_9 openalex:W2169915189",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103146100-062602180493",
+        "citing": "omid:br/06103146100 doi:10.1007/3-540-44960-4_5 openalex:W1481929764",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06602633258-062602180493",
+        "citing": "omid:br/06602633258 doi:10.1145/371880.371884 openalex:W2022854328",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000-11",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061501832208-062602180493",
+        "citing": "omid:br/061501832208 doi:10.1111/itor.12283 openalex:W2325936050",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2016-04-06",
+        "timespan": "P18Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0640958805-062602180493",
+        "citing": "omid:br/0640958805 doi:10.1007/s13675-014-0023-6 openalex:W2028284140",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014-11",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06230314636-062602180493",
+        "citing": "omid:br/06230314636 doi:10.2139/ssrn.2493453 openalex:W1547723524",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06102801365-062602180493",
+        "citing": "omid:br/06102801365 doi:10.1051/ro:2005006 openalex:W2050413229",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005-04",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061903119235-062602180493",
+        "citing": "omid:br/061903119235 doi:10.1007/978-3-540-75292-9_31 openalex:W1482123590",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062302307180-062602180493",
+        "citing": "omid:br/062302307180 doi:10.1109/ictai.2018.00026 openalex:W2900120698",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2018-11",
+        "timespan": "P20Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06603521561-062602180493",
+        "citing": "omid:br/06603521561 doi:10.1007/978-3-540-77345-0_4 openalex:W2101207917",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403290674-062602180493",
+        "citing": "omid:br/06403290674 doi:10.1007/3-540-46691-6_18 openalex:W1886131381",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1999",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06803543463-062602180493",
+        "citing": "omid:br/06803543463 doi:10.1007/11890584_1 openalex:W2105269030",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062203107963-062602180493",
+        "citing": "omid:br/062203107963 doi:10.1007/3-540-44654-0_3 openalex:W1793512210",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103547519-062602180493",
+        "citing": "omid:br/06103547519 doi:10.1007/978-3-540-73210-5_6 openalex:W2108513529",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062503124408-062602180493",
+        "citing": "omid:br/062503124408 doi:10.1007/11803089_23 openalex:W1505402803",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302755532-062602180493",
+        "citing": "omid:br/061302755532 doi:10.1007/978-3-642-30473-6_10 openalex:W21977468",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2012",
+        "timespan": "P14Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403541220-062602180493",
+        "citing": "omid:br/06403541220 doi:10.1007/3-540-45619-8_11 openalex:W1594857028",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06102303969-062602180493",
+        "citing": "omid:br/06102303969 doi:10.1109/tdsc.2013.2295798 openalex:W2003734947",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014-11",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062101243712-062602180493",
+        "citing": "omid:br/062101243712 doi:10.1109/5254.820329 openalex:W2163358162",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000-01",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06290474265-062602180493",
+        "citing": "omid:br/06290474265 doi:10.1007/978-3-031-63219-8_22",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2024",
+        "timespan": "P26Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061603085750-062602180493",
+        "citing": "omid:br/061603085750 doi:10.1007/978-3-642-04918-7_3 openalex:W1642788118",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061603358495-062602180493",
+        "citing": "omid:br/061603358495 doi:10.1002/0470018860.s00026 openalex:W4252777485",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006-01-15",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0643022680-062602180493",
+        "citing": "omid:br/0643022680 doi:10.1007/s10898-021-01015-0 doi:10.5445/ir/1000132625 openalex:W3153922631",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2021-04-17",
+        "timespan": "P23Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302675962-062602180493",
+        "citing": "omid:br/061302675962 doi:10.1007/978-3-540-31845-3_6 openalex:W1577002526",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061203085222-062602180493",
+        "citing": "omid:br/061203085222 doi:10.1007/3-540-36388-2_16 openalex:W1496310095",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002-12-16",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303060639-062602180493",
+        "citing": "omid:br/062303060639 doi:10.1007/978-3-642-03741-2_29 openalex:W1539760501",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062403371326-062602180493",
+        "citing": "omid:br/062403371326 doi:10.1109/dac.1999.782145 openalex:W4251285527",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06110827988-062602180493",
+        "citing": "omid:br/06110827988 doi:10.1287/ijoc.1070.0259 openalex:W2165980820",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-11",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103120693-062602180493",
+        "citing": "omid:br/062103120693 doi:10.1007/s10951-012-0285-x openalex:W2125886152",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2012-08-28",
+        "timespan": "P14Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06803507402-062602180493",
+        "citing": "omid:br/06803507402 doi:10.1007/978-3-540-68825-9_23 openalex:W2170479010",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0636017680-062602180493",
+        "citing": "omid:br/0636017680 doi:10.1527/tjsai.23.268 openalex:W2036612292",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302645369-062602180493",
+        "citing": "omid:br/061302645369 doi:10.1007/978-3-319-07317-0_7 openalex:W77236829",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062102684631-062602180493",
+        "citing": "omid:br/062102684631 doi:10.1007/978-3-662-44857-1_10 openalex:W174882601",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06204745467-062602180493",
+        "citing": "omid:br/06204745467 doi:10.1007/978-3-031-34144-1_13",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2023",
+        "timespan": "P25Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701471110-062602180493",
+        "citing": "omid:br/061701471110 doi:10.1017/s1471068410000013 openalex:W1993778656",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010-02-18",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303020849-062602180493",
+        "citing": "omid:br/062303020849 doi:10.1007/978-3-540-48085-3_1 openalex:W2116196566",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1999",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0690962238-062602180493",
+        "citing": "omid:br/0690962238 doi:10.1007/s13748-011-0006-2 openalex:W2108864228",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2012-02-09",
+        "timespan": "P14Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061903269383-062602180493",
+        "citing": "omid:br/061903269383 doi:10.1109/dsd.2007.4341482 openalex:W3145553204",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007-08",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103101494-062602180493",
+        "citing": "omid:br/062103101494 doi:10.1007/978-3-540-74970-7_39 openalex:W1546943373",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06203526909-062602180493",
+        "citing": "omid:br/06203526909 doi:10.1007/3-540-36127-8_10 openalex:W1639068973",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062503123681-062602180493",
+        "citing": "omid:br/062503123681 doi:10.1007/11799573_14 openalex:W1508412071",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061303294507-062602180493",
+        "citing": "omid:br/061303294507 doi:10.1007/978-3-540-28646-2_15 openalex:W1534262712",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103101448-062602180493",
+        "citing": "omid:br/062103101448 doi:10.1007/978-3-540-74970-7_5 openalex:W1603124165",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062302844314-062602180493",
+        "citing": "omid:br/062302844314 doi:10.1007/3-540-49481-2_25 openalex:W1554660959",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1998",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061503085722-062602180493",
+        "citing": "omid:br/061503085722 doi:10.1007/978-3-540-77002-2_53 openalex:W4236586751",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062403291653-062602180493",
+        "citing": "omid:br/062403291653 doi:10.1007/978-3-540-24621-3_7 openalex:W1593883982",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06203136662-062602180493",
+        "citing": "omid:br/06203136662 doi:10.1007/978-3-642-35813-5_10 openalex:W2200354117",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062601373531-062602180493",
+        "citing": "omid:br/062601373531 doi:10.1142/s0218843005001225 openalex:W2026820534",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005-12",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303040035-062602180493",
+        "citing": "omid:br/06303040035 doi:10.1109/tsmca.2003.819489 openalex:W2152617637",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003-11",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061303412291-062602180493",
+        "citing": "omid:br/061303412291 doi:10.1109/wise.2000.882855 openalex:W4246754201",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061903437903-062602180493",
+        "citing": "omid:br/061903437903 doi:10.1109/icfem.2000.873820 openalex:W2160196023",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06603811247-062602180493",
+        "citing": "omid:br/06603811247 doi:10.1109/itsc.1999.821143 openalex:W1780747328",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06703321955-062602180493",
+        "citing": "omid:br/06703321955 doi:10.4018/978-1-61350-104-7.ch002 openalex:W4247816005",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503546581-062602180493",
+        "citing": "omid:br/06503546581 doi:10.1007/3-540-45816-6_30 openalex:W1524279551",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0636098313-062602180493",
+        "citing": "omid:br/0636098313 doi:10.1145/307418.307494 openalex:W1995493609",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1999-01",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061103036519-062602180493",
+        "citing": "omid:br/061103036519 doi:10.1007/978-3-540-45224-9_103 openalex:W1519781160",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06220747075-062602180493",
+        "citing": "omid:br/06220747075 doi:10.1287/opre.49.1.163.11193 openalex:W2156172772",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001-02",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303394726-062602180493",
+        "citing": "omid:br/062303394726 doi:10.1109/date.1999.761224 openalex:W4251423254",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701471152-062602180493",
+        "citing": "omid:br/061701471152 doi:10.1017/s147106840800327x openalex:W2047055582",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-02-26",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06210281976-062602180493",
+        "citing": "omid:br/06210281976 doi:10.1111/j.0824-7935.2004.00239.x openalex:W2022621945",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004-05",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061703363248-062602180493",
+        "citing": "omid:br/061703363248 doi:10.1109/iat.2005.90 openalex:W2126459780",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06130297992-062602180493",
+        "citing": "omid:br/06130297992 doi:10.4018/jismd.2010070104 openalex:W1980952081",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010-07-01",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061301211994-062602180493",
+        "citing": "omid:br/061301211994 doi:10.1177/239700221002400401 openalex:W2894225665",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010-11",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06340131575-062602180493",
+        "citing": "omid:br/06340131575 doi:10.1145/2488222.2488346 openalex:W1978051990",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013-06-29",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062403360673-062602180493",
+        "citing": "omid:br/062403360673 doi:10.1145/1014007.1014026 openalex:W2014906190",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06602633144-062602180493",
+        "citing": "omid:br/06602633144 doi:10.1145/349214.349224 openalex:W2012571091",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000-03",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06210748613-062602180493",
+        "citing": "omid:br/06210748613 doi:10.1287/opre.1070.0405 openalex:W2103342767",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007-08",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061503361204-062602180493",
+        "citing": "omid:br/061503361204 doi:10.1145/1047344.1047385 openalex:W4238104427",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0607089483-062602180493",
+        "citing": "omid:br/0607089483 doi:10.1007/978-3-031-82484-5_15",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2025",
+        "timespan": "P27Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061503361368-062602180493",
+        "citing": "omid:br/061503361368 doi:10.1145/1069774.1069797 openalex:W2000220850",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005-07-11",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303309594-062602180493",
+        "citing": "omid:br/062303309594 doi:10.1007/11559306_8 openalex:W1597205271",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701471024-062602180493",
+        "citing": "omid:br/061701471024 doi:10.1017/s1471068411000469 openalex:W2007301302",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011-09-12",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062401956870-062602180493",
+        "citing": "omid:br/062401956870 doi:10.1109/tse.2006.22 openalex:W2129083927",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006-03",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061802784283-062602180493",
+        "citing": "omid:br/061802784283 doi:10.1007/978-3-540-39406-8_4 openalex:W1548753399",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06903122050-062602180493",
+        "citing": "omid:br/06903122050 doi:10.1007/978-3-540-71316-6_15 openalex:W1536568106",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061803372410-062602180493",
+        "citing": "omid:br/061803372410 doi:10.1109/wicsa.2004.1310697 openalex:W2137530821",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061904313012-062602180493",
+        "citing": "omid:br/061904313012 doi:10.1631/bf02842471",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005-08",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061402135845-062602180493",
+        "citing": "omid:br/061402135845 doi:10.1007/11431855_34 openalex:W1608654004",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06302007146-062602180493",
+        "citing": "omid:br/06302007146 doi:10.1109/iccis.2008.4670852 openalex:W2136545522",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-09",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061803107954-062602180493",
+        "citing": "omid:br/061803107954 doi:10.1007/3-540-46016-0_26 openalex:W1533685215",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "060470-062602180493",
+        "citing": "omid:br/060470 doi:10.4230/lipics.cp.2021.52 openalex:W3209387815",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2021",
+        "timespan": "P23Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0680834334-062602180493",
+        "citing": "omid:br/0680834334 doi:10.1287/ijoc.2014.0637 openalex:W1954197473",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2015-08",
+        "timespan": "P17Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06202564099-062602180493",
+        "citing": "omid:br/06202564099 doi:10.1007/978-3-319-91086-4_12 openalex:W4211175769",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2018-09-21",
+        "timespan": "P20Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103681198-062602180493",
+        "citing": "omid:br/06103681198 doi:10.1109/ipdps.2008.4536207 openalex:W2160854901",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-04",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062203341144-062602180493",
+        "citing": "omid:br/062203341144 doi:10.1145/1101908.1101958 openalex:W2001741024",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061203110185-062602180493",
+        "citing": "omid:br/061203110185 doi:10.1007/3-540-48229-6_53 openalex:W90228532",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0627059957-062602180493",
+        "citing": "omid:br/0627059957 doi:10.1186/s13015-016-0085-5 openalex:W2519170897 pmid:27651825",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2016-09-14",
+        "timespan": "P18Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06203470697-062602180493",
+        "citing": "omid:br/06203470697 doi:10.1007/978-3-540-45193-8_36 openalex:W1486916474",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062403056389-062602180493",
+        "citing": "omid:br/062403056389 doi:10.1007/3-540-45154-4_21 openalex:W1896380057",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061903317268-062602180493",
+        "citing": "omid:br/061903317268 doi:10.1007/0-306-48056-5_13 openalex:W1523091792",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303010754-062602180493",
+        "citing": "omid:br/062303010754 doi:10.1109/ccgrid.2011.36 openalex:W2137243533",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011-05",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06602338518-062602180493",
+        "citing": "omid:br/06602338518 doi:10.1007/s10270-006-0038-4 openalex:W2010503273",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007-01-24",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061602811244-062602180493",
+        "citing": "omid:br/061602811244 doi:10.1007/978-3-540-24743-2_9 openalex:W1481427335",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061101935719-062602180493",
+        "citing": "omid:br/061101935719 doi:10.1142/s0218194015400240 openalex:W1846824930",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2015-06",
+        "timespan": "P17Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103072512-062602180493",
+        "citing": "omid:br/06103072512 doi:10.1007/978-3-642-41482-4_7 openalex:W4211127845",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303533490-062602180493",
+        "citing": "omid:br/06303533490 doi:10.1007/10704567_7 openalex:W1578535952",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1999",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06603269323-062602180493",
+        "citing": "omid:br/06603269323 doi:10.1007/3-540-49201-1_22 openalex:W1558512881",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1998",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062603041478-062602180493",
+        "citing": "omid:br/062603041478 doi:10.1007/978-1-4419-8917-8_6 openalex:W143259126",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403511487-062602180493",
+        "citing": "omid:br/06403511487 doi:10.1007/978-3-642-00255-7_4 openalex:W1607923221",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103374735-062602180493",
+        "citing": "omid:br/062103374735 doi:10.1145/309847.310076 openalex:W2103016602",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1999",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061602817673-062602180493",
+        "citing": "omid:br/061602817673 doi:10.1007/978-3-642-24500-8_4 openalex:W2198416812",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0690166936-062602180493",
+        "citing": "omid:br/0690166936 doi:10.1007/s10601-008-9064-x openalex:W2059035667",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009-01-13",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403162044-062602180493",
+        "citing": "omid:br/06403162044 doi:10.1007/3-540-46584-7_21 openalex:W1496211272",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1999",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06803797074-062602180493",
+        "citing": "omid:br/06803797074 doi:10.1145/320719.322588 openalex:W2098884876",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1999",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503513759-062602180493",
+        "citing": "omid:br/06503513759 doi:10.1007/978-3-642-00515-2_2 openalex:W1524434267",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061402135936-062602180493",
+        "citing": "omid:br/061402135936 doi:10.1007/978-3-642-02144-2_14 openalex:W1825872500",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701470733-062602180493",
+        "citing": "omid:br/061701470733 doi:10.1017/s1471068418000571 openalex:W2891358593",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2019-01-18",
+        "timespan": "P21Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303066343-062602180493",
+        "citing": "omid:br/06303066343 doi:10.1007/978-3-319-10428-7_6 openalex:W105594006",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061902807166-062602180493",
+        "citing": "omid:br/061902807166 doi:10.1007/3-540-36087-5_2 openalex:W1523732965",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06203496159-062602180493",
+        "citing": "omid:br/06203496159 doi:10.1007/978-1-4419-1306-7_4 openalex:W2103247734",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061303083031-062602180493",
+        "citing": "omid:br/061303083031 doi:10.1007/3-540-45349-0_8 openalex:W1539384044",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303534210-062602180493",
+        "citing": "omid:br/06303534210 doi:10.1007/3-540-45632-5_20 openalex:W2110794845",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06310480019-062602180493",
+        "citing": "omid:br/06310480019 doi:10.1007/s10270-024-01161-5",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2024-03-14",
+        "timespan": "P26Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061702886530-062602180493",
+        "citing": "omid:br/061702886530 doi:10.1007/978-3-642-22655-7_13 openalex:W4249971979",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06602633189-062602180493",
+        "citing": "omid:br/06602633189 doi:10.1145/295656.295661 openalex:W1979577606",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1998-11",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302873346-062602180493",
+        "citing": "omid:br/061302873346 doi:10.1007/s10732-009-9113-7 openalex:W2008912500",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009-09-26",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06110828285-062602180493",
+        "citing": "omid:br/06110828285 doi:10.1287/ijoc.14.4.322.2825 openalex:W1963756896",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002-11",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06703502880-062602180493",
+        "citing": "omid:br/06703502880 doi:10.1007/978-3-540-74089-6_2 openalex:W1817667747",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303114077-062602180493",
+        "citing": "omid:br/062303114077 doi:10.1007/978-3-540-48584-1_1 openalex:W1515069576",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103311960-062602180493",
+        "citing": "omid:br/06103311960 doi:10.1007/978-1-4419-1644-0_11 openalex:W2159290927",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010-10-23",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403143201-062602180493",
+        "citing": "omid:br/06403143201 doi:10.1007/3-540-45241-9_18 openalex:W1524303998",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062602907605-062602180493",
+        "citing": "omid:br/062602907605 doi:10.1002/9780470904848.ch3 openalex:W1500201680",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011-04-04",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "061203037857-062602180493",
+        "citing": "omid:br/061203037857 doi:10.1016/s0743-1066(98)10002-x openalex:W1814221162",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1998-10",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303538701-062602180493",
+        "citing": "omid:br/06303538701 doi:10.1007/3-540-45406-3_6 openalex:W1520714863",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06210444828-062602180493",
+        "citing": "omid:br/06210444828 doi:10.1002/net.21625 openalex:W2110948232",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2015-08-17",
+        "timespan": "P17Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103095974-062602180493",
+        "citing": "omid:br/062103095974 doi:10.1007/978-3-540-73580-9_7 openalex:W1513818038",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06203733791-062602180493",
+        "citing": "omid:br/06203733791 doi:10.1007/11546924_33 openalex:W2141156181",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06603425238-062602180493",
+        "citing": "omid:br/06603425238 doi:10.1145/2034691.2034697 openalex:W2068138526",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103095489-062602180493",
+        "citing": "omid:br/062103095489 doi:10.1007/978-3-540-73538-0_15 openalex:W1783494111",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061403289816-062602180493",
+        "citing": "omid:br/061403289816 doi:10.1007/11562931_8 openalex:W1572712485",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06603301692-062602180493",
+        "citing": "omid:br/06603301692 doi:10.1002/9781118033036.refs openalex:W4211103410",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011-09-30",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "061502336839-062602180493",
+        "citing": "omid:br/061502336839 doi:10.23919/mipro.2018.8400171 openalex:W2810803621",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2018-05",
+        "timespan": "P20Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503138008-062602180493",
+        "citing": "omid:br/06503138008 doi:10.1007/978-3-642-37057-1_14 openalex:W1874211429",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061303092562-062602180493",
+        "citing": "omid:br/061303092562 doi:10.1007/978-1-4020-6262-9_79 openalex:W2278880108",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103246551-062602180493",
+        "citing": "omid:br/06103246551 doi:10.1007/978-3-642-25289-1_29 openalex:W2241035388",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302793379-062602180493",
+        "citing": "omid:br/061302793379 doi:10.1007/978-3-540-39718-2_45 openalex:W1580991058",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06401423082-062602180493",
+        "citing": "omid:br/06401423082 doi:10.1007/s11761-014-0167-5 openalex:W2094387311",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014-11-08",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062503024277-062602180493",
+        "citing": "omid:br/062503024277 doi:10.1007/978-3-540-25951-0_15 openalex:W1567397515",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061802617747-062602180493",
+        "citing": "omid:br/061802617747 doi:10.1007/978-3-319-05443-8_27 openalex:W239549892",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014-10-08",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403129860-062602180493",
+        "citing": "omid:br/06403129860 doi:10.1007/978-3-642-39784-4_4 openalex:W2568703243",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061102422816-062602180493",
+        "citing": "omid:br/061102422816 doi:10.1007/978-3-319-51691-2_23 openalex:W2564271336",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2016-12-27",
+        "timespan": "P18Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303101322-062602180493",
+        "citing": "omid:br/062303101322 doi:10.1007/3-540-48309-8_46 openalex:W1980575367",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1999",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061901937414-062602180493",
+        "citing": "omid:br/061901937414 doi:10.1007/978-3-030-49186-4_3 openalex:W3031184783",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2020",
+        "timespan": "P22Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062301232797-062602180493",
+        "citing": "omid:br/062301232797 doi:10.1007/978-3-319-23519-6_1598-1 openalex:W2483201402",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2016",
+        "timespan": "P18Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061803095367-062602180493",
+        "citing": "omid:br/061803095367 doi:10.1007/978-3-540-69507-3_62 openalex:W1580671752",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061202607262-062602180493",
+        "citing": "omid:br/061202607262 doi:10.1007/978-3-319-19686-2_6 openalex:W2109567132",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2015",
+        "timespan": "P17Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062503094049-062602180493",
+        "citing": "omid:br/062503094049 doi:10.1007/11924661_1 openalex:W1587446521",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062601954540-062602180493",
+        "citing": "omid:br/062601954540 doi:10.1007/978-3-030-58942-4_14 openalex:W3087538456",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2020",
+        "timespan": "P22Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062201881817-062602180493",
+        "citing": "omid:br/062201881817 doi:10.1007/s40692-014-0016-8 openalex:W1964537663",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014-10-25",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062302709580-062602180493",
+        "citing": "omid:br/062302709580 doi:10.1007/978-3-540-74610-2_18 openalex:W1508847246",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06170744271-062602180493",
+        "citing": "omid:br/06170744271 doi:10.1007/s11241-005-2461-y openalex:W1968472933",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005-07",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103521979-062602180493",
+        "citing": "omid:br/06103521979 doi:10.1007/11827405_61 openalex:W95621906",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06120676013-062602180493",
+        "citing": "omid:br/06120676013 doi:10.1145/1178625.1178628 openalex:W2054383157",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006-10",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06803689776-062602180493",
+        "citing": "omid:br/06803689776 doi:10.1109/ideas.2005.38 openalex:W2115175284",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061202772575-062602180493",
+        "citing": "omid:br/061202772575 doi:10.1007/978-3-642-29822-6_10 openalex:W1595383570",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2012",
+        "timespan": "P14Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06703282542-062602180493",
+        "citing": "omid:br/06703282542 doi:10.1007/978-3-642-57603-4_5 openalex:W100925194",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06140311183-062602180493",
+        "citing": "omid:br/06140311183 doi:10.2139/ssrn.292408 openalex:W1602646431",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062102030588-062602180493",
+        "citing": "omid:br/062102030588 doi:10.1007/978-3-030-35288-2_44 openalex:W2990229168",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2019",
+        "timespan": "P21Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062302844329-062602180493",
+        "citing": "omid:br/062302844329 doi:10.1007/3-540-49481-2_4 openalex:W1540729231",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1998",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103037529-062602180493",
+        "citing": "omid:br/062103037529 doi:10.1007/978-3-540-39592-8_26 openalex:W1868158323",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103124717-062602180493",
+        "citing": "omid:br/062103124717 doi:10.1007/11680093_4 openalex:W1556647519",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061803426168-062602180493",
+        "citing": "omid:br/061803426168 doi:10.1109/cec.2000.870307 openalex:W1564889478",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06603948672-062602180493",
+        "citing": "omid:br/06603948672 doi:10.1007/s10601-022-09338-9 openalex:W3170981534",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2022-10-12",
+        "timespan": "P24Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06803541868-062602180493",
+        "citing": "omid:br/06803541868 doi:10.1007/3-540-45022-x_48 openalex:W2106342856",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06401486237-062602180493",
+        "citing": "omid:br/06401486237 doi:10.1186/1471-2105-9-230 openalex:W2002930355 pmid:18462492",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-05-07",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06220746997-062602180493",
+        "citing": "omid:br/06220746997 doi:10.1287/opre.49.1.42.11196 openalex:W2170717441",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001-02",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061603315300-062602180493",
+        "citing": "omid:br/061603315300 doi:10.1007/0-387-23667-8_16 openalex:W190682652",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06140729042-062602180493",
+        "citing": "omid:br/06140729042 doi:10.1016/j.trc.2019.11.012 openalex:W2989907169",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2020-01",
+        "timespan": "P22Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06203130922-062602180493",
+        "citing": "omid:br/06203130922 doi:10.1007/3-540-44914-0_7 openalex:W1560254851",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061503294331-062602180493",
+        "citing": "omid:br/061503294331 doi:10.1162/neco_a_00233 openalex:W2156726056",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2012-03",
+        "timespan": "P14Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062603154085-062602180493",
+        "citing": "omid:br/062603154085 doi:10.1007/978-3-540-69738-1_24 openalex:W1602949508",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403799350-062602180493",
+        "citing": "omid:br/06403799350 doi:10.1145/571985.572012 openalex:W2035062611",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061902888207-062602180493",
+        "citing": "omid:br/061902888207 doi:10.1007/3-540-45788-7_3 openalex:W2140349269",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503361494-062602180493",
+        "citing": "omid:br/06503361494 doi:10.1145/2500828.2500842 openalex:W2150994592",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013-09-11",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062503293498-062602180493",
+        "citing": "omid:br/062503293498 doi:10.1007/978-3-540-30557-6_13 openalex:W1491745597",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061802118790-062602180493",
+        "citing": "omid:br/061802118790 doi:10.1007/978-3-030-13838-7_11 openalex:W2886765993",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2019",
+        "timespan": "P21Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061103036383-062602180493",
+        "citing": "omid:br/061103036383 doi:10.1007/978-3-540-45224-9_137 openalex:W1542540357",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062401828046-062602180493",
+        "citing": "omid:br/062401828046 doi:10.1002/1097-0207(20000820)48:11<1583::aid-nme962>3.0.co;2-w openalex:W2084594884",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061103043538-062602180493",
+        "citing": "omid:br/061103043538 doi:10.1007/978-3-540-30221-6_16 openalex:W1951701397",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062502633177-062602180493",
+        "citing": "omid:br/062502633177 doi:10.1007/978-3-642-33860-1_1 openalex:W1638277954",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2012",
+        "timespan": "P14Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062202708946-062602180493",
+        "citing": "omid:br/062202708946 doi:10.1007/978-3-642-38209-3_6 openalex:W2207769310",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061203415260-062602180493",
+        "citing": "omid:br/061203415260 doi:10.1109/eurmic.1998.711780 openalex:W2160453708",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06902550603-062602180493",
+        "citing": "omid:br/06902550603 doi:10.1145/2643135.2643144 openalex:W2091890122",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061802617761-062602180493",
+        "citing": "omid:br/061802617761 doi:10.1007/978-3-319-05443-8_7 openalex:W313101814",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014-10-08",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06803537844-062602180493",
+        "citing": "omid:br/06803537844 doi:10.1007/11603023_8 openalex:W1536596338",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103146132-062602180493",
+        "citing": "omid:br/06103146132 doi:10.1007/3-540-44957-4_24 openalex:W1496171535",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06310149787-062602180493",
+        "citing": "omid:br/06310149787 doi:10.1007/978-3-031-39821-6_10 openalex:W4385832692",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2023",
+        "timespan": "P25Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061102728530-062602180493",
+        "citing": "omid:br/061102728530 doi:10.1007/978-3-642-39071-5_3 openalex:W67255151",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06170417881-062602180493",
+        "citing": "omid:br/06170417881 doi:10.1007/s10458-008-9059-4 openalex:W2093419986",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-09-03",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06602633321-062602180493",
+        "citing": "omid:br/06602633321 doi:10.1145/349214.349216 openalex:W2163660741",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000-03",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061203095432-062602180493",
+        "citing": "omid:br/061203095432 doi:10.1007/978-3-540-70583-3_7 openalex:W1547991054",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06203801387-062602180493",
+        "citing": "omid:br/06203801387 doi:10.1145/964696.964710 openalex:W1979853448",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062401978891-062602180493",
+        "citing": "omid:br/062401978891 doi:10.1007/s10479-007-0218-9 openalex:W2010485864",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007-08-04",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403652768-062602180493",
+        "citing": "omid:br/06403652768 doi:10.1109/cse.2008.24 openalex:W2160134299",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-07",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701471112-062602180493",
+        "citing": "omid:br/061701471112 doi:10.1017/s1471068409990251 openalex:W2097474199",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010-01-18",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061702377466-062602180493",
+        "citing": "omid:br/061702377466 doi:10.1007/978-3-319-17885-1_1598 openalex:W4289879128",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2017",
+        "timespan": "P19Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701470605-062602180493",
+        "citing": "omid:br/061701470605 doi:10.1017/s1471068421000156 openalex:W3211240993",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2021-11-02",
+        "timespan": "P23Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06280437385-062602180493",
+        "citing": "omid:br/06280437385 doi:10.1007/978-3-031-47843-7_17",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2023-11-07",
+        "timespan": "P25Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403541105-062602180493",
+        "citing": "omid:br/06403541105 doi:10.1007/3-540-45607-4_11 openalex:W1556298800",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06703679050-062602180493",
+        "citing": "omid:br/06703679050 doi:10.1109/smcals.2006.250703 openalex:W2169587864",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006-07",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061203129184-062602180493",
+        "citing": "omid:br/061203129184 doi:10.1007/11415763_10 openalex:W1563755460",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06450113512-062602180493",
+        "citing": "omid:br/06450113512 doi:10.1145/1622123.1622135 openalex:W2011368112",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007-04",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503094512-062602180493",
+        "citing": "omid:br/06503094512 doi:10.1007/s10209-005-0012-x openalex:W1981477037",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005-11-20",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701470953-062602180493",
+        "citing": "omid:br/061701470953 doi:10.1017/s1471068413000379 openalex:W2152826349",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013-07",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062402883577-062602180493",
+        "citing": "omid:br/062402883577 doi:10.1145/2611040.2611053 openalex:W2055456851",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06803825021-062602180493",
+        "citing": "omid:br/06803825021 doi:10.1109/real.1998.739733 openalex:W1949004756",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0610591675-062602180493",
+        "citing": "omid:br/0610591675 doi:10.1088/1742-6596/219/6/062069 openalex:W2077643748",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010-04-01",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062203107962-062602180493",
+        "citing": "omid:br/062203107962 doi:10.1007/3-540-44654-0_15 openalex:W1566707600",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061702182413-062602180493",
+        "citing": "omid:br/061702182413 doi:10.1057/jors.2015.119 openalex:W2294370623",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2016-08",
+        "timespan": "P18Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061403095495-062602180493",
+        "citing": "omid:br/061403095495 doi:10.1007/10722311_9 openalex:W1584437149",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503853642-062602180493",
+        "citing": "omid:br/06503853642 doi:10.1109/ftdcs.2001.969621 openalex:W1685552173",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062203475033-062602180493",
+        "citing": "omid:br/062203475033 doi:10.1007/978-3-031-11806-7_9 openalex:W4313137084",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2022",
+        "timespan": "P24Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061303258040-062602180493",
+        "citing": "omid:br/061303258040 doi:10.1109/ares.2007.63 openalex:W2096235683",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06802037066-062602180493",
+        "citing": "omid:br/06802037066 doi:10.1109/cahpc.2003.1250331 openalex:W2129728394",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06702257481-062602180493",
+        "citing": "omid:br/06702257481 doi:10.1007/s40998-016-0005-1 openalex:W2425850465",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2016-03",
+        "timespan": "P18Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061703086619-062602180493",
+        "citing": "omid:br/061703086619 doi:10.1007/978-3-642-03223-3_2 openalex:W1673596819",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503584664-062602180493",
+        "citing": "omid:br/06503584664 doi:10.1002/9780470400531.eorms0382 openalex:W1548690989",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011-01-14",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061403077398-062602180493",
+        "citing": "omid:br/061403077398 doi:10.1007/978-3-540-68679-8_11 openalex:W1540101699",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0670704059-062602180493",
+        "citing": "omid:br/0670704059 doi:10.4028/www.scientific.net/amm.631-632.1295 openalex:W2053575980",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014-09",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061801470610-062602180493",
+        "citing": "omid:br/061801470610 doi:10.1016/j.procs.2014.05.178 openalex:W2016035512",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0630696886-062602180493",
+        "citing": "omid:br/0630696886 doi:10.1109/mc.2004.129 openalex:W1997856041",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004-09",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303043738-062602180493",
+        "citing": "omid:br/06303043738 doi:10.1007/978-3-540-30201-8_2 openalex:W2140289381",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062302882762-062602180493",
+        "citing": "omid:br/062302882762 doi:10.1007/978-4-431-54000-7_4 openalex:W112436755",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2012",
+        "timespan": "P14Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303043841-062602180493",
+        "citing": "omid:br/06303043841 doi:10.1007/978-3-540-30204-9_1 openalex:W1537049979",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403541218-062602180493",
+        "citing": "omid:br/06403541218 doi:10.1007/3-540-45619-8_9 openalex:W2161744517",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062403291758-062602180493",
+        "citing": "omid:br/062403291758 doi:10.1007/978-3-540-24664-0_7 openalex:W1534954057",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0690166847-062602180493",
+        "citing": "omid:br/0690166847 doi:10.1007/s10601-014-9161-y openalex:W2046117742",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014-03-09",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303522144-062602180493",
+        "citing": "omid:br/062303522144 doi:10.1145/362652.362661 openalex:W2059056208",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000-10",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06501490980-062602180493",
+        "citing": "omid:br/06501490980 doi:10.1186/1471-2105-5-186 openalex:W1845127254 pmid:15571634",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701470815-062602180493",
+        "citing": "omid:br/061701470815 doi:10.1017/s1471068417000114 openalex:W2593721831",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2017-06-28",
+        "timespan": "P19Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302860297-062602180493",
+        "citing": "omid:br/061302860297 doi:10.1007/s10817-018-9493-1 openalex:W2899831531",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2018-11-08",
+        "timespan": "P20Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061103036351-062602180493",
+        "citing": "omid:br/061103036351 doi:10.1007/978-3-540-45220-1_6 openalex:W1773460911",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062203378966-062602180493",
+        "citing": "omid:br/062203378966 doi:10.1145/888251.888272 openalex:W2007319395",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06120417358-062602180493",
+        "citing": "omid:br/06120417358 doi:10.1007/s10586-006-7561-5 openalex:W1995180519",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006-04",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061202876855-062602180493",
+        "citing": "omid:br/061202876855 doi:10.1007/978-1-4471-0651-7_28 openalex:W1549473810",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062603063375-062602180493",
+        "citing": "omid:br/062603063375 doi:10.1007/11427186_29 openalex:W1855769638",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061203158872-062602180493",
+        "citing": "omid:br/061203158872 doi:10.1109/issre.2010.26 openalex:W2073792277",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010-11",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061502724291-062602180493",
+        "citing": "omid:br/061502724291 doi:10.1007/978-3-662-05607-3_5 openalex:W4249714815",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06202289822-062602180493",
+        "citing": "omid:br/06202289822 doi:10.1109/tcbb.2006.36 openalex:W2142760933 pmid:17048463",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006-07",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062402707325-062602180493",
+        "citing": "omid:br/062402707325 doi:10.1007/978-94-015-9608-4_11 openalex:W64798847",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062402165917-062602180493",
+        "citing": "omid:br/062402165917 doi:10.1057/palgrave.jors.2601789 openalex:W2021421763",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004-11",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062403333036-062602180493",
+        "citing": "omid:br/062403333036 doi:10.1109/ecbs.2006.28 openalex:W2128975082",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103105722-062602180493",
+        "citing": "omid:br/062103105722 doi:10.1007/3-540-44795-4_29 openalex:W1486464962",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0690166920-062602180493",
+        "citing": "omid:br/0690166920 doi:10.1007/s10601-009-9086-z openalex:W2110104934",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009-11-19",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061603337253-062602180493",
+        "citing": "omid:br/061603337253 doi:10.1145/1047124.1047385 openalex:W2077546321",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005-02-23",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06603067171-062602180493",
+        "citing": "omid:br/06603067171 doi:10.1007/978-3-319-07153-4_21-1 openalex:W4210989800",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2016",
+        "timespan": "P18Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06902898527-062602180493",
+        "citing": "omid:br/06902898527 doi:10.3390/a13100256 openalex:W3092440396",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2020-10-09",
+        "timespan": "P22Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062603090048-062602180493",
+        "citing": "omid:br/062603090048 doi:10.1007/978-3-540-30191-2_14 openalex:W1504813247",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061201343530-062602180493",
+        "citing": "omid:br/061201343530 doi:10.3233/ia-160100 openalex:W2566050196",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2016-12-12",
+        "timespan": "P18Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06803541973-062602180493",
+        "citing": "omid:br/06803541973 doi:10.1007/3-540-47866-3_31 openalex:W1529448887",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1999",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06703744165-062602180493",
+        "citing": "omid:br/06703744165 doi:10.1109/apsec.2005.57 openalex:W2160989498",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503713562-062602180493",
+        "citing": "omid:br/06503713562 doi:10.1145/1140335.1140337 openalex:W2044712166",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06402369407-062602180493",
+        "citing": "omid:br/06402369407 doi:10.1134/s1990478913020142 openalex:W2086234016",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013-04",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062603050369-062602180493",
+        "citing": "omid:br/062603050369 doi:10.1007/978-3-540-78139-4_34 openalex:W1544209780",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403534592-062602180493",
+        "citing": "omid:br/06403534592 doi:10.1007/978-3-540-72524-4_46 openalex:W1555142314",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06801802794-062602180493",
+        "citing": "omid:br/06801802794 doi:10.1371/journal.pcbi.1004838 openalex:W2340703376 pmid:27092947",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2016-04-19",
+        "timespan": "P18Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06903144254-062602180493",
+        "citing": "omid:br/06903144254 doi:10.1007/11805588_13 openalex:W1582565816",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701433855-062602180493",
+        "citing": "omid:br/061701433855 doi:10.1061/(asce)co.1943-7862.0000862 openalex:W2044096328",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014-07",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061802573051-062602180493",
+        "citing": "omid:br/061802573051 doi:10.1007/978-3-319-24678-9_8 openalex:W2499856864",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2015",
+        "timespan": "P17Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06204458071-062602180493",
+        "citing": "omid:br/06204458071 doi:10.1109/aiccsa56895.2022.10017575 openalex:W4317600396",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2022-12",
+        "timespan": "P24Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303270710-062602180493",
+        "citing": "omid:br/062303270710 doi:10.1109/iciea.2007.4318459 openalex:W1972312064",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007-05",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0690106325-062602180493",
+        "citing": "omid:br/0690106325 doi:10.1111/poms.12786 openalex:W2754046694",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2017-10-09",
+        "timespan": "P19Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06203470685-062602180493",
+        "citing": "omid:br/06203470685 doi:10.1007/978-3-540-45193-8_67 openalex:W1588613615",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061102212206-062602180493",
+        "citing": "omid:br/061102212206 doi:10.1007/978-3-319-92007-8_18 openalex:W2804013187",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2018",
+        "timespan": "P20Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103309592-062602180493",
+        "citing": "omid:br/06103309592 doi:10.1007/978-1-4612-1676-6_2 openalex:W1776904077",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1998",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062202162490-062602180493",
+        "citing": "omid:br/062202162490 doi:10.1057/palgrave.jors.2602501 openalex:W2074677012",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-02",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061403095493-062602180493",
+        "citing": "omid:br/061403095493 doi:10.1007/10722311_11 openalex:W1588992886",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503743338-062602180493",
+        "citing": "omid:br/06503743338 doi:10.1007/978-3-540-31807-1_23 openalex:W2151985067",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061901476351-062602180493",
+        "citing": "omid:br/061901476351 doi:10.1016/j.procs.2013.05.217 openalex:W1983934837",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0690797893-062602180493",
+        "citing": "omid:br/0690797893 doi:10.1002/spe.810 openalex:W4249426648",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701471041-062602180493",
+        "citing": "omid:br/061701471041 doi:10.1017/s1471068411000275 openalex:W3104907155",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011-07",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303307305-062602180493",
+        "citing": "omid:br/062303307305 doi:10.1007/3-540-32370-8_7 openalex:W253208060",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061202199865-062602180493",
+        "citing": "omid:br/061202199865 doi:10.1007/978-3-319-91521-0_2 openalex:W2806646704",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2018",
+        "timespan": "P20Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062603049509-062602180493",
+        "citing": "omid:br/062603049509 doi:10.1007/3-540-45013-0_3 openalex:W1939623278",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06203542950-062602180493",
+        "citing": "omid:br/06203542950 doi:10.1007/11916277_26 openalex:W1529059346",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2006",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06502016018-062602180493",
+        "citing": "omid:br/06502016018 doi:10.1145/1458550.1458552 openalex:W2056968852",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062402864733-062602180493",
+        "citing": "omid:br/062402864733 doi:10.1007/978-94-011-4040-9_9 openalex:W181279230",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103130941-062602180493",
+        "citing": "omid:br/062103130941 doi:10.1007/3-540-36596-6_10 openalex:W1584153437",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06603194400-062602180493",
+        "citing": "omid:br/06603194400 doi:10.1007/978-3-642-28735-0_21 openalex:W2593427363",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2012",
+        "timespan": "P14Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06170707982-062602180493",
+        "citing": "omid:br/06170707982 doi:10.4028/www.scientific.net/amm.536-537.1669 openalex:W4235453881",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2014-04",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103312062-062602180493",
+        "citing": "omid:br/06103312062 doi:10.1007/978-1-4419-1665-5_16 openalex:W4205863057",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503100421-062602180493",
+        "citing": "omid:br/06503100421 doi:10.1002/aic.690481226 openalex:W2064818654",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2002-12",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06203439705-062602180493",
+        "citing": "omid:br/06203439705 doi:10.1007/978-94-007-0671-2_2 openalex:W83476074",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061902666173-062602180493",
+        "citing": "omid:br/061902666173 doi:10.1017/s0956796809990086 openalex:W2171649093",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009-08-14",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06702726672-062602180493",
+        "citing": "omid:br/06702726672 doi:10.1145/3131851.3131863 doi:10.3233/fi-2020-1993",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2017-10-09",
+        "timespan": "P19Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303043733-062602180493",
+        "citing": "omid:br/06303043733 doi:10.1007/978-3-540-30201-8_27 openalex:W1568906217",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2004",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061902666163-062602180493",
+        "citing": "omid:br/061902666163 doi:10.1017/s0956796810000018 openalex:W2145371414",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010-03",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303139619-062602180493",
+        "citing": "omid:br/06303139619 doi:10.1007/s10617-009-9049-z openalex:W1998166926",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009-12-19",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06903137115-062602180493",
+        "citing": "omid:br/06903137115 doi:10.1007/978-3-540-73066-8_23 openalex:W1598641709",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2007",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06103146117-062602180493",
+        "citing": "omid:br/06103146117 doi:10.1007/3-540-44957-4_85 openalex:W2040984688",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062302703545-062602180493",
+        "citing": "omid:br/062302703545 doi:10.1007/978-3-540-24593-3_7 openalex:W1558965196",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06703628911-062602180493",
+        "citing": "omid:br/06703628911 doi:10.1002/9780470050118.ecse226 openalex:W2763380616",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2008-09-15",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062302483872-062602180493",
+        "citing": "omid:br/062302483872 doi:10.1145/2967973.2968596 openalex:W2507879277",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2016-09-05",
+        "timespan": "P18Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06902400946-062602180493",
+        "citing": "omid:br/06902400946 doi:10.1007/s13218-011-0161-4 openalex:W2059732164",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011-12-21",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061703383893-062602180493",
+        "citing": "omid:br/061703383893 doi:10.1109/wsc.2003.1261631 openalex:W2121639074",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062502453008-062602180493",
+        "citing": "omid:br/062502453008 doi:10.1109/wits.2017.7934626 openalex:W2620035965",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2017-04",
+        "timespan": "P19Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061303083030-062602180493",
+        "citing": "omid:br/061303083030 doi:10.1007/3-540-45349-0_15 openalex:W1607908797",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061703212509-062602180493",
+        "citing": "omid:br/061703212509 doi:10.1109/icnc.2009.703 openalex:W2141459563",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0640868143-062602180493",
+        "citing": "omid:br/0640868143 doi:10.1017/s0269888910000202 openalex:W2083523511",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010-09",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701471073-062602180493",
+        "citing": "omid:br/061701471073 doi:10.1017/s1471068410000487 openalex:W2111662649",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011-01-05",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061703538117-062602180493",
+        "citing": "omid:br/061703538117 doi:10.1145/504704.504705 openalex:W2073536284",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001-12",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062401745699-062602180493",
+        "citing": "omid:br/062401745699 doi:10.1007/s00165-003-0019-0 openalex:W1970456879",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003-12",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06202040165-062602180493",
+        "citing": "omid:br/06202040165 doi:10.1109/cmpsac.2003.1245319 openalex:W2118577607",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061303101320-062602180493",
+        "citing": "omid:br/061303101320 doi:10.1007/3-540-45402-0_8 openalex:W1774117686",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303381054-062602180493",
+        "citing": "omid:br/062303381054 doi:10.1145/888251.888260 openalex:W2010057075",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2003",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0630408771-062602180493",
+        "citing": "omid:br/0630408771 doi:10.1080/00207543.2020.1751337 openalex:W3016366377",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2020-04-17",
+        "timespan": "P22Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06130295068-062602180493",
+        "citing": "omid:br/06130295068 doi:10.4204/eptcs.107.4 openalex:W3124455682",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2013-02-10",
+        "timespan": "P15Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061501457331-062602180493",
+        "citing": "omid:br/061501457331 doi:10.1021/ie801155w openalex:W2036608512",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2009-02-03",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062602904134-062602180493",
+        "citing": "omid:br/062602904134 doi:10.1007/978-3-642-18275-4_5 openalex:W3136924826",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503478820-062602180493",
+        "citing": "omid:br/06503478820 doi:10.1007/978-3-642-13520-0_3 openalex:W1526604233",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2010",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302675954-062602180493",
+        "citing": "omid:br/061302675954 doi:10.1007/978-3-540-31845-3_25 openalex:W2156678164",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2005",
+        "timespan": "P7Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061701470681-062602180493",
+        "citing": "omid:br/061701470681 doi:10.1017/s1471068419000462 openalex:W2999123409",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2020-01-15",
+        "timespan": "P22Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06403303836-062602180493",
+        "citing": "omid:br/06403303836 doi:10.1007/978-1-4419-9943-6_8 openalex:W2115107013",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2011",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062403218944-062602180493",
+        "citing": "omid:br/062403218944 doi:10.1109/eurmic.1999.793133 openalex:W1975666185",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1999",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062602891855-062602180493",
+        "citing": "omid:br/062602891855 doi:10.1007/3-540-40911-4_16 openalex:W1573095814",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2000",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061502852567-062602180493",
+        "citing": "omid:br/061502852567 doi:10.1007/978-3-642-60085-2_13 openalex:W1607543390",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1999",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303538702-062602180493",
+        "citing": "omid:br/06303538702 doi:10.1007/3-540-45406-3_5 openalex:W1508237628",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062303020858-062602180493",
+        "citing": "omid:br/062303020858 doi:10.1007/978-3-540-48085-3_13 openalex:W1590854684",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "1999",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061302805389-062602180493",
+        "citing": "omid:br/061302805389 doi:10.1007/3-540-45578-7_52 openalex:W1530989307",
+        "cited": "omid:br/062602180493 doi:10.7551/mitpress/5625.001.0001 isbn:9780262279161 openalex:W1589232796",
+        "creation": "2001",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

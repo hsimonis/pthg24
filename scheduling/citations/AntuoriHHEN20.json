@@ -1,29 +1,56 @@
 [
     {
+        "oci": "061701677956-062601935911",
+        "citing": "omid:br/061701677956 doi:10.1155/2021/7179374 openalex:W3217322259",
+        "cited": "omid:br/062601935911 doi:10.1007/978-3-030-58475-7_38 openalex:W3083515252",
         "creation": "2021-11-30",
-        "author_sc": "no",
-        "cited": "10.1007/978-3-030-58475-7_38",
         "timespan": "P1Y",
         "journal_sc": "no",
-        "oci": "061701677956-062601935911",
-        "citing": "10.1155/2021/7179374"
+        "author_sc": "no"
     },
     {
+        "oci": "06210186962-062601935911",
+        "citing": "omid:br/06210186962 doi:10.1109/jstqe.2022.3151323 openalex:W4285196348",
+        "cited": "omid:br/062601935911 doi:10.1007/978-3-030-58475-7_38 openalex:W3083515252",
         "creation": "2022-07",
-        "author_sc": "no",
-        "cited": "10.1007/978-3-030-58475-7_38",
         "timespan": "P2Y",
         "journal_sc": "no",
-        "oci": "06210186962-062601935911",
-        "citing": "10.1109/jstqe.2022.3151323"
+        "author_sc": "no"
     },
     {
+        "oci": "06304855527-062601935911",
+        "citing": "omid:br/06304855527 doi:10.3390/make6030093",
+        "cited": "omid:br/062601935911 doi:10.1007/978-3-030-58475-7_38 openalex:W3083515252",
+        "creation": "2024-08-13",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "060439-062601935911",
+        "citing": "omid:br/060439 doi:10.4230/lipics.cp.2021.14 openalex:W3211238425",
+        "cited": "omid:br/062601935911 doi:10.1007/978-3-030-58475-7_38 openalex:W3083515252",
         "creation": "2021",
-        "author_sc": "no",
-        "cited": "10.1007/978-3-030-58475-7_38",
         "timespan": "P1Y",
         "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062503891439-062601935911",
+        "citing": "omid:br/062503891439 arxiv:2102.09193v1",
+        "cited": "omid:br/062601935911 doi:10.1007/978-3-030-58475-7_38 openalex:W3083515252",
+        "creation": "2021",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
         "oci": "06301728286-062601935911",
-        "citing": "10.1007/978-3-030-78230-6_25"
+        "citing": "omid:br/06301728286 doi:10.1007/978-3-030-78230-6_25 openalex:W3176327512",
+        "cited": "omid:br/062601935911 doi:10.1007/978-3-030-58475-7_38 openalex:W3083515252",
+        "creation": "2021",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

@@ -1,1 +1,56 @@
-[]
+[
+    {
+        "oci": "0690166746-062203104808",
+        "citing": "omid:br/0690166746 doi:10.1007/s10601-018-9282-9 openalex:W2801887155",
+        "cited": "omid:br/062203104808 doi:10.1007/3-540-46135-3_62 openalex:W1530618466",
+        "creation": "2018-04-11",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062203104808-062203104808",
+        "citing": "omid:br/062203104808 doi:10.1007/3-540-46135-3_62 openalex:W1530618466",
+        "cited": "omid:br/062203104808 doi:10.1007/3-540-46135-3_62 openalex:W1530618466",
+        "creation": "2002",
+        "timespan": "P0Y",
+        "journal_sc": "yes",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "06703396236-062203104808",
+        "citing": "omid:br/06703396236 doi:10.4018/978-1-61350-456-7.ch405 openalex:W4230120243",
+        "cited": "omid:br/062203104808 doi:10.1007/3-540-46135-3_62 openalex:W1530618466",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06110837279-062203104808",
+        "citing": "omid:br/06110837279 doi:10.1016/j.ijpe.2011.07.006 openalex:W2010919407",
+        "cited": "omid:br/062203104808 doi:10.1007/3-540-46135-3_62 openalex:W1530618466",
+        "creation": "2011-11",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0644052555-062203104808",
+        "citing": "omid:br/0644052555 doi:10.1007/978-3-031-08011-1_10 openalex:W3199936414",
+        "cited": "omid:br/062203104808 doi:10.1007/3-540-46135-3_62 openalex:W1530618466",
+        "creation": "2022",
+        "timespan": "P20Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062403291768-062203104808",
+        "citing": "omid:br/062403291768 doi:10.1007/978-3-540-24664-0_23 openalex:W1517248951",
+        "cited": "omid:br/062203104808 doi:10.1007/3-540-46135-3_62 openalex:W1530618466",
+        "creation": "2004",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

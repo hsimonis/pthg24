@@ -1,11 +1,11 @@
 [
     {
-        "timespan": "P9Y4M",
-        "author_sc": "no",
         "oci": "06804655419-0610711596",
+        "citing": "omid:br/06804655419 doi:10.2478/mspe-2024-0012",
+        "cited": "omid:br/0610711596 doi:10.4028/www.scientific.net/amm.681.265 openalex:W1968676589",
+        "creation": "2024-02-26",
+        "timespan": "P9Y4M",
         "journal_sc": "no",
-        "citing": "10.2478/mspe-2024-0012",
-        "cited": "10.4028/www.scientific.net/amm.681.265",
-        "creation": "2024-02-26"
+        "author_sc": "no"
     }
 ]

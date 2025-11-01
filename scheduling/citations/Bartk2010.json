@@ -1,1 +1,47 @@
-[]
+[
+    {
+        "oci": "061502722635-06701123215",
+        "citing": "omid:br/061502722635 doi:10.1007/978-3-642-31072-0_14 openalex:W9985575",
+        "cited": "omid:br/06701123215 doi:10.1177/0142331208100099 openalex:W1975032878",
+        "creation": "2012",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062103120353-06701123215",
+        "citing": "omid:br/062103120353 doi:10.1007/s10951-019-00632-8 openalex:W3006399906",
+        "cited": "omid:br/06701123215 doi:10.1177/0142331208100099 openalex:W1975032878",
+        "creation": "2020-02-15",
+        "timespan": "P10Y0M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061402135598-06701123215",
+        "citing": "omid:br/061402135598 doi:10.1007/978-3-642-38709-8_7 openalex:W1871863256",
+        "cited": "omid:br/06701123215 doi:10.1177/0142331208100099 openalex:W1975032878",
+        "creation": "2013",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061203116504-06701123215",
+        "citing": "omid:br/061203116504 doi:10.1016/j.infsof.2014.06.006 openalex:W1997324213",
+        "cited": "omid:br/06701123215 doi:10.1177/0142331208100099 openalex:W1975032878",
+        "creation": "2015-01",
+        "timespan": "P4Y11M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0644052555-06701123215",
+        "citing": "omid:br/0644052555 doi:10.1007/978-3-031-08011-1_10 openalex:W3199936414",
+        "cited": "omid:br/06701123215 doi:10.1177/0142331208100099 openalex:W1975032878",
+        "creation": "2022",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

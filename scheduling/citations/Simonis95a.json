@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "oci": "062101243817-06303290557",
+        "citing": "omid:br/062101243817 doi:10.1109/5254.820326 openalex:W2115400699",
+        "cited": "omid:br/06303290557 doi:10.1007/3-540-60794-3_11 openalex:W1571070340",
+        "creation": "2000-01",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

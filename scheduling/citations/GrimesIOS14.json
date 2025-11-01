@@ -1,56 +1,74 @@
 [
     {
-        "timespan": "P6Y3M",
-        "author_sc": "no",
-        "oci": "061802898838-06202993415",
-        "journal_sc": "no",
-        "citing": "10.1109/icict52872.2021.00009",
-        "cited": "10.1016/j.suscom.2014.08.009",
-        "creation": "2021-03"
-    },
-    {
-        "timespan": "P7Y0M",
-        "author_sc": "no",
-        "oci": "06202993012-06202993415",
-        "journal_sc": "yes",
-        "citing": "10.1016/j.suscom.2021.100616",
-        "cited": "10.1016/j.suscom.2014.08.009",
-        "creation": "2021-12"
-    },
-    {
-        "timespan": "P6Y9M",
-        "author_sc": "no",
-        "oci": "06210669906-06202993415",
-        "journal_sc": "no",
-        "citing": "10.1016/j.energy.2021.120821",
-        "cited": "10.1016/j.suscom.2014.08.009",
-        "creation": "2021-09"
-    },
-    {
-        "timespan": "P6Y11M",
-        "author_sc": "no",
         "oci": "062401611922-06202993415",
+        "citing": "omid:br/062401611922 doi:10.3390/en14227587 openalex:W3211970770",
+        "cited": "omid:br/06202993415 doi:10.1016/j.suscom.2014.08.009 openalex:W2014947396",
+        "creation": "2021-11-12",
+        "timespan": "P6Y11M",
         "journal_sc": "no",
-        "citing": "10.3390/en14227587",
-        "cited": "10.1016/j.suscom.2014.08.009",
-        "creation": "2021-11-12"
+        "author_sc": "no"
     },
     {
-        "timespan": "P1Y8M",
-        "author_sc": "no",
         "oci": "062601653186-06202993415",
+        "citing": "omid:br/062601653186 doi:10.3390/en9080618 openalex:W2487166572",
+        "cited": "omid:br/06202993415 doi:10.1016/j.suscom.2014.08.009 openalex:W2014947396",
+        "creation": "2016-08-04",
+        "timespan": "P1Y8M",
         "journal_sc": "no",
-        "citing": "10.3390/en9080618",
-        "cited": "10.1016/j.suscom.2014.08.009",
-        "creation": "2016-08-04"
+        "author_sc": "no"
     },
     {
-        "timespan": "P2Y10M",
-        "author_sc": "no",
-        "oci": "06602743241-06202993415",
+        "oci": "0606588905-06202993415",
+        "citing": "omid:br/0606588905 doi:10.2478/acss-2024-0020",
+        "cited": "omid:br/06202993415 doi:10.1016/j.suscom.2014.08.009 openalex:W2014947396",
+        "creation": "2024-12-01",
+        "timespan": "P10Y0M",
         "journal_sc": "no",
-        "citing": "10.1109/ias.2017.8101703",
-        "cited": "10.1016/j.suscom.2014.08.009",
-        "creation": "2017-10"
+        "author_sc": "no"
+    },
+    {
+        "oci": "061802898838-06202993415",
+        "citing": "omid:br/061802898838 doi:10.1109/icict52872.2021.00009 openalex:W3185198287",
+        "cited": "omid:br/06202993415 doi:10.1016/j.suscom.2014.08.009 openalex:W2014947396",
+        "creation": "2021-03",
+        "timespan": "P6Y3M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06602743241-06202993415",
+        "citing": "omid:br/06602743241 doi:10.1109/ias.2017.8101703 openalex:W2767765646",
+        "cited": "omid:br/06202993415 doi:10.1016/j.suscom.2014.08.009 openalex:W2014947396",
+        "creation": "2017-10",
+        "timespan": "P2Y10M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06202993012-06202993415",
+        "citing": "omid:br/06202993012 doi:10.1016/j.suscom.2021.100616 openalex:W3213312972",
+        "cited": "omid:br/06202993415 doi:10.1016/j.suscom.2014.08.009 openalex:W2014947396",
+        "creation": "2021-12",
+        "timespan": "P7Y0M",
+        "journal_sc": "yes",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062504302746-06202993415",
+        "citing": "omid:br/062504302746 doi:10.1007/978-3-031-72332-2_11",
+        "cited": "omid:br/06202993415 doi:10.1016/j.suscom.2014.08.009 openalex:W2014947396",
+        "creation": "2024",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06210669906-06202993415",
+        "citing": "omid:br/06210669906 doi:10.1016/j.energy.2021.120821 openalex:W3159613048",
+        "cited": "omid:br/06202993415 doi:10.1016/j.suscom.2014.08.009 openalex:W2014947396",
+        "creation": "2021-09",
+        "timespan": "P6Y9M",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

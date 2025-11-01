@@ -1,11 +1,11 @@
 [
     {
-        "timespan": "P11Y",
-        "author_sc": "no",
         "oci": "062102452242-062201327761",
+        "citing": "omid:br/062102452242 doi:10.1109/logistiqua.2017.7962867 openalex:W2729090042",
+        "cited": "omid:br/062201327761 doi:10.3182/20060517-3-fr-2903.00358 openalex:W1983558429",
+        "creation": "2017-04",
+        "timespan": "P11Y",
         "journal_sc": "no",
-        "citing": "10.1109/logistiqua.2017.7962867",
-        "cited": "10.3182/20060517-3-fr-2903.00358",
-        "creation": "2017-04"
+        "author_sc": "no"
     }
 ]

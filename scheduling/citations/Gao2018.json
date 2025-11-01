@@ -1,1 +1,29 @@
-[]
+[
+    {
+        "oci": "062401884417-062302389519",
+        "citing": "omid:br/062401884417 doi:10.3390/math10040597 openalex:W4213030880",
+        "cited": "omid:br/062302389519 doi:10.2355/isijinternational.isijint-2018-305 openalex:W2897183165",
+        "creation": "2022-02-15",
+        "timespan": "P3Y4M0D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06504647125-062302389519",
+        "citing": "omid:br/06504647125 doi:10.1016/j.ejor.2023.12.032",
+        "cited": "omid:br/062302389519 doi:10.2355/isijinternational.isijint-2018-305 openalex:W2897183165",
+        "creation": "2024-01",
+        "timespan": "P5Y2M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061404301858-062302389519",
+        "citing": "omid:br/061404301858 doi:10.1109/ccdc62350.2024.10587657",
+        "cited": "omid:br/062302389519 doi:10.2355/isijinternational.isijint-2018-305 openalex:W2897183165",
+        "creation": "2024-05-25",
+        "timespan": "P5Y7M10D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

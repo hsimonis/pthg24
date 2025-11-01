@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "oci": "061601148810-062301351979",
+        "citing": "omid:br/061601148810 doi:10.1109/access.2019.2951027 openalex:W2983059853",
+        "cited": "omid:br/062301351979 doi:10.1142/s0218213018600023 openalex:W2800221442",
+        "creation": "2019",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

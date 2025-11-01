@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "oci": "06203754228-06703746073",
+        "citing": "omid:br/06203754228 doi:10.3141/2482-15 openalex:W197221904",
+        "cited": "omid:br/06703746073 doi:10.1109/robot.2005.1570686 openalex:W2119842773",
+        "creation": "2015-01",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06303530892-06703746073",
+        "citing": "omid:br/06303530892 doi:10.1007/s10462-018-9667-6 openalex:W2900886562",
+        "cited": "omid:br/06703746073 doi:10.1109/robot.2005.1570686 openalex:W2119842773",
+        "creation": "2018-11-19",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

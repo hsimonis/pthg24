@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "oci": "06280603781-06330364367",
+        "citing": "omid:br/06280603781 doi:10.1016/j.clscn.2024.100177",
+        "cited": "omid:br/06330364367 doi:10.3390/jmse12010124",
+        "creation": "2024-12",
+        "timespan": "P0Y10M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062604369908-06330364367",
+        "citing": "omid:br/062604369908 doi:10.3390/electronics13224558",
+        "cited": "omid:br/06330364367 doi:10.3390/jmse12010124",
+        "creation": "2024-11-20",
+        "timespan": "P0Y10M12D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

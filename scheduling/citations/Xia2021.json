@@ -1,56 +1,56 @@
 [
     {
-        "creation": "2022-10-14",
-        "author_sc": "no",
-        "cited": "10.3233/jifs-189721",
-        "timespan": "P1Y0M0D",
-        "journal_sc": "no",
-        "oci": "061903553172-061901465312",
-        "citing": "10.3390/sym14102150"
-    },
-    {
-        "creation": "2022-06-03",
-        "author_sc": "yes",
-        "cited": "10.3233/jifs-189721",
-        "timespan": "P0Y7M20D",
-        "journal_sc": "no",
-        "oci": "0630819340-061901465312",
-        "citing": "10.1007/s00170-022-09394-8"
-    },
-    {
-        "creation": "2023-01-19",
-        "author_sc": "no",
-        "cited": "10.3233/jifs-189721",
-        "timespan": "P1Y3M5D",
-        "journal_sc": "no",
-        "oci": "06310128559-061901465312",
-        "citing": "10.3390/electronics12030526"
-    },
-    {
-        "creation": "2024-02",
-        "author_sc": "no",
-        "cited": "10.3233/jifs-189721",
-        "timespan": "P2Y3M",
-        "journal_sc": "no",
-        "oci": "06350397240-061901465312",
-        "citing": "10.1016/j.eswa.2024.123473"
-    },
-    {
-        "creation": "2023-03-10",
-        "author_sc": "no",
-        "cited": "10.3233/jifs-189721",
-        "timespan": "P1Y4M24D",
-        "journal_sc": "no",
-        "oci": "06380171875-061901465312",
-        "citing": "10.1007/s11042-023-14544-5"
-    },
-    {
+        "oci": "06904266857-061901465312",
+        "citing": "omid:br/06904266857 doi:10.1016/j.rico.2023.100350",
+        "cited": "omid:br/061901465312 doi:10.3233/jifs-189721 openalex:W3130548921",
         "creation": "2024-03",
-        "author_sc": "no",
-        "cited": "10.3233/jifs-189721",
         "timespan": "P2Y4M",
         "journal_sc": "no",
-        "oci": "06904266857-061901465312",
-        "citing": "10.1016/j.rico.2023.100350"
+        "author_sc": "no"
+    },
+    {
+        "oci": "06380171875-061901465312",
+        "citing": "omid:br/06380171875 doi:10.1007/s11042-023-14544-5 openalex:W4360978755",
+        "cited": "omid:br/061901465312 doi:10.3233/jifs-189721 openalex:W3130548921",
+        "creation": "2023-03-10",
+        "timespan": "P1Y4M24D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06350397240-061901465312",
+        "citing": "omid:br/06350397240 doi:10.1016/j.eswa.2024.123473",
+        "cited": "omid:br/061901465312 doi:10.3233/jifs-189721 openalex:W3130548921",
+        "creation": "2024-02",
+        "timespan": "P2Y3M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06310128559-061901465312",
+        "citing": "omid:br/06310128559 doi:10.3390/electronics12030526 openalex:W4317608696",
+        "cited": "omid:br/061901465312 doi:10.3233/jifs-189721 openalex:W3130548921",
+        "creation": "2023-01-19",
+        "timespan": "P1Y3M5D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061903553172-061901465312",
+        "citing": "omid:br/061903553172 doi:10.3390/sym14102150 openalex:W4306404449",
+        "cited": "omid:br/061901465312 doi:10.3233/jifs-189721 openalex:W3130548921",
+        "creation": "2022-10-14",
+        "timespan": "P1Y0M0D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0630819340-061901465312",
+        "citing": "omid:br/0630819340 doi:10.1007/s00170-022-09394-8 openalex:W4281791925",
+        "cited": "omid:br/061901465312 doi:10.3233/jifs-189721 openalex:W3130548921",
+        "creation": "2022-06-03",
+        "timespan": "P0Y7M20D",
+        "journal_sc": "no",
+        "author_sc": "yes"
     }
 ]

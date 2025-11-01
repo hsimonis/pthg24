@@ -1,20 +1,47 @@
 [
     {
-        "creation": "2022-12-09",
-        "author_sc": "no",
-        "cited": "10.1177/03611981211036368",
-        "timespan": "P1Y3M9D",
+        "oci": "062604431173-061903344141",
+        "citing": "omid:br/062604431173 doi:10.1016/j.trb.2024.102942",
+        "cited": "omid:br/061903344141 doi:10.1177/03611981211036368 openalex:W3198538190",
+        "creation": "2024-05",
+        "timespan": "P2Y8M",
         "journal_sc": "no",
-        "oci": "061403887314-061903344141",
-        "citing": "10.1142/s0219622022500912"
+        "author_sc": "no"
     },
     {
+        "oci": "06204795213-061903344141",
+        "citing": "omid:br/06204795213 doi:10.1016/j.cie.2024.110123",
+        "cited": "omid:br/061903344141 doi:10.1177/03611981211036368 openalex:W3198538190",
+        "creation": "2024-05",
+        "timespan": "P2Y8M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061403887314-061903344141",
+        "citing": "omid:br/061403887314 doi:10.1142/s0219622022500912 openalex:W4307712216",
+        "cited": "omid:br/061903344141 doi:10.1177/03611981211036368 openalex:W3198538190",
+        "creation": "2022-12-09",
+        "timespan": "P1Y3M9D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062104344093-061903344141",
+        "citing": "omid:br/062104344093 doi:10.1016/j.jrtpm.2024.100487",
+        "cited": "omid:br/061903344141 doi:10.1177/03611981211036368 openalex:W3198538190",
+        "creation": "2024-12",
+        "timespan": "P3Y3M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06604670351-061903344141",
+        "citing": "omid:br/06604670351 doi:10.1177/03611981231223190",
+        "cited": "omid:br/061903344141 doi:10.1177/03611981211036368 openalex:W3198538190",
         "creation": "2024-01-20",
-        "author_sc": "no",
-        "cited": "10.1177/03611981211036368",
         "timespan": "P2Y4M21D",
         "journal_sc": "yes",
-        "oci": "06604670351-061903344141",
-        "citing": "10.1177/03611981231223190"
+        "author_sc": "no"
     }
 ]

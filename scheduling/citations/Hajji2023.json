@@ -1,1 +1,47 @@
-[]
+[
+    {
+        "oci": "06904467687-06390182176",
+        "citing": "omid:br/06904467687 doi:10.1016/j.procs.2024.09.165",
+        "cited": "omid:br/06390182176 doi:10.3390/computation11070137 openalex:W4383908705",
+        "creation": "2024",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06330530414-06390182176",
+        "citing": "omid:br/06330530414 doi:10.1016/j.aime.2024.100144",
+        "cited": "omid:br/06390182176 doi:10.3390/computation11070137 openalex:W4383908705",
+        "creation": "2024-11",
+        "timespan": "P1Y3M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0605645316-06390182176",
+        "citing": "omid:br/0605645316 doi:10.1007/s10479-025-06471-5",
+        "cited": "omid:br/06390182176 doi:10.3390/computation11070137 openalex:W4383908705",
+        "creation": "2025-02-06",
+        "timespan": "P1Y6M27D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0607874571-06390182176",
+        "citing": "omid:br/0607874571 doi:10.1186/s40537-025-01085-x",
+        "cited": "omid:br/06390182176 doi:10.3390/computation11070137 openalex:W4383908705",
+        "creation": "2025-02-01",
+        "timespan": "P1Y6M22D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0605948764-06390182176",
+        "citing": "omid:br/0605948764 doi:10.1109/ictmod63116.2024.10878210",
+        "cited": "omid:br/06390182176 doi:10.3390/computation11070137 openalex:W4383908705",
+        "creation": "2024-11-04",
+        "timespan": "P1Y3M25D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

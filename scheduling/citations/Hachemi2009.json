@@ -1,11 +1,11 @@
 [
     {
-        "timespan": "P4Y",
-        "author_sc": "no",
         "oci": "061601835752-06403512168",
+        "citing": "omid:br/061601835752 doi:10.1111/itor.12020 openalex:W2021280019",
+        "cited": "omid:br/06403512168 doi:10.1007/978-3-642-01929-6_27 openalex:W1496325862",
+        "creation": "2013-05-07",
+        "timespan": "P4Y",
         "journal_sc": "no",
-        "citing": "10.1111/itor.12020",
-        "cited": "10.1007/978-3-642-01929-6_27",
-        "creation": "2013-05-07"
+        "author_sc": "no"
     }
 ]

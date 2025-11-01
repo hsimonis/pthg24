@@ -1,20 +1,20 @@
 [
     {
-        "timespan": "P5Y",
-        "author_sc": "no",
-        "oci": "06160712441-062103101469",
+        "oci": "062103120826-062103101469",
+        "citing": "omid:br/062103120826 doi:10.1007/s10951-009-0144-6 openalex:W2038752397",
+        "cited": "omid:br/062103101469 doi:10.1007/978-3-540-74970-7_10 openalex:W1579425110",
+        "creation": "2009-11-19",
+        "timespan": "P2Y",
         "journal_sc": "no",
-        "citing": "10.4028/www.scientific.net/amr.557-559.2423",
-        "cited": "10.1007/978-3-540-74970-7_10",
-        "creation": "2012-07"
+        "author_sc": "no"
     },
     {
-        "timespan": "P2Y",
-        "author_sc": "no",
-        "oci": "062103120826-062103101469",
+        "oci": "06160712441-062103101469",
+        "citing": "omid:br/06160712441 doi:10.4028/www.scientific.net/amr.557-559.2423 openalex:W2004444832",
+        "cited": "omid:br/062103101469 doi:10.1007/978-3-540-74970-7_10 openalex:W1579425110",
+        "creation": "2012-07",
+        "timespan": "P5Y",
         "journal_sc": "no",
-        "citing": "10.1007/s10951-009-0144-6",
-        "cited": "10.1007/978-3-540-74970-7_10",
-        "creation": "2009-11-19"
+        "author_sc": "no"
     }
 ]

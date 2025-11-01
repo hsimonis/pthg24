@@ -1,11 +1,20 @@
 [
     {
-        "creation": "2021-12",
-        "author_sc": "no",
-        "journal_sc": "no",
-        "cited": "10.1109/icpads.2017.00089",
-        "citing": "10.1109/msn53354.2021.00033",
         "oci": "06102097140-061702350635",
-        "timespan": "P4Y0M"
+        "citing": "omid:br/06102097140 doi:10.1109/msn53354.2021.00033 openalex:W4226298125",
+        "cited": "omid:br/061702350635 doi:10.1109/icpads.2017.00089 openalex:W2750889349",
+        "creation": "2021-12",
+        "timespan": "P4Y0M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06401794029-061702350635",
+        "citing": "omid:br/06401794029 doi:10.1007/978-981-16-5655-2_12 openalex:W4206090150",
+        "cited": "omid:br/061702350635 doi:10.1109/icpads.2017.00089 openalex:W2750889349",
+        "creation": "2022",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

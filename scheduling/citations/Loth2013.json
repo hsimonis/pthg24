@@ -1,47 +1,56 @@
 [
     {
-        "timespan": "P5Y",
-        "author_sc": "no",
         "oci": "061502737762-06403087421",
+        "citing": "omid:br/061502737762 doi:10.1016/j.procir.2018.03.171 openalex:W2810912990",
+        "cited": "omid:br/06403087421 doi:10.1007/978-3-642-44973-4_35 openalex:W1823330675",
+        "creation": "2018",
+        "timespan": "P5Y",
         "journal_sc": "no",
-        "citing": "10.1016/j.procir.2018.03.171",
-        "cited": "10.1007/978-3-642-44973-4_35",
-        "creation": "2018"
+        "author_sc": "no"
     },
     {
-        "timespan": "P9Y",
-        "author_sc": "no",
-        "oci": "062501249845-06403087421",
-        "journal_sc": "no",
-        "citing": "10.1007/s10696-021-09437-4",
-        "cited": "10.1007/978-3-642-44973-4_35",
-        "creation": "2022-01-20"
-    },
-    {
-        "timespan": "P10Y",
-        "author_sc": "no",
         "oci": "06340131385-06403087421",
+        "citing": "omid:br/06340131385 doi:10.1007/978-3-031-36625-3_27 openalex:W4383567214",
+        "cited": "omid:br/06403087421 doi:10.1007/978-3-642-44973-4_35 openalex:W1823330675",
+        "creation": "2023",
+        "timespan": "P10Y",
         "journal_sc": "no",
-        "citing": "10.1007/978-3-031-36625-3_27",
-        "cited": "10.1007/978-3-642-44973-4_35",
-        "creation": "2023"
+        "author_sc": "no"
     },
     {
-        "timespan": "P6Y",
-        "author_sc": "no",
-        "oci": "06402647118-06403087421",
+        "oci": "0605463105-06403087421",
+        "citing": "omid:br/0605463105 doi:10.1134/s106456242460221x",
+        "cited": "omid:br/06403087421 doi:10.1007/978-3-642-44973-4_35 openalex:W1823330675",
+        "creation": "2024-12",
+        "timespan": "P11Y",
         "journal_sc": "no",
-        "citing": "10.1109/ispa-bdcloud-sustaincom-socialcom48970.2019.00058",
-        "cited": "10.1007/978-3-642-44973-4_35",
-        "creation": "2019-12"
+        "author_sc": "no"
     },
     {
-        "timespan": "P2Y",
-        "author_sc": "no",
         "oci": "06701917443-06403087421",
+        "citing": "omid:br/06701917443 doi:10.1109/ictai.2015.135 openalex:W2244307845",
+        "cited": "omid:br/06403087421 doi:10.1007/978-3-642-44973-4_35 openalex:W1823330675",
+        "creation": "2015-11",
+        "timespan": "P2Y",
         "journal_sc": "no",
-        "citing": "10.1109/ictai.2015.135",
-        "cited": "10.1007/978-3-642-44973-4_35",
-        "creation": "2015-11"
+        "author_sc": "no"
+    },
+    {
+        "oci": "062501249845-06403087421",
+        "citing": "omid:br/062501249845 doi:10.1007/s10696-021-09437-4 openalex:W4205926948",
+        "cited": "omid:br/06403087421 doi:10.1007/978-3-642-44973-4_35 openalex:W1823330675",
+        "creation": "2022-01-20",
+        "timespan": "P9Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06402647118-06403087421",
+        "citing": "omid:br/06402647118 doi:10.1109/ispa-bdcloud-sustaincom-socialcom48970.2019.00058 openalex:W3013178882",
+        "cited": "omid:br/06403087421 doi:10.1007/978-3-642-44973-4_35 openalex:W1823330675",
+        "creation": "2019-12",
+        "timespan": "P6Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

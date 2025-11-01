@@ -1,1 +1,92 @@
-[]
+[
+    {
+        "oci": "06702316581-062203104789",
+        "citing": "omid:br/06702316581 doi:10.1007/s10288-013-0242-3 openalex:W2045442495",
+        "cited": "omid:br/062203104789 doi:10.1007/3-540-46135-3_11 openalex:W1585827215",
+        "creation": "2013-07",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06702316782-062203104789",
+        "citing": "omid:br/06702316782 doi:10.1007/s10288-006-0019-z openalex:W2004889994",
+        "cited": "omid:br/062203104789 doi:10.1007/3-540-46135-3_11 openalex:W1585827215",
+        "creation": "2006-08-24",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06202564099-062203104789",
+        "citing": "omid:br/06202564099 doi:10.1007/978-3-319-91086-4_12 openalex:W4211175769",
+        "cited": "omid:br/062203104789 doi:10.1007/3-540-46135-3_11 openalex:W1585827215",
+        "creation": "2018-09-21",
+        "timespan": "P16Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062603041478-062203104789",
+        "citing": "omid:br/062603041478 doi:10.1007/978-1-4419-8917-8_6 openalex:W143259126",
+        "cited": "omid:br/062203104789 doi:10.1007/3-540-46135-3_11 openalex:W1585827215",
+        "creation": "2004",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06503191956-062203104789",
+        "citing": "omid:br/06503191956 doi:10.1007/978-3-642-30671-6_1 openalex:W10515480",
+        "cited": "omid:br/062203104789 doi:10.1007/3-540-46135-3_11 openalex:W1585827215",
+        "creation": "2013",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062201979215-062203104789",
+        "citing": "omid:br/062201979215 doi:10.1007/s10479-015-2034-y openalex:W2088273530",
+        "cited": "omid:br/062203104789 doi:10.1007/3-540-46135-3_11 openalex:W1585827215",
+        "creation": "2015-10-16",
+        "timespan": "P13Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0620221094-062203104789",
+        "citing": "omid:br/0620221094 doi:10.1016/j.ejor.2005.09.027 openalex:W2001772548",
+        "cited": "omid:br/062203104789 doi:10.1007/3-540-46135-3_11 openalex:W1585827215",
+        "creation": "2007-02",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062403291761-062203104789",
+        "citing": "omid:br/062403291761 doi:10.1007/978-3-540-24664-0_12 openalex:W1552149373",
+        "cited": "omid:br/062203104789 doi:10.1007/3-540-46135-3_11 openalex:W1585827215",
+        "creation": "2004",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061402101590-062203104789",
+        "citing": "omid:br/061402101590 doi:10.1007/978-3-540-73817-6_1 openalex:W1507364631",
+        "cited": "omid:br/062203104789 doi:10.1007/3-540-46135-3_11 openalex:W1585827215",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061603223229-062203104789",
+        "citing": "omid:br/061603223229 doi:10.1002/9780470496916.refs openalex:W4213234127",
+        "cited": "omid:br/062203104789 doi:10.1007/3-540-46135-3_11 openalex:W1585827215",
+        "creation": "",
+        "timespan": "",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

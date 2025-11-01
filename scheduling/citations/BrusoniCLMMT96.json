@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "oci": "0650579139-061903318641",
+        "citing": "omid:br/0650579139 doi:10.1109/tkde.2006.85 openalex:W1584800249",
+        "cited": "omid:br/061903318641 doi:10.1007/3-540-61286-6_157 openalex:W1942962029",
+        "creation": "2006-06",
+        "timespan": "P10Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

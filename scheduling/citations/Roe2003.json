@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "oci": "06302013035-062203235539",
+        "citing": "omid:br/06302013035 doi:10.1002/9783527619856.ch15 openalex:W2912008726",
+        "cited": "omid:br/062203235539 doi:10.1016/s1570-7946(03)80608-9 openalex:W1488199247",
+        "creation": "2006-09-21",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    }
+]

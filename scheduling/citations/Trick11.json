@@ -1,1 +1,29 @@
-[]
+[
+    {
+        "oci": "061702182770-06103311963",
+        "citing": "omid:br/061702182770 doi:10.1057/jors.2013.80 openalex:W2048775140",
+        "cited": "omid:br/06103311963 doi:10.1007/978-1-4419-1644-0_15 openalex:W4247345864",
+        "creation": "2014-08",
+        "timespan": "P3Y9M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062301987565-06103311963",
+        "citing": "omid:br/062301987565 doi:10.1007/s10479-012-1161-y openalex:W3100949812",
+        "cited": "omid:br/06103311963 doi:10.1007/978-1-4419-1644-0_15 openalex:W4247345864",
+        "creation": "2012-06-06",
+        "timespan": "P1Y7M14D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06904384678-06103311963",
+        "citing": "omid:br/06904384678 doi:10.3390/su13074000",
+        "cited": "omid:br/06103311963 doi:10.1007/978-1-4419-1644-0_15 openalex:W4247345864",
+        "creation": "2021-04-03",
+        "timespan": "P10Y5M11D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

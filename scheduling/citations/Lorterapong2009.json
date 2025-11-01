@@ -1,20 +1,20 @@
 [
     {
-        "timespan": "",
-        "author_sc": "no",
         "oci": "06130630765-06701984455",
+        "citing": "omid:br/06130630765 doi:10.1007/s00366-021-01338-2 openalex:W3133510784",
+        "cited": "omid:br/06701984455 doi:10.4203/ccp.74.8 openalex:W399827033",
+        "creation": "2021-02-26",
+        "timespan": "",
         "journal_sc": "no",
-        "citing": "10.1007/s00366-021-01338-2",
-        "cited": "10.4203/ccp.74.8",
-        "creation": "2021-02-26"
+        "author_sc": "no"
     },
     {
-        "timespan": "",
-        "author_sc": "no",
         "oci": "061801429142-06701984455",
+        "citing": "omid:br/061801429142 doi:10.1061/(asce)co.1943-7862.0000582 openalex:W2145198904",
+        "cited": "omid:br/06701984455 doi:10.4203/ccp.74.8 openalex:W399827033",
+        "creation": "2013-04",
+        "timespan": "",
         "journal_sc": "no",
-        "citing": "10.1061/(asce)co.1943-7862.0000582",
-        "cited": "10.4203/ccp.74.8",
-        "creation": "2013-04"
+        "author_sc": "no"
     }
 ]

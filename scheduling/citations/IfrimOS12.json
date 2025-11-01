@@ -1,1 +1,83 @@
-[]
+[
+    {
+        "oci": "06203091671-061702764500",
+        "citing": "omid:br/06203091671 doi:10.1007/978-3-319-02414-1_5 openalex:W8541115",
+        "cited": "omid:br/061702764500 doi:10.1007/978-3-642-33558-7_68 openalex:W1542033076",
+        "creation": "2013",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06903934109-061702764500",
+        "citing": "omid:br/06903934109 arxiv:2010.13943v1",
+        "cited": "omid:br/061702764500 doi:10.1007/978-3-642-33558-7_68 openalex:W1542033076",
+        "creation": "2020-10-26",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061502251937-061702764500",
+        "citing": "omid:br/061502251937 doi:10.1007/978-3-319-50137-6_15 openalex:W2559236781",
+        "cited": "omid:br/061702764500 doi:10.1007/978-3-642-33558-7_68 openalex:W1542033076",
+        "creation": "2016",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06702792813-061702764500",
+        "citing": "omid:br/06702792813 doi:10.1007/978-3-319-44953-1_43 openalex:W2515105018",
+        "cited": "omid:br/061702764500 doi:10.1007/978-3-642-33558-7_68 openalex:W1542033076",
+        "creation": "2016",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06310179737-061702764500",
+        "citing": "omid:br/06310179737 doi:10.1007/s11750-023-00657-5 openalex:W4379538304",
+        "cited": "omid:br/061702764500 doi:10.1007/978-3-642-33558-7_68 openalex:W1542033076",
+        "creation": "2023-06-06",
+        "timespan": "P11Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062601954543-061702764500",
+        "citing": "omid:br/062601954543 doi:10.1007/978-3-030-58942-4_24 openalex:W3090239085",
+        "cited": "omid:br/061702764500 doi:10.1007/978-3-642-33558-7_68 openalex:W1542033076",
+        "creation": "2020",
+        "timespan": "P8Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061204196547-061702764500",
+        "citing": "omid:br/061204196547 doi:10.3390/math12111612",
+        "cited": "omid:br/061702764500 doi:10.1007/978-3-642-33558-7_68 openalex:W1542033076",
+        "creation": "2024-05-21",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06602925636-061702764500",
+        "citing": "omid:br/06602925636 doi:10.1109/upec.2015.7339923 openalex:W2183209471",
+        "cited": "omid:br/061702764500 doi:10.1007/978-3-642-33558-7_68 openalex:W1542033076",
+        "creation": "2015-09",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062504302746-061702764500",
+        "citing": "omid:br/062504302746 doi:10.1007/978-3-031-72332-2_11",
+        "cited": "omid:br/061702764500 doi:10.1007/978-3-642-33558-7_68 openalex:W1542033076",
+        "creation": "2024",
+        "timespan": "P12Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

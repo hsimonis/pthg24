@@ -1,1 +1,29 @@
-[]
+[
+    {
+        "oci": "061504202617-0631072610",
+        "citing": "omid:br/061504202617 doi:10.1002/aic.18464",
+        "cited": "omid:br/0631072610 doi:10.1016/j.cie.2023.109330 openalex:W4377229856",
+        "creation": "2024-05-16",
+        "timespan": "P0Y10M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061804282474-0631072610",
+        "citing": "omid:br/061804282474 doi:10.1021/acs.iecr.4c01934",
+        "cited": "omid:br/0631072610 doi:10.1016/j.cie.2023.109330 openalex:W4377229856",
+        "creation": "2024-11-12",
+        "timespan": "P1Y4M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061504113345-0631072610",
+        "citing": "omid:br/061504113345 doi:10.1016/j.compchemeng.2024.108611",
+        "cited": "omid:br/0631072610 doi:10.1016/j.cie.2023.109330 openalex:W4377229856",
+        "creation": "2024-04",
+        "timespan": "P0Y9M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

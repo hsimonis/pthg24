@@ -1,1 +1,56 @@
-[]
+[
+    {
+        "oci": "06501572551-06402691976",
+        "citing": "omid:br/06501572551 doi:10.3390/sym13010013 openalex:W3118083443",
+        "cited": "omid:br/06402691976 doi:10.5220/0007252300290039 openalex:W2922092909",
+        "creation": "2020-12-23",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06301728289-06402691976",
+        "citing": "omid:br/06301728289 doi:10.1007/978-3-030-78230-6_10 openalex:W3168880149",
+        "cited": "omid:br/06402691976 doi:10.5220/0007252300290039 openalex:W2922092909",
+        "creation": "2021",
+        "timespan": "P2Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0608048852-06402691976",
+        "citing": "omid:br/0608048852 doi:10.3390/sym16121678",
+        "cited": "omid:br/06402691976 doi:10.5220/0007252300290039 openalex:W2922092909",
+        "creation": "2024-12-18",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06470156208-06402691976",
+        "citing": "omid:br/06470156208 doi:10.3233/jsa-220626 openalex:W4380629799",
+        "cited": "omid:br/06402691976 doi:10.5220/0007252300290039 openalex:W2922092909",
+        "creation": "2023-07-03",
+        "timespan": "P4Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "062401966293-06402691976",
+        "citing": "omid:br/062401966293 doi:10.1007/978-3-030-46714-2_7 openalex:W3032039226",
+        "cited": "omid:br/06402691976 doi:10.5220/0007252300290039 openalex:W2922092909",
+        "creation": "2020",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "06802378070-06402691976",
+        "citing": "omid:br/06802378070 doi:10.1007/978-3-030-37494-5_5 openalex:W2998624843",
+        "cited": "omid:br/06402691976 doi:10.5220/0007252300290039 openalex:W2922092909",
+        "creation": "2019",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    }
+]

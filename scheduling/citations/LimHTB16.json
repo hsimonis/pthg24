@@ -1,20 +1,29 @@
 [
     {
-        "creation": "2018-02",
-        "author_sc": "no",
+        "oci": "06803040252-06702792813",
+        "citing": "omid:br/06803040252 doi:10.36680/j.itcon.2020.021 openalex:W3044090728",
+        "cited": "omid:br/06702792813 doi:10.1007/978-3-319-44953-1_43 openalex:W2515105018",
+        "creation": "2020-07-21",
+        "timespan": "P4Y",
         "journal_sc": "no",
-        "cited": "10.1007/978-3-319-44953-1_43",
-        "citing": "10.1016/j.rser.2017.09.102",
-        "oci": "06150954786-06702792813",
-        "timespan": "P2Y"
+        "author_sc": "no"
     },
     {
-        "creation": "2020-07-21",
-        "author_sc": "no",
+        "oci": "06150954786-06702792813",
+        "citing": "omid:br/06150954786 doi:10.1016/j.rser.2017.09.102 openalex:W2766203946",
+        "cited": "omid:br/06702792813 doi:10.1007/978-3-319-44953-1_43 openalex:W2515105018",
+        "creation": "2018-02",
+        "timespan": "P2Y",
         "journal_sc": "no",
-        "cited": "10.1007/978-3-319-44953-1_43",
-        "citing": "10.36680/j.itcon.2020.021",
-        "oci": "06803040252-06702792813",
-        "timespan": "P4Y"
+        "author_sc": "no"
+    },
+    {
+        "oci": "06601635785-06702792813",
+        "citing": "omid:br/06601635785 doi:10.3390/en14020271 openalex:W3120620784",
+        "cited": "omid:br/06702792813 doi:10.1007/978-3-319-44953-1_43 openalex:W2515105018",
+        "creation": "2021-01-06",
+        "timespan": "P5Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

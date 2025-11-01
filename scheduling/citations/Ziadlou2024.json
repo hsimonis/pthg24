@@ -1,1 +1,56 @@
-[]
+[
+    {
+        "oci": "06604818688-06104654964",
+        "citing": "omid:br/06604818688 doi:10.1016/j.jmsy.2024.10.005",
+        "cited": "omid:br/06104654964 doi:10.1016/j.cie.2024.109916",
+        "creation": "2024-12",
+        "timespan": "P0Y10M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0606514346-06104654964",
+        "citing": "omid:br/0606514346 doi:10.32604/cmc.2024.055244",
+        "cited": "omid:br/06104654964 doi:10.1016/j.cie.2024.109916",
+        "creation": "2024",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0606307588-06104654964",
+        "citing": "omid:br/0606307588 doi:10.1111/itor.70003",
+        "cited": "omid:br/06104654964 doi:10.1016/j.cie.2024.109916",
+        "creation": "2025-02-24",
+        "timespan": "P1Y0M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "061604302072-06104654964",
+        "citing": "omid:br/061604302072 doi:10.1016/j.dajour.2024.100485",
+        "cited": "omid:br/06104654964 doi:10.1016/j.cie.2024.109916",
+        "creation": "2024-06",
+        "timespan": "P0Y4M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0605515499-06104654964",
+        "citing": "omid:br/0605515499 doi:10.3390/a18030158",
+        "cited": "omid:br/06104654964 doi:10.1016/j.cie.2024.109916",
+        "creation": "2025-03-10",
+        "timespan": "P1Y1M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06904303174-06104654964",
+        "citing": "omid:br/06904303174 doi:10.1080/01605682.2024.2382867",
+        "cited": "omid:br/06104654964 doi:10.1016/j.cie.2024.109916",
+        "creation": "2024-07-29",
+        "timespan": "P0Y5M",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

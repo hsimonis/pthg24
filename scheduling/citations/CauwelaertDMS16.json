@@ -1,11 +1,11 @@
 [
     {
-        "creation": "2017",
-        "author_sc": "no",
-        "journal_sc": "no",
-        "cited": "10.1007/978-3-319-44953-1_33",
-        "citing": "10.1007/978-3-319-66158-2_16",
         "oci": "062502238726-06702792802",
-        "timespan": "P1Y"
+        "citing": "omid:br/062502238726 doi:10.1007/978-3-319-66158-2_16 openalex:W2745692949",
+        "cited": "omid:br/06702792802 doi:10.1007/978-3-319-44953-1_33 openalex:W2518382199",
+        "creation": "2017",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

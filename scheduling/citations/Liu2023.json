@@ -1,1 +1,38 @@
-[]
+[
+    {
+        "oci": "061304217358-06504358094",
+        "citing": "omid:br/061304217358 doi:10.47172/2965-730x.sdgsreview.v4.n04.pe02170",
+        "cited": "omid:br/06504358094 doi:10.3390/buildings13071867 openalex:W4385215993",
+        "creation": "2024-10-03",
+        "timespan": "P1Y2M10D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06404843061-06504358094",
+        "citing": "omid:br/06404843061 doi:10.1088/1755-1315/1381/1/012036",
+        "cited": "omid:br/06504358094 doi:10.3390/buildings13071867 openalex:W4385215993",
+        "creation": "2024-08-01",
+        "timespan": "P1Y0M9D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0607249259-06504358094",
+        "citing": "omid:br/0607249259 doi:10.37394/23207.2024.21.211",
+        "cited": "omid:br/06504358094 doi:10.3390/buildings13071867 openalex:W4385215993",
+        "creation": "2024-12-23",
+        "timespan": "P1Y5M0D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    },
+    {
+        "oci": "06320465099-06504358094",
+        "citing": "omid:br/06320465099 doi:10.1007/978-3-031-48735-4_24",
+        "cited": "omid:br/06504358094 doi:10.3390/buildings13071867 openalex:W4385215993",
+        "creation": "2024",
+        "timespan": "P0Y",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

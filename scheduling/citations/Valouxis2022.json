@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "oci": "062303940920-062503529505",
+        "citing": "omid:br/062303940920 doi:10.3390/a16060268 openalex:W4378573992",
+        "cited": "omid:br/062503529505 doi:10.3390/a15120450 openalex:W4310364446",
+        "creation": "2023-05-27",
+        "timespan": "P0Y5M28D",
+        "journal_sc": "yes",
+        "author_sc": "no"
+    },
+    {
+        "oci": "0653098725-062503529505",
+        "citing": "omid:br/0653098725 doi:10.3390/math11041013 openalex:W4321090848",
+        "cited": "omid:br/062503529505 doi:10.3390/a15120450 openalex:W4310364446",
+        "creation": "2023-02-16",
+        "timespan": "P0Y2M18D",
+        "journal_sc": "no",
+        "author_sc": "no"
+    }
+]

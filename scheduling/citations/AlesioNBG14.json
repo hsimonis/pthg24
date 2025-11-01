@@ -1,29 +1,29 @@
 [
     {
-        "timespan": "P1Y",
-        "author_sc": "yes",
-        "oci": "06120675812-06303066348",
-        "journal_sc": "no",
-        "citing": "10.1145/2818640",
-        "cited": "10.1007/978-3-319-10428-7_58",
-        "creation": "2015-12-02"
-    },
-    {
-        "timespan": "P3Y",
-        "author_sc": "no",
-        "oci": "06602338022-06303066348",
-        "journal_sc": "no",
-        "citing": "10.1007/s10270-017-0585-x",
-        "cited": "10.1007/978-3-319-10428-7_58",
-        "creation": "2017-02-10"
-    },
-    {
-        "timespan": "P2Y",
-        "author_sc": "no",
         "oci": "06702792815-06303066348",
+        "citing": "omid:br/06702792815 doi:10.1007/978-3-319-44953-1_35 openalex:W2517325215",
+        "cited": "omid:br/06303066348 doi:10.1007/978-3-319-10428-7_58 openalex:W329884190",
+        "creation": "2016",
+        "timespan": "P2Y",
         "journal_sc": "no",
-        "citing": "10.1007/978-3-319-44953-1_35",
-        "cited": "10.1007/978-3-319-10428-7_58",
-        "creation": "2016"
+        "author_sc": "no"
+    },
+    {
+        "oci": "06120675812-06303066348",
+        "citing": "omid:br/06120675812 doi:10.1145/2818640 openalex:W2233888282",
+        "cited": "omid:br/06303066348 doi:10.1007/978-3-319-10428-7_58 openalex:W329884190",
+        "creation": "2015-12-02",
+        "timespan": "P1Y",
+        "journal_sc": "no",
+        "author_sc": "yes"
+    },
+    {
+        "oci": "06602338022-06303066348",
+        "citing": "omid:br/06602338022 doi:10.1007/s10270-017-0585-x openalex:W2587232141",
+        "cited": "omid:br/06303066348 doi:10.1007/978-3-319-10428-7_58 openalex:W329884190",
+        "creation": "2017-02-10",
+        "timespan": "P3Y",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]

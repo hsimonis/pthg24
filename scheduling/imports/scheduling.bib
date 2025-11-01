@@ -23024,5 +23024,839 @@ isbn="978-3-031-60597-0"
   bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
 
+@article{Laalaoui2024,
+  author={Yacine Laalaoui and  Rym M’Hallah},
+  title={Enhancing the best-first-search F with incremental search and restarts for large-scale single machine scheduling with release dates and deadlines},
+  doi={10.1007/s10479-024-06386-7},
+  url={https://doi.org/10.1007/s10479-024-06386-7},
+  volume={351},
+  issue={1},
+  page={303-332},
+  publisher={Springer Science and Business Media LLC},
+  journal={Annals of Operations Research},
+  abstract={ Abstract 
+           This paper presents a new heuristic search  
+               
+                 $$\hbox {F}_{IR}$$ 
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML">
+                  <mml:msub>
+                    <mml:mtext>F</mml:mtext>
+                    <mml:mrow>
+                      <mml:mi>IR</mml:mi>
+                    </mml:mrow>
+                  </mml:msub>
+                </mml:math>
+               
+              that determines the feasibility of scheduling a set of jobs on a single machine where each job is characterized by its release date, processing time, and deadline.  
+               
+                 $$\hbox {F}_{IR}$$ 
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML">
+                  <mml:msub>
+                    <mml:mtext>F</mml:mtext>
+                    <mml:mrow>
+                      <mml:mi>IR</mml:mi>
+                    </mml:mrow>
+                  </mml:msub>
+                </mml:math>
+               
+              uses incremental search and restart strategies to scale the best-first-search heuristic F (Laalaoui and M’Hallah, in: IEEE symposium on evolutionary scheduling and combinatorial optimisation (SSCI) 2022, IEEE, Singapore, 2022). Experimental results provide computational evidence of the superiority of  
+               
+                 $$\hbox {F}_{IR}$$ 
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML">
+                  <mml:msub>
+                    <mml:mtext>F</mml:mtext>
+                    <mml:mrow>
+                      <mml:mi>IR</mml:mi>
+                    </mml:mrow>
+                  </mml:msub>
+                </mml:math>
+               
+              for large-scale instances. In fact,  
+               
+                 $$\hbox {F}_{IR}$$ 
+                <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML">
+                  <mml:msub>
+                    <mml:mtext>F</mml:mtext>
+                    <mml:mrow>
+                      <mml:mi>IR</mml:mi>
+                    </mml:mrow>
+                  </mml:msub>
+                </mml:math>
+               
+              outperforms the IBM ILOG CP constraint programming solver, the CPLEX mixed integer programming solver, and existing heuristics. It finds feasible solutions for many instances with 100,000 jobs in less than one minute. },
+  year={2024}
+}
 
+@article{Zhang2025,
+  author={Jiachen Zhang and  J. Christopher Beck},
+  title={Domain-Independent Dynamic Programming and Constraint Programming Approaches for Assembly Line Balancing Problems with Setups},
+  doi={10.1287/ijoc.2024.0603},
+  url={https://doi.org/10.1287/ijoc.2024.0603},
+  volume={37},
+  issue={4},
+  page={977-997},
+  publisher={Institute for Operations Research and the Management Sciences (INFORMS)},
+  journal={INFORMS Journal on Computing},
+  abstract={  We propose domain-independent dynamic programming (DIDP) and constraint programming (CP) models to exactly solve type 1 and type 2 assembly line balancing problem with sequence-dependent setup times (SUALBPs). The goal is to assign tasks to assembly stations and to sequence these tasks within each station while satisfying precedence relations specified between a subset of task pairs. Each task has a given processing time and a setup time dependent on the previous task on the station to which the task is assigned. The sum of the processing and setup times of tasks assigned to each station constitute the station time and the maximum station time is called the cycle time. For the type 1 SUALBP (SUALBP-1), the objective is to minimize the number of stations, given a maximum cycle time. For the type 2 SUALBP (SUALBP-2), the objective is to minimize the cycle time, given the number of stations. On a set of diverse SUALBP instances, experimental results show that our approaches significantly outperform the state-of-the-art mixed integer programming models for SUALBP-1. For SUALBP-2, the DIDP model outperforms the state-of-the-art exact approach based on logic-based Benders decomposition. By closing 76 open instances for SUALBP-2, our results demonstrate the promise of DIDP for solving complex planning and scheduling problems.    History: Accepted by Pascal Van Hentenryck, Area Editor for Computational Modeling: Methods and Analysis.    Funding: This work was supported by Natural Sciences and Engineering Research Council of Canada [Grant RGPIN-2020-04039].    Supplemental Material: The software that supports the findings of this study is available within the paper and its Supplemental Information ( https://pubsonline.informs.org/doi/suppl/10.1287/ijoc.2024.0603 ) as well as from the IJOC GitHub software repository ( https://github.com/INFORMSJoC/2024.0603 ). The complete IJOC Software and Data Repository is available at https://informsjoc.github.io/ .  },
+  year={2025}
+}
+
+@article{Balafas2024,
+  author={Vasileios Balafas and  Dimosthenis C. Tsouros and  Nikolaos Ploskas and  Kostas Stergiou},
+  title={Enhancing Constraint Acquisition Through Hybrid Learning: An Integration of Passive and Active Learning Strategies},
+  doi={10.1142/s0218213024500209},
+  url={https://doi.org/10.1142/s0218213024500209},
+  volume={33},
+  issue={06},
+  publisher={World Scientific Pub Co Pte Ltd},
+  journal={International Journal on Artificial Intelligence Tools},
+  abstract={  Constraint Programming (CP) is a successful methodology for solving combinatorial problems from various domains. Efficiently modeling the problem at hand as a Constraint Satisfaction Problem is a crucial, but difficult task in CP. Toward this, a recent approach that is attracting increasing interest is Constraint Acquisition, i.e., the (semi)automatic learning of constraints through examples of solutions and non-solutions. This paper introduces a hybrid methodology that combines passive and active learning strategies to acquire both global and fixed arity constraints. This hybrid approach leverages the strengths of both techniques to address their individual limitations. Passive learning rapidly learns constraints from example solutions, while active learning refines and contextualizes constraints through user interaction. The core of the methodology consists of a passive learning module where subsets of variables are compared against global constraints and are validated using a CP solver. Constraints consistently present across multiple solution sets are identified as global constraints that belong to the model. Then, fixed arity constraints are refined through an active learning module with user input. Experiments across various problem types, from simple to complex, demonstrate the efficiency of the proposed hybrid methodology.  },
+  year={2024}
+}
+
+@article{Zuenko2024,
+  author={Alexander Zuenko and  Yurii Oleynik},
+  title={Scheduling as a Constraint Satisfaction Problem (Using the Example of Open-Pit Minе Production Scheduling Problem)},
+  doi={10.15622/ia.23.5.1},
+  url={https://doi.org/10.15622/ia.23.5.1},
+  volume={23},
+  issue={5},
+  page={1290-1310},
+  publisher={SPIIRAS},
+  journal={Informatics and Automation},
+  abstract={ The research described in the work is aimed at developing methods for Scheduling. The fundamental disadvantage of the existing methods of Mixed-Integer Linear Programming in application to the problems under consideration is the fact that they are too demanding on the amount of RAM. The difficulty of applying local search procedures to such high-dimensional problems is to develop an effective way to find an acceptable initial approximation and determine the neighboring state transition function, which would allow achieving the optimum fast enough. In the Operations Research Theory, adding additional conditions to a problem can lead to a fundamental change in the problem-solving scheme. The methods proposed in the study are implemented within the framework of the Constraint Programming Paradigm which makes it possible to represent the subject domain dependencies saving RAM, as well as to provide the ability to step-by-step take into account heterogeneous problem conditions without essentially changing the scheme of finding solutions. A significant part of the research deals with methods of logical inference on constraints to reduce the search space and speed up the computational process. The approach to scheduling is illustrated by the Open-Pit Mine Production Scheduling Problem, which was first proposed to be solved as a Constraint Satisfaction Problem. In order to find the first feasible solution, a «greedy» search method is proposed, the result of which can be improved using the developed hybrid method. Both methods rely on original procedures of inference on constraints. The proposed approach has proven its efficiency for block models with sizes of tens and hundreds of thousands of blocks. },
+  year={2024}
+}
+
+@inproceedings{Chandola2023,
+  author={Gaurav Chandola and  Sanchit Singh and  Manas Kundu and  Kishankumar Jaysval and  Mark U. Onwusoh and  Joseph A. Ukanah},
+  title={Preventive Maintenance Schedule Automation in Oil and Gas Facilities Using Constraint Programming},
+  doi={10.2118/215009-ms},
+  url={https://doi.org/10.2118/215009-ms},
+  publisher={SPE},
+  booktitle={SPE Annual Technical Conference and Exhibition},
+  abstract={ Abstract 
+                This paper presents details of an optimization tool which is developed to automate the week-wise preventive maintenance (PM) scheduling of equipment on oil and gas facilities for a 5-year scheduling horizon. The tool has been developed employing constraint programming (CP) paradigm and employs IBM ILOG CP Optimizer as the optimization engine. The tool takes the schedule auto generated by the computerized maintenance management systems (CMMS) as an input and efficiently load-levels the weekly-loads distribution by rescheduling maintenance activities from their scheduled dates while ensuring relevant business constraints are satisfied. The performance of the tool has been tested on certain maintenance service centers and the obtained results are in good agreement with the business requirements. The run time of the tool for generating the load-leveled schedule on the test cases is of the order of ∼10 mins per work-center. This tool results in considerable time savings resulting from the automation of the load leveling procedure. Additionally, the tool enables quick identification of problems with the input schedule which would lead to infeasibility and is easily adaptable across multiple facilities, thanks to the rich library of scheduling constraints in CP optimizer, helping test different planning scenarios. },
+  year={2023}
+}
+
+@article{Geibinger2024,
+  author={Tobias Geibinger and  Florian Mischek and  Nysret Musliu},
+  title={Investigating constraint programming and hybrid methods for real world industrial test laboratory scheduling},
+  doi={10.1007/s10951-024-00821-0},
+  url={https://doi.org/10.1007/s10951-024-00821-0},
+  volume={27},
+  issue={6},
+  page={607-622},
+  publisher={Springer Science and Business Media LLC},
+  journal={Journal of Scheduling},
+  abstract={ Abstract  In this paper we deal with a complex real world scheduling problem closely related to the well-known Resource-Constrained Project Scheduling Problem (RCPSP). The problem concerns industrial test laboratories in which a large number of tests are performed by qualified personnel using specialised equipment, while respecting deadlines and other constraints. We present different constraint programming models and search strategies for this problem. Furthermore, we propose a Very Large Neighborhood Search approach based on our CP methods. Our models are evaluated using CP solvers and a MIP solver both on real-world test laboratory data and on a set of generated instances of different sizes based on the real-world data. Further, we compare the exact approaches with VLNS and a Simulated Annealing heuristic. We could find feasible solutions for all instances and several optimal solutions and we show that using VLNS we can improve upon the results of the other approaches.
+ },
+  year={2024}
+}
+
+@article{Xu2024,
+  author={Longzeng Xu and  Changhong Yu and  Bin Wu and  Ming Gao},
+  title={A Hybrid Genetic Algorithm for Ground Station Scheduling Problems},
+  doi={10.3390/app14125045},
+  url={https://doi.org/10.3390/app14125045},
+  volume={14},
+  issue={12},
+  page={5045},
+  publisher={MDPI AG},
+  journal={Applied Sciences},
+  abstract={ In recent years, the substantial growth in satellite data transmission tasks and volume, coupled with the limited availability of ground station hardware resources, has exacerbated conflicts among missions and rendered traditional scheduling algorithms inadequate. To address this challenge, this paper introduces an improved tabu genetic hybrid algorithm (ITGA) integrated with heuristic rules for the first time. Firstly, a constraint satisfaction model for satellite data transmission tasks is established, considering multiple factors such as task execution windows, satellite–ground visibility, and ground station capabilities. Leveraging heuristic rules, an initial population of high-fitness chromosomes is selected for iterative refinement. Secondly, the proposed hybrid algorithm iteratively evolves this population towards optimal solutions. Finally, the scheduling plan with the highest fitness value is selected as the best strategy. Comparative simulation experimental results demonstrate that, across four distinct scenarios, our algorithm achieves improvements in the average task success rate ranging from 1.5% to 19.8% compared to alternative methods. Moreover, it reduces the average algorithm execution time by 0.5 s to 28.46 s and enhances algorithm stability by 0.8% to 27.7%. This research contributes a novel approach to the efficient scheduling of satellite data transmission tasks. },
+  year={2024}
+}
+
+@inproceedings{Nguyen2024,
+  author={Su Nguyen and  Dhananjay Thiruvady and  Yuan Sun and  Mengjie Zhang},
+  title={Genetic-based Constraint Programming for Resource Constrained Job Scheduling},
+  doi={10.1145/3638529.3654046},
+  url={https://doi.org/10.1145/3638529.3654046},
+  page={942-951},
+  publisher={ACM},
+  booktitle={Proceedings of the Genetic and Evolutionary Computation Conference},
+  year={2024}
+}
+
+@article{Ma2025,
+  author={Liang Ma and  Jin Guo and  Yuanli Bao and  Shumei Tao},
+  title={A Two‐Step Method for the Operation Rescheduling Problem at the Railway Marshalling Station},
+  doi={10.1049/itr2.70023},
+  url={https://doi.org/10.1049/itr2.70023},
+  volume={19},
+  issue={1},
+  publisher={Institution of Engineering and Technology (IET)},
+  journal={IET Intelligent Transport Systems},
+  abstract={ ABSTRACT 
+                   Current research on the operation planning problem at the railway marshalling station are mainly dependent on the assumption of correct and unaltered input data. However, due to force majeure disturbances such as train delays, engine breakdown, and so on, the operation plan may easily fail. To increase the robustness of the operation plan, we propose a two‐step method for solving the operation rescheduling problem at the marshalling station, the first step is to create a static model in order to maximise the efficiency of the operation plan, and the second step is to reschedule the static plans and unexecuted plan caused by unexpected disturbances. A lexicographic multi‐objective model is built to reduce disturbance perturbation while maximising station benefits. An iteration optimisation approach with initial solutions is designed to solve the whole model iteratively, and each sub‐model is solved by the heuristic backtracking algorithm with constraint propagation (CPr) mechanism called CPr‐HBT. Some real‐life cases from Shijiazhuang marshalling station of the China Railway show that the proposed two‐step method increases the robustness of the operation plans effectively, rescheduling the failed operation plans takes 60 s at most, and CPr‐HBT is more efficient than the other algorithms without CPr or heuristics. },
+  year={2025}
+}
+
+@article{Sun2024,
+  author={Yuan Sun and  Su Nguyen and  Dhananjay Thiruvady and  Xiaodong Li and  Andreas T. Ernst and  Uwe Aickelin},
+  title={Enhancing constraint programming via supervised learning for job shop scheduling},
+  doi={10.1016/j.knosys.2024.111698},
+  url={https://doi.org/10.1016/j.knosys.2024.111698},
+  volume={293},
+  page={111698},
+  publisher={Elsevier BV},
+  journal={Knowledge-Based Systems},
+  year={2024}
+}
+
+@article{Echeverria2025,
+  author={Imanol Echeverria and  Maialen Murua and  Roberto Santana},
+  title={Leveraging constraint programming in a deep learning approach for dynamically solving the flexible job-shop scheduling problem},
+  doi={10.1016/j.eswa.2024.125895},
+  url={https://doi.org/10.1016/j.eswa.2024.125895},
+  volume={265},
+  page={125895},
+  publisher={Elsevier BV},
+  journal={Expert Systems with Applications},
+  year={2025}
+}
+
+@inproceedings{Goponenko2024,
+  author={Alexander V. Goponenko and  Kenneth Lamar and  Benjamin A. Allan and  James M. Brandt and  Damian Dechev},
+  title={Job Scheduling for HPC Clusters: Constraint Programming vs. Backfilling Approaches},
+  doi={10.1145/3629104.3666038},
+  url={https://doi.org/10.1145/3629104.3666038},
+  page={135-146},
+  publisher={ACM},
+  booktitle={Proceedings of the 18th ACM International Conference on Distributed and Event-based Systems},
+  year={2024}
+}
+
+@article{Yuraszeck2024,
+  author={Francisco Yuraszeck and  Gonzalo Mejía and  Armin Lüer‐Villagra},
+  title={An adapted constraint‐programming formulation of the resource‐constrained project scheduling problem applied to the identical parallel machines group shop and mixed shop scheduling problems},
+  doi={10.1111/itor.13504},
+  url={https://doi.org/10.1111/itor.13504},
+  volume={32},
+  issue={3},
+  page={1422-1441},
+  publisher={Wiley},
+  journal={International Transactions in Operational Research},
+  abstract={ Abstract  In this paper, we study the group shop and the mixed shop scheduling problems with single and identical parallel machines at each workstation with the makespan criterion. We adapted a constraint programming formulation previously presented for the classical resource‐constrained project scheduling problem. The effectiveness of our approach is evident in the fact that it achieved optimality in 107 out of 130 classical group shop scheduling problem instances and in 320 classical mixed shop scheduling problem instances. In the last set, we obtained 13 new optimal solutions. },
+  year={2024}
+}
+
+@article{Terbrack2025,
+  author={Hajo Terbrack and  Thorsten Claus},
+  title={The generalized energy-aware flexible job shop scheduling model: A constraint programming approach},
+  doi={10.1016/j.cie.2025.111065},
+  url={https://doi.org/10.1016/j.cie.2025.111065},
+  volume={204},
+  page={111065},
+  publisher={Elsevier BV},
+  journal={Computers \& Industrial Engineering},
+  year={2025}
+}
+
+@article{Booth2018,
+  author={Kyle Booth and  Minh Do and  J. Beck and  Eleanor Rieffel and  Davide Venturelli and  Jeremy Frank},
+  title={Comparing and Integrating Constraint Programming and Temporal Planning for Quantum Circuit Compilation},
+  doi={10.1609/icaps.v28i1.13920},
+  url={https://doi.org/10.1609/icaps.v28i1.13920},
+  volume={28},
+  page={366-374},
+  publisher={Association for the Advancement of Artificial Intelligence (AAAI)},
+  journal={Proceedings of the International Conference on Automated Planning and Scheduling},
+  abstract={ 
+      
+        Recently, the makespan-minimization problem of compiling a general class of quantum algorithms into near-term quantum processors has been introduced to the AI community. The research demonstrated that temporal planning is a strong approach for a class of quantum circuit compilation (QCC) problems. In this paper, we explore the use of constraint programming (CP) as an alternative and complementary approach to temporal planning. We extend previous work by introducing two new problem variations that incorporate important characteristics identified by the quantum computing community. We apply temporal planning and CP to the baseline and extended QCC problems as both stand-alone and hybrid approaches. Our hybrid methods use solutions found by temporal planning to warm start CP, leveraging the ability of the former to find satisficing solutions to problems with a high degree of task optionality, an area that CP typically struggles with. The CP model, benefiting from inferred bounds on planning horizon length and task counts provided by the warm start, is then used to find higher quality solutions. Our empirical evaluation indicates that while stand-alone CP is only competitive for the smallest problems, CP in our hybridization with temporal planning out-performs stand-alone temporal planning in the majority of problem classes.
+      
+     },
+  year={2018}
+}
+
+@article{Yuraszeck2025,
+  author={Francisco Yuraszeck and  Gonzalo Mejía and  Daniel Alejandro Rossit and  Armin Lüer-Villagra},
+  title={A constraint programming-based lower bounding procedure for the job shop scheduling problem},
+  doi={10.1016/j.cor.2024.106964},
+  url={https://doi.org/10.1016/j.cor.2024.106964},
+  volume={177},
+  page={106964},
+  publisher={Elsevier BV},
+  journal={Computers \& Operations Research},
+  year={2025}
+}
+
+@article{Wang2025,
+  author={Shunwang Wang and  Ming Sun and  Xinyu Mao and  Yi Zhou},
+  title={An Efficient Large Neighborhood Search Algorithm for Multi-level Constellation Scheduling Problem},
+  doi={10.1142/s0218126625501555},
+  url={https://doi.org/10.1142/s0218126625501555},
+  volume={34},
+  issue={06},
+  publisher={World Scientific Pub Co Pte Ltd},
+  journal={Journal of Circuits, Systems and Computers},
+  abstract={  In this paper, we investigate the multilevel constellation scheduling problem (MLCSP). The MLCSP asks for scheduling time intervals within three different agents, the user satellite, the control satellites, and the ground station. Specifically, the user satellites transfer data to the control satellites, the control satellites then transmit it to the ground stations, and the objective is to schedule all the time intervals so that the number of completed tasks required by the user satellites is maximized. Compared with the setting of existing constellation scheduling problems, the problem is distinguished by its multiple scheduling role and multilevel architecture. Clearly, MLCSP is an important optimization problem in large-scale heterogeneous constellation scheduling. To solve this problem, we build both integer linear programming and constraint programming models to obtain the exact solution to MLCSP. Due to the computation limitation of exact approaches in the real-world environment, we further propose a large neighborhood search algorithm (LNSA) to practically solve the problem. Our experimental results indicate that our algorithms are very effective in benchmarks. Specifically, the LNSA can also obtain optimal solutions for large instances in practice.  },
+  year={2025}
+}
+
+@article{Zhao2024,
+  author={Wenbin Zhao and  Junhan Hu and  Jiansha Lu and  Wenzhu Zhang},
+  title={Cyber-Physical Scheduling System for Multiobjective Scheduling Optimization of a Suspension Chain Workshop Using the Improved Non-Dominated Sorting Genetic Algorithm II},
+  doi={10.3390/machines12090666},
+  url={https://doi.org/10.3390/machines12090666},
+  volume={12},
+  issue={9},
+  page={666},
+  publisher={MDPI AG},
+  journal={Machines},
+  abstract={ Cyber-Physical Systems (CPSs) offer significant potential to address the evolving demands of industrial development. In the Industry 4.0 era, a framework integrating sensing, data exchange, numerical analysis, and real-time feedback is essential for meeting modern industrial needs. However, implementing this integration presents challenges across multiple domains, particularly in digital analysis, information sensing, and data exchange during corporate transformation. Companies yet to undergo transformation face distinct challenges, including the risks and trial-and-error costs of adopting new technologies. This study focuses on a heavy-duty workpiece processing factory, with a specific emphasis on the painting process. The complexity of this process frequently results in congestion, which is approached as a multi-objective, multi-constraint optimization problem. This paper proposes the Improved Non-dominated Sorting Genetic Algorithm II (INSGA-II) to address the requirements of multi-objective optimization. The proposed approach uses multi-chromosome structures, listeners, and recursive backtracking initialization to optimize the search for solutions under constraints. This enables the factory to automatically streamline production lines based on workpiece processing sequences, leading to increased efficiency. Additionally, a CPS framework focused on simulation modeling has been designed. First, the INSGA-II algorithm processes order data to generate production schedules. Next, the data transmission formats and input-output interfaces are designed. Then, a simulation model is built using the algorithm’s results. These components collectively form the CPS framework for this study. The proposed method offers an automated digital solution through the algorithm, enabling verification of its feasibility via the simulation model. As a result, it significantly enhances decision-making speed, reliability, and equipment utilization. },
+  year={2024}
+}
+
+@article{Zheng2025,
+  author={Chenyu Zheng and  Zixiang Li and  Mukund Janardhanan and  Zikai Zhang and  Liping Zhang},
+  title={Balancing and scheduling human-robot collaborative assembly lines with heterogeneous robots and limited resources: Constraint programming approach and fruit fly optimization algorithm},
+  doi={10.1016/j.cie.2025.111046},
+  url={https://doi.org/10.1016/j.cie.2025.111046},
+  volume={203},
+  page={111046},
+  publisher={Elsevier BV},
+  journal={Computers \& Industrial Engineering},
+  year={2025}
+}
+
+@article{Ahmeti2024,
+  author={Arben Ahmeti and  Nysret Musliu},
+  title={Hybridizing constraint programming and meta-heuristics for multi-mode resource-constrained multiple projects scheduling Problem},
+  doi={10.1007/s10732-024-09540-3},
+  url={https://doi.org/10.1007/s10732-024-09540-3},
+  volume={31},
+  issue={1},
+  publisher={Springer Science and Business Media LLC},
+  journal={Journal of Heuristics},
+  year={2024}
+}
+
+@article{Zeng2025,
+  author={Chuangfeng Zeng and  Jianjun Liu and  Qinsong Li},
+  title={A constraint programming approach for resource-constrained flexible assembly flow shop scheduling problem with batch direct delivery},
+  doi={10.1016/j.cor.2024.106855},
+  url={https://doi.org/10.1016/j.cor.2024.106855},
+  volume={173},
+  page={106855},
+  publisher={Elsevier BV},
+  journal={Computers \& Operations Research},
+  year={2025}
+}
+
+@article{Cakici2024,
+  author={Eray Cakici and  Ibrahim Kucukkoc and  Mustafa Akdemir},
+  title={Advanced constraint programming formulations for additive manufacturing machine scheduling problems},
+  doi={10.1080/01605682.2024.2382867},
+  url={https://doi.org/10.1080/01605682.2024.2382867},
+  volume={76},
+  issue={3},
+  page={590-605},
+  publisher={Informa UK Limited},
+  journal={Journal of the Operational Research Society},
+  year={2024}
+}
+
+@article{Liu2024,
+  author={Yang Liu and  Dawei Liu and  Yanzhao Rong and  Penghui Song and  Xin Zou},
+  title={A Constraint Programming Approach for Discrete Time–Cost Tradeoff Problems in a Time-Constrained Activity Network},
+  doi={10.3390/buildings14072073},
+  url={https://doi.org/10.3390/buildings14072073},
+  volume={14},
+  issue={7},
+  page={2073},
+  publisher={MDPI AG},
+  journal={Buildings},
+  abstract={ The discrete time-cost tradeoff problem (DTCTP) is a well-researched topic in the field of operations research. The majority of existing DTCTP models are based on traditional activity networks, which permit the execution of an activity as soon as all its predecessors have been completed. This assumption is reasonable, but it is important to note that there are always exceptions. The main work of this study was threefold. Firstly, we expanded the analysis of the DTCTP to encompass time-constrained activity networks (DTCTPTC), which encompassed three different types of time constraints. The first constraint was the time-window constraint, which limited the time interval during which an activity could be executed. The second constraint was the time-schedule constraint, which specified the times at which an activity could begin execution. The third constraint was the time-switch constraint, which required project activities to start at specific times and remain inactive during designated time periods. Secondly, a constraint programming (CP) model was developed for the purpose of solving the DTCTPTC. The model employed interval variables to define the activity and its potential time constraints, while CP expressions were utilized to ensure the feasibility of the solution. The objective was to identify the optimal execution mode for each activity, the optimal start times for time-scheduled activities, and the optimal work/rest patterns for time-switch activities, with the aim of minimizing the total cost of the project. Finally, the efficacy of the proposed CP model was validated through two case studies based on two illustrative projects of varying sizes. The outcomes were then compared against existing algorithms. The results demonstrated that time constraints were important factors affecting schedule optimization, and the proposed CP model had the ability to solve large-scale DTCTPTC. },
+  year={2024}
+}
+
+@article{Zhang2024,
+  author={Zhixin Zhang and  Chenglong Xiao and  Shanshan Wang and  Weilun Yu and  Yun Bai},
+  title={Automatic constraint programming solver selection method based on machine learning for the cable tree wiring problem},
+  doi={10.1049/tje2.12368},
+  url={https://doi.org/10.1049/tje2.12368},
+  volume={2024},
+  issue={3},
+  publisher={Institution of Engineering and Technology (IET)},
+  journal={The Journal of Engineering},
+  abstract={ Abstract 
+                   Cable trees are primarily employed in industrial products to facilitate energy transfer and information exchange among various components. When utilizing machines for assembly, it is essential to convert the wiring plan into a sequence of cable insertion operations executed by the machine under various constraints. This poses a combinatorial optimization problem. In this domain, constraint programming (CP) solvers often exhibit outstanding performance by leveraging their robust problem‐modelling capabilities, excellent scalability, and precise solving capabilities. However, CP solvers may achieve various performances for different problem instances. Selecting the most suitable CP solver for each problem instance is crucial. This paper introduces an automatic selection algorithm for CP solvers to solve the cable tree wiring problem (CTW). Firstly, a scoring system is used to conduct an in‐depth analysis and compare four well‐known CP solvers: CPLEX, Chuffed, OR‐Tools, and Gurobi. The results indicate that OR‐Tools and CPLEX outperform other solvers in performance. Moreover, these two solvers exhibit complementary advantages in quickly finding optimal and feasible solutions within specified time limits. Therefore, CP and machine learning are ingeniously integrated, harnessing their complementary advantages. 4240 instances covering various scenarios are randomly generated to form the problem space. This method incorporates decision trees, random forests, K‐nearest neighbours, and naive Bayes, utilizing these four machine learning techniques. The proposed method can achieve better results than traditional single CP solvers. Among all the evaluated machining learning techniques, the automatic solver selection methods based on decision trees and random forests can achieve accuracy rates of 91.29% and 84.15%, respectively. },
+  year={2024}
+}
+
+@article{Idrissi2024,
+  author={Rajaa Naji El Idrissi and  Mohammed Ouassaid and  Mohamed Maaroufi},
+  title={A Constraint Programming approach for collective smart building scheduling improved by blockchain structure},
+  doi={10.1016/j.ref.2024.100571},
+  url={https://doi.org/10.1016/j.ref.2024.100571},
+  volume={49},
+  page={100571},
+  publisher={Elsevier BV},
+  journal={Renewable Energy Focus},
+  year={2024}
+}
+
+@article{Zhang2025a,
+  author={Mengya Zhang and  Xinyu Li and  Liang Gao and  Qihao Liu},
+  title={A particle swarm optimization and constraint programming-based approach for integrated process planning and scheduling with lot streaming problem},
+  doi={10.1016/j.asoc.2025.112938},
+  url={https://doi.org/10.1016/j.asoc.2025.112938},
+  volume={174},
+  page={112938},
+  publisher={Elsevier BV},
+  journal={Applied Soft Computing},
+  year={2025}
+}
+
+@article{Marty2024,
+  author={Tom Marty and  Léo Boisvert and  Tristan François and  Pierre Tessier and  Louis Gautier and  Louis-Martin Rousseau and  Quentin Cappart},
+  title={Learning and fine-tuning a generic value-selection heuristic inside a constraint programming solver},
+  doi={10.1007/s10601-024-09377-4},
+  url={https://doi.org/10.1007/s10601-024-09377-4},
+  volume={29},
+  issue={3-4},
+  page={234-260},
+  publisher={Springer Science and Business Media LLC},
+  journal={Constraints},
+  abstract={ Abstract 
+           Constraint programming is known for being an efficient approach to solving combinatorial problems. Important design choices in a solver are the  branching heuristics , designed to lead the search to the best solutions in a minimum amount of time. However, developing these heuristics is a time-consuming process that requires problem-specific expertise. This observation has motivated many efforts to use machine learning to automatically learn efficient heuristics without expert intervention. Although several generic  variable-selection heuristics  are available in the literature, the options for  value-selection heuristics  are more scarce. We propose to tackle this issue by introducing a generic learning procedure that can be used to obtain a value-selection heuristic inside a constraint programming solver. This has been achieved thanks to the combination of a  deep Q-learning  algorithm, a tailored  reward signal , and a  heterogeneous graph neural network . Experiments on  graph coloring ,  maximum independent set ,  maximum cut , and  minimum vertex cover  problems show that this framework competes with the well-known impact-based and activity-based search heuristics and can find solutions close to optimality without requiring a large number of backtracks. Additionally, we observe that fine-tuning a model with a different problem class can accelerate the learning process. },
+  year={2024}
+}
+
+@article{Zhang2025b,
+  author={Mengya Zhang and  Xinyu Li and  Liang Gao and  Qihao Liu},
+  title={Constraint programming-based layered method for integrated process planning and scheduling in extensive flexible manufacturing},
+  doi={10.1016/j.aei.2025.103210},
+  url={https://doi.org/10.1016/j.aei.2025.103210},
+  volume={65},
+  page={103210},
+  publisher={Elsevier BV},
+  journal={Advanced Engineering Informatics},
+  year={2025}
+}
+
+@inbook{Montemanni2024,
+  author={Roberto Montemanni and  Mauro Dell’Amico and  Andrea Corsini},
+  title={Combining Heuristics and Constraint Programming for the Parallel Drone Scheduling Vehicle Routing Problem with Collective Drones},
+  doi={10.1007/978-3-031-62912-9_13},
+  url={https://doi.org/10.1007/978-3-031-62912-9_13},
+  page={136-142},
+  publisher={Springer Nature Switzerland},
+  booktitle={Lecture Notes in Computer Science},
+  year={2024}
+}
+
+@article{Zou2018,
+  author={Pan Zou and  Manik Rajora and  Steven Y. Liang},
+  title={A new algorithm based on evolutionary computation for hierarchically coupled constraint optimization: methodology and application to assembly job-shop scheduling},
+  doi={10.1007/s10951-018-0572-2},
+  url={https://doi.org/10.1007/s10951-018-0572-2},
+  volume={21},
+  issue={5},
+  page={545-563},
+  publisher={Springer Science and Business Media LLC},
+  journal={Journal of Scheduling},
+  year={2018}
+}
+
+@article{Li2018a,
+  author={Jie Li and  Wim J. van der Linden},
+  title={A Comparison of Constraint Programming and Mixed‐Integer Programming for Automated Test‐Form Generation},
+  doi={10.1111/jedm.12187},
+  url={https://doi.org/10.1111/jedm.12187},
+  volume={55},
+  issue={4},
+  page={435-456},
+  publisher={Wiley},
+  journal={Journal of Educational Measurement},
+  abstract={ Abstract  The final step of the typical process of developing educational and psychological tests is to place the selected test items in a formatted form. The step involves the grouping and ordering of the items to meet a variety of formatting constraints. As this activity tends to be time‐intensive, the use of mixed‐integer programming (MIP) has been proposed to automate it. The goal of this article is to show how constraint programming (CP) can be used as an alternative to automate test‐form generation problems with a large variety of formatting constraints, and how it compares with MIP‐based form generation as for its models, solutions, and running times. Two empirical examples are presented: (i) automated generation of a computerized fixed‐form; and (ii) automated generation of shadow tests for multistage testing. Both examples show that CP works well with feasible solutions and running times likely to be better than that for MIP‐based applications. },
+  year={2018}
+}
+
+@inproceedings{Koriche2022,
+  author={Frederic Koriche and  Christophe Lecoutre and  Anastasia Paparrizou and  Hugues Wattez},
+  title={Best Heuristic Identification for Constraint Satisfaction},
+  doi={10.24963/ijcai.2022/258},
+  url={https://doi.org/10.24963/ijcai.2022/258},
+  page={1859-1865},
+  publisher={International Joint Conferences on Artificial Intelligence Organization},
+  booktitle={Proceedings of the Thirty-First International Joint Conference on Artificial Intelligence},
+  abstract={ In constraint satisfaction problems, the variable ordering heuristic takes a central place by selecting the variables to branch on during backtrack search. As many hand-crafted branching heuristics have been proposed in the literature, a key issue is to identify, from a pool of candidate heuristics, which one is the best for solving a given constraint satisfaction task.  Based on the observation that modern constraint solvers are using restart sequences, the best heuristic identification problem can be cast in the context of multi-armed bandits as a non-stochastic best arm identification problem. Namely, during each run of some given restart sequence, the bandit algorithm selects a branching heuristic and receives a reward for this heuristic before proceeding to the next run. The goal is to identify the best heuristic using few runs, and without any stochastic assumption about the constraint solver. In this study, we propose an adaptive variant of Successive Halving that exploits Luby's universal restart sequence. We analyze the convergence of this bandit algorithm in the non-stochastic setting, 
+
+and we demonstrate its empirical effectiveness on various constraint satisfaction benchmarks. },
+  year={2022}
+}
+
+@inproceedings{Tnshoff2023,
+  author={Jan Tönshoff and  Berke Kisin and  Jakob Lindner and  Martin Grohe},
+  title={One Model, Any CSP: Graph Neural Networks as Fast Global Search Heuristics for Constraint Satisfaction},
+  doi={10.24963/ijcai.2023/476},
+  url={https://doi.org/10.24963/ijcai.2023/476},
+  page={4280-4288},
+  publisher={International Joint Conferences on Artificial Intelligence Organization},
+  booktitle={Proceedings of the Thirty-Second International Joint Conference on Artificial Intelligence},
+  abstract={ We propose a universal Graph Neural Network architecture which can be trained as an end-2-end search heuristic for any Constraint Satisfaction Problem (CSP). Our architecture can be trained unsupervised with policy gradient descent to generate problem specific heuristics for any CSP in a purely data driven manner.
+
+The approach is based on a novel graph representation for CSPs that is both generic and compact and enables us to process every possible CSP instance with one GNN, regardless of constraint arity, relations or domain size. Unlike previous RL-based methods, we operate on a global search action space and allow our GNN to modify any number of variables in every step of the stochastic search. This enables our method to properly leverage the inherent parallelism of GNNs.
+
+We perform a thorough empirical evaluation where we learn heuristics for well known and important CSPs, both decision and optimisation problems, from random data, including graph coloring, MAXCUT, and MAX-k-SAT, and the general RB model. Our approach significantly outperforms prior end-2-end approaches for neural combinatorial optimization. It can compete with conventional heuristics and solvers on test instances that are several orders of magnitude larger and structurally more complex than those seen during training. },
+  year={2023}
+}
+
+@article{Deenen2023,
+  author={Patrick Deenen and  Wim Nuijten and  Alp Akcay},
+  title={Scheduling a Real-World Photolithography Area With Constraint Programming},
+  doi={10.1109/tsm.2023.3304517},
+  url={https://doi.org/10.1109/tsm.2023.3304517},
+  volume={36},
+  issue={4},
+  page={590-598},
+  publisher={Institute of Electrical and Electronics Engineers (IEEE)},
+  journal={IEEE Transactions on Semiconductor Manufacturing},
+  year={2023}
+}
+
+@inproceedings{Fang2006,
+  author={Yan-shen Fang and  Ying-wu Chen},
+  title={Constraint Programming Model of Tdrss Single Access Link Scheduling Problem},
+  doi={10.1109/icmlc.2006.258521},
+  url={https://doi.org/10.1109/icmlc.2006.258521},
+  page={948-951},
+  publisher={IEEE},
+  booktitle={2006 International Conference on Machine Learning and Cybernetics},
+  year={2006}
+}
+
+@article{Baykasolu2017,
+  author={Adil Baykasoğlu and  Şeyda Topaloğlu and  Filiz Şenyüzlüler},
+  title={Manufacturing cell formation with flexible processing capabilities and worker assignment: Comparison of constraint programming and integer programming approaches},
+  doi={10.1177/0954405416682281},
+  url={https://doi.org/10.1177/0954405416682281},
+  volume={232},
+  issue={11},
+  page={2054-2068},
+  publisher={SAGE Publications},
+  journal={Proceedings of the Institution of Mechanical Engineers, Part B: Journal of Engineering Manufacture},
+  abstract={  Cell formation deals with grouping of machines and parts in manufacturing systems according to their compatibility. Manufacturing processes are surrounded with an abundance of complex constraints which should be considered carefully and represented clearly for obtaining high efficiency and productivity. Constraint programming is a new approach to combinatorial optimization and provides a rich language to represent complex constraints easily. However, the cell formation problems are well suited to be solved by constraint programming approach since the problem has many constraints such as part-machine requirements, availabilities in the system in terms of capacity, machine and worker abilities. In this study, the cell formation problem is modeled using machine, part processing and worker flexibilities via resource element–based representation. Resource elements define the processing requirements of parts and processing capabilities of machines and workers, which are resource-independent capability units. A total of 12 case problems are generated, and different search phases of constraint programming are defined for the solution procedure. The cell formation problem is modeled in both constraint programming and integer programming, and a comparative analysis of constraint programming and integer programming model solutions is done. The results indicate that both the models are effective and efficient in the solution of the cell formation problem.  },
+  year={2017}
+}
+
+@inproceedings{Antuori2025,
+  author       = {Valentin Antuori and
+                  Damien T. Wojtowicz and
+                  Emmanuel Hebrard},
+  editor       = {Maria Garcia de la Banda},
+  title        = {Solving the Agile Earth Observation Satellite Scheduling Problem with
+                  {CP} and Local Search},
+  booktitle    = {31st International Conference on Principles and Practice of Constraint
+                  Programming, {CP} 2025, August 10-15, 2025, Glasgow, Scotland},
+  series       = {LIPIcs},
+  volume       = {340},
+  pages        = {3:1--3:22},
+  publisher    = {Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik},
+  year         = {2025},
+  url          = {https://doi.org/10.4230/LIPIcs.CP.2025.3},
+  doi          = {10.4230/LIPICS.CP.2025.3},
+  timestamp    = {Mon, 18 Aug 2025 15:30:40 +0200},
+  biburl       = {https://dblp.org/rec/conf/cp/AntuoriWH25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Bleukx2025,
+  author       = {Ignace Bleukx and
+                  Ryma Boumazouza and
+                  Tias Guns and
+                  Nadine Laage and
+                  Guillaume Pov{\'{e}}da},
+  editor       = {Maria Garcia de la Banda},
+  title        = {Modeling and Explaining an Industrial Workforce Allocation and Scheduling
+                  Problem},
+  booktitle    = {31st International Conference on Principles and Practice of Constraint
+                  Programming, {CP} 2025, August 10-15, 2025, Glasgow, Scotland},
+  series       = {LIPIcs},
+  volume       = {340},
+  pages        = {6:1--6:24},
+  publisher    = {Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik},
+  year         = {2025},
+  url          = {https://doi.org/10.4230/LIPIcs.CP.2025.6},
+  doi          = {10.4230/LIPICS.CP.2025.6},
+  timestamp    = {Tue, 14 Oct 2025 19:34:32 +0200},
+  biburl       = {https://dblp.org/rec/conf/cp/BleukxBGLP25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Hebrard2025,
+  author       = {Emmanuel Hebrard},
+  editor       = {Maria Garcia de la Banda},
+  title        = {Disjunctive Scheduling in Tempo},
+  booktitle    = {31st International Conference on Principles and Practice of Constraint
+                  Programming, {CP} 2025, August 10-15, 2025, Glasgow, Scotland},
+  series       = {LIPIcs},
+  volume       = {340},
+  pages        = {13:1--13:22},
+  publisher    = {Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik},
+  year         = {2025},
+  url          = {https://doi.org/10.4230/LIPIcs.CP.2025.13},
+  doi          = {10.4230/LIPICS.CP.2025.13},
+  timestamp    = {Mon, 18 Aug 2025 15:30:40 +0200},
+  biburl       = {https://dblp.org/rec/conf/cp/Hebrard25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Le2025,
+  author       = {Duc Anh Le and
+                  St{\'{e}}phanie Roussel and
+                  Christophe Lecoutre},
+  editor       = {Maria Garcia de la Banda},
+  title        = {Aircraft Resource-Constrained Assembly Line Balancing with Learning
+                  Effect: {A} Constraint Programming Approach},
+  booktitle    = {31st International Conference on Principles and Practice of Constraint
+                  Programming, {CP} 2025, August 10-15, 2025, Glasgow, Scotland},
+  series       = {LIPIcs},
+  volume       = {340},
+  pages        = {25:1--25:24},
+  publisher    = {Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik},
+  year         = {2025},
+  url          = {https://doi.org/10.4230/LIPIcs.CP.2025.25},
+  doi          = {10.4230/LIPICS.CP.2025.25},
+  timestamp    = {Mon, 18 Aug 2025 15:30:40 +0200},
+  biburl       = {https://dblp.org/rec/conf/cp/Le0L25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Luchterhand2025,
+  author       = {Tim Luchterhand and
+                  Emmanuel Hebrard and
+                  Sylvie Thi{\'{e}}baux},
+  editor       = {Maria Garcia de la Banda},
+  title        = {Understanding the Impact of Value Selection Heuristics in Scheduling
+                  Problems},
+  booktitle    = {31st International Conference on Principles and Practice of Constraint
+                  Programming, {CP} 2025, August 10-15, 2025, Glasgow, Scotland},
+  series       = {LIPIcs},
+  volume       = {340},
+  pages        = {27:1--27:23},
+  publisher    = {Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik},
+  year         = {2025},
+  url          = {https://doi.org/10.4230/LIPIcs.CP.2025.27},
+  doi          = {10.4230/LIPICS.CP.2025.27},
+  timestamp    = {Tue, 14 Oct 2025 19:34:32 +0200},
+  biburl       = {https://dblp.org/rec/conf/cp/LuchterhandHT25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Sidorov2025,
+  author       = {Konstantin Sidorov and
+                  Imko Marijnissen and
+                  Emir Demirovic},
+  editor       = {Maria Garcia de la Banda},
+  title        = {Unite and Lead: Finding Disjunctive Cliques for Scheduling Problems},
+  booktitle    = {31st International Conference on Principles and Practice of Constraint
+                  Programming, {CP} 2025, August 10-15, 2025, Glasgow, Scotland},
+  series       = {LIPIcs},
+  volume       = {340},
+  pages        = {35:1--35:24},
+  publisher    = {Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik},
+  year         = {2025},
+  url          = {https://doi.org/10.4230/LIPIcs.CP.2025.35},
+  doi          = {10.4230/LIPICS.CP.2025.35},
+  timestamp    = {Sat, 06 Sep 2025 20:31:00 +0200},
+  biburl       = {https://dblp.org/rec/conf/cp/SidorovMD25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Weidmann2025,
+  author       = {Nils Weidmann},
+  editor       = {Maria Garcia de la Banda},
+  title        = {Multi-League Sports Scheduling with Team Interdependencies: An Optimization
+                  Model},
+  booktitle    = {31st International Conference on Principles and Practice of Constraint
+                  Programming, {CP} 2025, August 10-15, 2025, Glasgow, Scotland},
+  series       = {LIPIcs},
+  volume       = {340},
+  pages        = {37:1--37:19},
+  publisher    = {Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik},
+  year         = {2025},
+  url          = {https://doi.org/10.4230/LIPIcs.CP.2025.37},
+  doi          = {10.4230/LIPICS.CP.2025.37},
+  timestamp    = {Mon, 18 Aug 2025 15:30:40 +0200},
+  biburl       = {https://dblp.org/rec/conf/cp/Weidmann25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Prumm2025,
+  author       = {Michael Pr{\"{u}}mm and
+                  Peter Nightingale and
+                  Felix Ulrich{-}Oltean},
+  editor       = {Maria Garcia de la Banda},
+  title        = {Scheduling Telescope Observations for the European Southern Observatory
+                  (Short Paper)},
+  booktitle    = {31st International Conference on Principles and Practice of Constraint
+                  Programming, {CP} 2025, August 10-15, 2025, Glasgow, Scotland},
+  series       = {LIPIcs},
+  volume       = {340},
+  pages        = {43:1--43:10},
+  publisher    = {Schloss Dagstuhl - Leibniz-Zentrum f{\"{u}}r Informatik},
+  year         = {2025},
+  url          = {https://doi.org/10.4230/LIPIcs.CP.2025.43},
+  doi          = {10.4230/LIPICS.CP.2025.43},
+  timestamp    = {Tue, 14 Oct 2025 19:34:32 +0200},
+  biburl       = {https://dblp.org/rec/conf/cp/PrummNU25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Assaf2025,
+  author       = {George Assaf and
+                  Sven L{\"{o}}ffler and
+                  Petra Hofstedt},
+  editor       = {Guido Tack},
+  title        = {Optimized Scheduling of Medical Appointment Sequences Using Constraint
+                  Programming},
+  booktitle    = {Integration of Constraint Programming, Artificial Intelligence, and
+                  Operations Research - 22nd International Conference, {CPAIOR} 2025,
+                  Melbourne, VIC, Australia, November 10-13, 2025, Proceedings, Part
+                  {I}},
+  series       = {Lecture Notes in Computer Science},
+  volume       = {15762},
+  pages        = {1--16},
+  publisher    = {Springer},
+  year         = {2025},
+  url          = {https://doi.org/10.1007/978-3-031-95973-8\_1},
+  doi          = {10.1007/978-3-031-95973-8\_1},
+  timestamp    = {Tue, 05 Aug 2025 22:38:45 +0200},
+  biburl       = {https://dblp.org/rec/conf/cpaior/AssafLH25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Danzinger2025,
+  author       = {Philipp Danzinger and
+                  Tobias Geibinger and
+                  Florian Mischek and
+                  Nysret Musliu},
+  editor       = {Guido Tack},
+  title        = {Modeling and Solving the Generalized Test Laboratory Scheduling Problem},
+  booktitle    = {Integration of Constraint Programming, Artificial Intelligence, and
+                  Operations Research - 22nd International Conference, {CPAIOR} 2025,
+                  Melbourne, VIC, Australia, November 10-13, 2025, Proceedings, Part
+                  {I}},
+  series       = {Lecture Notes in Computer Science},
+  volume       = {15762},
+  pages        = {188--204},
+  publisher    = {Springer},
+  year         = {2025},
+  url          = {https://doi.org/10.1007/978-3-031-95973-8\_12},
+  doi          = {10.1007/978-3-031-95973-8\_12},
+  timestamp    = {Sat, 09 Aug 2025 12:14:14 +0200},
+  biburl       = {https://dblp.org/rec/conf/cpaior/DanzingerGMM25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Legrand2025,
+  author       = {Emma Legrand and
+                  Vianney Copp{\'{e}} and
+                  Daniele Catanzaro and
+                  Pierre Schaus},
+  editor       = {Guido Tack},
+  title        = {A Dynamic Programming Approach for the Job Sequencing and Tool Switching
+                  Problem},
+  booktitle    = {Integration of Constraint Programming, Artificial Intelligence, and
+                  Operations Research - 22nd International Conference, {CPAIOR} 2025,
+                  Melbourne, VIC, Australia, November 10-13, 2025, Proceedings, Part
+                  {II}},
+  series       = {Lecture Notes in Computer Science},
+  volume       = {15763},
+  pages        = {70--85},
+  publisher    = {Springer},
+  year         = {2025},
+  url          = {https://doi.org/10.1007/978-3-031-95976-9\_5},
+  doi          = {10.1007/978-3-031-95976-9\_5},
+  timestamp    = {Tue, 05 Aug 2025 22:38:45 +0200},
+  biburl       = {https://dblp.org/rec/conf/cpaior/LegrandCCS25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Montanaro2025,
+  author       = {Yoann Sabatier Montanaro and
+                  Thomas Jacquet and
+                  Quentin Cappart and
+                  Guy Desaulniers},
+  editor       = {Guido Tack},
+  title        = {A Column Generation Heuristic for Multi-depot Electric Bus Scheduling},
+  booktitle    = {Integration of Constraint Programming, Artificial Intelligence, and
+                  Operations Research - 22nd International Conference, {CPAIOR} 2025,
+                  Melbourne, VIC, Australia, November 10-13, 2025, Proceedings, Part
+                  {II}},
+  series       = {Lecture Notes in Computer Science},
+  volume       = {15763},
+  pages        = {103--118},
+  publisher    = {Springer},
+  year         = {2025},
+  url          = {https://doi.org/10.1007/978-3-031-95976-9\_7},
+  doi          = {10.1007/978-3-031-95976-9\_7},
+  timestamp    = {Thu, 17 Jul 2025 13:55:41 +0200},
+  biburl       = {https://dblp.org/rec/conf/cpaior/MontanaroJCD25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Rouzot2025,
+  author       = {Julien Rouzot and
+                  Micka{\"{e}}l Pereira and
+                  Christian Artigues and
+                  Romain Boyer and
+                  Fr{\'{e}}d{\'{e}}ric Camps and
+                  Philippe Garnier and
+                  Emmanuel Hebrard and
+                  Pierre Lopez},
+  editor       = {Guido Tack},
+  title        = {Integer and Constraint Programming for the Offline Nanosatellite Partition
+                  Scheduling Problem},
+  booktitle    = {Integration of Constraint Programming, Artificial Intelligence, and
+                  Operations Research - 22nd International Conference, {CPAIOR} 2025,
+                  Melbourne, VIC, Australia, November 10-13, 2025, Proceedings, Part
+                  {II}},
+  series       = {Lecture Notes in Computer Science},
+  volume       = {15763},
+  pages        = {173--190},
+  publisher    = {Springer},
+  year         = {2025},
+  url          = {https://doi.org/10.1007/978-3-031-95976-9\_11},
+  doi          = {10.1007/978-3-031-95976-9\_11},
+  timestamp    = {Thu, 17 Jul 2025 13:55:41 +0200},
+  biburl       = {https://dblp.org/rec/conf/cpaior/RouzotPABCGHL25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{Said2022,
+  author={Aymen Ben Said and  Malek Mouhoub},
+  title={A Constraint Satisfaction Problem (CSP) Approach for the Nurse Scheduling Problem},
+  doi={10.1109/ssci51031.2022.10022250},
+  url={https://doi.org/10.1109/ssci51031.2022.10022250},
+  page={790-795},
+  publisher={IEEE},
+  booktitle={2022 IEEE Symposium Series on Computational Intelligence (SSCI)},
+  year={2022}
+}
+
+
+@article{Garraffa2025,
+  author       = {Michele Garraffa and
+                  Helmut Simonis and
+                  Barry O'Sullivan and
+                  Eddie Armstrong},
+  title        = {Decomposition heuristics for the Hybrid Flexible Flowshop with transportation
+                  times},
+  journal      = {Comput. Oper. Res.},
+  volume       = {183},
+  pages        = {107145},
+  year         = {2025},
+  url          = {https://doi.org/10.1016/j.cor.2025.107145},
+  doi          = {10.1016/J.COR.2025.107145},
+  timestamp    = {Sat, 06 Sep 2025 20:25:32 +0200},
+  biburl       = {https://dblp.org/rec/journals/cor/GarraffaSOA25.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
 

@@ -1,11 +1,11 @@
 [
     {
-        "creation": "2019-08-16",
-        "author_sc": "no",
-        "journal_sc": "no",
-        "cited": "10.3141/2482-15",
-        "citing": "10.3390/su11164430",
         "oci": "061701946826-06203754228",
-        "timespan": "P4Y7M"
+        "citing": "omid:br/061701946826 doi:10.3390/su11164430 openalex:W2967058307",
+        "cited": "omid:br/06203754228 doi:10.3141/2482-15 openalex:W197221904",
+        "creation": "2019-08-16",
+        "timespan": "P4Y7M",
+        "journal_sc": "no",
+        "author_sc": "no"
     }
 ]
