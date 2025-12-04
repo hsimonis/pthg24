@@ -18,7 +18,8 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Orphan;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class OrphanController extends Table3Controller {
 	@FXML
 	private TableView<Orphan> table;
@@ -34,6 +35,7 @@ public class OrphanController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getOrphanData());
 	}
 

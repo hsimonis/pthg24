@@ -19,7 +19,8 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Author;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class AuthorController extends Table3Controller {
 	@FXML
 	private TableView<Author> table;
@@ -62,6 +63,7 @@ public class AuthorController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getAuthorData());
 	}
 

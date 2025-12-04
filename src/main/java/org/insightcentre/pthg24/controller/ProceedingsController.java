@@ -20,7 +20,8 @@ import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.Proceedings;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class ProceedingsController extends Table3Controller {
 	@FXML
 	private TableView<Proceedings> table;
@@ -39,6 +40,7 @@ public class ProceedingsController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getProceedingsData());
 		conferenceSeries.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getConferenceSeriesData()));
 		conferenceSeries.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setConferenceSeries(event.getNewValue()); mainApp.reset();});

@@ -20,7 +20,8 @@ import org.insightcentre.pthg24.datamodel.Citation;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class CitationController extends Table3Controller {
 	@FXML
 	private TableView<Citation> table;
@@ -60,6 +61,7 @@ public class CitationController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getCitationData());
 		citedWork.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getWorkData()));
 		citedWork.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCitedWork(event.getNewValue()); mainApp.reset();});

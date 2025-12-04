@@ -21,7 +21,8 @@ import org.insightcentre.pthg24.datamodel.CountryCollab;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class CountryCollabController extends Table3Controller {
 	@FXML
 	private TableView<CountryCollab> table;
@@ -43,6 +44,7 @@ public class CountryCollabController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getCountryCollabData());
 		country1.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getScopusCountryData()));
 		country1.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setCountry1(event.getNewValue()); mainApp.reset();});

@@ -28,7 +28,8 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.MissingWork;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class MissingWorkController extends Table3Controller {
 	@FXML
 	private TableView<MissingWork> table;
@@ -122,6 +123,7 @@ public class MissingWorkController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getMissingWorkData());
 	}
 
@@ -301,7 +303,8 @@ public class MissingWorkController extends Table3Controller {
 
 	class IsSelectedCallback implements Callback<TableColumn.CellDataFeatures<MissingWork, Boolean>, ObservableValue<Boolean>> {
 		@Override
-		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<MissingWork, Boolean> cellData) {
+		public ObservableValue<Boolean> call(
+				TableColumn.CellDataFeatures<MissingWork, Boolean> cellData) {
 			Property<Boolean> prop = cellData.getValue().isSelectedWrapperProperty();
 			prop.addListener(new ChangeListener<Boolean>() {
 				@Override

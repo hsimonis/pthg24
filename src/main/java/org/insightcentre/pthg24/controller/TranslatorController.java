@@ -18,7 +18,8 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Translator;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class TranslatorController extends Table3Controller {
 	@FXML
 	private TableView<Translator> table;
@@ -37,6 +38,7 @@ public class TranslatorController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getTranslatorData());
 	}
 

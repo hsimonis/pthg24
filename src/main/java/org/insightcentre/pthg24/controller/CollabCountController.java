@@ -22,7 +22,8 @@ import org.insightcentre.pthg24.datamodel.CollabCount;
 import org.insightcentre.pthg24.datamodel.ScopusAffiliation;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class CollabCountController extends Table3Controller {
 	@FXML
 	private TableView<CollabCount> table;
@@ -47,6 +48,7 @@ public class CollabCountController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getCollabCountData());
 		affiliation1.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getScopusAffiliationData()));
 		affiliation1.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAffiliation1(event.getNewValue()); mainApp.reset();});

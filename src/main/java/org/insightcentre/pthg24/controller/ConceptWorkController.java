@@ -23,7 +23,8 @@ import org.insightcentre.pthg24.datamodel.MatchLevel;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class ConceptWorkController extends Table3Controller {
 	@FXML
 	private TableView<ConceptWork> table;
@@ -48,6 +49,7 @@ public class ConceptWorkController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getConceptWorkData());
 		concept.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getConceptData()));
 		concept.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setConcept(event.getNewValue()); mainApp.reset();});

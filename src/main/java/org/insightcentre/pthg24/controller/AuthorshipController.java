@@ -23,7 +23,8 @@ import org.insightcentre.pthg24.datamodel.Authorship;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class AuthorshipController extends Table3Controller {
 	@FXML
 	private TableView<Authorship> table;
@@ -51,6 +52,7 @@ public class AuthorshipController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getAuthorshipData());
 		author.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getAuthorData()));
 		author.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAuthor(event.getNewValue()); mainApp.reset();});

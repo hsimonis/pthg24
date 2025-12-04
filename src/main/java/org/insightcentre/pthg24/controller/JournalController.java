@@ -28,7 +28,8 @@ import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.Publisher;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class JournalController extends Table3Controller {
 	@FXML
 	private TableView<Journal> table;
@@ -65,6 +66,7 @@ public class JournalController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getJournalData());
 		publisher.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getPublisherData()));
 		publisher.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPublisher(event.getNewValue()); mainApp.reset();});

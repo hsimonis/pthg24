@@ -23,7 +23,8 @@ import org.insightcentre.pthg24.datamodel.MissingWork;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class DoiReferenceController extends Table3Controller {
 	@FXML
 	private TableView<DoiReference> table;
@@ -66,6 +67,7 @@ public class DoiReferenceController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getDoiReferenceData());
 		work.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getWorkData()));
 		work.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setWork(event.getNewValue()); mainApp.reset();});

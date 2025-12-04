@@ -23,7 +23,8 @@ import org.insightcentre.pthg24.datamodel.UncategorizedReference;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class UncategorizedReferenceController extends Table3Controller {
 	@FXML
 	private TableView<UncategorizedReference> table;
@@ -63,6 +64,7 @@ public class UncategorizedReferenceController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getUncategorizedReferenceData());
 		work.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getWorkData()));
 		work.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setWork(event.getNewValue()); mainApp.reset();});

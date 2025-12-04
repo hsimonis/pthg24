@@ -20,7 +20,8 @@ import org.insightcentre.pthg24.datamodel.ApplicationWarning;
 import org.insightcentre.pthg24.datamodel.WarningType;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class ApplicationWarningController extends Table3Controller {
 	@FXML
 	private TableView<ApplicationWarning> table;
@@ -48,6 +49,7 @@ public class ApplicationWarningController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getApplicationWarningData());
 		ObservableList<WarningType> typeValues = FXCollections.observableArrayList(WarningType.values());
 		type.setCellFactory(ComboBoxTableCell.forTableColumn(typeValues));

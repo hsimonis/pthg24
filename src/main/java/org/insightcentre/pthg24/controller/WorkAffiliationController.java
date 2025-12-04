@@ -26,7 +26,8 @@ import org.insightcentre.pthg24.datamodel.Work;
 import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class WorkAffiliationController extends Table3Controller {
 	@FXML
 	private TableView<WorkAffiliation> table;
@@ -51,6 +52,7 @@ public class WorkAffiliationController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getWorkAffiliationData());
 		work.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getWorkData()));
 		work.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setWork(event.getNewValue()); mainApp.reset();});

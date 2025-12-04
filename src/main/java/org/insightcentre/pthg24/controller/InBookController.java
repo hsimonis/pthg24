@@ -32,7 +32,8 @@ import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class InBookController extends Table3Controller {
 	@FXML
 	private TableView<InBook> table;
@@ -228,6 +229,7 @@ public class InBookController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getInBookData());
 		publisher.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getPublisherData()));
 		publisher.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPublisher(event.getNewValue()); mainApp.reset();});

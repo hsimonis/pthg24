@@ -29,7 +29,8 @@ import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptType;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class ConceptController extends Table3Controller {
 	@FXML
 	private TableView<Concept> table;
@@ -66,6 +67,7 @@ public class ConceptController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getConceptData());
 		conceptType.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getConceptTypeData()));
 		conceptType.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setConceptType(event.getNewValue()); mainApp.reset();});

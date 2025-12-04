@@ -18,7 +18,8 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.School;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class SchoolController extends Table3Controller {
 	@FXML
 	private TableView<School> table;
@@ -31,6 +32,7 @@ public class SchoolController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getSchoolData());
 	}
 

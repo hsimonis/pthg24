@@ -19,7 +19,8 @@ import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.MissingCross;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class MissingCrossController extends Table3Controller {
 	@FXML
 	private TableView<MissingCross> table;
@@ -62,6 +63,7 @@ public class MissingCrossController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getMissingCrossData());
 	}
 

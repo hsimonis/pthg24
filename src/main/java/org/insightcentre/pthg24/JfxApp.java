@@ -7,6 +7,8 @@ Generated once, should be extended by user
 import framework.ApplicationDatasetInterface;
 import framework.ApplicationObjectInterface;
 import framework.types.IrishCalendar;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import org.insightcentre.pthg24.analysis.*;
 import org.insightcentre.pthg24.clustering.DumpFeatures;
 import org.insightcentre.pthg24.datamodel.*;
@@ -283,6 +285,13 @@ public class JfxApp extends GeneratedJfxApp {
                 JfxApp.args = args;
                 launch(args);
         }
+
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.getIcons().add(new Image(JfxApp.class.getResourceAsStream("/LightGreen_LiteratureSurvey.png")));
+        //     primaryStage.getIcons().add(new Image(JfxApp.class.getResourceAsStream("/insight.jpg")));
+        super.start(primaryStage);
+    }
 
 
         private int nrConnected(Work w){

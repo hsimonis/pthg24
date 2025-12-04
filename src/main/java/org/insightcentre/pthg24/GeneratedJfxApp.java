@@ -73,10 +73,11 @@ import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	static {
-		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "C:/Users/hsimonis/Documents/Github/pthg24/site/web");
+		FREEMARKER_CFG.setClassForTemplateLoading(GeneratedJfxApp.class, "site/web/");
 	}
 
 	public Scenario basebase;
@@ -184,7 +185,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	private ObservableList<Assertion> assertionData = FXCollections.observableArrayList();
 
 	public GeneratedJfxApp() {
-		super("pthg24", "HolyGrail 2024", "*.data", "C:/Users/hsimonis/Documents/Github/pthg24");
+		super("pthg24", "HolyGrail 2024", "*.data", "data/");
 		fs = minimalDataset();
 		reset();
 		tableViews.put("Publisher", "Publisher");
@@ -288,6 +289,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	@Override
 	public void setStatus(String text) {
 		controller.setStatus(text);
+	}
+
+	public void setTitle(String text) {
+		if (primaryStage != null) primaryStage.setTitle(text);
 	}
 
 	@Override

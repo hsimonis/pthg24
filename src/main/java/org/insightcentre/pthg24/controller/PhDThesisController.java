@@ -33,7 +33,8 @@ import org.insightcentre.pthg24.datamodel.School;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class PhDThesisController extends Table3Controller {
 	@FXML
 	private TableView<PhDThesis> table;
@@ -229,6 +230,7 @@ public class PhDThesisController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getPhDThesisData());
 		publisher.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getPublisherData()));
 		publisher.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPublisher(event.getNewValue()); mainApp.reset();});

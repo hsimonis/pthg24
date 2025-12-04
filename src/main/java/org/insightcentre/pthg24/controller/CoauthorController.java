@@ -21,7 +21,8 @@ import org.insightcentre.pthg24.datamodel.Author;
 import org.insightcentre.pthg24.datamodel.Coauthor;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class CoauthorController extends Table3Controller {
 	@FXML
 	private TableView<Coauthor> table;
@@ -52,6 +53,7 @@ public class CoauthorController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getCoauthorData());
 		author1.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getAuthorData()));
 		author1.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAuthor1(event.getNewValue()); mainApp.reset();});

@@ -26,7 +26,8 @@ import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class ScopusAffiliationController extends Table3Controller {
 	@FXML
 	private TableView<ScopusAffiliation> table;
@@ -75,6 +76,7 @@ public class ScopusAffiliationController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getScopusAffiliationData());
 		scopusCity.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getScopusCityData()));
 		scopusCity.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setScopusCity(event.getNewValue()); mainApp.reset();});

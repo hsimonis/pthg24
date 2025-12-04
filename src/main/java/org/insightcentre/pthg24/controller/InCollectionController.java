@@ -33,7 +33,8 @@ import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class InCollectionController extends Table3Controller {
 	@FXML
 	private TableView<InCollection> table;
@@ -229,6 +230,7 @@ public class InCollectionController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getInCollectionData());
 		publisher.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getPublisherData()));
 		publisher.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPublisher(event.getNewValue()); mainApp.reset();});
@@ -539,7 +541,8 @@ public class InCollectionController extends Table3Controller {
 
 	class BackgroundCallback implements Callback<TableColumn.CellDataFeatures<InCollection, Boolean>, ObservableValue<Boolean>> {
 		@Override
-		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<InCollection, Boolean> cellData) {
+		public ObservableValue<Boolean> call(
+				TableColumn.CellDataFeatures<InCollection, Boolean> cellData) {
 			Property<Boolean> prop = cellData.getValue().backgroundWrapperProperty();
 			prop.addListener(new ChangeListener<Boolean>() {
 				@Override
@@ -554,7 +557,8 @@ public class InCollectionController extends Table3Controller {
 
 	class DoiStatusCallback implements Callback<TableColumn.CellDataFeatures<InCollection, Boolean>, ObservableValue<Boolean>> {
 		@Override
-		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<InCollection, Boolean> cellData) {
+		public ObservableValue<Boolean> call(
+				TableColumn.CellDataFeatures<InCollection, Boolean> cellData) {
 			Property<Boolean> prop = cellData.getValue().doiStatusWrapperProperty();
 			prop.addListener(new ChangeListener<Boolean>() {
 				@Override
@@ -569,7 +573,8 @@ public class InCollectionController extends Table3Controller {
 
 	class CrossrefStatusCallback implements Callback<TableColumn.CellDataFeatures<InCollection, Boolean>, ObservableValue<Boolean>> {
 		@Override
-		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<InCollection, Boolean> cellData) {
+		public ObservableValue<Boolean> call(
+				TableColumn.CellDataFeatures<InCollection, Boolean> cellData) {
 			Property<Boolean> prop = cellData.getValue().crossrefStatusWrapperProperty();
 			prop.addListener(new ChangeListener<Boolean>() {
 				@Override
@@ -584,7 +589,8 @@ public class InCollectionController extends Table3Controller {
 
 	class ScopusStatusCallback implements Callback<TableColumn.CellDataFeatures<InCollection, Boolean>, ObservableValue<Boolean>> {
 		@Override
-		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<InCollection, Boolean> cellData) {
+		public ObservableValue<Boolean> call(
+				TableColumn.CellDataFeatures<InCollection, Boolean> cellData) {
 			Property<Boolean> prop = cellData.getValue().scopusStatusWrapperProperty();
 			prop.addListener(new ChangeListener<Boolean>() {
 				@Override
@@ -599,7 +605,8 @@ public class InCollectionController extends Table3Controller {
 
 	class WosStatusCallback implements Callback<TableColumn.CellDataFeatures<InCollection, Boolean>, ObservableValue<Boolean>> {
 		@Override
-		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<InCollection, Boolean> cellData) {
+		public ObservableValue<Boolean> call(
+				TableColumn.CellDataFeatures<InCollection, Boolean> cellData) {
 			Property<Boolean> prop = cellData.getValue().wosStatusWrapperProperty();
 			prop.addListener(new ChangeListener<Boolean>() {
 				@Override

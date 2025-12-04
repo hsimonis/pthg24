@@ -22,7 +22,8 @@ import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class SimilarityController extends Table3Controller {
 	@FXML
 	private TableView<Similarity> table;
@@ -77,6 +78,7 @@ public class SimilarityController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getSimilarityData());
 		work1.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getWorkData()));
 		work1.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setWork1(event.getNewValue()); mainApp.reset();});

@@ -30,7 +30,8 @@ import org.insightcentre.pthg24.datamodel.OtherWork;
 import org.insightcentre.pthg24.datamodel.WorkType;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class OtherWorkController extends Table3Controller {
 	@FXML
 	private TableView<OtherWork> table;
@@ -115,6 +116,7 @@ public class OtherWorkController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getOtherWorkData());
 		ObservableList<WorkType> workTypeValues = FXCollections.observableArrayList(WorkType.values());
 		workType.setCellFactory(ComboBoxTableCell.forTableColumn(workTypeValues));

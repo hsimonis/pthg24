@@ -20,7 +20,8 @@ import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.JournalAlias;
 
 /**
- * Generated at 08:56:10 on 2024-09-25 */
+ * Generated code
+ */
 public class JournalAliasController extends Table3Controller {
 	@FXML
 	private TableView<JournalAlias> table;
@@ -39,6 +40,7 @@ public class JournalAliasController extends Table3Controller {
 	@Override
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
+		table.setEditable(true);
 		table.setItems(mainApp.getJournalAliasData());
 		journal.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getJournalData()));
 		journal.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setJournal(event.getNewValue()); mainApp.reset();});
