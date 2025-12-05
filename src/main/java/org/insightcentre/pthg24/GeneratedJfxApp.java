@@ -185,7 +185,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 	private ObservableList<Assertion> assertionData = FXCollections.observableArrayList();
 
 	public GeneratedJfxApp() {
-		super("pthg24", "HolyGrail 2024", "*.data", "data/");
+		super("pthg24", "Literature Survey Tool, Insight Centre for Data Analytics, University College Cork", "*.data", "data/");
 		fs = minimalDataset();
 		reset();
 		tableViews.put("Publisher", "Publisher");
