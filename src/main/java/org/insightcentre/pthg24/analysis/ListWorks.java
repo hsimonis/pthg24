@@ -58,22 +58,23 @@ public class ListWorks extends AbstractList{
                 ">{\\raggedright\\arraybackslash}p{6.0cm}p{1.0cm}rr>{\\raggedright\\arraybackslash}p{2.0cm}r>{\\raggedright\\arraybackslash}p{1cm}p{1cm}p{1cm}p{1cm}}\n");
         out.printf("\\rowcolor{white}\\caption{%s (Total %d)}\\\\ \\toprule\n",safe(caption),works.size());
         out.printf("\\rowcolor{white}\\shortstack{Key\\\\Source} & Authors & Title (Colored by Open Access)& \\shortstack{Details\\\\LC} & Cite & Year & " +
-                "\\shortstack{Conference\\\\/Journal\\\\/School} & Pages & Relevance &\\shortstack{Cites\\\\OC XR\\\\SC} & " +
+                "\\shortstack{Conference\\\\/Journal\\\\/School\\\\\\textcolor{red}{/SubType}} & \\shortstack{Pages\\\\/Linked} & Relevance &\\shortstack{Cites\\\\OC XR\\\\SC} & " +
                 "\\shortstack{Refs\\\\OC\\\\XR} & \\shortstack{Links\\\\Cites\\\\Refs}\\\\ \\midrule");
         out.printf("\\endhead\n");
         out.printf("\\bottomrule\n");
         out.printf("\\endfoot\n");
         for(Work a:works){
-            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %d & %s & %s & %s & %s",
+            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %s%d & %s & %s & %s & %s",
                     rowLabel(a,"a:"+a.getName(),showLabel),
                     a.getKey(),
                     a.getUrl(),a.getKey(),
                     authors(a),
-                    openAccessHighlight(a),safe(a.getTitle()+(a.getAbstractText().equals("")?"":" \\hyperref[abs:"+a.getKey()+"]{Abstract}")),
+                    openAccessHighlight(a),safe(a.getTitle()+(a.getAbstractText().isEmpty() ?"":" \\hyperref[abs:"+a.getKey()+"]{Abstract}")),
                     lcAndDetails(a),
                     a.getName(),
                     a.getYear(),
                     confOrJournal(a),
+                    highlightLinked(a),
                     a.getNrPages(),
                     showRelevances(a),
                     citations(a),
@@ -96,6 +97,14 @@ public class ListWorks extends AbstractList{
         }
         return "";
 
+    }
+
+    private String highlightLinked(Work w){
+        if (w instanceof Article a && a.getLinked()){
+            return "\\cellcolor{black!30}";
+        } else {
+            return "";
+        }
     }
 
     public static String openAccessHighlight(Work w){
@@ -135,7 +144,7 @@ public class ListWorks extends AbstractList{
 
 
     public static String local(String lc){
-        return "../"+lc;
+        return lc;
     }
 
     private String confOrJournal(Work w){
@@ -143,7 +152,7 @@ public class ListWorks extends AbstractList{
             return shortProc(((Paper)w).getProceedings());
         } else if (w instanceof Article){
             Journal j = ((Article)w).getJournal();
-            return (j.getIsBlocked()?"\\cellcolor{red!20}":"")+nameOf(j);
+            return (j.getIsBlocked()?"\\cellcolor{red!20}":"")+nameOf(j)+subType((Article)w);
         } else if (w instanceof InCollection){
             return nameOf(((InCollection)w).getCollection());
         } else if (w instanceof InBook){
@@ -154,6 +163,14 @@ public class ListWorks extends AbstractList{
             return nameOf(((PhDThesis)w).getSchool());
         } else {
             return "n/a";
+        }
+    }
+
+    private String subType(Article a){
+        if (a.getSubType() == null || a.getSubType().isEmpty()){
+            return "";
+        } else {
+            return " \\textcolor{red}{"+a.getSubType()+"}";
         }
     }
 
@@ -171,7 +188,7 @@ public class ListWorks extends AbstractList{
     }
 
     public static boolean localCopyExists1(Work a){
-        return a.getLocalCopy() != null && !a.getLocalCopy().equals("");
+        return a.getLocalCopy() != null && !a.getLocalCopy().isEmpty();
     }
 
     public static List<Work> notBackground(List<Work> list){
@@ -179,46 +196,38 @@ public class ListWorks extends AbstractList{
     }
 
     public static List<Work> sortedWorks(Scenario base,WorkType type){
-        switch(type) {
-
-            case PAPER:
-                return notBackground(base.getListPaper().stream().
-                        sorted(Comparator.comparing(Work::getYear).reversed().
-                                thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList()));
-            case ARTICLE:
-                return notBackground(base.getListArticle().stream().
-                        sorted(Comparator.comparing(Work::getYear).reversed().
-                                thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList()));
-            case BOOK:
-                return notBackground(base.getListBook().stream().
-                        sorted(Comparator.comparing(Work::getYear).reversed().
-                                thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList()));
+        return switch (type) {
+            case PAPER -> notBackground(base.getListPaper().stream().
+                    sorted(Comparator.comparing(Work::getYear).reversed().
+                            thenComparing(Work::getName)).
+                    collect(Collectors.toUnmodifiableList()));
+            case ARTICLE -> notBackground(base.getListArticle().stream().
+                    sorted(Comparator.comparing(Work::getYear).reversed().
+                            thenComparing(Work::getName)).
+                    collect(Collectors.toUnmodifiableList()));
+            case BOOK -> notBackground(base.getListBook().stream().
+                    sorted(Comparator.comparing(Work::getYear).reversed().
+                            thenComparing(Work::getName)).
+                    collect(Collectors.toUnmodifiableList()));
 //            case COLLECTION:
 //                return notBackground(base.getListCollection().stream().
 //                        sorted(Comparator.comparing(Work::getYear).reversed().
 //                                thenComparing(Work::getName)).
 //                        collect(Collectors.toUnmodifiableList()));
-            case THESIS:
-                return notBackground(base.getListPhDThesis().stream().
-                        sorted(Comparator.comparing(Work::getYear).reversed().
-                                thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList()));
-            case INBOOK:
-                return notBackground(base.getListInBook().stream().
-                        sorted(Comparator.comparing(Work::getYear).reversed().
-                                thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList()));
-            case INCOLLECTION:
-                return notBackground(base.getListInCollection().stream().
-                        sorted(Comparator.comparing(Work::getYear).reversed().
-                                thenComparing(Work::getName)).
-                        collect(Collectors.toUnmodifiableList()));
-            default:
-                return new ArrayList<>();
-        }
+            case THESIS -> notBackground(base.getListPhDThesis().stream().
+                    sorted(Comparator.comparing(Work::getYear).reversed().
+                            thenComparing(Work::getName)).
+                    collect(Collectors.toUnmodifiableList()));
+            case INBOOK -> notBackground(base.getListInBook().stream().
+                    sorted(Comparator.comparing(Work::getYear).reversed().
+                            thenComparing(Work::getName)).
+                    collect(Collectors.toUnmodifiableList()));
+            case INCOLLECTION -> notBackground(base.getListInCollection().stream().
+                    sorted(Comparator.comparing(Work::getYear).reversed().
+                            thenComparing(Work::getName)).
+                    collect(Collectors.toUnmodifiableList()));
+            default -> new ArrayList<>();
+        };
 
     }
 

@@ -1,2 +1,4 @@
  class Scenario {
+String prefix
+String problem
 }

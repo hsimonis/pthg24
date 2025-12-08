@@ -21,6 +21,8 @@
                <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
                <TableColumn fx:id="dirty" editable="false" styleClass="right-aligned,disabled-column" text="Dirty" />
                <TableColumn fx:id="valid" editable="false" styleClass="right-aligned,disabled-column" text="Valid" />
+               <TableColumn fx:id="problem" styleClass="right-aligned" text="Problem" />
+               <TableColumn fx:id="prefix" styleClass="right-aligned" text="Prefix" />
             </columns>
          </TableView>
       </center>

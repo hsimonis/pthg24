@@ -40,6 +40,12 @@ public class ScenarioController extends Table3Controller {
 	@FXML
 	private TableColumn<Scenario, Boolean> valid;
 
+	@FXML
+	private TableColumn<Scenario, String> problem;
+
+	@FXML
+	private TableColumn<Scenario, String> prefix;
+
 	private GeneratedJfxApp mainApp;
 
 	@Override
@@ -68,6 +74,14 @@ public class ScenarioController extends Table3Controller {
 		choices.add("valid");
 		valid.setCellValueFactory(new ValidCallback());
 		valid.setCellFactory(CheckBoxTableCell.forTableColumn(valid));
+		choices.add("problem");
+		problem.setCellValueFactory(new PropertyValueFactory<>("problem"));
+		problem.setCellFactory(TextFieldTableCell.forTableColumn());
+		problem.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setProblem(event.getNewValue()); mainApp.reset();});
+		choices.add("prefix");
+		prefix.setCellValueFactory(new PropertyValueFactory<>("prefix"));
+		prefix.setCellFactory(TextFieldTableCell.forTableColumn());
+		prefix.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPrefix(event.getNewValue()); mainApp.reset();});
 		initialize(choices);
 	}
 

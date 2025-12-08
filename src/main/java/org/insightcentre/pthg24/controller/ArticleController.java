@@ -225,6 +225,12 @@ public class ArticleController extends Table3Controller {
 	@FXML
 	private TableColumn<Article, Journal> journal;
 
+	@FXML
+	private TableColumn<Article, String> subType;
+
+	@FXML
+	private TableColumn<Article, Boolean> linked;
+
 	private GeneratedJfxApp mainApp;
 
 	@Override
@@ -483,6 +489,13 @@ public class ArticleController extends Table3Controller {
 		daysToPublish.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setDaysToPublish(event.getNewValue()); mainApp.reset();});
 		choices.add("journal");
 		journal.setCellValueFactory(new PropertyValueFactory<>("journal"));
+		choices.add("subType");
+		subType.setCellValueFactory(new PropertyValueFactory<>("subType"));
+		subType.setCellFactory(TextFieldTableCell.forTableColumn());
+		subType.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSubType(event.getNewValue()); mainApp.reset();});
+		choices.add("linked");
+		linked.setCellValueFactory(new LinkedCallback());
+		linked.setCellFactory(CheckBoxTableCell.forTableColumn(linked));
 		initialize(choices);
 	}
 
@@ -608,6 +621,21 @@ public class ArticleController extends Table3Controller {
 				@SuppressWarnings("rawtypes")
 				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
 					cellData.getValue().setWosStatus(newValue);
+				}
+			});
+			return prop;
+		}
+	}
+
+	class LinkedCallback implements Callback<TableColumn.CellDataFeatures<Article, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Article, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().linkedWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setLinked(newValue);
 				}
 			});
 			return prop;

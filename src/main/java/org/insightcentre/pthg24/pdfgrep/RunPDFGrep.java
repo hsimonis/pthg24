@@ -39,7 +39,7 @@ public class RunPDFGrep {
                         runPDFGrep(c.getCaseSensitive(),"greps/",
                                 "C:/cygwin64/bin/pdfgrep",
                                 c.getRegExpr(),
-                                "../"+ a.getLocalCopy(),
+                                a.getLocalCopy(),
                                 logFile);
                         int v = parseResult("greps/", logFile);
                         info(a.getName() + ": " + v);
@@ -53,6 +53,9 @@ public class RunPDFGrep {
                     }
 
                 }
+                // save after every concept check for all works
+                cwh.save(tmpFile);
+
             }
             cwh.save(tmpFile);
 

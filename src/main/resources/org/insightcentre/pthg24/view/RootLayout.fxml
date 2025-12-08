@@ -40,6 +40,7 @@
             </Menu>
             <Menu text="_Scenario">
                <items>
+                  <MenuItem id="processFileSolverRun" onAction="#handle" text="ProcessFile..." />
                   <MenuItem id="Check Data" onAction="#handle" text="Check Data" />
                   <SeparatorMenuItem />
                   <MenuItem id="Compare" onAction="#handle" text="Compare..." />

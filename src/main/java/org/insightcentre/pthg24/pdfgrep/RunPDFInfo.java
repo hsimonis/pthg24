@@ -29,7 +29,7 @@ public class RunPDFInfo {
             deleteExistingResultFile("greps/", logFile);
             runPDFInfo("greps/",
                     "C:/texlive/2025/bin/windows/pdfinfo",
-                    "../"+a.getLocalCopy(),
+                    a.getLocalCopy(),
                     logFile);
             int nrPages = parseResult("greps/", logFile);
             info(a.getName() + ": " + nrPages);

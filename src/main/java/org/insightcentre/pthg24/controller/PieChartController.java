@@ -31,6 +31,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("name");
 		attributeNames.add("dirty");
 		attributeNames.add("valid");
+		attributeNames.add("problem");
+		attributeNames.add("prefix");
 		choicesMap.put("Scenario", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -277,6 +279,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("daysToAccept");
 		attributeNames.add("daysToPublish");
 		attributeNames.add("journal");
+		attributeNames.add("subType");
+		attributeNames.add("linked");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");

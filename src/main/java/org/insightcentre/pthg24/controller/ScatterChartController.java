@@ -27,6 +27,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("name");
 		filterNames.add("dirty");
 		filterNames.add("valid");
+		filterNames.add("problem");
+		filterNames.add("prefix");
 		filterNames.add("name");
 		filterNames.add("type");
 		filterNames.add("item");
@@ -373,6 +375,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("daysToPublish");
 		filterNames.add("daysToPublish");
 		filterNames.add("journal");
+		filterNames.add("subType");
+		filterNames.add("linked");
 		choicesMap.put("Article", attributeNames);
 		filterMap.put("Article", filterNames);
 		attributeNames = FXCollections.observableArrayList();

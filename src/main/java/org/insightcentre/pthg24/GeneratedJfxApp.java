@@ -11,11 +11,14 @@ import java.lang.String;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
@@ -71,6 +74,8 @@ import org.insightcentre.pthg24.datamodel.UncategorizedReference;
 import org.insightcentre.pthg24.datamodel.Work;
 import org.insightcentre.pthg24.datamodel.WorkAffiliation;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
+import org.insightcentre.pthg24.generatedsolver.ProcessFileDialogBox;
+import org.insightcentre.pthg24.generatedsolver.ProcessFileSolver;
 
 /**
  * Generated code
@@ -410,6 +415,24 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		assertionData.addAll(base.getListAssertion());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
+		}
+	}
+
+	public void processFileSolverRun(Scenario base) {
+		Optional<Boolean> result = new ProcessFileDialogBox(this,base,new ProcessFileSolver(base)).showAndWait();
+		reset();
+	}
+
+	@Override
+	public void handle(ActionEvent event) throws StatusException {
+		setStatus(null);
+		MenuItem mi = ((MenuItem) event.getSource());
+		String id = mi.getId();
+		if (id.equals("processFileSolverRun")) {
+			processFileSolverRun((Scenario) fs);
+		}
+		else {
+			super.handle(event);
 		}
 	}
 

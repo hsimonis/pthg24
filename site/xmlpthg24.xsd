@@ -165,6 +165,8 @@
 			<xs:attribute name="wosStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
 			<xs:attribute name="journal" use="required" type="xs:IDREF"/>
+			<xs:attribute name="linked" use="required" type="xs:boolean"/>
+			<xs:attribute name="subType" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="assertion">
@@ -873,6 +875,8 @@
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="valid" use="required" type="xs:boolean"/>
+			<xs:attribute name="prefix" use="required" type="xs:string"/>
+			<xs:attribute name="problem" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="school">

@@ -73,6 +73,20 @@ import framework.AppearInCollection;
 
 public  class Scenario extends ApplicationDataset{
 /**
+ *  
+ *
+*/
+
+    public String prefix;
+
+/**
+ *  
+ *
+*/
+
+    public String problem;
+
+/**
  *  No-arg constructor for use in TableView
  *
 */
@@ -91,6 +105,8 @@ public  class Scenario extends ApplicationDataset{
 
     public Scenario(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setPrefix("");
+        setProblem("");
         addScenario(this);
     }
 
@@ -104,11 +120,15 @@ public  class Scenario extends ApplicationDataset{
     public Scenario(Boolean dirty,
             Integer id,
             String name,
-            Boolean valid){
+            Boolean valid,
+            String prefix,
+            String problem){
         super(dirty,
             id,
             name,
             valid);
+        setPrefix(prefix);
+        setProblem(problem);
         addScenario(this);
     }
 
@@ -116,12 +136,58 @@ public  class Scenario extends ApplicationDataset{
         this(other.dirty,
             other.id,
             other.name,
-            other.valid);
+            other.valid,
+            other.prefix,
+            other.problem);
     }
 
     public Boolean remove(){
         // ignored, you can not remove a dataset like this
         return true;
+    }
+
+/**
+ *  get attribute prefix
+ *
+ * @return String
+*/
+
+    public String getPrefix(){
+        return this.prefix;
+    }
+
+/**
+ *  get attribute problem
+ *
+ * @return String
+*/
+
+    public String getProblem(){
+        return this.problem;
+    }
+
+/**
+ *  set attribute prefix, mark dataset as dirty, mark dataset as not valid
+@param prefix String
+ *
+*/
+
+    public void setPrefix(String prefix){
+        this.prefix = prefix;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute problem, mark dataset as dirty, mark dataset as not valid
+@param problem String
+ *
+*/
+
+    public void setProblem(String problem){
+        this.problem = problem;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -141,7 +207,7 @@ public  class Scenario extends ApplicationDataset{
 */
 
     public String prettyString(){
-        return getDirty()+ " " +getId()+ " " +getName()+ " " +getValid();
+        return getDirty()+ " " +getId()+ " " +getName()+ " " +getValid()+ " " +getPrefix()+ " " +getProblem();
     }
 
 /**
@@ -165,8 +231,30 @@ public  class Scenario extends ApplicationDataset{
          out.println("<scenario "+ " dirty=\""+toXMLDirty()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
-            " valid=\""+toXMLValid()+"\""+" />");
+            " valid=\""+toXMLValid()+"\""+
+            " prefix=\""+toXMLPrefix()+"\""+
+            " problem=\""+toXMLProblem()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLPrefix(){
+        return this.safeXML(getPrefix());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLProblem(){
+        return this.safeXML(getProblem());
+    }
 
 /**
  * show object as one row in an HTML table
@@ -175,11 +263,11 @@ public  class Scenario extends ApplicationDataset{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Scenario</th>"+"<th>Name</th>"+"<th>Dirty</th>"+"<th>Valid</th>"+"</tr>";
+        return "<tr><th>Scenario</th>"+"<th>Name</th>"+"<th>Dirty</th>"+"<th>Valid</th>"+"<th>Problem</th>"+"<th>Prefix</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDirty()+"</td>"+ " " +"<td>"+getValid()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDirty()+"</td>"+ " " +"<td>"+getValid()+"</td>"+ " " +"<td>"+getProblem()+"</td>"+ " " +"<td>"+getPrefix()+"</td>"+"</tr>";
     }
 
 /**
@@ -221,7 +309,15 @@ public  class Scenario extends ApplicationDataset{
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
-        return  this.getName().equals(b.getName());
+      if(!this.getPrefix().equals(b.getPrefix())){
+         System.out.println("Prefix");
+        }
+      if(!this.getProblem().equals(b.getProblem())){
+         System.out.println("Problem");
+        }
+        return  this.getName().equals(b.getName()) &&
+          this.getPrefix().equals(b.getPrefix()) &&
+          this.getProblem().equals(b.getProblem());
     }
 
 /**

@@ -1078,7 +1078,9 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 base = new Scenario(false,
                         getId("id", attributes),
                         getString("name", attributes, "dummy"),
-                        getBoolean("valid",attributes,false)
+                        getBoolean("valid",attributes,false),
+                        getString("prefix",attributes,""),
+                        getString("problem",attributes,"")
                               );
             } else if (qname.equals("acronym")) {
                 assert (base != null);
@@ -1192,7 +1194,9 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getInteger("wosReferences",attributes,0),
                         getBoolean("wosStatus",attributes,false),
                         getInteger("year",attributes,0),
-                        null
+                        null,
+                        getBoolean("linked",attributes,false),
+                        getString("subType",attributes,"")
                         ));
             } else if (qname.equals("assertion")) {
                 assert (base != null);
