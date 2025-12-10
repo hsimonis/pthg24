@@ -231,6 +231,9 @@ public class ArticleController extends Table3Controller {
 	@FXML
 	private TableColumn<Article, Boolean> linked;
 
+	@FXML
+	private TableColumn<Article, Boolean> inSpecialIssue;
+
 	private GeneratedJfxApp mainApp;
 
 	@Override
@@ -496,6 +499,9 @@ public class ArticleController extends Table3Controller {
 		choices.add("linked");
 		linked.setCellValueFactory(new LinkedCallback());
 		linked.setCellFactory(CheckBoxTableCell.forTableColumn(linked));
+		choices.add("inSpecialIssue");
+		inSpecialIssue.setCellValueFactory(new InSpecialIssueCallback());
+		inSpecialIssue.setCellFactory(CheckBoxTableCell.forTableColumn(inSpecialIssue));
 		initialize(choices);
 	}
 
@@ -636,6 +642,21 @@ public class ArticleController extends Table3Controller {
 				@SuppressWarnings("rawtypes")
 				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
 					cellData.getValue().setLinked(newValue);
+				}
+			});
+			return prop;
+		}
+	}
+
+	class InSpecialIssueCallback implements Callback<TableColumn.CellDataFeatures<Article, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Article, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().inSpecialIssueWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setInSpecialIssue(newValue);
 				}
 			});
 			return prop;

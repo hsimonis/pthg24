@@ -1,4 +1,5 @@
  class Article {
+Boolean inSpecialIssue
 Journal journal
 Boolean linked
 String subType

@@ -14,11 +14,12 @@ import java.util.Comparator;
 import java.util.stream.Collectors;
 
 import static org.insightcentre.pthg24.datamodel.MatchLevel.*;
-import static org.insightcentre.pthg24.logging.LogShortcut.info;
-import static org.insightcentre.pthg24.logging.LogShortcut.severe;
+import static org.insightcentre.pthg24.logging.LogShortcut.*;
+import static org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL.relativeLink;
 
 public class RunPDFInfo {
     public RunPDFInfo(Scenario base,String bibDir){
+        info("Search for page count with pdfinfo");
         for (Work a : base.getListWork().stream().
                 filter(x -> x.getLocalCopy() != null).
                 filter(x -> !x.getLocalCopy().equals("")).
@@ -29,7 +30,7 @@ public class RunPDFInfo {
             deleteExistingResultFile("greps/", logFile);
             runPDFInfo("greps/",
                     "C:/texlive/2025/bin/windows/pdfinfo",
-                    a.getLocalCopy(),
+                    relativeLink(a),
                     logFile);
             int nrPages = parseResult("greps/", logFile);
             info(a.getName() + ": " + nrPages);
@@ -98,6 +99,7 @@ public class RunPDFInfo {
                 }
             }
             br.close();
+            warning("pdfinfo failed");
             return -1;
 
         } catch(IOException e){

@@ -1194,6 +1194,7 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getInteger("wosReferences",attributes,0),
                         getBoolean("wosStatus",attributes,false),
                         getInteger("year",attributes,0),
+                        getBoolean("inSpecialIssue",attributes,false),
                         null,
                         getBoolean("linked",attributes,false),
                         getString("subType",attributes,"")

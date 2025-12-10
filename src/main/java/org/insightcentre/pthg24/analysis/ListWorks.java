@@ -58,7 +58,7 @@ public class ListWorks extends AbstractList{
                 ">{\\raggedright\\arraybackslash}p{6.0cm}p{1.0cm}rr>{\\raggedright\\arraybackslash}p{2.0cm}r>{\\raggedright\\arraybackslash}p{1cm}p{1cm}p{1cm}p{1cm}}\n");
         out.printf("\\rowcolor{white}\\caption{%s (Total %d)}\\\\ \\toprule\n",safe(caption),works.size());
         out.printf("\\rowcolor{white}\\shortstack{Key\\\\Source} & Authors & Title (Colored by Open Access)& \\shortstack{Details\\\\LC} & Cite & Year & " +
-                "\\shortstack{Conference\\\\/Journal\\\\/School\\\\\\textcolor{red}{/SubType}} & \\shortstack{Pages\\\\/Linked} & Relevance &\\shortstack{Cites\\\\OC XR\\\\SC} & " +
+                "\\shortstack{Conference\\\\/Journal\\\\/School\\\\\\textcolor{red}{/SubType}} & \\shortstack{Pages\\\\/\\textcolor{green}{Linked}\\\\/\\textcolor{blue}{Topical}} & Relevance &\\shortstack{Cites\\\\OC XR\\\\SC} & " +
                 "\\shortstack{Refs\\\\OC\\\\XR} & \\shortstack{Links\\\\Cites\\\\Refs}\\\\ \\midrule");
         out.printf("\\endhead\n");
         out.printf("\\bottomrule\n");
@@ -100,8 +100,12 @@ public class ListWorks extends AbstractList{
     }
 
     private String highlightLinked(Work w){
-        if (w instanceof Article a && a.getLinked()){
+        if (w instanceof Article a && a.getInSpecialIssue() && a.getLinked()) {
             return "\\cellcolor{black!30}";
+        } else if (w instanceof Article a && a.getInSpecialIssue()) {
+                return "\\cellcolor{blue!20}";
+        }else if (w instanceof Article a && a.getLinked()){
+                return "\\cellcolor{green!20}";
         } else {
             return "";
         }

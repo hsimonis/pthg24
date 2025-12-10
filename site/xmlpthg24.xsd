@@ -164,6 +164,7 @@
 			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="wosStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
+			<xs:attribute name="inSpecialIssue" use="required" type="xs:boolean"/>
 			<xs:attribute name="journal" use="required" type="xs:IDREF"/>
 			<xs:attribute name="linked" use="required" type="xs:boolean"/>
 			<xs:attribute name="subType" use="required" type="xs:string"/>

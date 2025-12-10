@@ -2,10 +2,7 @@ package org.insightcentre.pthg24.implementedsolver;
 
 import org.insightcentre.pthg24.analysis.*;
 import org.insightcentre.pthg24.clustering.DumpFeatures;
-import org.insightcentre.pthg24.datamodel.Article;
-import org.insightcentre.pthg24.datamodel.Scenario;
-import org.insightcentre.pthg24.datamodel.Similarity;
-import org.insightcentre.pthg24.datamodel.Work;
+import org.insightcentre.pthg24.datamodel.*;
 import org.insightcentre.pthg24.generatedsolver.ProcessFileSolver;
 import org.insightcentre.pthg24.imports.*;
 import org.insightcentre.pthg24.pdfgrep.RunPDFGrep;
@@ -172,6 +169,23 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
                 filter(Work::getBackground).
                 sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getKey)).
                 toList(),exportDir,"background.tex","Background Works");
+
+//        Concept conc = Concept.findByName(base,"Extended version");
+        Concept conc = Concept.findByName(base,"revised");
+        assert(conc != null);
+        new ListWorks(base,base.getListConceptWork().stream().
+                filter(x->x.getConcept()==conc && x.getCount() > 0).
+                map(ConceptWork::getWork).
+                sorted(Comparator.comparing(Work::getName)).
+                toList(),exportDir,"extended.tex","Possibly Extended Articles");
+
+        Concept topical = Concept.findByName(base,"Topical collection");
+        assert(topical != null);
+        new ListWorks(base,base.getListConceptWork().stream().
+                filter(x->x.getConcept()==topical && x.getCount() > 0).
+                map(ConceptWork::getWork).
+                sorted(Comparator.comparing(Work::getName)).
+                toList(),exportDir,"topical.tex","Topical Collections");
 
 
         new ListAuthors(base,exportDir,"authors.tex");

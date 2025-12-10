@@ -43,6 +43,15 @@ public class ImportSubTypes {
                             w.setLinked(true);
                         }
                     }
+                } else if (obj.has("topic")){
+                    JSONArray works = obj.getJSONArray("works");
+                    for(int j = 0;j<works.length();j++){
+                        Article w = findArticle(base,works.getString(j));
+                        if (w != null) {
+                            w.setInSpecialIssue(true);
+                        }
+                    }
+
                 }
 
             }

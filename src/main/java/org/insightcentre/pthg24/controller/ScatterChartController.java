@@ -377,6 +377,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("journal");
 		filterNames.add("subType");
 		filterNames.add("linked");
+		filterNames.add("inSpecialIssue");
 		choicesMap.put("Article", attributeNames);
 		filterMap.put("Article", filterNames);
 		attributeNames = FXCollections.observableArrayList();

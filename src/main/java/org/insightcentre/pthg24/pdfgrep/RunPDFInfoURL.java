@@ -18,7 +18,9 @@ import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class RunPDFInfoURL {
+
     public RunPDFInfoURL(Scenario base,String bibDir){
+        info("RunPDFInfoUrl");
         for (Work a : base.getListWork().stream().
                 filter(x -> x.getLocalCopy() != null).
                 filter(x -> !x.getLocalCopy().equals("")).
@@ -28,7 +30,7 @@ public class RunPDFInfoURL {
             deleteExistingResultFile("greps/", logFile);
             runPDFInfo("greps/",
                     "C:/texlive/2025/bin/windows/pdfinfo",
-                    "../"+a.getLocalCopy(),
+                    relativeLink(a),
                     logFile);
             int nrURL = parseResult("greps/", logFile);
             info(a.getName() + ": " + nrURL);
@@ -37,6 +39,16 @@ public class RunPDFInfoURL {
 
         }
 
+    }
+
+    /*
+    pdfinfo on windows does not work with an absolute path name in the given format
+    we construct a relative path instead, but this depends on the local installation of the surveys directory
+
+     */
+    public static String relativeLink(Work w){
+        //??? adapt to local directory layout
+        return "../../surveys/constraints/works/"+w.getName()+".pdf";
     }
 
 

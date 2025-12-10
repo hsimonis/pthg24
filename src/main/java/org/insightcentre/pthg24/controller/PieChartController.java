@@ -281,6 +281,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("journal");
 		attributeNames.add("subType");
 		attributeNames.add("linked");
+		attributeNames.add("inSpecialIssue");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");

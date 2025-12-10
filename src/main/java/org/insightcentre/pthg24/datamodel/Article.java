@@ -77,6 +77,15 @@ public  class Article extends Work{
  *
 */
 
+    public Boolean inSpecialIssue;
+
+    private transient BooleanProperty inSpecialIssueWrapper;
+
+/**
+ *  
+ *
+*/
+
     public Journal journal;
 
 /**
@@ -114,6 +123,7 @@ public  class Article extends Work{
 
     public Article(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setInSpecialIssue(false);
         setJournal(null);
         setLinked(false);
         setSubType("");
@@ -190,6 +200,7 @@ public  class Article extends Work{
             Integer wosReferences,
             Boolean wosStatus,
             Integer year,
+            Boolean inSpecialIssue,
             Journal journal,
             Boolean linked,
             String subType){
@@ -256,6 +267,7 @@ public  class Article extends Work{
             wosReferences,
             wosStatus,
             year);
+        setInSpecialIssue(inSpecialIssue);
         setJournal(journal);
         setLinked(linked);
         setSubType(subType);
@@ -326,6 +338,7 @@ public  class Article extends Work{
             other.wosReferences,
             other.wosStatus,
             other.year,
+            other.inSpecialIssue,
             other.journal,
             other.linked,
             other.subType);
@@ -355,6 +368,24 @@ public  class Article extends Work{
         getApplicationDataset().cascadeAuthorDoubleWork2(this);
         getApplicationDataset().cascadeAssertionWork(this);
         return getApplicationDataset().removeArticle(this) && getApplicationDataset().removeWork(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  get attribute inSpecialIssue
+ *
+ * @return Boolean
+*/
+
+    public Boolean getInSpecialIssue(){
+        return this.inSpecialIssue;
+    }
+
+    public BooleanProperty inSpecialIssueWrapperProperty() {
+        if (inSpecialIssueWrapper == null) {
+            inSpecialIssueWrapper = new SimpleBooleanProperty();
+        }
+        inSpecialIssueWrapper.set(inSpecialIssue);
+        return inSpecialIssueWrapper;
     }
 
 /**
@@ -393,6 +424,18 @@ public  class Article extends Work{
 
     public String getSubType(){
         return this.subType;
+    }
+
+/**
+ *  set attribute inSpecialIssue, mark dataset as dirty, mark dataset as not valid
+@param inSpecialIssue Boolean
+ *
+*/
+
+    public void setInSpecialIssue(Boolean inSpecialIssue){
+        this.inSpecialIssue = inSpecialIssue;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -448,7 +491,7 @@ public  class Article extends Work{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAccepted()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDaysToAccept()+ " " +getDaysToPublish()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getFirstOnline()+ " " +getIssn()+ " " +getKey()+ " " +getKeywords()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublished()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getReceived()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getRevised()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear()+ " " +getJournal().toColumnString()+ " " +getLinked()+ " " +getSubType();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAccepted()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDaysToAccept()+ " " +getDaysToPublish()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getFirstOnline()+ " " +getIssn()+ " " +getKey()+ " " +getKeywords()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublished()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getReceived()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getRevised()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear()+ " " +getInSpecialIssue()+ " " +getJournal().toColumnString()+ " " +getLinked()+ " " +getSubType();
     }
 
 /**
@@ -532,10 +575,21 @@ public  class Article extends Work{
             " wosReferences=\""+toXMLWosReferences()+"\""+
             " wosStatus=\""+toXMLWosStatus()+"\""+
             " year=\""+toXMLYear()+"\""+
+            " inSpecialIssue=\""+toXMLInSpecialIssue()+"\""+
             " journal=\""+toXMLJournal()+"\""+
             " linked=\""+toXMLLinked()+"\""+
             " subType=\""+toXMLSubType()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLInSpecialIssue(){
+        return this.getInSpecialIssue().toString();
+    }
 
 /**
  * helper method for toXML(), prcess one attribute
@@ -574,11 +628,11 @@ public  class Article extends Work{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Article</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>Nr</th>"+"<th>NrEdges</th>"+"<th>Cluster</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Publisher</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>Issn</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>NrHyperLinks</th>"+"<th>Background</th>"+"<th>SourceGroup</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>RelatedTo</th>"+"<th>OpenAccess</th>"+"<th>OpenAccessType</th>"+"<th>NrConcepts</th>"+"<th>NrCitations</th>"+"<th>NrReferences</th>"+"<th>CrossrefCitations</th>"+"<th>CrossrefReferences</th>"+"<th>WosCitations</th>"+"<th>WosReferences</th>"+"<th>ScopusCitations</th>"+"<th>NrCitationsCovered</th>"+"<th>NrReferencesCovered</th>"+"<th>PercentCitationsCovered</th>"+"<th>PercentReferencesCovered</th>"+"<th>MaxCitations</th>"+"<th>RangeCitations</th>"+"<th>DoiStatus</th>"+"<th>CrossrefStatus</th>"+"<th>ScopusStatus</th>"+"<th>WosStatus</th>"+"<th>RelevanceTitle</th>"+"<th>RelevanceAbstract</th>"+"<th>RelevanceBody</th>"+"<th>Language</th>"+"<th>Keywords</th>"+"<th>AbstractText</th>"+"<th>Concept</th>"+"<th>Received</th>"+"<th>Accepted</th>"+"<th>Revised</th>"+"<th>FirstOnline</th>"+"<th>Published</th>"+"<th>DaysToAccept</th>"+"<th>DaysToPublish</th>"+"<th>Journal</th>"+"<th>SubType</th>"+"<th>Linked</th>"+"</tr>";
+        return "<tr><th>Article</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>Nr</th>"+"<th>NrEdges</th>"+"<th>Cluster</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Publisher</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>Issn</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>NrHyperLinks</th>"+"<th>Background</th>"+"<th>SourceGroup</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>RelatedTo</th>"+"<th>OpenAccess</th>"+"<th>OpenAccessType</th>"+"<th>NrConcepts</th>"+"<th>NrCitations</th>"+"<th>NrReferences</th>"+"<th>CrossrefCitations</th>"+"<th>CrossrefReferences</th>"+"<th>WosCitations</th>"+"<th>WosReferences</th>"+"<th>ScopusCitations</th>"+"<th>NrCitationsCovered</th>"+"<th>NrReferencesCovered</th>"+"<th>PercentCitationsCovered</th>"+"<th>PercentReferencesCovered</th>"+"<th>MaxCitations</th>"+"<th>RangeCitations</th>"+"<th>DoiStatus</th>"+"<th>CrossrefStatus</th>"+"<th>ScopusStatus</th>"+"<th>WosStatus</th>"+"<th>RelevanceTitle</th>"+"<th>RelevanceAbstract</th>"+"<th>RelevanceBody</th>"+"<th>Language</th>"+"<th>Keywords</th>"+"<th>AbstractText</th>"+"<th>Concept</th>"+"<th>Received</th>"+"<th>Accepted</th>"+"<th>Revised</th>"+"<th>FirstOnline</th>"+"<th>Published</th>"+"<th>DaysToAccept</th>"+"<th>DaysToPublish</th>"+"<th>Journal</th>"+"<th>SubType</th>"+"<th>Linked</th>"+"<th>InSpecialIssue</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getNr()+"</td>"+ " " +"<td>"+getNrEdges()+"</td>"+ " " +"<td>"+getCluster()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getPublisher().toColumnString()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getIssn()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getNrHyperLinks()+"</td>"+ " " +"<td>"+getBackground()+"</td>"+ " " +"<td>"+getSourceGroup().toColumnString()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getRelatedTo()+"</td>"+ " " +"<td>"+getOpenAccess()+"</td>"+ " " +"<td>"+getOpenAccessType()+"</td>"+ " " +"<td>"+getNrConcepts()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getWosCitations()+"</td>"+ " " +"<td>"+getWosReferences()+"</td>"+ " " +"<td>"+getScopusCitations()+"</td>"+ " " +"<td>"+getNrCitationsCovered()+"</td>"+ " " +"<td>"+getNrReferencesCovered()+"</td>"+ " " +"<td>"+getPercentCitationsCovered()+"</td>"+ " " +"<td>"+getPercentReferencesCovered()+"</td>"+ " " +"<td>"+getMaxCitations()+"</td>"+ " " +"<td>"+getRangeCitations()+"</td>"+ " " +"<td>"+getDoiStatus()+"</td>"+ " " +"<td>"+getCrossrefStatus()+"</td>"+ " " +"<td>"+getScopusStatus()+"</td>"+ " " +"<td>"+getWosStatus()+"</td>"+ " " +"<td>"+getRelevanceTitle()+"</td>"+ " " +"<td>"+getRelevanceAbstract()+"</td>"+ " " +"<td>"+getRelevanceBody()+"</td>"+ " " +"<td>"+getLanguage()+"</td>"+ " " +"<td>"+getKeywords()+"</td>"+ " " +"<td>"+getAbstractText()+"</td>"+ " " +"<td>"+getConcept()+"</td>"+ " " +"<td>"+getReceived()+"</td>"+ " " +"<td>"+getAccepted()+"</td>"+ " " +"<td>"+getRevised()+"</td>"+ " " +"<td>"+getFirstOnline()+"</td>"+ " " +"<td>"+getPublished()+"</td>"+ " " +"<td>"+getDaysToAccept()+"</td>"+ " " +"<td>"+getDaysToPublish()+"</td>"+ " " +"<td>"+getJournal().toColumnString()+"</td>"+ " " +"<td>"+getSubType()+"</td>"+ " " +"<td>"+getLinked()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getNr()+"</td>"+ " " +"<td>"+getNrEdges()+"</td>"+ " " +"<td>"+getCluster()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getPublisher().toColumnString()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getIssn()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getNrHyperLinks()+"</td>"+ " " +"<td>"+getBackground()+"</td>"+ " " +"<td>"+getSourceGroup().toColumnString()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getRelatedTo()+"</td>"+ " " +"<td>"+getOpenAccess()+"</td>"+ " " +"<td>"+getOpenAccessType()+"</td>"+ " " +"<td>"+getNrConcepts()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getWosCitations()+"</td>"+ " " +"<td>"+getWosReferences()+"</td>"+ " " +"<td>"+getScopusCitations()+"</td>"+ " " +"<td>"+getNrCitationsCovered()+"</td>"+ " " +"<td>"+getNrReferencesCovered()+"</td>"+ " " +"<td>"+getPercentCitationsCovered()+"</td>"+ " " +"<td>"+getPercentReferencesCovered()+"</td>"+ " " +"<td>"+getMaxCitations()+"</td>"+ " " +"<td>"+getRangeCitations()+"</td>"+ " " +"<td>"+getDoiStatus()+"</td>"+ " " +"<td>"+getCrossrefStatus()+"</td>"+ " " +"<td>"+getScopusStatus()+"</td>"+ " " +"<td>"+getWosStatus()+"</td>"+ " " +"<td>"+getRelevanceTitle()+"</td>"+ " " +"<td>"+getRelevanceAbstract()+"</td>"+ " " +"<td>"+getRelevanceBody()+"</td>"+ " " +"<td>"+getLanguage()+"</td>"+ " " +"<td>"+getKeywords()+"</td>"+ " " +"<td>"+getAbstractText()+"</td>"+ " " +"<td>"+getConcept()+"</td>"+ " " +"<td>"+getReceived()+"</td>"+ " " +"<td>"+getAccepted()+"</td>"+ " " +"<td>"+getRevised()+"</td>"+ " " +"<td>"+getFirstOnline()+"</td>"+ " " +"<td>"+getPublished()+"</td>"+ " " +"<td>"+getDaysToAccept()+"</td>"+ " " +"<td>"+getDaysToPublish()+"</td>"+ " " +"<td>"+getJournal().toColumnString()+"</td>"+ " " +"<td>"+getSubType()+"</td>"+ " " +"<td>"+getLinked()+"</td>"+ " " +"<td>"+getInSpecialIssue()+"</td>"+"</tr>";
     }
 
 /**
@@ -753,6 +807,9 @@ public  class Article extends Work{
       if(!this.getFirstOnline().equals(b.getFirstOnline())){
          System.out.println("FirstOnline");
         }
+      if(!this.getInSpecialIssue().equals(b.getInSpecialIssue())){
+         System.out.println("InSpecialIssue");
+        }
       if(!this.getIssn().equals(b.getIssn())){
          System.out.println("Issn");
         }
@@ -905,6 +962,7 @@ public  class Article extends Work{
           this.getDoi().equals(b.getDoi()) &&
           this.getDoiStatus().equals(b.getDoiStatus()) &&
           this.getFirstOnline().equals(b.getFirstOnline()) &&
+          this.getInSpecialIssue().equals(b.getInSpecialIssue()) &&
           this.getIssn().equals(b.getIssn()) &&
           this.getJournal().applicationSame(b.getJournal()) &&
           this.getKey().equals(b.getKey()) &&
