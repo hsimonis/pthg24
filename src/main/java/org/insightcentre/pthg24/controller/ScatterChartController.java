@@ -378,6 +378,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("subType");
 		filterNames.add("link");
 		filterNames.add("specialIssue");
+		filterNames.add("isOriginal");
 		choicesMap.put("Article", attributeNames);
 		filterMap.put("Article", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -1190,6 +1191,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("name");
 		filterNames.add("shortName");
 		filterNames.add("topic");
+		filterNames.add("basedOnConference");
 		filterNames.add("name");
 		filterNames.add("article");
 		filterNames.add("venue");

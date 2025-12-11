@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import static org.insightcentre.pthg24.datamodel.SubType.Regular;
 import static org.insightcentre.pthg24.datamodel.WorkType.*;
 import static org.insightcentre.pthg24.datamodel.WorkType.ARTICLE;
 import static org.insightcentre.pthg24.datamodel.WorkType.INBOOK;
@@ -169,6 +170,19 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
                 filter(Work::getBackground).
                 sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getKey)).
                 toList(),exportDir,"background.tex","Background Works");
+        new ListSpecialIssues(base,base.getListSpecialIssue(),
+                exportDir,"specialissues.tex","Special Issues");
+
+        for(SubType subType:SubType.values()){
+            if (subType != Regular) {
+                new ListWorks(base, new ArrayList<>(base.getListArticle().stream().
+                        filter(x -> x.getSubType() == subType).
+                        sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
+                        toList()), exportDir, subType.toString().toLowerCase() + ".tex",
+                        "Articles of SubType " + subType.toString());
+            }
+
+        }
 
 //        Concept conc = Concept.findByName(base,"Extended version");
         Concept conc = Concept.findByName(base,"revised");

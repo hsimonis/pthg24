@@ -237,6 +237,9 @@ public class ArticleController extends Table3Controller {
 	@FXML
 	private TableColumn<Article, SpecialIssue> specialIssue;
 
+	@FXML
+	private TableColumn<Article, Boolean> isOriginal;
+
 	private GeneratedJfxApp mainApp;
 
 	@Override
@@ -508,6 +511,9 @@ public class ArticleController extends Table3Controller {
 		link.setCellValueFactory(new PropertyValueFactory<>("link"));
 		choices.add("specialIssue");
 		specialIssue.setCellValueFactory(new PropertyValueFactory<>("specialIssue"));
+		choices.add("isOriginal");
+		isOriginal.setCellValueFactory(new IsOriginalCallback());
+		isOriginal.setCellFactory(CheckBoxTableCell.forTableColumn(isOriginal));
 		initialize(choices);
 	}
 
@@ -633,6 +639,21 @@ public class ArticleController extends Table3Controller {
 				@SuppressWarnings("rawtypes")
 				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
 					cellData.getValue().setWosStatus(newValue);
+				}
+			});
+			return prop;
+		}
+	}
+
+	class IsOriginalCallback implements Callback<TableColumn.CellDataFeatures<Article, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Article, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().isOriginalWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setIsOriginal(newValue);
 				}
 			});
 			return prop;

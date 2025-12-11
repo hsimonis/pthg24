@@ -166,6 +166,7 @@
 			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="wosStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
+			<xs:attribute name="isOriginal" use="required" type="xs:boolean"/>
 			<xs:attribute name="journal" use="required" type="xs:IDREF"/>
 			<xs:attribute name="link" use="required" type="xs:IDREF"/>
 			<xs:attribute name="specialIssue" use="required" type="xs:IDREF"/>
@@ -972,6 +973,7 @@
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
 			<xs:attribute name="id" use="required" type="xs:ID"/>
 			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="basedOnConference" use="required" type="xs:boolean"/>
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="topic" use="required" type="xs:string"/>
 		</xs:complexType>

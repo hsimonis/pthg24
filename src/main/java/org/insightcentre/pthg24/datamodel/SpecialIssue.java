@@ -80,6 +80,15 @@ public  class SpecialIssue extends ApplicationObject{
  *
 */
 
+    public Boolean basedOnConference;
+
+    private transient BooleanProperty basedOnConferenceWrapper;
+
+/**
+ *  
+ *
+*/
+
     public String shortName;
 
 /**
@@ -108,6 +117,7 @@ public  class SpecialIssue extends ApplicationObject{
 
     public SpecialIssue(ApplicationDataset applicationDataset){
         super(applicationDataset);
+        setBasedOnConference(false);
         setShortName("");
         setTopic("");
         applicationDataset.addSpecialIssue(this);
@@ -123,11 +133,13 @@ public  class SpecialIssue extends ApplicationObject{
     public SpecialIssue(ApplicationDataset applicationDataset,
             Integer id,
             String name,
+            Boolean basedOnConference,
             String shortName,
             String topic){
         super(applicationDataset,
             id,
             name);
+        setBasedOnConference(basedOnConference);
         setShortName(shortName);
         setTopic(topic);
         applicationDataset.addSpecialIssue(this);
@@ -137,6 +149,7 @@ public  class SpecialIssue extends ApplicationObject{
         this(other.applicationDataset,
             other.id,
             other.name,
+            other.basedOnConference,
             other.shortName,
             other.topic);
     }
@@ -151,6 +164,24 @@ public  class SpecialIssue extends ApplicationObject{
     public Boolean remove(){
         getApplicationDataset().cascadeArticleSpecialIssue(this);
         return getApplicationDataset().removeSpecialIssue(this) && getApplicationDataset().removeApplicationObject(this);
+    }
+
+/**
+ *  get attribute basedOnConference
+ *
+ * @return Boolean
+*/
+
+    public Boolean getBasedOnConference(){
+        return this.basedOnConference;
+    }
+
+    public BooleanProperty basedOnConferenceWrapperProperty() {
+        if (basedOnConferenceWrapper == null) {
+            basedOnConferenceWrapper = new SimpleBooleanProperty();
+        }
+        basedOnConferenceWrapper.set(basedOnConference);
+        return basedOnConferenceWrapper;
     }
 
 /**
@@ -171,6 +202,18 @@ public  class SpecialIssue extends ApplicationObject{
 
     public String getTopic(){
         return this.topic;
+    }
+
+/**
+ *  set attribute basedOnConference, mark dataset as dirty, mark dataset as not valid
+@param basedOnConference Boolean
+ *
+*/
+
+    public void setBasedOnConference(Boolean basedOnConference){
+        this.basedOnConference = basedOnConference;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
     }
 
 /**
@@ -214,7 +257,7 @@ public  class SpecialIssue extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getShortName()+ " " +getTopic();
+        return ""+ " " +getId()+ " " +getName()+ " " +getBasedOnConference()+ " " +getShortName()+ " " +getTopic();
     }
 
 /**
@@ -238,9 +281,20 @@ public  class SpecialIssue extends ApplicationObject{
          out.println("<specialIssue "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
+            " basedOnConference=\""+toXMLBasedOnConference()+"\""+
             " shortName=\""+toXMLShortName()+"\""+
             " topic=\""+toXMLTopic()+"\""+" />");
      }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLBasedOnConference(){
+        return this.getBasedOnConference().toString();
+    }
 
 /**
  * helper method for toXML(), prcess one attribute
@@ -269,11 +323,11 @@ public  class SpecialIssue extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>SpecialIssue</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>Topic</th>"+"</tr>";
+        return "<tr><th>SpecialIssue</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>Topic</th>"+"<th>BasedOnConference</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getTopic()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getTopic()+"</td>"+ " " +"<td>"+getBasedOnConference()+"</td>"+"</tr>";
     }
 
 /**
@@ -390,6 +444,9 @@ public  class SpecialIssue extends ApplicationObject{
 */
 
     public Boolean applicationEqual(SpecialIssue b){
+      if(!this.getBasedOnConference().equals(b.getBasedOnConference())){
+         System.out.println("BasedOnConference");
+        }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
@@ -399,7 +456,8 @@ public  class SpecialIssue extends ApplicationObject{
       if(!this.getTopic().equals(b.getTopic())){
          System.out.println("Topic");
         }
-        return  this.getName().equals(b.getName()) &&
+        return  this.getBasedOnConference().equals(b.getBasedOnConference()) &&
+          this.getName().equals(b.getName()) &&
           this.getShortName().equals(b.getShortName()) &&
           this.getTopic().equals(b.getTopic());
     }

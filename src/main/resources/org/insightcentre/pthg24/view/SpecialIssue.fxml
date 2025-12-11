@@ -21,6 +21,7 @@
                <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
                <TableColumn fx:id="shortName" styleClass="right-aligned" text="ShortName" />
                <TableColumn fx:id="topic" styleClass="right-aligned" text="Topic" />
+               <TableColumn fx:id="basedOnConference" styleClass="right-aligned" text="BasedOnConference" />
             </columns>
          </TableView>
       </center>

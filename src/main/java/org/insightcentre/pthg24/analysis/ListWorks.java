@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.ListWorksManual.manualInterest;
+import static org.insightcentre.pthg24.datamodel.SubType.Application;
 import static org.insightcentre.pthg24.datamodel.SubType.Regular;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
@@ -105,8 +106,12 @@ public class ListWorks extends AbstractList{
             return "\\cellcolor{black!30}";
         } else if (w instanceof Article a && a.getSpecialIssue() != null) {
                 return "\\cellcolor{blue!20}";
-        }else if (w instanceof Article a && a.getLink()!=null){
-                return "\\cellcolor{green!20}";
+        } else if (w instanceof Article a && a.getLink()!=null){
+            return "\\cellcolor{green!20}";
+        } else if (w instanceof Article a && a.getSubType()!=null && a.getSubType() != Application){
+            return "\\cellcolor{red!10}";
+        } else if (w instanceof Article a && !a.getIsOriginal()){
+            return "\\cellcolor{yellow!20}";
         } else {
             return "";
         }

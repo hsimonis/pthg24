@@ -83,6 +83,7 @@
                <TableColumn fx:id="subType" styleClass="right-aligned" text="SubType" />
                <TableColumn fx:id="link" styleClass="right-aligned" text="Link" />
                <TableColumn fx:id="specialIssue" styleClass="right-aligned" text="SpecialIssue" />
+               <TableColumn fx:id="isOriginal" styleClass="right-aligned" text="IsOriginal" />
             </columns>
          </TableView>
       </center>

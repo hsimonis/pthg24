@@ -282,6 +282,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("subType");
 		attributeNames.add("link");
 		attributeNames.add("specialIssue");
+		attributeNames.add("isOriginal");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -858,6 +859,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("name");
 		attributeNames.add("shortName");
 		attributeNames.add("topic");
+		attributeNames.add("basedOnConference");
 		choicesMap.put("SpecialIssue", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");

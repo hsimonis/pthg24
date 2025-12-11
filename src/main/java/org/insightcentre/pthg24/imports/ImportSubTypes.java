@@ -40,25 +40,41 @@ public class ImportSubTypes {
                     String article = obj.getString("link");
                     String venue = obj.getString("venue");
                     String basis = obj.getString("basis");
-                    Link link = new Link(base);
                     Article w = findArticle(base,article);
-                    link.setName("Link"+linkId++);
-                    link.setVenue(venue);
-                    link.setBasis(basis);
-                    w.setLink(link);
+                    if (w != null) {
+                        Link link = new Link(base);
+                        link.setName("Link" + linkId++);
+                        link.setVenue(venue);
+                        link.setBasis(basis);
+                        w.setLink(link);
+                    }
 
                 } else if (obj.has("topic")){
                     String topic = obj.getString("topic");
                     String shortName = obj.getString("short");
+                    boolean basedOnConference = false;
+                    if (obj.has("basedOnConference")){
+                        basedOnConference = obj.getBoolean("basedOnConference");
+                    }
                     SpecialIssue special = new SpecialIssue(base);
                     special.setName("Special"+specialId++);
                     special.setShortName(shortName);
                     special.setTopic(topic);
+                    special.setBasedOnConference(basedOnConference);
                     JSONArray works = obj.getJSONArray("works");
                     for(int j = 0;j<works.length();j++){
                         Article w = findArticle(base,works.getString(j));
                         if (w != null) {
                             w.setSpecialIssue(special);
+                        }
+                    }
+
+                } else if (obj.has("original")){
+                    JSONArray works = obj.getJSONArray("original");
+                    for(int j = 0;j<works.length();j++){
+                        Article w = findArticle(base,works.getString(j));
+                        if (w != null) {
+                            w.setIsOriginal(true);
                         }
                     }
 

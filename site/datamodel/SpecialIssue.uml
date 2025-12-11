@@ -1,4 +1,5 @@
  class SpecialIssue {
+Boolean basedOnConference
 String shortName
 String topic
 }

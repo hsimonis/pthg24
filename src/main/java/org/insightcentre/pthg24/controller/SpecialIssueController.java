@@ -2,18 +2,25 @@ package org.insightcentre.pthg24.controller;
 
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
+import java.lang.Boolean;
 import java.lang.Exception;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
+import java.lang.SuppressWarnings;
 import java.lang.reflect.Field;
+import javafx.beans.property.Property;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.Callback;
 import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.SpecialIssue;
 
@@ -32,6 +39,9 @@ public class SpecialIssueController extends Table3Controller {
 
 	@FXML
 	private TableColumn<SpecialIssue, String> topic;
+
+	@FXML
+	private TableColumn<SpecialIssue, Boolean> basedOnConference;
 
 	private GeneratedJfxApp mainApp;
 
@@ -63,6 +73,9 @@ public class SpecialIssueController extends Table3Controller {
 		topic.setCellValueFactory(new PropertyValueFactory<>("topic"));
 		topic.setCellFactory(TextFieldTableCell.forTableColumn());
 		topic.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setTopic(event.getNewValue()); mainApp.reset();});
+		choices.add("basedOnConference");
+		basedOnConference.setCellValueFactory(new BasedOnConferenceCallback());
+		basedOnConference.setCellFactory(CheckBoxTableCell.forTableColumn(basedOnConference));
 		initialize(choices);
 	}
 
@@ -116,6 +129,22 @@ public class SpecialIssueController extends Table3Controller {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	class BasedOnConferenceCallback implements Callback<TableColumn.CellDataFeatures<SpecialIssue, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(
+				TableColumn.CellDataFeatures<SpecialIssue, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().basedOnConferenceWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setBasedOnConference(newValue);
+				}
+			});
+			return prop;
 		}
 	}
 }
