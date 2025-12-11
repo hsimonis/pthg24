@@ -1,6 +1,6 @@
  class Article {
-Boolean inSpecialIssue
 Journal journal
-Boolean linked
-String subType
+Link link
+SpecialIssue specialIssue
+SubType subType
 }

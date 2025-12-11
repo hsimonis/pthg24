@@ -22,6 +22,8 @@ import static org.insightcentre.pthg24.logging.LogShortcut.info;
 
 public class ProcessFileDialogBox extends GeneralDialogBox{
    private TextField problemItem = new TextField();
+   private CheckBox conceptMatchingItem = new CheckBox();
+   private CheckBox externalLinksItem = new CheckBox();
 
     public ProcessFileDialogBox(GeneratedJfxApp app, Scenario base,AbstractSolver solver){
         super(app, base, solver);
@@ -34,6 +36,12 @@ public class ProcessFileDialogBox extends GeneralDialogBox{
         pane.add(new Label("Problem:"), 0, row);
         pane.add(problemItem, 1, row++);
         problemItem.setText(((ProcessFileSolver)solver).getProblem());
+        pane.add(new Label("Perform Concept Matching:"), 0, row);
+        pane.add(conceptMatchingItem, 1, row++);
+        conceptMatchingItem.setSelected(((ProcessFileSolver)solver).getConceptMatching());
+        pane.add(new Label("Check External Links:"), 0, row);
+        pane.add(externalLinksItem, 1, row++);
+        externalLinksItem.setSelected(((ProcessFileSolver)solver).getExternalLinks());
         getDialogPane().setContent(pane);
         setTitle("ProcessFile Solver Parameters");
     }
@@ -44,8 +52,12 @@ public void handle(InputEvent event) {
       ((KeyEvent) event).getCode() == KeyCode.ENTER)) {
         info("Get ProcessFile parameters");
         String problemValue = problemItem.getText();
+        boolean conceptMatchingValue = conceptMatchingItem.isSelected();
+        boolean externalLinksValue = externalLinksItem.isSelected();
         ((ProcessFileSolver)getSolver())
             .setProblem(problemValue)
+            .setConceptMatching(conceptMatchingValue)
+            .setExternalLinks(externalLinksValue)
             ;
         super.handle(event);
     }

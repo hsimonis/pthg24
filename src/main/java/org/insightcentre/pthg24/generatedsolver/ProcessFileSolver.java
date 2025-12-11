@@ -12,21 +12,43 @@ public class ProcessFileSolver extends DefaultSolver{
     protected long startSystem = 0;
 // solver parameters
     protected String problem="";
+    protected boolean conceptMatching=true;
+    protected boolean externalLinks=true;
 
     public ProcessFileSolver(Scenario base){
         super(base,new String[] {});
     }
-    public ProcessFileSolver(Scenario base,String problem){
+    public ProcessFileSolver(Scenario base,String problem,boolean conceptMatching,boolean externalLinks){
         super(base,new String[] {});
         this.problem=problem;
+        this.conceptMatching=conceptMatching;
+        this.externalLinks=externalLinks;
     }
 
 public String getProblem(){
  return problem;
 }
 
+public boolean getConceptMatching(){
+ return conceptMatching;
+}
+
+public boolean getExternalLinks(){
+ return externalLinks;
+}
+
 public ProcessFileSolver setProblem(String v){
  problem = v;
+ return this;
+}
+
+public ProcessFileSolver setConceptMatching(boolean v){
+ conceptMatching = v;
+ return this;
+}
+
+public ProcessFileSolver setExternalLinks(boolean v){
+ externalLinks = v;
  return this;
 }
 

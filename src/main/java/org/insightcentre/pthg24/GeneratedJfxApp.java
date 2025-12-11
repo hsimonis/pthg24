@@ -50,6 +50,7 @@ import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.JournalAlias;
+import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.MissingCross;
@@ -69,6 +70,7 @@ import org.insightcentre.pthg24.datamodel.ScopusCity;
 import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
+import org.insightcentre.pthg24.datamodel.SpecialIssue;
 import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.UncategorizedReference;
 import org.insightcentre.pthg24.datamodel.Work;
@@ -189,6 +191,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<Assertion> assertionData = FXCollections.observableArrayList();
 
+	private ObservableList<SpecialIssue> specialIssueData = FXCollections.observableArrayList();
+
+	private ObservableList<Link> linkData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "Literature Survey Tool, Insight Centre for Data Analytics, University College Cork", "*.data", "data/");
 		fs = minimalDataset();
@@ -209,6 +215,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("InCollection", "InCollection");
 		tableViews.put("InBook", "InBook");
 		tableViews.put("Book", "Book");
+		tableViews.put("SpecialIssue", "SpecialIssue");
+		tableViews.put("Link", "Link");
 		tableViews.put("Similarity", "Similarity");
 		tableViews.put("Author", "Author");
 		tableViews.put("Authorship", "Authorship");
@@ -413,6 +421,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		otherWorkData.addAll(base.getListOtherWork());
 		assertionData.clear();
 		assertionData.addAll(base.getListAssertion());
+		specialIssueData.clear();
+		specialIssueData.addAll(base.getListSpecialIssue());
+		linkData.clear();
+		linkData.addAll(base.getListLink());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -630,5 +642,13 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<Assertion> getAssertionData() {
 		return assertionData;
+	}
+
+	public ObservableList<SpecialIssue> getSpecialIssueData() {
+		return specialIssueData;
+	}
+
+	public ObservableList<Link> getLinkData() {
+		return linkData;
 	}
 }

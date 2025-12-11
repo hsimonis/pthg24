@@ -1,0 +1,11 @@
+enum SubType
+SubType: Regular
+SubType: Application
+SubType: Editorial
+SubType: PhDA
+SubType: Letter
+SubType: Benchmarks
+SubType: Errata
+SubType: Survey
+SubType: Viewpoint
+

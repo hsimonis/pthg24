@@ -87,6 +87,9 @@
                         <MenuItem id="inBookPage" onAction="#handle" text="InBook" />
                         <MenuItem id="bookPage" accelerator="Shortcut+B" onAction="#handle" text="Book" />
                         <SeparatorMenuItem />
+                        <MenuItem id="specialIssuePage" onAction="#handle" text="SpecialIssue" />
+                        <MenuItem id="linkPage" onAction="#handle" text="Link" />
+                        <SeparatorMenuItem />
                         <MenuItem id="similarityPage" onAction="#handle" text="Similarity" />
                      </items>
                   </Menu>

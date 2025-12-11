@@ -514,6 +514,12 @@ public class BarChartController extends ChartController {
 			else if (className.equals("Assertion")) {
 				objectList = mainApp.getAssertionData();
 			}
+			else if (className.equals("SpecialIssue")) {
+				objectList = mainApp.getSpecialIssueData();
+			}
+			else if (className.equals("Link")) {
+				objectList = mainApp.getLinkData();
+			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();
 				for (Object obj : objectList) {

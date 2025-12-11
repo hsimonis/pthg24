@@ -18,49 +18,51 @@ import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class RunPDFGrep {
-    public RunPDFGrep(Scenario base,String importDir){
+    public RunPDFGrep(Scenario base,String importDir,boolean performConceptMatching){
         String savedFile = importDir+"savedConceptWork.json";
         String tmpFile = importDir+"tmpConceptWork.json";
         ConceptWorkHash cwh = new ConceptWorkHash(base,savedFile);
-        for(ConceptType ct:base.getListConceptType()) {
-            for (Concept c : base.getListConcept().stream().
-                    filter(x -> x.getConceptType() == ct).
-                    sorted(Comparator.comparing(Concept::getLabel)).
-                    toList()) {
-                info("Type " + c.getConceptType() + " Concept " + c.getName());
-                for (Work a : base.getListWork().stream().
-                        filter(x -> x.getLocalCopy() != null).
-                        filter(x -> !x.getLocalCopy().equals("")).
-                        sorted(Comparator.comparing(Work::getName)).
+        if (performConceptMatching) {
+            for (ConceptType ct : base.getListConceptType()) {
+                for (Concept c : base.getListConcept().stream().
+                        filter(x -> x.getConceptType() == ct).
+                        sorted(Comparator.comparing(Concept::getLabel)).
                         toList()) {
-                    if (!cwh.present(c,a)) {
-                        String logFile = "log.txt";
-                        deleteExistingResultFile("greps/", logFile);
-                        runPDFGrep(c.getCaseSensitive(),"greps/",
-                                "C:/cygwin64/bin/pdfgrep",
-                                c.getRegExpr(),
-                                a.getLocalCopy(),
-                                logFile);
-                        int v = parseResult("greps/", logFile);
-                        info(a.getName() + ": " + v);
+                    info("Type " + c.getConceptType() + " Concept " + c.getName());
+                    for (Work a : base.getListWork().stream().
+                            filter(x -> x.getLocalCopy() != null).
+                            filter(x -> !x.getLocalCopy().equals("")).
+                            sorted(Comparator.comparing(Work::getName)).
+                            toList()) {
+                        if (!cwh.present(c, a)) {
+                            String logFile = "log.txt";
+                            deleteExistingResultFile("greps/", logFile);
+                            runPDFGrep(c.getCaseSensitive(), "greps/",
+                                    "C:/cygwin64/bin/pdfgrep",
+                                    c.getRegExpr(),
+                                    a.getLocalCopy(),
+                                    logFile);
+                            int v = parseResult("greps/", logFile);
+                            info(a.getName() + ": " + v);
 
-                        ConceptWork cw = new ConceptWork(base);
-                        cw.setConcept(c);
-                        cw.setWork(a);
-                        cw.setCount(v);
-                        cw.setMatchLevel(matchLevel(v));
-                        cwh.add(cw);
+                            ConceptWork cw = new ConceptWork(base);
+                            cw.setConcept(c);
+                            cw.setWork(a);
+                            cw.setCount(v);
+                            cw.setMatchLevel(matchLevel(v));
+                            cwh.add(cw);
+                        }
+
                     }
+                    // save after every concept check for all works
+                    cwh.save(tmpFile);
 
                 }
-                // save after every concept check for all works
                 cwh.save(tmpFile);
 
             }
-            cwh.save(tmpFile);
-
+            cwh.save(savedFile);
         }
-        cwh.save(savedFile);
         updateNrOccurences(base);
     }
 

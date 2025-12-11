@@ -1,0 +1,4 @@
+ class SpecialIssue {
+String shortName
+String topic
+}

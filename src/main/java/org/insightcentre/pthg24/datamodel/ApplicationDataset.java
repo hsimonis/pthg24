@@ -51,11 +51,14 @@ import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.OtherWork;
 import org.insightcentre.pthg24.datamodel.Assertion;
+import org.insightcentre.pthg24.datamodel.SpecialIssue;
+import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
 import org.insightcentre.pthg24.datamodel.WorkType;
 import org.insightcentre.pthg24.datamodel.OpenAccessType;
+import org.insightcentre.pthg24.datamodel.SubType;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 import java.util.*;
 import java.io.*;
@@ -462,6 +465,20 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<Assertion> listAssertion = new ArrayList<Assertion>();
 
 /**
+ *  This lists holds all items of class SpecialIssue and its subclasses
+ *
+*/
+
+    List<SpecialIssue> listSpecialIssue = new ArrayList<SpecialIssue>();
+
+/**
+ *  This lists holds all items of class Link and its subclasses
+ *
+*/
+
+    List<Link> listLink = new ArrayList<Link>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -609,6 +626,7 @@ public int compareTo(ApplicationDataset ds2){
                              "InCollection",
                              "Journal",
                              "JournalAlias",
+                             "Link",
                              "MissingCitedWork",
                              "MissingCitingWork",
                              "MissingCross",
@@ -628,6 +646,7 @@ public int compareTo(ApplicationDataset ds2){
                              "ScopusCountry",
                              "Similarity",
                              "SourceGroup",
+                             "SpecialIssue",
                              "Translator",
                              "UncategorizedReference",
                              "WorkAffiliation");
@@ -734,6 +753,8 @@ public int compareTo(ApplicationDataset ds2){
         resetListAuthorDouble();
         resetListOtherWork();
         resetListAssertion();
+        resetListSpecialIssue();
+        resetListLink();
     }
 
 /**
@@ -2475,6 +2496,74 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class SpecialIssue
+ *
+*/
+
+    public Iterator<SpecialIssue> getIteratorSpecialIssue(){
+        return listSpecialIssue.iterator();
+    }
+
+/**
+ *  Getter for list of class SpecialIssue
+ *
+*/
+
+    public List<SpecialIssue> getListSpecialIssue(){
+        return listSpecialIssue;
+    }
+
+/**
+ *  reset the list of class SpecialIssue; use with care, does not call cascades
+ *
+*/
+
+    public void resetListSpecialIssue(){
+        listSpecialIssue = new ArrayList<SpecialIssue>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof SpecialIssue)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class Link
+ *
+*/
+
+    public Iterator<Link> getIteratorLink(){
+        return listLink.iterator();
+    }
+
+/**
+ *  Getter for list of class Link
+ *
+*/
+
+    public List<Link> getListLink(){
+        return listLink;
+    }
+
+/**
+ *  reset the list of class Link; use with care, does not call cascades
+ *
+*/
+
+    public void resetListLink(){
+        listLink = new ArrayList<Link>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Link)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -2726,6 +2815,42 @@ public int compareTo(ApplicationDataset ds2){
         for(Article a:getListArticle()) {
          if (a.getJournal() == item) {
             toRemove.add(a);
+         }
+        }
+        for(Article b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Link; remove all dependent objects of class Article which refer to item through their attribute link
+ *
+*/
+
+    public void cascadeArticleLink(Link item){
+        assert item != null;
+        List<Article> toRemove = new ArrayList<Article>();
+        for(Article a:getListArticle()) {
+         if (a.getLink() == item) {
+            a.setLink(null);
+         }
+        }
+        for(Article b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class SpecialIssue; remove all dependent objects of class Article which refer to item through their attribute specialIssue
+ *
+*/
+
+    public void cascadeArticleSpecialIssue(SpecialIssue item){
+        assert item != null;
+        List<Article> toRemove = new ArrayList<Article>();
+        for(Article a:getListArticle()) {
+         if (a.getSpecialIssue() == item) {
+            a.setSpecialIssue(null);
          }
         }
         for(Article b:toRemove) {
@@ -3476,6 +3601,24 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(Assertion b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Article; remove all dependent objects of class Link which refer to item through their attribute article
+ *
+*/
+
+    public void cascadeLinkArticle(Article item){
+        assert item != null;
+        List<Link> toRemove = new ArrayList<Link>();
+        for(Link a:getListLink()) {
+         if (a.getArticle() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Link b:toRemove) {
             b.remove();
         }
     }
@@ -4501,6 +4644,46 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class SpecialIssue
+ *
+*/
+
+    public void addSpecialIssue(SpecialIssue specialIssue){
+        assert specialIssue != null;
+        this.listSpecialIssue.add(specialIssue);
+    }
+
+/**
+ *  remove an item from the list for class SpecialIssue
+ *
+*/
+
+    public Boolean removeSpecialIssue(SpecialIssue specialIssue){
+        assert specialIssue != null;
+        return this.listSpecialIssue.remove(specialIssue);
+    }
+
+/**
+ *  add an item to the list for class Link
+ *
+*/
+
+    public void addLink(Link link){
+        assert link != null;
+        this.listLink.add(link);
+    }
+
+/**
+ *  remove an item from the list for class Link
+ *
+*/
+
+    public Boolean removeLink(Link link){
+        assert link != null;
+        return this.listLink.remove(link);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -4581,6 +4764,9 @@ public int compareTo(ApplicationDataset ds2){
         for(JournalAlias x:getListJournalAlias()){
             System.out.println(x);
         }
+        for(Link x:getListLink()){
+            System.out.println(x);
+        }
         for(MissingCitedWork x:getListMissingCitedWork()){
             System.out.println(x);
         }
@@ -4636,6 +4822,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(SourceGroup x:getListSourceGroup()){
+            System.out.println(x);
+        }
+        for(SpecialIssue x:getListSpecialIssue()){
             System.out.println(x);
         }
         for(Translator x:getListTranslator()){
@@ -4758,6 +4947,9 @@ public int compareTo(ApplicationDataset ds2){
         for(JournalAlias x:getListJournalAlias()){
             if (x.getClass().equals(JournalAlias.class)) x.toXML(out);
         }
+        for(Link x:getListLink()){
+            if (x.getClass().equals(Link.class)) x.toXML(out);
+        }
         for(MissingCitedWork x:getListMissingCitedWork()){
             if (x.getClass().equals(MissingCitedWork.class)) x.toXML(out);
         }
@@ -4811,6 +5003,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(SourceGroup x:getListSourceGroup()){
             if (x.getClass().equals(SourceGroup.class)) x.toXML(out);
+        }
+        for(SpecialIssue x:getListSpecialIssue()){
+            if (x.getClass().equals(SpecialIssue.class)) x.toXML(out);
         }
         for(Translator x:getListTranslator()){
             if (x.getClass().equals(Translator.class)) x.toXML(out);
@@ -4940,6 +5135,7 @@ public int compareTo(ApplicationDataset ds2){
         compareInCollection(this.getListInCollection(),compare.getListInCollection());
         compareJournal(this.getListJournal(),compare.getListJournal());
         compareJournalAlias(this.getListJournalAlias(),compare.getListJournalAlias());
+        compareLink(this.getListLink(),compare.getListLink());
         compareMissingCitedWork(this.getListMissingCitedWork(),compare.getListMissingCitedWork());
         compareMissingCitingWork(this.getListMissingCitingWork(),compare.getListMissingCitingWork());
         compareMissingCross(this.getListMissingCross(),compare.getListMissingCross());
@@ -4958,6 +5154,7 @@ public int compareTo(ApplicationDataset ds2){
         compareScopusCountry(this.getListScopusCountry(),compare.getListScopusCountry());
         compareSimilarity(this.getListSimilarity(),compare.getListSimilarity());
         compareSourceGroup(this.getListSourceGroup(),compare.getListSourceGroup());
+        compareSpecialIssue(this.getListSpecialIssue(),compare.getListSpecialIssue());
         compareTranslator(this.getListTranslator(),compare.getListTranslator());
         compareUncategorizedReference(this.getListUncategorizedReference(),compare.getListUncategorizedReference());
         compareWorkAffiliation(this.getListWorkAffiliation(),compare.getListWorkAffiliation());
@@ -5541,6 +5738,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types Link, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareLink(List<Link> aList,List<Link> bList){
+        System.out.println("Comparing Link");
+        for(Link a:aList){
+            Link b= Link.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Link A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Link A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Link B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Link b: bList){
+            Link a = Link.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Link B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types MissingCitedWork, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -5973,6 +6194,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types SpecialIssue, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareSpecialIssue(List<SpecialIssue> aList,List<SpecialIssue> bList){
+        System.out.println("Comparing SpecialIssue");
+        for(SpecialIssue a:aList){
+            SpecialIssue b= SpecialIssue.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"SpecialIssue A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"SpecialIssue A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"SpecialIssue B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(SpecialIssue b: bList){
+            SpecialIssue a = SpecialIssue.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"SpecialIssue B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types Translator, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -6074,6 +6319,7 @@ public int compareTo(ApplicationDataset ds2){
         checkInCollection(this.getListInCollection());
         checkJournal(this.getListJournal());
         checkJournalAlias(this.getListJournalAlias());
+        checkLink(this.getListLink());
         checkMissingCitedWork(this.getListMissingCitedWork());
         checkMissingCitingWork(this.getListMissingCitingWork());
         checkMissingCross(this.getListMissingCross());
@@ -6093,6 +6339,7 @@ public int compareTo(ApplicationDataset ds2){
         checkScopusCountry(this.getListScopusCountry());
         checkSimilarity(this.getListSimilarity());
         checkSourceGroup(this.getListSourceGroup());
+        checkSpecialIssue(this.getListSpecialIssue());
         checkTranslator(this.getListTranslator());
         checkUncategorizedReference(this.getListUncategorizedReference());
         checkWorkAffiliation(this.getListWorkAffiliation());
@@ -6364,6 +6611,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<Link> dataset list of all items of type Link
+*/
+
+    public void checkLink(List<Link> list){
+        for(Link a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<MissingCitedWork> dataset list of all items of type MissingCitedWork
 */
 
@@ -6573,6 +6831,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<SpecialIssue> dataset list of all items of type SpecialIssue
+*/
+
+    public void checkSpecialIssue(List<SpecialIssue> list){
+        for(SpecialIssue a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<Translator> dataset list of all items of type Translator
 */
 
@@ -6630,6 +6899,7 @@ public int compareTo(ApplicationDataset ds2){
         InCollection.dummy(this);
         Journal.dummy(this);
         JournalAlias.dummy(this);
+        Link.dummy(this);
         MissingCitedWork.dummy(this);
         MissingCitingWork.dummy(this);
         MissingCross.dummy(this);
@@ -6649,6 +6919,7 @@ public int compareTo(ApplicationDataset ds2){
         ScopusCountry.dummy(this);
         Similarity.dummy(this);
         SourceGroup.dummy(this);
+        SpecialIssue.dummy(this);
         Translator.dummy(this);
         UncategorizedReference.dummy(this);
         WorkAffiliation.dummy(this);

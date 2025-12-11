@@ -28,9 +28,12 @@ import javafx.util.Callback;
 import org.insightcentre.pthg24.GeneratedJfxApp;
 import org.insightcentre.pthg24.datamodel.Article;
 import org.insightcentre.pthg24.datamodel.Journal;
+import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
+import org.insightcentre.pthg24.datamodel.SpecialIssue;
+import org.insightcentre.pthg24.datamodel.SubType;
 
 /**
  * Generated code
@@ -226,13 +229,13 @@ public class ArticleController extends Table3Controller {
 	private TableColumn<Article, Journal> journal;
 
 	@FXML
-	private TableColumn<Article, String> subType;
+	private TableColumn<Article, SubType> subType;
 
 	@FXML
-	private TableColumn<Article, Boolean> linked;
+	private TableColumn<Article, Link> link;
 
 	@FXML
-	private TableColumn<Article, Boolean> inSpecialIssue;
+	private TableColumn<Article, SpecialIssue> specialIssue;
 
 	private GeneratedJfxApp mainApp;
 
@@ -250,6 +253,13 @@ public class ArticleController extends Table3Controller {
 		openAccessType.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setOpenAccessType(event.getNewValue()); mainApp.reset();});
 		journal.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getJournalData()));
 		journal.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setJournal(event.getNewValue()); mainApp.reset();});
+		ObservableList<SubType> subTypeValues = FXCollections.observableArrayList(SubType.values());
+		subType.setCellFactory(ComboBoxTableCell.forTableColumn(subTypeValues));
+		subType.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSubType(event.getNewValue()); mainApp.reset();});
+		link.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getLinkData()));
+		link.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setLink(event.getNewValue()); mainApp.reset();});
+		specialIssue.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getSpecialIssueData()));
+		specialIssue.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSpecialIssue(event.getNewValue()); mainApp.reset();});
 	}
 
 	public TableView<Article> getTable() {
@@ -494,14 +504,10 @@ public class ArticleController extends Table3Controller {
 		journal.setCellValueFactory(new PropertyValueFactory<>("journal"));
 		choices.add("subType");
 		subType.setCellValueFactory(new PropertyValueFactory<>("subType"));
-		subType.setCellFactory(TextFieldTableCell.forTableColumn());
-		subType.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSubType(event.getNewValue()); mainApp.reset();});
-		choices.add("linked");
-		linked.setCellValueFactory(new LinkedCallback());
-		linked.setCellFactory(CheckBoxTableCell.forTableColumn(linked));
-		choices.add("inSpecialIssue");
-		inSpecialIssue.setCellValueFactory(new InSpecialIssueCallback());
-		inSpecialIssue.setCellFactory(CheckBoxTableCell.forTableColumn(inSpecialIssue));
+		choices.add("link");
+		link.setCellValueFactory(new PropertyValueFactory<>("link"));
+		choices.add("specialIssue");
+		specialIssue.setCellValueFactory(new PropertyValueFactory<>("specialIssue"));
 		initialize(choices);
 	}
 
@@ -627,36 +633,6 @@ public class ArticleController extends Table3Controller {
 				@SuppressWarnings("rawtypes")
 				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
 					cellData.getValue().setWosStatus(newValue);
-				}
-			});
-			return prop;
-		}
-	}
-
-	class LinkedCallback implements Callback<TableColumn.CellDataFeatures<Article, Boolean>, ObservableValue<Boolean>> {
-		@Override
-		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Article, Boolean> cellData) {
-			Property<Boolean> prop = cellData.getValue().linkedWrapperProperty();
-			prop.addListener(new ChangeListener<Boolean>() {
-				@Override
-				@SuppressWarnings("rawtypes")
-				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
-					cellData.getValue().setLinked(newValue);
-				}
-			});
-			return prop;
-		}
-	}
-
-	class InSpecialIssueCallback implements Callback<TableColumn.CellDataFeatures<Article, Boolean>, ObservableValue<Boolean>> {
-		@Override
-		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Article, Boolean> cellData) {
-			Property<Boolean> prop = cellData.getValue().inSpecialIssueWrapperProperty();
-			prop.addListener(new ChangeListener<Boolean>() {
-				@Override
-				@SuppressWarnings("rawtypes")
-				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
-					cellData.getValue().setInSpecialIssue(newValue);
 				}
 			});
 			return prop;

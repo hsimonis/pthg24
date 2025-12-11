@@ -376,8 +376,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("daysToPublish");
 		filterNames.add("journal");
 		filterNames.add("subType");
-		filterNames.add("linked");
-		filterNames.add("inSpecialIssue");
+		filterNames.add("link");
+		filterNames.add("specialIssue");
 		choicesMap.put("Article", attributeNames);
 		filterMap.put("Article", filterNames);
 		attributeNames = FXCollections.observableArrayList();
@@ -1187,6 +1187,13 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("work");
 		filterNames.add("label");
 		filterNames.add("value");
+		filterNames.add("name");
+		filterNames.add("shortName");
+		filterNames.add("topic");
+		filterNames.add("name");
+		filterNames.add("article");
+		filterNames.add("venue");
+		filterNames.add("basis");
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -1356,6 +1363,12 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("Assertion")) {
 				objectList = mainApp.getAssertionData();
+			}
+			else if (className.equals("SpecialIssue")) {
+				objectList = mainApp.getSpecialIssueData();
+			}
+			else if (className.equals("Link")) {
+				objectList = mainApp.getLinkData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

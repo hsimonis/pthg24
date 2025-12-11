@@ -101,8 +101,8 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
         new AuthorCitations(base);
 
         new RunPDFInfo(base,bibDir);
-        new RunPDFGrep(base,importDir);
-        new RunPDFInfoURL(base,bibDir);
+        new RunPDFGrep(base,importDir,getConceptMatching());
+        new RunPDFInfoURL(base,bibDir,getExternalLinks());
         new FindConnectedPapers(base);
         new FindCoauthorLinks(base);
 
@@ -162,7 +162,7 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
                 limit(3*overviewLimit). // more entries than usual
                 toList(),exportDir,"shortest.tex","Shortest Works");
         new ListWorks(base,new ArrayList<>(base.getListArticle().stream().
-                filter(Article::getLinked).
+                filter(x->x.getLink()!=null).
                 sorted(Comparator.comparing(Work::getName)).
                 toList()),exportDir,"linked.tex","Linked Articles");
         new ListWorks(base,base.getListWork().stream().

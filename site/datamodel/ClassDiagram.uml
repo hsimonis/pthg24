@@ -48,6 +48,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include InCollection.uml
 !include Journal.uml
 !include JournalAlias.uml
+!include Link.uml
 !include MissingCitedWork.uml
 !include MissingCitingWork.uml
 !include MissingCross.uml
@@ -67,6 +68,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include ScopusCountry.uml
 !include Similarity.uml
 !include SourceGroup.uml
+!include SpecialIssue.uml
 !include Translator.uml
 !include UncategorizedReference.uml
 !include Work.uml
@@ -76,6 +78,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include MatchLevel.uml
 !include WorkType.uml
 !include OpenAccessType.uml
+!include SubType.uml
 ApplicationObjectInterface <|-- ApplicationObject
 ApplicationDatasetInterface <|-- ApplicationDataset
 ApplicationObjectInterface <|-- ApplicationDatasetInterface
@@ -99,6 +102,8 @@ ConferenceSeries  *-- Proceedings
 Publisher  *-- Journal 
 Journal  *-- JournalAlias 
 Journal  *-- Article 
+Link "0..1" *-- Article 
+SpecialIssue "0..1" *-- Article 
 Proceedings  *-- Paper 
 School  *-- PhDThesis 
 Collection  *-- InCollection 
@@ -140,6 +145,7 @@ Work "1..*" *-- AuthorDouble : work2
 Author "1..*" *-- OtherWork : authors
 Concept "0..*" *-- OtherWork 
 Work  *-- Assertion 
+Article  *-- Link 
 header
 Datamodel of Application pthg24
 endheader

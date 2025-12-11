@@ -25,6 +25,7 @@ import static framework.reports.visualization.heatmap.ColorScheme.defineColors;
 import static framework.reports.visualization.plot.distributionplot.DistributionPlotOrdering.LABEL;
 import static framework.reports.visualization.plot.distributionplot.DistributionPlotOrdering.NR;
 import static java.util.stream.Collectors.groupingBy;
+import static org.insightcentre.pthg24.datamodel.SubType.*;
 import static org.insightcentre.pthg24.logging.LogShortcut.info;
 
 public class PublicationReport extends AbstractReport{
@@ -84,19 +85,19 @@ public class PublicationReport extends AbstractReport{
 
         subsection("By SubType");
         bySubtype(base.getListArticle().stream().toList(),
-                base.getListArticle().stream().filter(x-> x.getSubType().isEmpty() || x.getSubType().equals("Application")).toList(),
-                base.getListArticle().stream().filter(x->x.getSubType().equals("PhDA")).toList(),
-                base.getListArticle().stream().filter(x->x.getSubType().equals("Survey")).toList(),
-                base.getListArticle().stream().filter(x->x.getSubType().equals("Viewpoint")).toList(),
-                base.getListArticle().stream().filter(x->x.getSubType().equals("Benchmarks")).toList());
+                base.getListArticle().stream().filter(x-> x.getSubType()==Regular || x.getSubType()==Application).toList(),
+                base.getListArticle().stream().filter(x->x.getSubType()==PhDA).toList(),
+                base.getListArticle().stream().filter(x->x.getSubType()==Survey).toList(),
+                base.getListArticle().stream().filter(x->x.getSubType()==Viewpoint).toList(),
+                base.getListArticle().stream().filter(x->x.getSubType()==Benchmarks).toList());
 
         subsection("Linked/IsSpecial Issue");
         byFlag("Linked",base.getListArticle().stream().toList(),
-                base.getListArticle().stream().filter(x-> x.getLinked()).toList(),
-                base.getListArticle().stream().filter(x-> !x.getLinked()).toList());
+                base.getListArticle().stream().filter(x-> x.getLink()!= null).toList(),
+                base.getListArticle().stream().filter(x-> x.getLink() == null).toList());
         byFlag("In Special Issue",base.getListArticle().stream().toList(),
-                base.getListArticle().stream().filter(x-> x.getInSpecialIssue()).toList(),
-                base.getListArticle().stream().filter(x-> !x.getInSpecialIssue()).toList());
+                base.getListArticle().stream().filter(x-> x.getSpecialIssue()!=null).toList(),
+                base.getListArticle().stream().filter(x-> x.getSpecialIssue()==null).toList());
 
         section("Number of Coauthors per Work");
         coAuthorDistributionPlot(base.getListWork().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
@@ -1404,7 +1405,7 @@ public class PublicationReport extends AbstractReport{
     private void worksByProlificAuthors(){
         int maxPub = base.getListAuthor().stream().mapToInt(Author::getNrWorks).max().orElse(0);
         List<Integer> published = base.getListAuthor().stream().map(Author::getNrWorks).distinct().sorted().toList();
-        int totalRegularArticles = (int) base.getListArticle().stream().filter(x->x.getSubType().isEmpty()||x.getSubType().equals("Application")).count();
+        int totalRegularArticles = (int) base.getListArticle().stream().filter(x->x.getSubType()==Regular||x.getSubType()==Application).count();
 
         new LinePlot<>(published,new LinePlotFunctions<>(x->x,x->percentageWorks(x,totalRegularArticles))).
                 width(22).height(12).
@@ -1418,7 +1419,7 @@ public class PublicationReport extends AbstractReport{
         int cnt = (int) base.getListAuthorship().stream().
                 filter(x->x.getAuthor().getNrWorks()>= i).
                 map(Authorship::getWork).
-                filter(x->x instanceof Article a && (a.getSubType().isEmpty()||a.getSubType().equals("Application"))).
+                filter(x->x instanceof Article a && (a.getSubType()==Regular||a.getSubType()==Application)).
                 distinct().
                 count();
         return 100.0*cnt/totalWorks;

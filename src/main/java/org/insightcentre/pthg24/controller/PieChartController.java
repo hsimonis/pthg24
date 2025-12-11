@@ -280,8 +280,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("daysToPublish");
 		attributeNames.add("journal");
 		attributeNames.add("subType");
-		attributeNames.add("linked");
-		attributeNames.add("inSpecialIssue");
+		attributeNames.add("link");
+		attributeNames.add("specialIssue");
 		choicesMap.put("Article", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");
@@ -854,6 +854,17 @@ public class PieChartController extends ChartController {
 		attributeNames.add("label");
 		attributeNames.add("value");
 		choicesMap.put("Assertion", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("shortName");
+		attributeNames.add("topic");
+		choicesMap.put("SpecialIssue", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("article");
+		attributeNames.add("venue");
+		attributeNames.add("basis");
+		choicesMap.put("Link", attributeNames);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -1015,6 +1026,12 @@ public class PieChartController extends ChartController {
 			}
 			else if (className.equals("Assertion")) {
 				objectList = mainApp.getAssertionData();
+			}
+			else if (className.equals("SpecialIssue")) {
+				objectList = mainApp.getSpecialIssueData();
+			}
+			else if (className.equals("Link")) {
+				objectList = mainApp.getLinkData();
 			}
 			if (objectList != null) {
 				Map<String, Integer> countMap = new HashMap<String, Integer>();

@@ -19,24 +19,24 @@ import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class RunPDFInfoURL {
 
-    public RunPDFInfoURL(Scenario base,String bibDir){
+    public RunPDFInfoURL(Scenario base,String bibDir,boolean processExternalLinks){
         info("RunPDFInfoUrl");
-        for (Work a : base.getListWork().stream().
-                filter(x -> x.getLocalCopy() != null).
-                filter(x -> !x.getLocalCopy().equals("")).
-                sorted(Comparator.comparing(Work::getName)).
-                toList()) {
-            String logFile = "links.txt";
-            deleteExistingResultFile("greps/", logFile);
-            runPDFInfo("greps/",
-                    "C:/texlive/2025/bin/windows/pdfinfo",
-                    relativeLink(a),
-                    logFile);
-            int nrURL = parseResult("greps/", logFile);
-            info(a.getName() + ": " + nrURL);
-            a.setNrHyperLinks(nrURL);
-
-
+        if (processExternalLinks) {
+            for (Work a : base.getListWork().stream().
+                    filter(x -> x.getLocalCopy() != null).
+                    filter(x -> !x.getLocalCopy().equals("")).
+                    sorted(Comparator.comparing(Work::getName)).
+                    toList()) {
+                String logFile = "links.txt";
+                deleteExistingResultFile("greps/", logFile);
+                runPDFInfo("greps/",
+                        "C:/texlive/2025/bin/windows/pdfinfo",
+                        relativeLink(a),
+                        logFile);
+                int nrURL = parseResult("greps/", logFile);
+                info(a.getName() + ": " + nrURL);
+                a.setNrHyperLinks(nrURL);
+            }
         }
 
     }

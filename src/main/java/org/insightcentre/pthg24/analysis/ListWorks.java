@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.ListWorksManual.manualInterest;
+import static org.insightcentre.pthg24.datamodel.SubType.Regular;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListWorks extends AbstractList{
@@ -64,7 +65,7 @@ public class ListWorks extends AbstractList{
         out.printf("\\bottomrule\n");
         out.printf("\\endfoot\n");
         for(Work a:works){
-            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %s%d & %s & %s & %s & %s",
+            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %s%s & %s & %s & %s & %s",
                     rowLabel(a,"a:"+a.getName(),showLabel),
                     a.getKey(),
                     a.getUrl(),a.getKey(),
@@ -75,7 +76,7 @@ public class ListWorks extends AbstractList{
                     a.getYear(),
                     confOrJournal(a),
                     highlightLinked(a),
-                    a.getNrPages(),
+                    pageAndSpecialIssue(a),
                     showRelevances(a),
                     citations(a),
                     references(a),
@@ -100,14 +101,24 @@ public class ListWorks extends AbstractList{
     }
 
     private String highlightLinked(Work w){
-        if (w instanceof Article a && a.getInSpecialIssue() && a.getLinked()) {
+        if (w instanceof Article a && a.getSpecialIssue() != null && a.getLink() != null) {
             return "\\cellcolor{black!30}";
-        } else if (w instanceof Article a && a.getInSpecialIssue()) {
+        } else if (w instanceof Article a && a.getSpecialIssue() != null) {
                 return "\\cellcolor{blue!20}";
-        }else if (w instanceof Article a && a.getLinked()){
+        }else if (w instanceof Article a && a.getLink()!=null){
                 return "\\cellcolor{green!20}";
         } else {
             return "";
+        }
+    }
+
+    private String pageAndSpecialIssue(Work w){
+        if (w instanceof Article a && a.getSpecialIssue() != null) {
+            return "\\shortstack[r]{" + a.getNrPages() + "\\\\{\\tiny " + a.getSpecialIssue().getShortName() + "}}";
+        } else if (w instanceof Article a && a.getLink() != null){
+            return "\\shortstack[r]{"+a.getNrPages()+"\\\\{\\tiny "+a.getLink().getVenue()+"}}";
+        } else {
+            return w.getNrPages().toString();
         }
     }
 
@@ -171,7 +182,7 @@ public class ListWorks extends AbstractList{
     }
 
     private String subType(Article a){
-        if (a.getSubType() == null || a.getSubType().isEmpty()){
+        if (a.getSubType() == null || a.getSubType()==Regular){
             return "";
         } else {
             return " \\textcolor{red}{"+a.getSubType()+"}";

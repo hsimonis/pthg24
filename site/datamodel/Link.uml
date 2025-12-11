@@ -1,0 +1,5 @@
+ class Link {
+Article article
+String basis
+String venue
+}

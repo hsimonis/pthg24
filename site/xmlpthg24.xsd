@@ -28,6 +28,7 @@
 				<xs:element ref="inCollection" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="journal" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="journalAlias" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="link" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingCitedWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingCitingWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingCross" minOccurs="0" maxOccurs="unbounded"/>
@@ -47,6 +48,7 @@
 				<xs:element ref="scopusCountry" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="similarity" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="sourceGroup" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="specialIssue" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="translator" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="uncategorizedReference" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="workAffiliation" minOccurs="0" maxOccurs="unbounded"/>
@@ -164,9 +166,9 @@
 			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
 			<xs:attribute name="wosStatus" use="required" type="xs:boolean"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
-			<xs:attribute name="inSpecialIssue" use="required" type="xs:boolean"/>
 			<xs:attribute name="journal" use="required" type="xs:IDREF"/>
-			<xs:attribute name="linked" use="required" type="xs:boolean"/>
+			<xs:attribute name="link" use="required" type="xs:IDREF"/>
+			<xs:attribute name="specialIssue" use="required" type="xs:IDREF"/>
 			<xs:attribute name="subType" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
@@ -582,6 +584,16 @@
 			<xs:attribute name="journal" use="required" type="xs:IDREF"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="link">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="article" use="required" type="xs:IDREF"/>
+			<xs:attribute name="basis" use="required" type="xs:string"/>
+			<xs:attribute name="venue" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="missingCitedWork">
 		<xs:complexType>
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
@@ -953,6 +965,15 @@
 			<xs:attribute name="fromFlows" use="required" type="xs:integer"/>
 			<xs:attribute name="nrWorks" use="required" type="xs:integer"/>
 			<xs:attribute name="toFlows" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="specialIssue">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
+			<xs:attribute name="topic" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="translator">

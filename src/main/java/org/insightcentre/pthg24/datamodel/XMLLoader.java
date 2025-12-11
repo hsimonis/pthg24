@@ -84,6 +84,16 @@ public OpenAccessType getOpenAccessType(String attributeName,
             return OpenAccessType.valueOf(e);
         }
     }
+public SubType getSubType(String attributeName,
+                               Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        if (e == null) {
+            System.out.println("SubType"+": "+attributeName);
+            return null;
+        } else {
+            return SubType.valueOf(e);
+        }
+    }
     public Acronym getAcronym(String attributeName,
                                Attributes attributes) {
         return (Acronym) find(getId(attributeName,attributes));
@@ -616,6 +626,25 @@ public OpenAccessType getOpenAccessType(String attributeName,
         return res;
     }
 
+    public Link getLink(String attributeName,
+                               Attributes attributes) {
+        return (Link) find(getId(attributeName,attributes));
+    }
+
+    public List<Link> getLinkCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<Link> res = new ArrayList<Link>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((Link) find(id));
+            }
+        }
+        return res;
+    }
+
     public MissingCitedWork getMissingCitedWork(String attributeName,
                                Attributes attributes) {
         return (MissingCitedWork) find(getId(attributeName,attributes));
@@ -977,6 +1006,25 @@ public OpenAccessType getOpenAccessType(String attributeName,
         return res;
     }
 
+    public SpecialIssue getSpecialIssue(String attributeName,
+                               Attributes attributes) {
+        return (SpecialIssue) find(getId(attributeName,attributes));
+    }
+
+    public List<SpecialIssue> getSpecialIssueCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<SpecialIssue> res = new ArrayList<SpecialIssue>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((SpecialIssue) find(id));
+            }
+        }
+        return res;
+    }
+
     public Translator getTranslator(String attributeName,
                                Attributes attributes) {
         return (Translator) find(getId(attributeName,attributes));
@@ -1194,10 +1242,10 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getInteger("wosReferences",attributes,0),
                         getBoolean("wosStatus",attributes,false),
                         getInteger("year",attributes,0),
-                        getBoolean("inSpecialIssue",attributes,false),
                         null,
-                        getBoolean("linked",attributes,false),
-                        getString("subType",attributes,"")
+                        null,
+                        null,
+                        null
                         ));
             } else if (qname.equals("assertion")) {
                 assert (base != null);
@@ -1611,6 +1659,16 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getString("alias",attributes,""),
                         null
                         ));
+            } else if (qname.equals("link")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new Link(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        null,
+                        getString("basis",attributes,""),
+                        getString("venue",attributes,"")
+                        ));
             } else if (qname.equals("missingCitedWork")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1974,6 +2032,15 @@ public OpenAccessType getOpenAccessType(String attributeName,
                         getInteger("nrWorks",attributes,0),
                         getInteger("toFlows",attributes,0)
                         ));
+            } else if (qname.equals("specialIssue")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new SpecialIssue(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getString("shortName",attributes,""),
+                        getString("topic",attributes,"")
+                        ));
             } else if (qname.equals("translator")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2068,6 +2135,9 @@ public OpenAccessType getOpenAccessType(String attributeName,
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setJournal(getJournal("journal",attributes));
+                 item.setLink(getLink("link",attributes));
+                 item.setSpecialIssue(getSpecialIssue("specialIssue",attributes));
+                 item.setSubType(getSubType("subType",attributes));
             } else if (qname.equals("assertion")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2193,6 +2263,11 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 int id = getId("id", attributes);
                 JournalAlias item = (JournalAlias) find(id);
                  item.setJournal(getJournal("journal",attributes));
+            } else if (qname.equals("link")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                Link item = (Link) find(id);
+                 item.setArticle(getArticle("article",attributes));
             } else if (qname.equals("missingCitedWork")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2290,6 +2365,10 @@ public OpenAccessType getOpenAccessType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 SourceGroup item = (SourceGroup) find(id);
+            } else if (qname.equals("specialIssue")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                SpecialIssue item = (SpecialIssue) find(id);
             } else if (qname.equals("translator")) {
                 assert (base != null);
                 int id = getId("id", attributes);
