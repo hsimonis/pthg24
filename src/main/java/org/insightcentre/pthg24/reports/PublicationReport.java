@@ -807,7 +807,7 @@ public class PublicationReport extends AbstractReport{
                 width(25).height(15).
                 title("Countries with Largest Number of Works (Total "+d+" Works)").
                 xlabel("Country").ylabel("Nr Works").
-                generate().latex(tex);
+                generate().fileLatex(getRoot(),"byCountry",tex);
     }
     private void byInst(){
         int d = (int) base.getListWorkAffiliation().stream().map(WorkAffiliation::getWork).distinct().count();
@@ -818,7 +818,7 @@ public class PublicationReport extends AbstractReport{
                 width(22).height(11).
                 title("Institutions with Largest Number of Works (Total "+d+" Works)").
                 xlabel("Institutions").ylabel("Nr Works").
-                generate().latex(tex);
+                generate().fileLatex(getRoot(),"byInstitution",tex);
     }
 
     private void byCountryYear(){
