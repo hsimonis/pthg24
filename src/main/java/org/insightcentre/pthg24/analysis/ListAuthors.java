@@ -19,7 +19,7 @@ public class ListAuthors {
         try{
             PrintWriter out = new PrintWriter(fullName);
             List<Author> authors = sortedAuthors(base);
-            out.printf("{\\scriptsize\n");
+//            out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{p{4cm}rrp{18cm}}\n");
             out.printf("\\rowcolor{white}\\caption{Co-Authors of Articles/Papers (Total %s Names)}\\\\ \\toprule\n",authors.size());
             out.printf("\\rowcolor{white}Author & \\shortstack{Nr\\\\Works} & \\shortstack{Nr\\\\Cites} & Entries \\\\ \\midrule");
@@ -42,7 +42,7 @@ public class ListAuthors {
                 out.printf("\\\\\n");
             }
             out.printf("\\end{longtable}\n");
-            out.printf("}\n\n");
+//            out.printf("}\n\n");
             out.close();
         } catch(IOException e){
             severe("Cannot write file: "+fullName+", exception "+e.getMessage());
