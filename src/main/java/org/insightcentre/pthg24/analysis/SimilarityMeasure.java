@@ -153,7 +153,7 @@ public class SimilarityMeasure {
     private int occurences(ConceptWork cw,Concept c,Work w){
         if (cw == null){
             // this should be there
-            severe("missing cw "+c+" for work "+w);
+ //           severe("missing cw "+c+" for work "+w);
 //            assert(false);
             return 0;
         } else {

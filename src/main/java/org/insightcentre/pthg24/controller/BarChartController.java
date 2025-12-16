@@ -352,6 +352,11 @@ public class BarChartController extends ChartController {
 		attributeNames.add("relevance");
 		choicesMap.put("OtherWork", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nr");
+		attributeNames.add("nrEdges");
+		attributeNames.add("connectedComponentNr");
+		choicesMap.put("Node", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -519,6 +524,12 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("Link")) {
 				objectList = mainApp.getLinkData();
+			}
+			else if (className.equals("Node")) {
+				objectList = mainApp.getNodeData();
+			}
+			else if (className.equals("Edge")) {
+				objectList = mainApp.getEdgeData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

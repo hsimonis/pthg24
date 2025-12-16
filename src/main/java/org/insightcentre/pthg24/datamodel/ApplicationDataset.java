@@ -53,6 +53,8 @@ import org.insightcentre.pthg24.datamodel.OtherWork;
 import org.insightcentre.pthg24.datamodel.Assertion;
 import org.insightcentre.pthg24.datamodel.SpecialIssue;
 import org.insightcentre.pthg24.datamodel.Link;
+import org.insightcentre.pthg24.datamodel.Node;
+import org.insightcentre.pthg24.datamodel.Edge;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -479,6 +481,20 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<Link> listLink = new ArrayList<Link>();
 
 /**
+ *  This lists holds all items of class Node and its subclasses
+ *
+*/
+
+    List<Node> listNode = new ArrayList<Node>();
+
+/**
+ *  This lists holds all items of class Edge and its subclasses
+ *
+*/
+
+    List<Edge> listEdge = new ArrayList<Edge>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -622,6 +638,7 @@ public int compareTo(ApplicationDataset ds2){
                              "ConferenceSeries",
                              "CountryCollab",
                              "DoiReference",
+                             "Edge",
                              "InBook",
                              "InCollection",
                              "Journal",
@@ -631,6 +648,7 @@ public int compareTo(ApplicationDataset ds2){
                              "MissingCitingWork",
                              "MissingCross",
                              "MissingWork",
+                             "Node",
                              "Orphan",
                              "OtherWork",
                              "Paper",
@@ -755,6 +773,8 @@ public int compareTo(ApplicationDataset ds2){
         resetListAssertion();
         resetListSpecialIssue();
         resetListLink();
+        resetListNode();
+        resetListEdge();
     }
 
 /**
@@ -2564,6 +2584,74 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class Node
+ *
+*/
+
+    public Iterator<Node> getIteratorNode(){
+        return listNode.iterator();
+    }
+
+/**
+ *  Getter for list of class Node
+ *
+*/
+
+    public List<Node> getListNode(){
+        return listNode;
+    }
+
+/**
+ *  reset the list of class Node; use with care, does not call cascades
+ *
+*/
+
+    public void resetListNode(){
+        listNode = new ArrayList<Node>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Node)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class Edge
+ *
+*/
+
+    public Iterator<Edge> getIteratorEdge(){
+        return listEdge.iterator();
+    }
+
+/**
+ *  Getter for list of class Edge
+ *
+*/
+
+    public List<Edge> getListEdge(){
+        return listEdge;
+    }
+
+/**
+ *  reset the list of class Edge; use with care, does not call cascades
+ *
+*/
+
+    public void resetListEdge(){
+        listEdge = new ArrayList<Edge>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Edge)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -3619,6 +3707,60 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(Link b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class Node which refer to item through their attribute work
+ *
+*/
+
+    public void cascadeNodeWork(Work item){
+        assert item != null;
+        List<Node> toRemove = new ArrayList<Node>();
+        for(Node a:getListNode()) {
+         if (a.getWork() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Node b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Node; remove all dependent objects of class Edge which refer to item through their attribute from
+ *
+*/
+
+    public void cascadeEdgeFrom(Node item){
+        assert item != null;
+        List<Edge> toRemove = new ArrayList<Edge>();
+        for(Edge a:getListEdge()) {
+         if (a.getFrom() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Edge b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Node; remove all dependent objects of class Edge which refer to item through their attribute to
+ *
+*/
+
+    public void cascadeEdgeTo(Node item){
+        assert item != null;
+        List<Edge> toRemove = new ArrayList<Edge>();
+        for(Edge a:getListEdge()) {
+         if (a.getTo() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Edge b:toRemove) {
             b.remove();
         }
     }
@@ -4684,6 +4826,46 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class Node
+ *
+*/
+
+    public void addNode(Node node){
+        assert node != null;
+        this.listNode.add(node);
+    }
+
+/**
+ *  remove an item from the list for class Node
+ *
+*/
+
+    public Boolean removeNode(Node node){
+        assert node != null;
+        return this.listNode.remove(node);
+    }
+
+/**
+ *  add an item to the list for class Edge
+ *
+*/
+
+    public void addEdge(Edge edge){
+        assert edge != null;
+        this.listEdge.add(edge);
+    }
+
+/**
+ *  remove an item from the list for class Edge
+ *
+*/
+
+    public Boolean removeEdge(Edge edge){
+        assert edge != null;
+        return this.listEdge.remove(edge);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -4752,6 +4934,9 @@ public int compareTo(ApplicationDataset ds2){
         for(DoiReference x:getListDoiReference()){
             System.out.println(x);
         }
+        for(Edge x:getListEdge()){
+            System.out.println(x);
+        }
         for(InBook x:getListInBook()){
             System.out.println(x);
         }
@@ -4777,6 +4962,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(MissingWork x:getListMissingWork()){
+            System.out.println(x);
+        }
+        for(Node x:getListNode()){
             System.out.println(x);
         }
         for(Orphan x:getListOrphan()){
@@ -4935,6 +5123,9 @@ public int compareTo(ApplicationDataset ds2){
         for(DoiReference x:getListDoiReference()){
             if (x.getClass().equals(DoiReference.class)) x.toXML(out);
         }
+        for(Edge x:getListEdge()){
+            if (x.getClass().equals(Edge.class)) x.toXML(out);
+        }
         for(InBook x:getListInBook()){
             if (x.getClass().equals(InBook.class)) x.toXML(out);
         }
@@ -4961,6 +5152,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(MissingWork x:getListMissingWork()){
             if (x.getClass().equals(MissingWork.class)) x.toXML(out);
+        }
+        for(Node x:getListNode()){
+            if (x.getClass().equals(Node.class)) x.toXML(out);
         }
         for(Orphan x:getListOrphan()){
             if (x.getClass().equals(Orphan.class)) x.toXML(out);
@@ -5131,6 +5325,7 @@ public int compareTo(ApplicationDataset ds2){
         compareConferenceSeries(this.getListConferenceSeries(),compare.getListConferenceSeries());
         compareCountryCollab(this.getListCountryCollab(),compare.getListCountryCollab());
         compareDoiReference(this.getListDoiReference(),compare.getListDoiReference());
+        compareEdge(this.getListEdge(),compare.getListEdge());
         compareInBook(this.getListInBook(),compare.getListInBook());
         compareInCollection(this.getListInCollection(),compare.getListInCollection());
         compareJournal(this.getListJournal(),compare.getListJournal());
@@ -5140,6 +5335,7 @@ public int compareTo(ApplicationDataset ds2){
         compareMissingCitingWork(this.getListMissingCitingWork(),compare.getListMissingCitingWork());
         compareMissingCross(this.getListMissingCross(),compare.getListMissingCross());
         compareMissingWork(this.getListMissingWork(),compare.getListMissingWork());
+        compareNode(this.getListNode(),compare.getListNode());
         compareOrphan(this.getListOrphan(),compare.getListOrphan());
         compareOtherWork(this.getListOtherWork(),compare.getListOtherWork());
         comparePaper(this.getListPaper(),compare.getListPaper());
@@ -5642,6 +5838,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types Edge, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareEdge(List<Edge> aList,List<Edge> bList){
+        System.out.println("Comparing Edge");
+        for(Edge a:aList){
+            Edge b= Edge.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Edge A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Edge A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Edge B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Edge b: bList){
+            Edge a = Edge.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Edge B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types InBook, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -5853,6 +6073,30 @@ public int compareTo(ApplicationDataset ds2){
             MissingWork a = MissingWork.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"MissingWork B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types Node, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareNode(List<Node> aList,List<Node> bList){
+        System.out.println("Comparing Node");
+        for(Node a:aList){
+            Node b= Node.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Node A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Node A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Node B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Node b: bList){
+            Node a = Node.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Node B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -6315,6 +6559,7 @@ public int compareTo(ApplicationDataset ds2){
         checkConferenceSeries(this.getListConferenceSeries());
         checkCountryCollab(this.getListCountryCollab());
         checkDoiReference(this.getListDoiReference());
+        checkEdge(this.getListEdge());
         checkInBook(this.getListInBook());
         checkInCollection(this.getListInCollection());
         checkJournal(this.getListJournal());
@@ -6324,6 +6569,7 @@ public int compareTo(ApplicationDataset ds2){
         checkMissingCitingWork(this.getListMissingCitingWork());
         checkMissingCross(this.getListMissingCross());
         checkMissingWork(this.getListMissingWork());
+        checkNode(this.getListNode());
         checkOrphan(this.getListOrphan());
         checkOtherWork(this.getListOtherWork());
         checkPaper(this.getListPaper());
@@ -6567,6 +6813,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<Edge> dataset list of all items of type Edge
+*/
+
+    public void checkEdge(List<Edge> list){
+        for(Edge a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<InBook> dataset list of all items of type InBook
 */
 
@@ -6660,6 +6917,17 @@ public int compareTo(ApplicationDataset ds2){
 
     public void checkMissingWork(List<MissingWork> list){
         for(MissingWork a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<Node> dataset list of all items of type Node
+*/
+
+    public void checkNode(List<Node> list){
+        for(Node a:list){
             a.check();
         }
     }
@@ -6895,6 +7163,7 @@ public int compareTo(ApplicationDataset ds2){
         ConferenceSeries.dummy(this);
         CountryCollab.dummy(this);
         DoiReference.dummy(this);
+        Edge.dummy(this);
         InBook.dummy(this);
         InCollection.dummy(this);
         Journal.dummy(this);
@@ -6904,6 +7173,7 @@ public int compareTo(ApplicationDataset ds2){
         MissingCitingWork.dummy(this);
         MissingCross.dummy(this);
         MissingWork.dummy(this);
+        Node.dummy(this);
         Orphan.dummy(this);
         OtherWork.dummy(this);
         Paper.dummy(this);

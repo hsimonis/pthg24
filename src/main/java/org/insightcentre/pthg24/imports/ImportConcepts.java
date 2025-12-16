@@ -10,10 +10,10 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Hashtable;
 
 import static org.insightcentre.pthg24.datamodel.ConceptType.*;
-import static org.insightcentre.pthg24.logging.LogShortcut.info;
-import static org.insightcentre.pthg24.logging.LogShortcut.severe;
+import static org.insightcentre.pthg24.logging.LogShortcut.*;
 
 public class ImportConcepts {
     Scenario base;
@@ -21,6 +21,8 @@ public class ImportConcepts {
         this.base = base;
         assert(importDir.endsWith("/"));
         String fullName = importDir+fileName;
+        Hashtable<String,Concept> conceptHash = new Hashtable<>();
+        int conceptProblems = 0;
         try{
             String text = new String(Files.readAllBytes(Paths.get(fullName)));
 //            info("text "+text);
@@ -45,6 +47,10 @@ public class ImportConcepts {
                 for(int j=0;j<concepts.length();j++) {
                     JSONObject c = concepts.getJSONObject(j);
                     String label = c.getString("label");
+                    if (conceptHash.get(label) != null){
+                        warning("Repeated concept label "+label);
+                        conceptProblems++;
+                    }
                     String regExpr = "";
                     if (c.has("regExpr")) {
                         regExpr = c.getString("regExpr");
@@ -76,6 +82,7 @@ public class ImportConcepts {
                     con.setConceptType(ct);
                     con.setCaseSensitive(caseSensitive);
                     con.setWeight(weight);
+                    conceptHash.put(label,con);
                     if (!regExpr.equals("")) {
                         con.setRegExpr(regExpr);
                     } else if (con instanceof Acronym) {
@@ -92,5 +99,6 @@ public class ImportConcepts {
         } catch(IOException e){
             severe("Cannot read file: "+fullName+", exception "+e.getMessage());
         }
+        assert(conceptProblems == 0);
     }
 }

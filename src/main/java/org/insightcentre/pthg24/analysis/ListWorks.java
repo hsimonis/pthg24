@@ -90,7 +90,7 @@ public class ListWorks extends AbstractList{
     }
 
     private String lcAndDetails(Work a){
-        return highlightNoLocalCopy(a)+"\\hyperref[detail:"+a.getKey()+"]{Details}"+" "+(localCopyExists1(a)?"\\href{"+local(a.getLocalCopy())+"}{Yes}":"No");
+        return highlightNoLocalCopy(a)+"\\hyperref[detail:"+a.getKey()+"]{Details}"+" "+(localCopyExists1(a)?"\\href{works/"+a.getName()+".pdf}{Yes}":"No");
     }
 
     private String highlightNoLocalCopy(Work a){

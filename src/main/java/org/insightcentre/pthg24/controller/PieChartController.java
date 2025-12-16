@@ -867,6 +867,18 @@ public class PieChartController extends ChartController {
 		attributeNames.add("venue");
 		attributeNames.add("basis");
 		choicesMap.put("Link", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("work");
+		attributeNames.add("nr");
+		attributeNames.add("nrEdges");
+		attributeNames.add("connectedComponentNr");
+		choicesMap.put("Node", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("from");
+		attributeNames.add("to");
+		choicesMap.put("Edge", attributeNames);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -1034,6 +1046,12 @@ public class PieChartController extends ChartController {
 			}
 			else if (className.equals("Link")) {
 				objectList = mainApp.getLinkData();
+			}
+			else if (className.equals("Node")) {
+				objectList = mainApp.getNodeData();
+			}
+			else if (className.equals("Edge")) {
+				objectList = mainApp.getEdgeData();
 			}
 			if (objectList != null) {
 				Map<String, Integer> countMap = new HashMap<String, Integer>();

@@ -9,6 +9,7 @@ import org.insightcentre.pthg24.pdfgrep.RunPDFGrep;
 import org.insightcentre.pthg24.pdfgrep.RunPDFInfo;
 import org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL;
 import org.insightcentre.pthg24.reports.CoauthorGraph;
+import org.insightcentre.pthg24.reports.ComponentGraph;
 import org.insightcentre.pthg24.reports.PublicationReport;
 import org.json.JSONObject;
 
@@ -71,7 +72,8 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
         String citationsDir = prefix+"citations/"; // input/output dir where citations of works are cached
         String referencesDir = prefix+"references/"; // input/output dir where references for works are cached
         String reportDir = prefix+"reports/"; // output dir where reports are generated
-        String worksDir = prefix+"works/"; // input dir containing local copies of works
+        String worksDir = prefix+"works/"; // dir containing local copies of works, relative to the main survey .tex file
+        String texWorksDir = "works/"; // dir containing local copies of works, relative to the main survey .tex file
         String graphvizDir = prefix+"graphviz/"; // output dir for graphviz graphs
         String crossrefDir = prefix+"crossref/"; // input/output dir for crossref records
         String scopusDir = prefix+"scopus/"; // input/output dir for scopus records
@@ -100,6 +102,7 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
         new FindMissingCitedWorks(base);
         new FindMissingWorks(base);
         new AuthorCitations(base);
+        new GraphData(base);
 
         new RunPDFInfo(base,bibDir);
         new RunPDFGrep(base,importDir,getConceptMatching());
@@ -218,6 +221,7 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
         new KeyOverview(base,exportDir,"keylist.tex");
         new WorksByAuthor(base,exportDir,"worksbyauthor.tex");
         new CoauthorGraph(base,coauthorLimit,graphvizDir,reportDir,"coauthors.pdf");
+        new ComponentGraph(base,0,graphvizDir);
         if (computeSimilarity) {
             new ListSimilarity(base,exportDir,"mostsimilar.tex");
         }

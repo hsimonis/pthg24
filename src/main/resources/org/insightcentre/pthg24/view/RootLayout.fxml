@@ -157,6 +157,12 @@
                      </items>
                   </Menu>
                   <MenuItem id="scenarioPage" onAction="#handle" text="Scenario" />
+                  <Menu text="_Graph">
+                     <items>
+                        <MenuItem id="nodePage" onAction="#handle" text="Node" />
+                        <MenuItem id="edgePage" accelerator="Shortcut+E" onAction="#handle" text="Edge" />
+                     </items>
+                  </Menu>
                   <MenuItem id="GenericPieChart" onAction="#handle" text="Generic Pie Chart" />
                   <MenuItem id="GenericBarChart" onAction="#handle" text="Generic Bar Chart" />
                   <MenuItem id="GenericScatterChart" onAction="#handle" text="Generic Scatter Chart" />

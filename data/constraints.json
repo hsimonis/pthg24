@@ -1,0 +1,10 @@
+{
+    "type":"constraints",
+    "prefix":"constraints/",
+    "bibFile":"constraints.bib",
+	"title":"Constraints Journal",
+    "authors":"Helmut Simonis",
+    "coauthorLimit":4,
+    "linkCountLimit":1,
+    "getLimit":5000
+}

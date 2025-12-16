@@ -1,8 +1,6 @@
 package org.insightcentre.pthg24.analysis;
 
-import org.insightcentre.pthg24.datamodel.Scenario;
-import org.insightcentre.pthg24.datamodel.Similarity;
-import org.insightcentre.pthg24.datamodel.Work;
+import org.insightcentre.pthg24.datamodel.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -98,6 +96,29 @@ public class ListDetails extends AbstractList{
             out.printf("%s\n\n",showAbstract(w.getAbstractText()));
 
             ls.listSimilarity(out,w);
+
+            List<Work> references = base.getListEdge().stream().
+                    filter(x->x.getFrom().getWork()==w).
+                    map(x->x.getTo().getWork()).
+                    distinct().
+                    sorted(Comparator.comparing(Work::getName)).
+                    toList();
+            List<Work> citing = base.getListEdge().stream().
+                    filter(x->x.getTo().getWork()==w).
+                    map(x->x.getFrom().getWork()).
+                    distinct().
+                    sorted(Comparator.comparing(Work::getName)).
+                    toList();
+
+
+            if(!references.isEmpty()) {
+                new ListWorks(out, base, references, false, "References in Survey");
+            }
+            if (!citing.isEmpty()) {
+                new ListWorks(out, base, citing, false, "Cited by Works in Survey");
+            }
+
+
         }
 
     }

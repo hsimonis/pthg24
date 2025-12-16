@@ -46,6 +46,7 @@ import org.insightcentre.pthg24.datamodel.ConferenceSeries;
 import org.insightcentre.pthg24.datamodel.CountryCollab;
 import org.insightcentre.pthg24.datamodel.CrossReference;
 import org.insightcentre.pthg24.datamodel.DoiReference;
+import org.insightcentre.pthg24.datamodel.Edge;
 import org.insightcentre.pthg24.datamodel.InBook;
 import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.Journal;
@@ -55,6 +56,7 @@ import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.MissingCross;
 import org.insightcentre.pthg24.datamodel.MissingWork;
+import org.insightcentre.pthg24.datamodel.Node;
 import org.insightcentre.pthg24.datamodel.Orphan;
 import org.insightcentre.pthg24.datamodel.OtherWork;
 import org.insightcentre.pthg24.datamodel.Paper;
@@ -195,6 +197,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<Link> linkData = FXCollections.observableArrayList();
 
+	private ObservableList<Node> nodeData = FXCollections.observableArrayList();
+
+	private ObservableList<Edge> edgeData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "Literature Survey Tool, Insight Centre for Data Analytics, University College Cork", "*.data", "data/");
 		fs = minimalDataset();
@@ -250,6 +256,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("Translator", "Translator");
 		tableViews.put("SourceGroup", "SourceGroup");
 		tableViews.put("ReferenceFlow", "ReferenceFlow");
+		tableViews.put("Node", "Node");
+		tableViews.put("Edge", "Edge");
 	}
 
 	public static void main(String[] args) {
@@ -425,6 +433,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		specialIssueData.addAll(base.getListSpecialIssue());
 		linkData.clear();
 		linkData.addAll(base.getListLink());
+		nodeData.clear();
+		nodeData.addAll(base.getListNode());
+		edgeData.clear();
+		edgeData.addAll(base.getListEdge());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -650,5 +662,13 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<Link> getLinkData() {
 		return linkData;
+	}
+
+	public ObservableList<Node> getNodeData() {
+		return nodeData;
+	}
+
+	public ObservableList<Edge> getEdgeData() {
+		return edgeData;
 	}
 }

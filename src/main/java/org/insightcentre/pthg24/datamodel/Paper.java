@@ -53,6 +53,8 @@ import org.insightcentre.pthg24.datamodel.OtherWork;
 import org.insightcentre.pthg24.datamodel.Assertion;
 import org.insightcentre.pthg24.datamodel.SpecialIssue;
 import org.insightcentre.pthg24.datamodel.Link;
+import org.insightcentre.pthg24.datamodel.Node;
+import org.insightcentre.pthg24.datamodel.Edge;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -333,6 +335,7 @@ public  class Paper extends Work{
         getApplicationDataset().cascadeAuthorDoubleWork1(this);
         getApplicationDataset().cascadeAuthorDoubleWork2(this);
         getApplicationDataset().cascadeAssertionWork(this);
+        getApplicationDataset().cascadeNodeWork(this);
         return getApplicationDataset().removePaper(this) && getApplicationDataset().removeWork(this) && getApplicationDataset().removeApplicationObject(this);
     }
 

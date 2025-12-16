@@ -550,6 +550,25 @@ public SubType getSubType(String attributeName,
         return res;
     }
 
+    public Edge getEdge(String attributeName,
+                               Attributes attributes) {
+        return (Edge) find(getId(attributeName,attributes));
+    }
+
+    public List<Edge> getEdgeCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<Edge> res = new ArrayList<Edge>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((Edge) find(id));
+            }
+        }
+        return res;
+    }
+
     public InBook getInBook(String attributeName,
                                Attributes attributes) {
         return (InBook) find(getId(attributeName,attributes));
@@ -716,6 +735,25 @@ public SubType getSubType(String attributeName,
             if (words[i].length() > 0) {
                 int id = Integer.parseInt(words[i].substring(3));
                 res.add((MissingWork) find(id));
+            }
+        }
+        return res;
+    }
+
+    public Node getNode(String attributeName,
+                               Attributes attributes) {
+        return (Node) find(getId(attributeName,attributes));
+    }
+
+    public List<Node> getNodeCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<Node> res = new ArrayList<Node>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((Node) find(id));
             }
         }
         return res;
@@ -1500,6 +1538,15 @@ public SubType getSubType(String attributeName,
                         getInteger("year",attributes,0),
                         getString("doi",attributes,"")
                         ));
+            } else if (qname.equals("edge")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new Edge(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        null,
+                        null
+                        ));
             } else if (qname.equals("inBook")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1738,6 +1785,17 @@ public SubType getSubType(String attributeName,
                         getString("url",attributes,""),
                         getString("volume",attributes,""),
                         getInteger("year",attributes,0)
+                        ));
+            } else if (qname.equals("node")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new Node(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getInteger("connectedComponentNr",attributes,0),
+                        getInteger("nr",attributes,0),
+                        getInteger("nrEdges",attributes,0),
+                        null
                         ));
             } else if (qname.equals("orphan")) {
                 assert (base != null);
@@ -2236,6 +2294,12 @@ public SubType getSubType(String attributeName,
                  item.setMissingWork(getMissingWork("missingWork",attributes));
                  item.setReferredWork(getWork("referredWork",attributes));
                  item.setWork(getWork("work",attributes));
+            } else if (qname.equals("edge")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                Edge item = (Edge) find(id);
+                 item.setFrom(getNode("from",attributes));
+                 item.setTo(getNode("to",attributes));
             } else if (qname.equals("inBook")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2287,6 +2351,11 @@ public SubType getSubType(String attributeName,
                 int id = getId("id", attributes);
                 MissingWork item = (MissingWork) find(id);
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
+            } else if (qname.equals("node")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                Node item = (Node) find(id);
+                 item.setWork(getWork("work",attributes));
             } else if (qname.equals("orphan")) {
                 assert (base != null);
                 int id = getId("id", attributes);

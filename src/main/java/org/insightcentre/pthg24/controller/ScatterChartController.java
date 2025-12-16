@@ -1196,6 +1196,22 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("article");
 		filterNames.add("venue");
 		filterNames.add("basis");
+		filterNames.add("name");
+		filterNames.add("work");
+		attributeNames.add("nr");
+		filterNames.add("nr");
+		attributeNames.add("nrEdges");
+		filterNames.add("nrEdges");
+		attributeNames.add("connectedComponentNr");
+		filterNames.add("connectedComponentNr");
+		choicesMap.put("Node", attributeNames);
+		filterMap.put("Node", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
+		filterNames.add("name");
+		filterNames.add("from");
+		filterNames.add("to");
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -1371,6 +1387,12 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("Link")) {
 				objectList = mainApp.getLinkData();
+			}
+			else if (className.equals("Node")) {
+				objectList = mainApp.getNodeData();
+			}
+			else if (className.equals("Edge")) {
+				objectList = mainApp.getEdgeData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

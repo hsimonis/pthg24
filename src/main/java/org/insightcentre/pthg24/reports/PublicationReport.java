@@ -84,20 +84,31 @@ public class PublicationReport extends AbstractReport{
                 base.getListWork().stream().filter(x->!x.getBackground()).filter(x->x instanceof PhDThesis).collect(Collectors.toList()));
 
         subsection("By SubType");
+
+        new DistributionPlot<>(base.getListArticle(),this::subType).
+                width(20).height(10).
+                title("Works by SubType").
+                xlabel("SubType").ylabel("Count").
+                generate().fileLatex(getRoot(),"worksBySubType",tex);
+
         bySubtype(base.getListArticle().stream().toList(),
-                base.getListArticle().stream().filter(x-> x.getSubType()==Regular || x.getSubType()==Application).toList(),
+                base.getListArticle().stream().filter(x-> x.getSubType()==null || x.getSubType()==Application).toList(),
                 base.getListArticle().stream().filter(x->x.getSubType()==PhDA).toList(),
                 base.getListArticle().stream().filter(x->x.getSubType()==Survey).toList(),
                 base.getListArticle().stream().filter(x->x.getSubType()==Viewpoint).toList(),
                 base.getListArticle().stream().filter(x->x.getSubType()==Benchmarks).toList());
 
         subsection("Linked/IsSpecial Issue");
-        byFlag("Linked",base.getListArticle().stream().toList(),
-                base.getListArticle().stream().filter(x-> x.getLink()!= null).toList(),
-                base.getListArticle().stream().filter(x-> x.getLink() == null).toList());
-        byFlag("In Special Issue",base.getListArticle().stream().toList(),
-                base.getListArticle().stream().filter(x-> x.getSpecialIssue()!=null).toList(),
-                base.getListArticle().stream().filter(x-> x.getSpecialIssue()==null).toList());
+        List<Article> regular = base.getListArticle().stream().
+                filter(x-> x.getSubType()==null || x.getSubType()==Application).
+                toList();
+        info("Regular articles "+regular.size());
+        byFlag("Linked",regular,
+                regular.stream().filter(x-> x.getLink()!= null).toList(),
+                regular.stream().filter(x-> x.getLink() == null).toList(),"linked");
+        byFlag("In Special Issue",regular,
+                regular.stream().filter(x-> x.getSpecialIssue()!=null).toList(),
+                regular.stream().filter(x-> x.getSpecialIssue()==null).toList(),"specialIssue");
 
         section("Number of Coauthors per Work");
         coAuthorDistributionPlot(base.getListWork().stream().filter(x->!x.getBackground()).collect(Collectors.toList()));
@@ -106,7 +117,9 @@ public class PublicationReport extends AbstractReport{
         workDistributionPlot(base.getListAuthor().stream().filter(x->x.getNrWorks() >0).collect(Collectors.toList()));
 
         section("Citation Distribution");
-        citationDistributionPlot(base.getListWork().stream().filter(x->!x.getBackground()).toList());
+        citationDistributionPlot(base.getListWork());
+        regularWorksCitationDistributionPlot(base.getListArticle().stream().
+                filter(x->x.getSubType()==null || x.getSubType() == Application || x.getSubType() == Survey).toList());
 
         clearpage();
         section("Similarity Measures");
@@ -367,6 +380,13 @@ public class PublicationReport extends AbstractReport{
 
     }
 
+    private SubType subType(Article a){
+        if (a.getSubType()==null){
+            return Regular;
+        }
+        return a.getSubType();
+    }
+
     private boolean isRelevant(Work w,double relevanceLimit){
         return w.getRelevanceBody() >= relevanceLimit || (w.getRelevanceBody()==0.0 && w.getRelevanceAbstract() >= relevanceLimit);
     }
@@ -455,7 +475,7 @@ public class PublicationReport extends AbstractReport{
                 width(25).height(12).
                 title("Works by Year").
                 xlabel("Year").ylabel("Count").
-                generate().latex(tex);
+                generate().fileLatex(getRoot(),"bySubTypeSubmissions",tex);
         LinePlot<Integer> lp1 = new LinePlot<>();
         lp1.addPlot("All",years,new LinePlotFunctions<>(x->x, x->cite(x,mapAll)));
         lp1.addPlot("Regular",years,new LinePlotFunctions<>(x->x, x->cite(x,mapRegular)));
@@ -481,10 +501,10 @@ public class PublicationReport extends AbstractReport{
                 width(25).height(12).
                 title("Citations Per Work by Year").
                 xlabel("Year").ylabel("Avg Citations").
-                generate().latex(tex);
+                generate().fileLatex(getRoot(),"bySubTypeAvgCitations",tex);
     }
 
-    private void byFlag(String label,List<Article> all,List<Article> in,List<Article> out){
+    private void byFlag(String label,List<Article> all,List<Article> in,List<Article> out,String fileRoot){
         Map<Integer,List<Work>> mapAll= all.stream().collect(groupingBy(Work::getYear));
         Map<Integer,List<Work>> mapIn= in.stream().collect(groupingBy(Work::getYear));
         Map<Integer,List<Work>> mapOut= out.stream().collect(groupingBy(Work::getYear));
@@ -496,9 +516,11 @@ public class PublicationReport extends AbstractReport{
 
         lp.legendPos("north west").
                 width(25).height(12).
-                title("Works by Year (Flag "+label+")").
+                title("Regular Works by Year (Flag "+label+")").
                 xlabel("Year").ylabel("Count").
-                generate().latex(tex);
+                generate().fileLatex(getRoot(),fileRoot+"Submissions",tex);
+
+
         LinePlot<Integer> lp1 = new LinePlot<>();
         lp1.addPlot("All",years,new LinePlotFunctions<>(x->x, x->cite(x,mapAll)));
         lp1.addPlot("In",years,new LinePlotFunctions<>(x->x, x->cite(x,mapIn)));
@@ -509,6 +531,7 @@ public class PublicationReport extends AbstractReport{
                 title("Citations by Year (Flag "+label+")").
                 xlabel("Year").ylabel("Citations").
                 generate().latex(tex);
+
         LinePlot<Integer> lp2 = new LinePlot<>();
         lp2.addPlot("All",years,new LinePlotFunctions<>(x->x, x->avgCite(x,mapAll)));
         lp2.addPlot("In",years,new LinePlotFunctions<>(x->x, x->avgCite(x,mapIn)));
@@ -516,9 +539,9 @@ public class PublicationReport extends AbstractReport{
 
         lp2.legendPos("north west").
                 width(25).height(12).
-                title("Citations Per Work by Year (Flag "+label+")").
+                title("Citations Per Regular Work by Year (Flag "+label+")").
                 xlabel("Year").ylabel("Avg Citations").
-                generate().latex(tex);
+                generate().fileLatex(getRoot(),fileRoot+"AvgCitations",tex);
     }
 
 
@@ -536,21 +559,30 @@ public class PublicationReport extends AbstractReport{
                 width(20).height(10).
                 title("Number of Works per Co-Author").
                 xlabel("Nr Works").ylabel("Co-Author Count").
-                generate().latex(tex);
+                generate().fileLatex(getRoot(),"worksByAuthor",tex);
     }
 
     private void citationDistributionPlot(List<Work> works){
-        Map<Integer,List<Work>> map = works.stream().collect(groupingBy(Work::getNrCitations));
+        Map<Integer,List<Work>> map = works.stream().collect(groupingBy(this::nrCitations));
         new LinePlot<>(map.keySet().stream().
-                filter(x->x>0).
-                filter(x->x<200).
                 sorted().
                 toList(),new LinePlotFunctions<>(x->x,x->citationCount(map,x))).
 //                grid().
-                width(25).height(15).
+        width(25).height(15).
                 title("Nr Citation Distribution Plot ").
                 xlabel("Nr Citations").ylabel("Nr Works").
-                generate().latex(tex);
+                generate().fileLatex(getRoot(),"citationDistribution",tex);
+    }
+    private void regularWorksCitationDistributionPlot(List<Article> works){
+        Map<Integer,List<Work>> map = works.stream().collect(groupingBy(this::nrCitations));
+        new LinePlot<>(map.keySet().stream().
+                sorted().
+                toList(),new LinePlotFunctions<>(x->x,x->citationCount(map,x))).
+//                grid().
+        width(25).height(15).
+                title("Nr Citation Distribution Plot for Regular Articles").
+                xlabel("Nr Citations").ylabel("Nr Works").
+                generate().fileLatex(getRoot(),"regularWorksCitationDistribution",tex);
     }
 
     private int citationCount(Map<Integer,List<Work>> map,Integer x){
@@ -559,6 +591,10 @@ public class PublicationReport extends AbstractReport{
             return 0;
         }
         return list.size();
+    }
+
+    private int nrCitations(Work w){
+        return Math.max(w.getNrCitations(),Math.max(w.getCrossrefCitations(),w.getScopusCitations()));
     }
 
 
@@ -1373,7 +1409,7 @@ public class PublicationReport extends AbstractReport{
                     title("Works of Publisher "+safe(p.getName())+" by Year (Total "+works.size()+" Works)").
                     xlabel("Year").ylabel("Nr Works Published").
                     width(24).height(12).
-                    generate().latex(tex);
+                    generate().fileLatex(getRoot(),"publisher"+p.getName(),tex);
         }
 
            List<Work> allWorks = base.getListWork().stream().
@@ -1404,22 +1440,29 @@ public class PublicationReport extends AbstractReport{
 
     private void worksByProlificAuthors(){
         int maxPub = base.getListAuthor().stream().mapToInt(Author::getNrWorks).max().orElse(0);
-        List<Integer> published = base.getListAuthor().stream().map(Author::getNrWorks).distinct().sorted().toList();
-        int totalRegularArticles = (int) base.getListArticle().stream().filter(x->x.getSubType()==Regular||x.getSubType()==Application).count();
+        List<Integer> published = base.getListAuthor().stream().
+                map(Author::getNrWorks).
+                distinct().
+                sorted().
+                toList();
+        int totalRegularArticles = (int) base.getListArticle().stream().
+                filter(x->x.getSubType()==null||x.getSubType()==Application).
+                count();
 
         new LinePlot<>(published,new LinePlotFunctions<>(x->x,x->percentageWorks(x,totalRegularArticles))).
                 width(22).height(12).
                 title("Impact of Prolific Authors").
                 xlabel("Authors with At Least this Number of Published Works").
                 ylabel("Percentage of All Regular Articles Published").
-                generate().latex(tex);
+                generate().
+                fileLatex(getRoot(),"prolific",tex);
     }
 
     private Double percentageWorks(int i,int totalWorks){
         int cnt = (int) base.getListAuthorship().stream().
                 filter(x->x.getAuthor().getNrWorks()>= i).
                 map(Authorship::getWork).
-                filter(x->x instanceof Article a && (a.getSubType()==Regular||a.getSubType()==Application)).
+                filter(x->x instanceof Article a && (a.getSubType()==null||a.getSubType()==Application)).
                 distinct().
                 count();
         return 100.0*cnt/totalWorks;

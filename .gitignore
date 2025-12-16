@@ -1,80 +1,6 @@
 
-overview/papers/AalianPG23.pdf
-overview/papers/ArmstrongGOS21.pdf
-overview/papers/ArmstrongGOS22.pdf
-overview/papers/JuvinHHL2023.pdf
-overview/papers/KameugneBND23.pdf
-overview/papers/PovedaAA23.pdf
-/overview/articles/
-/overview/papers/
-/overview/phdthesis/
-/overview/proceedings/
-/overview/icaps/
-/overview/scheduling.aux
-/overview/scheduling.blg
-/overview/scheduling.log
-/overview/scheduling.out
 /target/
-/data/
-/talks/
-/overview/works/
-/reports/publications.aux
-/reports/publications.log
-/reports/publications.out
-/works/
-/cars/works/
-/imports/applConceptWork.json
-/imports/consConceptWork.json
-/imports/grepped acronym.txt
-/imports/grepped constraint.txt
-/imports/grepped industry.txt
-/imports/selected industry.txt
-/imports/tmpConceptWork.json
-/overview/carsequencing.aux
-/overview/carsequencing.blg
-/overview/carsequencing.log
-/overview/carsequencing.out
-/applications/works/
-/mobilehealth/
-/overview/mobilehealth.aux
-/overview/mobilehealth.bbl
-/overview/mobilehealth.blg
-/overview/mobilehealth.log
-/overview/mobilehealth.out
-/cars/carsequencing.aux
-/cars/carsequencing.bbl
-/cars/carsequencing.blg
-/cars/carsequencing.log
-/cars/carsequencing.out
-/cars/cars.aux
-/cars/cars.bbl
-/cars/cars.blg
-/cars/cars.log
-/cars/cars.out
-/crossref/
-/cars/crossref/
-/cars/missing/
-/missing/
-/scopus/
-/overview/literature/
 /src/main/java/org/insightcentre/pthg24/imports/Keys.java
-/terrorism/
-/imports/savedConceptWork - Copy.json
-/medicaldrones/
-/scheduling/scheduling.aux
-/scheduling/scheduling.blg
-/scheduling/scheduling.log
-/scheduling/scheduling.out
-/scheduling/crossref/
-/scheduling/scopus/
-/scheduling/works/
-/scheduling/missing/
-/scheduling/reports/publications.aux
-/scheduling/reports/publications.log
-/scheduling/reports/publications.out
-/scheduling/imports/savedConceptWork - Copy.json
-/scheduling/imports/tmpConceptWork.json
-/uncertaincp/
 description/aics24/texput.log
 description/aics24/pdfa.xmpi
 description/aics24/aics24.xmpdata
@@ -84,7 +10,3 @@ description/aics24/aics24.bbl
 description/aics24/aics24.aux
 description/aics24/aics24.abs
 description/aics24/aics24.out
-/energycostoptimization/
-/scheduling
-/cars
-/rostering/

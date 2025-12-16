@@ -24,6 +24,7 @@
 				<xs:element ref="conferenceSeries" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="countryCollab" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="doiReference" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="edge" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="inBook" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="inCollection" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="journal" minOccurs="0" maxOccurs="unbounded"/>
@@ -33,6 +34,7 @@
 				<xs:element ref="missingCitingWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingCross" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingWork" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="node" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="orphan" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="otherWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="paper" minOccurs="0" maxOccurs="unbounded"/>
@@ -425,6 +427,15 @@
 			<xs:attribute name="doi" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="edge">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="from" use="required" type="xs:IDREF"/>
+			<xs:attribute name="to" use="required" type="xs:IDREF"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="inBook">
 		<xs:complexType>
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
@@ -662,6 +673,17 @@
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="volume" use="required" type="xs:string"/>
 			<xs:attribute name="year" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="node">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="connectedComponentNr" use="required" type="xs:integer"/>
+			<xs:attribute name="nr" use="required" type="xs:integer"/>
+			<xs:attribute name="nrEdges" use="required" type="xs:integer"/>
+			<xs:attribute name="work" use="required" type="xs:IDREF"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="orphan">

@@ -44,6 +44,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include CountryCollab.uml
 !include CrossReference.uml
 !include DoiReference.uml
+!include Edge.uml
 !include InBook.uml
 !include InCollection.uml
 !include Journal.uml
@@ -53,6 +54,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include MissingCitingWork.uml
 !include MissingCross.uml
 !include MissingWork.uml
+!include Node.uml
 !include Orphan.uml
 !include OtherWork.uml
 !include Paper.uml
@@ -146,6 +148,9 @@ Author "1..*" *-- OtherWork : authors
 Concept "0..*" *-- OtherWork 
 Work  *-- Assertion 
 Article  *-- Link 
+Work  *-- Node 
+Node  *-- Edge : from
+Node  *-- Edge : to
 header
 Datamodel of Application pthg24
 endheader
