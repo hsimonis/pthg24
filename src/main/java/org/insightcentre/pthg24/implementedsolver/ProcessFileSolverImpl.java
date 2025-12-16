@@ -58,6 +58,7 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
         new CreateTranslators(base);
 
 
+        base.setUseLargerText(getLargerText());
         readParameters(toJSONFile(getProblem()));
 
 

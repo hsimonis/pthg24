@@ -43,7 +43,8 @@ public class ListConceptsByWork extends AbstractList{
     }
 
     private void analyze(PrintWriter out,Scenario base,List<Work> works,boolean rowLabels,String caption){
-//        out.printf("{\\scriptsize\n");
+        //??? maintain smaller text even if using larger text in general
+        out.printf("{\\scriptsize\n");
         out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}r>{\\raggedright\\arraybackslash}p{1.0cm}%s}\n",conceptTypeWidths(base));
         out.printf("\\rowcolor{white}\\caption{%s}\\\\ \\toprule\n",caption);
         out.printf("\\rowcolor{white}Work/Title & Pages & Relevance %s\\\\ \\midrule",conceptTypeLabels(base));
@@ -65,7 +66,7 @@ public class ListConceptsByWork extends AbstractList{
             out.printf("\\\\\n");
         }
         out.printf("\\end{longtable}\n\n");
-//        out.printf("}\n\n");
+        out.printf("}\n\n");
 
     }
 

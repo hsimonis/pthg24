@@ -29,6 +29,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("valid");
 		filterNames.add("problem");
 		filterNames.add("prefix");
+		filterNames.add("useLargerText");
 		filterNames.add("name");
 		filterNames.add("type");
 		filterNames.add("item");

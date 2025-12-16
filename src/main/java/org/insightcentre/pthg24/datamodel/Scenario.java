@@ -92,6 +92,15 @@ public  class Scenario extends ApplicationDataset{
     public String problem;
 
 /**
+ *  
+ *
+*/
+
+    public Boolean useLargerText;
+
+    private transient BooleanProperty useLargerTextWrapper;
+
+/**
  *  No-arg constructor for use in TableView
  *
 */
@@ -112,6 +121,7 @@ public  class Scenario extends ApplicationDataset{
         super(applicationDataset);
         setPrefix("");
         setProblem("");
+        setUseLargerText(true);
         addScenario(this);
     }
 
@@ -127,13 +137,15 @@ public  class Scenario extends ApplicationDataset{
             String name,
             Boolean valid,
             String prefix,
-            String problem){
+            String problem,
+            Boolean useLargerText){
         super(dirty,
             id,
             name,
             valid);
         setPrefix(prefix);
         setProblem(problem);
+        setUseLargerText(useLargerText);
         addScenario(this);
     }
 
@@ -143,7 +155,8 @@ public  class Scenario extends ApplicationDataset{
             other.name,
             other.valid,
             other.prefix,
-            other.problem);
+            other.problem,
+            other.useLargerText);
     }
 
     public Boolean remove(){
@@ -172,6 +185,24 @@ public  class Scenario extends ApplicationDataset{
     }
 
 /**
+ *  get attribute useLargerText
+ *
+ * @return Boolean
+*/
+
+    public Boolean getUseLargerText(){
+        return this.useLargerText;
+    }
+
+    public BooleanProperty useLargerTextWrapperProperty() {
+        if (useLargerTextWrapper == null) {
+            useLargerTextWrapper = new SimpleBooleanProperty();
+        }
+        useLargerTextWrapper.set(useLargerText);
+        return useLargerTextWrapper;
+    }
+
+/**
  *  set attribute prefix, mark dataset as dirty, mark dataset as not valid
 @param prefix String
  *
@@ -196,6 +227,18 @@ public  class Scenario extends ApplicationDataset{
     }
 
 /**
+ *  set attribute useLargerText, mark dataset as dirty, mark dataset as not valid
+@param useLargerText Boolean
+ *
+*/
+
+    public void setUseLargerText(Boolean useLargerText){
+        this.useLargerText = useLargerText;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  override generic toString() method, show all attributes in human readable form
  * @return String details of the format are not clearly defined at the moment
 */
@@ -212,7 +255,7 @@ public  class Scenario extends ApplicationDataset{
 */
 
     public String prettyString(){
-        return getDirty()+ " " +getId()+ " " +getName()+ " " +getValid()+ " " +getPrefix()+ " " +getProblem();
+        return getDirty()+ " " +getId()+ " " +getName()+ " " +getValid()+ " " +getPrefix()+ " " +getProblem()+ " " +getUseLargerText();
     }
 
 /**
@@ -238,7 +281,8 @@ public  class Scenario extends ApplicationDataset{
             " name=\""+toXMLName()+"\""+
             " valid=\""+toXMLValid()+"\""+
             " prefix=\""+toXMLPrefix()+"\""+
-            " problem=\""+toXMLProblem()+"\""+" />");
+            " problem=\""+toXMLProblem()+"\""+
+            " useLargerText=\""+toXMLUseLargerText()+"\""+" />");
      }
 
 /**
@@ -262,17 +306,27 @@ public  class Scenario extends ApplicationDataset{
     }
 
 /**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLUseLargerText(){
+        return this.getUseLargerText().toString();
+    }
+
+/**
  * show object as one row in an HTML table
  * 
  * @return String of form <tr>...</tr>
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Scenario</th>"+"<th>Name</th>"+"<th>Dirty</th>"+"<th>Valid</th>"+"<th>Problem</th>"+"<th>Prefix</th>"+"</tr>";
+        return "<tr><th>Scenario</th>"+"<th>Name</th>"+"<th>Dirty</th>"+"<th>Valid</th>"+"<th>Problem</th>"+"<th>Prefix</th>"+"<th>UseLargerText</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDirty()+"</td>"+ " " +"<td>"+getValid()+"</td>"+ " " +"<td>"+getProblem()+"</td>"+ " " +"<td>"+getPrefix()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDirty()+"</td>"+ " " +"<td>"+getValid()+"</td>"+ " " +"<td>"+getProblem()+"</td>"+ " " +"<td>"+getPrefix()+"</td>"+ " " +"<td>"+getUseLargerText()+"</td>"+"</tr>";
     }
 
 /**
@@ -320,9 +374,13 @@ public  class Scenario extends ApplicationDataset{
       if(!this.getProblem().equals(b.getProblem())){
          System.out.println("Problem");
         }
+      if(!this.getUseLargerText().equals(b.getUseLargerText())){
+         System.out.println("UseLargerText");
+        }
         return  this.getName().equals(b.getName()) &&
           this.getPrefix().equals(b.getPrefix()) &&
-          this.getProblem().equals(b.getProblem());
+          this.getProblem().equals(b.getProblem()) &&
+          this.getUseLargerText().equals(b.getUseLargerText());
     }
 
 /**

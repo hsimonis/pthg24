@@ -46,6 +46,9 @@ public class ScenarioController extends Table3Controller {
 	@FXML
 	private TableColumn<Scenario, String> prefix;
 
+	@FXML
+	private TableColumn<Scenario, Boolean> useLargerText;
+
 	private GeneratedJfxApp mainApp;
 
 	@Override
@@ -82,6 +85,9 @@ public class ScenarioController extends Table3Controller {
 		prefix.setCellValueFactory(new PropertyValueFactory<>("prefix"));
 		prefix.setCellFactory(TextFieldTableCell.forTableColumn());
 		prefix.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPrefix(event.getNewValue()); mainApp.reset();});
+		choices.add("useLargerText");
+		useLargerText.setCellValueFactory(new UseLargerTextCallback());
+		useLargerText.setCellFactory(CheckBoxTableCell.forTableColumn(useLargerText));
 		initialize(choices);
 	}
 
@@ -162,6 +168,21 @@ public class ScenarioController extends Table3Controller {
 				@SuppressWarnings("rawtypes")
 				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
 					cellData.getValue().setValid(newValue);
+				}
+			});
+			return prop;
+		}
+	}
+
+	class UseLargerTextCallback implements Callback<TableColumn.CellDataFeatures<Scenario, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Scenario, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().useLargerTextWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setUseLargerText(newValue);
 				}
 			});
 			return prop;

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.AbstractList.textSize;
 import static org.insightcentre.pthg24.analysis.ListWorks.authors;
 import static org.insightcentre.pthg24.analysis.ListWorks.local;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
@@ -20,7 +21,7 @@ public class WorkWithoutConcepts {
         String fullName= exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullName);
-            out.printf("{\\scriptsize\n");
+            out.printf("{%s\n",textSize(base.getUseLargerText()));
             out.printf("\\begin{longtable}{llp{5cm}p{10cm}rp{3cm}lr}\n");
             out.printf("\\rowcolor{white}\\caption{%s without Concepts}\\\\ \\toprule\n",type);
             out.printf("\\rowcolor{white}Key & \\shortstack{Local\\\\Copy} & Authors & Title & Year & \\shortstack{Conference\\\\/Journal} & Cite & Pages\\\\ \\midrule\n");

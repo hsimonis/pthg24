@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.AbstractList.textSize;
 import static org.insightcentre.pthg24.analysis.ListWorks.local;
 import static org.insightcentre.pthg24.datamodel.MatchLevel.*;
 import static org.insightcentre.pthg24.imports.Importer.safer;
@@ -24,7 +25,7 @@ public class ListByConcept {
                 out.printf("\\subsection{Concept Type %s}\n",safe(type.toString()));
                 out.printf("\\label{sec:%s}\n",safe(type.toString()));
                 out.printf("\\label{%s}\n",safe(type.toString()));
-//                out.printf("{\\scriptsize\n");
+                out.printf("{%s\n",textSize(base.getUseLargerText()));
                 List<Concept> list = sortedConcepts(base, type);
                 int nrConcepts = (int) base.getListConcept().stream().filter(x->x.getConceptType()==type).count();
                 int usedConcepts = list.size();
@@ -45,7 +46,7 @@ public class ListByConcept {
                     out.printf("\\\\\n");
                 }
                 out.printf("\\end{longtable}\n\n");
-//                out.printf("}\n\n");
+                out.printf("}\n\n");
             }
             out.close();
         } catch(IOException e){

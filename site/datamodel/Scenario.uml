@@ -1,4 +1,5 @@
  class Scenario {
 String prefix
 String problem
+Boolean useLargerText
 }

@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.AbstractList.textSize;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListAuthorsByJournal {
@@ -18,7 +19,7 @@ public class ListAuthorsByJournal {
             PrintWriter out = new PrintWriter(fullName);
             List<Author> authors = sortedAuthors(base);
             List<Journal> journals = sortedJournals(base);
-            out.printf("{\\scriptsize\n");
+            out.printf("{%s\n",textSize(base.getUseLargerText()));
             out.printf("\\begin{longtable}{p{4cm}rr*{%d}{r}}\n",journals.size());
             out.printf("\\rowcolor{white}\\caption{Journals Used By Authors (Total %s Names)}\\\\ \\toprule\n",authors.size());
             out.printf("\\rowcolor{white}Author & \\shortstack{Nr\\\\Works} & " +

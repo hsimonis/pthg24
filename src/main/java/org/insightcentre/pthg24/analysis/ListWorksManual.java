@@ -21,7 +21,7 @@ public class ListWorksManual {
         ConceptType benchmark = ConceptType.findByName(base,"Benchmark");
         try{
             PrintWriter out = new PrintWriter(fullName);
-            out.printf("{\\scriptsize\n");
+            out.printf("{%s\n",textSize(base.getUseLargerText()));
             out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3cm}" +
                     ">{\\raggedright\\arraybackslash}p{6cm}p{2cm}rrrrl}\n");
             out.printf("\\rowcolor{white}\\caption{Manually Defined %s Properties}\\\\ \\toprule\n",type);

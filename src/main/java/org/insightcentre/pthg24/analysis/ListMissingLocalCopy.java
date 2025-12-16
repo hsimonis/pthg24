@@ -22,7 +22,7 @@ public class ListMissingLocalCopy extends AbstractList{
         try{
             PrintWriter out = new PrintWriter(fullName);
             List<Work> missing  = missing(base,type);
-            out.printf("{\\scriptsize\n");
+            out.printf("{%s\n",textSize(base.getUseLargerText()));
             out.printf("\\begin{longtable}{p{3cm}p{5cm}p{10cm}p{1cm}rp{2.5cm}l}\n");
             out.printf("\\rowcolor{white}\\caption{%s without Local Copy (Total %d)}\\\\ \\toprule\n",type,missing.size());
             out.printf("\\rowcolor{white}Key/URL & Authors & Title & Relevance &Year & \\shortstack{Conference\\\\/Journal} & Cite\\\\ \\midrule\n");

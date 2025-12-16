@@ -95,7 +95,7 @@ public class ListDetails extends AbstractList{
 
             out.printf("%s\n\n",showAbstract(w.getAbstractText()));
 
-            ls.listSimilarity(out,w);
+            ls.listSimilarity(out,base,w);
 
             List<Work> references = base.getListEdge().stream().
                     filter(x->x.getFrom().getWork()==w).

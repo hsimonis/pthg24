@@ -24,6 +24,7 @@ public class ProcessFileDialogBox extends GeneralDialogBox{
    private TextField problemItem = new TextField();
    private CheckBox conceptMatchingItem = new CheckBox();
    private CheckBox externalLinksItem = new CheckBox();
+   private CheckBox largerTextItem = new CheckBox();
 
     public ProcessFileDialogBox(GeneratedJfxApp app, Scenario base,AbstractSolver solver){
         super(app, base, solver);
@@ -42,6 +43,9 @@ public class ProcessFileDialogBox extends GeneralDialogBox{
         pane.add(new Label("Check External Links:"), 0, row);
         pane.add(externalLinksItem, 1, row++);
         externalLinksItem.setSelected(((ProcessFileSolver)solver).getExternalLinks());
+        pane.add(new Label("Use Larger Text:"), 0, row);
+        pane.add(largerTextItem, 1, row++);
+        largerTextItem.setSelected(((ProcessFileSolver)solver).getLargerText());
         getDialogPane().setContent(pane);
         setTitle("ProcessFile Solver Parameters");
     }
@@ -54,10 +58,12 @@ public void handle(InputEvent event) {
         String problemValue = problemItem.getText();
         boolean conceptMatchingValue = conceptMatchingItem.isSelected();
         boolean externalLinksValue = externalLinksItem.isSelected();
+        boolean largerTextValue = largerTextItem.isSelected();
         ((ProcessFileSolver)getSolver())
             .setProblem(problemValue)
             .setConceptMatching(conceptMatchingValue)
             .setExternalLinks(externalLinksValue)
+            .setLargerText(largerTextValue)
             ;
         super.handle(event);
     }

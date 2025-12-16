@@ -913,6 +913,7 @@
 			<xs:attribute name="valid" use="required" type="xs:boolean"/>
 			<xs:attribute name="prefix" use="required" type="xs:string"/>
 			<xs:attribute name="problem" use="required" type="xs:string"/>
+			<xs:attribute name="useLargerText" use="required" type="xs:boolean"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="school">

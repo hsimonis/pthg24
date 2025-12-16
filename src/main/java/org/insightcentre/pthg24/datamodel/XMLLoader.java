@@ -1166,7 +1166,8 @@ public SubType getSubType(String attributeName,
                         getString("name", attributes, "dummy"),
                         getBoolean("valid",attributes,false),
                         getString("prefix",attributes,""),
-                        getString("problem",attributes,"")
+                        getString("problem",attributes,""),
+                        getBoolean("useLargerText",attributes,false)
                               );
             } else if (qname.equals("acronym")) {
                 assert (base != null);

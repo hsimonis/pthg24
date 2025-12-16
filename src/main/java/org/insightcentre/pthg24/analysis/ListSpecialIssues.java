@@ -33,9 +33,9 @@ public class ListSpecialIssues extends AbstractList{
     }
 
     private void showTable(PrintWriter out,Scenario base,List<SpecialIssue> issues,boolean showLabel,String caption){
-//        out.printf("{\\scriptsize\n");
+        out.printf("{%s\n",textSize(base.getUseLargerText()));
         out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{2cm}>{\\raggedright\\arraybackslash}p{3cm}" +
-                ">{\\raggedright\\arraybackslash}p{12.0cm}p{2.0cm}r}\n");
+                ">{\\raggedright\\arraybackslash}p{13.5cm}p{2.0cm}r}\n");
         out.printf("\\rowcolor{white}\\caption{%s (Total %d)}\\\\ \\toprule\n",safe(caption),issues.size());
         out.printf("\\rowcolor{white}Name & Short Name & Topic & \\shortstack{Based\\\\on\\\\Conference}& \\shortstack{Nr\\\\Articles}\\\\ \\midrule");
         out.printf("\\endhead\n");
@@ -51,7 +51,7 @@ public class ListSpecialIssues extends AbstractList{
             out.printf("\\\\\n");
         }
         out.printf("\\end{longtable}\n\n");
- //       out.printf("}\n\n");
+        out.printf("}\n\n");
 
     }
 
@@ -60,5 +60,7 @@ public class ListSpecialIssues extends AbstractList{
                 filter(x->x.getSpecialIssue()!= null).
                 filter(x->x.getSpecialIssue()==issue).count();
     }
+
+
 
 }

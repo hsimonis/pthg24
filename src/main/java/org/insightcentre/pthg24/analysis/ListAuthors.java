@@ -10,16 +10,17 @@ import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.ListByConcept.citation;
+import static org.insightcentre.pthg24.analysis.ListSpecialIssues.textSize;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
-public class ListAuthors {
+public class ListAuthors{
     public ListAuthors(Scenario base, String exportDir, String fileName){
         assert(exportDir.endsWith("/"));
         String fullName= exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullName);
             List<Author> authors = sortedAuthors(base);
-//            out.printf("{\\scriptsize\n");
+            out.printf("{%s\n",textSize(base.getUseLargerText()));
             out.printf("\\begin{longtable}{p{4cm}rrp{18cm}}\n");
             out.printf("\\rowcolor{white}\\caption{Co-Authors of Articles/Papers (Total %s Names)}\\\\ \\toprule\n",authors.size());
             out.printf("\\rowcolor{white}Author & \\shortstack{Nr\\\\Works} & \\shortstack{Nr\\\\Cites} & Entries \\\\ \\midrule");
@@ -42,7 +43,7 @@ public class ListAuthors {
                 out.printf("\\\\\n");
             }
             out.printf("\\end{longtable}\n");
-//            out.printf("}\n\n");
+            out.printf("}\n\n");
             out.close();
         } catch(IOException e){
             severe("Cannot write file: "+fullName+", exception "+e.getMessage());

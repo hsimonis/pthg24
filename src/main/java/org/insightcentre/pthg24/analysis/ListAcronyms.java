@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.Comparator;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.AbstractList.textSize;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListAcronyms {
@@ -19,7 +20,7 @@ public class ListAcronyms {
         String fullFile = exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullFile);
-//            out.printf("{\\scriptsize\n");
+            out.printf("{%s\n",textSize(base.getUseLargerText()));
             out.printf("\\begin{longtable}{llp{12cm}}\n");
             out.printf("\\caption{Acronym Concepts}\\\\ \\toprule\n");
             out.printf("Acronym & Type & Description\\\\ \\midrule");
@@ -36,7 +37,7 @@ public class ListAcronyms {
 
             }
             out.printf("\\end{longtable}\n\n");
- //           out.printf("}\n\n");
+            out.printf("}\n\n");
             out.close();
         } catch(IOException e){
             severe("Cannot write file "+fullFile+", exception "+e.getMessage());

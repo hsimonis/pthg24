@@ -23,6 +23,7 @@
                <TableColumn fx:id="valid" editable="false" styleClass="right-aligned,disabled-column" text="Valid" />
                <TableColumn fx:id="problem" styleClass="right-aligned" text="Problem" />
                <TableColumn fx:id="prefix" styleClass="right-aligned" text="Prefix" />
+               <TableColumn fx:id="useLargerText" styleClass="right-aligned" text="UseLargerText" />
             </columns>
          </TableView>
       </center>

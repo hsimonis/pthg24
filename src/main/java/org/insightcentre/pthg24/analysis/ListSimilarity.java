@@ -14,6 +14,7 @@ import java.util.Map;
 
 import static framework.reports.AbstractCommon.safe;
 import static java.util.stream.Collectors.groupingBy;
+import static org.insightcentre.pthg24.analysis.AbstractList.textSize;
 import static org.insightcentre.pthg24.analysis.ListWorks.local;
 import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
@@ -64,7 +65,7 @@ public class ListSimilarity {
                     filter(x->!x.getBackground()).
                     filter(x->map1.get(x) != null || map2.get(x) != null).
                     sorted(Comparator.comparing(Work::getName)).toList();
-            similarityTable(out,works);
+            similarityTable(out,base,works);
             out.close();
         } catch(IOException e){
             severe("Cannot write file "+fullFile+", exception "+e.getMessage());
@@ -79,16 +80,16 @@ public class ListSimilarity {
 
     }
 
-    public void listSimilarity(PrintWriter out,Work w){
+    public void listSimilarity(PrintWriter out,Scenario base,Work w){
         if (!w.getBackground() && (map1.get(w) != null || map2.get(w) != null)) {
             List<Work> works = new ArrayList<>();
             works.add(w);
-            similarityTable(out, works);
+            similarityTable(out, base,works);
         }
     }
 
-    private void similarityTable(PrintWriter out,List<Work> works){
-//        out.printf("{\\scriptsize\n");
+    private void similarityTable(PrintWriter out,Scenario base,List<Work> works){
+        out.printf("{%s\n",textSize(base.getUseLargerText()));
         out.printf("\\begin{longtable}{rlllll}\n");
         out.printf("\\caption{Most Similar Works}\\\\ \\toprule\n");
         out.printf("Work & 1 & 2 & 3 & 4 & 5 \\\\ \\midrule");
@@ -100,7 +101,7 @@ public class ListSimilarity {
 
         }
         out.printf("\\end{longtable}\n\n");
-//        out.printf("}\n\n");
+        out.printf("}\n\n");
     }
 
     private void similarityList(PrintWriter out,Work w){

@@ -68,7 +68,13 @@ public abstract class AbstractList {
                 replaceAll("&lt;"," lt ").replaceAll("&\\w*;","").replaceAll("&\\\\#x0D;","").replaceAll("&"," and ");
     }
 
+    public static String textSize(boolean useLargerText){
+        return (useLargerText?"":"\\scriptsize");
+    }
 
+    public static String smallerTextSize(boolean useLargerText){
+        return (useLargerText?"\\scriptsize":"\\tiny");
+    }
 
 
 

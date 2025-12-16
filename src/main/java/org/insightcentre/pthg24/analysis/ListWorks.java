@@ -54,42 +54,53 @@ public class ListWorks extends AbstractList{
         }
     }
 
-//    private void showTable(PrintWriter out,Scenario base,List<Work> works,boolean showLabel,String caption){
-//        out.printf("{\\scriptsize\n");
-//        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{2.5cm}>{\\raggedright\\arraybackslash}p{4.5cm}" +
-//                ">{\\raggedright\\arraybackslash}p{6.0cm}p{1.0cm}rr>{\\raggedright\\arraybackslash}p{2.0cm}r>{\\raggedright\\arraybackslash}p{1cm}p{1cm}p{1cm}p{1cm}}\n");
-//        out.printf("\\rowcolor{white}\\caption{%s (Total %d)}\\\\ \\toprule\n",safe(caption),works.size());
-//        out.printf("\\rowcolor{white}\\shortstack{Key\\\\Source} & Authors & Title (Colored by Open Access)& \\shortstack{Details\\\\LC} & Cite & Year & " +
-//                "\\shortstack{Conference\\\\/Journal\\\\/School\\\\\\textcolor{red}{/SubType}} & \\shortstack{Pages\\\\/\\textcolor{green}{Linked}\\\\/\\textcolor{blue}{Topical}} & Relevance &\\shortstack{Cites\\\\OC XR\\\\SC} & " +
-//                "\\shortstack{Refs\\\\OC\\\\XR} & \\shortstack{Links\\\\Cites\\\\Refs}\\\\ \\midrule");
-//        out.printf("\\endhead\n");
-//        out.printf("\\bottomrule\n");
-//        out.printf("\\endfoot\n");
-//        for(Work a:works){
-//            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %s%s & %s & %s & %s & %s",
-//                    rowLabel(a,"a:"+a.getName(),showLabel),
-//                    a.getKey(),
-//                    a.getUrl(),a.getKey(),
-//                    authors(a),
-//                    openAccessHighlight(a),safe(a.getTitle()+(a.getAbstractText().isEmpty() ?"":" \\hyperref[abs:"+a.getKey()+"]{Abstract}")),
-//                    lcAndDetails(a),
-//                    a.getName(),
-//                    a.getYear(),
-//                    confOrJournal(a),
-//                    highlightLinked(a),
-//                    pageAndSpecialIssue(a),
-//                    showRelevances(a),
-//                    citations(a),
-//                    references(a),
-//                    links(a));
-//            out.printf("\\\\\n");
-//        }
-//        out.printf("\\end{longtable}\n");
-//        out.printf("}\n\n");
-//
-//    }
     private void showTable(PrintWriter out,Scenario base,List<Work> works,boolean showLabel,String caption){
+        if (base.getUseLargerText()){
+            showLargerTable(out,base,works,showLabel,caption);
+        } else {
+            showSmallerTable(out,base,works,showLabel,caption);
+        }
+    }
 
+    //??? make changes in other table as well
+    private void showSmallerTable(PrintWriter out,Scenario base,List<Work> works,boolean showLabel,String caption){
+        //??? textSize is set correctly for smaller table
+        out.printf("{\\scriptsize\n");
+        out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{2.5cm}>{\\raggedright\\arraybackslash}p{4.5cm}" +
+                ">{\\raggedright\\arraybackslash}p{6.0cm}p{1.0cm}rr>{\\raggedright\\arraybackslash}p{2.0cm}r>{\\raggedright\\arraybackslash}p{1cm}p{1cm}p{1cm}p{1cm}}\n");
+        out.printf("\\rowcolor{white}\\caption{%s (Total %d)}\\\\ \\toprule\n",safe(caption),works.size());
+        out.printf("\\rowcolor{white}\\shortstack{Key\\\\Source} & Authors & Title (Colored by Open Access)& \\shortstack{Details\\\\LC} & Cite & Year & " +
+                "\\shortstack{Conference\\\\/Journal\\\\/School\\\\\\textcolor{red}{/SubType}} & \\shortstack{Pages\\\\/\\textcolor{green}{Linked}\\\\/\\textcolor{blue}{Topical}} & Relevance &\\shortstack{Cites\\\\OC XR\\\\SC} & " +
+                "\\shortstack{Refs\\\\OC\\\\XR} & \\shortstack{Links\\\\Cites\\\\Refs}\\\\ \\midrule");
+        out.printf("\\endhead\n");
+        out.printf("\\bottomrule\n");
+        out.printf("\\endfoot\n");
+        for(Work a:works){
+            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %s%s & %s & %s & %s & %s",
+                    rowLabel(a,"a:"+a.getName(),showLabel),
+                    a.getKey(),
+                    a.getUrl(),a.getKey(),
+                    authors(a),
+                    openAccessHighlight(a),safe(a.getTitle()+(a.getAbstractText().isEmpty() ?"":" \\hyperref[abs:"+a.getKey()+"]{Abstract}")),
+                    lcAndDetails(a),
+                    a.getName(),
+                    a.getYear(),
+                    confOrJournal(a),
+                    highlightLinked(a),
+                    pageAndSpecialIssue(base,a),
+                    showRelevances(a),
+                    citations(a),
+                    references(a),
+                    links(a));
+            out.printf("\\\\\n");
+        }
+        out.printf("\\end{longtable}\n");
+        out.printf("}\n\n");
+
+    }
+
+    //??? make changes in other table as well
+    private void showLargerTable(PrintWriter out,Scenario base,List<Work> works,boolean showLabel,String caption){
         out.printf("\\begin{longtable}{>{\\raggedright\\arraybackslash}p{3.0cm}>{\\raggedright\\arraybackslash}p{4.5cm}" +
                 ">{\\raggedright\\arraybackslash}p{6.0cm}p{1.5cm}>{\\raggedright\\arraybackslash}p{2.0cm}r>{\\raggedright\\arraybackslash}p{1cm}p{1cm}p{1cm}}\n");
         out.printf("\\rowcolor{white}\\caption{%s (Total %d)}\\\\ \\toprule\n",safe(caption),works.size());
@@ -109,7 +120,7 @@ public class ListWorks extends AbstractList{
                     lcAndDetails(a),
                     confOrJournal(a),
                     highlightLinked(a),
-                    pageAndSpecialIssue(a),
+                    pageAndSpecialIssue(base,a),
                     citations(a),
                     references(a),
                     links(a));
@@ -147,11 +158,12 @@ public class ListWorks extends AbstractList{
         }
     }
 
-    private String pageAndSpecialIssue(Work w){
+    private String pageAndSpecialIssue(Scenario base,Work w){
+
         if (w instanceof Article a && a.getSpecialIssue() != null) {
-            return "\\shortstack[r]{" + a.getNrPages() + "\\\\{\\scriptsize " + a.getSpecialIssue().getShortName() + "}}";
+            return "\\shortstack[r]{" + a.getNrPages() + "\\\\{"+smallerTextSize(base.getUseLargerText())+" " + a.getSpecialIssue().getShortName() + "}}";
         } else if (w instanceof Article a && a.getLink() != null){
-            return "\\shortstack[r]{"+a.getNrPages()+"\\\\{\\scriptsize "+a.getLink().getVenue()+"}}";
+            return "\\shortstack[r]{"+a.getNrPages()+"\\\\{"+smallerTextSize(base.getUseLargerText())+" "+a.getLink().getVenue()+"}}";
         } else {
             return w.getNrPages().toString();
         }

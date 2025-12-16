@@ -33,6 +33,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("valid");
 		attributeNames.add("problem");
 		attributeNames.add("prefix");
+		attributeNames.add("useLargerText");
 		choicesMap.put("Scenario", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
 		attributeNames.add("name");

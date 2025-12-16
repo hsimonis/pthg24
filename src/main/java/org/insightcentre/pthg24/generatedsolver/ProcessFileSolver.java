@@ -14,15 +14,17 @@ public class ProcessFileSolver extends DefaultSolver{
     protected String problem="";
     protected boolean conceptMatching=true;
     protected boolean externalLinks=true;
+    protected boolean largerText=false;
 
     public ProcessFileSolver(Scenario base){
         super(base,new String[] {});
     }
-    public ProcessFileSolver(Scenario base,String problem,boolean conceptMatching,boolean externalLinks){
+    public ProcessFileSolver(Scenario base,String problem,boolean conceptMatching,boolean externalLinks,boolean largerText){
         super(base,new String[] {});
         this.problem=problem;
         this.conceptMatching=conceptMatching;
         this.externalLinks=externalLinks;
+        this.largerText=largerText;
     }
 
 public String getProblem(){
@@ -37,6 +39,10 @@ public boolean getExternalLinks(){
  return externalLinks;
 }
 
+public boolean getLargerText(){
+ return largerText;
+}
+
 public ProcessFileSolver setProblem(String v){
  problem = v;
  return this;
@@ -49,6 +55,11 @@ public ProcessFileSolver setConceptMatching(boolean v){
 
 public ProcessFileSolver setExternalLinks(boolean v){
  externalLinks = v;
+ return this;
+}
+
+public ProcessFileSolver setLargerText(boolean v){
+ largerText = v;
  return this;
 }
 

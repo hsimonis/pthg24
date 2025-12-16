@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.AbstractList.textSize;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class UnmatchedConcepts {
@@ -18,7 +19,7 @@ public class UnmatchedConcepts {
         String fullName= exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullName);
-//            out.printf("{\\scriptsize\n");
+            out.printf("{%s\n",textSize(base.getUseLargerText()));
             out.printf("\\begin{longtable}{lp{10cm}rr}\n");
             out.printf("\\rowcolor{white}\\caption{Unmatched Concepts}\\\\ \\toprule\n");
             out.printf("\\rowcolor{white}Type & Name & CaseSensitive & Revision\\\\ \\midrule\n");
@@ -34,7 +35,7 @@ public class UnmatchedConcepts {
                         c.getRevision());
             }
             out.printf("\\end{longtable}\n\n");
-//            out.printf("}\n\n");
+            out.printf("}\n\n");
             out.close();
         } catch(IOException e){
             severe("Cannot write file "+fullName+", exception "+e.getMessage());

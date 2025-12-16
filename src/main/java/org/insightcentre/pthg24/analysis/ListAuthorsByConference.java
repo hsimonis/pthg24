@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.AbstractList.textSize;
 import static org.insightcentre.pthg24.analysis.ListByConcept.citation;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
@@ -20,7 +21,7 @@ public class ListAuthorsByConference {
             PrintWriter out = new PrintWriter(fullName);
             List<Author> authors = sortedAuthors(base);
             List<ConferenceSeries> conferences = sortedSeries(base);
-            out.printf("{\\scriptsize\n");
+            out.printf("{%s\n",textSize(base.getUseLargerText()));
             out.printf("\\begin{longtable}{p{4cm}rrrrrr*{%d}{r}}\n",conferences.size());
             out.printf("\\rowcolor{white}\\caption{Conferences Used By Authors (Total %s Names)}\\\\ \\toprule\n",authors.size());
             out.printf("\\rowcolor{white}Author & \\shortstack{Nr\\\\Works} & " +

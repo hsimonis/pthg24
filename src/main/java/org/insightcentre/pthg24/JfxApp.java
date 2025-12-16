@@ -53,6 +53,7 @@ public class JfxApp extends GeneratedJfxApp {
                 Scenario base = new Scenario();
                 IrishCalendar.buildCalendar();
                 base.setDirty(false);
+                base.setUseLargerText(false);
 
                 if (args.length==1){
                     base.setProblem(args[0]);
@@ -78,7 +79,7 @@ public class JfxApp extends GeneratedJfxApp {
 
     @Override
     public void processFileSolverRun(Scenario base) {
-        Optional<Boolean> result = new ProcessFileDialogBox(this,base,new ProcessFileSolverImpl(base).setProblem(base.getProblem())).showAndWait();
+        Optional<Boolean> result = new ProcessFileDialogBox(this,base,new ProcessFileSolverImpl(base).setProblem(base.getProblem()).setLargerText(base.getUseLargerText())).showAndWait();
         reset();
     }
 

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
+import static org.insightcentre.pthg24.analysis.AbstractList.textSize;
 import static org.insightcentre.pthg24.analysis.ListWorks.local;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
@@ -24,7 +25,7 @@ public class KeyOverview {
             int nrColumns = 6;
             PrintWriter out = new PrintWriter(fullName);
             List<Work> sorted  = sortedWorks(base);
-//            out.printf("{\\scriptsize\n");
+            out.printf("{%s\n",textSize(base.getUseLargerText()));
             out.printf("\\begin{longtable}{*{%d}{l}}\n",nrColumns);
             out.printf("\\rowcolor{white}\\caption{Key Overview (Total: %d Not Including Background Works)}\\\\ \\toprule\n",sorted.size());
             out.printf("\\rowcolor{white}1 & 2 & 3 & 4 & 5 & 6\\\\ \\midrule\n");
@@ -48,7 +49,7 @@ public class KeyOverview {
                 }
             }
             out.printf("\\end{longtable}\n");
-//            out.printf("}\n\n");
+            out.printf("}\n\n");
             out.close();
         } catch(IOException e){
             severe("Cannot write file "+fullName+", exception "+e.getMessage());
