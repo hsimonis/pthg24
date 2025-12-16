@@ -18,7 +18,7 @@ public class UnmatchedConcepts {
         String fullName= exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullName);
-            out.printf("{\\scriptsize\n");
+//            out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{lp{10cm}rr}\n");
             out.printf("\\rowcolor{white}\\caption{Unmatched Concepts}\\\\ \\toprule\n");
             out.printf("\\rowcolor{white}Type & Name & CaseSensitive & Revision\\\\ \\midrule\n");
@@ -33,8 +33,8 @@ public class UnmatchedConcepts {
                         (c.getCaseSensitive()?"Y":""),
                         c.getRevision());
             }
-            out.printf("\\end{longtable}\n");
-            out.printf("}\n\n");
+            out.printf("\\end{longtable}\n\n");
+//            out.printf("}\n\n");
             out.close();
         } catch(IOException e){
             severe("Cannot write file "+fullName+", exception "+e.getMessage());

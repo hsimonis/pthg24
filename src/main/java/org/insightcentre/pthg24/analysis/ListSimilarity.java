@@ -88,7 +88,7 @@ public class ListSimilarity {
     }
 
     private void similarityTable(PrintWriter out,List<Work> works){
-        out.printf("{\\scriptsize\n");
+//        out.printf("{\\scriptsize\n");
         out.printf("\\begin{longtable}{rlllll}\n");
         out.printf("\\caption{Most Similar Works}\\\\ \\toprule\n");
         out.printf("Work & 1 & 2 & 3 & 4 & 5 \\\\ \\midrule");
@@ -99,8 +99,8 @@ public class ListSimilarity {
             similarityList(out,w);
 
         }
-        out.printf("\\end{longtable}\n");
-        out.printf("}\n\n");
+        out.printf("\\end{longtable}\n\n");
+//        out.printf("}\n\n");
     }
 
     private void similarityList(PrintWriter out,Work w){

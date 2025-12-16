@@ -19,7 +19,7 @@ public class ListAcronyms {
         String fullFile = exportDir+fileName;
         try{
             PrintWriter out = new PrintWriter(fullFile);
-            out.printf("{\\scriptsize\n");
+//            out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{llp{12cm}}\n");
             out.printf("\\caption{Acronym Concepts}\\\\ \\toprule\n");
             out.printf("Acronym & Type & Description\\\\ \\midrule");
@@ -35,8 +35,8 @@ public class ListAcronyms {
                 out.printf("\\\\\n");
 
             }
-            out.printf("\\end{longtable}\n");
-            out.printf("}\n\n");
+            out.printf("\\end{longtable}\n\n");
+ //           out.printf("}\n\n");
             out.close();
         } catch(IOException e){
             severe("Cannot write file "+fullFile+", exception "+e.getMessage());

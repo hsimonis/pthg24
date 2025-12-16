@@ -24,7 +24,7 @@ public class ListByConcept {
                 out.printf("\\subsection{Concept Type %s}\n",safe(type.toString()));
                 out.printf("\\label{sec:%s}\n",safe(type.toString()));
                 out.printf("\\label{%s}\n",safe(type.toString()));
-                out.printf("{\\scriptsize\n");
+//                out.printf("{\\scriptsize\n");
                 List<Concept> list = sortedConcepts(base, type);
                 int nrConcepts = (int) base.getListConcept().stream().filter(x->x.getConceptType()==type).count();
                 int usedConcepts = list.size();
@@ -44,8 +44,8 @@ public class ListByConcept {
                     out.printf(" & %s", concepts(base, c, Weak));
                     out.printf("\\\\\n");
                 }
-                out.printf("\\end{longtable}\n");
-                out.printf("}\n\n");
+                out.printf("\\end{longtable}\n\n");
+//                out.printf("}\n\n");
             }
             out.close();
         } catch(IOException e){

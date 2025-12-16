@@ -41,7 +41,7 @@ public class ListMissingWork extends AbstractMissingWorkList{
             PrintWriter out = new PrintWriter(fullFile);
 
             int nrShown = list.size();
-            out.printf("{\\scriptsize\n");
+//            out.printf("{\\scriptsize\n");
             out.printf("\\begin{longtable}{p{5cm}lp{11cm}rrrrrr}\n");
             out.printf("\\caption{%s (Total %s Works Checked, %d Selected)}\\\\ \\toprule\n",caption,total,nrShown);
             out.printf("DOI & Type & Authors/Title & \\shortstack{Nr\\\\Links} & \\shortstack{Citing\\\\Survey} & " +
@@ -65,8 +65,8 @@ public class ListMissingWork extends AbstractMissingWorkList{
                 out.printf("\\\\\n");
 
             }
-            out.printf("\\end{longtable}\n");
-            out.printf("}\n\n");
+            out.printf("\\end{longtable}\n\n");
+ //           out.printf("}\n\n");
             out.close();
         } catch(IOException e){
             severe("Cannot write file "+fullFile+", exception "+e.getMessage());

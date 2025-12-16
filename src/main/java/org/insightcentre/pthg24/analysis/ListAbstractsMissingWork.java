@@ -57,8 +57,8 @@ public class ListAbstractsMissingWork extends AbstractMissingWorkList{
     }
 
     public static void listConcepts(Scenario base,PrintWriter out,List<Concept> concepts) {
-        out.printf("{\\scriptsize\n");
-        out.printf("\\begin{longtable}{p{2cm}p{20cm}}\n");
+//        out.printf("{\\scriptsize\n");
+        out.printf("\\begin{longtable}{p{4cm}p{18cm}}\n");
         out.printf("\\caption{Extracted Features from Title and Abstract}\\\\ \\toprule\n");
         out.printf("Type & Concepts Found\\\\ \\midrule\n");
         out.printf("\\endhead\n");
@@ -67,12 +67,15 @@ public class ListAbstractsMissingWork extends AbstractMissingWorkList{
         for (ConceptType type : base.getListConceptType()) {
             out.printf("%s & %s\\\\ \n", type.getName(), conceptString(type, concepts));
         }
-        out.printf("\\end{longtable}\n}\n\n");
+        out.printf("\\end{longtable}\n\n\n");
     }
 
 
     public static String conceptString(ConceptType type,List<Concept> list){
-        return list.stream().filter(x->x.getConceptType()==type).map(ApplicationObject::getName).collect(joining(", "));
+        return list.stream().
+                filter(x->x.getConceptType()==type).
+                map(ApplicationObject::getName).
+                collect(joining(", "));
     }
 
 
