@@ -16,6 +16,7 @@ import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.ListWorksManual.manualInterest;
 import static org.insightcentre.pthg24.datamodel.SubType.Application;
 import static org.insightcentre.pthg24.datamodel.SubType.Regular;
+import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class ListWorks extends AbstractList{
@@ -28,6 +29,7 @@ public class ListWorks extends AbstractList{
         super(base);
         assert(exportDir.endsWith("/"));
         String fullName= exportDir+fileName;
+        info("List works "+fullName);
         try{
             PrintWriter out = new PrintWriter(fullName);
             List<Work> works = sortedWorks(base,type);
@@ -165,6 +167,9 @@ public class ListWorks extends AbstractList{
         } else if (w instanceof Article a && a.getLink() != null){
             return "\\shortstack[r]{"+a.getNrPages()+"\\\\{"+smallerTextSize(base.getUseLargerText())+" "+a.getLink().getVenue()+"}}";
         } else {
+            if (w.getNrPages()==null){
+                return "0";
+            }
             return w.getNrPages().toString();
         }
     }

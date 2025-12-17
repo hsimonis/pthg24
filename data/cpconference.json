@@ -1,0 +1,10 @@
+{
+    "type":"cpconference",
+    "prefix":"cpconference/",
+    "bibFile":"cpconference.bib",
+	"title":"CP Conference",
+    "authors":"Helmut Simonis",
+    "coauthorLimit":2,
+    "linkCountLimit":1,
+    "getLimit":5000
+}
