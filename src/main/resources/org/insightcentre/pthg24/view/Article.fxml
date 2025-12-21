@@ -24,6 +24,8 @@
                <TableColumn fx:id="nrEdges" styleClass="right-aligned" text="NrEdges" />
                <TableColumn fx:id="cluster" styleClass="right-aligned" text="Cluster" />
                <TableColumn fx:id="key" styleClass="right-aligned" text="Key" />
+               <TableColumn fx:id="subType" styleClass="right-aligned" text="SubType" />
+               <TableColumn fx:id="link" styleClass="right-aligned" text="Link" />
                <TableColumn fx:id="author" styleClass="right-aligned" text="Author" />
                <TableColumn fx:id="authors" styleClass="right-aligned" text="Authors" />
                <TableColumn fx:id="title" styleClass="right-aligned" text="Title" />
@@ -37,6 +39,7 @@
                <TableColumn fx:id="nrPages" styleClass="right-aligned" text="NrPages" />
                <TableColumn fx:id="nrHyperLinks" styleClass="right-aligned" text="NrHyperLinks" />
                <TableColumn fx:id="background" styleClass="right-aligned" text="Background" />
+               <TableColumn fx:id="award" styleClass="right-aligned" text="Award" />
                <TableColumn fx:id="sourceGroup" styleClass="right-aligned" text="SourceGroup" />
                <TableColumn fx:id="dataAvail" styleClass="right-aligned" text="DataAvail" />
                <TableColumn fx:id="codeAvail" styleClass="right-aligned" text="CodeAvail" />
@@ -80,8 +83,6 @@
                <TableColumn fx:id="daysToAccept" styleClass="right-aligned" text="DaysToAccept" />
                <TableColumn fx:id="daysToPublish" styleClass="right-aligned" text="DaysToPublish" />
                <TableColumn fx:id="journal" styleClass="right-aligned" text="Journal" />
-               <TableColumn fx:id="subType" styleClass="right-aligned" text="SubType" />
-               <TableColumn fx:id="link" styleClass="right-aligned" text="Link" />
                <TableColumn fx:id="specialIssue" styleClass="right-aligned" text="SpecialIssue" />
                <TableColumn fx:id="isOriginal" styleClass="right-aligned" text="IsOriginal" />
             </columns>

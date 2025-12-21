@@ -55,6 +55,7 @@ import org.insightcentre.pthg24.datamodel.SpecialIssue;
 import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.Node;
 import org.insightcentre.pthg24.datamodel.Edge;
+import org.insightcentre.pthg24.datamodel.ConnectedComponent;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -104,6 +105,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public List<Author> authors;
+
+/**
+ *  
+ *
+*/
+
+    public String award;
 
 /**
  *  
@@ -250,6 +258,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public String language;
+
+/**
+ *  
+ *
+*/
+
+    public Link link;
 
 /**
  *  
@@ -468,6 +483,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  *
 */
 
+    public SubType subType;
+
+/**
+ *  
+ *
+*/
+
     public String title;
 
 /**
@@ -530,6 +552,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setAccepted("");
         setAuthor("");
         setAuthors(new ArrayList<Author>());
+        setAward("");
         setBackground(false);
         setClassification("");
         setCluster(0);
@@ -550,6 +573,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setKey("");
         setKeywords("");
         setLanguage("");
+        setLink(null);
         setLocalCopy("");
         setMaxCitations(0);
         setNr(0);
@@ -580,6 +604,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setShortName("");
         setSolutionAvail("");
         setSourceGroup(null);
+        setSubType(null);
         setTitle("");
         setUrl("");
         setWosCitations(0);
@@ -603,6 +628,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             String accepted,
             String author,
             List<Author> authors,
+            String award,
             Boolean background,
             String classification,
             Integer cluster,
@@ -623,6 +649,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             String key,
             String keywords,
             String language,
+            Link link,
             String localCopy,
             Integer maxCitations,
             Integer nr,
@@ -653,6 +680,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             String shortName,
             String solutionAvail,
             SourceGroup sourceGroup,
+            SubType subType,
             String title,
             String url,
             Integer wosCitations,
@@ -666,6 +694,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setAccepted(accepted);
         setAuthor(author);
         setAuthors(authors);
+        setAward(award);
         setBackground(background);
         setClassification(classification);
         setCluster(cluster);
@@ -686,6 +715,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setKey(key);
         setKeywords(keywords);
         setLanguage(language);
+        setLink(link);
         setLocalCopy(localCopy);
         setMaxCitations(maxCitations);
         setNr(nr);
@@ -716,6 +746,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setShortName(shortName);
         setSolutionAvail(solutionAvail);
         setSourceGroup(sourceGroup);
+        setSubType(subType);
         setTitle(title);
         setUrl(url);
         setWosCitations(wosCitations);
@@ -733,6 +764,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             other.accepted,
             other.author,
             other.authors,
+            other.award,
             other.background,
             other.classification,
             other.cluster,
@@ -753,6 +785,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             other.key,
             other.keywords,
             other.language,
+            other.link,
             other.localCopy,
             other.maxCitations,
             other.nr,
@@ -783,6 +816,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             other.shortName,
             other.solutionAvail,
             other.sourceGroup,
+            other.subType,
             other.title,
             other.url,
             other.wosCitations,
@@ -814,7 +848,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         getApplicationDataset().cascadeAuthorDoubleWork1(this);
         getApplicationDataset().cascadeAuthorDoubleWork2(this);
         getApplicationDataset().cascadeAssertionWork(this);
+        getApplicationDataset().cascadeLinkPaper(this);
         getApplicationDataset().cascadeNodeWork(this);
+        getApplicationDataset().cascadeConnectedComponentWorks(this);
         return getApplicationDataset().removeWork(this) && getApplicationDataset().removeApplicationObject(this);
     }
 
@@ -869,6 +905,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public List<Author> getAuthors(){
         return this.authors;
+    }
+
+/**
+ *  get attribute award
+ *
+ * @return String
+*/
+
+    public String getAward(){
+        return this.award;
     }
 
 /**
@@ -1093,6 +1139,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public String getLanguage(){
         return this.language;
+    }
+
+/**
+ *  get attribute link
+ *
+ * @return Link
+*/
+
+    public Link getLink(){
+        return this.link;
     }
 
 /**
@@ -1404,6 +1460,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
+ *  get attribute subType
+ *
+ * @return SubType
+*/
+
+    public SubType getSubType(){
+        return this.subType;
+    }
+
+/**
  *  get attribute title
  *
  * @return String
@@ -1515,6 +1581,18 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public void setAuthors(List<Author> authors){
         this.authors = authors;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute award, mark dataset as dirty, mark dataset as not valid
+@param award String
+ *
+*/
+
+    public void setAward(String award){
+        this.award = award;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -1755,6 +1833,18 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public void setLanguage(String language){
         this.language = language;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute link, mark dataset as dirty, mark dataset as not valid
+@param link Link
+ *
+*/
+
+    public void setLink(Link link){
+        this.link = link;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -2120,6 +2210,18 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
+ *  set attribute subType, mark dataset as dirty, mark dataset as not valid
+@param subType SubType
+ *
+*/
+
+    public void setSubType(SubType subType){
+        this.subType = subType;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute title, mark dataset as dirty, mark dataset as not valid
 @param title String
  *
@@ -2428,7 +2530,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAccepted()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDaysToAccept()+ " " +getDaysToPublish()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getFirstOnline()+ " " +getIssn()+ " " +getKey()+ " " +getKeywords()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublished()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getReceived()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getRevised()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAccepted()+ " " +getAuthor()+ " " +getAuthors()+ " " +getAward()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDaysToAccept()+ " " +getDaysToPublish()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getFirstOnline()+ " " +getIssn()+ " " +getKey()+ " " +getKeywords()+ " " +getLanguage()+ " " +(getLink() == null ? "" : getLink().toColumnString())+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublished()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getReceived()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getRevised()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getSubType()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
     }
 
 /**
@@ -2456,6 +2558,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             " accepted=\""+toXMLAccepted()+"\""+
             " author=\""+toXMLAuthor()+"\""+
             " authors=\""+toXMLAuthors()+"\""+
+            " award=\""+toXMLAward()+"\""+
             " background=\""+toXMLBackground()+"\""+
             " classification=\""+toXMLClassification()+"\""+
             " cluster=\""+toXMLCluster()+"\""+
@@ -2476,6 +2579,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             " key=\""+toXMLKey()+"\""+
             " keywords=\""+toXMLKeywords()+"\""+
             " language=\""+toXMLLanguage()+"\""+
+            " link=\""+toXMLLink()+"\""+
             " localCopy=\""+toXMLLocalCopy()+"\""+
             " maxCitations=\""+toXMLMaxCitations()+"\""+
             " nr=\""+toXMLNr()+"\""+
@@ -2506,6 +2610,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             " shortName=\""+toXMLShortName()+"\""+
             " solutionAvail=\""+toXMLSolutionAvail()+"\""+
             " sourceGroup=\""+toXMLSourceGroup()+"\""+
+            " subType=\""+toXMLSubType()+"\""+
             " title=\""+toXMLTitle()+"\""+
             " url=\""+toXMLUrl()+"\""+
             " wosCitations=\""+toXMLWosCitations()+"\""+
@@ -2556,6 +2661,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             str=str+" "+"ID_"+x.getId();
         }
         return str;
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLAward(){
+        return this.safeXML(getAward());
     }
 
 /**
@@ -2760,6 +2875,19 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     String toXMLLanguage(){
         return this.safeXML(getLanguage());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLLink(){
+        if (getLink() == null){
+             return "";
+        }
+        return "ID_"+this.getLink().getId().toString();
     }
 
 /**
@@ -3068,6 +3196,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  * @return String
 */
 
+    String toXMLSubType(){
+        return this.getSubType().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLTitle(){
         return this.safeXML(getTitle());
     }
@@ -3227,6 +3365,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         }
       if (true) {         System.out.println("Authors");
         }
+      if(!this.getAward().equals(b.getAward())){
+         System.out.println("Award");
+        }
       if(!this.getBackground().equals(b.getBackground())){
          System.out.println("Background");
         }
@@ -3285,6 +3426,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         }
       if(!this.getLanguage().equals(b.getLanguage())){
          System.out.println("Language");
+        }
+      if(!(getLink() == null ? b.getLink() == null:this.getLink().applicationSame(b.getLink()))){
+         System.out.println("Link");
         }
       if(!this.getLocalCopy().equals(b.getLocalCopy())){
          System.out.println("LocalCopy");
@@ -3379,6 +3523,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
       if(!this.getSourceGroup().applicationSame(b.getSourceGroup())){
          System.out.println("SourceGroup");
         }
+      if(!this.getSubType().equals(b.getSubType())){
+         System.out.println("SubType");
+        }
       if(!this.getTitle().equals(b.getTitle())){
          System.out.println("Title");
         }
@@ -3401,6 +3548,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
           this.getAccepted().equals(b.getAccepted()) &&
           this.getAuthor().equals(b.getAuthor()) &&
           true &&
+          this.getAward().equals(b.getAward()) &&
           this.getBackground().equals(b.getBackground()) &&
           this.getClassification().equals(b.getClassification()) &&
           this.getCluster().equals(b.getCluster()) &&
@@ -3421,6 +3569,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
           this.getKey().equals(b.getKey()) &&
           this.getKeywords().equals(b.getKeywords()) &&
           this.getLanguage().equals(b.getLanguage()) &&
+          (this.getLink() == null ? b.getLink() == null : this.getLink().applicationSame(b.getLink())) &&
           this.getLocalCopy().equals(b.getLocalCopy()) &&
           this.getMaxCitations().equals(b.getMaxCitations()) &&
           this.getName().equals(b.getName()) &&
@@ -3452,6 +3601,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
           this.getShortName().equals(b.getShortName()) &&
           this.getSolutionAvail().equals(b.getSolutionAvail()) &&
           this.getSourceGroup().applicationSame(b.getSourceGroup()) &&
+          this.getSubType().equals(b.getSubType()) &&
           this.getTitle().equals(b.getTitle()) &&
           this.getUrl().equals(b.getUrl()) &&
           this.getWosCitations().equals(b.getWosCitations()) &&
@@ -3501,6 +3651,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
       }
       if (attrName.equals("concept")){
          return (List) ((Scenario)base).getListConcept();
+      }
+      if (attrName.equals("link")){
+         return (List) ((Scenario)base).getListLink();
       }
       if (attrName.equals("publisher")){
          return (List) ((Scenario)base).getListPublisher();

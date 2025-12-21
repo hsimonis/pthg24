@@ -3,6 +3,7 @@ String abstractText
 String accepted
 String author
 List<Author> authors
+String award
 Boolean background
 String classification
 Integer cluster
@@ -23,6 +24,7 @@ String issn
 String key
 String keywords
 String language
+Link link
 String localCopy
 Integer maxCitations
 Integer nr
@@ -53,6 +55,7 @@ Boolean scopusStatus
 String shortName
 String solutionAvail
 SourceGroup sourceGroup
+SubType subType
 String title
 String url
 Integer wosCitations

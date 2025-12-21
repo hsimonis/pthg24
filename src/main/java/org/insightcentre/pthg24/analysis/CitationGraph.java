@@ -4,6 +4,7 @@ import edu.princeton.cs.algorithms.CC;
 import edu.princeton.cs.algorithms.Graph;
 import org.insightcentre.pthg24.datamodel.*;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -80,11 +81,19 @@ public class CitationGraph {
 
         CC cc = new CC(g);
         int nrClusters = cc.count();
+        ConnectedComponent[] ccs = new ConnectedComponent[nrClusters];
         info("NrClusters "+nrClusters);
         for(Work w:base.getListWork()){
             int id = cc.id(w.getNr());
 //            info("Work "+w.getKey()+" "+id+" "+w.getNrEdges());
             w.setCluster(id);
+            if (ccs[id]==null){
+                ccs[id] = new ConnectedComponent(base);
+                ccs[id].setName("CC"+id);
+                ccs[id].setNr(id);
+                ccs[id].setWorks(new ArrayList<>());
+            }
+            ccs[id].getWorks().add(w);
         }
         Map<Integer,List<Work>> map = base.getListWork().stream().collect(groupingBy(Work::getCluster));
         for(Integer i:map.keySet()){

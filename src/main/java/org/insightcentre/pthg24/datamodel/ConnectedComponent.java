@@ -77,27 +77,27 @@ import framework.AppearInCollection;
  * @author generated
 */
 
-public  class MissingCitingWork extends ApplicationObject{
+public  class ConnectedComponent extends ApplicationObject{
 /**
  *  
  *
 */
 
-    public String doi;
+    public Integer nr;
 
 /**
  *  
  *
 */
 
-    public Integer nrCited;
+    public List<Work> works;
 
 /**
  *  No-arg constructor for use in TableView
  *
 */
 
-    public MissingCitingWork(){
+    public ConnectedComponent(){
         super();
     }
 
@@ -109,11 +109,11 @@ public  class MissingCitingWork extends ApplicationObject{
  *
 */
 
-    public MissingCitingWork(ApplicationDataset applicationDataset){
+    public ConnectedComponent(ApplicationDataset applicationDataset){
         super(applicationDataset);
-        setDoi("");
-        setNrCited(0);
-        applicationDataset.addMissingCitingWork(this);
+        setNr(0);
+        setWorks(new ArrayList<Work>());
+        applicationDataset.addConnectedComponent(this);
     }
 
 /**
@@ -123,25 +123,25 @@ public  class MissingCitingWork extends ApplicationObject{
  *
 */
 
-    public MissingCitingWork(ApplicationDataset applicationDataset,
+    public ConnectedComponent(ApplicationDataset applicationDataset,
             Integer id,
             String name,
-            String doi,
-            Integer nrCited){
+            Integer nr,
+            List<Work> works){
         super(applicationDataset,
             id,
             name);
-        setDoi(doi);
-        setNrCited(nrCited);
-        applicationDataset.addMissingCitingWork(this);
+        setNr(nr);
+        setWorks(works);
+        applicationDataset.addConnectedComponent(this);
     }
 
-    public MissingCitingWork(MissingCitingWork other){
+    public ConnectedComponent(ConnectedComponent other){
         this(other.applicationDataset,
             other.id,
             other.name,
-            other.doi,
-            other.nrCited);
+            other.nr,
+            other.works);
     }
 
 /**
@@ -152,60 +152,60 @@ public  class MissingCitingWork extends ApplicationObject{
 */
 
     public Boolean remove(){
-        return getApplicationDataset().removeMissingCitingWork(this) && getApplicationDataset().removeApplicationObject(this);
+        return getApplicationDataset().removeConnectedComponent(this) && getApplicationDataset().removeApplicationObject(this);
     }
 
 /**
- *  get attribute doi
- *
- * @return String
-*/
-
-    public String getDoi(){
-        return this.doi;
-    }
-
-/**
- *  get attribute nrCited
+ *  get attribute nr
  *
  * @return Integer
 */
 
-    public Integer getNrCited(){
-        return this.nrCited;
+    public Integer getNr(){
+        return this.nr;
     }
 
 /**
- *  set attribute doi, mark dataset as dirty, mark dataset as not valid
-@param doi String
+ *  get attribute works
+ *
+ * @return List<Work>
+*/
+
+    public List<Work> getWorks(){
+        return this.works;
+    }
+
+/**
+ *  set attribute nr, mark dataset as dirty, mark dataset as not valid
+@param nr Integer
  *
 */
 
-    public void setDoi(String doi){
-        this.doi = doi;
+    public void setNr(Integer nr){
+        this.nr = nr;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
 
 /**
- *  set attribute nrCited, mark dataset as dirty, mark dataset as not valid
-@param nrCited Integer
+ *  set attribute works, mark dataset as dirty, mark dataset as not valid
+@param works List<Work>
  *
 */
 
-    public void setNrCited(Integer nrCited){
-        this.nrCited = nrCited;
+    public void setWorks(List<Work> works){
+        this.works = works;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
 
 /**
- *  inc attribute nrCited, mark dataset as dirty, mark dataset as not valid
+ *  inc attribute nr, mark dataset as dirty, mark dataset as not valid
  *
 */
 
-    public void incNrCited(){
-        this.nrCited++;
+    public void incNr(){
+        this.nr++;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -227,7 +227,7 @@ public  class MissingCitingWork extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getDoi()+ " " +getNrCited();
+        return ""+ " " +getId()+ " " +getName()+ " " +getNr()+ " " +getWorks();
     }
 
 /**
@@ -248,11 +248,11 @@ public  class MissingCitingWork extends ApplicationObject{
 */
 
      public void toXML(PrintWriter out){
-         out.println("<missingCitingWork "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
+         out.println("<connectedComponent "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
-            " doi=\""+toXMLDoi()+"\""+
-            " nrCited=\""+toXMLNrCited()+"\""+" />");
+            " nr=\""+toXMLNr()+"\""+
+            " works=\""+toXMLWorks()+"\""+" />");
      }
 
 /**
@@ -261,8 +261,8 @@ public  class MissingCitingWork extends ApplicationObject{
  * @return String
 */
 
-    String toXMLDoi(){
-        return this.safeXML(getDoi());
+    String toXMLNr(){
+        return this.getNr().toString();
     }
 
 /**
@@ -271,8 +271,12 @@ public  class MissingCitingWork extends ApplicationObject{
  * @return String
 */
 
-    String toXMLNrCited(){
-        return this.getNrCited().toString();
+    String toXMLWorks(){
+        String str="";
+        for(Work x:getWorks()){
+            str=str+" "+"ID_"+x.getId();
+        }
+        return str;
     }
 
 /**
@@ -282,22 +286,22 @@ public  class MissingCitingWork extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>MissingCitingWork</th>"+"<th>Name</th>"+"<th>Doi</th>"+"<th>NrCited</th>"+"</tr>";
+        return "<tr><th>ConnectedComponent</th>"+"<th>Name</th>"+"<th>Nr</th>"+"<th>Works</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getNrCited()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getNr()+"</td>"+ " " +"<td>"+getWorks()+"</td>"+"</tr>";
     }
 
 /**
  * find the same object in another dataset
- * @param a MissingCitingWork item we are looking for
- * @param bList List<MissingCitingWork> list of items in which we are searching
- * @return MissingCitingWork entry of list b which is applicationSame() to a
+ * @param a ConnectedComponent item we are looking for
+ * @param bList List<ConnectedComponent> list of items in which we are searching
+ * @return ConnectedComponent entry of list b which is applicationSame() to a
 */
 
-    public static MissingCitingWork find(MissingCitingWork a, List<MissingCitingWork> bList){
-        for(MissingCitingWork b : bList){
+    public static ConnectedComponent find(ConnectedComponent a, List<ConnectedComponent> bList){
+        for(ConnectedComponent b : bList){
             if (b.applicationSame(a)){
                 return b;
             }
@@ -309,12 +313,12 @@ public  class MissingCitingWork extends ApplicationObject{
  * find an object from its name; returns null if no such item exists
  * it is not defined which object is returned if multiple have the same name
  * @param base  dataset in which we are searching
- * @param name MissingCitingWork name of the object we are looking for
- * @return MissingCitingWork entry of the dataset with the given name; otherwise null
+ * @param name ConnectedComponent name of the object we are looking for
+ * @return ConnectedComponent entry of the dataset with the given name; otherwise null
 */
 
-    public static MissingCitingWork findByName(ApplicationDataset base, String name){
-        for(MissingCitingWork a:base.getListMissingCitingWork()) {
+    public static ConnectedComponent findByName(ApplicationDataset base, String name){
+        for(ConnectedComponent a:base.getListConnectedComponent()) {
             if (a.getName().equals(name)){
                 return a;
             }
@@ -326,18 +330,18 @@ public  class MissingCitingWork extends ApplicationObject{
  * find an object from its name; create new instance if no such item exists
  * it is not defined which object is returned if multiple have the same name
  * @param base  dataset in which we are searching
- * @param name MissingCitingWork name of the object we are looking for
- * @return MissingCitingWork entry of the dataset with the given name
+ * @param name ConnectedComponent name of the object we are looking for
+ * @return ConnectedComponent entry of the dataset with the given name
 */
 
-    public static MissingCitingWork findOrCreate(ApplicationDataset base, String name){
+    public static ConnectedComponent findOrCreate(ApplicationDataset base, String name){
         if (name.equals("null")){ return null;}
-        for(MissingCitingWork a:base.getListMissingCitingWork()) {
+        for(ConnectedComponent a:base.getListConnectedComponent()) {
             if (a.getName().equals(name)){
                 return a;
             }
         }
-        MissingCitingWork res = new MissingCitingWork(base);
+        ConnectedComponent res = new ConnectedComponent(base);
         res.setName(name);
         return res;
     }
@@ -345,26 +349,26 @@ public  class MissingCitingWork extends ApplicationObject{
 /**
  * find the first entry in the dataset of that type
  * @param base dataset in which we are searching
- * @return MissingCitingWork first entry in the dataset of this type; null if that does not exists
+ * @return ConnectedComponent first entry in the dataset of this type; null if that does not exists
 */
 
-    public static MissingCitingWork findFirst(ApplicationDataset base){
-        if (base.getListMissingCitingWork().isEmpty()) {
+    public static ConnectedComponent findFirst(ApplicationDataset base){
+        if (base.getListConnectedComponent().isEmpty()) {
             return null;
         }
-        return base.getListMissingCitingWork().get(0);
+        return base.getListConnectedComponent().get(0);
     }
 
 /**
  * find some entry entry in the dataset of that type
  * @param base dataset in which we are searching
- * @return MissingCitingWork some entry in the dataset of this type; null if that does not exists
+ * @return ConnectedComponent some entry in the dataset of this type; null if that does not exists
 */
 
-    public static MissingCitingWork findAny(ApplicationDataset base){
-        int size=base.getListMissingCitingWork().size();
+    public static ConnectedComponent findAny(ApplicationDataset base){
+        int size=base.getListConnectedComponent().size();
         if (size > 0) {
-             return base.getListMissingCitingWork().get(new Random().nextInt(size));
+             return base.getListConnectedComponent().get(new Random().nextInt(size));
         }
         return null;
     }
@@ -372,13 +376,13 @@ public  class MissingCitingWork extends ApplicationObject{
 /**
  * find the last entry in the dataset of that type
  * @param base dataset in which we are searching
- * @return MissingCitingWork last entry in the dataset of this type; null if that does not exists
+ * @return ConnectedComponent last entry in the dataset of this type; null if that does not exists
 */
 
-    public static MissingCitingWork findLast(ApplicationDataset base){
-        int size=base.getListMissingCitingWork().size();
+    public static ConnectedComponent findLast(ApplicationDataset base){
+        int size=base.getListConnectedComponent().size();
         if (size > 0) {
-             return base.getListMissingCitingWork().get(size-1);
+             return base.getListConnectedComponent().get(size-1);
         }
         return null;
     }
@@ -386,11 +390,11 @@ public  class MissingCitingWork extends ApplicationObject{
 /**
  * check if two objects (typically in different datasets) refer to the same real-world item
  * often this means that the names match, depending on the display_key
- * @param b MissingCitingWork compare this to that object
+ * @param b ConnectedComponent compare this to that object
  * @return Boolean true if the objects match the same criteria
 */
 
-    public Boolean applicationSame(MissingCitingWork b){
+    public Boolean applicationSame(ConnectedComponent b){
         return this.getName().equals(b.getName());
     }
 
@@ -398,23 +402,22 @@ public  class MissingCitingWork extends ApplicationObject{
  * check if two objects (typically in different datasets) are equal, i.e. have the same field values
  * typically used to check if an item is different in two datasets
  * this is quite different from the equals() method, which checks if the objects are idenitcal
- * @param b MissingCitingWork compare this to that object
+ * @param b ConnectedComponent compare this to that object
  * @return Boolean true if the objects match the equal criteria
 */
 
-    public Boolean applicationEqual(MissingCitingWork b){
-      if(!this.getDoi().equals(b.getDoi())){
-         System.out.println("Doi");
-        }
+    public Boolean applicationEqual(ConnectedComponent b){
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
-      if(!this.getNrCited().equals(b.getNrCited())){
-         System.out.println("NrCited");
+      if(!this.getNr().equals(b.getNr())){
+         System.out.println("Nr");
         }
-        return  this.getDoi().equals(b.getDoi()) &&
-          this.getName().equals(b.getName()) &&
-          this.getNrCited().equals(b.getNrCited());
+      if (true) {         System.out.println("Works");
+        }
+        return  this.getName().equals(b.getName()) &&
+          this.getNr().equals(b.getNr()) &&
+          true;
     }
 
 /**
@@ -424,12 +427,15 @@ public  class MissingCitingWork extends ApplicationObject{
 
     public void check(){
         if (getApplicationDataset() == null){
-         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"applicationDataset","MissingCitingWork",(getApplicationDataset()==null?"null":getApplicationDataset().toString()),"",WarningType.NOTNULL);
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"applicationDataset","ConnectedComponent",(getApplicationDataset()==null?"null":getApplicationDataset().toString()),"",WarningType.NOTNULL);
+        }
+        if (getWorks() == null){
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"works","ConnectedComponent",(getWorks()==null?"null":getWorks().toString()),"",WarningType.NOTNULL);
         }
     }
 
     static void dummy(ApplicationDataset base){
-// no dummy information for class MissingCitingWork
+// no dummy information for class ConnectedComponent
     }
 
 /**
@@ -442,6 +448,9 @@ public  class MissingCitingWork extends ApplicationObject{
     }
 
    public List<ApplicationObjectInterface> getFeasibleValues(ApplicationDatasetInterface base,String attrName){
+      if (attrName.equals("works")){
+         return (List) ((Scenario)base).getListWork();
+      }
       return null;
    }
 

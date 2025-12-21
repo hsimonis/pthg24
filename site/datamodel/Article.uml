@@ -1,7 +1,5 @@
  class Article {
 Boolean isOriginal
 Journal journal
-Link link
 SpecialIssue specialIssue
-SubType subType
 }

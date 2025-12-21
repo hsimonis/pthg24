@@ -3,50 +3,37 @@ package org.insightcentre.pthg24.controller;
 import framework.gui.AbstractJfxMainWindow;
 import framework.gui.Table3Controller;
 import java.lang.Exception;
+import java.lang.Integer;
 import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.reflect.Field;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.ComboBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import org.insightcentre.pthg24.GeneratedJfxApp;
-import org.insightcentre.pthg24.datamodel.Article;
-import org.insightcentre.pthg24.datamodel.Link;
-import org.insightcentre.pthg24.datamodel.Work;
+import org.insightcentre.pthg24.datamodel.ConnectedComponent;
 
 /**
  * Generated code
  */
-public class LinkController extends Table3Controller {
+public class ConnectedComponentController extends Table3Controller {
 	@FXML
-	private TableView<Link> table;
+	private TableView<ConnectedComponent> table;
 
 	@FXML
-	private TableColumn<Link, String> name;
+	private TableColumn<ConnectedComponent, String> name;
 
 	@FXML
-	private TableColumn<Link, Article> article;
+	private TableColumn<ConnectedComponent, Integer> nr;
 
 	@FXML
-	private TableColumn<Link, String> extended;
-
-	@FXML
-	private TableColumn<Link, String> journal;
-
-	@FXML
-	private TableColumn<Link, String> venue;
-
-	@FXML
-	private TableColumn<Link, String> basis;
-
-	@FXML
-	private TableColumn<Link, Work> paper;
+	private TableColumn<ConnectedComponent, String> works;
 
 	private GeneratedJfxApp mainApp;
 
@@ -54,14 +41,10 @@ public class LinkController extends Table3Controller {
 	public void setMainApp(AbstractJfxMainWindow app) {
 		mainApp = (GeneratedJfxApp) app;
 		table.setEditable(true);
-		table.setItems(mainApp.getLinkData());
-		article.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getArticleData()));
-		article.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setArticle(event.getNewValue()); mainApp.reset();});
-		paper.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getWorkData()));
-		paper.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPaper(event.getNewValue()); mainApp.reset();});
+		table.setItems(mainApp.getConnectedComponentData());
 	}
 
-	public TableView<Link> getTable() {
+	public TableView<ConnectedComponent> getTable() {
 		return table;
 	}
 
@@ -74,35 +57,21 @@ public class LinkController extends Table3Controller {
 		name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		name.setCellFactory(TextFieldTableCell.forTableColumn());
 		name.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setName(event.getNewValue()); mainApp.reset();});
-		choices.add("article");
-		article.setCellValueFactory(new PropertyValueFactory<>("article"));
-		choices.add("extended");
-		extended.setCellValueFactory(new PropertyValueFactory<>("extended"));
-		extended.setCellFactory(TextFieldTableCell.forTableColumn());
-		extended.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setExtended(event.getNewValue()); mainApp.reset();});
-		choices.add("journal");
-		journal.setCellValueFactory(new PropertyValueFactory<>("journal"));
-		journal.setCellFactory(TextFieldTableCell.forTableColumn());
-		journal.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setJournal(event.getNewValue()); mainApp.reset();});
-		choices.add("venue");
-		venue.setCellValueFactory(new PropertyValueFactory<>("venue"));
-		venue.setCellFactory(TextFieldTableCell.forTableColumn());
-		venue.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setVenue(event.getNewValue()); mainApp.reset();});
-		choices.add("basis");
-		basis.setCellValueFactory(new PropertyValueFactory<>("basis"));
-		basis.setCellFactory(TextFieldTableCell.forTableColumn());
-		basis.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setBasis(event.getNewValue()); mainApp.reset();});
-		choices.add("paper");
-		paper.setCellValueFactory(new PropertyValueFactory<>("paper"));
+		choices.add("nr");
+		nr.setCellValueFactory(new PropertyValueFactory<>("nr"));
+		nr.setCellFactory(TextFieldTableCell.forTableColumn(INTEGER_CONVERTER));
+		nr.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setNr(event.getNewValue()); mainApp.reset();});
+		choices.add("works");
+		works.setCellValueFactory(cellData -> new SimpleStringProperty(convert(cellData.getValue().getWorks())));
 		initialize(choices);
 	}
 
 	@Override
 	public void filter(String attribute, String comparison, String text) {
-		table.setItems(mainApp.getLinkData());
+		table.setItems(mainApp.getConnectedComponentData());
 		try {
-			ObservableList<Link> filteredItems = FXCollections.observableArrayList();
-			for (Link item : table.getItems()) {
+			ObservableList<ConnectedComponent> filteredItems = FXCollections.observableArrayList();
+			for (ConnectedComponent item : table.getItems()) {
 				String[] fields = attribute.split("\\.");
 				Field f = null;
 				Object obj = item;

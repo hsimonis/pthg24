@@ -13,18 +13,14 @@
 <!--Generated code-->
 
 
-<Tab text="Link" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.LinkController">
+<Tab text="ConnectedComponent" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.ConnectedComponentController">
    <BorderPane>
       <center>
          <TableView fx:id="table" editable="true">
             <columns>
                <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
-               <TableColumn fx:id="article" styleClass="right-aligned" text="Article" />
-               <TableColumn fx:id="extended" styleClass="right-aligned" text="Extended" />
-               <TableColumn fx:id="journal" styleClass="right-aligned" text="Journal" />
-               <TableColumn fx:id="venue" styleClass="right-aligned" text="Venue" />
-               <TableColumn fx:id="basis" styleClass="right-aligned" text="Basis" />
-               <TableColumn fx:id="paper" styleClass="right-aligned" text="Paper" />
+               <TableColumn fx:id="nr" styleClass="right-aligned" text="Nr" />
+               <TableColumn fx:id="works" styleClass="right-aligned" text="Works" />
             </columns>
          </TableView>
       </center>

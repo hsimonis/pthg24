@@ -31,22 +31,36 @@ public class ImportSubTypes {
                     JSONArray works = obj.getJSONArray("works");
                     for(int j = 0;j<works.length();j++){
 
-                        Article w = findArticle(base,works.getString(j));
+                        Work w = findWork(base,works.getString(j));
                         if (w != null) {
                             w.setSubType(asSubType(subType));
                         }
                     }
                 } else if (obj.has("link")){
                     String article = obj.getString("link");
+                    String journal = obj.getString("journal");
                     String venue = obj.getString("venue");
                     String basis = obj.getString("basis");
                     Article w = findArticle(base,article);
                     if (w != null) {
                         Link link = new Link(base);
                         link.setName("Link" + linkId++);
+                        link.setName("Link" + linkId++);
+                        link.setJournal(journal);
                         link.setVenue(venue);
                         link.setBasis(basis);
                         w.setLink(link);
+                    }
+                    Work p = findWork(base,basis);
+                    if(p != null){
+                        Link link = new Link(base);
+                        link.setName("Link" + linkId++);
+                        link.setExtended(article);
+                        link.setJournal(journal);
+                        link.setVenue(venue);
+                        link.setBasis(basis);
+                        link.setPaper(p);
+                        p.setLink(link);
                     }
 
                 } else if (obj.has("topic")){
@@ -78,6 +92,16 @@ public class ImportSubTypes {
                         }
                     }
 
+                } else if (obj.has("award")){
+                    String award = obj.getString("award");
+                    JSONArray works = obj.getJSONArray("works");
+                    for(int j = 0;j<works.length();j++){
+                        Work w = findWork(base,works.getString(j));
+                        if (w != null) {
+                            w.setAward(award);
+                        }
+                    }
+
                 }
 
             }
@@ -92,6 +116,10 @@ public class ImportSubTypes {
         Article res = Article.findByName(base,name);
         return res;
     }
+    private Work findWork(Scenario base, String name){
+        Work res = Work.findByName(base,name);
+        return res;
+    }
 
     private SubType asSubType(String v){
         return switch(v){
@@ -104,6 +132,10 @@ public class ImportSubTypes {
             case "Benchmarks" -> Benchmarks;
             case "Errata" -> Errata;
             case "Survey" -> Survey;
+            case "InvitedTalk" -> InvitedTalk;
+            case "ShortPaper" -> ShortPaper;
+            case "ExtendedAbstract" -> ExtendedAbstract;
+            case "StudentPaper" -> StudentPaper;
             default -> Regular;
         };
     }

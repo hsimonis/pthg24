@@ -41,8 +41,12 @@ public class ListWorks extends AbstractList{
     }
 
     private String typeCaption(WorkType type){
+        if (type == null) {
+            return "All";
+        }
         return type.toString();
     }
+
     public ListWorks(Scenario base, List<Work> works, String exportDir, String fileName,String caption){
         super(base);
         assert(exportDir.endsWith("/"));
@@ -72,22 +76,22 @@ public class ListWorks extends AbstractList{
                 ">{\\raggedright\\arraybackslash}p{6.0cm}p{1.0cm}rr>{\\raggedright\\arraybackslash}p{2.0cm}r>{\\raggedright\\arraybackslash}p{1cm}p{1cm}p{1cm}p{1cm}}\n");
         out.printf("\\rowcolor{white}\\caption{%s (Total %d)}\\\\ \\toprule\n",safe(caption),works.size());
         out.printf("\\rowcolor{white}\\shortstack{Key\\\\Source} & Authors & Title (Colored by Open Access)& \\shortstack{Details\\\\LC} & Cite & Year & " +
-                "\\shortstack{Conference\\\\/Journal\\\\/School\\\\\\textcolor{red}{/SubType}} & \\shortstack{Pages\\\\/\\textcolor{green}{Linked}\\\\/\\textcolor{blue}{Topical}} & Relevance &\\shortstack{Cites\\\\OC XR\\\\SC} & " +
+                "\\shortstack{Conference\\\\/Journal\\\\/School\\\\\\textcolor{red}{/SubType}\\\\\\textcolor{goldenrod}{/Award}} & \\shortstack{Pages\\\\/\\textcolor{green}{Linked}\\\\/\\textcolor{blue}{Topical}} & \\shortstack{Rele-\\\\vance} &\\shortstack{Cites\\\\OC XR\\\\SC} & " +
                 "\\shortstack{Refs\\\\OC\\\\XR} & \\shortstack{Links\\\\Cites\\\\Refs}\\\\ \\midrule");
         out.printf("\\endhead\n");
         out.printf("\\bottomrule\n");
         out.printf("\\endfoot\n");
         for(Work a:works){
-            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s & %s%s & %s & %s & %s & %s",
+            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & \\cite{%s} & %d & %s%s & %s%s & %s & %s & %s & %s",
                     rowLabel(a,"a:"+a.getName(),showLabel),
                     a.getKey(),
-                    a.getUrl(),a.getKey(),
+                    a.getUrl(),a.getKey()+awardHighlight(a),
                     authors(a),
-                    openAccessHighlight(a),safe(a.getTitle()+(a.getAbstractText().isEmpty() ?"":" \\hyperref[abs:"+a.getKey()+"]{Abstract}")),
+                    openAccessHighlight(a),safe(a.getTitle())+awardHighlight(a),
                     lcAndDetails(a),
                     a.getName(),
                     a.getYear(),
-                    confOrJournal(a),
+                    awardColor(a),confOrJournal(a),
                     highlightLinked(a),
                     pageAndSpecialIssue(base,a),
                     showRelevances(a),
@@ -113,14 +117,14 @@ public class ListWorks extends AbstractList{
         out.printf("\\bottomrule\n");
         out.printf("\\endfoot\n");
         for(Work a:works){
-            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & %s & %s%s &  %s & %s & %s",
+            out.printf("%s%s \\href{%s}{%s} & %s & %s%s & %s & %s%s & %s%s &  %s & %s & %s",
                     rowLabel(a,"a:"+a.getName(),showLabel),
                     a.getKey(),
-                    a.getUrl(),a.getKey(),
+                    a.getUrl(),a.getKey()+awardHighlight(a),
                     authors(a),
-                    openAccessHighlight(a),safe(a.getTitle()+(a.getAbstractText().isEmpty() ?"":" \\hyperref[abs:"+a.getKey()+"]{Abstract}")),
+                    openAccessHighlight(a),safe(a.getTitle())+awardHighlight(a),
                     lcAndDetails(a),
-                    confOrJournal(a),
+                    awardColor(a),confOrJournal(a),
                     highlightLinked(a),
                     pageAndSpecialIssue(base,a),
                     citations(a),
@@ -129,6 +133,23 @@ public class ListWorks extends AbstractList{
             out.printf("\\\\\n");
         }
         out.printf("\\end{longtable}\n\n");
+
+    }
+
+    public static String awardHighlight(Work a){
+        if (a.getAward().isEmpty()){
+            return "";
+        } else {
+            return "\\textcolor{goldenrod}{\\filledstar}";
+        }
+    }
+
+    private String awardColor(Work a){
+        if (a.getAward().isEmpty()){
+            return "";
+        } else {
+            return "\\cellcolor{goldenrod!50}";
+        }
 
     }
 
@@ -149,9 +170,9 @@ public class ListWorks extends AbstractList{
             return "\\cellcolor{black!30}";
         } else if (w instanceof Article a && a.getSpecialIssue() != null) {
                 return "\\cellcolor{blue!20}";
-        } else if (w instanceof Article a && a.getLink()!=null){
+        } else if (w.getLink()!=null){
             return "\\cellcolor{green!20}";
-        } else if (w instanceof Article a && a.getSubType()!=null && a.getSubType() != Application){
+        } else if (w.getSubType()!=null && w.getSubType() != Application){
             return "\\cellcolor{red!10}";
         } else if (w instanceof Article a && !a.getIsOriginal()){
             return "\\cellcolor{yellow!20}";
@@ -164,14 +185,21 @@ public class ListWorks extends AbstractList{
 
         if (w instanceof Article a && a.getSpecialIssue() != null) {
             return "\\shortstack[r]{" + a.getNrPages() + "\\\\{"+smallerTextSize(base.getUseLargerText())+" " + a.getSpecialIssue().getShortName() + "}}";
-        } else if (w instanceof Article a && a.getLink() != null){
-            return "\\shortstack[r]{"+a.getNrPages()+"\\\\{"+smallerTextSize(base.getUseLargerText())+" "+a.getLink().getVenue()+"}}";
+        } else if (w.getLink() != null){
+            return "\\shortstack[r]{"+w.getNrPages()+"\\\\{"+smallerTextSize(base.getUseLargerText())+" "+linkLabel(w.getLink())+"}}";
         } else {
             if (w.getNrPages()==null){
                 return "0";
             }
             return w.getNrPages().toString();
         }
+    }
+
+    private String linkLabel(Link link){
+        if (link.getPaper() == null){
+            return link.getVenue();
+        }
+        return link.getJournal();
     }
 
     public static String openAccessHighlight(Work w){
@@ -216,10 +244,10 @@ public class ListWorks extends AbstractList{
 
     private String confOrJournal(Work w){
         if (w instanceof Paper){
-            return shortProc(((Paper)w).getProceedings());
+            return shortProc(((Paper)w).getProceedings())+subType(w);
         } else if (w instanceof Article){
             Journal j = ((Article)w).getJournal();
-            return (j.getIsBlocked()?"\\cellcolor{red!20}":"")+nameOf(j)+subType((Article)w);
+            return (j.getIsBlocked()?"\\cellcolor{red!20}":"")+nameOf(j)+subType(w);
         } else if (w instanceof InCollection){
             return nameOf(((InCollection)w).getCollection());
         } else if (w instanceof InBook){
@@ -233,7 +261,7 @@ public class ListWorks extends AbstractList{
         }
     }
 
-    private String subType(Article a){
+    private String subType(Work a){
         if (a.getSubType() == null || a.getSubType()==Regular){
             return "";
         } else {
@@ -264,6 +292,10 @@ public class ListWorks extends AbstractList{
 
     public static List<Work> sortedWorks(Scenario base,WorkType type){
         return switch (type) {
+            case null ->notBackground(base.getListWork().stream().
+                    sorted(Comparator.comparing(Work::getYear).reversed().
+                            thenComparing(Work::getName)).
+                    collect(Collectors.toUnmodifiableList()));
             case PAPER -> notBackground(base.getListPaper().stream().
                     sorted(Comparator.comparing(Work::getYear).reversed().
                             thenComparing(Work::getName)).

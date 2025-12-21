@@ -1,5 +1,8 @@
  class Link {
 Article article
 String basis
+String extended
+String journal
+Work paper
 String venue
 }

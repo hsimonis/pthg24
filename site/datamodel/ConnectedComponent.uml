@@ -1,0 +1,4 @@
+ class ConnectedComponent {
+Integer nr
+List<Work> works
+}

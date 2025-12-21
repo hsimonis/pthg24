@@ -28,8 +28,6 @@ $\square$\ & nrUsed &  \\
 \begin{longtable}{llp{8cm}}
 & Attribute & Description \\
 $\square$\ & journal &  \\
-$\square$\ & subType &  \\
-$\square$\ & link &  \\
 $\square$\ & specialIssue &  \\
 $\square$\ & isOriginal &  \\
 \end{longtable}
@@ -233,6 +231,17 @@ $\square$\ & nrBackgroundCitations &  \\
 \end{table}
 
 \begin{table}
+\caption{ConnectedComponent  }
+
+\begin{longtable}{llp{8cm}}
+& Attribute & Description \\
+$\square$\ & nr &  \\
+$\square$\ & works &  \\
+\end{longtable}
+\label{attr:ConnectedComponent}
+\end{table}
+
+\begin{table}
 \caption{CountryCollab  }
 
 \begin{longtable}{llp{8cm}}
@@ -272,6 +281,7 @@ $\square$\ & doi &  \\
 \label{attr:DoiReference}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Edge  }
 
@@ -283,7 +293,6 @@ $\square$\ & to &  \\
 \label{attr:Edge}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{InBook  }
 
@@ -332,19 +341,22 @@ $\square$\ & alias &  \\
 \label{attr:JournalAlias}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Link  }
 
 \begin{longtable}{llp{8cm}}
 & Attribute & Description \\
 $\square$\ & article &  \\
+$\square$\ & extended &  \\
+$\square$\ & journal &  \\
 $\square$\ & venue &  \\
 $\square$\ & basis &  \\
+$\square$\ & paper &  \\
 \end{longtable}
 \label{attr:Link}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{MissingCitedWork  }
 
@@ -422,6 +434,7 @@ $\square$\ & concept &  \\
 \label{attr:MissingWork}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Node  }
 
@@ -435,7 +448,6 @@ $\square$\ & connectedComponentNr &  \\
 \label{attr:Node}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Orphan  }
 
@@ -499,6 +511,7 @@ $\square$\ & school &  \\
 \label{attr:PhDThesis}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{Proceedings  }
 
@@ -510,7 +523,6 @@ $\square$\ & conferenceSeries &  \\
 \label{attr:Proceedings}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{Publisher  }
 
@@ -564,6 +576,7 @@ $\square$\ & useLargerText &  \\
 \label{attr:Scenario}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{School  }
 
@@ -573,7 +586,6 @@ $\square$\ & useLargerText &  \\
 \label{attr:School}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{ScopusAffiliation  }
 
@@ -639,6 +651,7 @@ $\square$\ & cosine &  \\
 \label{attr:Similarity}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{SourceGroup  }
 
@@ -652,7 +665,6 @@ $\square$\ & toFlows &  \\
 \label{attr:SourceGroup}
 \end{table}
 
-\clearpage
 \begin{table}
 \caption{SpecialIssue  }
 
@@ -695,6 +707,8 @@ $\square$\ & nr &  \\
 $\square$\ & nrEdges &  \\
 $\square$\ & cluster &  \\
 $\square$\ & key &  \\
+$\square$\ & subType &  \\
+$\square$\ & link &  \\
 $\square$\ & author &  \\
 $\square$\ & authors &  \\
 $\square$\ & title &  \\
@@ -708,6 +722,7 @@ $\square$\ & pages &  \\
 $\square$\ & nrPages &  \\
 $\square$\ & nrHyperLinks &  \\
 $\square$\ & background &  \\
+$\square$\ & award &  \\
 $\square$\ & sourceGroup &  \\
 $\square$\ & dataAvail &  \\
 $\square$\ & codeAvail &  \\
@@ -754,6 +769,7 @@ $\square$\ & daysToPublish &  \\
 \label{attr:Work}
 \end{table}
 
+\clearpage
 \begin{table}
 \caption{WorkAffiliation  }
 
@@ -764,5 +780,3 @@ $\square$\ & scopusAffiliation &  \\
 \end{longtable}
 \label{attr:WorkAffiliation}
 \end{table}
-
-\clearpage

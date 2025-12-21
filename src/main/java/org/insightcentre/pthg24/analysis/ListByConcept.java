@@ -9,6 +9,7 @@ import java.util.List;
 
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.AbstractList.textSize;
+import static org.insightcentre.pthg24.analysis.ListWorks.awardHighlight;
 import static org.insightcentre.pthg24.analysis.ListWorks.local;
 import static org.insightcentre.pthg24.datamodel.MatchLevel.*;
 import static org.insightcentre.pthg24.imports.Importer.safer;
@@ -89,7 +90,7 @@ public class ListByConcept {
     }
 
     public static String citation(Work w){
-        return "\\hyperref[detail:"+w.getName()+"]{"+w.getName()+"}";
+        return "\\hyperref[detail:"+w.getName()+"]{"+w.getName()+awardHighlight(w)+"}";
 //        return "\\href{"+local(w.getLocalCopy())+"}{"+w.getName()+"}~\\cite{"+safer(w.getName())+"}";
     }
 

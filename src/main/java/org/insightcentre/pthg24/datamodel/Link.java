@@ -55,6 +55,7 @@ import org.insightcentre.pthg24.datamodel.SpecialIssue;
 import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.Node;
 import org.insightcentre.pthg24.datamodel.Edge;
+import org.insightcentre.pthg24.datamodel.ConnectedComponent;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -96,6 +97,27 @@ public  class Link extends ApplicationObject{
  *
 */
 
+    public String extended;
+
+/**
+ *  
+ *
+*/
+
+    public String journal;
+
+/**
+ *  
+ *
+*/
+
+    public Work paper;
+
+/**
+ *  
+ *
+*/
+
     public String venue;
 
 /**
@@ -119,6 +141,9 @@ public  class Link extends ApplicationObject{
         super(applicationDataset);
         setArticle(null);
         setBasis("");
+        setExtended("");
+        setJournal("");
+        setPaper(null);
         setVenue("");
         applicationDataset.addLink(this);
     }
@@ -135,12 +160,18 @@ public  class Link extends ApplicationObject{
             String name,
             Article article,
             String basis,
+            String extended,
+            String journal,
+            Work paper,
             String venue){
         super(applicationDataset,
             id,
             name);
         setArticle(article);
         setBasis(basis);
+        setExtended(extended);
+        setJournal(journal);
+        setPaper(paper);
         setVenue(venue);
         applicationDataset.addLink(this);
     }
@@ -151,6 +182,9 @@ public  class Link extends ApplicationObject{
             other.name,
             other.article,
             other.basis,
+            other.extended,
+            other.journal,
+            other.paper,
             other.venue);
     }
 
@@ -162,7 +196,7 @@ public  class Link extends ApplicationObject{
 */
 
     public Boolean remove(){
-        getApplicationDataset().cascadeArticleLink(this);
+        getApplicationDataset().cascadeWorkLink(this);
         return getApplicationDataset().removeLink(this) && getApplicationDataset().removeApplicationObject(this);
     }
 
@@ -184,6 +218,36 @@ public  class Link extends ApplicationObject{
 
     public String getBasis(){
         return this.basis;
+    }
+
+/**
+ *  get attribute extended
+ *
+ * @return String
+*/
+
+    public String getExtended(){
+        return this.extended;
+    }
+
+/**
+ *  get attribute journal
+ *
+ * @return String
+*/
+
+    public String getJournal(){
+        return this.journal;
+    }
+
+/**
+ *  get attribute paper
+ *
+ * @return Work
+*/
+
+    public Work getPaper(){
+        return this.paper;
     }
 
 /**
@@ -221,6 +285,42 @@ public  class Link extends ApplicationObject{
     }
 
 /**
+ *  set attribute extended, mark dataset as dirty, mark dataset as not valid
+@param extended String
+ *
+*/
+
+    public void setExtended(String extended){
+        this.extended = extended;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute journal, mark dataset as dirty, mark dataset as not valid
+@param journal String
+ *
+*/
+
+    public void setJournal(String journal){
+        this.journal = journal;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute paper, mark dataset as dirty, mark dataset as not valid
+@param paper Work
+ *
+*/
+
+    public void setPaper(Work paper){
+        this.paper = paper;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute venue, mark dataset as dirty, mark dataset as not valid
 @param venue String
  *
@@ -249,7 +349,7 @@ public  class Link extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getArticle().toColumnString()+ " " +getBasis()+ " " +getVenue();
+        return ""+ " " +getId()+ " " +getName()+ " " +getArticle().toColumnString()+ " " +getBasis()+ " " +getExtended()+ " " +getJournal()+ " " +getPaper().toColumnString()+ " " +getVenue();
     }
 
 /**
@@ -275,6 +375,9 @@ public  class Link extends ApplicationObject{
             " name=\""+toXMLName()+"\""+
             " article=\""+toXMLArticle()+"\""+
             " basis=\""+toXMLBasis()+"\""+
+            " extended=\""+toXMLExtended()+"\""+
+            " journal=\""+toXMLJournal()+"\""+
+            " paper=\""+toXMLPaper()+"\""+
             " venue=\""+toXMLVenue()+"\""+" />");
      }
 
@@ -304,6 +407,36 @@ public  class Link extends ApplicationObject{
  * @return String
 */
 
+    String toXMLExtended(){
+        return this.safeXML(getExtended());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLJournal(){
+        return this.safeXML(getJournal());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLPaper(){
+        return "ID_"+this.getPaper().getId().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLVenue(){
         return this.safeXML(getVenue());
     }
@@ -315,11 +448,11 @@ public  class Link extends ApplicationObject{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Link</th>"+"<th>Name</th>"+"<th>Article</th>"+"<th>Venue</th>"+"<th>Basis</th>"+"</tr>";
+        return "<tr><th>Link</th>"+"<th>Name</th>"+"<th>Article</th>"+"<th>Extended</th>"+"<th>Journal</th>"+"<th>Venue</th>"+"<th>Basis</th>"+"<th>Paper</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getArticle().toColumnString()+"</td>"+ " " +"<td>"+getVenue()+"</td>"+ " " +"<td>"+getBasis()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getArticle().toColumnString()+"</td>"+ " " +"<td>"+getExtended()+"</td>"+ " " +"<td>"+getJournal()+"</td>"+ " " +"<td>"+getVenue()+"</td>"+ " " +"<td>"+getBasis()+"</td>"+ " " +"<td>"+getPaper().toColumnString()+"</td>"+"</tr>";
     }
 
 /**
@@ -442,15 +575,27 @@ public  class Link extends ApplicationObject{
       if(!this.getBasis().equals(b.getBasis())){
          System.out.println("Basis");
         }
+      if(!this.getExtended().equals(b.getExtended())){
+         System.out.println("Extended");
+        }
+      if(!this.getJournal().equals(b.getJournal())){
+         System.out.println("Journal");
+        }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
+        }
+      if(!this.getPaper().applicationSame(b.getPaper())){
+         System.out.println("Paper");
         }
       if(!this.getVenue().equals(b.getVenue())){
          System.out.println("Venue");
         }
         return  this.getArticle().applicationSame(b.getArticle()) &&
           this.getBasis().equals(b.getBasis()) &&
+          this.getExtended().equals(b.getExtended()) &&
+          this.getJournal().equals(b.getJournal()) &&
           this.getName().equals(b.getName()) &&
+          this.getPaper().applicationSame(b.getPaper()) &&
           this.getVenue().equals(b.getVenue());
     }
 
@@ -465,6 +610,9 @@ public  class Link extends ApplicationObject{
         }
         if (getArticle() == null){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"article","Link",(getArticle()==null?"null":getArticle().toString()),"",WarningType.NOTNULL);
+        }
+        if (getPaper() == null){
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"paper","Link",(getPaper()==null?"null":getPaper().toString()),"",WarningType.NOTNULL);
         }
     }
 
@@ -484,6 +632,9 @@ public  class Link extends ApplicationObject{
    public List<ApplicationObjectInterface> getFeasibleValues(ApplicationDatasetInterface base,String attrName){
       if (attrName.equals("article")){
          return (List) ((Scenario)base).getListArticle();
+      }
+      if (attrName.equals("paper")){
+         return (List) ((Scenario)base).getListWork();
       }
       return null;
    }

@@ -125,6 +125,7 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
         new Biblio(exportDir,"biblio.tex",bibFile);
         new CreateMakefile(prefix,"Makefile",type);
 
+        new ListWorks(base,null,exportDir,"all.tex");
         new ListWorks(base,PAPER,exportDir,"papers.tex");
         new ListWorksManual(base,PAPER,exportDir,"papersmanual.tex");
         new ListWorks(base,ARTICLE,exportDir,"articles.tex");
@@ -163,13 +164,18 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
         new ListWorks(base,base.getListWork().stream().
                 filter(x->!x.getBackground()).
                 filter(x->x.getNrPages()!=null).
+                filter(x->x.getNrPages() < 15).
                 sorted(Comparator.comparing(Work::getNrPages)).
-                limit(3*overviewLimit). // more entries than usual
                 toList(),exportDir,"shortest.tex","Shortest Works");
-        new ListWorks(base,new ArrayList<>(base.getListArticle().stream().
+        new ListWorks(base,base.getListWork().stream().
+                filter(x->!x.getBackground()).
+                filter(x-> x.getAward().isEmpty()).
+                sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getKey)).
+                toList(),exportDir,"awardwinning.tex","Award Winning Works");
+        new ListWorks(base,new ArrayList<>(base.getListWork().stream().
                 filter(x->x.getLink()!=null).
                 sorted(Comparator.comparing(Work::getName)).
-                toList()),exportDir,"linked.tex","Linked Articles");
+                toList()),exportDir,"linked.tex","Linked Works");
         new ListWorks(base,base.getListWork().stream().
                 filter(Work::getBackground).
                 sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getKey)).
@@ -179,11 +185,11 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
 
         for(SubType subType:SubType.values()){
             if (subType != Regular) {
-                new ListWorks(base, new ArrayList<>(base.getListArticle().stream().
+                new ListWorks(base, new ArrayList<>(base.getListWork().stream().
                         filter(x -> x.getSubType() == subType).
                         sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
                         toList()), exportDir, subType.toString().toLowerCase() + ".tex",
-                        "Articles of SubType " + subType.toString());
+                        "Works of SubType " + subType.toString());
             }
 
         }

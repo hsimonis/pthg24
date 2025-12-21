@@ -546,6 +546,8 @@ public class ImportBib {
         return res;
     }
 
+
+    //??? this should be based on data not on code
     private static String simplifyPublisherName(String name){
         String lower = name.toLowerCase();
         if (lower.contains("springer")){
@@ -597,7 +599,7 @@ public class ImportBib {
         } else if (lower.contains("assoc computing machinery")) {
             return "ACM";
         } else if (lower.contains("schloss dagstuhl")){
-            return "Schloss Dagstuhl - Leibniz-Zentrum f{\\\"{u}}r Informatik";
+            return "Lipics";
          } else if (name.contains("MDPI")){
             return "MDPI";
         } else if (name.contains("ijcai")){

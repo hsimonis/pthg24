@@ -55,6 +55,7 @@ import org.insightcentre.pthg24.datamodel.SpecialIssue;
 import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.Node;
 import org.insightcentre.pthg24.datamodel.Edge;
+import org.insightcentre.pthg24.datamodel.ConnectedComponent;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -495,6 +496,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<Edge> listEdge = new ArrayList<Edge>();
 
 /**
+ *  This lists holds all items of class ConnectedComponent and its subclasses
+ *
+*/
+
+    List<ConnectedComponent> listConnectedComponent = new ArrayList<ConnectedComponent>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -636,6 +644,7 @@ public int compareTo(ApplicationDataset ds2){
                              "ConceptType",
                              "ConceptWork",
                              "ConferenceSeries",
+                             "ConnectedComponent",
                              "CountryCollab",
                              "DoiReference",
                              "Edge",
@@ -775,6 +784,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListLink();
         resetListNode();
         resetListEdge();
+        resetListConnectedComponent();
     }
 
 /**
@@ -2652,6 +2662,40 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class ConnectedComponent
+ *
+*/
+
+    public Iterator<ConnectedComponent> getIteratorConnectedComponent(){
+        return listConnectedComponent.iterator();
+    }
+
+/**
+ *  Getter for list of class ConnectedComponent
+ *
+*/
+
+    public List<ConnectedComponent> getListConnectedComponent(){
+        return listConnectedComponent;
+    }
+
+/**
+ *  reset the list of class ConnectedComponent; use with care, does not call cascades
+ *
+*/
+
+    public void resetListConnectedComponent(){
+        listConnectedComponent = new ArrayList<ConnectedComponent>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof ConnectedComponent)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -2759,6 +2803,24 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(Concept b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Link; remove all dependent objects of class Work which refer to item through their attribute link
+ *
+*/
+
+    public void cascadeWorkLink(Link item){
+        assert item != null;
+        List<Work> toRemove = new ArrayList<Work>();
+        for(Work a:getListWork()) {
+         if (a.getLink() == item) {
+            a.setLink(null);
+         }
+        }
+        for(Work b:toRemove) {
             b.remove();
         }
     }
@@ -2903,24 +2965,6 @@ public int compareTo(ApplicationDataset ds2){
         for(Article a:getListArticle()) {
          if (a.getJournal() == item) {
             toRemove.add(a);
-         }
-        }
-        for(Article b:toRemove) {
-            b.remove();
-        }
-    }
-
-/**
- *  Removing object item of class Link; remove all dependent objects of class Article which refer to item through their attribute link
- *
-*/
-
-    public void cascadeArticleLink(Link item){
-        assert item != null;
-        List<Article> toRemove = new ArrayList<Article>();
-        for(Article a:getListArticle()) {
-         if (a.getLink() == item) {
-            a.setLink(null);
          }
         }
         for(Article b:toRemove) {
@@ -3712,6 +3756,24 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Removing object item of class Work; remove all dependent objects of class Link which refer to item through their attribute paper
+ *
+*/
+
+    public void cascadeLinkPaper(Work item){
+        assert item != null;
+        List<Link> toRemove = new ArrayList<Link>();
+        for(Link a:getListLink()) {
+         if (a.getPaper() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(Link b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
  *  Removing object item of class Work; remove all dependent objects of class Node which refer to item through their attribute work
  *
 */
@@ -3761,6 +3823,24 @@ public int compareTo(ApplicationDataset ds2){
          }
         }
         for(Edge b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Work; remove all dependent objects of class ConnectedComponent which refer to item through their attribute works
+ *
+*/
+
+    public void cascadeConnectedComponentWorks(Work item){
+        assert item != null;
+        List<ConnectedComponent> toRemove = new ArrayList<ConnectedComponent>();
+        for(ConnectedComponent a:getListConnectedComponent()) {
+         if (a.getWorks().contains(item)) {
+            a.getWorks().remove(item);
+         }
+        }
+        for(ConnectedComponent b:toRemove) {
             b.remove();
         }
     }
@@ -4866,6 +4946,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class ConnectedComponent
+ *
+*/
+
+    public void addConnectedComponent(ConnectedComponent connectedComponent){
+        assert connectedComponent != null;
+        this.listConnectedComponent.add(connectedComponent);
+    }
+
+/**
+ *  remove an item from the list for class ConnectedComponent
+ *
+*/
+
+    public Boolean removeConnectedComponent(ConnectedComponent connectedComponent){
+        assert connectedComponent != null;
+        return this.listConnectedComponent.remove(connectedComponent);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -4926,6 +5026,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(ConferenceSeries x:getListConferenceSeries()){
+            System.out.println(x);
+        }
+        for(ConnectedComponent x:getListConnectedComponent()){
             System.out.println(x);
         }
         for(CountryCollab x:getListCountryCollab()){
@@ -5116,6 +5219,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(ConferenceSeries x:getListConferenceSeries()){
             if (x.getClass().equals(ConferenceSeries.class)) x.toXML(out);
+        }
+        for(ConnectedComponent x:getListConnectedComponent()){
+            if (x.getClass().equals(ConnectedComponent.class)) x.toXML(out);
         }
         for(CountryCollab x:getListCountryCollab()){
             if (x.getClass().equals(CountryCollab.class)) x.toXML(out);
@@ -5323,6 +5429,7 @@ public int compareTo(ApplicationDataset ds2){
         compareConceptType(this.getListConceptType(),compare.getListConceptType());
         compareConceptWork(this.getListConceptWork(),compare.getListConceptWork());
         compareConferenceSeries(this.getListConferenceSeries(),compare.getListConferenceSeries());
+        compareConnectedComponent(this.getListConnectedComponent(),compare.getListConnectedComponent());
         compareCountryCollab(this.getListCountryCollab(),compare.getListCountryCollab());
         compareDoiReference(this.getListDoiReference(),compare.getListDoiReference());
         compareEdge(this.getListEdge(),compare.getListEdge());
@@ -5785,6 +5892,30 @@ public int compareTo(ApplicationDataset ds2){
             ConferenceSeries a = ConferenceSeries.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConferenceSeries B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types ConnectedComponent, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareConnectedComponent(List<ConnectedComponent> aList,List<ConnectedComponent> bList){
+        System.out.println("Comparing ConnectedComponent");
+        for(ConnectedComponent a:aList){
+            ConnectedComponent b= ConnectedComponent.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConnectedComponent A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConnectedComponent A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConnectedComponent B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(ConnectedComponent b: bList){
+            ConnectedComponent a = ConnectedComponent.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"ConnectedComponent B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -6557,6 +6688,7 @@ public int compareTo(ApplicationDataset ds2){
         checkConceptType(this.getListConceptType());
         checkConceptWork(this.getListConceptWork());
         checkConferenceSeries(this.getListConferenceSeries());
+        checkConnectedComponent(this.getListConnectedComponent());
         checkCountryCollab(this.getListCountryCollab());
         checkDoiReference(this.getListDoiReference());
         checkEdge(this.getListEdge());
@@ -6785,6 +6917,17 @@ public int compareTo(ApplicationDataset ds2){
 
     public void checkConferenceSeries(List<ConferenceSeries> list){
         for(ConferenceSeries a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<ConnectedComponent> dataset list of all items of type ConnectedComponent
+*/
+
+    public void checkConnectedComponent(List<ConnectedComponent> list){
+        for(ConnectedComponent a:list){
             a.check();
         }
     }
@@ -7161,6 +7304,7 @@ public int compareTo(ApplicationDataset ds2){
         ConceptType.dummy(this);
         ConceptWork.dummy(this);
         ConferenceSeries.dummy(this);
+        ConnectedComponent.dummy(this);
         CountryCollab.dummy(this);
         DoiReference.dummy(this);
         Edge.dummy(this);

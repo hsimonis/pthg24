@@ -26,9 +26,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.Callback;
 import org.insightcentre.pthg24.GeneratedJfxApp;
+import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
+import org.insightcentre.pthg24.datamodel.SubType;
 import org.insightcentre.pthg24.datamodel.Work;
 
 /**
@@ -55,6 +57,12 @@ public class WorkController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Work, String> key;
+
+	@FXML
+	private TableColumn<Work, SubType> subType;
+
+	@FXML
+	private TableColumn<Work, Link> link;
 
 	@FXML
 	private TableColumn<Work, String> author;
@@ -94,6 +102,9 @@ public class WorkController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Work, Boolean> background;
+
+	@FXML
+	private TableColumn<Work, String> award;
 
 	@FXML
 	private TableColumn<Work, SourceGroup> sourceGroup;
@@ -228,6 +239,11 @@ public class WorkController extends Table3Controller {
 		mainApp = (GeneratedJfxApp) app;
 		table.setEditable(true);
 		table.setItems(mainApp.getWorkData());
+		ObservableList<SubType> subTypeValues = FXCollections.observableArrayList(SubType.values());
+		subType.setCellFactory(ComboBoxTableCell.forTableColumn(subTypeValues));
+		subType.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSubType(event.getNewValue()); mainApp.reset();});
+		link.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getLinkData()));
+		link.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setLink(event.getNewValue()); mainApp.reset();});
 		publisher.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getPublisherData()));
 		publisher.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPublisher(event.getNewValue()); mainApp.reset();});
 		sourceGroup.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getSourceGroupData()));
@@ -270,6 +286,10 @@ public class WorkController extends Table3Controller {
 		key.setCellValueFactory(new PropertyValueFactory<>("key"));
 		key.setCellFactory(TextFieldTableCell.forTableColumn());
 		key.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setKey(event.getNewValue()); mainApp.reset();});
+		choices.add("subType");
+		subType.setCellValueFactory(new PropertyValueFactory<>("subType"));
+		choices.add("link");
+		link.setCellValueFactory(new PropertyValueFactory<>("link"));
 		choices.add("author");
 		author.setCellValueFactory(new PropertyValueFactory<>("author"));
 		author.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -317,6 +337,10 @@ public class WorkController extends Table3Controller {
 		choices.add("background");
 		background.setCellValueFactory(new BackgroundCallback());
 		background.setCellFactory(CheckBoxTableCell.forTableColumn(background));
+		choices.add("award");
+		award.setCellValueFactory(new PropertyValueFactory<>("award"));
+		award.setCellFactory(TextFieldTableCell.forTableColumn());
+		award.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAward(event.getNewValue()); mainApp.reset();});
 		choices.add("sourceGroup");
 		sourceGroup.setCellValueFactory(new PropertyValueFactory<>("sourceGroup"));
 		choices.add("dataAvail");

@@ -55,6 +55,7 @@ import org.insightcentre.pthg24.datamodel.SpecialIssue;
 import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.Node;
 import org.insightcentre.pthg24.datamodel.Edge;
+import org.insightcentre.pthg24.datamodel.ConnectedComponent;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -130,7 +131,31 @@ Survey,
  *
 */
 
-Viewpoint;
+Viewpoint,
+    /**
+ *  
+ *
+*/
+
+InvitedTalk,
+    /**
+ *  
+ *
+*/
+
+ExtendedAbstract,
+    /**
+ *  
+ *
+*/
+
+ShortPaper,
+    /**
+ *  
+ *
+*/
+
+StudentPaper;
 private static SubType[] cache = null;
 
 public static SubType[] cachedValues(){

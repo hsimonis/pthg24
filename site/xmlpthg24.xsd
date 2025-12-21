@@ -22,6 +22,7 @@
 				<xs:element ref="conceptType" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="conceptWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="conferenceSeries" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="connectedComponent" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="countryCollab" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="doiReference" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="edge" minOccurs="0" maxOccurs="unbounded"/>
@@ -112,6 +113,7 @@
 			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="award" use="required" type="xs:string"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
@@ -132,6 +134,7 @@
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="language" use="required" type="xs:string"/>
+			<xs:attribute name="link" use="required" type="xs:IDREF"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nr" use="required" type="xs:integer"/>
@@ -162,6 +165,7 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
+			<xs:attribute name="subType" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
@@ -170,9 +174,7 @@
 			<xs:attribute name="year" use="required" type="xs:integer"/>
 			<xs:attribute name="isOriginal" use="required" type="xs:boolean"/>
 			<xs:attribute name="journal" use="required" type="xs:IDREF"/>
-			<xs:attribute name="link" use="required" type="xs:IDREF"/>
 			<xs:attribute name="specialIssue" use="required" type="xs:IDREF"/>
-			<xs:attribute name="subType" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="assertion">
@@ -235,6 +237,7 @@
 			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="award" use="required" type="xs:string"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
@@ -255,6 +258,7 @@
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="language" use="required" type="xs:string"/>
+			<xs:attribute name="link" use="required" type="xs:IDREF"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nr" use="required" type="xs:integer"/>
@@ -285,6 +289,7 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
+			<xs:attribute name="subType" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
@@ -400,6 +405,15 @@
 			<xs:attribute name="regExpr" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="connectedComponent">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="nr" use="required" type="xs:integer"/>
+			<xs:attribute name="works" use="required" type="xs:IDREFS"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="countryCollab">
 		<xs:complexType>
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
@@ -445,6 +459,7 @@
 			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="award" use="required" type="xs:string"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
@@ -465,6 +480,7 @@
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="language" use="required" type="xs:string"/>
+			<xs:attribute name="link" use="required" type="xs:IDREF"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nr" use="required" type="xs:integer"/>
@@ -495,6 +511,7 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
+			<xs:attribute name="subType" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
@@ -513,6 +530,7 @@
 			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="award" use="required" type="xs:string"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
@@ -533,6 +551,7 @@
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="language" use="required" type="xs:string"/>
+			<xs:attribute name="link" use="required" type="xs:IDREF"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nr" use="required" type="xs:integer"/>
@@ -563,6 +582,7 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
+			<xs:attribute name="subType" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
@@ -603,6 +623,9 @@
 			<xs:attribute name="name" use="required" type="xs:string"/>
 			<xs:attribute name="article" use="required" type="xs:IDREF"/>
 			<xs:attribute name="basis" use="required" type="xs:string"/>
+			<xs:attribute name="extended" use="required" type="xs:string"/>
+			<xs:attribute name="journal" use="required" type="xs:string"/>
+			<xs:attribute name="paper" use="required" type="xs:IDREF"/>
 			<xs:attribute name="venue" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
@@ -734,6 +757,7 @@
 			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="award" use="required" type="xs:string"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
@@ -754,6 +778,7 @@
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="language" use="required" type="xs:string"/>
+			<xs:attribute name="link" use="required" type="xs:IDREF"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nr" use="required" type="xs:integer"/>
@@ -784,6 +809,7 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
+			<xs:attribute name="subType" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
@@ -802,6 +828,7 @@
 			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
+			<xs:attribute name="award" use="required" type="xs:string"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
@@ -822,6 +849,7 @@
 			<xs:attribute name="key" use="required" type="xs:string"/>
 			<xs:attribute name="keywords" use="required" type="xs:string"/>
 			<xs:attribute name="language" use="required" type="xs:string"/>
+			<xs:attribute name="link" use="required" type="xs:IDREF"/>
 			<xs:attribute name="localCopy" use="required" type="xs:string"/>
 			<xs:attribute name="maxCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="nr" use="required" type="xs:integer"/>
@@ -852,6 +880,7 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
+			<xs:attribute name="subType" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>

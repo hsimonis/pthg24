@@ -86,7 +86,7 @@ public class ComputeRelevance {
                     conceptList.add(con);
                 }
             }
-            res = (1000.0 * (cntA * cntB) + cntA + cntB + cntC)/abstractRelevanceCutoff ;
+            res = (1000.0 * (cntA * cntB+cntC) + cntA + cntB)/abstractRelevanceCutoff ;
             if (res > 0) {
 //                info("scheduling keywords " + res + " " + cntA + " " + cntB + " "  + matches + " title " + title);
             }
@@ -118,7 +118,8 @@ public class ComputeRelevance {
             List<ConceptWork> list = map.get(w);
             double weightA = addWeightsA(list);
             double weightB = addWeightsB(list);
-            double total = weightA * weightB;
+            double weightC = addWeightsC(list);
+            double total = weightA * weightB+weightC;
             max = Math.max(max,total);
             w.setRelevanceBody(total);
         }
@@ -138,6 +139,12 @@ public class ComputeRelevance {
     private double addWeightsB(List<ConceptWork> list){
         return list.stream().
                 filter(x->x.getConcept().getConceptType().getWeightB() > 0.0).
+                mapToDouble(this::weightedCount).
+                sum();
+    }
+    private double addWeightsC(List<ConceptWork> list){
+        return list.stream().
+                filter(x->x.getConcept().getConceptType().getWeightC() > 0.0).
                 mapToDouble(this::weightedCount).
                 sum();
     }

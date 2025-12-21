@@ -493,6 +493,25 @@ public SubType getSubType(String attributeName,
         return res;
     }
 
+    public ConnectedComponent getConnectedComponent(String attributeName,
+                               Attributes attributes) {
+        return (ConnectedComponent) find(getId(attributeName,attributes));
+    }
+
+    public List<ConnectedComponent> getConnectedComponentCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<ConnectedComponent> res = new ArrayList<ConnectedComponent>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((ConnectedComponent) find(id));
+            }
+        }
+        return res;
+    }
+
     public CountryCollab getCountryCollab(String attributeName,
                                Attributes attributes) {
         return (CountryCollab) find(getId(attributeName,attributes));
@@ -1225,6 +1244,7 @@ public SubType getSubType(String attributeName,
                         getString("accepted",attributes,""),
                         getString("author",attributes,""),
                         null,
+                        getString("award",attributes,""),
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
@@ -1245,6 +1265,7 @@ public SubType getSubType(String attributeName,
                         getString("key",attributes,""),
                         getString("keywords",attributes,""),
                         getString("language",attributes,""),
+                        null,
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
                         getInteger("nr",attributes,0),
@@ -1275,6 +1296,7 @@ public SubType getSubType(String attributeName,
                         getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
+                        null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
                         getInteger("wosCitations",attributes,0),
@@ -1282,8 +1304,6 @@ public SubType getSubType(String attributeName,
                         getBoolean("wosStatus",attributes,false),
                         getInteger("year",attributes,0),
                         getBoolean("isOriginal",attributes,false),
-                        null,
-                        null,
                         null,
                         null
                         ));
@@ -1348,6 +1368,7 @@ public SubType getSubType(String attributeName,
                         getString("accepted",attributes,""),
                         getString("author",attributes,""),
                         null,
+                        getString("award",attributes,""),
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
@@ -1368,6 +1389,7 @@ public SubType getSubType(String attributeName,
                         getString("key",attributes,""),
                         getString("keywords",attributes,""),
                         getString("language",attributes,""),
+                        null,
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
                         getInteger("nr",attributes,0),
@@ -1397,6 +1419,7 @@ public SubType getSubType(String attributeName,
                         getBoolean("scopusStatus",attributes,false),
                         getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
+                        null,
                         null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
@@ -1512,6 +1535,15 @@ public SubType getSubType(String attributeName,
                         getInteger("nrPapers",attributes,0),
                         getString("regExpr",attributes,"")
                         ));
+            } else if (qname.equals("connectedComponent")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new ConnectedComponent(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getInteger("nr",attributes,0),
+                        null
+                        ));
             } else if (qname.equals("countryCollab")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1558,6 +1590,7 @@ public SubType getSubType(String attributeName,
                         getString("accepted",attributes,""),
                         getString("author",attributes,""),
                         null,
+                        getString("award",attributes,""),
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
@@ -1578,6 +1611,7 @@ public SubType getSubType(String attributeName,
                         getString("key",attributes,""),
                         getString("keywords",attributes,""),
                         getString("language",attributes,""),
+                        null,
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
                         getInteger("nr",attributes,0),
@@ -1607,6 +1641,7 @@ public SubType getSubType(String attributeName,
                         getBoolean("scopusStatus",attributes,false),
                         getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
+                        null,
                         null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
@@ -1626,6 +1661,7 @@ public SubType getSubType(String attributeName,
                         getString("accepted",attributes,""),
                         getString("author",attributes,""),
                         null,
+                        getString("award",attributes,""),
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
@@ -1646,6 +1682,7 @@ public SubType getSubType(String attributeName,
                         getString("key",attributes,""),
                         getString("keywords",attributes,""),
                         getString("language",attributes,""),
+                        null,
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
                         getInteger("nr",attributes,0),
@@ -1675,6 +1712,7 @@ public SubType getSubType(String attributeName,
                         getBoolean("scopusStatus",attributes,false),
                         getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
+                        null,
                         null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
@@ -1716,6 +1754,9 @@ public SubType getSubType(String attributeName,
                         getString("name", attributes, "dummy"),
                         null,
                         getString("basis",attributes,""),
+                        getString("extended",attributes,""),
+                        getString("journal",attributes,""),
+                        null,
                         getString("venue",attributes,"")
                         ));
             } else if (qname.equals("missingCitedWork")) {
@@ -1847,6 +1888,7 @@ public SubType getSubType(String attributeName,
                         getString("accepted",attributes,""),
                         getString("author",attributes,""),
                         null,
+                        getString("award",attributes,""),
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
@@ -1867,6 +1909,7 @@ public SubType getSubType(String attributeName,
                         getString("key",attributes,""),
                         getString("keywords",attributes,""),
                         getString("language",attributes,""),
+                        null,
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
                         getInteger("nr",attributes,0),
@@ -1896,6 +1939,7 @@ public SubType getSubType(String attributeName,
                         getBoolean("scopusStatus",attributes,false),
                         getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
+                        null,
                         null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
@@ -1915,6 +1959,7 @@ public SubType getSubType(String attributeName,
                         getString("accepted",attributes,""),
                         getString("author",attributes,""),
                         null,
+                        getString("award",attributes,""),
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
@@ -1935,6 +1980,7 @@ public SubType getSubType(String attributeName,
                         getString("key",attributes,""),
                         getString("keywords",attributes,""),
                         getString("language",attributes,""),
+                        null,
                         getString("localCopy",attributes,""),
                         getInteger("maxCitations",attributes,0),
                         getInteger("nr",attributes,0),
@@ -1964,6 +2010,7 @@ public SubType getSubType(String attributeName,
                         getBoolean("scopusStatus",attributes,false),
                         getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
+                        null,
                         null,
                         getString("title",attributes,""),
                         getString("url",attributes,""),
@@ -2192,13 +2239,13 @@ public SubType getSubType(String attributeName,
                 Article item = (Article) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
+                 item.setLink(getLink("link",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
-                 item.setJournal(getJournal("journal",attributes));
-                 item.setLink(getLink("link",attributes));
-                 item.setSpecialIssue(getSpecialIssue("specialIssue",attributes));
                  item.setSubType(getSubType("subType",attributes));
+                 item.setJournal(getJournal("journal",attributes));
+                 item.setSpecialIssue(getSpecialIssue("specialIssue",attributes));
             } else if (qname.equals("assertion")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2229,9 +2276,11 @@ public SubType getSubType(String attributeName,
                 Book item = (Book) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
+                 item.setLink(getLink("link",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
+                 item.setSubType(getSubType("subType",attributes));
             } else if (qname.equals("citation")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2281,6 +2330,11 @@ public SubType getSubType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 ConferenceSeries item = (ConferenceSeries) find(id);
+            } else if (qname.equals("connectedComponent")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                ConnectedComponent item = (ConnectedComponent) find(id);
+                 item.setWorks(getWorkCollectionFromIds("works",attributes));
             } else if (qname.equals("countryCollab")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2307,18 +2361,22 @@ public SubType getSubType(String attributeName,
                 InBook item = (InBook) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
+                 item.setLink(getLink("link",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
+                 item.setSubType(getSubType("subType",attributes));
             } else if (qname.equals("inCollection")) {
                 assert (base != null);
                 int id = getId("id", attributes);
                 InCollection item = (InCollection) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
+                 item.setLink(getLink("link",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
+                 item.setSubType(getSubType("subType",attributes));
                  item.setCollection(getCollection("collection",attributes));
             } else if (qname.equals("journal")) {
                 assert (base != null);
@@ -2335,6 +2393,7 @@ public SubType getSubType(String attributeName,
                 int id = getId("id", attributes);
                 Link item = (Link) find(id);
                  item.setArticle(getArticle("article",attributes));
+                 item.setPaper(getWork("paper",attributes));
             } else if (qname.equals("missingCitedWork")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2374,9 +2433,11 @@ public SubType getSubType(String attributeName,
                 Paper item = (Paper) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
+                 item.setLink(getLink("link",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
+                 item.setSubType(getSubType("subType",attributes));
                  item.setProceedings(getProceedings("proceedings",attributes));
             } else if (qname.equals("phDThesis")) {
                 assert (base != null);
@@ -2384,9 +2445,11 @@ public SubType getSubType(String attributeName,
                 PhDThesis item = (PhDThesis) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
+                 item.setLink(getLink("link",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
+                 item.setSubType(getSubType("subType",attributes));
                  item.setSchool(getSchool("school",attributes));
             } else if (qname.equals("proceedings")) {
                 assert (base != null);

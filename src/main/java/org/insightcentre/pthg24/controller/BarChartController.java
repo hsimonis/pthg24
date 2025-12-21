@@ -357,6 +357,9 @@ public class BarChartController extends ChartController {
 		attributeNames.add("connectedComponentNr");
 		choicesMap.put("Node", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("nr");
+		choicesMap.put("ConnectedComponent", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -530,6 +533,9 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("Edge")) {
 				objectList = mainApp.getEdgeData();
+			}
+			else if (className.equals("ConnectedComponent")) {
+				objectList = mainApp.getConnectedComponentData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

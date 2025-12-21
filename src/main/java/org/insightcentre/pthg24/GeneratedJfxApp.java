@@ -43,6 +43,7 @@ import org.insightcentre.pthg24.datamodel.Concept;
 import org.insightcentre.pthg24.datamodel.ConceptType;
 import org.insightcentre.pthg24.datamodel.ConceptWork;
 import org.insightcentre.pthg24.datamodel.ConferenceSeries;
+import org.insightcentre.pthg24.datamodel.ConnectedComponent;
 import org.insightcentre.pthg24.datamodel.CountryCollab;
 import org.insightcentre.pthg24.datamodel.CrossReference;
 import org.insightcentre.pthg24.datamodel.DoiReference;
@@ -201,6 +202,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<Edge> edgeData = FXCollections.observableArrayList();
 
+	private ObservableList<ConnectedComponent> connectedComponentData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "Literature Survey Tool, Insight Centre for Data Analytics, University College Cork", "*.data", "data/");
 		fs = minimalDataset();
@@ -258,6 +261,7 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("ReferenceFlow", "ReferenceFlow");
 		tableViews.put("Node", "Node");
 		tableViews.put("Edge", "Edge");
+		tableViews.put("ConnectedComponent", "ConnectedComponent");
 	}
 
 	public static void main(String[] args) {
@@ -437,6 +441,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		nodeData.addAll(base.getListNode());
 		edgeData.clear();
 		edgeData.addAll(base.getListEdge());
+		connectedComponentData.clear();
+		connectedComponentData.addAll(base.getListConnectedComponent());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -670,5 +676,9 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<Edge> getEdgeData() {
 		return edgeData;
+	}
+
+	public ObservableList<ConnectedComponent> getConnectedComponentData() {
+		return connectedComponentData;
 	}
 }

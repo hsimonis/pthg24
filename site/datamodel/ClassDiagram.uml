@@ -41,6 +41,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include ConceptType.uml
 !include ConceptWork.uml
 !include ConferenceSeries.uml
+!include ConnectedComponent.uml
 !include CountryCollab.uml
 !include CrossReference.uml
 !include DoiReference.uml
@@ -96,6 +97,7 @@ CrossReference <|-- UncategorizedReference
 CrossReference <|-- DoiReference
 ApplicationDataset  *-- ApplicationObject 
 ConceptType  *-- Concept 
+Link "0..1" *-- Work 
 Author "1..*" *-- Work : authors
 Publisher  *-- Work 
 SourceGroup  *-- Work 
@@ -104,7 +106,6 @@ ConferenceSeries  *-- Proceedings
 Publisher  *-- Journal 
 Journal  *-- JournalAlias 
 Journal  *-- Article 
-Link "0..1" *-- Article 
 SpecialIssue "0..1" *-- Article 
 Proceedings  *-- Paper 
 School  *-- PhDThesis 
@@ -148,9 +149,11 @@ Author "1..*" *-- OtherWork : authors
 Concept "0..*" *-- OtherWork 
 Work  *-- Assertion 
 Article  *-- Link 
+Work  *-- Link : paper
 Work  *-- Node 
 Node  *-- Edge : from
 Node  *-- Edge : to
+Work "0..*" *-- ConnectedComponent : works
 header
 Datamodel of Application pthg24
 endheader

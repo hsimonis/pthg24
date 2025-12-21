@@ -61,6 +61,12 @@ public class ArticleController extends Table3Controller {
 	private TableColumn<Article, String> key;
 
 	@FXML
+	private TableColumn<Article, SubType> subType;
+
+	@FXML
+	private TableColumn<Article, Link> link;
+
+	@FXML
 	private TableColumn<Article, String> author;
 
 	@FXML
@@ -98,6 +104,9 @@ public class ArticleController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Article, Boolean> background;
+
+	@FXML
+	private TableColumn<Article, String> award;
 
 	@FXML
 	private TableColumn<Article, SourceGroup> sourceGroup;
@@ -229,12 +238,6 @@ public class ArticleController extends Table3Controller {
 	private TableColumn<Article, Journal> journal;
 
 	@FXML
-	private TableColumn<Article, SubType> subType;
-
-	@FXML
-	private TableColumn<Article, Link> link;
-
-	@FXML
 	private TableColumn<Article, SpecialIssue> specialIssue;
 
 	@FXML
@@ -247,6 +250,11 @@ public class ArticleController extends Table3Controller {
 		mainApp = (GeneratedJfxApp) app;
 		table.setEditable(true);
 		table.setItems(mainApp.getArticleData());
+		ObservableList<SubType> subTypeValues = FXCollections.observableArrayList(SubType.values());
+		subType.setCellFactory(ComboBoxTableCell.forTableColumn(subTypeValues));
+		subType.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSubType(event.getNewValue()); mainApp.reset();});
+		link.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getLinkData()));
+		link.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setLink(event.getNewValue()); mainApp.reset();});
 		publisher.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getPublisherData()));
 		publisher.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setPublisher(event.getNewValue()); mainApp.reset();});
 		sourceGroup.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getSourceGroupData()));
@@ -256,11 +264,6 @@ public class ArticleController extends Table3Controller {
 		openAccessType.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setOpenAccessType(event.getNewValue()); mainApp.reset();});
 		journal.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getJournalData()));
 		journal.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setJournal(event.getNewValue()); mainApp.reset();});
-		ObservableList<SubType> subTypeValues = FXCollections.observableArrayList(SubType.values());
-		subType.setCellFactory(ComboBoxTableCell.forTableColumn(subTypeValues));
-		subType.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSubType(event.getNewValue()); mainApp.reset();});
-		link.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getLinkData()));
-		link.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setLink(event.getNewValue()); mainApp.reset();});
 		specialIssue.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getSpecialIssueData()));
 		specialIssue.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSpecialIssue(event.getNewValue()); mainApp.reset();});
 	}
@@ -298,6 +301,10 @@ public class ArticleController extends Table3Controller {
 		key.setCellValueFactory(new PropertyValueFactory<>("key"));
 		key.setCellFactory(TextFieldTableCell.forTableColumn());
 		key.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setKey(event.getNewValue()); mainApp.reset();});
+		choices.add("subType");
+		subType.setCellValueFactory(new PropertyValueFactory<>("subType"));
+		choices.add("link");
+		link.setCellValueFactory(new PropertyValueFactory<>("link"));
 		choices.add("author");
 		author.setCellValueFactory(new PropertyValueFactory<>("author"));
 		author.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -345,6 +352,10 @@ public class ArticleController extends Table3Controller {
 		choices.add("background");
 		background.setCellValueFactory(new BackgroundCallback());
 		background.setCellFactory(CheckBoxTableCell.forTableColumn(background));
+		choices.add("award");
+		award.setCellValueFactory(new PropertyValueFactory<>("award"));
+		award.setCellFactory(TextFieldTableCell.forTableColumn());
+		award.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAward(event.getNewValue()); mainApp.reset();});
 		choices.add("sourceGroup");
 		sourceGroup.setCellValueFactory(new PropertyValueFactory<>("sourceGroup"));
 		choices.add("dataAvail");
@@ -505,10 +516,6 @@ public class ArticleController extends Table3Controller {
 		daysToPublish.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setDaysToPublish(event.getNewValue()); mainApp.reset();});
 		choices.add("journal");
 		journal.setCellValueFactory(new PropertyValueFactory<>("journal"));
-		choices.add("subType");
-		subType.setCellValueFactory(new PropertyValueFactory<>("subType"));
-		choices.add("link");
-		link.setCellValueFactory(new PropertyValueFactory<>("link"));
 		choices.add("specialIssue");
 		specialIssue.setCellValueFactory(new PropertyValueFactory<>("specialIssue"));
 		choices.add("isOriginal");

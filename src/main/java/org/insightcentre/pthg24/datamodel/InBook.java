@@ -55,6 +55,7 @@ import org.insightcentre.pthg24.datamodel.SpecialIssue;
 import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.Node;
 import org.insightcentre.pthg24.datamodel.Edge;
+import org.insightcentre.pthg24.datamodel.ConnectedComponent;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -121,6 +122,7 @@ public  class InBook extends Work{
             String accepted,
             String author,
             List<Author> authors,
+            String award,
             Boolean background,
             String classification,
             Integer cluster,
@@ -141,6 +143,7 @@ public  class InBook extends Work{
             String key,
             String keywords,
             String language,
+            Link link,
             String localCopy,
             Integer maxCitations,
             Integer nr,
@@ -171,6 +174,7 @@ public  class InBook extends Work{
             String shortName,
             String solutionAvail,
             SourceGroup sourceGroup,
+            SubType subType,
             String title,
             String url,
             Integer wosCitations,
@@ -185,6 +189,7 @@ public  class InBook extends Work{
             accepted,
             author,
             authors,
+            award,
             background,
             classification,
             cluster,
@@ -205,6 +210,7 @@ public  class InBook extends Work{
             key,
             keywords,
             language,
+            link,
             localCopy,
             maxCitations,
             nr,
@@ -235,6 +241,7 @@ public  class InBook extends Work{
             shortName,
             solutionAvail,
             sourceGroup,
+            subType,
             title,
             url,
             wosCitations,
@@ -253,6 +260,7 @@ public  class InBook extends Work{
             other.accepted,
             other.author,
             other.authors,
+            other.award,
             other.background,
             other.classification,
             other.cluster,
@@ -273,6 +281,7 @@ public  class InBook extends Work{
             other.key,
             other.keywords,
             other.language,
+            other.link,
             other.localCopy,
             other.maxCitations,
             other.nr,
@@ -303,6 +312,7 @@ public  class InBook extends Work{
             other.shortName,
             other.solutionAvail,
             other.sourceGroup,
+            other.subType,
             other.title,
             other.url,
             other.wosCitations,
@@ -335,7 +345,9 @@ public  class InBook extends Work{
         getApplicationDataset().cascadeAuthorDoubleWork1(this);
         getApplicationDataset().cascadeAuthorDoubleWork2(this);
         getApplicationDataset().cascadeAssertionWork(this);
+        getApplicationDataset().cascadeLinkPaper(this);
         getApplicationDataset().cascadeNodeWork(this);
+        getApplicationDataset().cascadeConnectedComponentWorks(this);
         return getApplicationDataset().removeInBook(this) && getApplicationDataset().removeWork(this) && getApplicationDataset().removeApplicationObject(this);
     }
 
@@ -378,7 +390,7 @@ public  class InBook extends Work{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAccepted()+ " " +getAuthor()+ " " +getAuthors()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDaysToAccept()+ " " +getDaysToPublish()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getFirstOnline()+ " " +getIssn()+ " " +getKey()+ " " +getKeywords()+ " " +getLanguage()+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublished()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getReceived()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getRevised()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear()+ " " +getBooktitle();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAccepted()+ " " +getAuthor()+ " " +getAuthors()+ " " +getAward()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDaysToAccept()+ " " +getDaysToPublish()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getFirstOnline()+ " " +getIssn()+ " " +getKey()+ " " +getKeywords()+ " " +getLanguage()+ " " +(getLink() == null ? "" : getLink().toColumnString())+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublished()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getReceived()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getRevised()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getSubType()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear()+ " " +getBooktitle();
     }
 
 /**
@@ -406,6 +418,7 @@ public  class InBook extends Work{
             " accepted=\""+toXMLAccepted()+"\""+
             " author=\""+toXMLAuthor()+"\""+
             " authors=\""+toXMLAuthors()+"\""+
+            " award=\""+toXMLAward()+"\""+
             " background=\""+toXMLBackground()+"\""+
             " classification=\""+toXMLClassification()+"\""+
             " cluster=\""+toXMLCluster()+"\""+
@@ -426,6 +439,7 @@ public  class InBook extends Work{
             " key=\""+toXMLKey()+"\""+
             " keywords=\""+toXMLKeywords()+"\""+
             " language=\""+toXMLLanguage()+"\""+
+            " link=\""+toXMLLink()+"\""+
             " localCopy=\""+toXMLLocalCopy()+"\""+
             " maxCitations=\""+toXMLMaxCitations()+"\""+
             " nr=\""+toXMLNr()+"\""+
@@ -456,6 +470,7 @@ public  class InBook extends Work{
             " shortName=\""+toXMLShortName()+"\""+
             " solutionAvail=\""+toXMLSolutionAvail()+"\""+
             " sourceGroup=\""+toXMLSourceGroup()+"\""+
+            " subType=\""+toXMLSubType()+"\""+
             " title=\""+toXMLTitle()+"\""+
             " url=\""+toXMLUrl()+"\""+
             " wosCitations=\""+toXMLWosCitations()+"\""+
@@ -482,11 +497,11 @@ public  class InBook extends Work{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>InBook</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>Nr</th>"+"<th>NrEdges</th>"+"<th>Cluster</th>"+"<th>Key</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Publisher</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>Issn</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>NrHyperLinks</th>"+"<th>Background</th>"+"<th>SourceGroup</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>RelatedTo</th>"+"<th>OpenAccess</th>"+"<th>OpenAccessType</th>"+"<th>NrConcepts</th>"+"<th>NrCitations</th>"+"<th>NrReferences</th>"+"<th>CrossrefCitations</th>"+"<th>CrossrefReferences</th>"+"<th>WosCitations</th>"+"<th>WosReferences</th>"+"<th>ScopusCitations</th>"+"<th>NrCitationsCovered</th>"+"<th>NrReferencesCovered</th>"+"<th>PercentCitationsCovered</th>"+"<th>PercentReferencesCovered</th>"+"<th>MaxCitations</th>"+"<th>RangeCitations</th>"+"<th>DoiStatus</th>"+"<th>CrossrefStatus</th>"+"<th>ScopusStatus</th>"+"<th>WosStatus</th>"+"<th>RelevanceTitle</th>"+"<th>RelevanceAbstract</th>"+"<th>RelevanceBody</th>"+"<th>Language</th>"+"<th>Keywords</th>"+"<th>AbstractText</th>"+"<th>Concept</th>"+"<th>Received</th>"+"<th>Accepted</th>"+"<th>Revised</th>"+"<th>FirstOnline</th>"+"<th>Published</th>"+"<th>DaysToAccept</th>"+"<th>DaysToPublish</th>"+"<th>Booktitle</th>"+"</tr>";
+        return "<tr><th>InBook</th>"+"<th>Name</th>"+"<th>ShortName</th>"+"<th>Nr</th>"+"<th>NrEdges</th>"+"<th>Cluster</th>"+"<th>Key</th>"+"<th>SubType</th>"+"<th>Link</th>"+"<th>Author</th>"+"<th>Authors</th>"+"<th>Title</th>"+"<th>Publisher</th>"+"<th>Url</th>"+"<th>Doi</th>"+"<th>Issn</th>"+"<th>LocalCopy</th>"+"<th>Year</th>"+"<th>Pages</th>"+"<th>NrPages</th>"+"<th>NrHyperLinks</th>"+"<th>Background</th>"+"<th>Award</th>"+"<th>SourceGroup</th>"+"<th>DataAvail</th>"+"<th>CodeAvail</th>"+"<th>SolutionAvail</th>"+"<th>CpSystem</th>"+"<th>Classification</th>"+"<th>Constraints</th>"+"<th>RelatedTo</th>"+"<th>OpenAccess</th>"+"<th>OpenAccessType</th>"+"<th>NrConcepts</th>"+"<th>NrCitations</th>"+"<th>NrReferences</th>"+"<th>CrossrefCitations</th>"+"<th>CrossrefReferences</th>"+"<th>WosCitations</th>"+"<th>WosReferences</th>"+"<th>ScopusCitations</th>"+"<th>NrCitationsCovered</th>"+"<th>NrReferencesCovered</th>"+"<th>PercentCitationsCovered</th>"+"<th>PercentReferencesCovered</th>"+"<th>MaxCitations</th>"+"<th>RangeCitations</th>"+"<th>DoiStatus</th>"+"<th>CrossrefStatus</th>"+"<th>ScopusStatus</th>"+"<th>WosStatus</th>"+"<th>RelevanceTitle</th>"+"<th>RelevanceAbstract</th>"+"<th>RelevanceBody</th>"+"<th>Language</th>"+"<th>Keywords</th>"+"<th>AbstractText</th>"+"<th>Concept</th>"+"<th>Received</th>"+"<th>Accepted</th>"+"<th>Revised</th>"+"<th>FirstOnline</th>"+"<th>Published</th>"+"<th>DaysToAccept</th>"+"<th>DaysToPublish</th>"+"<th>Booktitle</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getNr()+"</td>"+ " " +"<td>"+getNrEdges()+"</td>"+ " " +"<td>"+getCluster()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getPublisher().toColumnString()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getIssn()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getNrHyperLinks()+"</td>"+ " " +"<td>"+getBackground()+"</td>"+ " " +"<td>"+getSourceGroup().toColumnString()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getRelatedTo()+"</td>"+ " " +"<td>"+getOpenAccess()+"</td>"+ " " +"<td>"+getOpenAccessType()+"</td>"+ " " +"<td>"+getNrConcepts()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getWosCitations()+"</td>"+ " " +"<td>"+getWosReferences()+"</td>"+ " " +"<td>"+getScopusCitations()+"</td>"+ " " +"<td>"+getNrCitationsCovered()+"</td>"+ " " +"<td>"+getNrReferencesCovered()+"</td>"+ " " +"<td>"+getPercentCitationsCovered()+"</td>"+ " " +"<td>"+getPercentReferencesCovered()+"</td>"+ " " +"<td>"+getMaxCitations()+"</td>"+ " " +"<td>"+getRangeCitations()+"</td>"+ " " +"<td>"+getDoiStatus()+"</td>"+ " " +"<td>"+getCrossrefStatus()+"</td>"+ " " +"<td>"+getScopusStatus()+"</td>"+ " " +"<td>"+getWosStatus()+"</td>"+ " " +"<td>"+getRelevanceTitle()+"</td>"+ " " +"<td>"+getRelevanceAbstract()+"</td>"+ " " +"<td>"+getRelevanceBody()+"</td>"+ " " +"<td>"+getLanguage()+"</td>"+ " " +"<td>"+getKeywords()+"</td>"+ " " +"<td>"+getAbstractText()+"</td>"+ " " +"<td>"+getConcept()+"</td>"+ " " +"<td>"+getReceived()+"</td>"+ " " +"<td>"+getAccepted()+"</td>"+ " " +"<td>"+getRevised()+"</td>"+ " " +"<td>"+getFirstOnline()+"</td>"+ " " +"<td>"+getPublished()+"</td>"+ " " +"<td>"+getDaysToAccept()+"</td>"+ " " +"<td>"+getDaysToPublish()+"</td>"+ " " +"<td>"+getBooktitle()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getShortName()+"</td>"+ " " +"<td>"+getNr()+"</td>"+ " " +"<td>"+getNrEdges()+"</td>"+ " " +"<td>"+getCluster()+"</td>"+ " " +"<td>"+getKey()+"</td>"+ " " +"<td>"+getSubType()+"</td>"+ " " +"<td>"+(getLink() == null ? "" : getLink().toColumnString())+"</td>"+ " " +"<td>"+getAuthor()+"</td>"+ " " +"<td>"+getAuthors()+"</td>"+ " " +"<td>"+getTitle()+"</td>"+ " " +"<td>"+getPublisher().toColumnString()+"</td>"+ " " +"<td>"+getUrl()+"</td>"+ " " +"<td>"+getDoi()+"</td>"+ " " +"<td>"+getIssn()+"</td>"+ " " +"<td>"+getLocalCopy()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getPages()+"</td>"+ " " +"<td>"+getNrPages()+"</td>"+ " " +"<td>"+getNrHyperLinks()+"</td>"+ " " +"<td>"+getBackground()+"</td>"+ " " +"<td>"+getAward()+"</td>"+ " " +"<td>"+getSourceGroup().toColumnString()+"</td>"+ " " +"<td>"+getDataAvail()+"</td>"+ " " +"<td>"+getCodeAvail()+"</td>"+ " " +"<td>"+getSolutionAvail()+"</td>"+ " " +"<td>"+getCpSystem()+"</td>"+ " " +"<td>"+getClassification()+"</td>"+ " " +"<td>"+getConstraints()+"</td>"+ " " +"<td>"+getRelatedTo()+"</td>"+ " " +"<td>"+getOpenAccess()+"</td>"+ " " +"<td>"+getOpenAccessType()+"</td>"+ " " +"<td>"+getNrConcepts()+"</td>"+ " " +"<td>"+getNrCitations()+"</td>"+ " " +"<td>"+getNrReferences()+"</td>"+ " " +"<td>"+getCrossrefCitations()+"</td>"+ " " +"<td>"+getCrossrefReferences()+"</td>"+ " " +"<td>"+getWosCitations()+"</td>"+ " " +"<td>"+getWosReferences()+"</td>"+ " " +"<td>"+getScopusCitations()+"</td>"+ " " +"<td>"+getNrCitationsCovered()+"</td>"+ " " +"<td>"+getNrReferencesCovered()+"</td>"+ " " +"<td>"+getPercentCitationsCovered()+"</td>"+ " " +"<td>"+getPercentReferencesCovered()+"</td>"+ " " +"<td>"+getMaxCitations()+"</td>"+ " " +"<td>"+getRangeCitations()+"</td>"+ " " +"<td>"+getDoiStatus()+"</td>"+ " " +"<td>"+getCrossrefStatus()+"</td>"+ " " +"<td>"+getScopusStatus()+"</td>"+ " " +"<td>"+getWosStatus()+"</td>"+ " " +"<td>"+getRelevanceTitle()+"</td>"+ " " +"<td>"+getRelevanceAbstract()+"</td>"+ " " +"<td>"+getRelevanceBody()+"</td>"+ " " +"<td>"+getLanguage()+"</td>"+ " " +"<td>"+getKeywords()+"</td>"+ " " +"<td>"+getAbstractText()+"</td>"+ " " +"<td>"+getConcept()+"</td>"+ " " +"<td>"+getReceived()+"</td>"+ " " +"<td>"+getAccepted()+"</td>"+ " " +"<td>"+getRevised()+"</td>"+ " " +"<td>"+getFirstOnline()+"</td>"+ " " +"<td>"+getPublished()+"</td>"+ " " +"<td>"+getDaysToAccept()+"</td>"+ " " +"<td>"+getDaysToPublish()+"</td>"+ " " +"<td>"+getBooktitle()+"</td>"+"</tr>";
     }
 
 /**
@@ -614,6 +629,9 @@ public  class InBook extends Work{
         }
       if (true) {         System.out.println("Authors");
         }
+      if(!this.getAward().equals(b.getAward())){
+         System.out.println("Award");
+        }
       if(!this.getBackground().equals(b.getBackground())){
          System.out.println("Background");
         }
@@ -675,6 +693,9 @@ public  class InBook extends Work{
         }
       if(!this.getLanguage().equals(b.getLanguage())){
          System.out.println("Language");
+        }
+      if(!(getLink() == null ? b.getLink() == null:this.getLink().applicationSame(b.getLink()))){
+         System.out.println("Link");
         }
       if(!this.getLocalCopy().equals(b.getLocalCopy())){
          System.out.println("LocalCopy");
@@ -769,6 +790,9 @@ public  class InBook extends Work{
       if(!this.getSourceGroup().applicationSame(b.getSourceGroup())){
          System.out.println("SourceGroup");
         }
+      if(!this.getSubType().equals(b.getSubType())){
+         System.out.println("SubType");
+        }
       if(!this.getTitle().equals(b.getTitle())){
          System.out.println("Title");
         }
@@ -791,6 +815,7 @@ public  class InBook extends Work{
           this.getAccepted().equals(b.getAccepted()) &&
           this.getAuthor().equals(b.getAuthor()) &&
           true &&
+          this.getAward().equals(b.getAward()) &&
           this.getBackground().equals(b.getBackground()) &&
           this.getBooktitle().equals(b.getBooktitle()) &&
           this.getClassification().equals(b.getClassification()) &&
@@ -812,6 +837,7 @@ public  class InBook extends Work{
           this.getKey().equals(b.getKey()) &&
           this.getKeywords().equals(b.getKeywords()) &&
           this.getLanguage().equals(b.getLanguage()) &&
+          (this.getLink() == null ? b.getLink() == null : this.getLink().applicationSame(b.getLink())) &&
           this.getLocalCopy().equals(b.getLocalCopy()) &&
           this.getMaxCitations().equals(b.getMaxCitations()) &&
           this.getName().equals(b.getName()) &&
@@ -843,6 +869,7 @@ public  class InBook extends Work{
           this.getShortName().equals(b.getShortName()) &&
           this.getSolutionAvail().equals(b.getSolutionAvail()) &&
           this.getSourceGroup().applicationSame(b.getSourceGroup()) &&
+          this.getSubType().equals(b.getSubType()) &&
           this.getTitle().equals(b.getTitle()) &&
           this.getUrl().equals(b.getUrl()) &&
           this.getWosCitations().equals(b.getWosCitations()) &&
@@ -896,6 +923,9 @@ public  class InBook extends Work{
       }
       if (attrName.equals("concept")){
          return (List) ((Scenario)base).getListConcept();
+      }
+      if (attrName.equals("link")){
+         return (List) ((Scenario)base).getListLink();
       }
       if (attrName.equals("publisher")){
          return (List) ((Scenario)base).getListPublisher();

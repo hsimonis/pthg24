@@ -115,6 +115,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("cluster");
 		filterNames.add("cluster");
 		filterNames.add("key");
+		filterNames.add("subType");
+		filterNames.add("link");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
@@ -131,6 +133,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrHyperLinks");
 		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
+		filterNames.add("award");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
@@ -206,6 +209,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("cluster");
 		filterNames.add("cluster");
 		filterNames.add("key");
+		filterNames.add("subType");
+		filterNames.add("link");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
@@ -222,6 +227,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrHyperLinks");
 		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
+		filterNames.add("award");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
@@ -298,6 +304,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("cluster");
 		filterNames.add("cluster");
 		filterNames.add("key");
+		filterNames.add("subType");
+		filterNames.add("link");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
@@ -314,6 +322,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrHyperLinks");
 		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
+		filterNames.add("award");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
@@ -376,8 +385,6 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("daysToPublish");
 		filterNames.add("daysToPublish");
 		filterNames.add("journal");
-		filterNames.add("subType");
-		filterNames.add("link");
 		filterNames.add("specialIssue");
 		filterNames.add("isOriginal");
 		choicesMap.put("Article", attributeNames);
@@ -394,6 +401,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("cluster");
 		filterNames.add("cluster");
 		filterNames.add("key");
+		filterNames.add("subType");
+		filterNames.add("link");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
@@ -410,6 +419,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrHyperLinks");
 		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
+		filterNames.add("award");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
@@ -486,6 +496,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("cluster");
 		filterNames.add("cluster");
 		filterNames.add("key");
+		filterNames.add("subType");
+		filterNames.add("link");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
@@ -502,6 +514,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrHyperLinks");
 		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
+		filterNames.add("award");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
@@ -578,6 +591,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("cluster");
 		filterNames.add("cluster");
 		filterNames.add("key");
+		filterNames.add("subType");
+		filterNames.add("link");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
@@ -594,6 +609,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrHyperLinks");
 		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
+		filterNames.add("award");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
@@ -670,6 +686,8 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("cluster");
 		filterNames.add("cluster");
 		filterNames.add("key");
+		filterNames.add("subType");
+		filterNames.add("link");
 		filterNames.add("author");
 		filterNames.add("authors");
 		filterNames.add("title");
@@ -686,6 +704,7 @@ public class ScatterChartController extends ChartXYFilterController {
 		attributeNames.add("nrHyperLinks");
 		filterNames.add("nrHyperLinks");
 		filterNames.add("background");
+		filterNames.add("award");
 		filterNames.add("sourceGroup");
 		filterNames.add("dataAvail");
 		filterNames.add("codeAvail");
@@ -1195,8 +1214,11 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("basedOnConference");
 		filterNames.add("name");
 		filterNames.add("article");
+		filterNames.add("extended");
+		filterNames.add("journal");
 		filterNames.add("venue");
 		filterNames.add("basis");
+		filterNames.add("paper");
 		filterNames.add("name");
 		filterNames.add("work");
 		attributeNames.add("nr");
@@ -1213,6 +1235,15 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add("name");
 		filterNames.add("from");
 		filterNames.add("to");
+		filterNames.add("name");
+		attributeNames.add("nr");
+		filterNames.add("nr");
+		filterNames.add("works");
+		choicesMap.put("ConnectedComponent", attributeNames);
+		filterMap.put("ConnectedComponent", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -1394,6 +1425,9 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("Edge")) {
 				objectList = mainApp.getEdgeData();
+			}
+			else if (className.equals("ConnectedComponent")) {
+				objectList = mainApp.getConnectedComponentData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

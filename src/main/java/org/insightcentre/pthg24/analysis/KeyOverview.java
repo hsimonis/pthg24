@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
 import static org.insightcentre.pthg24.analysis.AbstractList.textSize;
+import static org.insightcentre.pthg24.analysis.ListWorks.awardHighlight;
 import static org.insightcentre.pthg24.analysis.ListWorks.local;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
@@ -39,9 +40,10 @@ public class KeyOverview {
 //                        local(w.getLocalCopy()),safe(w.getName()),
 //                        safe(w.getName()));
                 // new style: details of work
-                out.printf("\\hyperref[detail:%s]{%s}",
+                out.printf("\\hyperref[detail:%s]{%s%s}",
                         safe(w.getName()),
-                        safe(w.getName()));
+                        safe(w.getName()),
+                        awardHighlight(w));
                 if (++i % nrColumns == 0){
                     out.printf("\\\\ \n");
                 } else {
