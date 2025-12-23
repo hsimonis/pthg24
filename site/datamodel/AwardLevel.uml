@@ -1,0 +1,6 @@
+enum AwardLevel
+AwardLevel: Best
+AwardLevel: Distinguished
+AwardLevel: RunnerUp
+AwardLevel: Other
+

@@ -60,12 +60,17 @@ public abstract class AbstractList {
         if (t.contains("<mml:math")){
             return "*** XML detected ***";
         }
-        return t.replaceAll("<p>","").replaceAll("</p>","").
-                replaceAll("\\$","USD").replaceAll("%","\\\\%").
+        return t.replaceAll("<p>","").
+                replaceAll("</p>","").
+                replaceAll("\\$","USD").
+                replaceAll("%","\\\\%").
                 replaceAll("&amp;", "\\&").
                 replaceAll("&gt;"," gt ").
                 replaceAll("_","-").
-                replaceAll("&lt;"," lt ").replaceAll("&\\w*;","").replaceAll("&\\\\#x0D;","").replaceAll("&"," and ");
+                replaceAll("&lt;"," lt ").
+                replaceAll("&\\w*;","").
+                replaceAll("&\\\\#x0D;","").
+                replaceAll("&"," and ");
     }
 
     public static String textSize(boolean useLargerText){

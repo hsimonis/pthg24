@@ -31,6 +31,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include Author.uml
 !include AuthorDouble.uml
 !include Authorship.uml
+!include Award.uml
 !include Book.uml
 !include Citation.uml
 !include Coauthor.uml
@@ -72,6 +73,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include Similarity.uml
 !include SourceGroup.uml
 !include SpecialIssue.uml
+!include Track.uml
 !include Translator.uml
 !include UncategorizedReference.uml
 !include Work.uml
@@ -82,6 +84,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include WorkType.uml
 !include OpenAccessType.uml
 !include SubType.uml
+!include AwardLevel.uml
 ApplicationObjectInterface <|-- ApplicationObject
 ApplicationDatasetInterface <|-- ApplicationDataset
 ApplicationObjectInterface <|-- ApplicationDatasetInterface
@@ -97,9 +100,11 @@ CrossReference <|-- UncategorizedReference
 CrossReference <|-- DoiReference
 ApplicationDataset  *-- ApplicationObject 
 ConceptType  *-- Concept 
+Track "0..1" *-- Work 
 Link "0..1" *-- Work 
 Author "1..*" *-- Work : authors
 Publisher  *-- Work 
+Award "0..*" *-- Work : awards
 SourceGroup  *-- Work 
 Concept "0..*" *-- Work 
 ConferenceSeries  *-- Proceedings 

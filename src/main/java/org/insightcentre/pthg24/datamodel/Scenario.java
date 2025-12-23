@@ -56,12 +56,15 @@ import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.Node;
 import org.insightcentre.pthg24.datamodel.Edge;
 import org.insightcentre.pthg24.datamodel.ConnectedComponent;
+import org.insightcentre.pthg24.datamodel.Award;
+import org.insightcentre.pthg24.datamodel.Track;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
 import org.insightcentre.pthg24.datamodel.WorkType;
 import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.SubType;
+import org.insightcentre.pthg24.datamodel.AwardLevel;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 import java.util.*;
 import java.io.*;
@@ -97,6 +100,13 @@ public  class Scenario extends ApplicationDataset{
  *
 */
 
+    public String surveyName;
+
+/**
+ *  
+ *
+*/
+
     public Boolean useLargerText;
 
     private transient BooleanProperty useLargerTextWrapper;
@@ -122,6 +132,7 @@ public  class Scenario extends ApplicationDataset{
         super(applicationDataset);
         setPrefix("");
         setProblem("");
+        setSurveyName("");
         setUseLargerText(true);
         addScenario(this);
     }
@@ -139,6 +150,7 @@ public  class Scenario extends ApplicationDataset{
             Boolean valid,
             String prefix,
             String problem,
+            String surveyName,
             Boolean useLargerText){
         super(dirty,
             id,
@@ -146,6 +158,7 @@ public  class Scenario extends ApplicationDataset{
             valid);
         setPrefix(prefix);
         setProblem(problem);
+        setSurveyName(surveyName);
         setUseLargerText(useLargerText);
         addScenario(this);
     }
@@ -157,6 +170,7 @@ public  class Scenario extends ApplicationDataset{
             other.valid,
             other.prefix,
             other.problem,
+            other.surveyName,
             other.useLargerText);
     }
 
@@ -183,6 +197,16 @@ public  class Scenario extends ApplicationDataset{
 
     public String getProblem(){
         return this.problem;
+    }
+
+/**
+ *  get attribute surveyName
+ *
+ * @return String
+*/
+
+    public String getSurveyName(){
+        return this.surveyName;
     }
 
 /**
@@ -228,6 +252,18 @@ public  class Scenario extends ApplicationDataset{
     }
 
 /**
+ *  set attribute surveyName, mark dataset as dirty, mark dataset as not valid
+@param surveyName String
+ *
+*/
+
+    public void setSurveyName(String surveyName){
+        this.surveyName = surveyName;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute useLargerText, mark dataset as dirty, mark dataset as not valid
 @param useLargerText Boolean
  *
@@ -256,7 +292,7 @@ public  class Scenario extends ApplicationDataset{
 */
 
     public String prettyString(){
-        return getDirty()+ " " +getId()+ " " +getName()+ " " +getValid()+ " " +getPrefix()+ " " +getProblem()+ " " +getUseLargerText();
+        return getDirty()+ " " +getId()+ " " +getName()+ " " +getValid()+ " " +getPrefix()+ " " +getProblem()+ " " +getSurveyName()+ " " +getUseLargerText();
     }
 
 /**
@@ -283,6 +319,7 @@ public  class Scenario extends ApplicationDataset{
             " valid=\""+toXMLValid()+"\""+
             " prefix=\""+toXMLPrefix()+"\""+
             " problem=\""+toXMLProblem()+"\""+
+            " surveyName=\""+toXMLSurveyName()+"\""+
             " useLargerText=\""+toXMLUseLargerText()+"\""+" />");
      }
 
@@ -312,6 +349,16 @@ public  class Scenario extends ApplicationDataset{
  * @return String
 */
 
+    String toXMLSurveyName(){
+        return this.safeXML(getSurveyName());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLUseLargerText(){
         return this.getUseLargerText().toString();
     }
@@ -323,11 +370,11 @@ public  class Scenario extends ApplicationDataset{
 */
 
     public static String toHTMLLabels(){
-        return "<tr><th>Scenario</th>"+"<th>Name</th>"+"<th>Dirty</th>"+"<th>Valid</th>"+"<th>Problem</th>"+"<th>Prefix</th>"+"<th>UseLargerText</th>"+"</tr>";
+        return "<tr><th>Scenario</th>"+"<th>Name</th>"+"<th>Dirty</th>"+"<th>Valid</th>"+"<th>Problem</th>"+"<th>SurveyName</th>"+"<th>Prefix</th>"+"<th>UseLargerText</th>"+"</tr>";
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDirty()+"</td>"+ " " +"<td>"+getValid()+"</td>"+ " " +"<td>"+getProblem()+"</td>"+ " " +"<td>"+getPrefix()+"</td>"+ " " +"<td>"+getUseLargerText()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getDirty()+"</td>"+ " " +"<td>"+getValid()+"</td>"+ " " +"<td>"+getProblem()+"</td>"+ " " +"<td>"+getSurveyName()+"</td>"+ " " +"<td>"+getPrefix()+"</td>"+ " " +"<td>"+getUseLargerText()+"</td>"+"</tr>";
     }
 
 /**
@@ -375,12 +422,16 @@ public  class Scenario extends ApplicationDataset{
       if(!this.getProblem().equals(b.getProblem())){
          System.out.println("Problem");
         }
+      if(!this.getSurveyName().equals(b.getSurveyName())){
+         System.out.println("SurveyName");
+        }
       if(!this.getUseLargerText().equals(b.getUseLargerText())){
          System.out.println("UseLargerText");
         }
         return  this.getName().equals(b.getName()) &&
           this.getPrefix().equals(b.getPrefix()) &&
           this.getProblem().equals(b.getProblem()) &&
+          this.getSurveyName().equals(b.getSurveyName()) &&
           this.getUseLargerText().equals(b.getUseLargerText());
     }
 

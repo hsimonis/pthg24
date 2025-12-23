@@ -56,12 +56,15 @@ import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.Node;
 import org.insightcentre.pthg24.datamodel.Edge;
 import org.insightcentre.pthg24.datamodel.ConnectedComponent;
+import org.insightcentre.pthg24.datamodel.Award;
+import org.insightcentre.pthg24.datamodel.Track;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
 import org.insightcentre.pthg24.datamodel.WorkType;
 import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.SubType;
+import org.insightcentre.pthg24.datamodel.AwardLevel;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 import java.util.*;
 import java.io.*;
@@ -111,7 +114,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  *
 */
 
-    public String award;
+    public List<Award> awards;
 
 /**
  *  
@@ -483,6 +486,15 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  *
 */
 
+    public Boolean studentPaper;
+
+    private transient BooleanProperty studentPaperWrapper;
+
+/**
+ *  
+ *
+*/
+
     public SubType subType;
 
 /**
@@ -491,6 +503,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public String title;
+
+/**
+ *  
+ *
+*/
+
+    public Track track;
 
 /**
  *  
@@ -552,7 +571,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setAccepted("");
         setAuthor("");
         setAuthors(new ArrayList<Author>());
-        setAward("");
+        setAwards(new ArrayList<Award>());
         setBackground(false);
         setClassification("");
         setCluster(0);
@@ -604,8 +623,10 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setShortName("");
         setSolutionAvail("");
         setSourceGroup(null);
+        setStudentPaper(false);
         setSubType(null);
         setTitle("");
+        setTrack(null);
         setUrl("");
         setWosCitations(0);
         setWosReferences(0);
@@ -628,7 +649,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             String accepted,
             String author,
             List<Author> authors,
-            String award,
+            List<Award> awards,
             Boolean background,
             String classification,
             Integer cluster,
@@ -680,8 +701,10 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             String shortName,
             String solutionAvail,
             SourceGroup sourceGroup,
+            Boolean studentPaper,
             SubType subType,
             String title,
+            Track track,
             String url,
             Integer wosCitations,
             Integer wosReferences,
@@ -694,7 +717,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setAccepted(accepted);
         setAuthor(author);
         setAuthors(authors);
-        setAward(award);
+        setAwards(awards);
         setBackground(background);
         setClassification(classification);
         setCluster(cluster);
@@ -746,8 +769,10 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         setShortName(shortName);
         setSolutionAvail(solutionAvail);
         setSourceGroup(sourceGroup);
+        setStudentPaper(studentPaper);
         setSubType(subType);
         setTitle(title);
+        setTrack(track);
         setUrl(url);
         setWosCitations(wosCitations);
         setWosReferences(wosReferences);
@@ -764,7 +789,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             other.accepted,
             other.author,
             other.authors,
-            other.award,
+            other.awards,
             other.background,
             other.classification,
             other.cluster,
@@ -816,8 +841,10 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             other.shortName,
             other.solutionAvail,
             other.sourceGroup,
+            other.studentPaper,
             other.subType,
             other.title,
+            other.track,
             other.url,
             other.wosCitations,
             other.wosReferences,
@@ -908,13 +935,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
- *  get attribute award
+ *  get attribute awards
  *
- * @return String
+ * @return List<Award>
 */
 
-    public String getAward(){
-        return this.award;
+    public List<Award> getAwards(){
+        return this.awards;
     }
 
 /**
@@ -1460,6 +1487,24 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
+ *  get attribute studentPaper
+ *
+ * @return Boolean
+*/
+
+    public Boolean getStudentPaper(){
+        return this.studentPaper;
+    }
+
+    public BooleanProperty studentPaperWrapperProperty() {
+        if (studentPaperWrapper == null) {
+            studentPaperWrapper = new SimpleBooleanProperty();
+        }
+        studentPaperWrapper.set(studentPaper);
+        return studentPaperWrapper;
+    }
+
+/**
  *  get attribute subType
  *
  * @return SubType
@@ -1477,6 +1522,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public String getTitle(){
         return this.title;
+    }
+
+/**
+ *  get attribute track
+ *
+ * @return Track
+*/
+
+    public Track getTrack(){
+        return this.track;
     }
 
 /**
@@ -1586,13 +1641,13 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
- *  set attribute award, mark dataset as dirty, mark dataset as not valid
-@param award String
+ *  set attribute awards, mark dataset as dirty, mark dataset as not valid
+@param awards List<Award>
  *
 */
 
-    public void setAward(String award){
-        this.award = award;
+    public void setAwards(List<Award> awards){
+        this.awards = awards;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -2210,6 +2265,18 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
     }
 
 /**
+ *  set attribute studentPaper, mark dataset as dirty, mark dataset as not valid
+@param studentPaper Boolean
+ *
+*/
+
+    public void setStudentPaper(Boolean studentPaper){
+        this.studentPaper = studentPaper;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute subType, mark dataset as dirty, mark dataset as not valid
 @param subType SubType
  *
@@ -2229,6 +2296,18 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     public void setTitle(String title){
         this.title = title;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute track, mark dataset as dirty, mark dataset as not valid
+@param track Track
+ *
+*/
+
+    public void setTrack(Track track){
+        this.track = track;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -2530,7 +2609,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAccepted()+ " " +getAuthor()+ " " +getAuthors()+ " " +getAward()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDaysToAccept()+ " " +getDaysToPublish()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getFirstOnline()+ " " +getIssn()+ " " +getKey()+ " " +getKeywords()+ " " +getLanguage()+ " " +(getLink() == null ? "" : getLink().toColumnString())+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublished()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getReceived()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getRevised()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getSubType()+ " " +getTitle()+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAbstractText()+ " " +getAccepted()+ " " +getAuthor()+ " " +getAuthors()+ " " +getAwards()+ " " +getBackground()+ " " +getClassification()+ " " +getCluster()+ " " +getCodeAvail()+ " " +getConcept()+ " " +getConstraints()+ " " +getCpSystem()+ " " +getCrossrefCitations()+ " " +getCrossrefReferences()+ " " +getCrossrefStatus()+ " " +getDataAvail()+ " " +getDaysToAccept()+ " " +getDaysToPublish()+ " " +getDoi()+ " " +getDoiStatus()+ " " +getFirstOnline()+ " " +getIssn()+ " " +getKey()+ " " +getKeywords()+ " " +getLanguage()+ " " +(getLink() == null ? "" : getLink().toColumnString())+ " " +getLocalCopy()+ " " +getMaxCitations()+ " " +getNr()+ " " +getNrCitations()+ " " +getNrCitationsCovered()+ " " +getNrConcepts()+ " " +getNrEdges()+ " " +getNrHyperLinks()+ " " +getNrPages()+ " " +getNrReferences()+ " " +getNrReferencesCovered()+ " " +getOpenAccess()+ " " +getOpenAccessType()+ " " +getPages()+ " " +getPercentCitationsCovered()+ " " +getPercentReferencesCovered()+ " " +getPublished()+ " " +getPublisher().toColumnString()+ " " +getRangeCitations()+ " " +getReceived()+ " " +getRelatedTo()+ " " +getRelevanceAbstract()+ " " +getRelevanceBody()+ " " +getRelevanceTitle()+ " " +getRevised()+ " " +getScopusCitations()+ " " +getScopusStatus()+ " " +getShortName()+ " " +getSolutionAvail()+ " " +getSourceGroup().toColumnString()+ " " +getStudentPaper()+ " " +getSubType()+ " " +getTitle()+ " " +(getTrack() == null ? "" : getTrack().toColumnString())+ " " +getUrl()+ " " +getWosCitations()+ " " +getWosReferences()+ " " +getWosStatus()+ " " +getYear();
     }
 
 /**
@@ -2558,7 +2637,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             " accepted=\""+toXMLAccepted()+"\""+
             " author=\""+toXMLAuthor()+"\""+
             " authors=\""+toXMLAuthors()+"\""+
-            " award=\""+toXMLAward()+"\""+
+            " awards=\""+toXMLAwards()+"\""+
             " background=\""+toXMLBackground()+"\""+
             " classification=\""+toXMLClassification()+"\""+
             " cluster=\""+toXMLCluster()+"\""+
@@ -2610,8 +2689,10 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
             " shortName=\""+toXMLShortName()+"\""+
             " solutionAvail=\""+toXMLSolutionAvail()+"\""+
             " sourceGroup=\""+toXMLSourceGroup()+"\""+
+            " studentPaper=\""+toXMLStudentPaper()+"\""+
             " subType=\""+toXMLSubType()+"\""+
             " title=\""+toXMLTitle()+"\""+
+            " track=\""+toXMLTrack()+"\""+
             " url=\""+toXMLUrl()+"\""+
             " wosCitations=\""+toXMLWosCitations()+"\""+
             " wosReferences=\""+toXMLWosReferences()+"\""+
@@ -2669,8 +2750,12 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  * @return String
 */
 
-    String toXMLAward(){
-        return this.safeXML(getAward());
+    String toXMLAwards(){
+        String str="";
+        for(Award x:getAwards()){
+            str=str+" "+"ID_"+x.getId();
+        }
+        return str;
     }
 
 /**
@@ -3196,6 +3281,16 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
  * @return String
 */
 
+    String toXMLStudentPaper(){
+        return this.getStudentPaper().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
     String toXMLSubType(){
         return this.getSubType().toString();
     }
@@ -3208,6 +3303,19 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
 
     String toXMLTitle(){
         return this.safeXML(getTitle());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLTrack(){
+        if (getTrack() == null){
+             return "";
+        }
+        return "ID_"+this.getTrack().getId().toString();
     }
 
 /**
@@ -3365,8 +3473,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         }
       if (true) {         System.out.println("Authors");
         }
-      if(!this.getAward().equals(b.getAward())){
-         System.out.println("Award");
+      if (true) {         System.out.println("Awards");
         }
       if(!this.getBackground().equals(b.getBackground())){
          System.out.println("Background");
@@ -3523,11 +3630,17 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
       if(!this.getSourceGroup().applicationSame(b.getSourceGroup())){
          System.out.println("SourceGroup");
         }
+      if(!this.getStudentPaper().equals(b.getStudentPaper())){
+         System.out.println("StudentPaper");
+        }
       if(!this.getSubType().equals(b.getSubType())){
          System.out.println("SubType");
         }
       if(!this.getTitle().equals(b.getTitle())){
          System.out.println("Title");
+        }
+      if(!(getTrack() == null ? b.getTrack() == null:this.getTrack().applicationSame(b.getTrack()))){
+         System.out.println("Track");
         }
       if(!this.getUrl().equals(b.getUrl())){
          System.out.println("Url");
@@ -3548,7 +3661,7 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
           this.getAccepted().equals(b.getAccepted()) &&
           this.getAuthor().equals(b.getAuthor()) &&
           true &&
-          this.getAward().equals(b.getAward()) &&
+          true &&
           this.getBackground().equals(b.getBackground()) &&
           this.getClassification().equals(b.getClassification()) &&
           this.getCluster().equals(b.getCluster()) &&
@@ -3601,8 +3714,10 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
           this.getShortName().equals(b.getShortName()) &&
           this.getSolutionAvail().equals(b.getSolutionAvail()) &&
           this.getSourceGroup().applicationSame(b.getSourceGroup()) &&
+          this.getStudentPaper().equals(b.getStudentPaper()) &&
           this.getSubType().equals(b.getSubType()) &&
           this.getTitle().equals(b.getTitle()) &&
+          (this.getTrack() == null ? b.getTrack() == null : this.getTrack().applicationSame(b.getTrack())) &&
           this.getUrl().equals(b.getUrl()) &&
           this.getWosCitations().equals(b.getWosCitations()) &&
           this.getWosReferences().equals(b.getWosReferences()) &&
@@ -3624,6 +3739,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
         }
         if (getAuthors().size() == 0){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"authors","Work",(getAuthors()==null?"null":getAuthors().toString()),"",WarningType.NOTEMPTY);
+        }
+        if (getAwards() == null){
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"awards","Work",(getAwards()==null?"null":getAwards().toString()),"",WarningType.NOTNULL);
         }
         if (getConcept() == null){
          new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"concept","Work",(getConcept()==null?"null":getConcept().toString()),"",WarningType.NOTNULL);
@@ -3649,6 +3767,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
       if (attrName.equals("authors")){
          return (List) ((Scenario)base).getListAuthor();
       }
+      if (attrName.equals("awards")){
+         return (List) ((Scenario)base).getListAward();
+      }
       if (attrName.equals("concept")){
          return (List) ((Scenario)base).getListConcept();
       }
@@ -3660,6 +3781,9 @@ public abstract class Work extends ApplicationObject implements AppearInCollecti
       }
       if (attrName.equals("sourceGroup")){
          return (List) ((Scenario)base).getListSourceGroup();
+      }
+      if (attrName.equals("track")){
+         return (List) ((Scenario)base).getListTrack();
       }
       return null;
    }

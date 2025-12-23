@@ -25,6 +25,8 @@
                <TableColumn fx:id="cluster" styleClass="right-aligned" text="Cluster" />
                <TableColumn fx:id="key" styleClass="right-aligned" text="Key" />
                <TableColumn fx:id="subType" styleClass="right-aligned" text="SubType" />
+               <TableColumn fx:id="track" styleClass="right-aligned" text="Track" />
+               <TableColumn fx:id="studentPaper" styleClass="right-aligned" text="StudentPaper" />
                <TableColumn fx:id="link" styleClass="right-aligned" text="Link" />
                <TableColumn fx:id="author" styleClass="right-aligned" text="Author" />
                <TableColumn fx:id="authors" styleClass="right-aligned" text="Authors" />
@@ -39,7 +41,7 @@
                <TableColumn fx:id="nrPages" styleClass="right-aligned" text="NrPages" />
                <TableColumn fx:id="nrHyperLinks" styleClass="right-aligned" text="NrHyperLinks" />
                <TableColumn fx:id="background" styleClass="right-aligned" text="Background" />
-               <TableColumn fx:id="award" styleClass="right-aligned" text="Award" />
+               <TableColumn fx:id="awards" styleClass="right-aligned" text="Awards" />
                <TableColumn fx:id="sourceGroup" styleClass="right-aligned" text="SourceGroup" />
                <TableColumn fx:id="dataAvail" styleClass="right-aligned" text="DataAvail" />
                <TableColumn fx:id="codeAvail" styleClass="right-aligned" text="CodeAvail" />

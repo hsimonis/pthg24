@@ -94,6 +94,16 @@ public SubType getSubType(String attributeName,
             return SubType.valueOf(e);
         }
     }
+public AwardLevel getAwardLevel(String attributeName,
+                               Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        if (e == null) {
+            System.out.println("AwardLevel"+": "+attributeName);
+            return null;
+        } else {
+            return AwardLevel.valueOf(e);
+        }
+    }
     public Acronym getAcronym(String attributeName,
                                Attributes attributes) {
         return (Acronym) find(getId(attributeName,attributes));
@@ -298,6 +308,25 @@ public SubType getSubType(String attributeName,
             if (words[i].length() > 0) {
                 int id = Integer.parseInt(words[i].substring(3));
                 res.add((Authorship) find(id));
+            }
+        }
+        return res;
+    }
+
+    public Award getAward(String attributeName,
+                               Attributes attributes) {
+        return (Award) find(getId(attributeName,attributes));
+    }
+
+    public List<Award> getAwardCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<Award> res = new ArrayList<Award>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((Award) find(id));
             }
         }
         return res;
@@ -1082,6 +1111,25 @@ public SubType getSubType(String attributeName,
         return res;
     }
 
+    public Track getTrack(String attributeName,
+                               Attributes attributes) {
+        return (Track) find(getId(attributeName,attributes));
+    }
+
+    public List<Track> getTrackCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<Track> res = new ArrayList<Track>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((Track) find(id));
+            }
+        }
+        return res;
+    }
+
     public Translator getTranslator(String attributeName,
                                Attributes attributes) {
         return (Translator) find(getId(attributeName,attributes));
@@ -1186,6 +1234,7 @@ public SubType getSubType(String attributeName,
                         getBoolean("valid",attributes,false),
                         getString("prefix",attributes,""),
                         getString("problem",attributes,""),
+                        getString("surveyName",attributes,""),
                         getBoolean("useLargerText",attributes,false)
                               );
             } else if (qname.equals("acronym")) {
@@ -1244,7 +1293,7 @@ public SubType getSubType(String attributeName,
                         getString("accepted",attributes,""),
                         getString("author",attributes,""),
                         null,
-                        getString("award",attributes,""),
+                        null,
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
@@ -1296,8 +1345,10 @@ public SubType getSubType(String attributeName,
                         getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
+                        getBoolean("studentPaper",attributes,false),
                         null,
                         getString("title",attributes,""),
+                        null,
                         getString("url",attributes,""),
                         getInteger("wosCitations",attributes,0),
                         getInteger("wosReferences",attributes,0),
@@ -1358,6 +1409,17 @@ public SubType getSubType(String attributeName,
                         getString("sequence",attributes,""),
                         null
                         ));
+            } else if (qname.equals("award")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new Award(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        null,
+                        getString("shortName",attributes,""),
+                        getString("type",attributes,""),
+                        getInteger("year",attributes,0)
+                        ));
             } else if (qname.equals("book")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -1368,7 +1430,7 @@ public SubType getSubType(String attributeName,
                         getString("accepted",attributes,""),
                         getString("author",attributes,""),
                         null,
-                        getString("award",attributes,""),
+                        null,
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
@@ -1420,8 +1482,10 @@ public SubType getSubType(String attributeName,
                         getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
+                        getBoolean("studentPaper",attributes,false),
                         null,
                         getString("title",attributes,""),
+                        null,
                         getString("url",attributes,""),
                         getInteger("wosCitations",attributes,0),
                         getInteger("wosReferences",attributes,0),
@@ -1590,7 +1654,7 @@ public SubType getSubType(String attributeName,
                         getString("accepted",attributes,""),
                         getString("author",attributes,""),
                         null,
-                        getString("award",attributes,""),
+                        null,
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
@@ -1642,8 +1706,10 @@ public SubType getSubType(String attributeName,
                         getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
+                        getBoolean("studentPaper",attributes,false),
                         null,
                         getString("title",attributes,""),
+                        null,
                         getString("url",attributes,""),
                         getInteger("wosCitations",attributes,0),
                         getInteger("wosReferences",attributes,0),
@@ -1661,7 +1727,7 @@ public SubType getSubType(String attributeName,
                         getString("accepted",attributes,""),
                         getString("author",attributes,""),
                         null,
-                        getString("award",attributes,""),
+                        null,
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
@@ -1713,8 +1779,10 @@ public SubType getSubType(String attributeName,
                         getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
+                        getBoolean("studentPaper",attributes,false),
                         null,
                         getString("title",attributes,""),
+                        null,
                         getString("url",attributes,""),
                         getInteger("wosCitations",attributes,0),
                         getInteger("wosReferences",attributes,0),
@@ -1888,7 +1956,7 @@ public SubType getSubType(String attributeName,
                         getString("accepted",attributes,""),
                         getString("author",attributes,""),
                         null,
-                        getString("award",attributes,""),
+                        null,
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
@@ -1940,8 +2008,10 @@ public SubType getSubType(String attributeName,
                         getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
+                        getBoolean("studentPaper",attributes,false),
                         null,
                         getString("title",attributes,""),
+                        null,
                         getString("url",attributes,""),
                         getInteger("wosCitations",attributes,0),
                         getInteger("wosReferences",attributes,0),
@@ -1959,7 +2029,7 @@ public SubType getSubType(String attributeName,
                         getString("accepted",attributes,""),
                         getString("author",attributes,""),
                         null,
-                        getString("award",attributes,""),
+                        null,
                         getBoolean("background",attributes,false),
                         getString("classification",attributes,""),
                         getInteger("cluster",attributes,0),
@@ -2011,8 +2081,10 @@ public SubType getSubType(String attributeName,
                         getString("shortName",attributes,""),
                         getString("solutionAvail",attributes,""),
                         null,
+                        getBoolean("studentPaper",attributes,false),
                         null,
                         getString("title",attributes,""),
+                        null,
                         getString("url",attributes,""),
                         getInteger("wosCitations",attributes,0),
                         getInteger("wosReferences",attributes,0),
@@ -2149,6 +2221,14 @@ public SubType getSubType(String attributeName,
                         getString("shortName",attributes,""),
                         getString("topic",attributes,"")
                         ));
+            } else if (qname.equals("track")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new Track(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getString("shortName",attributes,"")
+                        ));
             } else if (qname.equals("translator")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2238,12 +2318,14 @@ public SubType getSubType(String attributeName,
                 int id = getId("id", attributes);
                 Article item = (Article) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setAwards(getAwardCollectionFromIds("awards",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setLink(getLink("link",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setSubType(getSubType("subType",attributes));
+                 item.setTrack(getTrack("track",attributes));
                  item.setJournal(getJournal("journal",attributes));
                  item.setSpecialIssue(getSpecialIssue("specialIssue",attributes));
             } else if (qname.equals("assertion")) {
@@ -2270,17 +2352,24 @@ public SubType getSubType(String attributeName,
                  item.setAffiliation(getAffiliationCollectionFromIds("affiliation",attributes));
                  item.setAuthor(getAuthor("author",attributes));
                  item.setWork(getWork("work",attributes));
+            } else if (qname.equals("award")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                Award item = (Award) find(id);
+                 item.setAwardLevel(getAwardLevel("awardLevel",attributes));
             } else if (qname.equals("book")) {
                 assert (base != null);
                 int id = getId("id", attributes);
                 Book item = (Book) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setAwards(getAwardCollectionFromIds("awards",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setLink(getLink("link",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setSubType(getSubType("subType",attributes));
+                 item.setTrack(getTrack("track",attributes));
             } else if (qname.equals("citation")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2360,23 +2449,27 @@ public SubType getSubType(String attributeName,
                 int id = getId("id", attributes);
                 InBook item = (InBook) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setAwards(getAwardCollectionFromIds("awards",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setLink(getLink("link",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setSubType(getSubType("subType",attributes));
+                 item.setTrack(getTrack("track",attributes));
             } else if (qname.equals("inCollection")) {
                 assert (base != null);
                 int id = getId("id", attributes);
                 InCollection item = (InCollection) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setAwards(getAwardCollectionFromIds("awards",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setLink(getLink("link",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setSubType(getSubType("subType",attributes));
+                 item.setTrack(getTrack("track",attributes));
                  item.setCollection(getCollection("collection",attributes));
             } else if (qname.equals("journal")) {
                 assert (base != null);
@@ -2432,24 +2525,28 @@ public SubType getSubType(String attributeName,
                 int id = getId("id", attributes);
                 Paper item = (Paper) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setAwards(getAwardCollectionFromIds("awards",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setLink(getLink("link",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setSubType(getSubType("subType",attributes));
+                 item.setTrack(getTrack("track",attributes));
                  item.setProceedings(getProceedings("proceedings",attributes));
             } else if (qname.equals("phDThesis")) {
                 assert (base != null);
                 int id = getId("id", attributes);
                 PhDThesis item = (PhDThesis) find(id);
                  item.setAuthors(getAuthorCollectionFromIds("authors",attributes));
+                 item.setAwards(getAwardCollectionFromIds("awards",attributes));
                  item.setConcept(getConceptCollectionFromIds("concept",attributes));
                  item.setLink(getLink("link",attributes));
                  item.setOpenAccessType(getOpenAccessType("openAccessType",attributes));
                  item.setPublisher(getPublisher("publisher",attributes));
                  item.setSourceGroup(getSourceGroup("sourceGroup",attributes));
                  item.setSubType(getSubType("subType",attributes));
+                 item.setTrack(getTrack("track",attributes));
                  item.setSchool(getSchool("school",attributes));
             } else if (qname.equals("proceedings")) {
                 assert (base != null);
@@ -2504,6 +2601,10 @@ public SubType getSubType(String attributeName,
                 assert (base != null);
                 int id = getId("id", attributes);
                 SpecialIssue item = (SpecialIssue) find(id);
+            } else if (qname.equals("track")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                Track item = (Track) find(id);
             } else if (qname.equals("translator")) {
                 assert (base != null);
                 int id = getId("id", attributes);

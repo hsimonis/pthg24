@@ -12,6 +12,7 @@
 				<xs:element ref="author" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="authorDouble" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="authorship" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="award" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="book" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="citation" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="coauthor" minOccurs="0" maxOccurs="unbounded"/>
@@ -52,6 +53,7 @@
 				<xs:element ref="similarity" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="sourceGroup" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="specialIssue" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="track" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="translator" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="uncategorizedReference" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="workAffiliation" minOccurs="0" maxOccurs="unbounded"/>
@@ -113,7 +115,7 @@
 			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
-			<xs:attribute name="award" use="required" type="xs:string"/>
+			<xs:attribute name="awards" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
@@ -165,8 +167,10 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
+			<xs:attribute name="studentPaper" use="required" type="xs:boolean"/>
 			<xs:attribute name="subType" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="track" use="required" type="xs:IDREF"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
@@ -228,6 +232,17 @@
 			<xs:attribute name="work" use="required" type="xs:IDREF"/>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="award">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="awardLevel" use="required" type="xs:string"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
+			<xs:attribute name="type" use="required" type="xs:string"/>
+			<xs:attribute name="year" use="required" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
 	<xs:element name="book">
 		<xs:complexType>
 			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
@@ -237,7 +252,7 @@
 			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
-			<xs:attribute name="award" use="required" type="xs:string"/>
+			<xs:attribute name="awards" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
@@ -289,8 +304,10 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
+			<xs:attribute name="studentPaper" use="required" type="xs:boolean"/>
 			<xs:attribute name="subType" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="track" use="required" type="xs:IDREF"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
@@ -459,7 +476,7 @@
 			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
-			<xs:attribute name="award" use="required" type="xs:string"/>
+			<xs:attribute name="awards" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
@@ -511,8 +528,10 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
+			<xs:attribute name="studentPaper" use="required" type="xs:boolean"/>
 			<xs:attribute name="subType" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="track" use="required" type="xs:IDREF"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
@@ -530,7 +549,7 @@
 			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
-			<xs:attribute name="award" use="required" type="xs:string"/>
+			<xs:attribute name="awards" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
@@ -582,8 +601,10 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
+			<xs:attribute name="studentPaper" use="required" type="xs:boolean"/>
 			<xs:attribute name="subType" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="track" use="required" type="xs:IDREF"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
@@ -757,7 +778,7 @@
 			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
-			<xs:attribute name="award" use="required" type="xs:string"/>
+			<xs:attribute name="awards" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
@@ -809,8 +830,10 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
+			<xs:attribute name="studentPaper" use="required" type="xs:boolean"/>
 			<xs:attribute name="subType" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="track" use="required" type="xs:IDREF"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
@@ -828,7 +851,7 @@
 			<xs:attribute name="accepted" use="required" type="xs:string"/>
 			<xs:attribute name="author" use="required" type="xs:string"/>
 			<xs:attribute name="authors" use="required" type="xs:IDREFS"/>
-			<xs:attribute name="award" use="required" type="xs:string"/>
+			<xs:attribute name="awards" use="required" type="xs:IDREFS"/>
 			<xs:attribute name="background" use="required" type="xs:boolean"/>
 			<xs:attribute name="classification" use="required" type="xs:string"/>
 			<xs:attribute name="cluster" use="required" type="xs:integer"/>
@@ -880,8 +903,10 @@
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="solutionAvail" use="required" type="xs:string"/>
 			<xs:attribute name="sourceGroup" use="required" type="xs:IDREF"/>
+			<xs:attribute name="studentPaper" use="required" type="xs:boolean"/>
 			<xs:attribute name="subType" use="required" type="xs:string"/>
 			<xs:attribute name="title" use="required" type="xs:string"/>
+			<xs:attribute name="track" use="required" type="xs:IDREF"/>
 			<xs:attribute name="url" use="required" type="xs:string"/>
 			<xs:attribute name="wosCitations" use="required" type="xs:integer"/>
 			<xs:attribute name="wosReferences" use="required" type="xs:integer"/>
@@ -942,6 +967,7 @@
 			<xs:attribute name="valid" use="required" type="xs:boolean"/>
 			<xs:attribute name="prefix" use="required" type="xs:string"/>
 			<xs:attribute name="problem" use="required" type="xs:string"/>
+			<xs:attribute name="surveyName" use="required" type="xs:string"/>
 			<xs:attribute name="useLargerText" use="required" type="xs:boolean"/>
 		</xs:complexType>
 	</xs:element>
@@ -1028,6 +1054,14 @@
 			<xs:attribute name="basedOnConference" use="required" type="xs:boolean"/>
 			<xs:attribute name="shortName" use="required" type="xs:string"/>
 			<xs:attribute name="topic" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="track">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="shortName" use="required" type="xs:string"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="translator">

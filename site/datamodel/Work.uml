@@ -3,7 +3,7 @@ String abstractText
 String accepted
 String author
 List<Author> authors
-String award
+List<Award> awards
 Boolean background
 String classification
 Integer cluster
@@ -55,8 +55,10 @@ Boolean scopusStatus
 String shortName
 String solutionAvail
 SourceGroup sourceGroup
+Boolean studentPaper
 SubType subType
 String title
+Track track
 String url
 Integer wosCitations
 Integer wosReferences

@@ -44,6 +44,9 @@ public class ScenarioController extends Table3Controller {
 	private TableColumn<Scenario, String> problem;
 
 	@FXML
+	private TableColumn<Scenario, String> surveyName;
+
+	@FXML
 	private TableColumn<Scenario, String> prefix;
 
 	@FXML
@@ -81,6 +84,10 @@ public class ScenarioController extends Table3Controller {
 		problem.setCellValueFactory(new PropertyValueFactory<>("problem"));
 		problem.setCellFactory(TextFieldTableCell.forTableColumn());
 		problem.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setProblem(event.getNewValue()); mainApp.reset();});
+		choices.add("surveyName");
+		surveyName.setCellValueFactory(new PropertyValueFactory<>("surveyName"));
+		surveyName.setCellFactory(TextFieldTableCell.forTableColumn());
+		surveyName.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSurveyName(event.getNewValue()); mainApp.reset();});
 		choices.add("prefix");
 		prefix.setCellValueFactory(new PropertyValueFactory<>("prefix"));
 		prefix.setCellFactory(TextFieldTableCell.forTableColumn());

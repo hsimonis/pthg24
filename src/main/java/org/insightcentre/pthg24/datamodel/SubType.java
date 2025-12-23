@@ -56,12 +56,15 @@ import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.Node;
 import org.insightcentre.pthg24.datamodel.Edge;
 import org.insightcentre.pthg24.datamodel.ConnectedComponent;
+import org.insightcentre.pthg24.datamodel.Award;
+import org.insightcentre.pthg24.datamodel.Track;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
 import org.insightcentre.pthg24.datamodel.WorkType;
 import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.SubType;
+import org.insightcentre.pthg24.datamodel.AwardLevel;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 import java.util.*;
 import java.io.*;
@@ -84,12 +87,6 @@ public enum SubType{
 */
 
 Regular,
-    /**
- *  
- *
-*/
-
-Application,
     /**
  *  
  *
@@ -143,19 +140,19 @@ InvitedTalk,
  *
 */
 
+Abstract,
+    /**
+ *  
+ *
+*/
+
 ExtendedAbstract,
     /**
  *  
  *
 */
 
-ShortPaper,
-    /**
- *  
- *
-*/
-
-StudentPaper;
+ShortPaper;
 private static SubType[] cache = null;
 
 public static SubType[] cachedValues(){

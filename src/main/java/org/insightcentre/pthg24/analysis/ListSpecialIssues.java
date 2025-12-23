@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
-import static org.insightcentre.pthg24.datamodel.SubType.Application;
 import static org.insightcentre.pthg24.datamodel.SubType.Regular;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 

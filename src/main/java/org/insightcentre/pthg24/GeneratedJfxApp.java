@@ -33,6 +33,7 @@ import org.insightcentre.pthg24.datamodel.Assertion;
 import org.insightcentre.pthg24.datamodel.Author;
 import org.insightcentre.pthg24.datamodel.AuthorDouble;
 import org.insightcentre.pthg24.datamodel.Authorship;
+import org.insightcentre.pthg24.datamodel.Award;
 import org.insightcentre.pthg24.datamodel.Book;
 import org.insightcentre.pthg24.datamodel.Citation;
 import org.insightcentre.pthg24.datamodel.Coauthor;
@@ -74,6 +75,7 @@ import org.insightcentre.pthg24.datamodel.ScopusCountry;
 import org.insightcentre.pthg24.datamodel.Similarity;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 import org.insightcentre.pthg24.datamodel.SpecialIssue;
+import org.insightcentre.pthg24.datamodel.Track;
 import org.insightcentre.pthg24.datamodel.Translator;
 import org.insightcentre.pthg24.datamodel.UncategorizedReference;
 import org.insightcentre.pthg24.datamodel.Work;
@@ -204,6 +206,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<ConnectedComponent> connectedComponentData = FXCollections.observableArrayList();
 
+	private ObservableList<Award> awardData = FXCollections.observableArrayList();
+
+	private ObservableList<Track> trackData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "Literature Survey Tool, Insight Centre for Data Analytics, University College Cork", "*.data", "data/");
 		fs = minimalDataset();
@@ -226,6 +232,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		tableViews.put("Book", "Book");
 		tableViews.put("SpecialIssue", "SpecialIssue");
 		tableViews.put("Link", "Link");
+		tableViews.put("Award", "Award");
+		tableViews.put("Track", "Track");
 		tableViews.put("Similarity", "Similarity");
 		tableViews.put("Author", "Author");
 		tableViews.put("Authorship", "Authorship");
@@ -443,6 +451,10 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		edgeData.addAll(base.getListEdge());
 		connectedComponentData.clear();
 		connectedComponentData.addAll(base.getListConnectedComponent());
+		awardData.clear();
+		awardData.addAll(base.getListAward());
+		trackData.clear();
+		trackData.addAll(base.getListTrack());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -680,5 +692,13 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<ConnectedComponent> getConnectedComponentData() {
 		return connectedComponentData;
+	}
+
+	public ObservableList<Award> getAwardData() {
+		return awardData;
+	}
+
+	public ObservableList<Track> getTrackData() {
+		return trackData;
 	}
 }

@@ -90,6 +90,9 @@
                         <MenuItem id="specialIssuePage" onAction="#handle" text="SpecialIssue" />
                         <MenuItem id="linkPage" onAction="#handle" text="Link" />
                         <SeparatorMenuItem />
+                        <MenuItem id="awardPage" onAction="#handle" text="Award" />
+                        <MenuItem id="trackPage" onAction="#handle" text="Track" />
+                        <SeparatorMenuItem />
                         <MenuItem id="similarityPage" onAction="#handle" text="Similarity" />
                      </items>
                   </Menu>

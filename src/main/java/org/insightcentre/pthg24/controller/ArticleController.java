@@ -34,6 +34,7 @@ import org.insightcentre.pthg24.datamodel.Publisher;
 import org.insightcentre.pthg24.datamodel.SourceGroup;
 import org.insightcentre.pthg24.datamodel.SpecialIssue;
 import org.insightcentre.pthg24.datamodel.SubType;
+import org.insightcentre.pthg24.datamodel.Track;
 
 /**
  * Generated code
@@ -62,6 +63,12 @@ public class ArticleController extends Table3Controller {
 
 	@FXML
 	private TableColumn<Article, SubType> subType;
+
+	@FXML
+	private TableColumn<Article, Track> track;
+
+	@FXML
+	private TableColumn<Article, Boolean> studentPaper;
 
 	@FXML
 	private TableColumn<Article, Link> link;
@@ -106,7 +113,7 @@ public class ArticleController extends Table3Controller {
 	private TableColumn<Article, Boolean> background;
 
 	@FXML
-	private TableColumn<Article, String> award;
+	private TableColumn<Article, String> awards;
 
 	@FXML
 	private TableColumn<Article, SourceGroup> sourceGroup;
@@ -253,6 +260,8 @@ public class ArticleController extends Table3Controller {
 		ObservableList<SubType> subTypeValues = FXCollections.observableArrayList(SubType.values());
 		subType.setCellFactory(ComboBoxTableCell.forTableColumn(subTypeValues));
 		subType.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setSubType(event.getNewValue()); mainApp.reset();});
+		track.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getTrackData()));
+		track.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setTrack(event.getNewValue()); mainApp.reset();});
 		link.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getLinkData()));
 		link.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setLink(event.getNewValue()); mainApp.reset();});
 		publisher.setCellFactory(ComboBoxTableCell.forTableColumn(mainApp.getPublisherData()));
@@ -303,6 +312,11 @@ public class ArticleController extends Table3Controller {
 		key.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setKey(event.getNewValue()); mainApp.reset();});
 		choices.add("subType");
 		subType.setCellValueFactory(new PropertyValueFactory<>("subType"));
+		choices.add("track");
+		track.setCellValueFactory(new PropertyValueFactory<>("track"));
+		choices.add("studentPaper");
+		studentPaper.setCellValueFactory(new StudentPaperCallback());
+		studentPaper.setCellFactory(CheckBoxTableCell.forTableColumn(studentPaper));
 		choices.add("link");
 		link.setCellValueFactory(new PropertyValueFactory<>("link"));
 		choices.add("author");
@@ -352,10 +366,8 @@ public class ArticleController extends Table3Controller {
 		choices.add("background");
 		background.setCellValueFactory(new BackgroundCallback());
 		background.setCellFactory(CheckBoxTableCell.forTableColumn(background));
-		choices.add("award");
-		award.setCellValueFactory(new PropertyValueFactory<>("award"));
-		award.setCellFactory(TextFieldTableCell.forTableColumn());
-		award.setOnEditCommit(event -> {table.getSelectionModel().getSelectedItem().setAward(event.getNewValue()); mainApp.reset();});
+		choices.add("awards");
+		awards.setCellValueFactory(cellData -> new SimpleStringProperty(convert(cellData.getValue().getAwards())));
 		choices.add("sourceGroup");
 		sourceGroup.setCellValueFactory(new PropertyValueFactory<>("sourceGroup"));
 		choices.add("dataAvail");
@@ -574,6 +586,21 @@ public class ArticleController extends Table3Controller {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	class StudentPaperCallback implements Callback<TableColumn.CellDataFeatures<Article, Boolean>, ObservableValue<Boolean>> {
+		@Override
+		public ObservableValue<Boolean> call(TableColumn.CellDataFeatures<Article, Boolean> cellData) {
+			Property<Boolean> prop = cellData.getValue().studentPaperWrapperProperty();
+			prop.addListener(new ChangeListener<Boolean>() {
+				@Override
+				@SuppressWarnings("rawtypes")
+				public void changed(ObservableValue observable, Boolean oldValue, Boolean newValue) {
+					cellData.getValue().setStudentPaper(newValue);
+				}
+			});
+			return prop;
 		}
 	}
 

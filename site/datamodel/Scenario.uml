@@ -1,5 +1,6 @@
  class Scenario {
 String prefix
 String problem
+String surveyName
 Boolean useLargerText
 }

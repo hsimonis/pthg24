@@ -56,12 +56,15 @@ import org.insightcentre.pthg24.datamodel.Link;
 import org.insightcentre.pthg24.datamodel.Node;
 import org.insightcentre.pthg24.datamodel.Edge;
 import org.insightcentre.pthg24.datamodel.ConnectedComponent;
+import org.insightcentre.pthg24.datamodel.Award;
+import org.insightcentre.pthg24.datamodel.Track;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
 import org.insightcentre.pthg24.datamodel.WorkType;
 import org.insightcentre.pthg24.datamodel.OpenAccessType;
 import org.insightcentre.pthg24.datamodel.SubType;
+import org.insightcentre.pthg24.datamodel.AwardLevel;
 import org.insightcentre.pthg24.datamodel.XMLLoader;
 import java.util.*;
 import java.io.*;
@@ -503,6 +506,20 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<ConnectedComponent> listConnectedComponent = new ArrayList<ConnectedComponent>();
 
 /**
+ *  This lists holds all items of class Award and its subclasses
+ *
+*/
+
+    List<Award> listAward = new ArrayList<Award>();
+
+/**
+ *  This lists holds all items of class Track and its subclasses
+ *
+*/
+
+    List<Track> listTrack = new ArrayList<Track>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -634,6 +651,7 @@ public int compareTo(ApplicationDataset ds2){
                              "Author",
                              "AuthorDouble",
                              "Authorship",
+                             "Award",
                              "Book",
                              "Citation",
                              "Coauthor",
@@ -674,6 +692,7 @@ public int compareTo(ApplicationDataset ds2){
                              "Similarity",
                              "SourceGroup",
                              "SpecialIssue",
+                             "Track",
                              "Translator",
                              "UncategorizedReference",
                              "WorkAffiliation");
@@ -785,6 +804,8 @@ public int compareTo(ApplicationDataset ds2){
         resetListNode();
         resetListEdge();
         resetListConnectedComponent();
+        resetListAward();
+        resetListTrack();
     }
 
 /**
@@ -2696,6 +2717,74 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class Award
+ *
+*/
+
+    public Iterator<Award> getIteratorAward(){
+        return listAward.iterator();
+    }
+
+/**
+ *  Getter for list of class Award
+ *
+*/
+
+    public List<Award> getListAward(){
+        return listAward;
+    }
+
+/**
+ *  reset the list of class Award; use with care, does not call cascades
+ *
+*/
+
+    public void resetListAward(){
+        listAward = new ArrayList<Award>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Award)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
+ *  Iterator for list of class Track
+ *
+*/
+
+    public Iterator<Track> getIteratorTrack(){
+        return listTrack.iterator();
+    }
+
+/**
+ *  Getter for list of class Track
+ *
+*/
+
+    public List<Track> getListTrack(){
+        return listTrack;
+    }
+
+/**
+ *  reset the list of class Track; use with care, does not call cascades
+ *
+*/
+
+    public void resetListTrack(){
+        listTrack = new ArrayList<Track>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof Track)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -2808,6 +2897,24 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Removing object item of class Track; remove all dependent objects of class Work which refer to item through their attribute track
+ *
+*/
+
+    public void cascadeWorkTrack(Track item){
+        assert item != null;
+        List<Work> toRemove = new ArrayList<Work>();
+        for(Work a:getListWork()) {
+         if (a.getTrack() == item) {
+            a.setTrack(null);
+         }
+        }
+        for(Work b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
  *  Removing object item of class Link; remove all dependent objects of class Work which refer to item through their attribute link
  *
 */
@@ -2857,6 +2964,24 @@ public int compareTo(ApplicationDataset ds2){
         for(Work a:getListWork()) {
          if (a.getPublisher() == item) {
             toRemove.add(a);
+         }
+        }
+        for(Work b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Award; remove all dependent objects of class Work which refer to item through their attribute awards
+ *
+*/
+
+    public void cascadeWorkAwards(Award item){
+        assert item != null;
+        List<Work> toRemove = new ArrayList<Work>();
+        for(Work a:getListWork()) {
+         if (a.getAwards().contains(item)) {
+            a.getAwards().remove(item);
          }
         }
         for(Work b:toRemove) {
@@ -4966,6 +5091,46 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class Award
+ *
+*/
+
+    public void addAward(Award award){
+        assert award != null;
+        this.listAward.add(award);
+    }
+
+/**
+ *  remove an item from the list for class Award
+ *
+*/
+
+    public Boolean removeAward(Award award){
+        assert award != null;
+        return this.listAward.remove(award);
+    }
+
+/**
+ *  add an item to the list for class Track
+ *
+*/
+
+    public void addTrack(Track track){
+        assert track != null;
+        this.listTrack.add(track);
+    }
+
+/**
+ *  remove an item from the list for class Track
+ *
+*/
+
+    public Boolean removeTrack(Track track){
+        assert track != null;
+        return this.listTrack.remove(track);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -4996,6 +5161,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(Authorship x:getListAuthorship()){
+            System.out.println(x);
+        }
+        for(Award x:getListAward()){
             System.out.println(x);
         }
         for(Book x:getListBook()){
@@ -5118,6 +5286,9 @@ public int compareTo(ApplicationDataset ds2){
         for(SpecialIssue x:getListSpecialIssue()){
             System.out.println(x);
         }
+        for(Track x:getListTrack()){
+            System.out.println(x);
+        }
         for(Translator x:getListTranslator()){
             System.out.println(x);
         }
@@ -5189,6 +5360,9 @@ public int compareTo(ApplicationDataset ds2){
         }
         for(Authorship x:getListAuthorship()){
             if (x.getClass().equals(Authorship.class)) x.toXML(out);
+        }
+        for(Award x:getListAward()){
+            if (x.getClass().equals(Award.class)) x.toXML(out);
         }
         for(Book x:getListBook()){
             if (x.getClass().equals(Book.class)) x.toXML(out);
@@ -5307,6 +5481,9 @@ public int compareTo(ApplicationDataset ds2){
         for(SpecialIssue x:getListSpecialIssue()){
             if (x.getClass().equals(SpecialIssue.class)) x.toXML(out);
         }
+        for(Track x:getListTrack()){
+            if (x.getClass().equals(Track.class)) x.toXML(out);
+        }
         for(Translator x:getListTranslator()){
             if (x.getClass().equals(Translator.class)) x.toXML(out);
         }
@@ -5419,6 +5596,7 @@ public int compareTo(ApplicationDataset ds2){
         compareAuthor(this.getListAuthor(),compare.getListAuthor());
         compareAuthorDouble(this.getListAuthorDouble(),compare.getListAuthorDouble());
         compareAuthorship(this.getListAuthorship(),compare.getListAuthorship());
+        compareAward(this.getListAward(),compare.getListAward());
         compareBook(this.getListBook(),compare.getListBook());
         compareCitation(this.getListCitation(),compare.getListCitation());
         compareCoauthor(this.getListCoauthor(),compare.getListCoauthor());
@@ -5458,6 +5636,7 @@ public int compareTo(ApplicationDataset ds2){
         compareSimilarity(this.getListSimilarity(),compare.getListSimilarity());
         compareSourceGroup(this.getListSourceGroup(),compare.getListSourceGroup());
         compareSpecialIssue(this.getListSpecialIssue(),compare.getListSpecialIssue());
+        compareTrack(this.getListTrack(),compare.getListTrack());
         compareTranslator(this.getListTranslator(),compare.getListTranslator());
         compareUncategorizedReference(this.getListUncategorizedReference(),compare.getListUncategorizedReference());
         compareWorkAffiliation(this.getListWorkAffiliation(),compare.getListWorkAffiliation());
@@ -5652,6 +5831,30 @@ public int compareTo(ApplicationDataset ds2){
             Authorship a = Authorship.find(b,aList);
             if (a == null) {
                 new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Authorship B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
+ * compare two lists of types Award, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareAward(List<Award> aList,List<Award> bList){
+        System.out.println("Comparing Award");
+        for(Award a:aList){
+            Award b= Award.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Award A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Award A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Award B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Award b: bList){
+            Award a = Award.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Award B",b.toString(),DifferenceType.ONLYB);
             }
         }
     }
@@ -6593,6 +6796,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types Track, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareTrack(List<Track> aList,List<Track> bList){
+        System.out.println("Comparing Track");
+        for(Track a:aList){
+            Track b= Track.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Track A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Track A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Track B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(Track b: bList){
+            Track a = Track.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"Track B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types Translator, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -6678,6 +6905,7 @@ public int compareTo(ApplicationDataset ds2){
         checkAuthor(this.getListAuthor());
         checkAuthorDouble(this.getListAuthorDouble());
         checkAuthorship(this.getListAuthorship());
+        checkAward(this.getListAward());
         checkBook(this.getListBook());
         checkCitation(this.getListCitation());
         checkCoauthor(this.getListCoauthor());
@@ -6718,6 +6946,7 @@ public int compareTo(ApplicationDataset ds2){
         checkSimilarity(this.getListSimilarity());
         checkSourceGroup(this.getListSourceGroup());
         checkSpecialIssue(this.getListSpecialIssue());
+        checkTrack(this.getListTrack());
         checkTranslator(this.getListTranslator());
         checkUncategorizedReference(this.getListUncategorizedReference());
         checkWorkAffiliation(this.getListWorkAffiliation());
@@ -6807,6 +7036,17 @@ public int compareTo(ApplicationDataset ds2){
 
     public void checkAuthorship(List<Authorship> list){
         for(Authorship a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
+ * @param list List<Award> dataset list of all items of type Award
+*/
+
+    public void checkAward(List<Award> list){
+        for(Award a:list){
             a.check();
         }
     }
@@ -7253,6 +7493,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<Track> dataset list of all items of type Track
+*/
+
+    public void checkTrack(List<Track> list){
+        for(Track a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<Translator> dataset list of all items of type Translator
 */
 
@@ -7294,6 +7545,7 @@ public int compareTo(ApplicationDataset ds2){
         Author.dummy(this);
         AuthorDouble.dummy(this);
         Authorship.dummy(this);
+        Award.dummy(this);
         Book.dummy(this);
         Citation.dummy(this);
         Coauthor.dummy(this);
@@ -7334,6 +7586,7 @@ public int compareTo(ApplicationDataset ds2){
         Similarity.dummy(this);
         SourceGroup.dummy(this);
         SpecialIssue.dummy(this);
+        Track.dummy(this);
         Translator.dummy(this);
         UncategorizedReference.dummy(this);
         WorkAffiliation.dummy(this);

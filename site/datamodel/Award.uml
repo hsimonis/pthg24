@@ -1,0 +1,6 @@
+ class Award {
+AwardLevel awardLevel
+String shortName
+String type
+Integer year
+}

@@ -13,8 +13,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static framework.reports.AbstractCommon.safe;
+import static java.util.stream.Collectors.joining;
+import static org.apache.commons.lang3.stream.LangCollectors.collect;
 import static org.insightcentre.pthg24.analysis.ListWorksManual.manualInterest;
-import static org.insightcentre.pthg24.datamodel.SubType.Application;
+import static org.insightcentre.pthg24.datamodel.AwardLevel.*;
 import static org.insightcentre.pthg24.datamodel.SubType.Regular;
 import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
@@ -51,6 +53,7 @@ public class ListWorks extends AbstractList{
         super(base);
         assert(exportDir.endsWith("/"));
         String fullName= exportDir+fileName;
+        info("List Works "+fullName);
         try{
             PrintWriter out = new PrintWriter(fullName);
             showTable(out,base,works,false,caption);
@@ -137,20 +140,44 @@ public class ListWorks extends AbstractList{
     }
 
     public static String awardHighlight(Work a){
-        if (a.getAward().isEmpty()){
+        if (a.getAwards().isEmpty()){
             return "";
         } else {
-            return "\\textcolor{goldenrod}{\\filledstar}";
+            return a.getAwards().stream().map(ListWorks::awardStar).collect(joining(""));
         }
     }
 
+    private static String awardStar(Award a){
+        return "\\textcolor{"+starColor(a.getAwardLevel())+"}{\\filledstar}";
+    }
+
     private String awardColor(Work a){
-        if (a.getAward().isEmpty()){
+        if (a.getAwards().isEmpty()){
             return "";
         } else {
-            return "\\cellcolor{goldenrod!50}";
+            AwardLevel bestLevel = bestAwardLevel(a.getAwards().stream().map(Award::getAwardLevel).distinct().toList());
+            return "\\cellcolor{"+starColor(bestLevel)+"!40}";
         }
+    }
 
+    private AwardLevel bestAwardLevel(List<AwardLevel> list){
+        if (list.contains(Best)) {
+            return Best;
+        } else if (list.contains(Distinguished)){
+            return Distinguished;
+        } else if (list.contains(RunnerUp)){
+            return RunnerUp;
+        } else {
+            return Other;
+        }
+    }
+
+    private static String starColor(AwardLevel level){
+        return switch(level){
+            case Best -> "goldenrod";
+            case Distinguished,RunnerUp -> "purple";
+            case Other -> "blue";
+        };
     }
 
     private String lcAndDetails(Work a){
@@ -172,7 +199,7 @@ public class ListWorks extends AbstractList{
                 return "\\cellcolor{blue!20}";
         } else if (w.getLink()!=null){
             return "\\cellcolor{green!20}";
-        } else if (w.getSubType()!=null && w.getSubType() != Application){
+        } else if (w.getSubType()!=null && w.getSubType() != Regular){
             return "\\cellcolor{red!10}";
         } else if (w instanceof Article a && !a.getIsOriginal()){
             return "\\cellcolor{yellow!20}";
@@ -244,10 +271,10 @@ public class ListWorks extends AbstractList{
 
     private String confOrJournal(Work w){
         if (w instanceof Paper){
-            return shortProc(((Paper)w).getProceedings())+subType(w);
+            return shortProc(((Paper)w).getProceedings())+subType(w)+track(w)+student(w);
         } else if (w instanceof Article){
             Journal j = ((Article)w).getJournal();
-            return (j.getIsBlocked()?"\\cellcolor{red!20}":"")+nameOf(j)+subType(w);
+            return (j.getIsBlocked()?"\\cellcolor{red!20}":"")+nameOf(j)+subType(w)+track(w)+student(w);
         } else if (w instanceof InCollection){
             return nameOf(((InCollection)w).getCollection());
         } else if (w instanceof InBook){
@@ -266,6 +293,20 @@ public class ListWorks extends AbstractList{
             return "";
         } else {
             return " \\textcolor{red}{"+a.getSubType()+"}";
+        }
+    }
+    private String track(Work a){
+        if (a.getTrack().getName().equals("Technical") || a.getTrack().getName().equals("N/A")){
+            return "";
+        } else {
+            return " \\textcolor{blue}{"+safe(a.getTrack().getShortName())+"}";
+        }
+    }
+    private String student(Work a){
+        if (!a.getStudentPaper()){
+            return "";
+        } else {
+            return " \\textcolor{brown}{Student}";
         }
     }
 
@@ -333,7 +374,7 @@ public class ListWorks extends AbstractList{
     public static String authors(Work a){
         return a.getAuthors().stream().
                 map(ListWorks::hyperref).
-                collect(Collectors.joining(", "));
+                collect(joining(", "));
     }
 
     private static String hyperref(Author a){

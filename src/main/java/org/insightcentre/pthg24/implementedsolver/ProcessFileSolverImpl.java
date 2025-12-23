@@ -5,9 +5,7 @@ import org.insightcentre.pthg24.clustering.DumpFeatures;
 import org.insightcentre.pthg24.datamodel.*;
 import org.insightcentre.pthg24.generatedsolver.ProcessFileSolver;
 import org.insightcentre.pthg24.imports.*;
-import org.insightcentre.pthg24.pdfgrep.RunPDFGrep;
-import org.insightcentre.pthg24.pdfgrep.RunPDFInfo;
-import org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL;
+import org.insightcentre.pthg24.pdfgrep.*;
 import org.insightcentre.pthg24.reports.CoauthorGraph;
 import org.insightcentre.pthg24.reports.ComponentGraph;
 import org.insightcentre.pthg24.reports.PublicationReport;
@@ -46,8 +44,8 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
     static int getLimit=200; // how many Crossref/Scopus lookups from the web are allowed in one run; does not count cache
     static double relevanceLimit = 0.8; // which raw abstract relevance limit is enough to include
     static int abstractRelevanceCutoff = 1000; // which raw body relevance value should be mapped to 1.0
-    static int bodyRelevanceCutoff = 900; // which raw body relevance value should be mapped to 1.0
-
+//    static int bodyRelevanceCutoff = 900; // which raw body relevance value should be mapped to 1.0
+    static int bodyRelevanceCutoff = 10; // when only using weightC
     static boolean computeSimilarity = true;
 
     public ProcessFileSolverImpl(Scenario base){
@@ -65,6 +63,8 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
         assert(prefix.endsWith("/"));
         info("Prefix: "+prefix);
 //        base.setPrefix(prefix);
+        // remember the selected name of survey
+        base.setSurveyName(type);
 
         // derived directories where specific data are stored
         String bibDir = prefix + "imports/"; // the directory where the bib file is placed
@@ -73,7 +73,8 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
         String citationsDir = prefix+"citations/"; // input/output dir where citations of works are cached
         String referencesDir = prefix+"references/"; // input/output dir where references for works are cached
         String reportDir = prefix+"reports/"; // output dir where reports are generated
-        String worksDir = prefix+"works/"; // dir containing local copies of works, relative to the main survey .tex file
+        String worksDir = prefix+"works/"; // dir containing local copies of works, absolute file location
+        String textDir = prefix+"text/"; // dir containing extracted text of local copies of works, absolute file location
         String texWorksDir = "works/"; // dir containing local copies of works, relative to the main survey .tex file
         String graphvizDir = prefix+"graphviz/"; // output dir for graphviz graphs
         String crossrefDir = prefix+"crossref/"; // input/output dir for crossref records
@@ -105,9 +106,11 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
         new AuthorCitations(base);
         new GraphData(base);
 
-        new RunPDFInfo(base,bibDir);
-        new RunPDFGrep(base,importDir,getConceptMatching());
-        new RunPDFInfoURL(base,bibDir,getExternalLinks());
+        new RunPDF2Text(base,worksDir,textDir);
+        new RunPDFInfo(base);
+//        new RunPDFGrep(base,importDir,getConceptMatching());
+        new RunMemoryGrep(base,importDir,textDir,getConceptMatching());
+        new RunPDFInfoURL(base,getExternalLinks());
         new FindConnectedPapers(base);
         new FindCoauthorLinks(base);
 
@@ -169,12 +172,12 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
                 toList(),exportDir,"shortest.tex","Shortest Works");
         new ListWorks(base,base.getListWork().stream().
                 filter(x->!x.getBackground()).
-                filter(x-> x.getAward().isEmpty()).
+                filter(x-> !x.getAwards().isEmpty()).
                 sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getKey)).
                 toList(),exportDir,"awardwinning.tex","Award Winning Works");
         new ListWorks(base,new ArrayList<>(base.getListWork().stream().
                 filter(x->x.getLink()!=null).
-                sorted(Comparator.comparing(Work::getName)).
+                sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getKey)).
                 toList()),exportDir,"linked.tex","Linked Works");
         new ListWorks(base,base.getListWork().stream().
                 filter(Work::getBackground).
@@ -192,6 +195,13 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
                         "Works of SubType " + subType.toString());
             }
 
+        }
+        for(Track track:base.getListTrack().stream().filter(x->!x.getName().equals("Technical") && !x.getName().equals("N/A")).toList()){
+                new ListWorks(base, new ArrayList<>(base.getListWork().stream().
+                        filter(x -> x.getTrack() == track).
+                        sorted(Comparator.comparing(Work::getYear).reversed().thenComparing(Work::getName)).
+                        toList()), exportDir, track.getName().toLowerCase() + ".tex",
+                        "Works of Track " + track.getName());
         }
 
 ////        Concept conc = Concept.findByName(base,"Extended version");
@@ -213,9 +223,10 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
 
 
         new ListAuthors(base,exportDir,"authors.tex");
+        info("by concept");
         new ListByConcept(base,exportDir,"concepts.tex");
 
-
+        info("missing copy");
         new ListMissingLocalCopy(base,ARTICLE,exportDir,"missingarticle.tex");
         new ListMissingLocalCopy(base,PAPER,exportDir,"missingpaper.tex");
         new ListMissingLocalCopy(base,INBOOK,exportDir,"missinginbook.tex");
@@ -305,7 +316,7 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
 
         new ListDetails(base,exportDir,"abstracts.tex",1.0,1.0);
 
-        new ListAbstractsMissingWork(base,exportDir,"abstractsmissingwork.tex",relevanceLimit);
+//        new ListAbstractsMissingWork(base,exportDir,"abstractsmissingwork.tex",relevanceLimit);
 
         new CitationGraph(base);
         new DumpFeatures(base,dumpDir,"allconcepts.csv");

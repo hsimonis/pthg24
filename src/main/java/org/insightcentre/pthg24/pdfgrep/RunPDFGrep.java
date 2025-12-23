@@ -16,11 +16,14 @@ import static java.util.stream.Collectors.groupingBy;
 import static org.insightcentre.pthg24.datamodel.MatchLevel.*;
 import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
+import static org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL.deleteExistingResultFile;
 
 public class RunPDFGrep {
     public RunPDFGrep(Scenario base,String importDir,boolean performConceptMatching){
         String savedFile = importDir+"savedConceptWork.json";
         String tmpFile = importDir+"tmpConceptWork.json";
+        String logDir = "greps/";
+        String logFile = "log.txt";
         ConceptWorkHash cwh = new ConceptWorkHash(base,savedFile);
         if (performConceptMatching) {
             for (ConceptType ct : base.getListConceptType()) {
@@ -35,14 +38,13 @@ public class RunPDFGrep {
                             sorted(Comparator.comparing(Work::getName)).
                             toList()) {
                         if (!cwh.present(c, a)) {
-                            String logFile = "log.txt";
-                            deleteExistingResultFile("greps/", logFile);
-                            runPDFGrep(c.getCaseSensitive(), "greps/",
+                            deleteExistingResultFile(logDir, logFile);
+                            runPDFGrep(c.getCaseSensitive(), logDir,
                                     "C:/cygwin64/bin/pdfgrep",
                                     c.getRegExpr(),
                                     a.getLocalCopy(),
                                     logFile);
-                            int v = parseResult("greps/", logFile);
+                            int v = parseResult(logDir, logFile);
                             info(a.getName() + ": " + v);
 
                             ConceptWork cw = new ConceptWork(base);
@@ -123,22 +125,6 @@ public class RunPDFGrep {
         out.close();
     }
 
-    private void deleteExistingResultFile(String directory,String resFile){
-        String fullName = directory+resFile;
-        try {
-            Files.deleteIfExists(
-                    Paths.get(fullName));
-        }
-        catch (NoSuchFileException e) {
-            severe("No such file/directory exists");
-        }
-        catch (DirectoryNotEmptyException e) {
-            severe("Directory is not empty.");
-        }
-        catch (IOException e) {
-            severe("Invalid permissions.");
-        }
-    }
 
     private int parseResult(String dir,String resFile){
         String fullName = dir+resFile;

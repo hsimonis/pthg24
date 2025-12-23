@@ -32,6 +32,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("dirty");
 		attributeNames.add("valid");
 		attributeNames.add("problem");
+		attributeNames.add("surveyName");
 		attributeNames.add("prefix");
 		attributeNames.add("useLargerText");
 		choicesMap.put("Scenario", attributeNames);
@@ -98,6 +99,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("key");
 		attributeNames.add("subType");
+		attributeNames.add("track");
+		attributeNames.add("studentPaper");
 		attributeNames.add("link");
 		attributeNames.add("author");
 		attributeNames.add("authors");
@@ -112,7 +115,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrPages");
 		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
-		attributeNames.add("award");
+		attributeNames.add("awards");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
@@ -164,6 +167,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("key");
 		attributeNames.add("subType");
+		attributeNames.add("track");
+		attributeNames.add("studentPaper");
 		attributeNames.add("link");
 		attributeNames.add("author");
 		attributeNames.add("authors");
@@ -178,7 +183,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrPages");
 		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
-		attributeNames.add("award");
+		attributeNames.add("awards");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
@@ -231,6 +236,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("key");
 		attributeNames.add("subType");
+		attributeNames.add("track");
+		attributeNames.add("studentPaper");
 		attributeNames.add("link");
 		attributeNames.add("author");
 		attributeNames.add("authors");
@@ -245,7 +252,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrPages");
 		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
-		attributeNames.add("award");
+		attributeNames.add("awards");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
@@ -300,6 +307,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("key");
 		attributeNames.add("subType");
+		attributeNames.add("track");
+		attributeNames.add("studentPaper");
 		attributeNames.add("link");
 		attributeNames.add("author");
 		attributeNames.add("authors");
@@ -314,7 +323,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrPages");
 		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
-		attributeNames.add("award");
+		attributeNames.add("awards");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
@@ -367,6 +376,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("key");
 		attributeNames.add("subType");
+		attributeNames.add("track");
+		attributeNames.add("studentPaper");
 		attributeNames.add("link");
 		attributeNames.add("author");
 		attributeNames.add("authors");
@@ -381,7 +392,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrPages");
 		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
-		attributeNames.add("award");
+		attributeNames.add("awards");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
@@ -434,6 +445,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("key");
 		attributeNames.add("subType");
+		attributeNames.add("track");
+		attributeNames.add("studentPaper");
 		attributeNames.add("link");
 		attributeNames.add("author");
 		attributeNames.add("authors");
@@ -448,7 +461,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrPages");
 		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
-		attributeNames.add("award");
+		attributeNames.add("awards");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
@@ -501,6 +514,8 @@ public class PieChartController extends ChartController {
 		attributeNames.add("cluster");
 		attributeNames.add("key");
 		attributeNames.add("subType");
+		attributeNames.add("track");
+		attributeNames.add("studentPaper");
 		attributeNames.add("link");
 		attributeNames.add("author");
 		attributeNames.add("authors");
@@ -515,7 +530,7 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nrPages");
 		attributeNames.add("nrHyperLinks");
 		attributeNames.add("background");
-		attributeNames.add("award");
+		attributeNames.add("awards");
 		attributeNames.add("sourceGroup");
 		attributeNames.add("dataAvail");
 		attributeNames.add("codeAvail");
@@ -907,6 +922,17 @@ public class PieChartController extends ChartController {
 		attributeNames.add("nr");
 		attributeNames.add("works");
 		choicesMap.put("ConnectedComponent", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("shortName");
+		attributeNames.add("year");
+		attributeNames.add("awardLevel");
+		attributeNames.add("type");
+		choicesMap.put("Award", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("name");
+		attributeNames.add("shortName");
+		choicesMap.put("Track", attributeNames);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -1083,6 +1109,12 @@ public class PieChartController extends ChartController {
 			}
 			else if (className.equals("ConnectedComponent")) {
 				objectList = mainApp.getConnectedComponentData();
+			}
+			else if (className.equals("Award")) {
+				objectList = mainApp.getAwardData();
+			}
+			else if (className.equals("Track")) {
+				objectList = mainApp.getTrackData();
 			}
 			if (objectList != null) {
 				Map<String, Integer> countMap = new HashMap<String, Integer>();

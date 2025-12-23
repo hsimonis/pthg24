@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import static org.insightcentre.pthg24.datamodel.AwardLevel.*;
 import static org.insightcentre.pthg24.datamodel.SubType.*;
 import static org.insightcentre.pthg24.logging.LogShortcut.info;
 import static org.insightcentre.pthg24.logging.LogShortcut.severe;
@@ -20,20 +21,45 @@ public class ImportSubTypes {
         info("full file "+fullName);
         int specialId = 1;
         int linkId = 1;
+        Track technical = Track.findOrCreate(base,"Technical");
+        technical.setShortName("Tech");
+        Track na = Track.findOrCreate(base,"N/A");
+        na.setShortName("n/a");
         try{
             String text = new String(Files.readAllBytes(Paths.get(fullName)));
             info("text "+text);
             JSONArray arr = new JSONArray(text);
             for(int i=0;i<arr.length();i++){
                 JSONObject obj = arr.getJSONObject(i);
-                if (obj.has("subType")){
+                if (obj.has("subType")) {
                     String subType = obj.getString("subType");
+                    JSONArray works = obj.getJSONArray("works");
+                    for (int j = 0; j < works.length(); j++) {
+
+                        Work w = findWork(base, works.getString(j));
+                        if (w != null) {
+                            w.setSubType(asSubType(subType));
+                        }
+                    }
+                } else if (obj.has("track")){
+                    String trackName = obj.getString("track");
+                    String shortName = obj.getString("shortName");
+                    Track track = Track.findOrCreate(base,trackName);
+                    track.setShortName(shortName);
                     JSONArray works = obj.getJSONArray("works");
                     for(int j = 0;j<works.length();j++){
 
                         Work w = findWork(base,works.getString(j));
                         if (w != null) {
-                            w.setSubType(asSubType(subType));
+                            w.setTrack(track);
+                        }
+                    }
+                } else if (obj.has("studentPaper")){
+                    JSONArray works = obj.getJSONArray("studentPaper");
+                    for(int j = 0;j<works.length();j++){
+                        Work w = findWork(base,works.getString(j));
+                        if (w != null) {
+                            w.setStudentPaper(true);
                         }
                     }
                 } else if (obj.has("link")){
@@ -93,12 +119,19 @@ public class ImportSubTypes {
                     }
 
                 } else if (obj.has("award")){
-                    String award = obj.getString("award");
+                    String type = obj.getString("award");
+                    String level = obj.getString("level");
                     JSONArray works = obj.getJSONArray("works");
                     for(int j = 0;j<works.length();j++){
                         Work w = findWork(base,works.getString(j));
                         if (w != null) {
-                            w.setAward(award);
+                            Award award = new Award(base);
+                            award.setName(level+" "+w.getYear());
+                            award.setShortName(level+" "+w.getYear());
+                            award.setYear(w.getYear());
+                            award.setType(type);
+                            award.setAwardLevel(asAwardLevel(level));
+                            w.getAwards().add(award);
                         }
                     }
 
@@ -109,8 +142,20 @@ public class ImportSubTypes {
         } catch(IOException e){
             severe("Cannot read file: "+fullName+", exception "+e.getMessage());
         }
-
+        for(Work w:base.getListWork()){
+            if (w.getSubType()== Editorial || w.getSubType()==Errata || w.getSubType()==Viewpoint ||
+                    w.getSubType()==Letter || w.getSubType()==PhDA|| w.getSubType()==Benchmarks||
+                    w.getSubType()==InvitedTalk) {
+                w.setTrack(na);
+            } else if (w.getTrack() == null) {
+                w.setTrack(technical);
+            }
+            if (w.getSubType() == null){
+                w.setSubType(Regular);
+            }
+        }
     }
+
 
     private Article findArticle(Scenario base, String name){
         Article res = Article.findByName(base,name);
@@ -121,10 +166,19 @@ public class ImportSubTypes {
         return res;
     }
 
+    private AwardLevel asAwardLevel(String v){
+        return switch(v){
+            case "Best" -> Best;
+            case "Distinguished" -> Distinguished;
+            case "RunnerUp" -> RunnerUp;
+            case "Other" -> Other;
+            default -> Other;
+        };
+    }
+
     private SubType asSubType(String v){
         return switch(v){
             case "Regular" -> Regular;
-            case "Application" -> SubType.Application;
             case "PhDA" -> PhDA;
             case "Editorial" -> Editorial;
             case "Viewpoint" -> Viewpoint;
@@ -135,7 +189,6 @@ public class ImportSubTypes {
             case "InvitedTalk" -> InvitedTalk;
             case "ShortPaper" -> ShortPaper;
             case "ExtendedAbstract" -> ExtendedAbstract;
-            case "StudentPaper" -> StudentPaper;
             default -> Regular;
         };
     }

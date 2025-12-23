@@ -19,7 +19,7 @@ import static org.insightcentre.pthg24.logging.LogShortcut.severe;
 
 public class RunPDFInfoURL {
 
-    public RunPDFInfoURL(Scenario base,String bibDir,boolean processExternalLinks){
+    public RunPDFInfoURL(Scenario base,boolean processExternalLinks){
         info("RunPDFInfoUrl");
         if (processExternalLinks) {
             for (Work a : base.getListWork().stream().
@@ -31,7 +31,7 @@ public class RunPDFInfoURL {
                 deleteExistingResultFile("greps/", logFile);
                 runPDFInfo("greps/",
                         "C:/texlive/2025/bin/windows/pdfinfo",
-                        relativeLink(a),
+                        relativeLink(base,a),
                         logFile);
                 int nrURL = parseResult("greps/", logFile);
                 info(a.getName() + ": " + nrURL);
@@ -46,9 +46,14 @@ public class RunPDFInfoURL {
     we construct a relative path instead, but this depends on the local installation of the surveys directory
 
      */
-    public static String relativeLink(Work w){
+    public static String relativeLink(Scenario base,Work w){
         //??? adapt to local directory layout
-        return "../../surveys/constraints/works/"+w.getName()+".pdf";
+        return "../../surveys/"+base.getSurveyName()+"/works/"+w.getName()+".pdf";
+    }
+
+    public static String relativeText(Scenario base,Work w){
+        //??? adapt to local directory layout
+        return "../../surveys/"+base.getSurveyName()+"/text/"+w.getName()+".txt";
     }
 
 
@@ -79,7 +84,7 @@ public class RunPDFInfoURL {
         }
     }
 
-    private void deleteExistingResultFile(String directory,String resFile){
+    public static void deleteExistingResultFile(String directory,String resFile){
         String fullName = directory+resFile;
         try {
             Files.deleteIfExists(
@@ -126,6 +131,7 @@ public class RunPDFInfoURL {
         return 1;
     }
 
+    //??? messy list of links to ignore; should be revised based on configuration file
     String[] ignore = new String[]{"mailto","mail to","orcid.org","refhub.elsevier","crossref.org","www.elsevier.com","arvix.org","arxiv.org",
             "link.springer.com","www.researchgate.net","pubsonline.informs.org",
             "doi.org","creativecommons","dagstuhl.de","sciencedirect","www.gurobi.com","www.ibm.com","dl.acm.org",

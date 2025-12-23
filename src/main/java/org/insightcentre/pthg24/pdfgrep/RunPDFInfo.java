@@ -15,22 +15,25 @@ import java.util.stream.Collectors;
 
 import static org.insightcentre.pthg24.datamodel.MatchLevel.*;
 import static org.insightcentre.pthg24.logging.LogShortcut.*;
+import static org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL.deleteExistingResultFile;
 import static org.insightcentre.pthg24.pdfgrep.RunPDFInfoURL.relativeLink;
 
 public class RunPDFInfo {
-    public RunPDFInfo(Scenario base,String bibDir){
+    public RunPDFInfo(Scenario base){
         info("Search for page count with pdfinfo");
+        // only do this for files which have no page info or where count is 1
         for (Work a : base.getListWork().stream().
                 filter(x -> x.getLocalCopy() != null).
                 filter(x -> !x.getLocalCopy().equals("")).
                 filter(x -> x.getNrPages() == null || x.getNrPages() == 1).
                 sorted(Comparator.comparing(Work::getName)).
                 toList()) {
+            String logDir = "greps/";
             String logFile = "info.txt";
-            deleteExistingResultFile("greps/", logFile);
-            runPDFInfo("greps/",
+            deleteExistingResultFile(logDir, logFile);
+            runPDFInfo(logDir,
                     "C:/texlive/2025/bin/windows/pdfinfo",
-                    relativeLink(a),
+                    relativeLink(base,a),
                     logFile);
             int nrPages = parseResult("greps/", logFile);
             info(a.getName() + ": " + nrPages);
@@ -68,22 +71,7 @@ public class RunPDFInfo {
         }
     }
 
-    private void deleteExistingResultFile(String directory,String resFile){
-        String fullName = directory+resFile;
-        try {
-            Files.deleteIfExists(
-                    Paths.get(fullName));
-        }
-        catch (NoSuchFileException e) {
-            severe("No such file/directory exists");
-        }
-        catch (DirectoryNotEmptyException e) {
-            severe("Directory is not empty.");
-        }
-        catch (IOException e) {
-            severe("Invalid permissions: "+fullName+", exception "+e.getMessage());
-        }
-    }
+
 
     private int parseResult(String dir,String resFile){
         String fullName = dir+resFile;
