@@ -81,27 +81,34 @@ import framework.AppearInCollection;
  * @author generated
 */
 
-public abstract class CrossReference extends ApplicationObject{
+public  class LinkCandidate extends ApplicationObject{
 /**
  *  
  *
 */
 
-    public String author;
-
-/**
- *  
- *
-*/
-
-    public String key;
+    public Double authorMatch;
 
 /**
  *  
  *
 */
 
-    public MissingCross missingCross;
+    public Citation citation;
+
+/**
+ *  
+ *
+*/
+
+    public String journal;
+
+/**
+ *  
+ *
+*/
+
+    public String link;
 
 /**
  *  
@@ -115,21 +122,35 @@ public abstract class CrossReference extends ApplicationObject{
  *
 */
 
-    public Work referredWork;
+    public String mwAuthor;
 
 /**
  *  
  *
 */
 
-    public String source;
+    public String mwTitle;
 
 /**
  *  
  *
 */
 
-    public String title;
+    public Double titleMatch;
+
+/**
+ *  
+ *
+*/
+
+    public String wAuthor;
+
+/**
+ *  
+ *
+*/
+
+    public String wTitle;
 
 /**
  *  
@@ -150,7 +171,7 @@ public abstract class CrossReference extends ApplicationObject{
  *
 */
 
-    public CrossReference(){
+    public LinkCandidate(){
         super();
     }
 
@@ -162,18 +183,21 @@ public abstract class CrossReference extends ApplicationObject{
  *
 */
 
-    public CrossReference(ApplicationDataset applicationDataset){
+    public LinkCandidate(ApplicationDataset applicationDataset){
         super(applicationDataset);
-        setAuthor("");
-        setKey("");
-        setMissingCross(null);
+        setAuthorMatch(0.0);
+        setCitation(null);
+        setJournal("");
+        setLink("");
         setMissingWork(null);
-        setReferredWork(null);
-        setSource("");
-        setTitle("");
+        setMwAuthor("");
+        setMwTitle("");
+        setTitleMatch(0.0);
+        setWAuthor("");
+        setWTitle("");
         setWork(null);
         setYear(0);
-        applicationDataset.addCrossReference(this);
+        applicationDataset.addLinkCandidate(this);
     }
 
 /**
@@ -183,44 +207,53 @@ public abstract class CrossReference extends ApplicationObject{
  *
 */
 
-    public CrossReference(ApplicationDataset applicationDataset,
+    public LinkCandidate(ApplicationDataset applicationDataset,
             Integer id,
             String name,
-            String author,
-            String key,
-            MissingCross missingCross,
+            Double authorMatch,
+            Citation citation,
+            String journal,
+            String link,
             MissingWork missingWork,
-            Work referredWork,
-            String source,
-            String title,
+            String mwAuthor,
+            String mwTitle,
+            Double titleMatch,
+            String wAuthor,
+            String wTitle,
             Work work,
             Integer year){
         super(applicationDataset,
             id,
             name);
-        setAuthor(author);
-        setKey(key);
-        setMissingCross(missingCross);
+        setAuthorMatch(authorMatch);
+        setCitation(citation);
+        setJournal(journal);
+        setLink(link);
         setMissingWork(missingWork);
-        setReferredWork(referredWork);
-        setSource(source);
-        setTitle(title);
+        setMwAuthor(mwAuthor);
+        setMwTitle(mwTitle);
+        setTitleMatch(titleMatch);
+        setWAuthor(wAuthor);
+        setWTitle(wTitle);
         setWork(work);
         setYear(year);
-        applicationDataset.addCrossReference(this);
+        applicationDataset.addLinkCandidate(this);
     }
 
-    public CrossReference(CrossReference other){
+    public LinkCandidate(LinkCandidate other){
         this(other.applicationDataset,
             other.id,
             other.name,
-            other.author,
-            other.key,
-            other.missingCross,
+            other.authorMatch,
+            other.citation,
+            other.journal,
+            other.link,
             other.missingWork,
-            other.referredWork,
-            other.source,
-            other.title,
+            other.mwAuthor,
+            other.mwTitle,
+            other.titleMatch,
+            other.wAuthor,
+            other.wTitle,
             other.work,
             other.year);
     }
@@ -233,37 +266,47 @@ public abstract class CrossReference extends ApplicationObject{
 */
 
     public Boolean remove(){
-        return getApplicationDataset().removeCrossReference(this) && getApplicationDataset().removeApplicationObject(this);
+        return getApplicationDataset().removeLinkCandidate(this) && getApplicationDataset().removeApplicationObject(this);
     }
 
 /**
- *  get attribute author
+ *  get attribute authorMatch
+ *
+ * @return Double
+*/
+
+    public Double getAuthorMatch(){
+        return this.authorMatch;
+    }
+
+/**
+ *  get attribute citation
+ *
+ * @return Citation
+*/
+
+    public Citation getCitation(){
+        return this.citation;
+    }
+
+/**
+ *  get attribute journal
  *
  * @return String
 */
 
-    public String getAuthor(){
-        return this.author;
+    public String getJournal(){
+        return this.journal;
     }
 
 /**
- *  get attribute key
+ *  get attribute link
  *
  * @return String
 */
 
-    public String getKey(){
-        return this.key;
-    }
-
-/**
- *  get attribute missingCross
- *
- * @return MissingCross
-*/
-
-    public MissingCross getMissingCross(){
-        return this.missingCross;
+    public String getLink(){
+        return this.link;
     }
 
 /**
@@ -277,33 +320,53 @@ public abstract class CrossReference extends ApplicationObject{
     }
 
 /**
- *  get attribute referredWork
- *
- * @return Work
-*/
-
-    public Work getReferredWork(){
-        return this.referredWork;
-    }
-
-/**
- *  get attribute source
+ *  get attribute mwAuthor
  *
  * @return String
 */
 
-    public String getSource(){
-        return this.source;
+    public String getMwAuthor(){
+        return this.mwAuthor;
     }
 
 /**
- *  get attribute title
+ *  get attribute mwTitle
  *
  * @return String
 */
 
-    public String getTitle(){
-        return this.title;
+    public String getMwTitle(){
+        return this.mwTitle;
+    }
+
+/**
+ *  get attribute titleMatch
+ *
+ * @return Double
+*/
+
+    public Double getTitleMatch(){
+        return this.titleMatch;
+    }
+
+/**
+ *  get attribute wAuthor
+ *
+ * @return String
+*/
+
+    public String getWAuthor(){
+        return this.wAuthor;
+    }
+
+/**
+ *  get attribute wTitle
+ *
+ * @return String
+*/
+
+    public String getWTitle(){
+        return this.wTitle;
     }
 
 /**
@@ -327,37 +390,49 @@ public abstract class CrossReference extends ApplicationObject{
     }
 
 /**
- *  set attribute author, mark dataset as dirty, mark dataset as not valid
-@param author String
+ *  set attribute authorMatch, mark dataset as dirty, mark dataset as not valid
+@param authorMatch Double
  *
 */
 
-    public void setAuthor(String author){
-        this.author = author;
+    public void setAuthorMatch(Double authorMatch){
+        this.authorMatch = authorMatch;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
 
 /**
- *  set attribute key, mark dataset as dirty, mark dataset as not valid
-@param key String
+ *  set attribute citation, mark dataset as dirty, mark dataset as not valid
+@param citation Citation
  *
 */
 
-    public void setKey(String key){
-        this.key = key;
+    public void setCitation(Citation citation){
+        this.citation = citation;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
 
 /**
- *  set attribute missingCross, mark dataset as dirty, mark dataset as not valid
-@param missingCross MissingCross
+ *  set attribute journal, mark dataset as dirty, mark dataset as not valid
+@param journal String
  *
 */
 
-    public void setMissingCross(MissingCross missingCross){
-        this.missingCross = missingCross;
+    public void setJournal(String journal){
+        this.journal = journal;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute link, mark dataset as dirty, mark dataset as not valid
+@param link String
+ *
+*/
+
+    public void setLink(String link){
+        this.link = link;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -375,37 +450,61 @@ public abstract class CrossReference extends ApplicationObject{
     }
 
 /**
- *  set attribute referredWork, mark dataset as dirty, mark dataset as not valid
-@param referredWork Work
+ *  set attribute mwAuthor, mark dataset as dirty, mark dataset as not valid
+@param mwAuthor String
  *
 */
 
-    public void setReferredWork(Work referredWork){
-        this.referredWork = referredWork;
+    public void setMwAuthor(String mwAuthor){
+        this.mwAuthor = mwAuthor;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
 
 /**
- *  set attribute source, mark dataset as dirty, mark dataset as not valid
-@param source String
+ *  set attribute mwTitle, mark dataset as dirty, mark dataset as not valid
+@param mwTitle String
  *
 */
 
-    public void setSource(String source){
-        this.source = source;
+    public void setMwTitle(String mwTitle){
+        this.mwTitle = mwTitle;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
 
 /**
- *  set attribute title, mark dataset as dirty, mark dataset as not valid
-@param title String
+ *  set attribute titleMatch, mark dataset as dirty, mark dataset as not valid
+@param titleMatch Double
  *
 */
 
-    public void setTitle(String title){
-        this.title = title;
+    public void setTitleMatch(Double titleMatch){
+        this.titleMatch = titleMatch;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute wAuthor, mark dataset as dirty, mark dataset as not valid
+@param wAuthor String
+ *
+*/
+
+    public void setWAuthor(String wAuthor){
+        this.wAuthor = wAuthor;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
+ *  set attribute wTitle, mark dataset as dirty, mark dataset as not valid
+@param wTitle String
+ *
+*/
+
+    public void setWTitle(String wTitle){
+        this.wTitle = wTitle;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -462,7 +561,7 @@ public abstract class CrossReference extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAuthor()+ " " +getKey()+ " " +(getMissingCross() == null ? "" : getMissingCross().toColumnString())+ " " +(getMissingWork() == null ? "" : getMissingWork().toColumnString())+ " " +(getReferredWork() == null ? "" : getReferredWork().toColumnString())+ " " +getSource()+ " " +getTitle()+ " " +getWork().toColumnString()+ " " +getYear();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAuthorMatch()+ " " +getCitation().toColumnString()+ " " +getJournal()+ " " +getLink()+ " " +getMissingWork().toColumnString()+ " " +getMwAuthor()+ " " +getMwTitle()+ " " +getTitleMatch()+ " " +getWAuthor()+ " " +getWTitle()+ " " +getWork().toColumnString()+ " " +getYear();
     }
 
 /**
@@ -483,16 +582,19 @@ public abstract class CrossReference extends ApplicationObject{
 */
 
      public void toXML(PrintWriter out){
-         out.println("<crossReference "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
+         out.println("<linkCandidate "+ " applicationDataset=\""+toXMLApplicationDataset()+"\""+
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
-            " author=\""+toXMLAuthor()+"\""+
-            " key=\""+toXMLKey()+"\""+
-            " missingCross=\""+toXMLMissingCross()+"\""+
+            " authorMatch=\""+toXMLAuthorMatch()+"\""+
+            " citation=\""+toXMLCitation()+"\""+
+            " journal=\""+toXMLJournal()+"\""+
+            " link=\""+toXMLLink()+"\""+
             " missingWork=\""+toXMLMissingWork()+"\""+
-            " referredWork=\""+toXMLReferredWork()+"\""+
-            " source=\""+toXMLSource()+"\""+
-            " title=\""+toXMLTitle()+"\""+
+            " mwAuthor=\""+toXMLMwAuthor()+"\""+
+            " mwTitle=\""+toXMLMwTitle()+"\""+
+            " titleMatch=\""+toXMLTitleMatch()+"\""+
+            " wAuthor=\""+toXMLWAuthor()+"\""+
+            " wTitle=\""+toXMLWTitle()+"\""+
             " work=\""+toXMLWork()+"\""+
             " year=\""+toXMLYear()+"\""+" />");
      }
@@ -503,8 +605,8 @@ public abstract class CrossReference extends ApplicationObject{
  * @return String
 */
 
-    String toXMLAuthor(){
-        return this.safeXML(getAuthor());
+    String toXMLAuthorMatch(){
+        return this.getAuthorMatch().toString();
     }
 
 /**
@@ -513,8 +615,8 @@ public abstract class CrossReference extends ApplicationObject{
  * @return String
 */
 
-    String toXMLKey(){
-        return this.safeXML(getKey());
+    String toXMLCitation(){
+        return "ID_"+this.getCitation().getId().toString();
     }
 
 /**
@@ -523,11 +625,18 @@ public abstract class CrossReference extends ApplicationObject{
  * @return String
 */
 
-    String toXMLMissingCross(){
-        if (getMissingCross() == null){
-             return "";
-        }
-        return "ID_"+this.getMissingCross().getId().toString();
+    String toXMLJournal(){
+        return this.safeXML(getJournal());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLLink(){
+        return this.safeXML(getLink());
     }
 
 /**
@@ -537,9 +646,6 @@ public abstract class CrossReference extends ApplicationObject{
 */
 
     String toXMLMissingWork(){
-        if (getMissingWork() == null){
-             return "";
-        }
         return "ID_"+this.getMissingWork().getId().toString();
     }
 
@@ -549,11 +655,8 @@ public abstract class CrossReference extends ApplicationObject{
  * @return String
 */
 
-    String toXMLReferredWork(){
-        if (getReferredWork() == null){
-             return "";
-        }
-        return "ID_"+this.getReferredWork().getId().toString();
+    String toXMLMwAuthor(){
+        return this.safeXML(getMwAuthor());
     }
 
 /**
@@ -562,8 +665,8 @@ public abstract class CrossReference extends ApplicationObject{
  * @return String
 */
 
-    String toXMLSource(){
-        return this.safeXML(getSource());
+    String toXMLMwTitle(){
+        return this.safeXML(getMwTitle());
     }
 
 /**
@@ -572,8 +675,28 @@ public abstract class CrossReference extends ApplicationObject{
  * @return String
 */
 
-    String toXMLTitle(){
-        return this.safeXML(getTitle());
+    String toXMLTitleMatch(){
+        return this.getTitleMatch().toString();
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLWAuthor(){
+        return this.safeXML(getWAuthor());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLWTitle(){
+        return this.safeXML(getWTitle());
     }
 
 /**
@@ -597,14 +720,28 @@ public abstract class CrossReference extends ApplicationObject{
     }
 
 /**
- * find the same object in another dataset
- * @param a CrossReference item we are looking for
- * @param bList List<CrossReference> list of items in which we are searching
- * @return CrossReference entry of list b which is applicationSame() to a
+ * show object as one row in an HTML table
+ * 
+ * @return String of form <tr>...</tr>
 */
 
-    public static CrossReference find(CrossReference a, List<CrossReference> bList){
-        for(CrossReference b : bList){
+    public static String toHTMLLabels(){
+        return "<tr><th>LinkCandidate</th>"+"<th>Name</th>"+"<th>Work</th>"+"<th>MissingWork</th>"+"<th>Citation</th>"+"<th>AuthorMatch</th>"+"<th>TitleMatch</th>"+"<th>Link</th>"+"<th>Journal</th>"+"<th>Year</th>"+"<th>WAuthor</th>"+"<th>MwAuthor</th>"+"<th>WTitle</th>"+"<th>MwTitle</th>"+"</tr>";
+    }
+
+    public String toHTML(){
+        return "<tr><th>&nbsp;</th>"+"<td>"+getName()+"</td>"+ " " +"<td>"+getWork().toColumnString()+"</td>"+ " " +"<td>"+getMissingWork().toColumnString()+"</td>"+ " " +"<td>"+getCitation().toColumnString()+"</td>"+ " " +"<td>"+getAuthorMatch()+"</td>"+ " " +"<td>"+getTitleMatch()+"</td>"+ " " +"<td>"+getLink()+"</td>"+ " " +"<td>"+getJournal()+"</td>"+ " " +"<td>"+getYear()+"</td>"+ " " +"<td>"+getWAuthor()+"</td>"+ " " +"<td>"+getMwAuthor()+"</td>"+ " " +"<td>"+getWTitle()+"</td>"+ " " +"<td>"+getMwTitle()+"</td>"+"</tr>";
+    }
+
+/**
+ * find the same object in another dataset
+ * @param a LinkCandidate item we are looking for
+ * @param bList List<LinkCandidate> list of items in which we are searching
+ * @return LinkCandidate entry of list b which is applicationSame() to a
+*/
+
+    public static LinkCandidate find(LinkCandidate a, List<LinkCandidate> bList){
+        for(LinkCandidate b : bList){
             if (b.applicationSame(a)){
                 return b;
             }
@@ -616,12 +753,12 @@ public abstract class CrossReference extends ApplicationObject{
  * find an object from its name; returns null if no such item exists
  * it is not defined which object is returned if multiple have the same name
  * @param base  dataset in which we are searching
- * @param name CrossReference name of the object we are looking for
- * @return CrossReference entry of the dataset with the given name; otherwise null
+ * @param name LinkCandidate name of the object we are looking for
+ * @return LinkCandidate entry of the dataset with the given name; otherwise null
 */
 
-    public static CrossReference findByName(ApplicationDataset base, String name){
-        for(CrossReference a:base.getListCrossReference()) {
+    public static LinkCandidate findByName(ApplicationDataset base, String name){
+        for(LinkCandidate a:base.getListLinkCandidate()) {
             if (a.getName().equals(name)){
                 return a;
             }
@@ -630,28 +767,48 @@ public abstract class CrossReference extends ApplicationObject{
     }
 
 /**
- * find the first entry in the dataset of that type
- * @param base dataset in which we are searching
- * @return CrossReference first entry in the dataset of this type; null if that does not exists
+ * find an object from its name; create new instance if no such item exists
+ * it is not defined which object is returned if multiple have the same name
+ * @param base  dataset in which we are searching
+ * @param name LinkCandidate name of the object we are looking for
+ * @return LinkCandidate entry of the dataset with the given name
 */
 
-    public static CrossReference findFirst(ApplicationDataset base){
-        if (base.getListCrossReference().isEmpty()) {
+    public static LinkCandidate findOrCreate(ApplicationDataset base, String name){
+        if (name.equals("null")){ return null;}
+        for(LinkCandidate a:base.getListLinkCandidate()) {
+            if (a.getName().equals(name)){
+                return a;
+            }
+        }
+        LinkCandidate res = new LinkCandidate(base);
+        res.setName(name);
+        return res;
+    }
+
+/**
+ * find the first entry in the dataset of that type
+ * @param base dataset in which we are searching
+ * @return LinkCandidate first entry in the dataset of this type; null if that does not exists
+*/
+
+    public static LinkCandidate findFirst(ApplicationDataset base){
+        if (base.getListLinkCandidate().isEmpty()) {
             return null;
         }
-        return base.getListCrossReference().get(0);
+        return base.getListLinkCandidate().get(0);
     }
 
 /**
  * find some entry entry in the dataset of that type
  * @param base dataset in which we are searching
- * @return CrossReference some entry in the dataset of this type; null if that does not exists
+ * @return LinkCandidate some entry in the dataset of this type; null if that does not exists
 */
 
-    public static CrossReference findAny(ApplicationDataset base){
-        int size=base.getListCrossReference().size();
+    public static LinkCandidate findAny(ApplicationDataset base){
+        int size=base.getListLinkCandidate().size();
         if (size > 0) {
-             return base.getListCrossReference().get(new Random().nextInt(size));
+             return base.getListLinkCandidate().get(new Random().nextInt(size));
         }
         return null;
     }
@@ -659,13 +816,13 @@ public abstract class CrossReference extends ApplicationObject{
 /**
  * find the last entry in the dataset of that type
  * @param base dataset in which we are searching
- * @return CrossReference last entry in the dataset of this type; null if that does not exists
+ * @return LinkCandidate last entry in the dataset of this type; null if that does not exists
 */
 
-    public static CrossReference findLast(ApplicationDataset base){
-        int size=base.getListCrossReference().size();
+    public static LinkCandidate findLast(ApplicationDataset base){
+        int size=base.getListLinkCandidate().size();
         if (size > 0) {
-             return base.getListCrossReference().get(size-1);
+             return base.getListLinkCandidate().get(size-1);
         }
         return null;
     }
@@ -673,11 +830,11 @@ public abstract class CrossReference extends ApplicationObject{
 /**
  * check if two objects (typically in different datasets) refer to the same real-world item
  * often this means that the names match, depending on the display_key
- * @param b CrossReference compare this to that object
+ * @param b LinkCandidate compare this to that object
  * @return Boolean true if the objects match the same criteria
 */
 
-    public Boolean applicationSame(CrossReference b){
+    public Boolean applicationSame(LinkCandidate b){
         return this.getName().equals(b.getName());
     }
 
@@ -685,34 +842,43 @@ public abstract class CrossReference extends ApplicationObject{
  * check if two objects (typically in different datasets) are equal, i.e. have the same field values
  * typically used to check if an item is different in two datasets
  * this is quite different from the equals() method, which checks if the objects are idenitcal
- * @param b CrossReference compare this to that object
+ * @param b LinkCandidate compare this to that object
  * @return Boolean true if the objects match the equal criteria
 */
 
-    public Boolean applicationEqual(CrossReference b){
-      if(!this.getAuthor().equals(b.getAuthor())){
-         System.out.println("Author");
+    public Boolean applicationEqual(LinkCandidate b){
+      if(!this.getAuthorMatch().equals(b.getAuthorMatch())){
+         System.out.println("AuthorMatch");
         }
-      if(!this.getKey().equals(b.getKey())){
-         System.out.println("Key");
+      if(!this.getCitation().applicationSame(b.getCitation())){
+         System.out.println("Citation");
         }
-      if(!(getMissingCross() == null ? b.getMissingCross() == null:this.getMissingCross().applicationSame(b.getMissingCross()))){
-         System.out.println("MissingCross");
+      if(!this.getJournal().equals(b.getJournal())){
+         System.out.println("Journal");
         }
-      if(!(getMissingWork() == null ? b.getMissingWork() == null:this.getMissingWork().applicationSame(b.getMissingWork()))){
+      if(!this.getLink().equals(b.getLink())){
+         System.out.println("Link");
+        }
+      if(!this.getMissingWork().applicationSame(b.getMissingWork())){
          System.out.println("MissingWork");
+        }
+      if(!this.getMwAuthor().equals(b.getMwAuthor())){
+         System.out.println("MwAuthor");
+        }
+      if(!this.getMwTitle().equals(b.getMwTitle())){
+         System.out.println("MwTitle");
         }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
         }
-      if(!(getReferredWork() == null ? b.getReferredWork() == null:this.getReferredWork().applicationSame(b.getReferredWork()))){
-         System.out.println("ReferredWork");
+      if(!this.getTitleMatch().equals(b.getTitleMatch())){
+         System.out.println("TitleMatch");
         }
-      if(!this.getSource().equals(b.getSource())){
-         System.out.println("Source");
+      if(!this.getWAuthor().equals(b.getWAuthor())){
+         System.out.println("WAuthor");
         }
-      if(!this.getTitle().equals(b.getTitle())){
-         System.out.println("Title");
+      if(!this.getWTitle().equals(b.getWTitle())){
+         System.out.println("WTitle");
         }
       if(!this.getWork().applicationSame(b.getWork())){
          System.out.println("Work");
@@ -720,14 +886,17 @@ public abstract class CrossReference extends ApplicationObject{
       if(!this.getYear().equals(b.getYear())){
          System.out.println("Year");
         }
-        return  this.getAuthor().equals(b.getAuthor()) &&
-          this.getKey().equals(b.getKey()) &&
-          (this.getMissingCross() == null ? b.getMissingCross() == null : this.getMissingCross().applicationSame(b.getMissingCross())) &&
-          (this.getMissingWork() == null ? b.getMissingWork() == null : this.getMissingWork().applicationSame(b.getMissingWork())) &&
+        return  this.getAuthorMatch().equals(b.getAuthorMatch()) &&
+          this.getCitation().applicationSame(b.getCitation()) &&
+          this.getJournal().equals(b.getJournal()) &&
+          this.getLink().equals(b.getLink()) &&
+          this.getMissingWork().applicationSame(b.getMissingWork()) &&
+          this.getMwAuthor().equals(b.getMwAuthor()) &&
+          this.getMwTitle().equals(b.getMwTitle()) &&
           this.getName().equals(b.getName()) &&
-          (this.getReferredWork() == null ? b.getReferredWork() == null : this.getReferredWork().applicationSame(b.getReferredWork())) &&
-          this.getSource().equals(b.getSource()) &&
-          this.getTitle().equals(b.getTitle()) &&
+          this.getTitleMatch().equals(b.getTitleMatch()) &&
+          this.getWAuthor().equals(b.getWAuthor()) &&
+          this.getWTitle().equals(b.getWTitle()) &&
           this.getWork().applicationSame(b.getWork()) &&
           this.getYear().equals(b.getYear());
     }
@@ -739,11 +908,21 @@ public abstract class CrossReference extends ApplicationObject{
 
     public void check(){
         if (getApplicationDataset() == null){
-         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"applicationDataset","CrossReference",(getApplicationDataset()==null?"null":getApplicationDataset().toString()),"",WarningType.NOTNULL);
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"applicationDataset","LinkCandidate",(getApplicationDataset()==null?"null":getApplicationDataset().toString()),"",WarningType.NOTNULL);
+        }
+        if (getCitation() == null){
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"citation","LinkCandidate",(getCitation()==null?"null":getCitation().toString()),"",WarningType.NOTNULL);
+        }
+        if (getMissingWork() == null){
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"missingWork","LinkCandidate",(getMissingWork()==null?"null":getMissingWork().toString()),"",WarningType.NOTNULL);
         }
         if (getWork() == null){
-         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"work","CrossReference",(getWork()==null?"null":getWork().toString()),"",WarningType.NOTNULL);
+         new ApplicationWarning(getApplicationDataset(),ApplicationDataset.getIdNr(),toColumnString(),"work","LinkCandidate",(getWork()==null?"null":getWork().toString()),"",WarningType.NOTNULL);
         }
+    }
+
+    static void dummy(ApplicationDataset base){
+// no dummy information for class LinkCandidate
     }
 
 /**
@@ -756,14 +935,11 @@ public abstract class CrossReference extends ApplicationObject{
     }
 
    public List<ApplicationObjectInterface> getFeasibleValues(ApplicationDatasetInterface base,String attrName){
-      if (attrName.equals("missingCross")){
-         return (List) ((Scenario)base).getListMissingCross();
+      if (attrName.equals("citation")){
+         return (List) ((Scenario)base).getListCitation();
       }
       if (attrName.equals("missingWork")){
          return (List) ((Scenario)base).getListMissingWork();
-      }
-      if (attrName.equals("referredWork")){
-         return (List) ((Scenario)base).getListWork();
       }
       if (attrName.equals("work")){
          return (List) ((Scenario)base).getListWork();

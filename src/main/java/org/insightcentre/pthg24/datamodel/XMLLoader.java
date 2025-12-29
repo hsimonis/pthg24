@@ -712,6 +712,25 @@ public AwardLevel getAwardLevel(String attributeName,
         return res;
     }
 
+    public LinkCandidate getLinkCandidate(String attributeName,
+                               Attributes attributes) {
+        return (LinkCandidate) find(getId(attributeName,attributes));
+    }
+
+    public List<LinkCandidate> getLinkCandidateCollectionFromIds(String attributeName,
+                                     Attributes attributes) {
+        String e = attributes.getValue(attributeName);
+        String[] words = e.split(" ");
+        List<LinkCandidate> res = new ArrayList<LinkCandidate>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > 0) {
+                int id = Integer.parseInt(words[i].substring(3));
+                res.add((LinkCandidate) find(id));
+            }
+        }
+        return res;
+    }
+
     public MissingCitedWork getMissingCitedWork(String attributeName,
                                Attributes attributes) {
         return (MissingCitedWork) find(getId(attributeName,attributes));
@@ -1827,6 +1846,25 @@ public AwardLevel getAwardLevel(String attributeName,
                         null,
                         getString("venue",attributes,"")
                         ));
+            } else if (qname.equals("linkCandidate")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                store(id, new LinkCandidate(base,
+                        id,
+                        getString("name", attributes, "dummy"),
+                        getDouble("authorMatch",attributes,0.0),
+                        null,
+                        getString("journal",attributes,""),
+                        getString("link",attributes,""),
+                        null,
+                        getString("mwAuthor",attributes,""),
+                        getString("mwTitle",attributes,""),
+                        getDouble("titleMatch",attributes,0.0),
+                        getString("wAuthor",attributes,""),
+                        getString("wTitle",attributes,""),
+                        null,
+                        getInteger("year",attributes,0)
+                        ));
             } else if (qname.equals("missingCitedWork")) {
                 assert (base != null);
                 int id = getId("id", attributes);
@@ -2487,6 +2525,13 @@ public AwardLevel getAwardLevel(String attributeName,
                 Link item = (Link) find(id);
                  item.setArticle(getArticle("article",attributes));
                  item.setPaper(getWork("paper",attributes));
+            } else if (qname.equals("linkCandidate")) {
+                assert (base != null);
+                int id = getId("id", attributes);
+                LinkCandidate item = (LinkCandidate) find(id);
+                 item.setCitation(getCitation("citation",attributes));
+                 item.setMissingWork(getMissingWork("missingWork",attributes));
+                 item.setWork(getWork("work",attributes));
             } else if (qname.equals("missingCitedWork")) {
                 assert (base != null);
                 int id = getId("id", attributes);

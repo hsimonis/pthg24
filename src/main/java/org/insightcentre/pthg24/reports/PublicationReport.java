@@ -129,6 +129,8 @@ public class PublicationReport extends AbstractReport {
                 width(23).height(12).
                 generate().fileLatex(getRoot(),"histogramCumulativeDensityCitations",tex);
 
+        linkedPapers("Journal Paper Expanded Versions","linkedPapers",base.getListWork());
+
         citationStatByTrack("Citations by Track","citationStatByTrack",base.getListWork());
         citationStatByYear("Citations by Year","citationStatByYear",base.getListWork());
 
@@ -1632,6 +1634,48 @@ public class PublicationReport extends AbstractReport {
                 width(23).height(15).
                 generate().
                 fileLatex(getRoot(),fileName,tex);
+    }
+
+    // plot stacked bar charts per year for works of different types
+    private void linkedPapers(String title,String fileName,List<Work> works){
+        List<Integer> years = works.stream().map(Work::getYear).distinct().sorted().toList();
+        BarPlot<Integer,Integer> bp = new BarPlot<>();
+        int total = 0;
+        for(String s:new String[]{"Constraints","Direct","OtherJournal","Abstracts"}){
+            List<Work> filtered = works.stream().filter(x->linkedType(x,s)).toList();
+            total += filtered.size();
+            bp.addPlot(s,years,x->x,x->linkedCount(x,filtered));
+        }
+        bp.showValues(false).
+                ordering(BarPlotOrdering.NR).
+                includeZero(true).
+                stacked().
+                legendPos("north east");
+        bp.width(23).height(12).
+                title(title+" (Total "+total+" works)").
+                xlabel("Year").ylabel("Nr Works");
+        bp.generate().fileLatex(getRoot(),fileName,tex);
+
+    }
+
+    // does the work belong to this category or not
+    // uses fancy extended switch syntax
+    private boolean linkedType(Work w, String type){
+        return switch (w) {
+            case Article article when type.equals("Direct") -> true;
+            case Paper paper when type.equals("Abstracts") && w.getSubType() == ExtendedAbstract -> true;
+            case Paper paper when type.equals("Constraints") && w.getSubType() != ExtendedAbstract && w.getLink() != null && w.getLink().getJournal().equals("Constraints") ->
+                    true;
+            case Paper paper when type.equals("OtherJournal") && w.getSubType() != ExtendedAbstract && w.getLink() != null && !w.getLink().getJournal().equals("Constraints") ->
+                    true;
+            case null, default ->
+                    type.equals("No") && w instanceof Paper && w.getSubType() != ExtendedAbstract && w.getLink() == null;
+        };
+    }
+
+    // how many works per year; type already filtered
+    private int linkedCount(int year,List<Work> filtered){
+        return (int) filtered.stream().filter(x->x.getYear()==year).count();
     }
 
 }

@@ -363,6 +363,11 @@ public class BarChartController extends ChartController {
 		attributeNames.add("year");
 		choicesMap.put("Award", attributeNames);
 		attributeNames = FXCollections.observableArrayList();
+		attributeNames.add("authorMatch");
+		attributeNames.add("titleMatch");
+		attributeNames.add("year");
+		choicesMap.put("LinkCandidate", attributeNames);
+		attributeNames = FXCollections.observableArrayList();
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -545,6 +550,9 @@ public class BarChartController extends ChartController {
 			}
 			else if (className.equals("Track")) {
 				objectList = mainApp.getTrackData();
+			}
+			else if (className.equals("LinkCandidate")) {
+				objectList = mainApp.getLinkCandidateData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

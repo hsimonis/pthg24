@@ -54,6 +54,7 @@ import org.insightcentre.pthg24.datamodel.InCollection;
 import org.insightcentre.pthg24.datamodel.Journal;
 import org.insightcentre.pthg24.datamodel.JournalAlias;
 import org.insightcentre.pthg24.datamodel.Link;
+import org.insightcentre.pthg24.datamodel.LinkCandidate;
 import org.insightcentre.pthg24.datamodel.MissingCitedWork;
 import org.insightcentre.pthg24.datamodel.MissingCitingWork;
 import org.insightcentre.pthg24.datamodel.MissingCross;
@@ -210,12 +211,15 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	private ObservableList<Track> trackData = FXCollections.observableArrayList();
 
+	private ObservableList<LinkCandidate> linkCandidateData = FXCollections.observableArrayList();
+
 	public GeneratedJfxApp() {
 		super("pthg24", "Literature Survey Tool, Insight Centre for Data Analytics, University College Cork", "*.data", "data/");
 		fs = minimalDataset();
 		reset();
 		tableViews.put("Publisher", "Publisher");
 		tableViews.put("Assertion", "Assertion");
+		tableViews.put("LinkCandidate", "LinkCandidate");
 		tableViews.put("Scenario", "Scenario");
 		tableViews.put("Scenario Differences", "ApplicationDifference");
 		tableViews.put("Warnings", "ApplicationWarning");
@@ -455,6 +459,8 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 		awardData.addAll(base.getListAward());
 		trackData.clear();
 		trackData.addAll(base.getListTrack());
+		linkCandidateData.clear();
+		linkCandidateData.addAll(base.getListLinkCandidate());
 		for (BaseController controller : controllers) {
 			controller.setMainApp(this);
 		}
@@ -700,5 +706,9 @@ public class GeneratedJfxApp extends AbstractJfxMainWindow {
 
 	public ObservableList<Track> getTrackData() {
 		return trackData;
+	}
+
+	public ObservableList<LinkCandidate> getLinkCandidateData() {
+		return linkCandidateData;
 	}
 }

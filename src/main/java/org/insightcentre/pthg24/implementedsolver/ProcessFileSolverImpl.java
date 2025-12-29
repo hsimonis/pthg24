@@ -122,6 +122,9 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
 //                new CheckAuthorDoubles(base);
         new CreateCountryCollab(base);
 
+        info("potential link search");
+        new PotentialLinkSearch(base);
+
         info("File output starting");
 
         new TitleFields(exportDir,"title.tex",title,authors);
@@ -185,6 +188,10 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
                 toList(),exportDir,"background.tex","Background Works");
         new ListSpecialIssues(base,base.getListSpecialIssue(),
                 exportDir,"specialissues.tex","Special Issues");
+        new ListLinkCandidates(base,base.getListLinkCandidate().stream().
+                sorted(Comparator.comparing(LinkCandidate::getTitleMatch).thenComparing(LinkCandidate::getAuthorMatch).reversed()).
+                toList(),
+                exportDir,"linkcandidates.tex","linkcandidates");
 
         for(SubType subType:SubType.values()){
             if (subType != Regular) {
@@ -316,7 +323,7 @@ public class ProcessFileSolverImpl extends ProcessFileSolver {
 
         new ListDetails(base,exportDir,"abstracts.tex",1.0,1.0);
 
-//        new ListAbstractsMissingWork(base,exportDir,"abstractsmissingwork.tex",relevanceLimit);
+        new ListAbstractsMissingWork(base,exportDir,"abstractsmissingwork.tex",relevanceLimit);
 
         new CitationGraph(base);
         new DumpFeatures(base,dumpDir,"allconcepts.csv");

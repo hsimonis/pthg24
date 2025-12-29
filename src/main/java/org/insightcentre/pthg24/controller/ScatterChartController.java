@@ -1272,6 +1272,27 @@ public class ScatterChartController extends ChartXYFilterController {
 		filterNames.add(filterNone);
 		filterNames.add("name");
 		filterNames.add("shortName");
+		filterNames.add("name");
+		filterNames.add("work");
+		filterNames.add("missingWork");
+		filterNames.add("citation");
+		attributeNames.add("authorMatch");
+		filterNames.add("authorMatch");
+		attributeNames.add("titleMatch");
+		filterNames.add("titleMatch");
+		filterNames.add("link");
+		filterNames.add("journal");
+		attributeNames.add("year");
+		filterNames.add("year");
+		filterNames.add("wAuthor");
+		filterNames.add("mwAuthor");
+		filterNames.add("wTitle");
+		filterNames.add("mwTitle");
+		choicesMap.put("LinkCandidate", attributeNames);
+		filterMap.put("LinkCandidate", filterNames);
+		attributeNames = FXCollections.observableArrayList();
+		filterNames = FXCollections.observableArrayList();
+		filterNames.add(filterNone);
 		ObservableList<String> classes = FXCollections.observableArrayList();
 		classes.addAll(choicesMap.keySet());
 		classChoiceBox.getItems().addAll(classes);
@@ -1462,6 +1483,9 @@ public class ScatterChartController extends ChartXYFilterController {
 			}
 			else if (className.equals("Track")) {
 				objectList = mainApp.getTrackData();
+			}
+			else if (className.equals("LinkCandidate")) {
+				objectList = mainApp.getLinkCandidateData();
 			}
 			if (objectList != null) {
 				XYChart.Series series = new XYChart.Series();

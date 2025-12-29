@@ -52,6 +52,7 @@ int compare(ApplicationObjectInterface o1, ApplicationObjectInterface o2)
 !include Journal.uml
 !include JournalAlias.uml
 !include Link.uml
+!include LinkCandidate.uml
 !include MissingCitedWork.uml
 !include MissingCitingWork.uml
 !include MissingCross.uml
@@ -159,6 +160,9 @@ Work  *-- Node
 Node  *-- Edge : from
 Node  *-- Edge : to
 Work "0..*" *-- ConnectedComponent : works
+Work  *-- LinkCandidate 
+MissingWork  *-- LinkCandidate 
+Citation  *-- LinkCandidate 
 header
 Datamodel of Application pthg24
 endheader

@@ -47,10 +47,11 @@ public abstract class AbstractList {
     private String alphaSafe(String s){
         return s.replaceAll("&"," and ").
                 replaceAll("_","-").
-                replace("%","percent").
-                replace("\\","/").
-                replace("$","USD").
-                replace("^","").replaceAll("#","sharp");
+                replaceAll("%","percent").
+                replaceAll("\\\\","/").
+                replaceAll("\\$","USD").
+                replaceAll("\\^","").
+                replaceAll("#","sharp");
     }
 
     private String specials(String t){

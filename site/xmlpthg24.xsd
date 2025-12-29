@@ -32,6 +32,7 @@
 				<xs:element ref="journal" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="journalAlias" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="link" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="linkCandidate" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingCitedWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingCitingWork" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element ref="missingCross" minOccurs="0" maxOccurs="unbounded"/>
@@ -648,6 +649,25 @@
 			<xs:attribute name="journal" use="required" type="xs:string"/>
 			<xs:attribute name="paper" use="required" type="xs:IDREF"/>
 			<xs:attribute name="venue" use="required" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="linkCandidate">
+		<xs:complexType>
+			<xs:attribute name="applicationDataset" use="required" type="xs:IDREF"/>
+			<xs:attribute name="id" use="required" type="xs:ID"/>
+			<xs:attribute name="name" use="required" type="xs:string"/>
+			<xs:attribute name="authorMatch" use="required" type="xs:double"/>
+			<xs:attribute name="citation" use="required" type="xs:IDREF"/>
+			<xs:attribute name="journal" use="required" type="xs:string"/>
+			<xs:attribute name="link" use="required" type="xs:string"/>
+			<xs:attribute name="missingWork" use="required" type="xs:IDREF"/>
+			<xs:attribute name="mwAuthor" use="required" type="xs:string"/>
+			<xs:attribute name="mwTitle" use="required" type="xs:string"/>
+			<xs:attribute name="titleMatch" use="required" type="xs:double"/>
+			<xs:attribute name="wAuthor" use="required" type="xs:string"/>
+			<xs:attribute name="wTitle" use="required" type="xs:string"/>
+			<xs:attribute name="work" use="required" type="xs:IDREF"/>
+			<xs:attribute name="year" use="required" type="xs:integer"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="missingCitedWork">

@@ -58,6 +58,7 @@ import org.insightcentre.pthg24.datamodel.Edge;
 import org.insightcentre.pthg24.datamodel.ConnectedComponent;
 import org.insightcentre.pthg24.datamodel.Award;
 import org.insightcentre.pthg24.datamodel.Track;
+import org.insightcentre.pthg24.datamodel.LinkCandidate;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -520,6 +521,13 @@ public abstract class ApplicationDataset implements ApplicationDatasetInterface,
     List<Track> listTrack = new ArrayList<Track>();
 
 /**
+ *  This lists holds all items of class LinkCandidate and its subclasses
+ *
+*/
+
+    List<LinkCandidate> listLinkCandidate = new ArrayList<LinkCandidate>();
+
+/**
  *  This is the static counter from which all id numbers are generated.It is used by all classes, so that ids are unique over all objects.
  *
 */
@@ -671,6 +679,7 @@ public int compareTo(ApplicationDataset ds2){
                              "Journal",
                              "JournalAlias",
                              "Link",
+                             "LinkCandidate",
                              "MissingCitedWork",
                              "MissingCitingWork",
                              "MissingCross",
@@ -806,6 +815,7 @@ public int compareTo(ApplicationDataset ds2){
         resetListConnectedComponent();
         resetListAward();
         resetListTrack();
+        resetListLinkCandidate();
     }
 
 /**
@@ -2785,6 +2795,40 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Iterator for list of class LinkCandidate
+ *
+*/
+
+    public Iterator<LinkCandidate> getIteratorLinkCandidate(){
+        return listLinkCandidate.iterator();
+    }
+
+/**
+ *  Getter for list of class LinkCandidate
+ *
+*/
+
+    public List<LinkCandidate> getListLinkCandidate(){
+        return listLinkCandidate;
+    }
+
+/**
+ *  reset the list of class LinkCandidate; use with care, does not call cascades
+ *
+*/
+
+    public void resetListLinkCandidate(){
+        listLinkCandidate = new ArrayList<LinkCandidate>();
+        List<ApplicationObject> newListApplicationObject = new ArrayList<ApplicationObject>();
+        for(ApplicationObject a:listApplicationObject){
+            if (!(a instanceof LinkCandidate)){
+                newListApplicationObject.add(a);
+            }
+        }
+       listApplicationObject = newListApplicationObject;
+    }
+
+/**
  *  Generate a new id number, used in constructor calls
  *
 */
@@ -3971,6 +4015,60 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  Removing object item of class Work; remove all dependent objects of class LinkCandidate which refer to item through their attribute work
+ *
+*/
+
+    public void cascadeLinkCandidateWork(Work item){
+        assert item != null;
+        List<LinkCandidate> toRemove = new ArrayList<LinkCandidate>();
+        for(LinkCandidate a:getListLinkCandidate()) {
+         if (a.getWork() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(LinkCandidate b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class MissingWork; remove all dependent objects of class LinkCandidate which refer to item through their attribute missingWork
+ *
+*/
+
+    public void cascadeLinkCandidateMissingWork(MissingWork item){
+        assert item != null;
+        List<LinkCandidate> toRemove = new ArrayList<LinkCandidate>();
+        for(LinkCandidate a:getListLinkCandidate()) {
+         if (a.getMissingWork() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(LinkCandidate b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
+ *  Removing object item of class Citation; remove all dependent objects of class LinkCandidate which refer to item through their attribute citation
+ *
+*/
+
+    public void cascadeLinkCandidateCitation(Citation item){
+        assert item != null;
+        List<LinkCandidate> toRemove = new ArrayList<LinkCandidate>();
+        for(LinkCandidate a:getListLinkCandidate()) {
+         if (a.getCitation() == item) {
+            toRemove.add(a);
+         }
+        }
+        for(LinkCandidate b:toRemove) {
+            b.remove();
+        }
+    }
+
+/**
  *  add an item to the list for class ApplicationDataset
  *
 */
@@ -5131,6 +5229,26 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ *  add an item to the list for class LinkCandidate
+ *
+*/
+
+    public void addLinkCandidate(LinkCandidate linkCandidate){
+        assert linkCandidate != null;
+        this.listLinkCandidate.add(linkCandidate);
+    }
+
+/**
+ *  remove an item from the list for class LinkCandidate
+ *
+*/
+
+    public Boolean removeLinkCandidate(LinkCandidate linkCandidate){
+        assert linkCandidate != null;
+        return this.listLinkCandidate.remove(linkCandidate);
+    }
+
+/**
  *  dump all items on the console for debugging
  *
 */
@@ -5221,6 +5339,9 @@ public int compareTo(ApplicationDataset ds2){
             System.out.println(x);
         }
         for(Link x:getListLink()){
+            System.out.println(x);
+        }
+        for(LinkCandidate x:getListLinkCandidate()){
             System.out.println(x);
         }
         for(MissingCitedWork x:getListMissingCitedWork()){
@@ -5421,6 +5542,9 @@ public int compareTo(ApplicationDataset ds2){
         for(Link x:getListLink()){
             if (x.getClass().equals(Link.class)) x.toXML(out);
         }
+        for(LinkCandidate x:getListLinkCandidate()){
+            if (x.getClass().equals(LinkCandidate.class)) x.toXML(out);
+        }
         for(MissingCitedWork x:getListMissingCitedWork()){
             if (x.getClass().equals(MissingCitedWork.class)) x.toXML(out);
         }
@@ -5616,6 +5740,7 @@ public int compareTo(ApplicationDataset ds2){
         compareJournal(this.getListJournal(),compare.getListJournal());
         compareJournalAlias(this.getListJournalAlias(),compare.getListJournalAlias());
         compareLink(this.getListLink(),compare.getListLink());
+        compareLinkCandidate(this.getListLinkCandidate(),compare.getListLinkCandidate());
         compareMissingCitedWork(this.getListMissingCitedWork(),compare.getListMissingCitedWork());
         compareMissingCitingWork(this.getListMissingCitingWork(),compare.getListMissingCitingWork());
         compareMissingCross(this.getListMissingCross(),compare.getListMissingCross());
@@ -6316,6 +6441,30 @@ public int compareTo(ApplicationDataset ds2){
     }
 
 /**
+ * compare two lists of types LinkCandidate, create AppplicationWarnings for items which are in only one of the lists
+ * or for items which are applicationSame(), but not applicationEqual()
+*/
+
+    public void compareLinkCandidate(List<LinkCandidate> aList,List<LinkCandidate> bList){
+        System.out.println("Comparing LinkCandidate");
+        for(LinkCandidate a:aList){
+            LinkCandidate b= LinkCandidate.find(a,bList);
+            if (b == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"LinkCandidate A",a.prettyString(),DifferenceType.ONLYA);
+            } else if (!a.applicationEqual(b)){
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"LinkCandidate A",a.prettyString(),DifferenceType.DIFFERA);
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"LinkCandidate B",b.prettyString(),DifferenceType.DIFFERB);
+            }
+        }
+        for(LinkCandidate b: bList){
+            LinkCandidate a = LinkCandidate.find(b,aList);
+            if (a == null) {
+                new ApplicationDifference(this,ApplicationDataset.getIdNr(),"LinkCandidate B",b.toString(),DifferenceType.ONLYB);
+            }
+        }
+    }
+
+/**
  * compare two lists of types MissingCitedWork, create AppplicationWarnings for items which are in only one of the lists
  * or for items which are applicationSame(), but not applicationEqual()
 */
@@ -6925,6 +7074,7 @@ public int compareTo(ApplicationDataset ds2){
         checkJournal(this.getListJournal());
         checkJournalAlias(this.getListJournalAlias());
         checkLink(this.getListLink());
+        checkLinkCandidate(this.getListLinkCandidate());
         checkMissingCitedWork(this.getListMissingCitedWork());
         checkMissingCitingWork(this.getListMissingCitingWork());
         checkMissingCross(this.getListMissingCross());
@@ -7262,6 +7412,17 @@ public int compareTo(ApplicationDataset ds2){
 
 /**
  * helper method for checkAll()
+ * @param list List<LinkCandidate> dataset list of all items of type LinkCandidate
+*/
+
+    public void checkLinkCandidate(List<LinkCandidate> list){
+        for(LinkCandidate a:list){
+            a.check();
+        }
+    }
+
+/**
+ * helper method for checkAll()
  * @param list List<MissingCitedWork> dataset list of all items of type MissingCitedWork
 */
 
@@ -7565,6 +7726,7 @@ public int compareTo(ApplicationDataset ds2){
         Journal.dummy(this);
         JournalAlias.dummy(this);
         Link.dummy(this);
+        LinkCandidate.dummy(this);
         MissingCitedWork.dummy(this);
         MissingCitingWork.dummy(this);
         MissingCross.dummy(this);

@@ -58,6 +58,7 @@ import org.insightcentre.pthg24.datamodel.Edge;
 import org.insightcentre.pthg24.datamodel.ConnectedComponent;
 import org.insightcentre.pthg24.datamodel.Award;
 import org.insightcentre.pthg24.datamodel.Track;
+import org.insightcentre.pthg24.datamodel.LinkCandidate;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -433,6 +434,7 @@ public  class MissingWork extends ApplicationObject{
 
     public Boolean remove(){
         getApplicationDataset().cascadeCrossReferenceMissingWork(this);
+        getApplicationDataset().cascadeLinkCandidateMissingWork(this);
         return getApplicationDataset().removeMissingWork(this) && getApplicationDataset().removeApplicationObject(this);
     }
 

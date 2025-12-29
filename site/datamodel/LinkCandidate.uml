@@ -1,0 +1,14 @@
+ class LinkCandidate {
+Double authorMatch
+Citation citation
+String journal
+String link
+MissingWork missingWork
+String mwAuthor
+String mwTitle
+Double titleMatch
+String wAuthor
+String wTitle
+Work work
+Integer year
+}

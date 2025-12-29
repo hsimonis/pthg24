@@ -175,7 +175,7 @@ public class ListWorks extends AbstractList{
     private static String starColor(AwardLevel level){
         return switch(level){
             case Best -> "goldenrod";
-            case Distinguished,RunnerUp -> "purple";
+            case Distinguished,RunnerUp -> "gray";
             case Other -> "blue";
         };
     }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+
+<!--Generated code-->
+
+
+<Tab text="LinkCandidate" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.insightcentre.pthg24.controller.LinkCandidateController">
+   <BorderPane>
+      <center>
+         <TableView fx:id="table" editable="true">
+            <columns>
+               <TableColumn fx:id="name" styleClass="right-aligned" text="Name" />
+               <TableColumn fx:id="work" styleClass="right-aligned" text="Work" />
+               <TableColumn fx:id="missingWork" styleClass="right-aligned" text="MissingWork" />
+               <TableColumn fx:id="citation" styleClass="right-aligned" text="Citation" />
+               <TableColumn fx:id="authorMatch" styleClass="right-aligned" text="AuthorMatch" />
+               <TableColumn fx:id="titleMatch" styleClass="right-aligned" text="TitleMatch" />
+               <TableColumn fx:id="link" styleClass="right-aligned" text="Link" />
+               <TableColumn fx:id="journal" styleClass="right-aligned" text="Journal" />
+               <TableColumn fx:id="year" styleClass="right-aligned" text="Year" />
+               <TableColumn fx:id="wAuthor" styleClass="right-aligned" text="WAuthor" />
+               <TableColumn fx:id="mwAuthor" styleClass="right-aligned" text="MwAuthor" />
+               <TableColumn fx:id="wTitle" styleClass="right-aligned" text="WTitle" />
+               <TableColumn fx:id="mwTitle" styleClass="right-aligned" text="MwTitle" />
+            </columns>
+         </TableView>
+      </center>
+      <bottom>
+         <TitledPane fx:id="filterPane" expanded="false" text="Filter">
+            <content>
+               <HBox alignment="center" spacing="5.0">
+                  <ChoiceBox fx:id="filterChoiceBox" />
+                  <ChoiceBox fx:id="filterComparisonBox" />
+                  <TextField fx:id="filterTextField" />
+               </HBox>
+            </content>
+         </TitledPane>
+      </bottom>
+   </BorderPane>
+</Tab>

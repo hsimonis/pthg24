@@ -68,6 +68,7 @@
                <items>
                   <MenuItem id="publisherPage" onAction="#handle" text="Publisher" />
                   <MenuItem id="assertionPage" onAction="#handle" text="Assertion" />
+                  <MenuItem id="linkCandidatePage" onAction="#handle" text="LinkCandidate" />
                   <Menu text="_Concept">
                      <items>
                         <MenuItem id="conceptTypePage" onAction="#handle" text="ConceptType" />

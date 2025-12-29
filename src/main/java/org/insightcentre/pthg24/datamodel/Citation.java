@@ -58,6 +58,7 @@ import org.insightcentre.pthg24.datamodel.Edge;
 import org.insightcentre.pthg24.datamodel.ConnectedComponent;
 import org.insightcentre.pthg24.datamodel.Award;
 import org.insightcentre.pthg24.datamodel.Track;
+import org.insightcentre.pthg24.datamodel.LinkCandidate;
 import org.insightcentre.pthg24.datamodel.DifferenceType;
 import org.insightcentre.pthg24.datamodel.WarningType;
 import org.insightcentre.pthg24.datamodel.MatchLevel;
@@ -232,6 +233,7 @@ public  class Citation extends ApplicationObject{
 */
 
     public Boolean remove(){
+        getApplicationDataset().cascadeLinkCandidateCitation(this);
         return getApplicationDataset().removeCitation(this) && getApplicationDataset().removeApplicationObject(this);
     }
 
