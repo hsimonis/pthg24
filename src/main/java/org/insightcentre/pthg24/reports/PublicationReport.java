@@ -1641,7 +1641,7 @@ public class PublicationReport extends AbstractReport {
         List<Integer> years = works.stream().map(Work::getYear).distinct().sorted().toList();
         BarPlot<Integer,Integer> bp = new BarPlot<>();
         int total = 0;
-        for(String s:new String[]{"Constraints","Direct","OtherJournal","Abstracts"}){
+        for(String s:new String[]{"Constraints","Direct","JAIR","AIJ","OtherJournal","Abstracts"}){
             List<Work> filtered = works.stream().filter(x->linkedType(x,s)).toList();
             total += filtered.size();
             bp.addPlot(s,years,x->x,x->linkedCount(x,filtered));
@@ -1656,6 +1656,17 @@ public class PublicationReport extends AbstractReport {
                 xlabel("Year").ylabel("Nr Works");
         bp.generate().fileLatex(getRoot(),fileName,tex);
 
+        List<Work> expanded = works.stream().
+                filter(x->x.getLink() != null && !x.getLink().getJournal().isEmpty()).
+                toList();
+        new DistributionPlot<>(expanded,x->x.getLink().getJournal()).
+                width(15).height(12).
+                title("Journals of Expanded Versions (Total "+expanded.size()+" Works)").
+                xlabel("Journal").ylabel("Count").
+                generate().
+                fileLatex(getRoot(),"byJournal",tex);
+
+
     }
 
     // does the work belong to this category or not
@@ -1664,9 +1675,20 @@ public class PublicationReport extends AbstractReport {
         return switch (w) {
             case Article article when type.equals("Direct") -> true;
             case Paper paper when type.equals("Abstracts") && w.getSubType() == ExtendedAbstract -> true;
-            case Paper paper when type.equals("Constraints") && w.getSubType() != ExtendedAbstract && w.getLink() != null && w.getLink().getJournal().equals("Constraints") ->
+            case Paper paper when type.equals("Constraints") &&
+                    w.getSubType() != ExtendedAbstract && w.getLink() != null && w.getLink().getJournal().equals("Constraints") ->
                     true;
-            case Paper paper when type.equals("OtherJournal") && w.getSubType() != ExtendedAbstract && w.getLink() != null && !w.getLink().getJournal().equals("Constraints") ->
+            case Paper paper when type.equals("JAIR") &&
+                    w.getSubType() != ExtendedAbstract && w.getLink() != null && w.getLink().getJournal().equals("JAIR") ->
+                    true;
+            case Paper paper when type.equals("AIJ") &&
+                    w.getSubType() != ExtendedAbstract && w.getLink() != null && w.getLink().getJournal().equals("AIJ") ->
+                    true;
+            case Paper paper when type.equals("OtherJournal") &&
+                    w.getSubType() != ExtendedAbstract && w.getLink() != null &&
+                    !w.getLink().getJournal().equals("Constraints") &&
+                    !w.getLink().getJournal().equals("JAIR") &&
+                    !w.getLink().getJournal().equals("AIJ") ->
                     true;
             case null, default ->
                     type.equals("No") && w instanceof Paper && w.getSubType() != ExtendedAbstract && w.getLink() == null;
