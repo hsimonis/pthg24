@@ -131,7 +131,10 @@ public class PublicationReport extends AbstractReport {
 
         linkedPapers("Journal Paper Expanded Versions","linkedPapers",base.getListWork());
 
+        linkedArticles("Sources of Expanded Versions","linkedArticles",base.getListWork());
+
         citationStatByTrack("Citations by Track","citationStatByTrack",base.getListWork());
+        citationStatBySubType("Citations by SubType","citationStatBySubType",base.getListWork());
         citationStatByYear("Citations by Year","citationStatByYear",base.getListWork());
 
         List<Integer> years = base.getListWork().stream().map(Work::getYear).distinct().sorted().toList();
@@ -1523,7 +1526,7 @@ public class PublicationReport extends AbstractReport {
 
         new LinePlot<>(published, new LinePlotFunctions<>(x -> x, x -> percentageWorks(x, totalRegularWorks))).
                 width(22).height(12).
-                title("Impact of Prolific Authors").
+                title("Impact of Prolific Authors (Total "+totalRegularWorks+" Works Considered)").
                 xlabel("Authors with At Least this Number of Published Works").
                 ylabel("Percentage of All Regular Works Published").
                 generate().
@@ -1624,6 +1627,16 @@ public class PublicationReport extends AbstractReport {
                 generate().
                 fileLatex(getRoot(),fileName,tex);
     }
+    private void citationStatBySubType(String title,String fileName,List<Work>works){
+        new BoxPlot<>(works, Work::getSubType, this::nrCitations).
+                xmin(0).
+                direction(XBAR).
+                title(title).
+                xlabel("Citations").ylabel("SubType").
+                width(23).height(15).
+                generate().
+                fileLatex(getRoot(),fileName,tex);
+    }
 
     private void citationStatByYear(String title,String fileName,List<Work>works){
         new BoxPlot<>(works, Work::getYear, this::nrCitations).
@@ -1665,8 +1678,44 @@ public class PublicationReport extends AbstractReport {
                 xlabel("Journal").ylabel("Count").
                 generate().
                 fileLatex(getRoot(),"byJournal",tex);
+    }
+    private void linkedArticles(String title,String fileName,List<Work> works){
+        List<Integer> years = works.stream().map(Work::getYear).distinct().sorted().toList();
+        BarPlot<Integer,Integer> bp = new BarPlot<>();
+        int total = 0;
+        for(String s:new String[]{"CP","CPAIOR","AAAI","ECAI","IJCAI","SAT"}){
+            List<Work> filtered = works.stream().filter(x->linkedConf(x,s)).toList();
+            total += filtered.size();
+            bp.addPlot(s,years,x->x,x->linkedCount(x,filtered));
+        }
+        bp.showValues(false).
+                ordering(BarPlotOrdering.NR).
+                includeZero(true).
+                stacked().
+                legendPos("north east");
+        bp.width(23).height(12).
+                title(title+" (Total "+total+" works)").
+                xlabel("Year").ylabel("Nr Works");
+        bp.generate().fileLatex(getRoot(),fileName,tex);
 
+        List<Work> expanded = works.stream().
+                filter(x->x.getLink() != null && x.getLink().getVenue() != null && !x.getLink().getVenue().isEmpty()).
+                toList();
+        new DistributionPlot<>(expanded,x->prefix(x.getLink().getVenue())).
+                width(15).height(12).
+                title("Conference of Expanded Versions (Total "+expanded.size()+" Works)").
+                xlabel("Conference").ylabel("Count").
+                generate().
+                fileLatex(getRoot(),"byConference",tex);
+    }
 
+    private String prefix(String confYear){
+        String[] split = confYear.split(" ");
+        return split[0];
+    }
+
+    private boolean linkedConf(Work w,String conf){
+        return (w.getLink()!= null && w.getLink().getVenue()!=null && w.getLink().getVenue().startsWith(conf));
     }
 
     // does the work belong to this category or not
