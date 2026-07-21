@@ -90,6 +90,13 @@ public  class ApplicationWarning extends ApplicationObject{
     public String attrString;
 
 /**
+ *  The given limit for the attribute value, if set
+ *
+*/
+
+    public String attrlimit;
+
+/**
  *  The class of the item for which the warning was generated
  *
 */
@@ -102,13 +109,6 @@ public  class ApplicationWarning extends ApplicationObject{
 */
 
     public String item;
-
-/**
- *  The given limit for the attribute value, if set
- *
-*/
-
-    public String limit;
 
 /**
  *  The type of the warning
@@ -137,9 +137,9 @@ public  class ApplicationWarning extends ApplicationObject{
     public ApplicationWarning(ApplicationDataset applicationDataset){
         super(applicationDataset);
         setAttrString("");
+        setAttrlimit("");
         setClassString("");
         setItem("");
-        setLimit("");
         setType(null);
         applicationDataset.addApplicationWarning(this);
     }
@@ -155,17 +155,17 @@ public  class ApplicationWarning extends ApplicationObject{
             Integer id,
             String name,
             String attrString,
+            String attrlimit,
             String classString,
             String item,
-            String limit,
             WarningType type){
         super(applicationDataset,
             id,
             name);
         setAttrString(attrString);
+        setAttrlimit(attrlimit);
         setClassString(classString);
         setItem(item);
-        setLimit(limit);
         setType(type);
         applicationDataset.addApplicationWarning(this);
     }
@@ -175,9 +175,9 @@ public  class ApplicationWarning extends ApplicationObject{
             other.id,
             other.name,
             other.attrString,
+            other.attrlimit,
             other.classString,
             other.item,
-            other.limit,
             other.type);
     }
 
@@ -203,6 +203,16 @@ public  class ApplicationWarning extends ApplicationObject{
     }
 
 /**
+ *  get attribute attrlimit
+ *
+ * @return String
+*/
+
+    public String getAttrlimit(){
+        return this.attrlimit;
+    }
+
+/**
  *  get attribute classString
  *
  * @return String
@@ -220,16 +230,6 @@ public  class ApplicationWarning extends ApplicationObject{
 
     public String getItem(){
         return this.item;
-    }
-
-/**
- *  get attribute limit
- *
- * @return String
-*/
-
-    public String getLimit(){
-        return this.limit;
     }
 
 /**
@@ -255,6 +255,18 @@ public  class ApplicationWarning extends ApplicationObject{
     }
 
 /**
+ *  set attribute attrlimit, mark dataset as dirty, mark dataset as not valid
+@param attrlimit String
+ *
+*/
+
+    public void setAttrlimit(String attrlimit){
+        this.attrlimit = attrlimit;
+        getApplicationDataset().setDirty(true);
+        getApplicationDataset().setValid(false);
+    }
+
+/**
  *  set attribute classString, mark dataset as dirty, mark dataset as not valid
 @param classString String
  *
@@ -274,18 +286,6 @@ public  class ApplicationWarning extends ApplicationObject{
 
     public void setItem(String item){
         this.item = item;
-        getApplicationDataset().setDirty(true);
-        getApplicationDataset().setValid(false);
-    }
-
-/**
- *  set attribute limit, mark dataset as dirty, mark dataset as not valid
-@param limit String
- *
-*/
-
-    public void setLimit(String limit){
-        this.limit = limit;
         getApplicationDataset().setDirty(true);
         getApplicationDataset().setValid(false);
     }
@@ -319,7 +319,7 @@ public  class ApplicationWarning extends ApplicationObject{
 */
 
     public String prettyString(){
-        return ""+ " " +getId()+ " " +getName()+ " " +getAttrString()+ " " +getClassString()+ " " +getItem()+ " " +getLimit()+ " " +getType();
+        return ""+ " " +getId()+ " " +getName()+ " " +getAttrString()+ " " +getAttrlimit()+ " " +getClassString()+ " " +getItem()+ " " +getType();
     }
 
 /**
@@ -344,9 +344,9 @@ public  class ApplicationWarning extends ApplicationObject{
             " id=\""+toXMLId()+"\""+
             " name=\""+toXMLName()+"\""+
             " attrString=\""+toXMLAttrString()+"\""+
+            " attrlimit=\""+toXMLAttrlimit()+"\""+
             " classString=\""+toXMLClassString()+"\""+
             " item=\""+toXMLItem()+"\""+
-            " limit=\""+toXMLLimit()+"\""+
             " type=\""+toXMLType()+"\""+" />");
      }
 
@@ -358,6 +358,16 @@ public  class ApplicationWarning extends ApplicationObject{
 
     String toXMLAttrString(){
         return this.safeXML(getAttrString());
+    }
+
+/**
+ * helper method for toXML(), prcess one attribute
+ * probably useless on its own
+ * @return String
+*/
+
+    String toXMLAttrlimit(){
+        return this.safeXML(getAttrlimit());
     }
 
 /**
@@ -386,16 +396,6 @@ public  class ApplicationWarning extends ApplicationObject{
  * @return String
 */
 
-    String toXMLLimit(){
-        return this.safeXML(getLimit());
-    }
-
-/**
- * helper method for toXML(), prcess one attribute
- * probably useless on its own
- * @return String
-*/
-
     String toXMLType(){
         return this.getType().toString();
     }
@@ -411,7 +411,7 @@ public  class ApplicationWarning extends ApplicationObject{
     }
 
     public String toHTML(){
-        return "<tr><th>&nbsp;</th>"+"<td>"+getClassString()+"</td>"+ " " +"<td>"+getName()+"</td>"+ " " +"<td>"+getAttrString()+"</td>"+ " " +"<td>"+getItem()+"</td>"+ " " +"<td>"+getType()+"</td>"+ " " +"<td>"+getLimit()+"</td>"+"</tr>";
+        return "<tr><th>&nbsp;</th>"+"<td>"+getClassString()+"</td>"+ " " +"<td>"+getName()+"</td>"+ " " +"<td>"+getAttrString()+"</td>"+ " " +"<td>"+getItem()+"</td>"+ " " +"<td>"+getType()+"</td>"+ " " +"<td>"+getAttrlimit()+"</td>"+"</tr>";
     }
 
 /**
@@ -531,14 +531,14 @@ public  class ApplicationWarning extends ApplicationObject{
       if(!this.getAttrString().equals(b.getAttrString())){
          System.out.println("AttrString");
         }
+      if(!this.getAttrlimit().equals(b.getAttrlimit())){
+         System.out.println("Attrlimit");
+        }
       if(!this.getClassString().equals(b.getClassString())){
          System.out.println("ClassString");
         }
       if(!this.getItem().equals(b.getItem())){
          System.out.println("Item");
-        }
-      if(!this.getLimit().equals(b.getLimit())){
-         System.out.println("Limit");
         }
       if(!this.getName().equals(b.getName())){
          System.out.println("Name");
@@ -547,9 +547,9 @@ public  class ApplicationWarning extends ApplicationObject{
          System.out.println("Type");
         }
         return  this.getAttrString().equals(b.getAttrString()) &&
+          this.getAttrlimit().equals(b.getAttrlimit()) &&
           this.getClassString().equals(b.getClassString()) &&
           this.getItem().equals(b.getItem()) &&
-          this.getLimit().equals(b.getLimit()) &&
           this.getName().equals(b.getName()) &&
           this.getType().equals(b.getType());
     }

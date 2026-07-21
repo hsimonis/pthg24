@@ -143,7 +143,7 @@ public class ImportSubTypes {
             severe("Cannot read file: "+fullName+", exception "+e.getMessage());
         }
         for(Work w:base.getListWork()){
-            if (w.getSubType()== Editorial || w.getSubType()==Errata || w.getSubType()==Viewpoint ||
+            if (w.getSubType()== Editorial || w.getSubType()==Errata || w.getSubType()==Viewpoint ||w.getSubType()==Commentary ||
                     w.getSubType()==Letter || w.getSubType()==PhDA|| w.getSubType()==Benchmarks||
                     w.getSubType()==InvitedTalk) {
                 w.setTrack(na);
@@ -185,6 +185,7 @@ public class ImportSubTypes {
             case "Letter" -> Letter;
             case "Benchmarks" -> Benchmarks;
             case "Errata" -> Errata;
+            case "Commentary" -> Commentary;
             case "Survey" -> Survey;
             case "InvitedTalk" -> InvitedTalk;
             case "ShortPaper" -> ShortPaper;

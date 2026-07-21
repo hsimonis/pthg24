@@ -1702,7 +1702,7 @@ public class PublicationReport extends AbstractReport {
                 filter(x->x.getLink() != null && x.getLink().getVenue() != null && !x.getLink().getVenue().isEmpty()).
                 toList();
         new DistributionPlot<>(expanded,x->prefix(x.getLink().getVenue())).
-                width(15).height(12).
+                width(20).height(12).
                 title("Conference of Expanded Versions (Total "+expanded.size()+" Works)").
                 xlabel("Conference").ylabel("Count").
                 generate().

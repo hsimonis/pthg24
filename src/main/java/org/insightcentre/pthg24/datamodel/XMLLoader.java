@@ -1297,9 +1297,9 @@ public AwardLevel getAwardLevel(String attributeName,
                         id,
                         getString("name", attributes, "dummy"),
                         getString("attrString",attributes,""),
+                        getString("attrlimit",attributes,""),
                         getString("classString",attributes,""),
                         getString("item",attributes,""),
-                        getString("limit",attributes,""),
                         null
                         ));
             } else if (qname.equals("article")) {
